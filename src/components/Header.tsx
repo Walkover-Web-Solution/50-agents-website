@@ -14,11 +14,11 @@ const Header = () => {
   }, []);
 
   const handleLoginClick = () => {
-    router.push('/login');
+    router.push(`${process.env.NEXT_PUBLIC_INTERNAL_URL}/login`);
   };
 
   const handleDashboardClick = () => {
-    router.push('/org');
+    router.push(`${process.env.NEXT_PUBLIC_INTERNAL_URL}/org`);
   };
 
   const navItems = [
