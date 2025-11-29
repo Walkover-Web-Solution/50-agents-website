@@ -1,0 +1,3 @@
+name = "50-agents-website"
+compatibility_date = "2025-11-29"
+compatibility_flags = ["nodejs_compat"]

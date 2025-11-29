@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:dev": "dotenv -e .env.dev next build",
+    "build:prod": "dotenv -e .env.prod next build",
+    "build:pages": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "eslint"
   },
