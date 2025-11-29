@@ -1,0 +1,18 @@
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+
+  /* Border shades */
+  --border-medium: rgba(156, 163, 175, 0.2); /* gray-400 @ 20% */
+  --border-light: rgba(156, 163, 175, 0.1); /* gray-400 @ 10% */
+
+  /* Text shades */
+  --text-black: #000000;
+  --text-white: #ffffff;
+  --text-gray-500: #6b7280;
+  --text-gray-600: #4b5563;
+
+  /* Background shades */
+  --background-gray-light: rgba(245, 245, 245, 0.5); /* bg-gray-100/50 */
+  --background-gray-base: #f6f5f0; 
+}
