@@ -9,17 +9,14 @@ import { getMetaData } from '@/lib/meta';
 export const runtime = 'edge';
 
 export async function generateMetadata() {
-  // Get host + protocol for full URL
   const headersList = await headers();
   const host = headersList.get("host");
   const proto = headersList.get("x-forwarded-proto") || "http";
 
   const pageUrl = `${proto}://${host}/ai-agents`;
 
-  // Fetch metadata from your API / table
   const meta = await getMetaData("/ai-agents", pageUrl);
 
-  // Pass fetched metadata to SEO helper with fallbacks
   return generateSEOMetadata({
     title: meta?.title || 'AI agents',
     description: meta?.description,

@@ -1,8 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import AnimatedSection from '../../../../components/AnimatedSection';
+import FAQSection from '../../../../components/FAQSection';
 
 interface FAQsForSpecificServiceProps {
   serviceName: string;
@@ -15,17 +13,6 @@ interface FAQItem {
 }
 
 export default function FAQsForSpecificService({ serviceName, platformName = '50Agents' }: FAQsForSpecificServiceProps) {
-  const [openItems, setOpenItems] = useState<Set<number>>(new Set());
-
-  const toggleItem = (index: number) => {
-    const newOpenItems = new Set(openItems);
-    if (newOpenItems.has(index)) {
-      newOpenItems.delete(index);
-    } else {
-      newOpenItems.add(index);
-    }
-    setOpenItems(newOpenItems);
-  };
 
   const faqs: FAQItem[] = [
     {
@@ -55,41 +42,6 @@ export default function FAQsForSpecificService({ serviceName, platformName = '50
   ];
 
   return (
-    <section className="relative z-10 cont">
-      <div>
-        <div className="text-center mb-12">
-          <h2 className="h2">Frequently Asked Questions</h2>
-          <p className="sub__h2 max-w-2xl mx-auto">Everything you need to know about the {serviceName} AI Agent</p>
-        </div>
-
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <AnimatedSection key={index} delay={index * 50}>
-              <div key={index} className="border rounded-xl overflow-hidden border-dark bg-base">
-                <button
-                  onClick={() => toggleItem(index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between cursor-pointer"
-                >
-                  <h3 className="text-lg font-semibold text-black pr-4">{faq.question}</h3>
-                  {openItems.has(index) ? (
-                    <ChevronUp className="w-5 h-5 text-gray-dark flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-dark flex-shrink-0" />
-                  )}
-                </button>
-
-                {openItems.has(index) && (
-                  <div className="px-6 pb-5">
-                    <div className="pt-2 border-t border-light">
-                      <p className="text-gray-dark leading-relaxed">{faq.answer}</p>
-                    </div>
-                  </div>
-                )}
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-      </div>
-    </section>
+    <FAQSection subHeading={`Everything you need to know about the ${serviceName} AI Agent`} faqs={faqs} />
   );
 }
