@@ -122,7 +122,7 @@ function TemplateGrid({ showHeader = true }: TemplateGridProps) {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+      <div className="container py-12 md:py-20">
         {showHeader && (
           <div className="text-center mb-16 md:mb-12 relative">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-2">
@@ -197,7 +197,7 @@ function TemplateGrid({ showHeader = true }: TemplateGridProps) {
             <>
               {[1, 2, 3, 4, 5, 6].map(i => (
                 <div key={i} className="w-full">
-                  <div className=" backdrop-blur-sm border-2 border-gray-700 rounded-2xl p-6 h-full animate-pulse">
+                  <div className=" backdrop-blur-sm border-2 border-light rounded-2xl p-6 h-full animate-pulse">
                     <div className="flex items-start gap-4 mb-4">
                       <div className="w-16 h-16  rounded-xl"></div>
                       <div className="flex-1">
