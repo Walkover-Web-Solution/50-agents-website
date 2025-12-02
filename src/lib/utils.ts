@@ -192,3 +192,19 @@ export const storCurrentUrl = () => {
   const currentUrl = window.location.pathname + window.location.search;
   localStorage.setItem('redirectAfterLogin', currentUrl);
 };
+
+interface ErrorMessageParams {
+  error: any;
+  pageUrl: string;
+  source: string;
+}
+
+export const sendErrorMessage = ({ error, pageUrl, source }: ErrorMessageParams) => {
+  // Log error details for debugging
+  console.error('API Error Details:', {
+    error: error?.response?.data || error.message || error,
+    pageUrl,
+    source,
+    timestamp: new Date().toISOString(),
+  });
+};

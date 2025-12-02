@@ -1,7 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+   images: {
+        unoptimized: true,
+        loader: 'akamai',
+        path: '',
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'placehold.co',
+            },
+        ],
+    },
 };
 
 export default nextConfig;

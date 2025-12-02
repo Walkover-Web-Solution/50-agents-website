@@ -1,7 +1,7 @@
 'use client';
 
 import { Container } from '@mui/material';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from '../../../../components/AnimatedSection';
 
 interface GetStartedSectionProps {
   serviceName: string;

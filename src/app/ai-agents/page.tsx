@@ -3,19 +3,31 @@ import Header from '../../components/Header';
 import PluginGrid from './components/PluginGrid';
 import SearchAndFilterClient from './components/SearchAndFilterClient';
 import { generateMetadata as generateSEOMetadata, generateSoftwareApplicationSchema } from '@/lib/seo';
+import { headers } from "next/headers";
+import { getMetaData } from '@/lib/meta';
 
 export const runtime = 'edge';
 
-// SEO Metadata for AI Agents page
-export const metadata = generateSEOMetadata({
-  title: 'AI Agents Directory - 5000+ Intelligent Automation Tools',
-  description:
-    'Browse our comprehensive directory of 5000+ AI agents that automate tasks across popular apps. Find the perfect AI agent for your workflow needs - from CRM automation to social media management.',
-  keywords:
-    'ai agents directory, automation tools, intelligent agents, workflow automation, ai integrations, business automation, productivity agents, ai apps, automated workflows, ai assistant tools',
-  canonical: '/ai-agents',
-  type: 'website',
-});
+export async function generateMetadata() {
+  // Get host + protocol for full URL
+  const headersList = await headers();
+  const host = headersList.get("host");
+  const proto = headersList.get("x-forwarded-proto") || "http";
+
+  const pageUrl = `${proto}://${host}/ai-agents`;
+
+  // Fetch metadata from your API / table
+  const meta = await getMetaData("/ai-agents", pageUrl);
+
+  // Pass fetched metadata to SEO helper with fallbacks
+  return generateSEOMetadata({
+    title: meta?.title || 'AI agents',
+    description: meta?.description,
+    keywords: meta?.keywords,
+    canonical: meta?.name,
+    type: meta?.type,
+  });
+}
 
 // Interface for the plugin data structure based on the API response
 interface Plugin {
@@ -59,6 +71,7 @@ async function fetchPlugins(): Promise<Plugin[]> {
     return [];
   }
 }
+
 
 async function ServicesPage({ searchParams }: PageProps) {
   const plugins = await fetchPlugins();

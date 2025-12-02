@@ -4,7 +4,7 @@ import Breadcrumb from '../../../components/Breadcrumb';
 import Footer from '../../../components/Footer';
 import Header from '../../../components/Header';
 import AboutSection from './components/AboutSection';
-import FAQSection from './components/FAQSection';
+import FAQsForSpecificService from './components/FAQsForSpecificService';
 import GetStartedSection from './components/GetStartedSection';
 import UseTemplateButton from './components/UseTemplateButton';
 import WhatYouCanDoSection from './components/WhatYouCanDoSection';
@@ -176,7 +176,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
         <WhatYouCanDoSection serviceName={plugin.name} integrations={integrations} iconUrl={plugin.iconurl} />
         <WhyUseSection serviceName={plugin.name} />
-        <FAQSection serviceName={plugin.name} />
+        <FAQsForSpecificService serviceName={plugin.name} />
         <AboutSection
           serviceName={plugin.name}
           description={plugin.description}

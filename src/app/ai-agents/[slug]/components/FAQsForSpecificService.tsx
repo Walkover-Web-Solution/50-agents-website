@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from '../../../../components/AnimatedSection';
 
-interface FAQSectionProps {
+interface FAQsForSpecificServiceProps {
   serviceName: string;
   platformName?: string;
 }
@@ -14,7 +14,7 @@ interface FAQItem {
   answer: string;
 }
 
-export default function FAQSection({ serviceName, platformName = '50Agents' }: FAQSectionProps) {
+export default function FAQsForSpecificService({ serviceName, platformName = '50Agents' }: FAQsForSpecificServiceProps) {
   const [openItems, setOpenItems] = useState<Set<number>>(new Set());
 
   const toggleItem = (index: number) => {
