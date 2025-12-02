@@ -5,6 +5,8 @@ import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { headers } from 'next/headers';
 import { getMetaData } from '@/lib/meta';
 
+export const runtime = 'edge';
+
 // SEO Metadata for Pricing page
 export async function generateMetadata() {
   const headersList = await headers();

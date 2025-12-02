@@ -4,6 +4,8 @@ import { headers } from 'next/headers';
 import { getMetaData } from '@/lib/meta';
 import { getFaqData } from '@/lib/fetchFAQs';
 
+export const runtime = 'edge';
+
 // SEO Metadata for Homepage
 export async function generateMetadata() {
   const headersList = await headers();
