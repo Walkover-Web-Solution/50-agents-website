@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 interface SearchAndFilterClientProps {
   initialSearch: string;
   initialCategory: string;
-  categories: string[];
+  categories: { name: string; appcount: number }[];
 }
 
 export default function SearchAndFilterClient({
@@ -34,6 +34,15 @@ export default function SearchAndFilterClient({
       params.delete('category');
     }
 
+    // Check if search or category has changed from initial values
+    const searchChanged = searchTerm !== initialSearch;
+    const categoryChanged = selectedCategory !== initialCategory;
+
+    // Reset to page 1 only when search or category changes from their initial values
+    if (searchChanged || categoryChanged) {
+      params.delete('page');
+    }
+
     const newQuery = params.toString();
     const currentQuery = searchParams.toString();
 
@@ -43,7 +52,7 @@ export default function SearchAndFilterClient({
 
     const newUrl = newQuery ? `?${newQuery}` : '';
     router.replace(`/ai-agents${newUrl}`, { scroll: false });
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, initialSearch, initialCategory]);
 
   return (
     <div className="mb-12 max-w-3xl mx-auto">
@@ -88,12 +97,12 @@ export default function SearchAndFilterClient({
             </option>
             {categories.map(category => (
               <option
-                key={category}
-                value={category}
+                key={category.name}
+                value={category.name}
                 className="bg-gray-800 text-white px-4"
                 style={{ lineHeight: '1.2', height: '32px' }}
               >
-                {category}
+                {category.name}
               </option>
             ))}
           </select>
