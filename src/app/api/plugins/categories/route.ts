@@ -18,7 +18,7 @@ export async function GET() {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_DB_BASE_URL}/65d2ed33fa9d1a94a5224235/tblh9c91k`, {
       headers: {
-        'auth-key': `${process.env.NEXT_PUBLIC_VIASOCKET_DB_KEY}`,
+        'auth-key': `${process.env.VIASOCKET_DB_KEY}`,
       },
       next: { revalidate: 3600 }, // Revalidate every hour
     });

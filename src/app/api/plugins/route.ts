@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
     const category = searchParams.get('category') || '';
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_INTEGRATION_URL}/api/v1/plugins/all?category=${category}&limit=${limit}&offset=${offset}`,
+      `${process.env.INTEGRATION_URL}/api/v1/plugins/all?category=${category}&limit=${limit}&offset=${offset}`,
       {
         next: { revalidate: 3600 }, // Revalidate every hour
       }

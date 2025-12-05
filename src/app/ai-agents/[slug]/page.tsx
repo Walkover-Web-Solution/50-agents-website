@@ -75,7 +75,7 @@ async function fetchPluginDetails(slug: string): Promise<{ plugin: Plugin; event
   try {
     // Fetch integrations data which contains both plugin info and events
     const response = await fetch(
-      `https://plugservice-api.viasocket.com/api/v1/plugins/recommend/integrations?service=${slug}`,
+      `https://plug-service.viasocket.com/api/v1/plugins/recommend/integrations?service=${slug}`,
       {
         next: { revalidate: 3600 },
       }

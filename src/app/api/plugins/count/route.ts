@@ -4,7 +4,7 @@ export const runtime = 'edge';
 
 export async function GET() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_INTEGRATION_URL}/get-apps-count`, {
+    const response = await fetch(`${process.env.INTEGRATION_URL}/get-apps-count`, {
       next: { revalidate: 3600 }, // Revalidate every hour
     });
 

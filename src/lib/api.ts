@@ -5,8 +5,8 @@ export function getBaseUrl(): string {
   }
   
   // Server-side
-  if (process.env.NEXT_PUBLIC_BASE_URL) {
-    return process.env.NEXT_PUBLIC_BASE_URL;
+  if (process.env.BASE_URL) {
+    return process.env.BASE_URL;
   }
   
   return 'https://50agents.com';

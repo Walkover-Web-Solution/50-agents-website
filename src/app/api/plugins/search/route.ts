@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
     }
 
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_INTEGRATION_URL}/plugins/search?key=${encodeURIComponent(query)}&integrationOnly=true`,
+      `${process.env.INTEGRATION_URL}/plugins/search?key=${encodeURIComponent(query)}&integrationOnly=true`,
       {
         next: { revalidate: 300 }, // Revalidate every 5 minutes for search
       }
