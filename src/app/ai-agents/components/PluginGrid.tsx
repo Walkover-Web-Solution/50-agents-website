@@ -63,8 +63,7 @@ export default function PluginGrid({ plugins }: PluginGridProps) {
                   </div>
                 )}
                 <div>
-                  <h3 className="font-semibold  text-lg">{plugin.name}</h3>
-                  <p className="text-sm ">{plugin.domain}</p>
+                  <h3 className="font-semibold text-lg">{plugin.name}</h3>
                 </div>
               </div>
             </div>

@@ -2,9 +2,11 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import PluginGrid from './components/PluginGrid';
 import SearchAndFilterClient from './components/SearchAndFilterClient';
+import Pagination from './components/Pagination';
 import { generateMetadata as generateSEOMetadata, generateSoftwareApplicationSchema } from '@/lib/seo';
 import { headers } from "next/headers";
 import { getMetaData } from '@/lib/meta';
+import { getBaseUrl } from '@/lib/api';
 
 export const runtime = 'edge';
 
@@ -48,12 +50,13 @@ interface PageProps {
   searchParams: {
     search?: string;
     category?: string;
+    page?: string;
   };
 }
 
-async function fetchPlugins(): Promise<Plugin[]> {
+async function getTotalAppsCount(): Promise<number> {
   try {
-    const response = await fetch('https://plugservice-api.viasocket.com/api/v1/plugins/all?limit=100', {
+    const response = await fetch(`${getBaseUrl()}/api/plugins/count`, {
       next: { revalidate: 3600 }, // Revalidate every hour
     });
 
@@ -61,38 +64,133 @@ async function fetchPlugins(): Promise<Plugin[]> {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    const data: ApiResponse = await response.json();
-    return data.data;
+    const data = await response.json();
+    return data.success ? data.count : 0;
+  } catch (error) {
+    console.error('Failed to fetch total apps count:', error);
+    return 0;
+  }
+}
+
+async function fetchPlugins(page: number, totalCount: number, limit: number = 40, category?: string): Promise<{ plugins: Plugin[], totalCount: number }> {
+  try {
+    const response = await fetch(`${getBaseUrl()}/api/plugins?category=${category}&page=${page}&limit=${limit}`, {
+      next: { revalidate: 3600 }, // Revalidate every hour
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return {
+      plugins: data.success ? data.data : [],
+      totalCount
+    };
   } catch (error) {
     console.error('Failed to fetch plugins:', error);
+    return { plugins: [], totalCount: 0 };
+  }
+}
+
+async function searchPlugins(query: string): Promise<Plugin[]> {
+  try {
+    const response = await fetch(`${getBaseUrl()}/api/plugins/search?q=${encodeURIComponent(query)}`, {
+      next: { revalidate: 300 }, // Revalidate every 5 minutes for search
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.success ? data.data : [];
+  } catch (error) {
+    console.error('Failed to search plugins:', error);
     return [];
   }
 }
 
+interface Category {
+  name: string;
+  appcount: number;
+}
+
+async function fetchCategories(): Promise<Category[]> {
+  try {
+    const response = await fetch(`${getBaseUrl()}/api/plugins/categories`, {
+      next: { revalidate: 3600 }, // Revalidate every hour
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.success ? data.categories : [];
+  } catch (error) {
+    console.error('Failed to fetch categories:', error);
+    return [];
+  }
+}
 
 async function ServicesPage({ searchParams }: PageProps) {
-  const plugins = await fetchPlugins();
   const resolvedSearchParams = await searchParams;
   const searchTerm = resolvedSearchParams.search || '';
   const selectedCategory = resolvedSearchParams.category || '';
+  const currentPage = parseInt(resolvedSearchParams.page || '1', 10);
+  const itemsPerPage = 40;
 
-  // Get unique categories for filtering
-  const allCategories = Array.from(new Set(plugins.flatMap(plugin => plugin.category)))
-    .filter(Boolean)
-    .sort();
+  // Get total count and categories from separate fetches
+  const [totalAppsCount, categoriesData] = await Promise.all([
+    getTotalAppsCount(),
+    fetchCategories()
+  ]);
 
-  // Filter plugins based on search term and category
-  const filteredPlugins = plugins.filter(plugin => {
-    const matchesSearch =
-      !searchTerm ||
-      plugin.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      plugin.description?.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = !selectedCategory || plugin.category?.includes(selectedCategory);
+  const allCategories = categoriesData.map(cat => ({ name: cat.name, appcount: cat.appcount }));
 
-    return matchesSearch && matchesCategory;
-  });
+  // Get current category app count from the categories data
+  const currCatAppsCount = selectedCategory
+    ? allCategories.find(cat => cat.name === selectedCategory)?.appcount || 0
+    : 0;
 
-  if (plugins.length === 0) {
+  let paginatedPlugins: Plugin[] = [];
+  let totalItems = 0;
+  let totalPages = 1;
+  let startIndex = 0;
+  let endIndex = 0;
+  let hasNextPage = undefined;
+
+  if (searchTerm) {
+    const searchResults = await searchPlugins(searchTerm);
+
+    totalItems = searchResults.length;
+    totalPages = Math.ceil(totalItems / itemsPerPage);
+    startIndex = (currentPage - 1) * itemsPerPage;
+    endIndex = startIndex + itemsPerPage;
+    paginatedPlugins = searchResults.slice(startIndex, endIndex);
+  } else if (selectedCategory) {
+    const categoryData = await fetchPlugins(currentPage, currCatAppsCount, itemsPerPage, selectedCategory);
+
+    paginatedPlugins = categoryData.plugins;
+    totalItems = currCatAppsCount;
+    totalPages = Math.ceil(totalItems / itemsPerPage);
+    startIndex = (currentPage - 1) * itemsPerPage;
+    endIndex = startIndex + paginatedPlugins.length;
+  } else {
+    // Regular pagination without search or category filter
+    const { plugins, totalCount } = await fetchPlugins(currentPage, totalAppsCount, itemsPerPage, '');
+    paginatedPlugins = plugins;
+
+    // Use exact total count from API
+    totalItems = totalCount;
+    totalPages = Math.ceil(totalCount / itemsPerPage);
+    startIndex = (currentPage - 1) * itemsPerPage;
+    endIndex = startIndex + plugins.length;
+  }
+
+  if (paginatedPlugins.length === 0 && !searchTerm && !selectedCategory) {
     return (
       <div className="min-h-screen w-full flex flex-col">
         <Header />
@@ -124,11 +222,13 @@ async function ServicesPage({ searchParams }: PageProps) {
         <div className="container mx-auto px-4 py-8">
           {/* Page Header */}
           <div className="text-center mb-12">
-            <h1 className="h1">Available Services</h1>
-            <p className="sub__h1 mb-4">Discover and integrate powerful agents into your workflow</p>
-            <div className="inline-flex items-center bg-base text-black px-6 py-3 rounded-full font-bold text-lg">
-              🎯 {filteredPlugins.length} Services Available
-            </div>
+            {selectedCategory ? (
+              <h1 className="h1">
+                AI agents for {currCatAppsCount} {selectedCategory} apps
+              </h1>
+            ) : (
+              <h1 className="h1">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
+            )}
           </div>
 
           {/* Search and Filter Controls */}
@@ -139,7 +239,16 @@ async function ServicesPage({ searchParams }: PageProps) {
           />
 
           {/* Services Grid */}
-          <PluginGrid plugins={filteredPlugins} />
+          <PluginGrid plugins={paginatedPlugins} />
+
+          {/* Pagination */}
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            searchTerm={searchTerm}
+            selectedCategory={selectedCategory}
+            hasNextPage={hasNextPage}
+          />
         </div>
 
         {/* Footer */}
