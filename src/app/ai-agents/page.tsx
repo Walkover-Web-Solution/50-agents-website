@@ -222,11 +222,12 @@ async function ServicesPage({ searchParams }: PageProps) {
         <div className="container mx-auto px-4 py-8">
           {/* Page Header */}
           <div className="text-center mb-12">
-            <h1 className="h1">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
-            {selectedCategory && (
-              <p className="sub__h1 mb-4">
+            {selectedCategory ? (
+              <h1 className="h1">
                 AI agents for {currCatAppsCount} {selectedCategory} apps
-              </p>
+              </h1>
+            ) : (
+              <h1 className="h1">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
             )}
           </div>
 
