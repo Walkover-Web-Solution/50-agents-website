@@ -6,7 +6,7 @@ body {
 
 .h1 {
     font-family: "Source Serif 4" !important;
-    color: #000;
+    color: var(--text-black);
     line-height: 1.2 !important;
     font-size: 2.75rem !important;
 
@@ -17,7 +17,7 @@ body {
 
 .h2 {
     font-family: "Source Serif 4", serif !important;
-    color: #000;
+    color: var(--text-black);    
     line-height: 1.2 !important;
     font-size: 1.875rem !important; // text-3xl
     margin-bottom: 1rem;
@@ -30,13 +30,13 @@ body {
 .h3 {
     font-family: "Source Serif 4", serif !important;
     font-size: 1.5rem !important; // text-2xl
-    color: #000; // text-black
+    color: var(--text-black);
     font-weight: 700 !important;
 }
 
 .sub {
     &__h1 {
-        color: #000;
+        color: var(--text-black);
         font-size: 1.25rem !important; // text-xl
     }
 

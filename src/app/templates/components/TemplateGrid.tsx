@@ -2,19 +2,14 @@
 
 import WorkspaceSelectionModal from '@/components/WorkspaceSelectionModal';
 import { useGetIdeasQuery } from '@/store/apis/staticagent';
-import { ArrowRight, Bot, Search, Star, TrendingUp, Wrench, Zap } from 'lucide-react';
+import { ArrowRight, Bot, Star, TrendingUp, Wrench, Zap } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-interface TemplateGridProps {
-  showHeader?: boolean;
-}
-
-function TemplateGrid({ showHeader = true }: TemplateGridProps) {
+function TemplateGrid() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { data: templates = [], isLoading } = useGetIdeasQuery();
-  const [searchQuery, setSearchQuery] = useState('');
   const [selectedTemplate, setSelectedTemplate] = useState<any>(null);
   const [workspaceModalOpen, setWorkspaceModalOpen] = useState(false);
 
@@ -30,13 +25,6 @@ function TemplateGrid({ showHeader = true }: TemplateGridProps) {
       }
     }
   }, [templates, isLoggedIn, searchParams]);
-
-  const filteredTemplates = templates.filter((template: any) => {
-    const searchLower = searchQuery.toLowerCase();
-    const name = template?.agentJson?.name?.toLowerCase() || '';
-    const description = template?.templateDescription?.toLowerCase() || '';
-    return name.includes(searchLower) || description.includes(searchLower);
-  });
 
   const handleTemplateClick = (template: any) => {
     if (!isLoggedIn) {
@@ -123,72 +111,57 @@ function TemplateGrid({ showHeader = true }: TemplateGridProps) {
   return (
     <div className="min-h-screen">
       <div className="container py-12 md:py-20">
-        {showHeader && (
-          <div className="text-center mb-16 md:mb-12 relative">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-2">
-              <h1 className="h1">Agent Templates</h1>
+        <div className="text-center mb-16 md:mb-12 relative">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-2">
+            <h1 className="h1">Agent Templates</h1>
 
-              {/* Need Help Section */}
-              <div className="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
-                <a
-                  href="https://cal.id/pushpendra"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block bg-base backdrop-blur-sm border border-dark rounded-2xl px-5 py-3 hover:bg-gray-800/80 transition-all duration-300 hover:scale-105 cursor-pointer group min-w-[200px]"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                        />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-sm font-semibold text-black group-hover:!text-blue-700 transition-colors">
-                        Need help?
-                      </p>
-                      <p className="text-xs text-gray-dark group-hover:!text-gray-900 transition-colors">
-                        Talk to specialist
-                      </p>
-                    </div>
+            {/* Need Help Section */}
+            <div className="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+              <a
+                href="https://cal.id/pushpendra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-base backdrop-blur-sm border border-dark rounded-2xl px-5 py-3 hover:bg-gray-800/80 transition-all duration-300 hover:scale-105 cursor-pointer group min-w-[200px]"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                      />
+                    </svg>
                   </div>
-                </a>
-              </div>
-            </div>
-
-            <p className="sub__h1 mb-6">Discover and deploy powerful AI agents to supercharge your productivity</p>
-
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-2 rounded-full text-sm font-semibold border border-green-500/20">
-                <TrendingUp size={16} />
-                Ready to Use
-              </span>
-              <span className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold border border-blue-500/20">
-                <Bot size={16} />
-                AI-Powered
-              </span>
-              <span className="inline-flex items-center gap-2 bg-orange-500/10 text-orange-400 px-4 py-2 rounded-full text-sm font-semibold border border-orange-500/20">
-                <Zap size={16} />
-                Quick Setup
-              </span>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-black group-hover:!text-blue-700 transition-colors">
+                      Need help?
+                    </p>
+                    <p className="text-xs text-gray-dark group-hover:!text-gray-900 transition-colors">
+                      Talk to specialist
+                    </p>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
-        )}
 
-        <div className="mb-12 max-w-2xl mx-auto">
-          <div className="relative">
-            <Search size={20} className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-light" />
-            <input
-              type="text"
-              placeholder="Search templates by name or description..."
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 backdrop-blur-sm border-2 border-dark rounded-xl text-black placeholder-gray-500 text-lg transition-all duration-300 focus:outline-none focus:border-white/30 focus:bg-gray-400/20 focus:backdrop-blur-md focus:shadow-lg hover:border-gray-600 hover:shadow-md"
-            />
+          <p className="sub__h1 mb-6">Discover and deploy powerful AI agents to supercharge your productivity</p>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            <span className="inline-flex items-center gap-2 bg-green-500/10 text-green-400 px-4 py-2 rounded-full text-sm font-semibold border border-green-500/20">
+              <TrendingUp size={16} />
+              Ready to Use
+            </span>
+            <span className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold border border-blue-500/20">
+              <Bot size={16} />
+              AI-Powered
+            </span>
+            <span className="inline-flex items-center gap-2 bg-orange-500/10 text-orange-400 px-4 py-2 rounded-full text-sm font-semibold border border-orange-500/20">
+              <Zap size={16} />
+              Quick Setup
+            </span>
           </div>
         </div>
 
@@ -214,19 +187,16 @@ function TemplateGrid({ showHeader = true }: TemplateGridProps) {
                 </div>
               ))}
             </>
-          ) : filteredTemplates.length === 0 ? (
+          ) : templates.length === 0 ? (
             <div className="col-span-full">
               <div className="text-center py-16 px-4 bg-base backdrop-blur-sm border-2 border-dashed border-dark rounded-2xl">
                 <h3 className="text-xl font-bold text-black mb-3">
-                  {searchQuery ? 'No templates found' : 'No templates available'}
+                  No templates available
                 </h3>
-                {searchQuery && (
-                  <p className="text-gray-dark">Try adjusting your search terms or browse all templates</p>
-                )}
               </div>
             </div>
           ) : (
-            filteredTemplates.map((template, index) => renderTemplateCard(template, index))
+            templates.map((template, index) => renderTemplateCard(template, index))
           )}
         </div>
 

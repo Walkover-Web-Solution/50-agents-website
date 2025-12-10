@@ -7,6 +7,7 @@ import { generateMetadata as generateSEOMetadata, generateSoftwareApplicationSch
 import { headers } from "next/headers";
 import { getMetaData } from '@/lib/meta';
 import { getBaseUrl } from '@/lib/api';
+import CategoryFilter from './components/categoryFilter';
 
 export const runtime = 'edge';
 
@@ -219,7 +220,7 @@ async function ServicesPage({ searchParams }: PageProps) {
       />
       <Header />
       <div className="flex-1 pt-20">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 py-8 text-black">
           {/* Page Header */}
           <div className="text-center mb-12">
             {selectedCategory ? (
@@ -234,13 +235,14 @@ async function ServicesPage({ searchParams }: PageProps) {
           {/* Search and Filter Controls */}
           <SearchAndFilterClient
             initialSearch={searchTerm}
-            initialCategory={selectedCategory}
-            categories={allCategories}
           />
 
-          {/* Services Grid */}
-          <PluginGrid plugins={paginatedPlugins} />
+          <div className="flex gap-3">
+            <CategoryFilter initialCategory={selectedCategory} categories={allCategories} />
 
+            {/* Services Grid */}
+            <PluginGrid plugins={paginatedPlugins} />
+          </div>
           {/* Pagination */}
           <Pagination
             currentPage={currentPage}

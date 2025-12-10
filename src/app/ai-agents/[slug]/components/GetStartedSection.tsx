@@ -2,6 +2,7 @@
 
 import { Container } from '@mui/material';
 import AnimatedSection from '../../../../components/AnimatedSection';
+import EastIcon from '@mui/icons-material/East';
 
 interface GetStartedSectionProps {
   serviceName: string;
@@ -27,8 +28,9 @@ export default function GetStartedSection({ serviceName }: GetStartedSectionProp
             </div>
 
             <div>
-              <button onClick={handleStartFree} className="transition-all duration-300 hover:scale-105 btn btn-primary">
-                Start Free
+              <button onClick={handleStartFree} className="transition-all duration-300 hover:scale-105 btn btn-primary group relative overflow-hidden">
+                <span className="transition-transform duration-300 group-hover:-translate-x-3">Start Free</span>
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"><EastIcon /></span>
               </button>
             </div>
           </div>

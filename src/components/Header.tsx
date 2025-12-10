@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
+import EastIcon from '@mui/icons-material/East';
 
 const Header = () => {
   const router = useRouter();
@@ -22,6 +23,7 @@ const Header = () => {
   };
 
   const navItems = [
+    { label: 'Templates', path: '/templates' },
     { label: 'AI agents', path: '/ai-agents' },
     { label: 'Pricing', path: '/pricing' },
   ];
@@ -31,7 +33,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-gray-light backdrop-blur-xl border-b border-light z-50 transition-all duration-300 hover:bg-gray-100 hover:backdrop-blur-2xl">
+    <header className="fixed top-0 left-0 right-0 bg-white backdrop-blur-xl border-b border-light z-50 transition-all duration-300">
       <div className="container">
         <div className="flex items-center justify-between h-16 py-2">
           {/* Logo/Brand */}
@@ -53,21 +55,31 @@ const Header = () => {
                   {item.label}
                 </button>
               ))}
+              <button
+                data-tally-open="3NKeZl"
+                data-tally-overlay="1"
+                data-tally-emoji-text="👋"
+                data-tally-emoji-animation="wave"
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer text-gray-dark hover:!text-black hover:!bg-gray-300/80 hover:backdrop-blur-md hover:scale-105">
+                Chrome Extension
+              </button>
             </nav>
 
             {isLoggedIn ? (
               <button
                 onClick={handleDashboardClick}
-                className="btn btn-primary transition-all duration-300 hover:scale-105"
+                className="btn btn-primary transition-all duration-300 hover:scale-105 group relative overflow-hidden"
               >
-                Go to Dashboard
+                <span className="transition-transform duration-300 group-hover:-translate-x-3">Go to Dashboard</span>
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"><EastIcon /></span>
               </button>
             ) : (
               <button
                 onClick={handleLoginClick}
-                className="btn btn-primary transition-all duration-300 hover:scale-105"
+                className="btn btn-primary transition-all duration-300 hover:scale-105 group relative overflow-hidden"
               >
-                Login
+                <span className="transition-transform duration-300 group-hover:-translate-x-3">Login</span>
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"><EastIcon /></span>
               </button>
             )}
           </div>
