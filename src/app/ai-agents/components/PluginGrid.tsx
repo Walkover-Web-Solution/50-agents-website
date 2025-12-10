@@ -27,7 +27,7 @@ export default function PluginGrid({ plugins }: PluginGridProps) {
 
   if (plugins.length === 0) {
     return (
-      <div className="text-center py-12">
+      <div className="text-center py-12 w-full">
         <div className="text-6xl mb-4">🔍</div>
         <h3 className="text-xl font-semibold text-gray-dark mb-2">No agents found</h3>
         <p className="text-gray-light">Try adjusting your search terms or category filter</p>
@@ -41,7 +41,7 @@ export default function PluginGrid({ plugins }: PluginGridProps) {
         <div
           key={plugin.rowid}
           onClick={() => handleCardClick(plugin.appslugname)}
-          className="group cursor-pointer backdrop-blur-sm border-2 border-dark rounded-2xl p-6 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-2 flex flex-col h-full"
+          className="group cursor-pointer backdrop-blur-sm border-2 border-dark rounded-2xl p-6 transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:-translate-y-2 flex flex-col max-h-[300px] h-full"
         >
           <div className="flex-1 flex flex-col">
             {/* Service Icon and Header */}
@@ -73,7 +73,7 @@ export default function PluginGrid({ plugins }: PluginGridProps) {
 
             {/* Categories */}
             <div className="mb-4">
-              <div className="flex flex-wrap gap-1">
+              {/* <div className="flex flex-wrap gap-1">
                 {plugin.category.slice(0, 3).map((cat, index) => (
                   <span
                     key={index}
@@ -87,7 +87,7 @@ export default function PluginGrid({ plugins }: PluginGridProps) {
                     +{plugin.category.length - 3} more
                   </span>
                 )}
-              </div>
+              </div> */}
             </div>
           </div>
 

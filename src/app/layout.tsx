@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import ClientLayout from './ClientLayout';
 import './globals.css';
 import '../styles/_import.scss';
@@ -107,6 +108,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={inter.variable} style={{ height: '100vh' }}>
+        <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
         <ClientLayout fontClass={inter.variable}>{children}</ClientLayout>
       </body>
     </html>

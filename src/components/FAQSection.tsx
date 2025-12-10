@@ -31,14 +31,14 @@ export default function FAQSection({ faqs, subHeading }: FAQSectionProps) {
 
   return (
     <section className="relative z-10 container">
-      <div>
-        <div className="text-center mb-12">
+      <div className="border border-dark">
+        <div className="text-center py-12 border-b-1 border-dark px-6">
           <h2 className="h2">Frequently Asked Questions</h2>
           <p className="sub__h2 max-w-2xl mx-auto">{subHeading}</p>
         </div>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
+         <div className="max-w-5xl mx-auto space-y-4 py-16 px-6">
+           {faqs.map((faq, index) => (
             <AnimatedSection key={index} delay={index * 50}>
               <div key={index} className="border rounded-xl overflow-hidden border-dark bg-base">
                 <button
@@ -63,7 +63,7 @@ export default function FAQSection({ faqs, subHeading }: FAQSectionProps) {
               </div>
             </AnimatedSection>
           ))}
-        </div>
+         </div>
       </div>
     </section>
   );

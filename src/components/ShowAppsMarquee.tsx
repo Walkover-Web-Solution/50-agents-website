@@ -100,28 +100,30 @@ const APPS = [
 
 const ShowAppsMarquee = () => {
     return (
-        <div className="flex flex-col gap-8">
-            <p className="text-center text-gray-dark">Loved by Teams Using These Apps</p>
-            <Marquee
-                direction="left"
-                speed={40}
-                autoFill
-            >
-                <div className="inline-flex py-4 gap-20">
-                    {APPS.map((app, index) => (
-                        <div className={`flex items-center gap-2 ${index === 0 ? 'ml-20' : ''}`} key={`${app.IconName}-${index}`}>
-                            <Image
-                                src={app.src}
-                                alt={app.alt}
-                                width={30}
-                                height={30}
-                                className={`object-contain cursor-pointer`}
-                            />
-                            <p className="text-center font-medium text-lg text-gray-light">{app.IconName}</p>
-                        </div>
-                    ))}
-                </div>
-            </Marquee>
+        <div className="container">
+            <div className="border border-dark flex flex-col gap-8 py-28">
+                <p className="text-center text-gray-dark">Loved by Teams Using These Apps</p>
+                <Marquee
+                    direction="left"
+                    speed={40}
+                    autoFill
+                >
+                    <div className="inline-flex py-4 gap-20">
+                        {APPS.map((app, index) => (
+                            <div className={`flex items-center gap-2 ${index === 0 ? 'ml-20' : ''}`} key={`${app.IconName}-${index}`}>
+                                <Image
+                                    src={app.src}
+                                    alt={app.alt}
+                                    width={30}
+                                    height={30}
+                                    className={`object-contain cursor-pointer`}
+                                />
+                                <p className="text-center font-medium text-lg text-gray-light">{app.IconName}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Marquee>
+            </div>
         </div>
     );
 };
