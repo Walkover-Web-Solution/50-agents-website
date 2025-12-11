@@ -56,10 +56,7 @@ const Header = () => {
                 </button>
               ))}
               <button
-                data-tally-open="3NKeZl"
-                data-tally-overlay="1"
-                data-tally-emoji-text="👋"
-                data-tally-emoji-animation="wave"
+                onClick={() => window.open("https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio?hl=en-GB&utm_source=meeting-configure", "_blank")}
                 className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer text-gray-dark hover:!text-black hover:!bg-gray-300/80 hover:backdrop-blur-md hover:scale-105">
                 Chrome Extension
               </button>
