@@ -28,10 +28,8 @@ const HeroSection = () => {
                         </button>
                         <button
                             className="btn btn-outline"
-                            data-tally-open="3NKeZl"
-                            data-tally-overlay="1"
-                            data-tally-emoji-text="👋"
-                            data-tally-emoji-animation="wave">
+                            onClick={() => window.open("https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio?hl=en-GB&utm_source=meeting-configure", "_blank")}
+                        >
                             <Image src="/assets/img/chrome-icon.png" alt="Chrome Icon" className="mr-2" width={24} height={24} />
                             Download Chrome Extension
                         </button>
