@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import EastIcon from '@mui/icons-material/East';
+import Image from 'next/image';
 
 const Header = () => {
   const router = useRouter();
@@ -43,24 +44,26 @@ const Header = () => {
           </div>
 
           {/* Right Side - Navigation + Login Button */}
-          <div className="flex items-center space-x-4">
-            {/* Navigation */}
-            <nav className="flex items-center space-x-4">
-              {navItems.map(item => (
-                <button
-                  key={item.path}
-                  onClick={() => handleNavClick(item.path)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${pathname.startsWith(item.path) ? 'text-black font-semibold bg-gray-300/80 scale-105' : 'text-gray-dark hover:!text-black hover:!bg-gray-300/80 hover:backdrop-blur-md hover:scale-105'}`}
-                >
-                  {item.label}
-                </button>
-              ))}
+
+          {/* Navigation */}
+          <nav className="flex items-center space-x-4">
+            {navItems.map(item => (
               <button
-                onClick={() => window.open("https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio?hl=en-GB&utm_source=meeting-configure", "_blank")}
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer text-gray-dark hover:!text-black hover:!bg-gray-300/80 hover:backdrop-blur-md hover:scale-105">
-                Chrome Extension
+                key={item.path}
+                onClick={() => handleNavClick(item.path)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${pathname.startsWith(item.path) ? 'text-black font-semibold bg-gray-300/80 scale-105' : 'text-gray-dark hover:!text-black hover:!bg-gray-300/80 hover:backdrop-blur-md hover:scale-105'}`}
+              >
+                {item.label}
               </button>
-            </nav>
+            ))}
+          </nav>
+          <div className="flex items-center space-x-4">
+            <button
+              onClick={() => window.open("https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio?hl=en-GB&utm_source=meeting-configure", "_blank")}
+              className="btn btn-outline">
+              <Image src="/assets/img/chrome-icon.png" alt="Chrome Icon" className="mr-2" width={24} height={24} />
+              Chrome Extension
+            </button>
 
             {isLoggedIn ? (
               <button

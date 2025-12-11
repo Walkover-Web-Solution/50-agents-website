@@ -14,9 +14,9 @@ export default function GetStartedSection({ serviceName }: GetStartedSectionProp
   };
 
   return (
-    <div className="w-full cont" style={{ backgroundColor: 'transparent' }}>
+    <div className="w-full container">
       <AnimatedSection>
-        <Container maxWidth="xl" className="px-4 md:px-8">
+        <div className="cont border border-dark border-t-0 border-b-0 px-6 md:px-12">
           <div>
             <h2 className="h2">Get Started with the {serviceName} AI Agent</h2>
 
@@ -34,7 +34,7 @@ export default function GetStartedSection({ serviceName }: GetStartedSectionProp
               </button>
             </div>
           </div>
-        </Container>
+        </div>
       </AnimatedSection>
     </div>
   );

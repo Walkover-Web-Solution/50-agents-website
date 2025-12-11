@@ -123,13 +123,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <div className="fixed inset-0 pointer-events-none"></div>
 
       <Header />
-      <div className="flex-1 relative z-10 container pt-24 pb-12">
-        <div>
+      <div className="flex-1 relative z-10 pt-24">
+        <div className="container">
           <Breadcrumb items={[{ label: 'AI Agents', href: '/ai-agents' }, { label: `${plugin.name} Agent` }]} />
         </div>
 
         {/* Service Header */}
-        <div className="py-12 md:pb-16">
+        <div className="container py-12 md:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             <div>
               <div className="flex items-center mb-6">
@@ -173,16 +173,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </div>
           </div>
         </div>
-
+        <div className="divider" />
         <WhatYouCanDoSection serviceName={plugin.name} integrations={integrations} iconUrl={plugin.iconurl} />
+        <div className="divider" />
         <WhyUseSection serviceName={plugin.name} />
+        <div className="divider" />
         <FAQsForSpecificService serviceName={plugin.name} />
+        <div className="divider" />
         <AboutSection
           serviceName={plugin.name}
           description={plugin.description}
           iconUrl={plugin.iconurl}
           domain={plugin.domain}
         />
+        <div className="divider" />
         <GetStartedSection serviceName={plugin.name} />
       </div>
       <Footer />

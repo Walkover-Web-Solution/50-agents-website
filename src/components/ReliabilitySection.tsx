@@ -4,7 +4,7 @@ import { Globe } from "@/components/ui/globe"
 const ReliabilitySection = () => {
     return (
         <div className="container">
-            <div className="border border-dark relative overflow-hidden">
+            <div className="border border-t-0 border-b-0 border-dark relative overflow-hidden">
                 {/* Content Section */}
                 <div className="relative z-10 flex items-center justify-center">
                     <div className="p-6 md:p-12 md:pb-0 pb-0 text-center">

@@ -35,25 +35,23 @@ export default function WhatYouCanDoSection({ serviceName, integrations, iconUrl
   };
 
   return (
-    <div className="w-full cont relative" style={{ backgroundColor: 'transparent' }}>
+    <div className="w-full relative">
       <AnimatedSection>
-        <Container maxWidth="xl" className="px-4 md:px-8">
-          {/* Hero Section */}
-          <div className="text-center mb-12">
-            <h2 className="h2">What You Can Do with the {serviceName} AI Agent</h2>
-            <p className="sub__h2 max-w-3xl mx-auto">
-              From simple operations to advanced tasks, it can handle every action the app supports — quickly,
-              accurately, and on demand.
-            </p>
-          </div>
+        <div className="container">
+          <div className="px-6 md:px-12 cont border border-dark border-t-0 border-b-0">
+            <div className="text-center mb-12">
+              <h2 className="h2">What You Can Do with the {serviceName} AI Agent</h2>
+              <p className="sub__h2 max-w-3xl mx-auto">
+                From simple operations to advanced tasks, it can handle every action the app supports — quickly,
+                accurately, and on demand.
+              </p>
+            </div>
 
-          {actions && actions.length > 0 && (
-            <div className="flex flex-col gap-16">
+            {actions && actions.length > 0 && (
               <div>
                 <div className="text-center mb-6">
                   <h3 className="h3">Available Actions</h3>
                 </div>
-
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {actions.map((integration, index) => (
@@ -88,33 +86,35 @@ export default function WhatYouCanDoSection({ serviceName, integrations, iconUrl
                   </div>
                 </div>
               </div>
-
-              {/* CTA Section */}
-              <div className="text-center">
-                <div className="bg-base rounded-2xl p-6 md:p-12 border border-dark h-[300px] flex flex-col items-center justify-center">
-                  {/* <h3 className="text-xl md:text-2xl font-bold text-black mb-3">Ready to Get Started?</h3> */}
-                  <p className="sub__h1 mb-6">
-                    Just connect your {serviceName} account, and your AI Agent is ready to perform actions instantly.
-                  </p>
-                  <div className="flex justify-center">
-                    <button
-                      // onClick={handleConnectService}
-                      className="btn btn-primary transition-all duration-300 hover:scale-105"
-                      data-tally-open="3NKeZl"
-                      data-tally-overlay="1"
-                      data-tally-emoji-text="👋"
-                      data-tally-emoji-animation="wave"
-                    >
-                      <span className="relative z-10">Connect your {serviceName}</span>
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"></div>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </Container>
+            )}
+          </div>
+        </div>
       </AnimatedSection>
+
+      <div className="divider" />
+
+      {/* CTA Section */}
+      <div className="container">
+        <div className="text-center border border-t-0 border-b-0 border-dark py-20 px-6">
+          <div className="max-w-3xl m-auto bg-base rounded-2xl p-6 md:p-12 border border-dark h-[300px] flex flex-col items-center justify-center">
+            <p className="sub__h1 mb-6">
+              Just connect your {serviceName} account, and your AI Agent is ready to perform actions instantly.
+            </p>
+            <div className="flex justify-center">
+              <button
+                className="btn btn-primary transition-all duration-300 hover:scale-105"
+                data-tally-open="3NKeZl"
+                data-tally-overlay="1"
+                data-tally-emoji-text="👋"
+                data-tally-emoji-animation="wave"
+              >
+                <span className="relative z-10">Connect your {serviceName}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none"></div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

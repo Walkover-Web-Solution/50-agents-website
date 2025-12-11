@@ -30,7 +30,6 @@ function TemplatesPage() {
   return (
     <div
       className="min-h-full w-full flex flex-col"
-      style={{ backgroundColor: 'var(--mui-palette-background-default)' }}
     >
       <Header />
       <div className="flex-1 pt-20">

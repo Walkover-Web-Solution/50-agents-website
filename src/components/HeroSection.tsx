@@ -12,7 +12,7 @@ const HeroSection = () => {
     };
     return (
         <div className="container">
-            <div className="w-full relative h-[180vh] overflow-hidden border mt-[-90vh] border-dark ">
+            <div className="w-full relative h-[180vh] overflow-hidden border border-t-0 border-b-0 mt-[-90vh] border-dark ">
                 <RetroGrid />
                 <div className="text-center absolute sm:bottom-[45vh] bottom-[20vh] px-4 w-full left-1/2 translate-x-[-50%] transform">
                     <div className="flex flex-col items-center justify-center mb-2">
