@@ -138,7 +138,7 @@ const NonTechSection = ({
     };
     return (
         <div className="container">
-            <div className="p-6 md:p-12 flex md:flex-row flex-col justify-center gap-8 border border-dark">
+            <div className="p-6 md:p-12 flex md:flex-row flex-col justify-center gap-8 border border-t-0 border-b-0 border-dark">
                 <div className="">
                     <h2 className="h2">Built for Non-Tech Professionals.</h2>
                     <p className="sub__h2 mb-4">Whether you’re in marketing, HR, sales, or operations — AI agents handle the repetitive tasks so you can focus on strategy, creativity, and growth.</p>

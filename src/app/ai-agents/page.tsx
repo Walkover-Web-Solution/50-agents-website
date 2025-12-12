@@ -219,17 +219,19 @@ async function ServicesPage({ searchParams }: PageProps) {
         }}
       />
       <Header />
-      <div className="flex-1 pt-20">
-        <div className="container mx-auto px-4 py-8 text-black">
+      <div className="flex-1 pt-16">
+        <div className="container mx-auto  pb-8 text-black">
           {/* Page Header */}
-          <div className="text-center mb-12">
-            {selectedCategory ? (
-              <h1 className="h1">
-                AI agents for {currCatAppsCount} {selectedCategory} apps
-              </h1>
-            ) : (
-              <h1 className="h1">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
-            )}
+          <div className="border border-dark px-4 mb-16 h-[300px] flex items-center mx-auto justify-center bg-[url('/assets/img/cross-lines-bg.svg')] bg-cover">
+            <div className="text-center bg-white w-fit mx-auto p-4  border-dark border-2">
+              {selectedCategory ? (
+                <h1 className="h1">
+                  AI agents for {currCatAppsCount} {selectedCategory} apps
+                </h1>
+              ) : (
+                <h1 className="h1">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
+              )}
+            </div>
           </div>
 
           {/* Search and Filter Controls */}

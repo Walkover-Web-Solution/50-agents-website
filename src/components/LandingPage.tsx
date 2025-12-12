@@ -14,14 +14,17 @@ function LandingPage({ faqData }: { faqData: Array<{ question: string; answer: s
     <div className="min-h-full w-full flex flex-col">
       <Header />
       <div className="flex-1 pt-24 pb-12 flex flex-col">
-        <HeroSection/>
+        <HeroSection />
+        <div className="divider" />
         <ShowAppsMarquee />
+        <div className="divider" />
         <NonTechSection />
+        <div className="divider" />
         <ReliabilitySection />
-        <div>
+        <div className="divider" />
         <FAQSection subHeading="Answers to common questions about 50Agents and its features. If you have any other questions, please don't hesitate to contact us." faqs={faqData || []} />
+        <div className="divider" />
         <SecuritySection />
-        </div>
       </div>
       <Footer />
     </div>

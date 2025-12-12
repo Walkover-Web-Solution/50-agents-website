@@ -30,40 +30,48 @@ export default function FAQSection({ faqs, subHeading }: FAQSectionProps) {
   }
 
   return (
-    <section className="relative z-10 container">
-      <div className="border border-dark">
-        <div className="text-center py-12 border-b-1 border-dark px-6">
-          <h2 className="h2">Frequently Asked Questions</h2>
-          <p className="sub__h2 max-w-2xl mx-auto">{subHeading}</p>
+    <section className="relative z-10">
+      <div>
+        <div className="container">
+          <div className="text-center py-12 px-6 border border-t-0 border-b-0 border-dark">
+            <h2 className="h2">Frequently Asked Questions</h2>
+            <p className="sub__h2 max-w-2xl mx-auto">{subHeading}</p>
+          </div>
         </div>
 
-         <div className="max-w-5xl mx-auto space-y-4 py-16 px-6">
-           {faqs.map((faq, index) => (
-            <AnimatedSection key={index} delay={index * 50}>
-              <div key={index} className="border rounded-xl overflow-hidden border-dark bg-base">
-                <button
-                  onClick={() => toggleItem(index)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between cursor-pointer"
-                >
-                  <h3 className="text-lg font-semibold text-black pr-4">{faq.question}</h3>
-                  {openItems.has(index) ? (
-                    <ChevronUp className="w-5 h-5 text-gray-dark flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-dark flex-shrink-0" />
-                  )}
-                </button>
+        <div className="divider" />
 
-                {openItems.has(index) && (
-                  <div className="px-6 pb-5">
-                    <div className="pt-2 border-t border-light">
-                      <p className="text-gray-dark leading-relaxed">{faq.answer}</p>
-                    </div>
+        <div className="container">
+          <div className="text-center py-12 px-6 border border-t-0 border-b-0 border-dark">
+            <div className="max-w-5xl mx-auto space-y-4 py-16 px-6">
+              {faqs.map((faq, index) => (
+                <AnimatedSection key={index} delay={index * 50}>
+                  <div key={index} className="border rounded-xl overflow-hidden border-dark bg-base">
+                    <button
+                      onClick={() => toggleItem(index)}
+                      className="w-full px-6 py-5 text-left flex items-center justify-between cursor-pointer"
+                    >
+                      <h3 className="text-lg font-semibold text-black pr-4">{faq.question}</h3>
+                      {openItems.has(index) ? (
+                        <ChevronUp className="w-5 h-5 text-gray-dark flex-shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-gray-dark flex-shrink-0" />
+                      )}
+                    </button>
+
+                    {openItems.has(index) && (
+                      <div className="px-6 pb-5">
+                        <div className="pt-2 border-t border-light">
+                          <p className="text-gray-dark leading-relaxed">{faq.answer}</p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
-              </div>
-            </AnimatedSection>
-          ))}
-         </div>
+                </AnimatedSection>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

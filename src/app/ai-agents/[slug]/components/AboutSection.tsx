@@ -1,6 +1,5 @@
 'use client';
 
-import { Container } from '@mui/material';
 import AnimatedSection from '../../../../components/AnimatedSection';
 import WebsiteButton from './WebsiteButton';
 
@@ -16,9 +15,9 @@ export default function AboutSection({ serviceName, description, iconUrl, domain
     return null;
   }
   return (
-    <div className="w-full cont" style={{ backgroundColor: 'transparent' }}>
+    <div className="w-full container">
       <AnimatedSection>
-        <Container maxWidth="xl" className="px-4 md:px-8">
+        <div className="px-6 md:px-12 cont border border-dark border-t-0 border-b-0">
           <div>
             <div className="text-center mb-8">
               <h2 className="h2">About {serviceName}</h2>
@@ -67,7 +66,7 @@ export default function AboutSection({ serviceName, description, iconUrl, domain
               </div>
             </div>
           </div>
-        </Container>
+        </div>
       </AnimatedSection>
     </div>
   );

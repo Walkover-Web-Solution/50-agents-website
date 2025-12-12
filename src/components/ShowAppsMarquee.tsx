@@ -101,10 +101,34 @@ const APPS = [
 const ShowAppsMarquee = () => {
     return (
         <div className="container">
-            <div className="border border-dark flex flex-col gap-8 py-28">
-                <p className="text-center text-gray-dark">Loved by Teams Using These Apps</p>
+            <div className="border border-t-0 border-b-0 border-dark flex flex-col gap-8 py-28 px-6">
+                <div className="flex gap-4 md:flex-row flex-col items-center">
+                    <div className="uppercase text-sm whitespace-nowrap">
+                        <p className="text-center text-gray-dark">Loved by Teams Using These Apps</p>
+                    </div>
+                    <Marquee
+                        direction="left"
+                        speed={40}
+                        autoFill
+                    >
+                        <div className="inline-flex py-4 gap-20">
+                            {APPS.map((app, index) => (
+                                <div className={`flex items-center gap-2 ${index === 0 ? 'ml-20' : ''}`} key={`${app.IconName}-${index}`}>
+                                    <Image
+                                        src={app.src}
+                                        alt={app.alt}
+                                        width={30}
+                                        height={30}
+                                        className={`object-contain cursor-pointer`}
+                                    />
+                                    <p className="text-center font-medium text-lg text-gray-light">{app.IconName}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </Marquee>
+                </div>
                 <Marquee
-                    direction="left"
+                    direction="right"
                     speed={40}
                     autoFill
                 >
