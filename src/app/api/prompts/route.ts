@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const runtime = 'edge';
+
 export async function GET(request: NextRequest) {
   const apiUrl = `${process.env.DB_BASE_URL}/692166171c1fffefdcd63a1e/tbl3jd0c7`;
 
