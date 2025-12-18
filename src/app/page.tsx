@@ -3,6 +3,7 @@ import { generateMetadata as generateSEOMetadata, generateWebsiteSchema, generat
 import { headers } from 'next/headers';
 import { getMetaData } from '@/lib/meta';
 import { getFaqData } from '@/lib/fetchFAQs';
+import { sendErrorMessage } from '@/lib/utils';
 
 export const runtime = 'edge';
 
@@ -35,6 +36,26 @@ const HomePage = async () => {
   const proto = headersList.get("x-forwarded-proto") || "http";
   const pageUrl = `${proto}://${host}/`;
   const faqData = await getFaqData("/", pageUrl);
+  
+  // Fetch prompt data from API route
+  let promptData = null;
+  try {
+    const promptResponse = await fetch(`${pageUrl}api/prompts`, {
+      next: { revalidate: 60 * 20 } // Cache for 20 minutes
+    });
+    if (promptResponse.ok) {
+      promptData = await promptResponse.json();
+    } else {
+      throw new Error(`API responded with status: ${promptResponse.status}`);
+    }
+  } catch (error: any) {
+    console.error('Failed to fetch prompt data:', error);
+    sendErrorMessage({ 
+      error, 
+      pageUrl, 
+      source: `${pageUrl}api/prompts` 
+    });
+  }
 
   return (
     <>
@@ -51,7 +72,7 @@ const HomePage = async () => {
           __html: JSON.stringify(organizationSchema),
         }}
       />
-      <LandingPage faqData={faqData} />
+      <LandingPage faqData={faqData} promptData={promptData} />
     </>
   );
 };

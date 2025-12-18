@@ -9,12 +9,12 @@ import NonTechSection from '@/components/NonTechSection';
 import ReliabilitySection from '@/components/ReliabilitySection';
 import HeroSection from '@/components/HeroSection';
 
-function LandingPage({ faqData }: { faqData: Array<{ question: string; answer: string; }> }) {
+function LandingPage({ faqData, promptData }: { faqData: Array<{ question: string; answer: string; }> | null; promptData: Array<{ button_label: string; prompt: string; }> | null }) {
   return (
     <div className="min-h-full w-full flex flex-col">
       <Header />
       <div className="flex-1 pt-24 pb-12 flex flex-col">
-        <HeroSection />
+        <HeroSection promptData={promptData || []}/>
         <div className="divider" />
         <ShowAppsMarquee />
         <div className="divider" />
