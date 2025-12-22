@@ -1,8 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-   images: {
+    images: {
         unoptimized: true,
+    },
+    async redirects() {
+        return [
+            {
+                source: '/services/:path*',
+                destination: '/ai-agents/:path*',
+                permanent: true,
+            },
+        ];
     },
 };
 
