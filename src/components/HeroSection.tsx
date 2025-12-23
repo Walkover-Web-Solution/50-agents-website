@@ -63,6 +63,7 @@ const HeroSection = ({ promptData }: { promptData: Array<{ button_label: string;
             Cookies.set('pending_prompt', textareaValue.trim(), {
                 expires: 1 / 24, // Expires in 1 hour
                 domain: '.50agents.com', // Works for both 50agents.com and chat.50agents.com
+                path: '/',  
                 secure: true,
                 sameSite: 'lax'
             });
