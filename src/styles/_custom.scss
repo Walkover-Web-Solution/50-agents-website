@@ -9,18 +9,18 @@
     cursor: pointer;
 
     &.btn-primary {
-        background: #2d2f34;
+        background: var(--primary-color);
         color: #ffffff;
-        border-color: #2d2f34;
+        border-color: var(--primary-color);
     }
 
     &.btn-outline {
         background: transparent;
         color: var(--text-black);
-        border-color: #2d2f34;
+        border-color: var(--primary-color);
 
         &:hover {
-            background: #2d2f34;
+            background: var(--primary-color);
             transition: all 0.2s ease-in-out;
             color: #ffffff;
         }
