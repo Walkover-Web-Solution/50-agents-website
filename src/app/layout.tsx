@@ -1,13 +1,7 @@
-import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import ClientLayout from './ClientLayout';
 import './globals.css';
 import '../styles/_import.scss';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter', // Define a CSS variable
-});
 
 export const metadata = {
   title: {
@@ -86,30 +80,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                  var mode = prefersDark ? 'dark' : 'light';
-                  
-                  document.documentElement.setAttribute('data-theme', mode);
-                  if (mode === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body className={inter.variable} style={{ height: '100vh' }}>
+      <head></head>
+      <body style={{ height: '100vh' }}>
         <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
-        <ClientLayout fontClass={inter.variable}>{children}</ClientLayout>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

@@ -6,7 +6,6 @@ import SecuritySection from '@/components/SecuritySection';
 import ShowAppsMarquee from '@/components/ShowAppsMarquee';
 import FAQSection from '@/components/FAQSection';
 import NonTechSection from '@/components/NonTechSection';
-import ReliabilitySection from '@/components/ReliabilitySection';
 import HeroSection from '@/components/HeroSection';
 
 function LandingPage({ faqData, promptData }: { faqData: Array<{ question: string; answer: string; }> | null; promptData: Array<{ button_label: string; prompt: string; }> | null }) {
@@ -19,8 +18,6 @@ function LandingPage({ faqData, promptData }: { faqData: Array<{ question: strin
         <ShowAppsMarquee />
         <div className="divider" />
         <NonTechSection />
-        <div className="divider" />
-        <ReliabilitySection />
         <div className="divider" />
         <FAQSection subHeading="Answers to common questions about 50Agents and its features. If you have any other questions, please don't hesitate to contact us." faqs={faqData || []} />
         <div className="divider" />

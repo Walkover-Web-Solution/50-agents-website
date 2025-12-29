@@ -48,7 +48,7 @@ const CategoryFilter = ({ initialCategory, categories }: CategoryFilterProps) =>
                         onClick={() => setSelectedCategory('')}
                         className={`cursor-pointer transition-all duration-300 px-4 py-2 ${
                             selectedCategory === '' 
-                                ? 'border-l-4 border-black' 
+                                ? 'border-l-4 border-[var(--primary-color)]' 
                                 : 'bg-transparent hover:bg-gray-100 border-gray-300 hover:border-dark'
                         }`}
                     >
@@ -60,7 +60,7 @@ const CategoryFilter = ({ initialCategory, categories }: CategoryFilterProps) =>
                             onClick={() => setSelectedCategory(category.name)}
                             className={`cursor-pointer transition-all duration-300 px-4 py-2 flex justify-between items-center ${
                                 selectedCategory === category.name 
-                                    ? 'border-l-4 border-black' 
+                                    ? 'border-l-4 border-[var(--primary-color)]' 
                                     : 'bg-transparent hover:bg-gray-100 border-gray-300 hover:border-dark'
                             }`}
                         >

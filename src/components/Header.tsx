@@ -36,11 +36,10 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white backdrop-blur-xl border-b border-light z-50 transition-all duration-300">
       <div className="container">
-        <div className="flex items-center justify-between h-16 py-2">
+        <div className="flex items-center justify-between h-16 py-2 px-8">
           {/* Logo/Brand */}
           <div className="flex items-center cursor-pointer" onClick={() => router.push('/')}>
-            <img src="/50_agents_logo.png" alt="50Agents" className="h-10 w-auto mr-3" />
-            <span className="text-xl font-medium text-black tracking-tight">50Agents</span>
+            <Image src="/50_agents_logo.png" alt="50Agents" className="h-10 w-auto mr-3" width={40} height={40} />
           </div>
 
           {/* Right Side - Navigation + Login Button */}
