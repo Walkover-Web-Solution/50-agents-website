@@ -39,20 +39,20 @@ const securityGridData = [
     },
 ];
 
-const SecuritySection = () => {
+const SecuritySection = ({ heading, description }: { heading: string; description: string }) => {
     return (
         <div className="container">
             <div className="p-6 md:p-12 bg-[#14486f] cont gap-8">
-                <div className="flex lg:flex-row flex-col justify-between gap-4 lg:gap-20 mr-8 items-center mb-8">
+                <div className="flex lg:flex-row flex-col justify-between gap-4 mr-2 items-center mb-8">
                     <div className="gap-1">
-                        <h2 className="h2 text-white">50Agents is the Trusted Choice for Building Secure AI Agents</h2>
+                        <h2 className="h2 text-white">{heading}</h2>
                         <h3 className="sub__h1 text-white">
-                            Your AI agents run safely with us—secure, private, and designed with protection in mind at every step, so you can automate confidently.
+                            {description}
                         </h3>
                     </div>
                     <div className="flex gap-4">
-                        <Image src="/assets/img/aicpa-soc-badge.webp" alt="aicpa soc badge" width={100} height={100} className="w-[100px] h-[100px]" />
-                        <Image src="/assets/img/iso-certified.webp" alt="iso certified badge" width={100} height={100} className="w-[100px] h-[100px]" />
+                        <div className="w-[100px]"><Image src="/assets/img/aicpa-soc-badge.webp" alt="aicpa soc badge" width={100} height={100} className="w-[100px] h-[100px]" /></div>
+                        <div className="w-[100px]"><Image src="/assets/img/iso-certified.webp" alt="iso certified badge" width={100} height={100} className="w-[100px] h-[100px]" /></div>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border border-white border-t-0 border-r-0">

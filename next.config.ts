@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
                 protocol: 'https',
                 hostname: 'upload.wikimedia.org',
             },
+            {
+                protocol: 'https',
+                hostname: 'storage.googleapis.com',
+            }
         ],
     },
     async redirects() {
