@@ -96,6 +96,16 @@ const APPS = [
         alt: 'notion icon',
         IconName: 'Notion',
     },
+    {
+        src: 'https://thingsofbrand.com/api/icon/fireflies.ai',
+        alt: 'fireflies icon',
+        IconName: 'Fireflies',
+    },
+    {
+        src: 'https://thingsofbrand.com/api/icon/msg91.com',
+        alt: 'msg91 icon',
+        IconName: 'Msg91',
+    }
 ];
 
 const ShowAppsMarquee = () => {
@@ -112,7 +122,7 @@ const ShowAppsMarquee = () => {
                         autoFill
                     >
                         <div className="inline-flex py-4 gap-20">
-                            {APPS.map((app, index) => (
+                            {APPS.slice(0, 9).map((app, index) => (
                                 <div className={`flex items-center gap-2 ${index === 0 ? 'ml-20' : ''}`} key={`${app.IconName}-${index}`}>
                                     <Image
                                         src={app.src}
@@ -136,7 +146,7 @@ const ShowAppsMarquee = () => {
                     autoFill
                 >
                     <div className="inline-flex py-4 gap-20">
-                        {APPS.map((app, index) => (
+                        {APPS.slice(9, 20).map((app, index) => (
                             <div className={`flex items-center gap-2 ${index === 0 ? 'ml-20' : ''}`} key={`${app.IconName}-${index}`}>
                                 <Image
                                     src={app.src}

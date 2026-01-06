@@ -21,7 +21,7 @@ function LandingPage({ faqData, promptData }: { faqData: Array<{ question: strin
         <div className="divider" />
         <FAQSection subHeading="Answers to common questions about 50Agents and its features. If you have any other questions, please don't hesitate to contact us." faqs={faqData || []} />
         <div className="divider" />
-        <SecuritySection />
+        <SecuritySection heading="50Agents is the Trusted Choice for Building Secure AI Agents" description="Your AI agents run safely with us—secure, private, and designed with protection in mind at every step, so you can automate confidently." />
       </div>
       <Footer />
     </div>

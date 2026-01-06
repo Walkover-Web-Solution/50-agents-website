@@ -61,7 +61,7 @@ export default function FAQSection({ faqs, subHeading }: FAQSectionProps) {
 
                     {openItems.has(index) && (
                       <div className="px-6 pb-5">
-                        <div className="pt-2 border-t border-light">
+                        <div className="pt-2 border-t border-light text-left">
                           <p className="text-gray-dark leading-relaxed">{faq.answer}</p>
                         </div>
                       </div>
