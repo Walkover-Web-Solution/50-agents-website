@@ -1,8 +1,13 @@
 'use client';
 import EastIcon from '@mui/icons-material/East';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const BuiltForTeams = () => {
+    const router = useRouter();
+    const handleLoginClick = () => {
+        router.push(`${process.env.NEXT_PUBLIC_INTERNAL_URL}/login`);
+    };
     return (
         <div className="container">
             <div className="px-6 md:px-12 py-28 border border-dark border-t-0 border-b-0 text-center">
@@ -61,7 +66,7 @@ const BuiltForTeams = () => {
 
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6">
-                    <button className="btn btn-primary transition-all duration-300 hover:scale-105 group relative overflow-hidden" onClick={() => { }}>
+                    <button className="btn btn-primary transition-all duration-300 hover:scale-105 group relative overflow-hidden" onClick={handleLoginClick}>
                         <span className="transition-transform duration-300 group-hover:-translate-x-3">Start recording meetings for free</span>
                         <span className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 translate-x-6 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"><EastIcon /></span>
                     </button>
