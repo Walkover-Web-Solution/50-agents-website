@@ -9,12 +9,10 @@ const NoMoreManual = () => {
                 <div className="w-full md:w-[35%]">
                     <Image src="/assets/img/followup.gif" alt="Follow-ups example" width={600} height={400} className="w-auto h-auto mx-auto" />
                 </div>
-                <div className="w-full md:w-[65%] space-y-4">
+                <div className="w-full md:w-[65%]">
                     <h2 className="h2">No more manual follow-ups. Everything stays organized.</h2>
-                    <p className="sub__h2">Stop updating tools after meetings. Stop chasing updates.</p>
-                    <p className="sub__h2">50agents captures decisions, tasks, and follow-ups automatically and keeps conversations structured in one place. Your team always knows what was discussed and what needs to happen next.</p>
-
-                    <p className="sub__h2">Work moves forward faster. Your day stays simple. No confusion. No extra effort.</p>
+                    <p className="sub__h2">Meetings shouldn’t create more work after they end. With 50agents, decisions, tasks, and follow-ups are captured automatically and kept in one structured place. You don’t need to chase updates, send reminders, or copy notes into other tools.</p>
+                    <p className="sub__h2">Your team always knows what was discussed, what was decided, and what needs to happen next — without extra effort or repeated conversations.</p>
                 </div>
             </div>
         </div>

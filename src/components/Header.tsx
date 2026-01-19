@@ -51,15 +51,27 @@ const Header = () => {
 
             {/* Navigation */}
             <nav className="hidden lg:flex items-center space-x-4">
-              {navItems.map(item => (
+              {navItems.map(item => {
+                const isAiNoteTaker = item.path === '/ai-note-taker';
+                const isHomePage = pathname === '/';
+                const shouldAnimate = isAiNoteTaker && isHomePage;
+                
+                return (
                 <button
                   key={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  className={`mx-4 p-1 text-md  font-lg cursor-pointer text-nowrap relative transition-colors duration-300 ${pathname.startsWith(item.path) ? 'font-semibold text-primary relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-[var(--primary-color)] after:scale-x-100 after:origin-left' : 'hover:!text-[var(--primary-color)] text-black relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-[var(--primary-color)] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'}`}
+                    className={`mx-4 p-1 text-md font-lg cursor-pointer text-nowrap relative transition-colors duration-300 ${
+                      shouldAnimate 
+                        ? 'animate-gradient-text font-semibold' 
+                        : pathname.startsWith(item.path) 
+                          ? 'font-semibold text-primary relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-[var(--primary-color)] after:scale-x-100 after:origin-left' 
+                          : 'hover:!text-[var(--primary-color)] text-black relative after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-full after:bg-[var(--primary-color)] after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100'
+                    }`}
                 >
                   {item.label}
                 </button>
-              ))}
+                );
+              })}
             </nav>
             <div className="flex items-center space-x-4">
               <button
