@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import PricingSection from '@/components/PricingSection';
+import PricingSection from './components/PricingSection';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { headers } from 'next/headers';
 import { getMetaData } from '@/lib/meta';
