@@ -72,11 +72,11 @@ export default function WhatYouCanDoSection({ serviceName, integrations, iconUrl
                             </div>
 
                             {/* Content */}
-                            <h4 className="font-bold text-black mb-1 text-base leading-tight group-hover:!text-gray-900 transition-colors duration-200">
+                            <h4 className="font-bold text-black mb-1 text-base leading-tight group-hover:hover-text-dark transition-colors duration-200">
                               {integration.name}
                             </h4>
 
-                            <p className="line-clamp-3 text-gray-light text-sm leading-relaxed flex-grow group-hover:!text-gray-600 transition-colors duration-200">
+                            <p className="line-clamp-3 text-gray-light text-sm leading-relaxed flex-grow">
                               {integration.description || `Intelligent ${integration.name} automation powered by AI`}
                             </p>
                           </div>

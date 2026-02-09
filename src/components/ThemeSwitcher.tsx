@@ -48,14 +48,14 @@ export function ThemeSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-center w-10 h-10 rounded-lg border border-[var(--border-medium)] bg-[var(--background)] hover:bg-[var(--background-gray-light)] transition-colors"
+        className="flex items-center justify-center w-10 h-10 rounded-lg border border-[var(--border-medium)] bg-background hover:bg-[var(--background-gray-light)] transition-colors"
         aria-label="Toggle theme"
       >
         {getIcon()}
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-40 rounded-lg border border-[var(--border-medium)] bg-[var(--background)] shadow-lg overflow-hidden z-50">
+        <div className="absolute right-0 mt-2 w-40 rounded-lg border border-[var(--border-medium)] bg-background shadow-lg overflow-hidden z-50">
           {themes.map((themeOption) => (
             <button
               key={themeOption.value}

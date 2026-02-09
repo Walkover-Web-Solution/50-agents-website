@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 bg-[var(--background)] backdrop-blur-xl border-b border-light z-50 transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 bg-background backdrop-blur-xl border-b border-light z-50 transition-all duration-300">
         <div className="container">
           <div className="flex items-center justify-between h-16 py-2 lg:px-8">
             {/* Logo/Brand */}
@@ -108,7 +108,7 @@ const Header = () => {
       </header>
       <div className="lg:hidden">
         {isMenuOpen && (
-          <div className="fixed top-0 w-full h-screen right-0 z-50 bg-[var(--background)]">
+          <div className="fixed top-0 w-full h-screen right-0 z-50 bg-background">
             <div className="flex items-center justify-end p-4">
               <button className="p-2 cursor-pointer" onClick={() => setIsMenuOpen(false)}>
                 <CloseIcon />

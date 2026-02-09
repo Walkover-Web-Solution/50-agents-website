@@ -77,7 +77,7 @@ const HeroSection = ({ promptData }: { promptData: Array<{ button_label: string;
 
                 <div className="text-center absolute top-[125vh] lg:top-[95vh] px-4 w-full left-1/2 translate-x-[-50%] transform">
                     <div className="flex flex-col items-center justify-center mb-2">
-                        <p className="sub__h2 bg-white shadow-small rounded-full px-4 py-2 !text-sm mb-6">Your AI Agents. Your Rules.</p>
+                        <p className="sub__h2 bg-background shadow-small rounded-full px-4 py-2 !text-sm mb-6">Your AI Agents. Your Rules.</p>
                         <h1 className="h1 font-bold !text-6xl !mb-2 bg-gradient-to-b from-[#ffd319] via-[#ff2975] to-[#8c1eff] bg-clip-text !text-transparent py-2">Build AI Agents for Anything</h1>
                         <p className="sub__h1 mb-6">Power your business with AI that feels custom-built — without writing a single line of code.</p>
                     </div>
@@ -86,7 +86,7 @@ const HeroSection = ({ promptData }: { promptData: Array<{ button_label: string;
                         <div className="w-full max-w-[540px]">
                             <div className="relative">
                                 <textarea
-                                    className="w-full min-h-[160px] border-2 outline-none border-dark rounded-2xl p-4 bg-white"
+                                    className="w-full min-h-[160px] border-2 outline-none border-dark rounded-2xl p-4 bg-background"
                                     value={textareaValue}
                                     onChange={handleTextareaChange}
                                 ></textarea>

@@ -18,12 +18,15 @@
   --background-gray-base: #fbfafd;
   --background-hover: #f3f4f6;
 
+  /* Shadow */
+  --shadow-small: 0px 4px 12px rgba(0, 0, 0, .01), 0px 2px 6px rgba(0, 0, 0, .05), 0px 1px 3px rgba(0, 0, 0, .1);
+
   --primary-color: #5B21B5;
 }
 
 .dark {
   --background: #0a0a0a;
-  --foreground: #ededed;
+  --foreground: #e3dede;
 
   /* Border shades */
   // --border-medium: rgba(255, 255, 255, 0.15);
@@ -32,7 +35,7 @@
   --border-light: rgba(156, 163, 175, 0.1);
 
   /* Text shades */
-  --text-black: #ededed;
+  --text-black: #e3dede;
   --text-white: #0a0a0a;
   --text-gray-500: #a1a1aa;
   --text-gray-600: #d4d4d8;
@@ -42,6 +45,9 @@
   --background-gray-light: rgba(30, 30, 30, 0.5);
   --background-gray-base: #141414;
   --background-hover: rgba(255, 255, 255, 0.1);
+
+  /* Shadow */
+  --shadow-small: 0px 4px 12px rgba(255, 255, 255, .02), 0px 2px 6px rgba(255, 255, 255, .05), 0px 1px 3px rgba(255, 255, 255, .08);
 
   --primary-color: #8b5cf6;
 

@@ -105,7 +105,7 @@ const Notification = ({ name, icon, color }: Item) => {
                 // animation styles
                 "transition-all duration-200 ease-in-out hover:scale-[103%]",
                 // light styles
-                "bg-[var(--background)] border border-dark shadow-small"
+                "bg-background shadow-small"
             )}
         >
             <div className="flex flex-row items-center gap-3">
