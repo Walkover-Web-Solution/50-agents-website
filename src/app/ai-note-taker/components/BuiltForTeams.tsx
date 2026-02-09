@@ -16,11 +16,11 @@ const BuiltForTeams = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
                     <div className="max-w-[300px] mx-auto">
                         <div className='bg-[#812ff6]'>
-                            <h2 className="text-2xl font-semibold pt-4 text-white text-center">Sales</h2>
+                            <h2 className="text-2xl font-semibold pt-4 text-[#fff] text-center">Sales</h2>
                         </div>
                         <div className="relative">
                             <div className="absolute top-1 left-0 right-0 z-50 max-w-[290px] mx-auto">
-                                <p className="text-white text-center text-sm px-2">Sales teams can review conversations and move deals forward faster.</p>
+                                <p className="text-[#fff] text-center text-sm px-2">Sales teams can review conversations and move deals forward faster.</p>
                             </div>
                             <Image src="/assets/img/sales.png" alt="Sales team" width={400} height={300} />
                         </div>
@@ -28,12 +28,12 @@ const BuiltForTeams = () => {
 
                     <div className="max-w-[300px] mx-auto">
                         <div className="bg-[#4162fe]">
-                            <h2 className="text-2xl font-semibold pt-4 text-white text-center">HR</h2>
+                            <h2 className="text-2xl font-semibold pt-4 text-[#fff] text-center">HR</h2>
                         </div>
 
                         <div className="relative">
                             <div className="absolute top-1 left-0 right-0 z-50 max-w-[290px] mx-auto">
-                                <p className="text-white text-center text-sm px-2">HR teams can document interviews and discussions without extra effort.</p>
+                                <p className="text-[#fff] text-center text-sm px-2">HR teams can document interviews and discussions without extra effort.</p>
                             </div>
                             <Image src="/assets/img/hr.png" alt="HR team" width={400} height={300} />
                         </div>
@@ -41,11 +41,11 @@ const BuiltForTeams = () => {
 
                     <div className="max-w-[300px] mx-auto">
                         <div className="bg-[#f64a8b]">
-                            <h2 className="text-2xl font-semibold pt-4 text-white text-center">Education</h2>
+                            <h2 className="text-2xl font-semibold pt-4 text-[#fff] text-center">Education</h2>
                         </div>
                         <div className="relative">
                             <div className="absolute top-1 left-0 right-0 z-50 max-w-[290px] mx-auto">
-                                <p className="text-white text-center text-sm px-2">Students focus on learning during classes and discussions.</p>
+                                <p className="text-[#fff] text-center text-sm px-2">Students focus on learning during classes and discussions.</p>
                             </div>
                             <Image src="/assets/img/education.png" alt="Education team" width={400} height={300} />
                         </div>
@@ -53,11 +53,11 @@ const BuiltForTeams = () => {
 
                     <div className="max-w-[300px] mx-auto">
                         <div className="bg-[#fcbb1d]">
-                            <h2 className="text-2xl font-semibold pt-4 text-white text-center">Consulting</h2>
+                            <h2 className="text-2xl font-semibold pt-4 text-[#fff] text-center">Consulting</h2>
                         </div>
                         <div className="relative">
                             <div className="absolute top-1 left-0 right-0 z-50 max-w-[290px] mx-auto">
-                                <p className="text-white text-center text-sm px-2">Consultants can capture client discussions and decisions with clarity.</p>
+                                <p className="text-[#fff] text-center text-sm px-2">Consultants can capture client discussions and decisions with clarity.</p>
                             </div>
                             <Image src="/assets/img/consulting.png" alt="Consulting team" width={400} height={300} />
                         </div>

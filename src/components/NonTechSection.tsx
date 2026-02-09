@@ -105,7 +105,7 @@ const Notification = ({ name, icon, color }: Item) => {
                 // animation styles
                 "transition-all duration-200 ease-in-out hover:scale-[103%]",
                 // light styles
-                "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]"
+                "bg-[var(--background)] border border-dark shadow-small"
             )}
         >
             <div className="flex flex-row items-center gap-3">
@@ -118,7 +118,7 @@ const Notification = ({ name, icon, color }: Item) => {
                     <span className="text-lg">{icon}</span>
                 </div>
                 <div className="flex flex-col overflow-hidden">
-                    <figcaption className="flex flex-row items-center text-lg font-medium whitespace-pre">
+                    <figcaption className="flex flex-row items-center text-lg font-medium whitespace-pre text-[var(--foreground)]">
                         <span className="text-sm sm:text-lg">{name}</span>
                     </figcaption>
                 </div>

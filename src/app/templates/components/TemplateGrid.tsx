@@ -135,10 +135,10 @@ function TemplateGrid() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-black group-hover:!text-blue-700 transition-colors">
+                    <p className="text-sm font-semibold text-black group-hover:hover-text-blue transition-colors">
                       Need help?
                     </p>
-                    <p className="text-xs text-gray-dark group-hover:!text-gray-900 transition-colors">
+                    <p className="text-xs text-gray-dark group-hover:hover-text-dark transition-colors">
                       Talk to specialist
                     </p>
                   </div>

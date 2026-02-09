@@ -225,11 +225,11 @@ async function ServicesPage({ searchParams }: PageProps) {
           <div className="border border-dark px-4 mb-16 h-[300px] flex items-center mx-auto justify-center bg-[url('/assets/img/cross-lines-bg.svg')] bg-cover">
             <div className="text-center bg-white w-fit mx-auto p-4  border-dark border-2">
               {selectedCategory ? (
-                <h1 className="h1">
+                <h1 className="h1 !text-[#40434a]">
                   AI agents for {currCatAppsCount} {selectedCategory} apps
                 </h1>
               ) : (
-                <h1 className="h1">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
+                <h1 className="h1 !text-[#40434a]">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
               )}
             </div>
           </div>

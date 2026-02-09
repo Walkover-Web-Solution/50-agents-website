@@ -42,7 +42,8 @@ body {
 
     &__h2 {
         font-size: 1.125rem !important; // text-lg
-        color: #4b5563; // gray-600
+        color: var(--text-muted);
         line-height: 1.625 !important; // leading-relaxed
     }
 }
+

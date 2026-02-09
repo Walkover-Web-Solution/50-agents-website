@@ -6,6 +6,7 @@ import EastIcon from '@mui/icons-material/East';
 import Image from 'next/image';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
 const Header = () => {
   const router = useRouter();
@@ -39,7 +40,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 bg-white backdrop-blur-xl border-b border-light z-50 transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 bg-[var(--background)] backdrop-blur-xl border-b border-light z-50 transition-all duration-300">
         <div className="container">
           <div className="flex items-center justify-between h-16 py-2 lg:px-8">
             {/* Logo/Brand */}
@@ -74,6 +75,7 @@ const Header = () => {
               })}
             </nav>
             <div className="flex items-center space-x-4">
+              <ThemeSwitcher />
               <button
                 onClick={() => window.open("https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio?hl=en-GB&utm_source=meeting-configure", "_blank")}
                 className="btn btn-outline !hidden lg:!flex">
@@ -106,7 +108,7 @@ const Header = () => {
       </header>
       <div className="lg:hidden">
         {isMenuOpen && (
-          <div className="fixed top-0 w-full h-screen right-0 z-50 bg-white">
+          <div className="fixed top-0 w-full h-screen right-0 z-50 bg-[var(--background)]">
             <div className="flex items-center justify-end p-4">
               <button className="p-2 cursor-pointer" onClick={() => setIsMenuOpen(false)}>
                 <CloseIcon />
@@ -117,11 +119,14 @@ const Header = () => {
                 <button
                   key={item.path}
                   onClick={() => handleNavClick(item.path)}
-                  className="p-4 rounded-lg hover:bg-gray-100 cursor-pointer"
+                  className="p-4 rounded-lg hover:bg-[var(--background-hover)] cursor-pointer"
                 >
                   {item.label}
                 </button>
               ))}
+              <div className="flex items-center justify-center mt-4 mb-4">
+                <ThemeSwitcher />
+              </div>
               <button
                 onClick={() => window.open("https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio?hl=en-GB&utm_source=meeting-configure", "_blank")}
                 className="btn btn-outline w-full mt-4">

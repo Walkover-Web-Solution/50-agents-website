@@ -47,8 +47,8 @@ export default function Pagination({
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage <= 1}
           className={`px-4 py-2 rounded-lg transition-colors ${currentPage > 1
-              ? 'hover:!bg-gray-100 text-black border border-dark cursor-pointer'
-              : 'text-gray-light bg-gray-100 cursor-not-allowed'
+              ? 'hover:bg-[var(--background-hover)] text-black border border-dark cursor-pointer'
+              : 'text-gray-light hover:bg-[var(--background-hover)] cursor-not-allowed'
             }`}
         >
           Previous
@@ -79,7 +79,7 @@ export default function Pagination({
               disabled={currentPage === pageNum}
               className={`px-4 py-2 rounded-lg border border-dark transition-colors ${currentPage === pageNum
                   ? 'bg-primary text-white'
-                  : 'hover:!bg-gray-100 text-gray-dark cursor-pointer'
+                  : 'hover:bg-[var(--background-hover)] text-gray-dark cursor-pointer'
                 }`}
             >
               {pageNum}
@@ -92,8 +92,8 @@ export default function Pagination({
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={hasNextPage === false || currentPage >= totalPages}
           className={`px-4 py-2 rounded-lg transition-colors ${(hasNextPage !== false && currentPage < totalPages)
-              ? 'hover:!bg-gray-100 text-black border border-dark cursor-pointer'
-              : 'text-gray-light bg-gray-100 cursor-not-allowed'
+              ? 'hover:bg-[var(--background-hover)] text-black border border-dark cursor-pointer'
+              : 'text-gray-light hover:bg-[var(--background-hover)] cursor-not-allowed'
             }`}
         >
           Next

@@ -45,8 +45,8 @@ const SecuritySection = ({ heading, description }: { heading: string; descriptio
             <div className="p-6 md:p-12 bg-[#14486f] cont gap-8">
                 <div className="flex lg:flex-row flex-col justify-between gap-4 mr-2 items-center mb-8">
                     <div className="gap-1">
-                        <h2 className="h2 text-white">{heading}</h2>
-                        <h3 className="sub__h1 text-white">
+                        <h2 className="h2 !text-white">{heading}</h2>
+                        <h3 className="sub__h1 !text-white">
                             {description}
                         </h3>
                     </div>
@@ -58,8 +58,8 @@ const SecuritySection = ({ heading, description }: { heading: string; descriptio
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border border-white border-t-0 border-r-0">
                     {securityGridData.map((item, index) => (
                         <div key={index} className="cont gap-1 py-12 px-8 border border-white border-b-0 border-l-0">
-                            <h4 className="h3 text-white">{item.title}</h4>
-                            <p className="sub__h2 text-white">{item.description}</p>
+                            <h4 className="h3 !text-white">{item.title}</h4>
+                            <p className="sub__h2 !text-white">{item.description}</p>
                         </div>
                     ))}
                 </div>

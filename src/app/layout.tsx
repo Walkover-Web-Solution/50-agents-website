@@ -80,7 +80,30 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head></head>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const stored = localStorage.getItem('app-theme-preference');
+                  const theme = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'light';
+                  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  const resolved = theme === 'system' ? systemTheme : theme;
+                  
+                  if (resolved === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.style.colorScheme = 'dark';
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.style.colorScheme = 'light';
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body style={{ height: '100vh' }}>
         <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
         <ClientLayout>{children}</ClientLayout>

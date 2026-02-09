@@ -49,7 +49,7 @@ const CategoryFilter = ({ initialCategory, categories }: CategoryFilterProps) =>
                         className={`cursor-pointer transition-all duration-300 px-4 py-2 ${
                             selectedCategory === '' 
                                 ? 'border-l-4 border-[var(--primary-color)]' 
-                                : 'bg-transparent hover:bg-gray-100 border-gray-300 hover:border-dark'
+                                : 'bg-transparent hover:bg-[var(--background-hover)] border-gray-300 hover:border-dark'
                         }`}
                     >
                         <span className="text-base font-medium">All Categories</span>
@@ -61,7 +61,7 @@ const CategoryFilter = ({ initialCategory, categories }: CategoryFilterProps) =>
                             className={`cursor-pointer transition-all duration-300 px-4 py-2 flex justify-between items-center ${
                                 selectedCategory === category.name 
                                     ? 'border-l-4 border-[var(--primary-color)]' 
-                                    : 'bg-transparent hover:bg-gray-100 border-gray-300 hover:border-dark'
+                                    : 'bg-transparent hover:bg-[var(--background-hover)] border-gray-300 hover:border-dark'
                             }`}
                         >
                             <span className="text-base font-medium">{category.name}</span>

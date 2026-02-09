@@ -15,29 +15,48 @@ body {
 }
 
 /* Utilities: Text */
-.text-black {
-  color: var(--text-black) !important;
-}
+@layer utilities {
+  .text-black {
+    color: var(--text-black) !important;
+  }
 
-.text-gray-light {
-  color: var(--text-gray-500) !important;
-}
+  .text-gray-light {
+    color: var(--text-gray-500) !important;
+  }
 
-.text-gray-dark {
-  color: var(--text-gray-600) !important;
-}
+  .text-gray-dark {
+    color: var(--text-gray-600) !important;
+  }
 
-.text-white {
-  color: var(--text-white) !important;
-}
+  .text-white {
+    color: var(--text-white) !important;
+  }
 
-/* Utilities: Background */
-.bg-gray-light {
-  background-color: var(--background-gray-light) !important;
-}
+  /* Utilities: Background */
+  .bg-gray-light {
+    background-color: var(--background-gray-light) !important;
+  }
 
-.bg-base {
-  background-color: var(--background-gray-base) !important;
+  .bg-base {
+    background-color: var(--background-gray-base) !important;
+  }
+
+  /* Group Hover Utilities  for @templateGrid file need help box */
+  .group:hover .group-hover\:hover-text-blue {
+    color: #1d4ed8 !important;
+  }
+
+  .dark .group:hover .group-hover\:hover-text-blue {
+    color: #60a5fa !important;
+  }
+
+  .group:hover .group-hover\:hover-text-dark {
+    color: #111827 !important;
+  }
+
+  .dark .group:hover .group-hover\:hover-text-dark {
+    color: #f3f4f6 !important;
+  }
 }
 
 .shadow-small {
@@ -134,8 +153,8 @@ body {
 
 :root {
   --radius: 0.625rem;
-  /* --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0); */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -165,6 +184,40 @@ body {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.09 0 0);
+  --foreground: oklch(0.93 0 0);
+  --card: oklch(0.09 0 0);
+  --card-foreground: oklch(0.93 0 0);
+  --popover: oklch(0.09 0 0);
+  --popover-foreground: oklch(0.93 0 0);
+  --primary: oklch(0.93 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.18 0 0);
+  --secondary-foreground: oklch(0.93 0 0);
+  --muted: oklch(0.18 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.18 0 0);
+  --accent-foreground: oklch(0.93 0 0);
+  --destructive: oklch(0.62 0.257 29.234);
+  --border: oklch(0.18 0 0);
+  --input: oklch(0.18 0 0);
+  --ring: oklch(0.35 0 0);
+  --chart-1: oklch(0.75 0.19 70.67);
+  --chart-2: oklch(0.72 0.15 196.42);
+  --chart-3: oklch(0.55 0.15 237.69);
+  --chart-4: oklch(0.85 0.16 93.66);
+  --chart-5: oklch(0.82 0.14 75.49);
+  --sidebar: oklch(0.09 0 0);
+  --sidebar-foreground: oklch(0.93 0 0);
+  --sidebar-primary: oklch(0.93 0 0);
+  --sidebar-primary-foreground: oklch(0.09 0 0);
+  --sidebar-accent: oklch(0.18 0 0);
+  --sidebar-accent-foreground: oklch(0.93 0 0);
+  --sidebar-border: oklch(0.18 0 0);
+  --sidebar-ring: oklch(0.35 0 0);
 }
 
 /* Gradient text animation class */

@@ -95,7 +95,7 @@ const HeroSection = ({ promptData }: { promptData: Array<{ button_label: string;
                                         <TypingAnimation>What AI agent should I build for you today?</TypingAnimation>
                                     </div>
                                 )}
-                                <div className={`absolute bottom-0 right-0 h-8 w-8 flex items-center justify-center m-4 rounded-full ${textareaValue.trim() ? 'bg-primary text-white cursor-pointer' : 'text-gray-light bg-gray-100 cursor-not-allowed'} hover:scale-110 transition-all duration-300`} onClick={handleSendPrompt}><EastIcon fontSize="small" /></div>
+                                <div className={`absolute bottom-0 right-0 h-8 w-8 flex items-center justify-center m-4 rounded-full ${textareaValue.trim() ? 'bg-primary text-white cursor-pointer' : 'text-gray-light hover:bg-[var(--background-hover)] cursor-not-allowed'} hover:scale-110 transition-all duration-300`} onClick={handleSendPrompt}><EastIcon fontSize="small" /></div>
                             </div>
                             <div
                                 className={`px-2 w-fit cursor-pointer ${textareaValue.trim() ? 'block' : 'hidden'} text-gray-light hover:!text-black`}
