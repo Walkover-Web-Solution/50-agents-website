@@ -98,7 +98,7 @@ const HeroSection = ({ promptData }: { promptData: Array<{ button_label: string;
                                 <div className={`absolute bottom-0 right-0 h-8 w-8 flex items-center justify-center m-4 rounded-full ${textareaValue.trim() ? 'bg-primary text-white cursor-pointer' : 'text-gray-light hover:bg-[var(--background-hover)] cursor-not-allowed'} hover:scale-110 transition-all duration-300`} onClick={handleSendPrompt}><EastIcon fontSize="small" /></div>
                             </div>
                             <div
-                                className={`px-2 w-fit cursor-pointer ${textareaValue.trim() ? 'block' : 'hidden'} text-gray-light hover:!text-black`}
+                                className={`px-2 w-fit cursor-pointer ${textareaValue.trim() ? 'block' : 'hidden'} text-gray-light hover:text-black`}
                                 onClick={clearTextArea}
                             >
                                 clear
@@ -108,7 +108,7 @@ const HeroSection = ({ promptData }: { promptData: Array<{ button_label: string;
                             {promptData?.slice(0, getButtonLimit()).map((item, index) => (
                                 <button
                                     key={index}
-                                    className="btn btn-outline border-dark text-sm !rounded-full bg-gray-light hover:!text-black"
+                                    className="btn btn-outline border-dark text-sm !rounded-full bg-gray-light hover:text-black"
                                     onClick={() => fillTextArea(item.prompt)}
                                 >
                                     {item.button_label}

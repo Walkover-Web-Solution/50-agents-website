@@ -222,14 +222,16 @@ async function ServicesPage({ searchParams }: PageProps) {
       <div className="flex-1 pt-16">
         <div className="container mx-auto  pb-8 text-black">
           {/* Page Header */}
-          <div className="border border-dark px-4 mb-16 h-[300px] flex items-center mx-auto justify-center bg-[url('/assets/img/cross-lines-bg.svg')] bg-cover">
-            <div className="text-center bg-white w-fit mx-auto p-4  border-dark border-2">
+          <div className="border border-dark px-4 mb-16 h-[300px] flex items-center mx-auto justify-center bg-cover" style={{
+            backgroundImage: 'var(--bg-cross-lines)'
+          }}>
+            <div className="text-center bg-background w-fit mx-auto p-4 border-dark border-2">
               {selectedCategory ? (
-                <h1 className="h1 !text-[#40434a]">
+                <h1 className="h1">
                   AI agents for {currCatAppsCount} {selectedCategory} apps
                 </h1>
               ) : (
-                <h1 className="h1 !text-[#40434a]">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
+                <h1 className="h1">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
               )}
             </div>
           </div>

@@ -45,6 +45,10 @@ body {
     background-color: var(--background) !important;
   }
 
+  .hover\:text-black:hover {
+    color: var(--text-black) !important;
+  }
+
   /* Group Hover Utilities  for @templateGrid file need help box */
   .group:hover .group-hover\:hover-text-blue {
     color: #1d4ed8 !important;

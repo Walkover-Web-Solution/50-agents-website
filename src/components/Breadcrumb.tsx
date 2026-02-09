@@ -19,7 +19,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, className = '' }) => {
     <nav className={`flex items-center space-x-2 text-sm ${className}`} aria-label="Breadcrumb">
       <Link
         href="/"
-        className="flex items-center text-gray-light hover:!text-black transition-colors duration-200"
+        className="flex items-center text-gray-light hover:text-black transition-colors duration-200"
         aria-label="Home"
       >
         <Home className="w-4 h-4" />
@@ -29,7 +29,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, className = '' }) => {
         <React.Fragment key={index}>
           <ChevronRight className="w-4 h-4 text-gray-light" />
           {item.href && index < items.length - 1 ? (
-            <Link href={item.href} className="text-gray-light hover:!text-black transition-colors duration-200">
+            <Link href={item.href} className="text-gray-light hover:text-black transition-colors duration-200">
               {item.label}
             </Link>
           ) : (

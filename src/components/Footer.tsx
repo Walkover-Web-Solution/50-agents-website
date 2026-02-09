@@ -26,7 +26,7 @@ const Footer = () => {
               href="https://50agents.com/help/meeting-agent"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-dark text-sm hover:!text-black hover:underline transition-colors duration-200"
+              className="text-gray-dark text-sm hover:text-black hover:underline transition-colors duration-200"
             >
               FAQs
             </a>
@@ -34,7 +34,7 @@ const Footer = () => {
               href="https://50agents.com/help/privacy-policy"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-dark text-sm hover:!text-black hover:underline transition-colors duration-200"
+              className="text-gray-dark text-sm hover:text-black hover:underline transition-colors duration-200"
             >
               Privacy Policy
             </a>
