@@ -46,3 +46,14 @@ body {
         line-height: 1.625 !important; // leading-relaxed
     }
 }
+
+.text-gradient {
+  background: linear-gradient(180deg, #ffd319 0%, #ff2975 50%, #8c1eff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient{
+  background: linear-gradient(to right, var(--text-white), #8C1EFF, #FF2975, var(--text-white));
+}
