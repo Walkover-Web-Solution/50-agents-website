@@ -5,7 +5,7 @@ import Image from 'next/image';
 const StopTakingNotes = () => {
     return (
         <div className="container">
-            <div className="p-6 md:p-12 border border-dark border-t-0 border-b-0 flex gap-12 justify-center md:flex-row flex-col">
+            <div className="p-6 md:p-12 border border-dark border-t-0 border-b-0 flex gap-12 justify-center md:flex-row flex-col items-center">
                 <div className="content-wrapper w-full md:w-[60%]">
                     <h2 className="h2">Stop taking notes. Start having better meetings.</h2>
                     <p className="sub__h2">Every meeting is recorded and turned into clean, readable notes the moment it ends. You don’t need to write anything during the call or rewatch recordings later.</p>
