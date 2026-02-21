@@ -28,7 +28,7 @@ function TemplateGrid() {
 
   const handleTemplateClick = (template: any) => {
     if (!isLoggedIn) {
-      router.push(`${process.env.NEXT_PUBLIC_INTERNAL_URL}/template?templateId=${template._id}`);
+      window.location.href = `${process.env.NEXT_PUBLIC_INTERNAL_URL}/login?pendingTemplateId=${template._id}`;
       return;
     }
 

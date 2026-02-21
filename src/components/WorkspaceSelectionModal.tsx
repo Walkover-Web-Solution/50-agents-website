@@ -1,29 +1,27 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useCreateNewOrgMutation, useGetProxyUserQuery } from '@/store/apis/orgs';
+import { useSwitchOrgMutation } from '@/store/apis/user';
 import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  Typography,
+  Alert,
+  Avatar,
   Box,
+  Button,
   Card,
   CardContent,
+  CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  FormControlLabel,
   Radio,
   RadioGroup,
-  FormControlLabel,
-  TextField,
-  Divider,
-  CircularProgress,
-  Avatar,
-  Alert,
+  Typography
 } from '@mui/material';
-import { Building2, Plus, ArrowRight } from 'lucide-react';
-import { useGetProxyUserQuery, useCreateNewOrgMutation } from '@/store/apis/orgs';
-import { useSwitchOrgMutation } from '@/store/apis/user';
+import { ArrowRight, Building2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 
 interface WorkspaceSelectionModalProps {
   open: boolean;
@@ -93,8 +91,8 @@ const WorkspaceSelectionModal: React.FC<WorkspaceSelectionModalProps> = ({
         const newOrgId = data?.id;
 
         if (newOrgId) {
-          // Navigate to the new org's template page with template ID
-          router.push(`/org/${newOrgId}/templates?templateId=${templateId}`);
+          // Navigate to the new org's template page on the UI app
+          window.location.href = `${process.env.NEXT_PUBLIC_INTERNAL_URL}/org/${newOrgId}/templates?templateId=${templateId}`;
           handleClose();
         } else {
           setError('Failed to create workspace');
@@ -111,8 +109,8 @@ const WorkspaceSelectionModal: React.FC<WorkspaceSelectionModalProps> = ({
           await switchOrg({ id: selectedOrgId }).unwrap();
         }
 
-        // Navigate to templates page with template ID
-        router.push(`/org/${selectedOrgId}/templates?templateId=${templateId}`);
+        // Navigate to templates page on the UI app
+        window.location.href = `${process.env.NEXT_PUBLIC_INTERNAL_URL}/org/${selectedOrgId}/templates?templateId=${templateId}`;
         handleClose();
       }
     } catch (err: any) {
