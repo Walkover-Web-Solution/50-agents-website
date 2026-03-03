@@ -22,12 +22,8 @@ const APPS = [
         alt: 'gmail icon',
         IconName: 'Gmail',
     },
-    // {
-    //     src: 'https://stuff.thingsofbrand.com/google.com/images/img4_googlesheet.png',
-    //     alt: 'google sheet icon',
-    // },
     {
-        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Google_Sheets_2020_Logo.svg/1489px-Google_Sheets_2020_Logo.svg.png',
+        src: 'https://stuff.thingsofbrand.com/google.com/images/img4_googlesheet.png',
         alt: 'google sheet icon',
         IconName: 'Google Sheets',
     },
