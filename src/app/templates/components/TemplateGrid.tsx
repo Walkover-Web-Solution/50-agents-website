@@ -111,42 +111,8 @@ function TemplateGrid() {
   return (
     <div className="min-h-screen">
       <div className="container py-12 md:py-20">
-        <div className="text-center mb-16 md:mb-12 relative">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-2">
-            <h1 className="h1">Agent Templates</h1>
-
-            {/* Need Help Section */}
-            <div className="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
-              <a
-                href="https://cal.id/pushpendra"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block bg-base backdrop-blur-sm border border-dark rounded-2xl px-5 py-3 hover:bg-gray-800/80 transition-all duration-300 hover:scale-105 cursor-pointer group min-w-[200px]"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                      />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-sm font-semibold text-black group-hover:!text-blue-700 transition-colors">
-                      Need help?
-                    </p>
-                    <p className="text-xs text-gray-dark group-hover:!text-gray-900 transition-colors">
-                      Talk to specialist
-                    </p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
+        <div className="text-center mb-16 md:mb-12">
+          <h1 className="h1 mb-2">Agent Templates</h1>
           <p className="sub__h1 mb-6">Discover and deploy powerful AI agents to supercharge your productivity</p>
 
           <div className="flex flex-wrap justify-center gap-3">

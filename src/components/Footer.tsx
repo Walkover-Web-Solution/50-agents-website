@@ -1,5 +1,7 @@
 'use client';
 
+import { Calendar } from 'lucide-react';
+
 const Footer = () => {
   return (
     <footer className="border-t border-dark py-8 mt-auto">
@@ -21,22 +23,34 @@ const Footer = () => {
           </div>
 
           {/* Links */}
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex space-x-6">
+              <a
+                href="https://50agents.com/help/meeting-agent"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-dark text-sm hover:!text-black hover:underline transition-colors duration-200"
+              >
+                FAQs
+              </a>
+              <a
+                href="https://50agents.com/help/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-dark text-sm hover:!text-black hover:underline transition-colors duration-200"
+              >
+                Privacy Policy
+              </a>
+            </div>
             <a
-              href="https://50agents.com/help/meeting-agent"
+              href="https://cal.id/pushpendra"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-dark text-sm hover:!text-black hover:underline transition-colors duration-200"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold px-4 py-1.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-md"
+            // style={{ background: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)' }}
             >
-              FAQs
-            </a>
-            <a
-              href="https://50agents.com/help/privacy-policy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-dark text-sm hover:!text-black hover:underline transition-colors duration-200"
-            >
-              Privacy Policy
+              <Calendar size={14} />
+              Talk to Us
             </a>
           </div>
         </div>

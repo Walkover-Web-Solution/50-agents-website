@@ -1,5 +1,6 @@
 'use client';
 
+import TalkToUs from '@/components/TalkToUs';
 import { store } from '@/store/store';
 import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
@@ -23,6 +24,7 @@ function ClientLayout({ children }: ClientLayoutProps) {
   return (
     <Provider store={store}>
       <Box component="main" className="flex h-screen w-full">{children}</Box>
+      <TalkToUs />
     </Provider>
   );
 }
