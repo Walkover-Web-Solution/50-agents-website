@@ -14,7 +14,7 @@
   try{v=localStorage.getItem(k)}catch(e){}
   if(!F[v]){v=['orbit','stage','strip'][Math.floor(Math.random()*3)];try{localStorage.setItem(k,v)}catch(e){}}
   if(F[q])v=q;
-  window.VARIANT=v;window.HERO_FILE=H[v];window.JOIN_URL='https://50agents.embarko.app/join';document.documentElement.setAttribute('data-v',v);
+  window.VARIANT=v;window.HERO_FILE=H[v];window.JOIN_URL='/login';document.documentElement.setAttribute('data-v',v);
   var l=document.createElement('link');l.rel='stylesheet';l.href=F[v];document.head.appendChild(l);})();
 </script>
 <link rel="stylesheet" href="site.css?v=80">
@@ -25,11 +25,11 @@
 </style>
 </head>
 <body>
-<header class="site-head" id="sitehead"><div class="wrap"><a class="logo" href="/" data-logo aria-label="50agents, from viaSocket"></a><a class="cta" href="/join">Join early access</a></div></header>
+<header class="site-head" id="sitehead"><div class="wrap"><a class="logo" href="/" data-logo aria-label="50agents, from viaSocket"></a><a class="cta" href="/join">Get started</a></div></header>
 <iframe class="hero-frame" title="50agents"></iframe>
 <script>document.querySelector('.hero-frame').src='hero/'+window.HERO_FILE;</script>
 <div id="sections"></div>
 <script src="hero/crew.js?v=8"></script>
-<script src="site.js?v=66"></script>
+<script src="site.js?v=67"></script>
 </body>
 </html>
