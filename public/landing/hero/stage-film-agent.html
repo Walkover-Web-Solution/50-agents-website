@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>50agents: video 3, an AI agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>if(location.search.includes('bare'))document.documentElement.classList.add('bare');</script>
+<style>
+/* Video 3 of the reel overhaul (reel-plan.md): an AI agent doing a one-off task from the chat. The underlying process is one
+   agent that looks things up, decides, asks you once, and writes: Closer (AI agent). Its interface is a chat beside a task
+   sheet that fills as it works, both inside 50agents. Outside: Xero (to check who owes money) and WhatsApp (where the notes
+   go and a reply comes back). Feels different from videos 1 and 2: a conversation, with the agent thinking out loud in tool
+   steps, a question only you can answer, and a one-off that you turn into a monthly job with one click. */
+:root{--page:#FFFFFF;--ink:#141518;--mute:#5E6068;--faint:#6A6D76;--line:#E3E4E8;--soft:#F5F5F6;--ok:#1F5C40;--okbg:#E8F2EC;
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;--ui:'Schibsted Grotesk',system-ui,sans-serif;--cl:#F0559A;--cl2:#FDECF4;--bad:#A3341F;--badbg:#FBEAE6}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font:16px/1.45 var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+p,h4,h5,h6{margin:0}
+.top{position:sticky;top:0;z-index:20;pointer-events:none}
+.top>nav>*{pointer-events:auto}
+nav{display:flex;align-items:center;gap:32px;max-width:1304px;margin:0 auto;padding:16px 32px;transition:max-width .45s ease,padding .45s ease}
+.top.sc nav{max-width:100%;padding:14px 20px}
+.wm{font-size:30px;display:flex;align-items:center;border-radius:14px;transition:background .3s,box-shadow .3s,padding .3s,margin .3s}
+.top.sc .wm{background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(20,21,24,.08);padding:6px 12px;margin:-6px -12px}
+nav .jb{margin-left:auto;background:var(--ink);color:#fff;font:600 14.5px var(--ui);padding:10px 16px;border-radius:9px;text-decoration:none}
+.hero{max-width:1304px;margin:0 auto;padding:36px 32px 0;display:grid;grid-template-columns:1fr 520px;gap:40px;align-items:end;font-family:var(--disp)}
+h1{font-weight:600;font-size:clamp(46px,6.2vw,88px);line-height:.96;letter-spacing:-.045em;margin:0;font-variation-settings:'opsz' 96}
+.aside{padding-bottom:8px}
+.sub{font-size:19px;line-height:1.45;color:var(--mute);margin-bottom:20px}
+.sub b{color:var(--ink);font-weight:600;white-space:nowrap}
+.cta{display:inline-block;background:var(--ink);color:#fff;font-weight:600;font-size:15.5px;padding:14px 24px;border-radius:10px;text-decoration:none}
+
+/* the stage: a soft lilac, for a conversation */
+.stagebox{max-width:1304px;margin:56px auto 64px;padding:0 32px}
+.stage{position:relative;height:560px;border-radius:28px;overflow:hidden;background:#EFEBF4;
+  background-image:radial-gradient(rgba(70,40,90,.09) 1px,transparent 1.3px);background-size:24px 24px}
+.stage::after{content:'';position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(20,21,24,.11);pointer-events:none;z-index:40}
+.world{position:absolute;left:0;top:0;width:1480px;height:720px;transform-origin:0 0;transition:transform 1.2s cubic-bezier(.65,0,.3,1),opacity .4s}
+.world.dim{opacity:.3}
+.world.nt,.world.nt *{transition:none!important}
+.hide{display:none!important}
+.pop{animation:pop .45s cubic-bezier(.2,.9,.3,1.15) both}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
+.sp{width:13px;height:13px;border-radius:50%;border:2px solid #D5D8DE;border-top-color:var(--ink);animation:spin .8s linear infinite;display:inline-block;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.caret::after{content:'';display:inline-block;width:2px;height:1.05em;background:currentColor;vertical-align:-.15em;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cur{position:absolute;left:0;top:0;z-index:30;line-height:0;transition:transform .9s cubic-bezier(.45,0,.25,1),opacity .25s;pointer-events:none}
+.cur .ptr{display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.clk{position:absolute;z-index:29;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:rgba(20,21,24,.12);opacity:0;pointer-events:none}
+.clk.go{animation:clk .5s ease-out}
+@keyframes clk{0%{opacity:1;transform:scale(.3)}100%{opacity:0;transform:scale(1.4)}}
+
+/* 50agents: the framed surface with its mark */
+.fr{position:absolute;left:24px;top:24px;width:900px;height:672px;background:#fff;border-radius:22px;box-shadow:0 0 0 1px rgba(20,21,24,.08),0 34px 80px rgba(20,21,24,.13);display:grid;grid-template-rows:58px minmax(0,1fr)}
+.ftop{display:flex;align-items:center;gap:14px;padding:0 16px 0 20px}
+.ftop .wmk{font-size:22px}
+.ftop .sep{width:1px;height:22px;background:var(--line)}
+.ftop .ws{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--mute)}
+.ftop .ws i{width:22px;height:22px;border-radius:6px;background:#FBF3E4;color:#8A5A12;font:700 11px/22px var(--ui);text-align:center;font-style:normal}
+.fbody{position:relative;margin:0 10px 10px;border-radius:14px;background:#F4F5F7;min-height:0}
+.ask{position:absolute;left:150px;top:180px;width:580px;transition:opacity .5s,transform .7s cubic-bezier(.65,0,.3,1)}
+.ask.gone{opacity:0;transform:translateY(-30px) scale(.94)}
+.ask .hd{display:flex;align-items:center;gap:10px;margin-bottom:12px;font:600 15px var(--disp);color:var(--mute)}
+.cmp{position:relative;background:#fff;border-radius:20px;padding:22px 70px 22px 24px;min-height:118px;font-size:20px;line-height:1.4;box-shadow:0 0 0 1px rgba(20,21,24,.06),0 24px 60px rgba(20,21,24,.12)}
+.cmp .phd{color:#9A9DA4}
+.cmp .snd{position:absolute;right:14px;bottom:14px;width:42px;height:42px;border-radius:50%;background:#D5D8DE;display:grid;place-items:center;transition:background .2s,transform .15s}
+.cmp .snd.on{background:var(--ink)}.cmp .snd.press{transform:scale(.86)}
+.card{background:#fff;border-radius:14px;box-shadow:0 0 0 1px rgba(20,21,24,.07),0 10px 30px rgba(20,21,24,.06);opacity:0;transform:scale(.97);transition:opacity .5s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.card.on{opacity:1;transform:none}
+
+/* the chat with Closer */
+.chat{position:absolute;left:0;top:0;bottom:0;width:516px;display:flex;flex-direction:column;overflow:hidden}
+.chh{display:flex;align-items:center;gap:10px;height:54px;padding:0 16px;border-bottom:1px solid var(--line);flex:none}
+.chh b{font:600 17px var(--disp)}
+.chh small{color:var(--faint);font-size:13px}
+.msgs{flex:1;min-height:0;padding:14px 18px 14px 62px;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;overflow:hidden}
+.m{max-width:86%;padding:9px 13px;font-size:14.5px;line-height:1.42;border-radius:14px}
+.m.me{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:4px}
+.m.ai{align-self:flex-start;background:var(--soft);border-bottom-left-radius:4px}
+.m.ai b{font-weight:600}
+.tool{align-self:flex-start;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mute);border:1px solid var(--line);border-radius:9px;padding:6px 10px;background:#fff}
+.tool .r{color:var(--ok);font-weight:600;display:flex;align-items:center;gap:4px}
+.oi{width:18px;height:18px;border-radius:5px;background:#1D2A44;display:grid;place-items:center}
+.bts{display:flex;gap:8px;margin-top:9px}
+.bts span{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 13px;font-weight:600;font-size:13.5px;transition:transform .15s}
+.bts .y{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bts .press{transform:scale(.9)}
+.draft{align-self:flex-start;max-width:86%;border:1.5px dashed #D9C3CF;border-radius:12px;padding:9px 13px;font-size:14px;background:#fff}
+.draft small{display:block;font-size:12px;color:var(--faint);margin-bottom:3px}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:11px 13px;background:var(--soft);border-radius:14px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#9A9DA4;animation:bob 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bob{50%{opacity:.3}}
+.cin{position:relative;flex:none;margin:0 14px 14px;border:1px solid var(--line);border-radius:12px;padding:11px 50px 11px 13px;font-size:14.5px;min-height:44px}
+.cin .phd{color:#9A9DA4}
+.cin .snd{position:absolute;right:7px;bottom:7px;width:30px;height:30px;border-radius:50%;background:#D5D8DE;display:grid;place-items:center;transition:background .2s,transform .15s}
+.cin .snd.on{background:var(--ink)}.cin .snd.press{transform:scale(.86)}
+.hi{margin:auto 0;align-self:center;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--faint);font-size:14.5px;transform:translateX(-22px)}
+.hi b{font:600 22px var(--disp);color:var(--ink)}
+
+/* the task sheet that fills as it works */
+.task{position:absolute;left:528px;right:0;top:0;bottom:0;padding:16px;display:flex;flex-direction:column;gap:10px}
+.task h4{font:600 20px var(--disp);letter-spacing:-.02em}
+.badge{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--soft);color:var(--mute);transition:background .4s,color .4s}
+.badge.mo{background:var(--cl2);color:#A8245F}
+.task .src{font-size:13px;color:var(--faint);display:flex;align-items:center;gap:6px}
+.cu{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid #EFF0F2;font-size:14px}
+.cu .av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:600 11.5px var(--ui)}
+.cu b{display:block;font-weight:600}
+.cu small{display:block;color:var(--faint);font-size:12.5px}
+.st{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.st.ok{background:var(--okbg);color:var(--ok)}
+.st.wk{background:var(--soft);color:var(--mute)}
+.st.bad{background:var(--badbg);color:var(--bad)}
+.tsum{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tsum div{background:var(--soft);border-radius:10px;padding:9px 12px}
+.tsum small{display:block;font-size:12.5px;color:var(--faint)}
+.tsum b{font:600 22px var(--disp);font-variant-numeric:tabular-nums}
+.rowin{animation:rowin .5s cubic-bezier(.2,.9,.3,1) both}
+@keyframes rowin{from{opacity:0;transform:translateY(-8px)}}
+
+/* outside 50agents: Xero and WhatsApp */
+.xo{opacity:0;transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.3,1)}
+.xo.on{opacity:1;transform:none!important}
+.win{position:absolute;left:984px;width:476px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(20,21,24,.07),0 26px 60px rgba(20,21,24,.16);transform:translateX(40px)}
+.win .wt{display:flex;align-items:center;gap:9px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.win .wt b{font-weight:600;font-size:15px}
+.win .wt span{margin-left:auto;font-size:12.5px;color:var(--faint)}
+.xw{top:40px}.xw .wt{background:#F6FAFD}
+.xr{display:grid;grid-template-columns:86px 1fr auto auto;gap:12px;align-items:center;padding:9px 14px;border-bottom:1px solid #EEF1F4;font-size:13.5px;transition:background .4s}
+.xr:last-child{border-bottom:0}
+.xr em{font-style:normal;font-variant-numeric:tabular-nums}
+.xr small{font-size:12.5px;font-weight:600}
+.xr .od{color:var(--bad)}.xr .pd{color:var(--ok)}
+.xr.scan{background:#F2F7FB}
+.xr.flag{background:var(--badbg)}
+.wa{top:300px}.wa .wt{background:#F0F2F5}
+.wc{display:grid;grid-template-columns:40px 1fr auto;gap:11px;align-items:center;padding:10px 14px;border-bottom:1px solid #EEF0F2;transition:background .4s}
+.wc:last-child{border-bottom:0}
+.wc .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:600 13px var(--ui)}
+.wc b{display:block;font-weight:600;font-size:14.5px}
+.wc .pv{display:block;color:var(--faint);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:320px}
+.wc .pv .tk{color:#1D7AC9;margin-right:4px}
+.wc .tm{font-size:12px;color:var(--faint);text-align:right}
+.wc .un{display:block;margin:4px 0 0 auto;width:20px;height:20px;border-radius:50%;background:#25D366;color:#fff;font:700 11.5px/20px var(--ui);text-align:center}
+.wc.nw{background:#F1FBF4}
+.cons{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+.cons g{opacity:0;transition:opacity .5s}
+.cons g.on{opacity:1}
+
+/* Closer, the AI agent */
+.bot{position:absolute;left:0;top:0;z-index:25;opacity:0;transition:transform 1s cubic-bezier(.55,0,.25,1),opacity .35s}
+.bot.on{opacity:1}
+.bot .bb{position:absolute;left:0;top:0;transform:translate(-50%,-50%) scale(var(--s,.8));transition:transform .5s cubic-bezier(.2,.9,.3,1.2)}
+.bot .bf{display:block;filter:drop-shadow(0 6px 10px rgba(20,21,24,.2))}
+.bot .tag{position:absolute;left:50%;top:100%;margin-top:5px;transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:#fff;font:500 12.5px var(--ui);padding:3px 9px;border-radius:7px;opacity:0;transition:opacity .3s}
+.bot .tag b{font-weight:600;margin-right:5px}
+.bot.t .tag{opacity:1}
+.bot .cy{position:absolute;left:100%;top:50%;margin-left:6px;transform:translateY(-50%);opacity:0;transition:opacity .3s;white-space:nowrap}
+.bot.c .cy{opacity:1}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border-radius:9px;padding:5px 10px;font:600 13px var(--ui);box-shadow:0 0 0 1px rgba(20,21,24,.08),0 8px 20px rgba(20,21,24,.15);white-space:nowrap}
+
+
+/* the ending: each result softly ringed where it landed */
+.ring{box-shadow:0 0 0 2.5px #2E9D62!important;transition:box-shadow .4s}
+@media (max-height:820px) and (min-width:861px){.hero{padding-top:18px}h1{font-size:clamp(46px,5.2vw,70px)}.stagebox{margin-top:40px}.stage{height:500px}}
+@media (max-width:860px){
+  nav{padding:12px 20px}.wm{font-size:26px}nav .jb{padding:9px 13px;font-size:14px}
+  .hero{grid-template-columns:1fr;gap:18px;padding:28px 20px 0}
+  h1{font-size:clamp(44px,12.4vw,64px)}.sub{font-size:17px;margin-bottom:18px}
+  .stagebox{padding:0 12px;margin-top:30px}
+  .stage{height:500px;border-radius:22px}
+  .ask{left:16px;width:380px} /* phones open on the mark and the ask together */
+}
+.bare body{background:transparent}.bare .top,.bare .hero{display:none}.bare .stagebox{margin:0;padding:0;max-width:none}.bare .stage{height:100vh}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top hero-head"><nav><span class="wm" id="wm">50agents</span><a class="jb" href="#join">Join early access</a></nav></header>
+<section class="hero">
+  <h1>Your own apps,<br>doing the work.</h1>
+  <div class="aside">
+    <p class="sub">Build apps, AI agents and automations on your tools or from scratch. They do the work across <b>2,300+ apps</b>.</p>
+    <a class="cta" href="#join">Join early access</a>
+  </div>
+</section>
+<section class="stagebox" aria-label="On 50agents, a bakery asks an AI agent which cafés have not ordered in 30 days and to send each a note with 10% off. It finds four, checks Xero, asks once about a café that owes money, sends three notes on WhatsApp, and is set to do it every month">
+  <div class="stage" id="stage"><div class="world" id="world"></div></div>
+</section>
+
+<script src="crew.js?v=7"></script>
+<script>
+Object.assign(APP,{whatsapp:'#25D366',xero:'#13B5EA'});
+logoUsed.push('closer'); // the 0 in a logo is never this film's agent
+wordmark(document.getElementById('wm'));
+const mob=()=>innerWidth<=860;
+const G=(d,c='#fff',s=16,w=1.6)=>`<svg width="${s}" height="${s}" viewBox="0 0 16 16" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+const LOAF='<path d="M2.5 11.5V8.8C2.5 6 5 4.2 8 4.2s5.5 1.8 5.5 4.6v2.7z"/><path d="M5.6 6.4l.9 1.8M8.4 5.9l.9 1.8"/>';
+const SEND='<svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>';
+const CK=s=>`<svg width="${s}" height="${s}" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>`;
+const PTR='<svg class="ptr" width="22" height="27" viewBox="0 0 18 22" aria-hidden="true"><path d="M2 1.5v16.2l4.3-4.1 2.8 6.4 2.9-1.3-2.8-6.3h6z" fill="#111214" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+const ASK="Which cafés haven't ordered in 30 days? Send each a note with 10% off.";
+// [name, initials, bg, fg, days since last order, contact first name]
+const CU=[['Little Fern','LF','#EEF3E6','#3F6B2F',34,'Ana'],['Oak & Ash','OA','#F3ECE4','#7A4A1E',41,'Theo'],['Pier 9 Kitchen','P9','#E3ECF7','#1D4E89',38,'Jo'],['Fernwood Café','FC','#F6E9EE','#8A2E52',52,'Sam']];
+const XI=[['INV-0961','Fernwood Café','$640.00',['Overdue 21 days','od']],['INV-0975','Oak & Ash','$380.00',['Paid','pd']],['INV-0970','Pier 9 Kitchen','$520.00',['Paid','pd']],['INV-0968','Little Fern','$295.00',['Paid','pd']]];
+
+function render(w){
+  w.innerHTML=`
+  <svg class="cons" width="1480" height="720" aria-hidden="true">
+    <g data-k="c1"><path d="M924 150H984" stroke="#A3A8B3" stroke-width="2" stroke-dasharray="4 5"/><circle cx="924" cy="150" r="4" fill="#A3A8B3"/><circle cx="984" cy="150" r="4" fill="#A3A8B3"/></g>
+    <g data-k="c2"><path d="M924 470H984" stroke="#A3A8B3" stroke-width="2" stroke-dasharray="4 5"/><circle cx="924" cy="470" r="4" fill="#A3A8B3"/><circle cx="984" cy="470" r="4" fill="#A3A8B3"/></g>
+  </svg>
+  <div class="win xw xo" data-k="xw"><div class="wt">${logo('xero',20)}<b>Invoices</b><span>Brightside bakeries</span></div>
+    ${XI.map((x,i)=>`<div class="xr" data-k="x${i}"><b>${x[0]}</b><span>${x[1]}</span><em>${x[2]}</em><small class="${x[3][1]}">${x[3][0]}</small></div>`).join('')}</div>
+  <div class="win wa xo" data-k="wa"><div class="wt">${logo('whatsapp',20)}<b>WhatsApp</b><span>Brightside bakeries</span></div>
+    ${CU.slice(0,3).map((c,i)=>`<div class="wc" data-k="w${i}"><span class="av" style="background:${c[2]};color:${c[3]}">${c[1]}</span><span><b>${c[0]}</b><span class="pv" data-k="wp${i}">${['Thanks, see you Friday!','Perfect, cheers','Got it 👍'][i]}</span></span><span class="tm" data-k="wt${i}">${['3 Oct','27 Sep','30 Sep'][i]}</span></div>`).join('')}
+    <div class="wc"><span class="av" style="background:#ECEEF1;color:#5E6068">NH</span><span><b>Northwind Hotel</b><span class="pv">Invoice received, thanks</span></span><span class="tm">Yesterday</span></div>
+    <div class="wc"><span class="av" style="background:#ECEEF1;color:#5E6068">FD</span><span><b>Fieldnote Deli</b><span class="pv">Can we add rye this week?</span></span><span class="tm">Mon</span></div></div>
+  <div class="fr" data-k="fr">
+    <div class="ftop" data-k="ftop"><span class="wmk" data-k="wmk">50agents</span><span class="sep"></span><span class="ws"><i>B</i>Brightside bakeries</span></div>
+    <div class="fbody" data-k="fbody">
+            <div class="chat card on" data-k="chat"><div class="chh">${face('closer',26)}<b>Closer</b><small>AI agent</small></div>
+        <div class="msgs" data-k="msgs"><div class="hi" data-k="hi">${face('closer',56)}<b>Closer</b>An AI agent. Ask it to look into something, or to get it done.</div></div><div class="cin" data-k="cin"><span class="phd" data-k="phd">Ask Closer</span><span data-k="tx"></span><span class="snd" data-k="snd"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></span></div></div>
+      <div class="task card" data-k="task"><span class="badge" data-k="bdg">One-off task</span><h4>Win back quiet cafés</h4>
+        <span class="src"><span class="oi">${G(LOAF,'#fff',12,1.8)}</span>From the Order desk: no order in 30 days</span>
+        <div data-k="cus"></div>
+        <div class="tsum"><div><small>Notes sent</small><b data-k="ns">0</b></div><div><small>Replies</small><b data-k="nr">0</b></div></div></div>
+    </div>
+  </div>
+  <div class="bot" data-b="closer"><div class="bb"><span class="bf">${face('closer',40)}</span><span class="tag"><b>Closer</b>AI agent</span><span class="cy"></span></div></div>
+  <span class="clk" data-k="clk"></span><span class="cur hide" data-k="cur">${PTR}</span>`;
+  wordmark(w.querySelector('[data-k="wmk"]'),{byline:false});
+}
+
+/* ---------- the camera ---------- */
+const stage=document.getElementById('stage'),world=document.getElementById('world');
+function wrect(e){let x=0,y=0,n=e;while(n&&n!==world){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent;}return [x,y,x+e.offsetWidth,y+e.offsetHeight];}
+function shot(els,pad=.88,cap=1.6){
+  const rs=els.map(e=>Array.isArray(e)?e:wrect(e)),x=Math.min(...rs.map(r=>r[0])),y=Math.min(...rs.map(r=>r[1])),r=Math.max(...rs.map(r=>r[2])),b=Math.max(...rs.map(r=>r[3]));
+  const SW=stage.clientWidth,SH=stage.clientHeight,s=Math.min(SW/(r-x),SH/(b-y),cap/pad)*pad;
+  world.style.transform=`translate(${SW/2-(x+(r-x)/2)*s}px,${SH/2-(y+(b-y)/2)*s}px) scale(${s})`;
+}
+const WIDE=[[0,10,1480,706]];
+
+/* ---------- the film ---------- */
+let token=0;const STOP={};
+// shortcut: ?dbg runs fast and can freeze on a frame (window.__stopAt), for checking frames in a hidden test browser; visitors never hit it
+const DBG=location.search.includes('dbg');
+const tick=()=>new Promise(r=>{const ch=new MessageChannel();ch.port1.onmessage=()=>r();ch.port2.postMessage(0);});
+async function film(instant){
+  const my=token,W=ms=>instant?Promise.resolve():DBG?(async()=>{await tick();window.__n=(window.__n||0)+1;if(window.__stopAt&&window.__stopAt())await new Promise(()=>{});if(my!==token)throw STOP;})():new Promise((res,rej)=>setTimeout(()=>my===token?res():rej(STOP),reduced?0:ms));
+  render(world);const k=n=>world.querySelector(`[data-k="${n}"]`),m=mob(),cl=world.querySelector('[data-b="closer"]');
+  const S=(d,mo,pad=.9,cap=1.4)=>shot(m?mo:d,pad,cap);
+  const pt=(el,fx=.5,fy=.5)=>{const r=Array.isArray(el)?el:wrect(el);return [r[0]+(r[2]-r[0])*fx,r[1]+(r[3]-r[1])*fy];};
+  const go=(el,fx,fy,s)=>{const [x,y]=pt(el,fx,fy);cl.style.transform=`translate(${x}px,${y}px)`;if(s)cl.style.setProperty('--s',s);cl._p=[x,y];};
+  const eye=el=>{if(!cl._p)return;const [tx,ty]=pt(el),dx=tx-cl._p[0],dy=ty-cl._p[1],d=Math.hypot(dx,dy)||1;cl.querySelector('.ey').style.translate=`${(dx/d*2.6).toFixed(2)}px ${(dy/d*2.4).toFixed(2)}px`;};
+  const carry=html=>{cl.querySelector('.cy').innerHTML=html||'';cl.classList.toggle('c',!!html);};
+  const pop=e=>{if(!instant){e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop');}return e;};
+  const cur=k('cur'),clk=k('clk'),msgs=k('msgs');
+  const to=(el,fx=.5,fy=.5)=>{const [x,y]=pt(el,fx,fy);cur.classList.remove('hide');cur.style.transform=`translate(${x}px,${y}px)`;return [x,y];};
+  const click=([x,y])=>{clk.style.left=x+'px';clk.style.top=y+'px';clk.classList.remove('go');void clk.offsetWidth;clk.classList.add('go');};
+  const say=html=>{msgs.insertAdjacentHTML('beforeend',html);return pop(msgs.lastElementChild);};
+  const beside=el=>{go(el,0,0,1);const x=wrect(msgs)[0]+30,y=pt(el,0,0)[1]+18;cl.style.transform=`translate(${x}px,${y}px)`;cl._p=[x,y];eye(el);}; // Closer sits in the chat's gutter, by what it is saying
+  const think=async ms=>{const t=say('<div class="typing"><i></i><i></i><i></i></div>');beside(t);await W(ms);t.remove();};
+  const custRow=(c,i)=>`<div class="cu rowin" data-k="cu${i}"><span class="av" style="background:${c[2]};color:${c[3]}">${c[1]}</span><span><b>${c[0]}</b><small>Last order ${c[4]} days ago</small></span><span data-k="cs${i}"><span class="st wk">To send</span></span></div>`;
+  const CHAT=()=>m?[k('chat')]:[k('chat'),k('task')];
+
+  // the first frame: the chat with Closer, the ask already written
+  world.classList.add('nt');S([k('fr')],[k('chat')],.94,1.2);k('phd').remove();k('tx').textContent=ASK;k('snd').classList.add('on');cur.style.transform='translate(700px,620px)';void world.offsetWidth;world.classList.remove('nt');
+
+  // 1. the ask
+  cur.classList.remove('hide');await W(700);let p=to(k('snd'));await W(800);click(p);k('snd').classList.add('press');await W(250);
+
+  // 2. the task gets its sheet; Closer, an AI agent, starts
+  cur.classList.add('hide');k('hi').remove();const tx=k('tx');tx.textContent='';k('snd').classList.remove('on','press');tx.insertAdjacentHTML('beforebegin','<span class="phd">Reply to Closer</span>');say(`<div class="m me">${ASK}</div>`);
+  k('task').classList.add('on');S(CHAT(),[k('chat')],.92,1.3);cl.classList.add('on','t');await think(900);cl.classList.remove('t');
+
+  // 3. follow the task. Closer looks in the Order desk, and the sheet fills
+  let t=say(`<div class="tool"><span class="oi">${G(LOAF,'#fff',12,1.8)}</span>Looked in Order desk<span class="r">${CK(13)}4 cafés</span></div>`);beside(t);eye(k('task'));
+  for(let i=0;i<4;i++){k('cus').insertAdjacentHTML('beforeend',custRow(CU[i],i));await W(200);}await W(500);
+  // it goes out to Xero to see who owes money (the chat and Xero in one shot)
+  k('xw').classList.add('on');k('c1').classList.add('on');S([k('chat'),k('xw')],[k('xw')],.92,1.1);
+  t=say(`<div class="tool">${logo('xero',16)}Checking invoices in Xero<span class="sp"></span></div>`);beside(t);await W(500);
+  carry(`<span class="chip">${logo('xero',14)}4 cafés</span>`);go(k('xw'),-.03,.28,1);eye(k('xw'));await W(1100);carry();
+  k('x0').classList.add('flag');eye(k('x0'));await W(900);t.innerHTML=`${logo('xero',16)}Checked invoices in Xero<span class="r">${CK(13)}1 overdue</span>`;k('cs3').innerHTML='<span class="st bad">Owes $640</span>';
+  // it asks you once
+  const q=say(`<div class="m ai">Fernwood Café owes <b>$640</b>, 21 days overdue. Send them 10% off anyway?<div class="bts" data-k="qb"><span class="y" data-k="skip">Skip them</span><span>Send anyway</span></div></div>`);beside(q);
+  S(CHAT(),[q],.92,1.3);await W(900);
+  p=to(k('skip'));await W(800);click(p);k('skip').classList.add('press');await W(250);cur.classList.add('hide');
+  k('qb').outerHTML='';say(`<div class="m me">Skip them</div>`);k('cs3').innerHTML='<span class="st wk">Skipped</span>';
+  // it carries the three notes out to WhatsApp (the chat and WhatsApp in one shot)
+  k('wa').classList.add('on');k('c2').classList.add('on');t=say(`<div class="tool">${logo('whatsapp',16)}Sending 3 notes on WhatsApp<span class="sp"></span></div>`);beside(t);
+  S([k('chat'),k('wa')],[k('wa')],.92,1.1);await W(500);carry(`<span class="chip">${logo('whatsapp',14)}3 notes, 10% off</span>`);go(k('wa'),-.03,.3,1);eye(k('wa'));await W(1200);carry();
+  for(let i=0;i<3;i++){const c=CU[i];k('wp'+i).innerHTML=`<span class="tk">✓✓</span>Hi ${c[5]}, we've missed you at Brightside! Here's 10% off`;k('wt'+i).textContent='9:41';k('cs'+i).innerHTML=`<span class="st ok">${CK(12)}Sent</span>`;k('ns').textContent=i+1;eye(k('w'+i));await W(300);}
+  t.innerHTML=`${logo('whatsapp',16)}Sent on WhatsApp<span class="r">${CK(13)}3 notes</span>`;await W(500);
+
+  // 4. the ending: the sheet and WhatsApp, each result ringed where it landed
+  S(WIDE,[k('task')],.97,1);beside([...msgs.querySelectorAll('.m.ai')].pop());await W(500);
+  [0,1,2].forEach(i=>{k('w'+i).classList.add('ring');k('cu'+i).classList.add('ring');});await W(3000);
+}
+const topBar=document.querySelector('.top');addEventListener('scroll',()=>topBar.classList.toggle('sc',scrollY>8),{passive:true});
+(async()=>{
+  await document.fonts.ready;
+  if(DBG)while(!window.__go)await new Promise(r=>setTimeout(r,50));
+  if(reduced){await film(true);return;} // the finished frame
+  const bare=document.documentElement.classList.contains('bare');
+  try{for(;;){await film(false);if(bare)parent.postMessage({film:'done'},'*');world.classList.add('dim');await new Promise(r=>setTimeout(r,400));world.classList.remove('dim');}}catch(e){if(e!==STOP)throw e;}
+})();
+</script>
+</body>
+</html>

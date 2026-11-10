@@ -25,6 +25,11 @@ const nextConfig: NextConfig = {
             }
         ],
     },
+    // The new home page (repositioning, Nov 2026): the landing is static files in public/landing, served at /.
+    // Built from agentic-apps/landing with build-live.py; the old page.tsx stays until the site audit.
+    async rewrites() {
+        return { beforeFiles: [{ source: '/', destination: '/landing/index.html' }] };
+    },
     async redirects() {
         return [
             {

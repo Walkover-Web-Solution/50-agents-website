@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>50agents: video 2, an automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>if(location.search.includes('bare'))document.documentElement.classList.add('bare');</script>
+<style>
+/* Video 2 of the reel overhaul (reel-plan.md), v3: an automation, kept simple. It starts inside an app the business already
+   has on 50agents (the Order desk from video 1), where "Automate" opens the ask. The automation is three fixed steps under
+   the app (6:00 pm; tomorrow's stops by van from the Order desk; a text to each driver by Twilio SMS), run by Sunny
+   (automation). Outside: each driver's phone. The clock strikes 6, the stage turns to evening, the texts land; then the
+   next evening, the same way. */
+:root{--page:#FFFFFF;--ink:#141518;--mute:#5E6068;--faint:#6A6D76;--line:#E3E4E8;--soft:#F5F5F6;--ok:#1F5C40;--okbg:#E8F2EC;
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;--ui:'Schibsted Grotesk',system-ui,sans-serif;
+  --od:#1D2A44;--od2:#EEF1F7;--wheat:#C8902E;--wheat2:#FBF3E4;--v1:#2F6BFF;--v2:#F2762E}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font:16px/1.45 var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+p,h4,h5,h6{margin:0}
+.top{position:sticky;top:0;z-index:20;pointer-events:none}
+.top>nav>*{pointer-events:auto}
+nav{display:flex;align-items:center;gap:32px;max-width:1304px;margin:0 auto;padding:16px 32px;transition:max-width .45s ease,padding .45s ease}
+.top.sc nav{max-width:100%;padding:14px 20px}
+.wm{font-size:30px;display:flex;align-items:center;border-radius:14px;transition:background .3s,box-shadow .3s,padding .3s,margin .3s}
+.top.sc .wm{background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(20,21,24,.08);padding:6px 12px;margin:-6px -12px}
+nav .jb{margin-left:auto;background:var(--ink);color:#fff;font:600 14.5px var(--ui);padding:10px 16px;border-radius:9px;text-decoration:none}
+.hero{max-width:1304px;margin:0 auto;padding:36px 32px 0;display:grid;grid-template-columns:1fr 520px;gap:40px;align-items:end;font-family:var(--disp)}
+h1{font-weight:600;font-size:clamp(46px,6.2vw,88px);line-height:.96;letter-spacing:-.045em;margin:0;font-variation-settings:'opsz' 96}
+.aside{padding-bottom:8px}
+.sub{font-size:19px;line-height:1.45;color:var(--mute);margin-bottom:20px}
+.sub b{color:var(--ink);font-weight:600;white-space:nowrap}
+.cta{display:inline-block;background:var(--ink);color:#fff;font-weight:600;font-size:15.5px;padding:14px 24px;border-radius:10px;text-decoration:none}
+
+.stagebox{max-width:1304px;margin:56px auto 64px;padding:0 32px}
+.stage{position:relative;height:560px;border-radius:28px;overflow:hidden;background-color:#F2EFE9;
+  background-image:radial-gradient(rgba(60,50,30,.10) 1px,transparent 1.3px);background-size:24px 24px;transition:background-color 1.4s}
+.stage.eve{background-color:#D9DEEA}
+.stage::after{content:'';position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(20,21,24,.11);pointer-events:none;z-index:40}
+.world{position:absolute;left:0;top:0;width:1480px;height:720px;transform-origin:0 0;transition:transform 1.2s cubic-bezier(.65,0,.3,1),opacity .4s}
+.world.dim{opacity:.3}
+.world.nt,.world.nt *{transition:none!important}
+.hide{display:none!important}
+.pop{animation:pop .45s cubic-bezier(.2,.9,.3,1.15) both}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
+.caret::after{content:'';display:inline-block;width:2px;height:1.05em;background:currentColor;vertical-align:-.15em;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cur{position:absolute;left:0;top:0;z-index:30;line-height:0;transition:transform .9s cubic-bezier(.45,0,.25,1),opacity .25s;pointer-events:none}
+.cur .ptr{display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.clk{position:absolute;z-index:29;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:rgba(20,21,24,.12);opacity:0;pointer-events:none}
+.clk.go{animation:clk .5s ease-out}
+@keyframes clk{0%{opacity:1;transform:scale(.3)}100%{opacity:0;transform:scale(1.4)}}
+
+/* 50agents */
+.fr{position:absolute;left:24px;top:24px;width:1000px;height:672px;background:#fff;border-radius:22px;box-shadow:0 0 0 1px rgba(20,21,24,.08),0 34px 80px rgba(20,21,24,.13);display:grid;grid-template-rows:58px minmax(0,1fr)}
+.ftop{display:flex;align-items:center;gap:14px;padding:0 16px 0 20px}
+.ftop .wmk{font-size:22px}
+.ftop .sep{width:1px;height:22px;background:var(--line)}
+.ftop .ws{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--mute)}
+.ftop .ws i{width:22px;height:22px;border-radius:6px;background:var(--wheat2);color:#8A5A12;font:700 11px/22px var(--ui);text-align:center;font-style:normal}
+.fbody{position:relative;margin:0 10px 10px;border-radius:14px;background:#F4F5F7;min-height:0}
+
+/* the Order desk, already built (video 1), on its Deliveries page */
+.app{position:absolute;left:0;right:0;top:0;height:604px;background:#fff;border-radius:14px;box-shadow:0 0 0 1px rgba(20,21,24,.07),0 10px 30px rgba(20,21,24,.06);overflow:hidden;display:flex;flex-direction:column;transition:height .8s cubic-bezier(.65,0,.3,1)}
+.app.sm{height:396px}
+.atop{display:flex;align-items:center;gap:10px;height:54px;padding:0 16px;border-bottom:1px solid var(--line);flex:none}
+.aico{width:32px;height:32px;border-radius:10px;background:var(--od);display:grid;place-items:center;box-shadow:inset 0 -3px 0 var(--wheat)}
+.atop>b{font:600 18px var(--disp);letter-spacing:-.015em}
+.tabs{display:flex;gap:2px;margin-left:14px;background:var(--soft);border-radius:9px;padding:3px;font-size:13.5px}
+.tabs span{padding:5px 12px;border-radius:7px;color:var(--mute)}
+.tabs span.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(20,21,24,.08)}
+.auto{margin-left:auto;display:flex;align-items:center;gap:7px;border:1.5px solid var(--ink);border-radius:9px;padding:6px 13px;font-weight:600;font-size:14px;transition:transform .15s,background .3s,color .3s}
+.auto.press{transform:scale(.92)}
+.auto.on{background:var(--ink);color:#fff}
+.amain{padding:14px 18px;display:flex;flex-direction:column;gap:10px;min-height:0;flex:1}
+.mh{display:flex;align-items:baseline;gap:10px}
+.mh h4{font:600 24px var(--disp);letter-spacing:-.02em}
+.mh span{color:var(--faint);font-size:14px}
+.tbl{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tr{display:grid;grid-template-columns:70px 1.6fr 1.2fr 1fr;gap:10px;align-items:center;padding:7px 14px;border-top:1px solid var(--line);font-size:14px;transition:background .5s}
+.tr:first-child{border-top:0}
+.tr.th{font-size:12.5px;color:var(--faint);background:#FAFAFB;padding:7px 14px}
+.tr .t{font-variant-numeric:tabular-nums;color:var(--mute)}
+.tr b{font-weight:600}
+.vn{display:inline-flex;align-items:center;gap:7px;color:var(--mute)}
+.vn i{width:9px;height:9px;border-radius:50%}
+.tr.h0{background:#EEF3FF}.tr.h1{background:#FEF1E8}
+.tx{color:var(--faint);font-size:13px}
+.tx.ok{color:var(--ok);font-weight:600;display:inline-flex;align-items:center;gap:5px}
+
+/* the ask, opened from the app's Automate button */
+.pop50{position:absolute;right:16px;top:58px;width:470px;z-index:8;background:#fff;border-radius:16px;padding:14px 16px 16px;box-shadow:0 0 0 1px rgba(20,21,24,.08),0 24px 60px rgba(20,21,24,.18);opacity:0;transform:translateY(-8px) scale(.97);transform-origin:90% 0;transition:opacity .35s,transform .45s cubic-bezier(.2,.9,.3,1.1)}
+.pop50.on{opacity:1;transform:none}
+.pop50 .hd{display:flex;align-items:center;gap:9px;font:600 14px var(--disp);color:var(--mute);margin-bottom:10px}
+.pop50 .cmp{position:relative;border:1px solid var(--line);border-radius:12px;padding:12px 52px 12px 14px;font-size:17px;line-height:1.4;min-height:76px}
+.pop50 .phd{color:#9A9DA4}
+.pop50 .snd{position:absolute;right:9px;bottom:9px;width:34px;height:34px;border-radius:50%;background:#D5D8DE;display:grid;place-items:center;transition:background .2s,transform .15s}
+.pop50 .snd.on{background:var(--ink)}.pop50 .snd.press{transform:scale(.86)}
+
+/* the automation: three fixed steps, under the app, on 50agents */
+.rails{position:absolute;left:0;right:0;top:408px;bottom:0;opacity:0;transition:opacity .5s}
+.rails.on{opacity:1}
+.rh{position:absolute;left:16px;right:16px;bottom:12px;display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--faint)}
+.rh b{color:var(--ink);font-weight:600}
+.tg{width:30px;height:18px;border-radius:9px;background:#2E9D62;position:relative}
+.tg::after{content:'';position:absolute;right:2px;top:2px;width:14px;height:14px;border-radius:50%;background:#fff}
+.runs{margin-left:auto;display:flex;align-items:center;gap:6px}
+.runs span{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:var(--ok);background:var(--okbg);border-radius:6px;padding:2px 7px}
+.trk{position:absolute;left:161px;right:161px;top:64px;height:4px;border-radius:2px;background:#DCDFE5}
+.trk i{position:absolute;left:0;top:0;bottom:0;width:0;border-radius:2px;background:#F5B800;transition:width 1s cubic-bezier(.55,0,.25,1)}
+.stn{position:absolute;top:30px;width:250px;height:72px;background:#fff;border-radius:14px;box-shadow:0 0 0 1px rgba(20,21,24,.07),0 6px 16px rgba(20,21,24,.06);display:flex;align-items:center;gap:11px;padding:0 14px;opacity:0;transform:translateY(8px);transition:box-shadow .4s,opacity .4s,transform .4s}
+.stn.on{opacity:1;transform:none}
+.stn.lit{box-shadow:0 0 0 2px #F5B800,0 10px 24px rgba(20,21,24,.10)}
+.stn .si{width:36px;height:36px;border-radius:10px;background:var(--soft);display:grid;place-items:center;flex:none}
+.stn b{display:block;font-weight:600;font-size:14.5px;line-height:1.25}
+.stn small{display:block;font-size:12.5px;color:var(--faint);font-variant-numeric:tabular-nums}
+.stn .o{position:absolute;left:0;right:0;top:100%;margin-top:7px;text-align:center;font-size:12.5px;font-weight:600;color:var(--ok);opacity:0;transition:opacity .3s}
+.stn .o.on{opacity:1}
+
+/* outside 50agents: each driver's phone */
+.xo{opacity:0;transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.3,1)}
+.xo.on{opacity:1;transform:none!important}
+.dp{position:absolute;top:212px;width:180px;height:420px;border-radius:32px;background:#17181B;padding:8px;box-shadow:0 26px 60px rgba(20,21,24,.28);transform:translateX(40px)}
+.dp .scr{position:relative;height:100%;border-radius:25px;overflow:hidden;background:linear-gradient(170deg,#2D3B5C 0%,#5B4C79 55%,#C27B6A 100%);color:#fff;padding:26px 9px 0;text-align:center}
+.dp .tm{font:600 48px/1 var(--disp);letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-top:6px}
+.dp .dt{font-size:12px;opacity:.85;margin-top:4px}
+.nt{margin-top:20px;text-align:left;background:rgba(255,255,255,.9);color:var(--ink);border-radius:15px;padding:9px 10px;font-size:12.5px;line-height:1.4;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.nt .nh{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--faint);margin-bottom:3px}
+.nt .nh i{width:16px;height:16px;border-radius:5px;background:#34C759;display:grid;place-items:center;font-style:normal}
+.nt .nh em{margin-left:auto;font-style:normal}
+.nt b{font-weight:600}
+.who{position:absolute;top:118px;width:180px;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;transform:translateY(-8px)}
+.who .pa{width:44px;height:44px;border-radius:50%;background:#E6E8EE;display:grid;place-items:end center;overflow:hidden;box-shadow:0 0 0 2.5px #fff,0 0 0 4.5px var(--vc)}
+.who b{display:block;font:600 15px var(--ui);line-height:1.2}
+.who small{display:block;font-size:12.5px;color:var(--faint)}
+.cons{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+.cons g{opacity:0;transition:opacity .5s}
+.cons g.on{opacity:1}
+
+/* Sunny, the automation, rides the steps */
+.bot{position:absolute;left:0;top:0;z-index:25;opacity:0;transition:transform 1s cubic-bezier(.55,0,.25,1),opacity .35s}
+.bot.on{opacity:1}
+.bot.fast{transition:transform .4s cubic-bezier(.55,0,.25,1),opacity .35s}
+.bot .bb{position:absolute;left:0;top:0;transform:translate(-50%,-50%) scale(var(--s,.8));transition:transform .5s cubic-bezier(.2,.9,.3,1.2)}
+.bot .bf{display:block;filter:drop-shadow(0 6px 10px rgba(20,21,24,.2))}
+.bot .tag{position:absolute;left:100%;top:50%;margin-left:8px;transform:translateY(-50%);white-space:nowrap;background:var(--ink);color:#fff;font:500 12.5px var(--ui);padding:3px 9px;border-radius:7px;opacity:0;transition:opacity .3s}
+.bot .tag b{font-weight:600;margin-right:5px}
+.bot.t .tag{opacity:1}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border-radius:9px;padding:5px 10px;font:600 13px var(--ui);box-shadow:0 0 0 1px rgba(20,21,24,.08),0 8px 20px rgba(20,21,24,.15);white-space:nowrap}
+.chip i{width:9px;height:9px;border-radius:50%}
+.tok{position:absolute;left:0;top:0;z-index:24;transition:transform 1s cubic-bezier(.55,0,.25,1);pointer-events:none}
+
+
+/* the ending: each result softly ringed where it landed */
+.ring{box-shadow:0 0 0 2.5px #2E9D62!important;transition:box-shadow .4s}
+@media (max-height:820px) and (min-width:861px){.hero{padding-top:18px}h1{font-size:clamp(46px,5.2vw,70px)}.stagebox{margin-top:40px}.stage{height:500px}}
+@media (max-width:860px){
+  nav{padding:12px 20px}.wm{font-size:26px}nav .jb{padding:9px 13px;font-size:14px}
+  .hero{grid-template-columns:1fr;gap:18px;padding:28px 20px 0}
+  h1{font-size:clamp(44px,12.4vw,64px)}.sub{font-size:17px;margin-bottom:18px}
+  .stagebox{padding:0 12px;margin-top:30px}
+  .stage{height:500px;border-radius:22px}
+}
+.bare body{background:transparent}.bare .top,.bare .hero{display:none}.bare .stagebox{margin:0;padding:0;max-width:none}.bare .stage{height:100vh}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top hero-head"><nav><span class="wm" id="wm">50agents</span><a class="jb" href="#join">Join early access</a></nav></header>
+<section class="hero">
+  <h1>Your own apps,<br>doing the work.</h1>
+  <div class="aside">
+    <p class="sub">Build apps, AI agents and automations on your tools or from scratch. They do the work across <b>2,300+ apps</b>.</p>
+    <a class="cta" href="#join">Join early access</a>
+  </div>
+</section>
+<section class="stagebox" aria-label="On 50agents, in its Order desk, a bakery clicks Automate and asks: every evening at 6, text each driver their stops for tomorrow. Three steps are built, and at 6 each driver gets a text, every evening">
+  <div class="stage" id="stage"><div class="world" id="world"></div></div>
+</section>
+
+<script src="crew.js?v=7"></script>
+<script>
+Object.assign(APP,{twilio:'#F22F46'});
+logoUsed.push('sunny');
+wordmark(document.getElementById('wm'));
+const mob=()=>innerWidth<=860;
+const G=(d,c='#fff',s=16,w=1.6)=>`<svg width="${s}" height="${s}" viewBox="0 0 16 16" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+const IC={clock:'<circle cx="8" cy="8" r="5.8"/><path d="M8 4.8V8l2.2 1.4"/>',loaf:'<path d="M2.5 11.5V8.8C2.5 6 5 4.2 8 4.2s5.5 1.8 5.5 4.6v2.7z"/><path d="M5.6 6.4l.9 1.8M8.4 5.9l.9 1.8"/>',
+  msg:'<path d="M2.5 3.5h11v7.5H7l-3 2.5v-2.5H2.5z"/>',bolt:'<path d="M9 1.8 3.5 9h4l-1 5.2L12.5 7h-4z"/>'};
+const SEND='<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>';
+const CK=s=>`<svg width="${s}" height="${s}" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>`;
+const PTR='<svg class="ptr" width="22" height="27" viewBox="0 0 18 22" aria-hidden="true"><path d="M2 1.5v16.2l4.3-4.1 2.8 6.4 2.9-1.3-2.8-6.3h6z" fill="#111214" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+const PERSON='<svg width="30" height="32" viewBox="0 0 30 32"><circle cx="15" cy="11" r="7" fill="#9AA0AB"/><path d="M1 32c1-8 7-12 14-12s13 4 14 12z" fill="#9AA0AB"/></svg>';
+const ASK="Every evening at 6, text each driver their stops for tomorrow.";
+const VH=['#2F6BFF','#F2762E'],DRV=[['Sam','Van 1'],['Priya','Van 2']];
+// tomorrow's deliveries, from the Order desk: [time, customer, van]
+const DAYS=[
+  {d:'Thu 19 Nov',long:'Wednesday 18 November',rows:[['6:30','Lumen Coffee',0],['6:45','Northwind Hotel',1],['7:00','Fieldnote Deli',0],['7:00','Harbor Café',1],['7:30','Oak & Ash',0],['7:45','Pier 9 Kitchen',1],['8:00','Little Fern',0]]},
+  {d:'Fri 20 Nov',long:'Thursday 19 November',rows:[['6:15','Halcyon Hotel',1],['6:30','Lumen Coffee',0],['7:00','Corner Grind',0],['7:15','Harbor Café',1],['7:30','Mill St Market',0],['8:00','Bluebell Bistro',1],['8:15','Fieldnote Deli',0]]}];
+const STN=[['clock','Every day','5:58 pm'],['loaf','Tomorrow\'s stops, by van','Order desk'],['twilio','Text each driver','Twilio SMS']];
+
+function render(w){
+  w.innerHTML=`
+  <svg class="cons" width="1480" height="720" aria-hidden="true">
+    <g data-k="c1"><path d="M1024 470H1078" stroke="#A3A8B3" stroke-width="2" stroke-dasharray="4 5"/><circle cx="1024" cy="470" r="4" fill="#A3A8B3"/><circle cx="1078" cy="470" r="4" fill="#A3A8B3"/></g>
+  </svg>
+  ${DRV.map(([n,v],i)=>`<div class="who xo" data-k="who${i}" style="left:${1088+i*196}px;--vc:${VH[i]}"><span class="pa">${PERSON}</span><span><b>${n}</b><small>Driver, ${v}</small></span></div>
+    <div class="dp xo" data-k="dp${i}" style="left:${1088+i*196}px"><div class="scr"><div class="tm" data-k="tm${i}">5:58</div><div class="dt" data-k="dt${i}">${DAYS[0].long}</div><div data-k="nt${i}"></div></div></div>`).join('')}
+  <div class="fr" data-k="fr">
+    <div class="ftop" data-k="ftop"><span class="wmk" data-k="wmk">50agents</span><span class="sep"></span><span class="ws"><i>B</i>Brightside bakeries</span></div>
+    <div class="fbody">
+      <div class="app" data-k="app">
+        <div class="atop"><span class="aico">${G(IC.loaf,'#fff',18)}</span><b>Order desk</b><span class="tabs"><span>Orders</span><span class="on">Deliveries</span><span>Invoices</span></span>
+          <span class="auto" data-k="auto">${G(IC.bolt,'currentColor',15,1.8)}Automate</span></div>
+        <div class="amain"><div class="mh"><h4>Deliveries</h4><span data-k="tmw">Tomorrow, ${DAYS[0].d}</span></div>
+          <div class="tbl"><div class="tr th"><span>Time</span><span>Customer</span><span>Van</span><span>Driver told</span></div><div data-k="rows"></div></div></div>
+        <div class="pop50" data-k="pop"><div class="hd">${face('lead',22)}Tell 50agents what to automate</div>
+          <div class="cmp" data-k="cmp"><span class="phd" data-k="phd">Describe what should happen, and when</span><span data-k="tx"></span><span class="snd" data-k="snd">${SEND}</span></div></div>
+      </div>
+      <div class="rails" data-k="rails">
+        <div class="trk"><i data-k="fill"></i></div>
+        ${STN.map(([ic,t,s],i)=>`<div class="stn" data-k="s${i}" style="left:${36+i*330}px"><span class="si">${ic==='twilio'?logo(ic,20):G(IC[ic],ic==='loaf'?'#1D2A44':'#5E6068',18,1.7)}</span><span><b>${t}</b><small data-k="ss${i}">${s}</small></span><span class="o" data-k="o${i}"></span></div>`).join('')}
+        <div class="rh"><span class="tg"></span><b>Automation</b>on, runs by itself<span class="runs" data-k="runs"></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bot" data-b="sunny"><div class="bb"><span class="bf">${face('sunny',40)}</span><span class="tag"><b>Sunny</b>automation</span></div></div>
+  <span class="clk" data-k="clk"></span><span class="cur hide" data-k="cur">${PTR}</span>`;
+  wordmark(w.querySelector('[data-k="wmk"]'),{byline:false});
+}
+
+/* ---------- the camera ---------- */
+const stage=document.getElementById('stage'),world=document.getElementById('world');
+function wrect(e){let x=0,y=0,n=e;while(n&&n!==world){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent;}return [x,y,x+e.offsetWidth,y+e.offsetHeight];}
+function shot(els,pad=.88,cap=1.6){
+  const rs=els.map(e=>Array.isArray(e)?e:wrect(e)),x=Math.min(...rs.map(r=>r[0])),y=Math.min(...rs.map(r=>r[1])),r=Math.max(...rs.map(r=>r[2])),b=Math.max(...rs.map(r=>r[3]));
+  const SW=stage.clientWidth,SH=stage.clientHeight,s=Math.min(SW/(r-x),SH/(b-y),cap/pad)*pad;
+  world.style.transform=`translate(${SW/2-(x+(r-x)/2)*s}px,${SH/2-(y+(b-y)/2)*s}px) scale(${s})`;
+}
+const WIDE=[[0,10,1480,706]];
+
+/* ---------- the film ---------- */
+let token=0;const STOP={};
+// shortcut: ?dbg runs fast and can freeze on a frame (window.__stopAt), for checking frames in a hidden test browser; visitors never hit it
+const DBG=location.search.includes('dbg');
+const tick=()=>new Promise(r=>{const ch=new MessageChannel();ch.port1.onmessage=()=>r();ch.port2.postMessage(0);});
+async function film(instant){
+  const my=token,W=ms=>instant?Promise.resolve():DBG?(async()=>{await tick();window.__n=(window.__n||0)+1;if(window.__stopAt&&window.__stopAt())await new Promise(()=>{});if(my!==token)throw STOP;})():new Promise((res,rej)=>setTimeout(()=>my===token?res():rej(STOP),reduced?0:ms));
+  render(world);stage.classList.remove('eve');const k=n=>world.querySelector(`[data-k="${n}"]`),m=mob(),sun=world.querySelector('[data-b="sunny"]');
+  const S=(d,mo,pad=.9,cap=1.4)=>shot(m?mo:d,pad,cap);
+  const pt=(el,fx=.5,fy=.5)=>{const r=Array.isArray(el)?el:wrect(el);return [r[0]+(r[2]-r[0])*fx,r[1]+(r[3]-r[1])*fy];};
+  const go=(el,fx,fy,s)=>{const [x,y]=pt(el,fx,fy);sun.style.transform=`translate(${x}px,${y}px)`;if(s)sun.style.setProperty('--s',s);sun._p=[x,y];};
+  const eye=el=>{const [tx,ty]=pt(el),dx=tx-sun._p[0],dy=ty-sun._p[1],d=Math.hypot(dx,dy)||1;sun.querySelector('.ey').style.translate=`${(dx/d*2.6).toFixed(2)}px ${(dy/d*2.4).toFixed(2)}px`;};
+  const fly=async(html,from,to,ms=1000)=>{if(instant)return;const t=document.createElement('div');t.className='tok';t.innerHTML=html;world.appendChild(t);const [x0,y0]=pt(from),[x1,y1]=pt(to);
+    t.style.transition='none';t.style.transform=`translate(${x0}px,${y0}px) translate(-50%,-50%)`;void t.offsetWidth;t.style.transition='';t.style.transform=`translate(${x1}px,${y1}px) translate(-50%,-50%)`;await W(ms);t.remove();};
+  const pop=e=>{if(!instant){e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop');}return e;};
+  const cur=k('cur'),clk=k('clk');
+  const to=(el,fx=.5,fy=.5)=>{const [x,y]=pt(el,fx,fy);cur.classList.remove('hide');cur.style.transform=`translate(${x}px,${y}px)`;return [x,y];};
+  const click=([x,y])=>{clk.style.left=x+'px';clk.style.top=y+'px';clk.classList.remove('go');void clk.offsetWidth;clk.classList.add('go');};
+  const at=i=>go(k('s'+i),.5,-.22,1);
+  const fill=i=>{k('fill').style.width=(i*330)+'px';};
+  const lit=i=>[0,1,2].forEach(j=>k('s'+j).classList.toggle('lit',j===i));
+  const out=(i,t)=>{const o=k('o'+i);o.innerHTML=t;o.classList.toggle('on',!!t);};
+  const rows=(d,told)=>{k('rows').innerHTML=DAYS[d].rows.map(([t,c,v],i)=>`<div class="tr" data-v="${v}"><span class="t">${t}</span><b>${c}</b><span class="vn"><i style="background:${VH[v]}"></i>${DRV[v][1]} · ${DRV[v][0]}</span><span class="tx${told?' ok':''}">${told?CK(12)+'Texted 6:00 pm':'Not yet'}</span></div>`).join('');k('tmw').textContent='Tomorrow, '+DAYS[d].d;};
+  const byVan=on=>world.querySelectorAll('[data-k="rows"] .tr').forEach(r=>{r.classList.toggle('h'+r.dataset.v,on);});
+  const notify=(d,i)=>{const s=DAYS[d].rows.filter(r=>r[2]===i),el=k('nt'+i);el.innerHTML=`<div class="nt"><div class="nh"><i>${G(IC.msg,'#fff',11,2)}</i>Messages<em>now</em></div><b>Brightside bakeries</b><br>Tomorrow, ${DAYS[d].d.slice(0,3)}: ${s.length} stops<br>${s.map(r=>`${r[0]} ${r[1]}`).join('<br>')}</div>`;pop(el.firstElementChild);};
+  const clock=(t,date)=>{k('ss0').textContent=t;[0,1].forEach(i=>{k('tm'+i).textContent=t.replace(' pm','');if(date)k('dt'+i).textContent=date;});};
+
+  // the first frame: inside the Order desk, Automate open, the ask already written
+  world.classList.add('nt');rows(0,false);k('auto').classList.add('on');k('pop').classList.add('on');k('phd').remove();k('tx').textContent=ASK;k('snd').classList.add('on');
+  S([k('fr')],[k('pop')],.94,1.2);at(0);sun.style.setProperty('--s',1);cur.style.transform='translate(760px,560px)';void world.offsetWidth;world.classList.remove('nt');
+
+  // 1. the ask
+  cur.classList.remove('hide');await W(700);let p=to(k('snd'));await W(800);click(p);k('snd').classList.add('press');await W(250);
+
+  // 2. it exists: three fixed steps under the app, and Sunny, the automation, on the first one
+  cur.classList.add('hide');k('pop').classList.remove('on');k('auto').classList.remove('on');k('app').classList.add('sm');k('rails').classList.add('on');
+  for(let i=0;i<3;i++)k('s'+i).classList.add('on');S([k('fr')],[k('rails')],.94,1);await W(600);
+  sun.classList.add('on','t');eye(k('s0'));await W(1300);sun.classList.remove('t');
+
+  // 3. follow one evening. 6:00 pm, it starts by itself
+  S([k('s0'),k('s1')],[k('s0')],.9,1.4);await W(500);clock('6:00 pm');stage.classList.add('eve');lit(0);out(0,'Ran at 6:00 pm');eye(k('s1'));await W(900);
+  // Sunny takes tomorrow's stops from the Order desk, split by van (the step and the table in one shot)
+  S([k('s1'),k('rows')],[k('rows')],.92,1.15);at(1);fill(1);await W(1000);lit(1);eye(k('rows'));byVan(true);out(1,'7 stops, 2 vans');await W(1300);
+  // and texts each driver: their phones are outside 50agents (the step and both phones in one shot)
+  [0,1].forEach(i=>{k('who'+i).classList.add('on');k('dp'+i).classList.add('on');});k('c1').classList.add('on');
+  S([k('s2'),k('who0'),k('dp0'),k('dp1')],[k('who0'),k('dp0'),k('dp1')],.94,1.1);at(2);fill(2);await W(1000);lit(2);eye(k('dp0'));
+  fly(`<span class="chip"><i style="background:${VH[0]}"></i>Sam's 4 stops</span>`,k('s2'),k('dp0'),1000);await fly(`<span class="chip"><i style="background:${VH[1]}"></i>Priya's 3 stops</span>`,k('s2'),k('dp1'),1000);
+  notify(0,0);notify(0,1);out(2,'2 texts sent');eye(k('dp1'));await W(1300);
+
+  // 4. the ending: the Order desk and both phones, each result ringed where it landed
+  rows(0,true);byVan(true);lit(-1);k('runs').insertAdjacentHTML('beforeend',`<span class="pop">${CK(11)}Wed</span>`);S(WIDE,[k('who0'),k('dp0'),k('dp1')],.97,1.1);await W(500);
+  [k('nt0').firstElementChild,k('nt1').firstElementChild,k('rows').parentElement].forEach(e=>e&&e.classList.add('ring'));eye(k('rows'));await W(3000);
+}
+const topBar=document.querySelector('.top');addEventListener('scroll',()=>topBar.classList.toggle('sc',scrollY>8),{passive:true});
+(async()=>{
+  await document.fonts.ready;
+  if(DBG)while(!window.__go)await new Promise(r=>setTimeout(r,50));
+  if(reduced){await film(true);return;} // the finished frame
+  const bare=document.documentElement.classList.contains('bare');
+  try{for(;;){await film(false);if(bare)parent.postMessage({film:'done'},'*');world.classList.add('dim');await new Promise(r=>setTimeout(r,400));world.classList.remove('dim');}}catch(e){if(e!==STOP)throw e;}
+})();
+</script>
+</body>
+</html>

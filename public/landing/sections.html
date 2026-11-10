@@ -1,0 +1,331 @@
+<!-- The sections below the hero, v2 (REBUILD-PLAN.md, D99). Built one at a time with Jii's OK; v1 is sections-v1.html.
+     The same customers (Brightside, Harbor Co, Lumen) and the same crew run through every section; the visitor is the business.
+     data-h: a crew huddle; data-w: one crew member at work; data-l: real app icons; data-g: a custom app's own glyph. -->
+
+<!-- Instead (Jii, 10 Nov): feel the pain, then watch the crew take it. Stage 0: five big painful tasks. Stage 1: a crew
+     member lands on each and works on it. Stage 2: the tasks line up, done, inside a real app the crew runs. Stages never
+     skip: each one holds long enough to be seen even on a fast scroll. Cards are drawn by site.js from TASKS. -->
+<section class="sec instead" id="instead">
+  <div class="pin">
+    <div class="wrap">
+      <div class="head">
+        <h2>Stop doing the work between your tools.</h2>
+        <div class="switch" role="tablist" aria-label="Show today or with 50agents"><button type="button" role="tab" data-state="today" class="on" aria-selected="true">Today</button><button type="button" role="tab" data-state="with" aria-selected="false">With 50agents</button></div>
+      </div>
+      <div class="scene" id="scene" data-stage="0">
+        <div class="stage-bar">
+          <span class="sl"><span class="s0">Today</span><span class="s1">Your crew is working</span><span class="s2">With <span class="s2-logo" data-logo-mini></span></span></span>
+          <span class="count"><b id="waiting">5</b> <span id="waiting-l">tasks waiting on you</span></span>
+        </div>
+        <div class="field">
+          <div class="app-frame" aria-hidden="true">
+            <div class="af-h"><span class="lights"><i></i><i></i><i></i></span><span data-g="order" data-s="26"></span><b>Order to cash</b><span class="af-st">Running</span><span class="af-crew"><small>Crew</small><span data-h="writer,keeper,rosa,ledger,booker" data-s="26"></span></span></div>
+            <div class="af-side"><span class="on">Orders board</span><span>Customers</span><span>Invoices</span><span>Deliveries</span><span>Reports</span><span>Settings</span></div>
+            <div class="af-main-h">Orders board <small>This week · 5 orders</small></div>
+            <div class="kb" id="kb"></div>
+          </div>
+          <div id="tasks"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What it builds: the four kinds, one card design, colour means kind; the same customers as above -->
+<section class="sec" id="builds">
+  <div class="wrap">
+    <div class="head">
+      <h2>What your crew can build.</h2>
+      <p class="lede">Apps, automations, AI agents and browser agents. On your tools, or from scratch.</p>
+    </div>
+    <div class="kinds">
+      <!-- Apps: two real apps, each with its own screens: a planner built from scratch, a stock tracker on Shopify -->
+      <article class="kcard" style="--kc:var(--k-app)">
+        <span class="kind">Apps</span>
+        <h3>Apps made for how you work</h3>
+        <p>Built from scratch or on your tools, each with its own screens.</p>
+        <div class="demo apps2">
+          <div class="win">
+            <div class="win-h"><span data-g="calendar" data-s="22"></span><b>Delivery planner</b><span class="win-tag">Built from scratch</span></div>
+            <div class="cal">
+              <span class="d">Mon</span><span class="d">Tue</span><span class="d">Wed</span><span class="d">Thu</span><span class="d">Fri</span>
+              <span class="slot" style="grid-column:2;grid-row:2">Lumen<small>3 crates</small></span>
+              <span class="slot" style="grid-column:4;grid-row:2">Brightside<small>6 crates</small></span>
+              <span class="slot" style="grid-column:3;grid-row:2">Harbor Co<small>2 crates</small></span>
+              <span class="slot" style="grid-column:1;grid-row:3">Fieldnote<small>4 crates</small></span>
+            </div>
+          </div>
+          <div class="win win2">
+            <div class="win-h"><span data-g="order" data-s="22"></span><b>Stock watch</b><span class="win-tag"><span data-l="shopify" data-s="14"></span>On Shopify</span></div>
+            <div class="stock">
+              <div class="sr"><span>Oat milk, case</span><i style="--p:18%"></i><b class="low">Low</b></div>
+              <div class="sr"><span>Sourdough flour</span><i style="--p:64%"></i><b>OK</b></div>
+              <div class="sr"><span>Croissant boxes</span><i style="--p:30%"></i><b class="low">Reorder</b></div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!-- Automations: the builder view: a trigger and its steps, switched on, with today's runs -->
+      <article class="kcard" style="--kc:var(--k-auto)">
+        <span class="kind">Automations</span>
+        <h3>Rules that run on their own</h3>
+        <p>When something happens in one tool, the next steps happen in the others.</p>
+        <div class="demo">
+          <div class="flow">
+            <div class="flow-h"><b>Paid invoice</b><span class="toggle on" aria-label="On"><i></i></span></div>
+            <div class="node"><span data-l="xero" data-s="20"></span><span><small>When</small>An invoice is paid</span></div>
+            <div class="node"><span data-l="gmail" data-s="20"></span><span><small>Then</small>Send a thank-you</span></div>
+            <div class="node"><span data-l="slack" data-s="20"></span><span><small>And</small>Post it in #finance</span></div>
+            <div class="runs"><span data-w="sunny" data-s="20"></span>Ran for Harbor Co, $1,650, just now<span class="ok">✓</span></div>
+          </div>
+        </div>
+      </article>
+      <!-- AI agents: a chat with the agent, its tool calls visible, the result in plain words -->
+      <article class="kcard" style="--kc:var(--k-ai)">
+        <span class="kind">AI agents</span>
+        <h3>AI agents that read, write and decide</h3>
+        <p>Give one a job in plain words. It uses your tools to do it.</p>
+        <div class="demo">
+          <div class="chatapp">
+            <div class="ca-h"><span class="ca-back" aria-hidden="true">‹</span><span data-w="writer" data-s="34"></span><span class="ca-who"><b>Writer</b><small>AI agent · online</small></span><span class="ca-more" aria-hidden="true">⋮</span></div>
+            <div class="ca-body">
+              <span class="ca-day">Today</span>
+              <div class="ca-msg out">Enter Maya's order in Xero<span class="ca-file"><span class="ca-pdf">PDF</span>PO-4471.pdf</span><time>9:41 <span class="ticks">✓✓</span></time></div>
+              <span class="ca-sys"><span data-l="xero" data-s="13"></span>Writer read the PDF and created INV-0981</span>
+              <div class="ca-msg in">Done. Invoice INV-0981 for $1,012 is in Xero. Send it to Maya?<time>9:42</time></div>
+            </div>
+            <div class="ca-in"><span class="ca-field">Message</span><span class="ca-send" aria-hidden="true"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M2 8l11-5-4 11-2-4.5z" fill="#fff"/></svg></span></div>
+          </div>
+        </div>
+      </article>
+      <!-- Browser agents: a real browser, Scout on the cursor, placing an order on a site with no connector -->
+      <article class="kcard" style="--kc:var(--k-browser)">
+        <span class="kind">Browser agents</span>
+        <h3>Browser agents that work any website</h3>
+        <p>Where a site has no connector, it clicks and types like you would.</p>
+        <div class="demo">
+          <div class="chrome" id="site">
+            <div class="cr-tabs">
+              <span class="cr-lights" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="cr-tab on"><span class="cr-fav" style="background:#2E7D4F;color:#fff">D</span>Daily Dairy · Wholesale<span class="cr-x" aria-hidden="true">×</span></span>
+              <span class="cr-tab"><span class="cr-fav" style="background:#C2410C;color:#fff">F</span>Farm Fresh<span class="cr-x" aria-hidden="true">×</span></span>
+              <span class="cr-new" aria-hidden="true">+</span>
+            </div>
+            <div class="cr-bar">
+              <span class="cr-nav" aria-hidden="true"><svg viewBox="0 0 16 16" width="15" height="15"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg viewBox="0 0 16 16" width="15" height="15"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg viewBox="0 0 16 16" width="15" height="15"><path d="M12.5 8A4.5 4.5 0 1 1 11 4.6M12.5 2.5v3h-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span>
+              <span class="cr-omni"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><rect x="3.5" y="7" width="9" height="7" rx="1.5" fill="currentColor"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>dailydairy.example/wholesale</span>
+              <span class="cr-prof" aria-hidden="true"></span>
+            </div>
+            <div class="cr-page">
+              <div class="dd-nav"><b>Daily Dairy</b><span>Wholesale</span><span class="dd-cart">Cart</span></div>
+              <div class="form">
+                <div class="prod"><b>Oat milk 1L, case of 12</b><span>$38.90 a case, delivers Thursday</span></div>
+                <label>Cases<span class="qty" id="qty"></span></label>
+                <span class="place" id="place">Place order</span>
+                <div class="placed" id="placed">Order placed. Delivers Thursday. <span class="ok">✓</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!-- Your tools (Jii, 10 Nov: the lone row looked out of place): the bento's last card, full width -->
+      <article class="kcard ktools">
+        <div><span class="kind" style="--kc:var(--k-app)">Your tools</span><h3>Works with the tools you already use</h3><p>And 2,300+ more, through viaSocket.</p></div>
+        <div class="row" data-l="hubspot,gmail,shopify,quickbooks,xero,slack,whatsapp,googlesheets,stripe,notion,zendesk,googlecalendar" data-s="30"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Use cases (Jii, 10 Nov; after base44's superagent gallery): a wall of jobs the ICP would hand off, each a preview of the
+     work, the request in their words, and who does it (automation, AI agent, browser agent or a whole crew). Every one is work
+     that crosses tools, never something one app already does by itself. Each card opens the sign-up. Drawn by site.js. -->
+<section class="sec band band-paper" id="uses">
+  <div class="wrap">
+    <div class="head">
+      <h2>What your crew could take on.</h2>
+      <p class="lede">A few of the jobs businesses hand off. Yours gets built around your own tools.</p>
+    </div>
+  </div>
+  <!-- a wall of possibilities, not templates (Jii, 10 Nov: early access, nothing to click into yet). Two rows, each scrolled on its own -->
+  <div class="uses-rows" id="uses-wall"></div>
+</section>
+
+<!-- Human in the loop, as a film (Jii, 10 Nov; the first version, a static task list, was rejected). A camera moves over one
+     world: the business's own Order to cash app on the left, the team's Slack on the right. Rosa spots a task past the rule,
+     carries it to #finance and asks Priya; Priya decides; Rosa finishes it and the app shows it done. Plays when in view, loops.
+     The four steps under the film light up as it goes. -->
+<section class="sec" id="people">
+  <div class="wrap">
+    <div class="head">
+      <h2>Your crew works with your team.</h2>
+      <p class="lede">When a task needs a person, your crew asks them in Slack, then finishes the job.</p>
+    </div>
+    <div class="film" id="hfilm">
+      <div class="f-stage" id="f-stage">
+        <div class="f-world" id="f-world">
+          <div class="f-app" data-k="app">
+            <div class="af-h"><span class="lights"><i></i><i></i><i></i></span><span data-g="order" data-s="24"></span><b>Order to cash</b><span class="af-st">Running</span></div>
+            <div class="fa-h">Today's work</div>
+            <div class="fa-r"><span class="hchk on"></span><span class="fa-t">Enter Brightside's order</span><span data-w="writer" data-s="24"></span></div>
+            <div class="fa-r"><span class="hchk on"></span><span class="fa-t">Send INV-0981 to Maya</span><span data-w="keeper" data-s="24"></span></div>
+            <div class="fa-r lumen" data-k="row"><span class="hchk" data-k="rowchk"></span><span class="fa-t">Lumen wants 2 more months to pay $4,100<small data-k="rowst">Rosa is on it</small></span><span class="fa-who" data-k="rowwho"></span></div>
+            <div class="fa-r"><span class="hchk on"></span><span class="fa-t">Log today's payments</span><span data-w="ledger" data-s="24"></span></div>
+            <div class="fa-r"><span class="hchk on"></span><span class="fa-t">Remind Harbor Co</span><span data-w="rosa" data-s="24"></span></div>
+          </div>
+          <div class="f-slack" data-k="slack">
+            <div class="sk-side"><b class="sk-ws">Brightside</b><span class="sk-sec">Channels</span><span># general</span><span class="on"># finance</span><span># orders</span><span class="sk-sec">Direct messages</span><span><img class="pic xs" src="https://api.dicebear.com/9.x/notionists/svg?seed=Priya&amp;backgroundColor=e8e0ff" alt="" width="30" height="30">Priya</span><span><img class="pic xs" src="https://api.dicebear.com/9.x/notionists/svg?seed=Sam&amp;backgroundColor=d3e7db" alt="" width="30" height="30">Sam</span></div>
+            <div class="sk-main">
+              <div class="sk-ch"># finance <small>Priya, Sam, you and Rosa</small></div>
+              <div class="sk-msgs" data-k="msgs">
+                <div class="sk-m" data-k="m1"><span class="sk-av"><span data-w="rosa" data-s="32"></span></span><div><b>Rosa</b><span class="app-tag">APP</span><small>9:12</small>
+                  <p><span class="at">@Priya</span> Lumen wants 2 more months to pay their $4,100 invoice. That's past our 2-week rule, so it's your call.</p>
+                  <div class="sk-btns"><span class="sk-b pri" data-k="approve">Approve 2 months</span><span class="sk-b">Call them first</span><span class="sk-b">Decline</span></div></div></div>
+                <div class="sk-typing" data-k="typing">Priya is typing…</div>
+                <div class="sk-m" data-k="m2"><span class="sk-av"><img class="pic " src="https://api.dicebear.com/9.x/notionists/svg?seed=Priya&amp;backgroundColor=e8e0ff" alt="Priya" width="30" height="30"></span><div><b>Priya</b><span class="person">Finance · person</span><small>9:40</small><p>Approved. I called them, 2 months is fine, no late fee.</p></div></div>
+                <div class="sk-m" data-k="m3"><span class="sk-av"><span data-w="rosa" data-s="32"></span></span><div><b>Rosa</b><span class="app-tag">APP</span><small>9:41</small><p>Done. Invoice updated, reminders moved to January, and Lumen has the new dates. ✓</p></div></div>
+              </div>
+              <div class="sk-in">Message #finance</div>
+            </div>
+          </div>
+          <span class="f-bot" data-k="bot"><span data-w="rosa" data-s="44"></span></span>
+          <div class="f-tok" data-k="tok"><span data-w="rosa" data-s="22"></span>Lumen, 2 more months?</div>
+          <span class="f-cur" data-k="cur"><svg viewBox="0 0 14 14" width="18" height="18"><path d="M1 1l11 5-5 1.5L5 13z" fill="#141518" stroke="#fff" stroke-width="1"/></svg><span class="cur-n"><img class="pic xs" src="https://api.dicebear.com/9.x/notionists/svg?seed=Priya&amp;backgroundColor=e8e0ff" alt="" width="30" height="30">Priya</span></span>
+        </div>
+      </div>
+      <ol class="f-steps"><li data-s="1">Rosa spots a task past your rule</li><li data-s="2">Asks your team in Slack</li><li data-s="3">Priya decides</li><li data-s="4">Rosa finishes the job</li></ol>
+    </div>
+  </div>
+</section>
+
+<!-- PARKED (Jii, 6 Nov): "It asks when it matters. And it remembers." We are going to work on it later and include it then.
+     Kept inside a <template>, so it is not shown and its script does not run. To bring it back, move the section out of the template. -->
+<template id="asks-parked">
+<!-- It asks, and it remembers: one real chat with Rosa (AI agent), and what Rosa keeps. You answer once in your own words;
+     it is saved, and next week Rosa uses it without asking. Claims only that: asks before a yes, remembers what you said. -->
+<section class="sec" id="asks">
+  <div class="wrap">
+    <div class="head">
+      <h2>It asks when it matters. And it remembers.</h2>
+      <p class="lede">Answer once, in your own words. Your crew keeps it and uses it next time.</p>
+    </div>
+    <div class="panel learn" id="learn">
+      <div class="chat">
+        <div class="chat-h"><span data-w="rosa" data-s="36"></span><div><b>Rosa</b><small>AI agent, payments</small></div><span class="chat-where"><span data-l="slack" data-s="16"></span>Slack</span></div>
+        <div class="chat-body" id="chat-body" aria-live="off"></div>
+        <div class="chat-compose"><span class="ct" id="ct"><span class="ph">Reply to Rosa</span></span><span class="send" id="send" aria-hidden="true">↑</span></div>
+      </div>
+      <div class="memory">
+        <div class="mem-h"><span data-w="rosa" data-s="26"></span>What Rosa remembers</div>
+        <ul class="mem-list">
+          <li><b>Invoices go out on the 1st of the month</b><small>You said, 3 weeks ago</small></li>
+          <li><b>Harbor Co pays by bank transfer</b><small>You said, last week</small></li>
+          <li class="new" id="mem-new"><b>Regular customers can split a payment in two</b><small>Your reply, Monday</small><span class="used" id="mem-used">Used for Brightside</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</template>
+
+<!-- Who is behind it: who we are in one sentence, the two companies, quiet links (D91: companies, no people) -->
+<section class="sec" id="who">
+  <div class="wrap who">
+    <div class="who-text">
+      <h2>By the team behind viaSocket and MSG91.</h2>
+      <p class="lede">Your crew runs on viaSocket, so it works with your tools from day one.</p>
+    </div>
+    <div class="cos">
+      <div class="co co-vs">
+        <img class="mark" src="https://viasocket.com/new-home/assets/logo.svg" alt="viaSocket" width="170" height="50">
+        <p>Connects 2,300+ apps for businesses.</p>
+        <a class="co-link" href="https://viasocket.com" target="_blank" rel="noopener">viasocket.com <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="co co-msg">
+        <img class="mark" src="https://msg91.com/assets/brand/msg91_white.svg" alt="MSG91" width="155" height="50">
+        <p>Sends businesses' SMS, WhatsApp and email.</p>
+        <a class="co-link" href="https://msg91.com" target="_blank" rel="noopener">msg91.com <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Security (Jii, 10 Nov: bring over the current 50agents.com certifications section). Claims and badges as on the current
+     site (src/components/SecuritySection.tsx in the website repo); confirm the uptime figure before launch. -->
+<section class="sec band band-soft" id="security">
+  <div class="wrap">
+    <div class="head">
+      <h2>Secure from the first task.</h2>
+      <p class="lede">Your crew works on your data with protection at every step, so you can hand work off with confidence.</p>
+    </div>
+    <div class="sec-panel">
+      <div class="sec-badges"><img src="aicpa-soc-badge.webp" alt="AICPA SOC" width="84" height="84"><img src="iso-certified.webp" alt="ISO certified" width="84" height="84"></div>
+      <div class="sec-grid">
+        <div class="sc"><span class="sc-ic"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3l7 3v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>SOC 2-level security</b><p>Your crew's tasks and connected apps are handled to strict security, privacy and confidentiality standards.</p></div>
+        <div class="sc"><span class="sc-ic"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3a5 5 0 0 1 5 5c0 4-5 9-5 9s-5-5-5-9a5 5 0 0 1 5-5zM12 6.5v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Industry-standard protection</b><p>Proven international security practices keep your data and automations stable and safe.</p></div>
+        <div class="sc"><span class="sc-ic"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 11V8a5 5 0 0 1 10 0v3M6 11h12v9H6z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>GDPR and CCPA aligned</b><p>Your information stays private and under your control, in line with modern data-privacy laws.</p></div>
+        <div class="sc"><span class="sc-ic"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6zM12 9.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Full transparency</b><p>Clear logs and real-time tracking show exactly what each crew member did, step by step.</p></div>
+        <div class="sc"><span class="sc-ic"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 4a8 8 0 1 1 0 16 8 8 0 0 1 0-16zM12 8v4l3 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>99.99% uptime, fast support</b><p>Your crew works around the clock, with quick help when you need it.</p></div>
+        <div class="sc"><span class="sc-ic"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 4l9 16H3zM12 10v4M12 17h.01" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Smart error handling</b><p>Problems are caught early and fixed, so your work keeps running without interruptions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Questions (Jii, 10 Nov): the last doubts before joining, only answers that are true today. Early-access terms come from
+     the sign-up's own offer (early-access/public/join.html); the deposit amount stays off until it is set. -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="faq-wrap">
+    <div class="faq-head"><h2>Questions, answered.</h2><p class="lede">Anything else? Tell us when you join.</p></div>
+    <div class="faq">
+      <details><summary>What does 50agents make?</summary><p>Apps, automations, AI agents and browser agents, built around how your business works. They run on the tools you already use, or from scratch when nothing fits.</p></details>
+      <details><summary>Do I need to build anything myself?</summary><p>No. You tell it how you work, and your crew builds the apps, automations and agents for it.</p></details>
+      <details><summary>Will it work with my tools?</summary><p>Yes. It connects to 2,300+ apps through viaSocket. Where a website has no connector, a browser agent uses it the way you would.</p></details>
+      <details><summary>Will it act without asking me?</summary><p>Not on anything past your rules. Your crew asks you, or brings in the right person on your team in Slack, and remembers what you decide.</p></details>
+      <details><summary>What does early access get me?</summary><p>A founding price locked for 12 months, and help setting up your first crew before anyone else gets in. You can join the list for free, or reserve your spot with a refundable deposit that counts toward your first bill.</p></details>
+      <details><summary>When can I start?</summary><p>Join early access and tell us what to take off your plate. We'll write when your spot opens.</p></details>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Join: one call to action. A dark stage with the crew's colours glowing behind it, the crew waiting, and a job being
+     typed for them; the whole box opens the sign-up at /join (D106). The typed jobs are examples, cycling. -->
+<section class="sec" id="join">
+  <div class="wrap">
+    <div class="join-band">
+      <div class="glow" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="jb-crew" data-h="writer,keeper,scout,rosa,sunny" data-s="40" aria-hidden="true"></div>
+      <h2>Hand your crew its first job.</h2>
+      <p class="lede">Join early access and tell us what to take off your plate.</p>
+      <ul class="jb-gets">
+        <li>A founding price, locked for 12 months</li>
+        <li>Help setting up your first crew</li>
+        <li>Free to join, or reserve with a refundable deposit</li>
+      </ul>
+      <a class="jb-ask" href="/join">
+        <span class="jb-text"><span class="jb-pre">Take over</span> <b id="jb-job">chasing late invoices</b></span>
+        <span class="cta">Join early access</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer (Jii, 10 Nov: the current 50agents.com footer, its links and company line; old taglines left out as they predate the
+     repositioning). The crew peeks up from the bottom edge. -->
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <a class="logo" href="/" data-logo aria-label="50agents, from viaSocket"></a>
+      <p class="foot-co"><a href="https://walkover.in" target="_blank" rel="noopener">A product by <b>Walkover</b></a></p>
+      <p class="foot-copy">© 2026 50agents. All rights reserved.</p>
+    </div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><b>Product</b><a href="/ai-note-taker">AI Meeting Recorder</a><a href="/work-management">Work Management</a><a href="/templates">Agent Templates</a><a href="/ai-agents">AI Agents</a><a href="/pricing">Pricing</a></div>
+      <div><b>Resources</b><a href="https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio" target="_blank" rel="noopener">Chrome Extension</a><a href="/ai-agents">Browse Integrations</a><a href="https://50agents.com/help" target="_blank" rel="noopener">Help Center</a><a href="https://50agents.com/help/meeting-agent" target="_blank" rel="noopener">Getting Started Guide</a></div>
+      <div><b>Company</b><a href="https://50agents.com/help/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a><a href="https://walkover.in/careers" target="_blank" rel="noopener">Careers</a><a href="https://viasocket.com" target="_blank" rel="noopener">viaSocket</a><a href="https://msg91.com" target="_blank" rel="noopener">MSG91</a></div>
+    </nav>
+  </div>
+  <div class="crowd" id="crowd" aria-hidden="true"></div>
+</footer>

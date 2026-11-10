@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>50agents: video 1, an app</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>if(location.search.includes('bare'))document.documentElement.classList.add('bare');</script>
+<style>
+/* Video 1 of the reel overhaul (reel-plan.md), v3. The underlying process here is a crew: one AI agent and two automations.
+   Three layers, always apart: 50agents (the framed surface with its mark and the crew's dock), the Order desk the business made
+   (inside that frame, in its own brand), and the apps outside it (WhatsApp on Maya's phone, Xero in its own window).
+   The crew are seen doing each job: they leave the dock, work on the thing, cross out to the other apps and come back. */
+:root{--page:#FFFFFF;--ink:#141518;--mute:#5E6068;--faint:#6A6D76;--line:#E3E4E8;--soft:#F5F5F6;--ok:#1F5C40;--okbg:#E8F2EC;
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;--ui:'Schibsted Grotesk',system-ui,sans-serif;
+  /* the Order desk's own brand: deep navy and wheat, a bakery's colours */
+  --od:#1D2A44;--od2:#EEF1F7;--wheat:#C8902E;--wheat2:#FBF3E4}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);font:16px/1.45 var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+p,h4,h5,h6{margin:0}
+.top{position:sticky;top:0;z-index:20;pointer-events:none}
+.top>nav>*{pointer-events:auto}
+nav{display:flex;align-items:center;gap:32px;max-width:1304px;margin:0 auto;padding:16px 32px;transition:max-width .45s ease,padding .45s ease}
+.top.sc nav{max-width:100%;padding:14px 20px}
+.wm{font-size:30px;display:flex;align-items:center;border-radius:14px;transition:background .3s,box-shadow .3s,padding .3s,margin .3s}
+.top.sc .wm{background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 20px rgba(20,21,24,.08);padding:6px 12px;margin:-6px -12px}
+nav .jb{margin-left:auto;background:var(--ink);color:#fff;font:600 14.5px var(--ui);padding:10px 16px;border-radius:9px;text-decoration:none}
+.hero{max-width:1304px;margin:0 auto;padding:36px 32px 0;display:grid;grid-template-columns:1fr 520px;gap:40px;align-items:end;font-family:var(--disp)}
+h1{font-weight:600;font-size:clamp(46px,6.2vw,88px);line-height:.96;letter-spacing:-.045em;margin:0;font-variation-settings:'opsz' 96}
+.aside{padding-bottom:8px}
+.sub{font-size:19px;line-height:1.45;color:var(--mute);margin-bottom:20px}
+.sub b{color:var(--ink);font-weight:600;white-space:nowrap}
+.cta{display:inline-block;background:var(--ink);color:#fff;font-weight:600;font-size:15.5px;padding:14px 24px;border-radius:10px;text-decoration:none}
+
+/* the stage: a big calm surface; a camera moves over the world inside it */
+.stagebox{max-width:1304px;margin:56px auto 64px;padding:0 32px}
+.stage{position:relative;height:560px;border-radius:28px;overflow:hidden;background:#EEF0F4;
+  background-image:radial-gradient(rgba(29,42,68,.09) 1px,transparent 1.3px);background-size:24px 24px}
+.stage::after{content:'';position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(20,21,24,.11);pointer-events:none;z-index:40}
+.world{position:absolute;left:0;top:0;width:1480px;height:720px;transform-origin:0 0;transition:transform 1.2s cubic-bezier(.65,0,.3,1),opacity .4s}
+.world.dim{opacity:.3}
+.world.nt,.world.nt *{transition:none!important}
+.hide{display:none!important}
+.pop{animation:pop .45s cubic-bezier(.2,.9,.3,1.15) both}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}}
+.sp{width:13px;height:13px;border-radius:50%;border:2px solid #D5D8DE;border-top-color:var(--ink);animation:spin .8s linear infinite;display:inline-block;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.caret::after{content:'';display:inline-block;width:2px;height:1.05em;background:currentColor;vertical-align:-.15em;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cur{position:absolute;left:0;top:0;z-index:30;line-height:0;transition:transform .9s cubic-bezier(.45,0,.25,1),opacity .25s;pointer-events:none}
+.cur .ptr{display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25))}
+.clk{position:absolute;z-index:29;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;background:rgba(20,21,24,.12);opacity:0;pointer-events:none}
+.clk.go{animation:clk .5s ease-out}
+@keyframes clk{0%{opacity:1;transform:scale(.3)}100%{opacity:0;transform:scale(1.4)}}
+
+/* 50agents: one framed surface with its mark and the crew's dock; everything the business made lives inside it */
+.fr{position:absolute;left:330px;top:24px;width:820px;height:672px;background:#fff;border-radius:22px;box-shadow:0 0 0 1px rgba(20,21,24,.08),0 34px 80px rgba(20,21,24,.13);display:grid;grid-template-rows:58px minmax(0,1fr)}
+.ftop{display:flex;align-items:center;gap:14px;padding:0 12px 0 20px}
+.ftop .wmk{font-size:22px}
+.ftop .sep{width:1px;height:22px;background:var(--line)}
+.ftop .ws{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--mute)}
+.ftop .ws i{width:22px;height:22px;border-radius:6px;background:var(--wheat2);color:#8A5A12;font:700 11px/22px var(--ui);text-align:center;font-style:normal}
+.dock{margin-left:auto;display:flex;align-items:center;height:42px;padding:0 4px 0 12px;border-radius:12px;background:var(--soft);font-size:13px;color:var(--faint)}
+.dock .lb{margin-right:4px}
+.dock .sl{width:40px;height:42px}
+.fbody{position:relative;margin:0 10px 10px;border-radius:14px;background:#F4F5F7;min-height:0}
+
+/* act 1: the ask, inside 50agents */
+.ask{position:absolute;left:110px;top:170px;width:580px;transition:opacity .5s,transform .7s cubic-bezier(.65,0,.3,1)}
+.ask.gone{opacity:0;transform:translateY(-30px) scale(.94)}
+.ask .hd{display:flex;align-items:center;gap:10px;margin-bottom:12px;font:600 15px var(--disp);color:var(--mute)}
+.cmp{position:relative;background:#fff;border-radius:20px;padding:22px 70px 22px 24px;min-height:118px;font-size:20px;line-height:1.4;box-shadow:0 0 0 1px rgba(20,21,24,.06),0 24px 60px rgba(20,21,24,.12)}
+.cmp .phd{color:#9A9DA4}
+.cmp .snd{position:absolute;right:14px;bottom:14px;width:42px;height:42px;border-radius:50%;background:#D5D8DE;display:grid;place-items:center;transition:background .2s,transform .15s}
+.cmp .snd.on{background:var(--ink)}.cmp .snd.press{transform:scale(.86)}
+
+/* the Order desk, the business's own app */
+.app{position:absolute;inset:0;background:#fff;border-radius:14px;box-shadow:0 0 0 1px rgba(20,21,24,.07),0 10px 30px rgba(20,21,24,.06);overflow:hidden;display:grid;grid-template-rows:54px minmax(0,1fr);opacity:0;transform:scale(.97);transition:opacity .5s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.app.on{opacity:1;transform:none}
+.atop{display:flex;align-items:center;gap:10px;padding:0 16px;border-bottom:1px solid var(--line)}
+.aico{width:32px;height:32px;border-radius:10px;background:var(--od);display:grid;place-items:center;box-shadow:inset 0 -3px 0 var(--wheat)}
+.atop>b{font:600 18px var(--disp);letter-spacing:-.015em}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--ok);background:var(--okbg);padding:3px 9px;border-radius:20px;opacity:0;transform:scale(.8);transition:opacity .3s,transform .4s cubic-bezier(.2,.9,.3,1.3)}
+.live.on{opacity:1;transform:none}
+.live i{width:7px;height:7px;border-radius:50%;background:#2E9D62}
+.srch{margin-left:auto;width:210px;display:flex;align-items:center;gap:8px;background:var(--soft);border-radius:9px;padding:7px 12px;color:#9A9DA4;font-size:13.5px}
+.me{width:30px;height:30px;border-radius:50%;background:var(--wheat2);color:#8A5A12;display:grid;place-items:center;font:600 13px var(--ui)}
+.abody{display:grid;grid-template-columns:150px minmax(0,1fr);min-height:0}
+.anav{padding:12px 8px;border-right:1px solid var(--line);background:#FAFAFB;display:flex;flex-direction:column;gap:2px}
+.ni{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;font-size:14px;color:#3A3C42}
+.ni.on{background:var(--od2);color:var(--od);font-weight:600}
+.ni .n{margin-left:auto;font-size:11.5px;font-weight:700;color:#fff;background:var(--wheat);border-radius:9px;padding:0 6px}
+.amain{position:relative;padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0;min-height:0;overflow:hidden}
+.mh{display:flex;align-items:baseline;gap:10px}
+.mh h4{font:600 26px var(--disp);letter-spacing:-.025em}
+.mh .wk{color:var(--faint);font-size:14px}
+.newb{margin-left:auto;align-self:center;background:var(--od);color:#fff;border-radius:9px;padding:7px 13px;font-weight:600;font-size:13.5px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.kpi small{display:block;font-size:12.5px;color:var(--faint)}
+.kpi b{font:600 25px var(--disp);font-variant-numeric:tabular-nums;letter-spacing:-.015em}
+.kpi b em{font-style:normal;font-size:12.5px;color:var(--ok);font-weight:600;margin-left:6px;font-family:var(--ui)}
+.tbl{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tr{display:grid;grid-template-columns:1.7fr .95fr .6fr .75fr 1.15fr;gap:10px;align-items:center;padding:9px 12px;border-top:1px solid var(--line);font-size:14px;transition:background .5s}
+.tr:first-child{border-top:0}
+.tr.th{font-size:12.5px;color:var(--faint);background:#FAFAFB;padding:7px 12px}
+.tr .c{display:flex;align-items:center;gap:10px;min-width:0}
+.tr .av{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:600 11.5px var(--ui);flex:none}
+.tr .c b{font-weight:600;display:block}
+.tr .c small{display:flex;align-items:center;gap:5px;color:var(--faint);font-size:12px}
+.tr>span:nth-child(4){font-variant-numeric:tabular-nums}
+.tr.hl{background:var(--wheat2)}
+.st{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:3px 9px;border-radius:6px;white-space:nowrap}
+.st.ok{background:var(--okbg);color:var(--ok)}
+.st.wk{background:var(--soft);color:var(--mute)}
+.st.new{background:var(--wheat2);color:#8A5A12}
+.rowin{animation:rowin .6s cubic-bezier(.2,.9,.3,1) both}
+@keyframes rowin{from{opacity:0;transform:translateY(-12px)}}
+.asm{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s}
+.asm.on{opacity:1;transform:none}
+
+/* the order, opened: the PDF and what was read from it */
+.drw{position:absolute;right:0;top:0;bottom:0;width:340px;background:#fff;border-left:1px solid var(--line);box-shadow:-20px 0 40px rgba(20,21,24,.07);
+  padding:16px 18px;display:flex;flex-direction:column;gap:12px;transform:translateX(105%);transition:transform .7s cubic-bezier(.2,.8,.2,1);z-index:4}
+.drw.on{transform:none}
+.drw .dh{display:flex;align-items:center;gap:10px}
+.drw .dh b{font:600 21px var(--disp);letter-spacing:-.015em}
+.drw .dh .st{margin-left:auto}
+.drw .who{display:flex;align-items:center;gap:9px;color:var(--mute);font-size:13.5px}
+.drw .who .av{width:26px;height:26px;border-radius:50%;background:var(--wheat2);color:#8A5A12;display:grid;place-items:center;font:600 11px var(--ui);flex:none}
+.pdfw{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;align-items:start}
+.pdfp{position:relative;width:84px;height:108px;border-radius:6px;background:#fff;box-shadow:0 0 0 1px var(--line),0 4px 10px rgba(20,21,24,.08);padding:9px 8px;overflow:hidden}
+.pdfp i{display:block;height:4px;border-radius:2px;background:#DADDE2;margin:0 0 6px}
+.pdfp i:first-child{width:62%;background:#B3261E;height:5px;margin-bottom:9px}
+.pdfp i:nth-child(2){width:45%}
+.pdfp .hb{position:absolute;left:4px;right:4px;height:10px;top:-20px;border-radius:3px;background:rgba(255,122,77,.28);box-shadow:0 0 0 1px rgba(255,122,77,.55);transition:top .3s}
+.lines{display:flex;flex-direction:column}
+.ln{display:grid;grid-template-columns:1fr 36px 70px;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid #EFF0F2;font-size:13.5px}
+.ln span:nth-child(2),.ln span:nth-child(3){text-align:right;font-variant-numeric:tabular-nums}
+.ln.h{font-size:12px;color:var(--faint);padding:0 0 5px}
+.ln.rd{background:linear-gradient(90deg,rgba(255,122,77,.12),transparent)}
+.sk{color:transparent!important;background:#ECEEF1;border-radius:5px}
+.dtot{display:flex;justify-content:space-between;align-items:baseline}
+.dtot span{color:var(--mute)}
+.dtot b{font:600 24px var(--disp);font-variant-numeric:tabular-nums}
+.acts{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.act{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:13.5px;color:var(--faint);transition:border-color .3s,background .3s,color .3s}
+.act b{color:var(--ink);font-weight:600}
+.act .r{margin-left:auto;display:flex;align-items:center;gap:6px}
+.act.ok{border-color:#CFE3D6;background:#F4F9F6;color:var(--mute)}
+.act.ok .r{color:var(--ok);font-weight:700}
+
+/* the one ask, where it needs a yes */
+.yes{position:absolute;right:16px;top:60px;width:292px;z-index:6;background:#fff;border-radius:14px;box-shadow:0 0 0 1px rgba(20,21,24,.07),0 22px 50px rgba(20,21,24,.18);padding:14px 16px 14px 18px}
+.yes p{font-size:14.5px}
+.yes .bt{display:flex;gap:8px;margin-top:10px}
+.yes .bt span{border:1px solid var(--line);border-radius:8px;padding:6px 14px;font-weight:600;font-size:13.5px;transition:transform .15s}
+.yes .bt .y{background:var(--ink);color:#fff;border-color:var(--ink)}
+.yes .bt .y.press{transform:scale(.9)}
+.yes .dn{display:flex;align-items:center;gap:8px;color:var(--ok);font-weight:600;font-size:14px;margin-top:10px}
+
+/* outside 50agents: Maya's phone (WhatsApp) and Xero, each with its own look */
+.xo{opacity:0;transition:opacity .5s,transform .7s cubic-bezier(.2,.9,.3,1)}
+.xo.on{opacity:1;transform:none!important}
+.ph{position:absolute;left:16px;top:176px;width:250px;height:480px;border-radius:40px;background:#17181B;padding:9px;box-shadow:0 30px 70px rgba(20,21,24,.25);transform:translateX(-40px)}
+.ph .scr{height:100%;border-radius:32px;overflow:hidden;background:#EFE7DE;display:flex;flex-direction:column}
+.ph .sb{display:flex;justify-content:space-between;align-items:center;padding:9px 20px 3px;font:600 12px var(--ui);background:#F7F7F7}
+.ph .sb i{width:20px;height:9px;border-radius:3px;border:1.5px solid #17181B;position:relative}
+.ph .wh{display:flex;align-items:center;gap:9px;padding:6px 12px 9px;background:#F7F7F7;border-bottom:1px solid #E4E4E4}
+.ph .wh .av{width:32px;height:32px;border-radius:50%;background:#DDE5F0;color:var(--od);display:grid;place-items:center;font:600 12px var(--ui)}
+.ph .wh b{display:block;font-weight:600;font-size:14px;line-height:1.2}
+.ph .wh small{font-size:11.5px;color:var(--faint)}
+.ph .wb{flex:1;min-height:0;overflow:hidden;padding:12px 9px;display:flex;flex-direction:column;gap:8px;justify-content:flex-end}
+.ph .day{align-self:center;background:#fff;border-radius:7px;padding:2px 9px;font-size:11px;color:var(--faint)}
+.ph .wi{margin:8px;background:#fff;border-radius:20px;padding:8px 13px;color:#9A9DA4;font-size:13px}
+.bub{max-width:90%;padding:7px 10px;border-radius:11px;font-size:13.5px;line-height:1.38;box-shadow:0 1px 1px rgba(0,0,0,.06)}
+.bub.in{background:#fff;align-self:flex-start;border-top-left-radius:3px}
+.bub.out{background:#D9FDD3;align-self:flex-end;border-top-right-radius:3px}
+.bub .t{display:block;text-align:right;font-size:10.5px;color:#667781;margin-top:2px}
+.bub .t.read{color:#1D7AC9}
+.bub .doc,.tok .doc{display:flex;align-items:center;gap:8px;background:#F4F5F6;border-radius:8px;padding:6px 8px;margin-top:6px;font-size:12.5px;font-weight:500}
+.doc i{width:20px;height:26px;border-radius:4px;background:#B3261E;color:#fff;font:700 8.5px/26px var(--ui);text-align:center;font-style:normal;flex:none}
+.plab{position:absolute;left:16px;top:144px;width:250px;display:flex;justify-content:center;align-items:center;gap:7px;font:600 13.5px var(--ui);color:var(--mute);transform:translateY(-6px)}
+.xw{position:absolute;left:1214px;top:196px;width:256px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(20,21,24,.07),0 26px 60px rgba(20,21,24,.16);transform:translateX(40px)}
+.xw .xt{display:flex;align-items:center;gap:9px;padding:11px 14px;background:#F6FAFD;border-bottom:1px solid #E1EAF2}
+.xw .xt b{font-weight:600;font-size:15px}
+.xw .xt span{margin-left:auto;font-size:12px;font-weight:600;color:#fff;background:#13B5EA;border-radius:6px;padding:3px 8px}
+.xw .xh{display:flex;justify-content:space-between;padding:8px 14px 6px;font-size:11.5px;color:var(--faint);border-bottom:1px solid #EEF1F4}
+.xr{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 14px;border-bottom:1px solid #EEF1F4;font-size:13px;transition:background .6s}
+.xr b{display:block;font-weight:600}
+.xr small{display:block;color:var(--faint);font-size:11.5px}
+.xr .xa{text-align:right;font-variant-numeric:tabular-nums}
+.xr .ap{color:#B26A00}.xr .pd{color:var(--ok)}
+.xr.nw{background:#EAF7FD}
+.cons{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
+.cons g{opacity:0;transition:opacity .5s}
+.cons g.on{opacity:1}
+
+/* the crew: they sit in the dock and go where the work is */
+.bot{position:absolute;left:0;top:0;z-index:25;opacity:0;transition:transform 1s cubic-bezier(.55,0,.25,1),opacity .35s}
+.bot.on{opacity:1}
+.bot .bb{position:absolute;left:0;top:0;transform:translate(-50%,-50%) scale(var(--s,.8));transition:transform .5s cubic-bezier(.2,.9,.3,1.2)}
+.bot .bf{display:block;filter:drop-shadow(0 6px 10px rgba(20,21,24,.2))}
+.bot .tag{position:absolute;left:50%;top:100%;margin-top:5px;transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:#fff;font:500 12.5px var(--ui);padding:3px 9px;border-radius:7px;opacity:0;transition:opacity .3s}
+.bot .tag b{font-weight:600;margin-right:5px}
+.bot.t .tag{opacity:1}
+.bot .cy{position:absolute;left:100%;top:50%;margin-left:6px;transform:translateY(-50%);opacity:0;transition:opacity .3s;white-space:nowrap}
+.bot.c .cy{opacity:1}
+.chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border-radius:9px;padding:5px 9px;font:600 13px var(--ui);box-shadow:0 0 0 1px rgba(20,21,24,.08),0 8px 20px rgba(20,21,24,.15);font-variant-numeric:tabular-nums}
+.tok{position:absolute;left:0;top:0;z-index:24;transition:transform 1s cubic-bezier(.55,0,.25,1);pointer-events:none}
+.tok .doc{margin:0;background:#fff;box-shadow:0 0 0 1px rgba(20,21,24,.08),0 10px 24px rgba(20,21,24,.18)}
+
+
+/* the ending: the three results, softly ringed where they landed */
+.done{box-shadow:0 0 0 2.5px #2E9D62!important;border-radius:10px;transition:box-shadow .4s}
+@media (max-height:820px) and (min-width:861px){.hero{padding-top:18px}h1{font-size:clamp(46px,5.2vw,70px)}.stagebox{margin-top:40px}.stage{height:500px}}
+@media (max-width:860px){
+  nav{padding:12px 20px}.wm{font-size:26px}nav .jb{padding:9px 13px;font-size:14px}
+  .hero{grid-template-columns:1fr;gap:18px;padding:28px 20px 0}
+  h1{font-size:clamp(44px,12.4vw,64px)}.sub{font-size:17px;margin-bottom:18px}
+  .stagebox{padding:0 12px;margin-top:30px}
+  .stage{height:500px;border-radius:22px}
+  .ask{left:16px;width:380px} /* phones open on the mark and the ask together */
+}
+.bare body{background:transparent}.bare .top,.bare .hero{display:none}.bare .stagebox{margin:0;padding:0;max-width:none}.bare .stage{height:100vh}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="top hero-head"><nav><span class="wm" id="wm">50agents</span><a class="jb" href="#join">Join early access</a></nav></header>
+<section class="hero">
+  <h1>Your own apps,<br>doing the work.</h1>
+  <div class="aside">
+    <p class="sub">Build apps, AI agents and automations on your tools or from scratch. They do the work across <b>2,300+ apps</b>.</p>
+    <a class="cta" href="#join">Join early access</a>
+  </div>
+</section>
+<section class="stagebox" aria-label="On 50agents, a bakery asks for an order desk in one sentence. It is built, and its crew takes a WhatsApp order into Xero, confirms it with the customer, and learns the weekly order">
+  <div class="stage" id="stage"><div class="world" id="world"></div></div>
+</section>
+
+<script src="crew.js?v=7"></script>
+<script>
+Object.assign(APP,{whatsapp:'#25D366',xero:'#13B5EA'});
+logoUsed.push('writer','keeper','booker'); // the 0 in a logo is never one of this film's crew
+wordmark(document.getElementById('wm'));
+const mob=()=>innerWidth<=860;
+const G=(d,c='#fff',s=16)=>`<svg width="${s}" height="${s}" viewBox="0 0 16 16" fill="none" stroke="${c}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+const IC={order:'<path d="M3 2.5h10v11H3z"/><path d="M5.5 5.5h5M5.5 8h5M5.5 10.5h3"/>',users:'<circle cx="6" cy="5.5" r="2.3"/><path d="M2 13c.5-2.3 2-3.5 4-3.5s3.5 1.2 4 3.5M10.5 3.5a2.2 2.2 0 0 1 0 4.2M12 9.8c1 .5 1.7 1.5 2 3.2"/>',
+  box:'<path d="M8 1.8 13.5 4.6v6.8L8 14.2 2.5 11.4V4.6z"/><path d="M2.5 4.6 8 7.4l5.5-2.8M8 7.4v6.8"/>',doc:'<path d="M4 1.8h5.5L12.5 5v9.2H4z"/><path d="M9.5 1.8V5h3"/>',truck:'<path d="M1.5 4h8v7h-8zM9.5 6.5h3l2 2.5V11h-5"/><circle cx="4.5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/>',
+  search:'<circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/>',loaf:'<path d="M2.5 11.5V8.8C2.5 6 5 4.2 8 4.2s5.5 1.8 5.5 4.6v2.7z"/><path d="M5.6 6.4l.9 1.8M8.4 5.9l.9 1.8"/>'};
+const SEND='<svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg>';
+const CK=s=>`<svg width="${s}" height="${s}" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 8.5 3 3 6-7"/></svg>`;
+const PTR='<svg class="ptr" width="22" height="27" viewBox="0 0 18 22" aria-hidden="true"><path d="M2 1.5v16.2l4.3-4.1 2.8 6.4 2.9-1.3-2.8-6.3h6z" fill="#111214" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+const ASK='WhatsApp orders: put them in Xero and confirm with the customer.';
+const CREW=[['writer','Writer','AI agent'],['keeper','Keeper','automation'],['booker','Booker','automation']];
+// [name, initials, bg, fg, PO, delivery, items, total]
+const ORDERS=[['Lumen Coffee','LC','#E3ECF7','#1D4E89','PO-4468','Wed 6:30','14','$2,180'],['Fieldnote Deli','FD','#EEF3E6','#3F6B2F','PO-4469','Wed 7:00','6','$415'],['Northwind Hotel','NH','#F6E9EE','#8A2E52','PO-4470','Thu 6:00','22','$3,240']];
+const LINES=[['Sourdough loaf','120','$372.00'],['Croissant','200','$320.00'],['Oat milk, case','20','$320.00']];
+const OK=`<span class="st ok">${CK(12)}Confirmed</span>`;
+const row=(o,st=OK,cls='',k='')=>`<div class="tr ${cls}" ${k}><span class="c"><span class="av" style="background:${o[2]};color:${o[3]}">${o[1]}</span><span><b>${o[0]}</b><small>${o[4]}</small></span></span><span>${o[5]}</span><span>${o[6]}</span><span>${o[7]}</span><span>${st}</span></div>`;
+const XR=(no,who,amt,st,cls,k='')=>`<div class="xr ${cls||''}" ${k}><span><b>${no}</b><small>${who}</small></span><span class="xa"><b ${k?'data-k="xam"':''}>${amt}</b><small class="${st[1]}">${st[0]}</small></span></div>`;
+const HC=['Harbor Café','HC','#FBF3E4','#8A5A12','PO-4471','Thu 7:00','3','$1,012'];
+
+function render(w){
+  w.innerHTML=`
+  <svg class="cons" width="1480" height="720" aria-hidden="true">
+    <g data-k="c1"><path d="M266 416H330" stroke="#A3A8B3" stroke-width="2" stroke-dasharray="4 5"/><circle cx="266" cy="416" r="4" fill="#A3A8B3"/><circle cx="330" cy="416" r="4" fill="#A3A8B3"/></g>
+    <g data-k="c2"><path d="M1150 300H1214" stroke="#A3A8B3" stroke-width="2" stroke-dasharray="4 5"/><circle cx="1150" cy="300" r="4" fill="#A3A8B3"/><circle cx="1214" cy="300" r="4" fill="#A3A8B3"/></g>
+  </svg>
+  <div class="plab xo" data-k="plab">${logo('whatsapp',16)}WhatsApp</div>
+  <div class="ph xo" data-k="ph"><div class="scr"><div class="sb"><span>8:02</span><i></i></div>
+    <div class="wh"><span class="av">MO</span><div><b>Maya Ortiz</b><small>Harbor Café</small></div></div>
+    <div class="wb" data-k="wab"><span class="day" style="margin-bottom:auto">Today</span></div><div class="wi">Message</div></div></div>
+  <div class="xw xo" data-k="xw"><div class="xt">${logo('xero',22)}<b>Invoices</b><span>New</span></div><div class="xh"><span>Number, to</span><span>Amount</span></div>
+    <div data-k="xl">${XR('INV-0980','Fieldnote Deli','$415.00',['Awaiting payment','ap'])}${XR('INV-0979','Lumen Coffee','$2,180.00',['Paid','pd'])}${XR('INV-0978','Northwind Hotel','$3,240.00',['Paid','pd'])}</div></div>
+  <div class="fr" data-k="fr">
+    <div class="ftop" data-k="ftop"><span class="wmk" data-k="wmk">50agents</span><span class="sep"></span><span class="ws"><i>B</i>Brightside bakeries</span>
+      <div class="dock" data-k="dock"><span class="lb">Crew</span>${CREW.map((c,i)=>`<span class="sl" data-k="sl${i}"></span>`).join('')}</div></div>
+    <div class="fbody" data-k="fbody">
+      <div class="ask" data-k="ask"><div class="hd">${face('lead',26)}Tell 50agents what you need</div>
+        <div class="cmp" data-k="cmp"><span class="phd" data-k="phd">Describe an app, an automation, or a task</span><span data-k="tx"></span><span class="snd" data-k="snd">${SEND}</span></div></div>
+      <div class="app" data-k="app">
+        <div class="atop asm" data-k="atop"><span class="aico">${G(IC.loaf,'#fff',18)}</span><b>Order desk</b><span class="live" data-k="live"><i></i>Live</span><span class="srch">${G(IC.search,'#9A9DA4',14)}Search orders</span><span class="me">D</span></div>
+        <div class="abody"><div class="anav asm" data-k="nav"><div class="ni on">${G(IC.order,'currentColor')}Orders<span class="n hide" data-k="cnt">1</span></div><div class="ni">${G(IC.users,'currentColor')}Customers</div><div class="ni">${G(IC.box,'currentColor')}Products</div><div class="ni">${G(IC.doc,'currentColor')}Invoices</div><div class="ni">${G(IC.truck,'currentColor')}Deliveries</div></div>
+          <div class="amain" data-k="amain"><div class="mh asm" data-k="mh"><h4>Orders</h4><span class="wk">Week of 16 Nov</span><span class="newb">New order</span></div>
+            <div class="kpis asm" data-k="kpi"><div class="kpi"><small>Orders this week</small><b data-k="k1">31</b></div><div class="kpi"><small>Value this week</small><b data-k="k2">$18,240</b></div><div class="kpi"><small>Typed in by hand</small><b>0<em>all read for you</em></b></div></div>
+            <div class="tbl asm" data-k="tbl"><div class="tr th"><span>Customer</span><span>Delivery</span><span>Items</span><span>Total</span><span>Status</span></div><div data-k="rows">${ORDERS.map(o=>row(o)).join('')}</div></div>
+            <div class="drw" data-k="drw"><div class="dh"><b>PO-4471</b><span class="st new" data-k="dst">New</span></div>
+              <div class="who"><span class="av">HC</span>Harbor Café, Maya Ortiz · Thu 7:00</div>
+              <div class="pdfw"><div class="pdfp" data-k="pdf"><i></i><i></i><i data-k="p0"></i><i data-k="p1"></i><i data-k="p2"></i><i style="width:40%"></i><i style="width:55%;margin-left:auto"></i><span class="hb" data-k="hb"></span></div>
+                <div class="lines"><div class="ln h"><span>Item</span><span>Qty</span><span>Amount</span></div>
+                  ${LINES.map((l,i)=>`<div class="ln" data-k="l${i}"><span class="sk">${l[0]}</span><span class="sk">${l[1]}</span><span class="sk">${l[2]}</span></div>`).join('')}</div></div>
+              <div class="dtot"><span>Total</span><b class="sk" data-k="dtot">$1,012.00</b></div>
+              <div class="acts"><div class="act" data-k="a1">${logo('xero',18)}<span><b>Invoice</b> in Xero</span><span class="r" data-k="a1r">Waiting</span></div><div class="act" data-k="a2">${logo('whatsapp',18)}<span><b>Confirm</b> to Maya</span><span class="r" data-k="a2r">Waiting</span></div></div></div>
+            <div class="yes hide" data-k="yes"></div>
+          </div></div></div>
+    </div>
+  </div>
+  ${CREW.map(([id,n,kind])=>`<div class="bot" data-b="${id}"><div class="bb"><span class="bf">${face(id,40)}</span><span class="tag"><b>${n}</b>${kind}</span><span class="cy"></span></div></div>`).join('')}
+  <span class="clk" data-k="clk"></span><span class="cur hide" data-k="cur">${PTR}</span>`;
+  wordmark(w.querySelector('[data-k="wmk"]'),{byline:false});
+}
+
+/* ---------- the camera ---------- */
+const stage=document.getElementById('stage'),world=document.getElementById('world');
+function wrect(e){let x=0,y=0,n=e;while(n&&n!==world){x+=n.offsetLeft;y+=n.offsetTop;n=n.offsetParent;}return [x,y,x+e.offsetWidth,y+e.offsetHeight];}
+function shot(els,pad=.88,cap=1.6){
+  const rs=els.map(e=>Array.isArray(e)?e:wrect(e)),x=Math.min(...rs.map(r=>r[0])),y=Math.min(...rs.map(r=>r[1])),r=Math.max(...rs.map(r=>r[2])),b=Math.max(...rs.map(r=>r[3]));
+  const SW=stage.clientWidth,SH=stage.clientHeight,s=Math.min(SW/(r-x),SH/(b-y),cap/pad)*pad;
+  world.style.transform=`translate(${SW/2-(x+(r-x)/2)*s}px,${SH/2-(y+(b-y)/2)*s}px) scale(${s})`;
+}
+const WIDE=[[0,10,1480,706]];
+
+/* ---------- the film ---------- */
+let token=0;const STOP={};
+// shortcut: ?dbg runs fast and can freeze on a frame (window.__stopAt), for checking frames in a hidden test browser; visitors never hit it
+const DBG=location.search.includes('dbg');
+const tick=()=>new Promise(r=>{const ch=new MessageChannel();ch.port1.onmessage=()=>r();ch.port2.postMessage(0);});
+async function film(instant){
+  const my=token,W=ms=>instant?Promise.resolve():DBG?(async()=>{await tick();window.__n=(window.__n||0)+1;if(window.__stopAt&&window.__stopAt())await new Promise(()=>{});if(my!==token)throw STOP;})():new Promise((res,rej)=>setTimeout(()=>my===token?res():rej(STOP),reduced?0:ms));
+  render(world);const k=n=>world.querySelector(`[data-k="${n}"]`),m=mob(),bot=id=>world.querySelector(`[data-b="${id}"]`);
+  const S=(d,mo,pad=.9,cap=1.4)=>shot(m?mo:d,pad,cap); // phones get their own, closer shots
+  const pt=(el,fx=.5,fy=.5)=>{const r=Array.isArray(el)?el:wrect(el);return [r[0]+(r[2]-r[0])*fx,r[1]+(r[3]-r[1])*fy];};
+  const eye=(id,el)=>{const e=bot(id);if(!e._p)return;const [tx,ty]=pt(el),dx=tx-e._p[0],dy=ty-e._p[1],d=Math.hypot(dx,dy)||1;e.querySelector('.ey').style.translate=`${(dx/d*2.6).toFixed(2)}px ${(dy/d*2.4).toFixed(2)}px`;};
+  const go=(id,el,fx,fy,s)=>{const [x,y]=pt(el,fx,fy),e=bot(id);e.style.transform=`translate(${x}px,${y}px)`;if(s)e.style.setProperty('--s',s);e._p=[x,y];};
+  const home=id=>{const i=CREW.findIndex(c=>c[0]===id),e=bot(id);go(id,k('sl'+i),.5,.5,.8);e.classList.remove('t','c');eye(id,k('app'));};
+  const carry=(id,html)=>{const e=bot(id);e.querySelector('.cy').innerHTML=html||'';e.classList.toggle('c',!!html);};
+  const fly=async(html,from,to,ms=1000)=>{if(instant)return;const t=document.createElement('div');t.className='tok';t.innerHTML=html;world.appendChild(t);const [x0,y0]=pt(from),[x1,y1]=pt(to);
+    t.style.transition='none';t.style.transform=`translate(${x0}px,${y0}px) translate(-50%,-50%)`;void t.offsetWidth;t.style.transition='';t.style.transform=`translate(${x1}px,${y1}px) translate(-50%,-50%)`;await W(ms);t.remove();};
+  const pop=e=>{if(!instant){e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop');}return e;};
+  const cur=k('cur'),clk=k('clk');
+  const to=(el,fx=.5,fy=.5)=>{const [x,y]=pt(el,fx,fy);cur.classList.remove('hide');cur.style.transform=`translate(${x}px,${y}px)`;return [x,y];};
+  const click=([x,y])=>{clk.style.left=x+'px';clk.style.top=y+'px';clk.classList.remove('go');void clk.offsetWidth;clk.classList.add('go');};
+  const wr='writer',kp='keeper',bk='booker';
+  // set the first frame without motion: the ask, already written; only 50agents on screen
+  world.classList.add('nt');S([k('ftop'),k('ask')],[k('wmk'),k('ask')],.9,1.3);CREW.forEach(([id],i)=>go(id,k('sl'+i),.5,.5,.8));
+  k('phd').remove();k('tx').textContent=ASK;k('snd').classList.add('on');cur.style.transform='translate(1000px,560px)';void world.offsetWidth;world.classList.remove('nt');
+
+  // 1. the ask
+  cur.classList.remove('hide');await W(700);let p=to(k('snd'));await W(800);click(p);k('snd').classList.add('press');await W(250);
+
+  // 2. the Order desk exists, with its crew; nothing outside yet
+  cur.classList.add('hide');k('ask').classList.add('gone');k('app').classList.add('on');for(const s of ['atop','nav','mh','kpi','tbl','live'])k(s).classList.add('on');
+  CREW.forEach(([id])=>{bot(id).classList.add('on');eye(id,k('app'));});S([k('fr')],[k('fr')],.94,1);await W(1300);
+
+  // 3. follow one order. A PDF lands on WhatsApp, on Maya's phone, outside 50agents
+  k('plab').classList.add('on');k('ph').classList.add('on');k('c1').classList.add('on');S([k('plab'),k('ph'),k('tbl')],[k('plab'),k('ph')],.92,1.2);await W(600);
+  k('wab').insertAdjacentHTML('beforeend',`<div class="bub in">Morning! Here's next week's order.<div class="doc" data-k="doc"><i>PDF</i>PO-4471.pdf</div><span class="t">8:02</span></div>`);pop(k('wab').lastElementChild);
+  CREW.forEach(([id])=>eye(id,k('ph')));await W(900);
+  // it comes into the Order desk as a new order
+  const rr=wrect(k('rows'));if(m)S([k('tbl')],[k('tbl')],.9,1.3);
+  await fly(`<div class="doc"><i>PDF</i>PO-4471.pdf</div>`,k('doc'),[rr[0]+90,rr[1]+20,rr[0]+90,rr[1]+20],900);
+  k('rows').insertAdjacentHTML('afterbegin',row(HC,`<span class="st new">New</span>`,'hl rowin','data-k="nr"'));k('nr').children[3].textContent='...';k('nr').children[4].dataset.k='ns';k('cnt').classList.remove('hide');k('k1').textContent='32';await W(500);
+
+  // Writer, an AI agent, comes down from the crew and reads the PDF, line by line
+  k('drw').classList.add('on');S([k('drw')],[k('drw')],.92,1.25);bot(wr).classList.add('t');go(wr,k('pdf'),-.3,.22,1.15);eye(wr,k('pdf'));await W(800);
+  const hb=k('hb');
+  for(let i=0;i<3;i++){hb.style.top=(k('p'+i).offsetTop-3)+'px';eye(wr,k('p'+i));await W(300);const l=k('l'+i);eye(wr,l);l.classList.add('rd');l.querySelectorAll('.sk').forEach(e=>e.classList.remove('sk'));await W(350);l.classList.remove('rd');}
+  hb.style.top='-20px';k('dtot').classList.remove('sk');k('nr').children[3].textContent='$1,012';eye(wr,k('dtot'));await W(600);
+  bot(wr).classList.remove('t');home(wr);
+
+  // Keeper, an automation, picks up the invoice and carries it out to Xero (start and end in one shot)
+  k('xw').classList.add('on');k('c2').classList.add('on');S([k('drw'),k('xw')],[k('drw')],.94,1.1);
+  bot(kp).classList.add('t');go(kp,k('a1'),.9,.5,1.05);eye(kp,k('a1'));k('a1r').innerHTML='<span class="sp"></span>';await W(700);
+  carry(kp,`<span class="chip">${logo('xero',14)}Invoice $1,012.00</span>`);go(kp,k('xl'),.12,.02,1.05);eye(kp,k('xw'));if(m){const x=wrect(k('xw'));S([k('xw')],[[x[0]-110,x[1],x[2],x[3]]],.9,1.4);}await W(1200);
+  k('xl').insertAdjacentHTML('afterbegin',XR('INV-0981','Harbor Café','$1,012.00',['Awaiting payment','ap'],'nw rowin','data-k="xn"'));carry(kp);
+  k('a1').classList.add('ok');k('a1r').innerHTML=`INV-0981 ${CK(14)}`;eye(kp,k('xn'));await W(700);bot(kp).classList.remove('t');home(kp);
+
+  // Booker, an automation, carries the confirmation out to Maya (start and end in one shot)
+  S([k('ph'),k('drw')],[k('drw')],.94,1.05);
+  bot(bk).classList.add('t');go(bk,k('a2'),.9,.5,1.05);eye(bk,k('a2'));k('a2r').innerHTML='<span class="sp"></span>';await W(700);
+  carry(bk,`<span class="chip">${logo('whatsapp',14)}Confirmed, Thu 7:00</span>`);go(bk,k('ph'),.96,.6,1.05);eye(bk,k('wab'));if(m)S([k('plab'),k('ph')],[k('plab'),k('ph')],.88,1.3);await W(1300);
+  carry(bk);k('wab').insertAdjacentHTML('beforeend',`<div class="bub out" data-k="rep">Thanks Maya. Confirmed for Thursday 7:00, invoice attached.<span class="t read">8:03 ✓✓</span></div>`);pop(k('wab').lastElementChild);
+  k('a2').classList.add('ok');k('a2r').innerHTML=`Sent ${CK(14)}`;k('dst').className='st ok';k('dst').innerHTML=`${CK(12)}Confirmed`;k('ns').innerHTML=OK;eye(bk,k('rep'));await W(800);
+  bot(bk).classList.remove('t');home(bk);
+
+  // 4. the ending: the same three apps, each with its result ringed where it landed
+  k('drw').classList.remove('on');k('nr').classList.remove('hl');k('xn').classList.remove('nw');S(WIDE,[k('tbl')],.97,1);await W(500);
+  [k('nr'),k('xn'),k('rep')].forEach(e=>e.classList.add('done'));CREW.forEach(([id])=>eye(id,k('nr')));await W(3000);
+}
+const topBar=document.querySelector('.top');addEventListener('scroll',()=>topBar.classList.toggle('sc',scrollY>8),{passive:true});
+(async()=>{
+  await document.fonts.ready;
+  if(DBG)while(!window.__go)await new Promise(r=>setTimeout(r,50));
+  if(reduced){await film(true);return;} // the finished frame
+  const bare=document.documentElement.classList.contains('bare');
+  try{for(;;){await film(false);if(bare)parent.postMessage({film:'done'},'*');world.classList.add('dim');await new Promise(r=>setTimeout(r,400));world.classList.remove('dim');}}catch(e){if(e!==STOP)throw e;}
+})();
+</script>
+</body>
+</html>
