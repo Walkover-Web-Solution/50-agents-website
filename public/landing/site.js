@@ -3,7 +3,7 @@
 (async function(){
   /* the hero: live from its builder's file, its own header hidden (the page carries one), its CTAs scroll to #join */
   /* the A/B variant (set by the live index page) rides along to the sign-up, so sign-ups can be counted per variant */
-  const V=window.VARIANT||'', JOIN=(window.JOIN_URL||'/join')+(V?'?v='+V:''); // JOIN_URL is set where the sign-up lives on another host
+  const JOIN=window.JOIN_URL||'https://50agents.com/login'; // the live sign-up (D143); the repo build sets /login
   let heroCta=null;
   const frame=document.querySelector('.hero-frame');
   if(frame){
@@ -25,7 +25,7 @@
         if(boxy)bottom=r.bottom;});
       /* close the gap, but never so far that the tools row climbs above the fold: it starts just below the first screen at the earliest */
       if(bottom)document.documentElement.style.setProperty('--hero-blank',Math.max(0,Math.round(Math.min(frame.offsetHeight-bottom,frame.offsetHeight-innerHeight+88)))+'px');
-      d.querySelectorAll('a[href="#join"]').forEach(a=>a.onclick=e=>{e.preventDefault();location.href=JOIN;});
+      d.querySelectorAll('a[href="#join"]').forEach(a=>{a.onclick=e=>{e.preventDefault();location.href=JOIN;};if(/join early access/i.test(a.textContent))a.textContent='Get started';});
       heroCta=[...d.querySelectorAll('a[href="#join"]')].find(a=>a.offsetParent&&getComputedStyle(a).visibility!=='hidden')||null;
     }catch(e){}};
     frame.addEventListener('load',()=>{fit();setTimeout(fit,800);});addEventListener('resize',fit);
