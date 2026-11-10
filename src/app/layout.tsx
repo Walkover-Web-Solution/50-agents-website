@@ -72,7 +72,7 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [{ url: '/landing/favicon.svg', type: 'image/svg+xml' }, { url: '/favicon.ico', sizes: '48x48' }],
     shortcut: '/favicon.ico',
   },
 };
