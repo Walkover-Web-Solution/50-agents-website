@@ -91,7 +91,7 @@ const OrgSelector = () => {
       >
         <DialogTitle>
           <Typography variant="h4" textAlign="center" fontWeight="bold" color="primary">
-            Welcome to 50Agents
+            Welcome to 50agents
           </Typography>
           <Typography variant="h6" textAlign="center" mt={2} color="text.secondary">
             Select your organization to continue

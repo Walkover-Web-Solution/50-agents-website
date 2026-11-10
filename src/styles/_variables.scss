@@ -1,20 +1,18 @@
+/* Old names, now pointing at the landing's tokens (_brand.scss), so every page takes the new design (D152). */
 :root {
-  --background: #ffffff;
-  --foreground: #40434a;
+  --background: var(--page);
+  --foreground: var(--ink);
 
-  /* Border shades */
-  --border-medium: rgba(156, 163, 175, 0.2); /* gray-400 @ 20% */
-  --border-light: rgba(156, 163, 175, 0.1); /* gray-400 @ 10% */
+  --border-medium: var(--line);
+  --border-light: var(--line);
 
-  /* Text shades */
-  --text-black: #40434a;
+  --text-black: var(--ink);
   --text-white: #ffffff;
-  --text-gray-500: #6b7280;
-  --text-gray-600: #4b5563;
+  --text-gray-500: var(--mute);
+  --text-gray-600: var(--mute);
 
-  /* Background shades */
-  --background-gray-light: rgba(245, 245, 245, 0.5); /* bg-gray-100/50 */
-  --background-gray-base: #fbfafd; 
+  --background-gray-light: var(--wash);
+  --background-gray-base: var(--wash2);
 
-  --primary-color: #5B21B5;
+  --primary-color: var(--ink);
 }

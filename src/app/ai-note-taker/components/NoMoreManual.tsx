@@ -12,7 +12,7 @@ const NoMoreManual = () => {
                 <div className="w-full md:w-[65%]">
                     <h2 className="h2">No more manual follow-ups. Everything stays organized.</h2>
                     <p className="sub__h2">Meetings shouldn’t create more work after they end. With 50agents, decisions, tasks, and follow-ups are captured automatically and kept in one structured place. You don’t need to chase updates, send reminders, or copy notes into other tools.</p>
-                    <p className="sub__h2">Your team always knows what was discussed, what was decided, and what needs to happen next — without extra effort or repeated conversations.</p>
+                    <p className="sub__h2">Your team always knows what was discussed, what was decided, and what needs to happen next, without extra effort or repeated conversations.</p>
                 </div>
             </div>
         </div>

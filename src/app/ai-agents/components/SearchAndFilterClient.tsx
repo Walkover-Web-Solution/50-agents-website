@@ -65,7 +65,7 @@ export default function SearchAndFilterClient({
             placeholder="Search agents..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
-            className="w-full h-12 pl-12 pr-4 py-3 border-2 border-dark rounded-lg placeholder-gray-500 text-base transition-all duration-300 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 hover:border-gray-500"
+            className="w-full h-12 pl-12 pr-4 py-3 border-2 border-dark rounded-lg placeholder-gray-500 text-base transition-all duration-300 focus:outline-none focus:border-[var(--ink)] focus:ring-2 focus:ring-blue-400/20 hover:border-gray-500"
           />
         </div>
       </div>

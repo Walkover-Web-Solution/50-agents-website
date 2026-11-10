@@ -57,7 +57,7 @@ const aiNoteTakerPage = async () => {
         <div className="divider" />
         <PrivateAndSecure />
         <div className="divider" />
-        <FAQSection subHeading="Answers to common questions about 50Agents and its features. If you have any other questions, please don't hesitate to contact us." faqs={faqData || []} />
+        <FAQSection subHeading="Answers to common questions about 50agents and its features. If you have any other questions, please don't hesitate to contact us." faqs={faqData || []} />
       </div>
       <Footer />
     </div>

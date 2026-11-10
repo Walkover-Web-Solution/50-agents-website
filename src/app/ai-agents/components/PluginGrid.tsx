@@ -94,7 +94,7 @@ export default function PluginGrid({ plugins }: PluginGridProps) {
           <div className="flex items-center justify-end pt-3 mt-auto">
             <button
               onClick={() => handleCardClick(plugin.appslugname)}
-              className="text-purple-600 hover:text-purple-400 text-sm font-medium transition-colors cursor-pointer"
+              className="text-[var(--ink)] underline hover:opacity-70 text-sm font-medium transition-colors cursor-pointer"
             >
               Go To Agent →
             </button>

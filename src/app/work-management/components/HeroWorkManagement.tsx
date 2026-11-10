@@ -20,7 +20,7 @@ export default function HeroWorkManagement() {
                         </div>
 
                         <h1 className="h1 mb-6 leading-tight">
-                            Work Management — AI-Powered Execution for Modern Teams
+                            Work Management: AI-Powered Execution for Modern Teams
                         </h1>
 
                         <p className="sub__h1 max-w-3xl mx-auto mb-8">
