@@ -22,7 +22,7 @@ const SmarterWork = () => {
                 <div className="mx-auto text-center">
                     <h2 className="h2 mb-6">Smarter Work, Less Stress</h2>
                     <p className="sub__h2 mb-12 max-w-2xl mx-auto">
-                        Most task boards are just digital "to-do" lists that get messy fast. Work Management is different. It brings structure and intelligence to your day. Whether you are fixing bugs, planning a school project, or launching a new product, our platform adapts to you—not the other way around.
+                        Most task boards are just digital "to-do" lists that get messy fast. Work Management is different. It brings structure and intelligence to your day. Whether you are fixing bugs, planning a school project, or launching a new product, our platform adapts to you, not the other way around.
                     </p>
 
                     <div>

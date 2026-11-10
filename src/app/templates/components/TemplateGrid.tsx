@@ -120,7 +120,7 @@ function TemplateGrid() {
               <TrendingUp size={16} />
               Ready to Use
             </span>
-            <span className="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 px-4 py-2 rounded-full text-sm font-semibold border border-blue-500/20">
+            <span className="inline-flex items-center gap-2 bg-[var(--wash)] text-[var(--ink)] px-4 py-2 rounded-full text-sm font-semibold border border-[var(--line)]">
               <Bot size={16} />
               AI-Powered
             </span>
@@ -155,10 +155,10 @@ function TemplateGrid() {
             </>
           ) : templates.length === 0 ? (
             <div className="col-span-full">
-              <div className="text-center py-16 px-4 bg-base backdrop-blur-sm border-2 border-dashed border-dark rounded-2xl">
-                <h3 className="text-xl font-bold text-black mb-3">
-                  No templates available
-                </h3>
+              <div className="text-center py-16 px-6 rounded-2xl" style={{ background: 'var(--wash)', border: '1px solid var(--line)' }}>
+                <h3 className="h3 mb-3">Templates are on their way.</h3>
+                <p className="mb-6" style={{ color: 'var(--mute)' }}>Until then, start from scratch: tell it what you need and it gets built for you.</p>
+                <a href={`${process.env.NEXT_PUBLIC_INTERNAL_URL || ''}/login`} className="btn btn-primary no-underline">Get started</a>
               </div>
             </div>
           ) : (

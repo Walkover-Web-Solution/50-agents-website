@@ -42,13 +42,13 @@ const PricingSection = () => {
               {/* Features */}
               <div className="space-y-6 flex-1 flex flex-col justify-center">
                 <div className="flex items-center justify-center space-x-3 text-left w-full max-w-xs mx-auto">
-                  <Clock size={20} className="text-green-500 flex-shrink-0" />
+                  <Clock size={20} className="text-[var(--ok)] flex-shrink-0" />
                   <span className="text-gray-dark font-medium">No monthly commitment. No hidden fees.</span>
                 </div>
                 <div className="flex items-start justify-center space-x-3 text-left w-full max-w-xs mx-auto">
-                  <Zap size={20} className="text-green-500 flex-shrink-0 mt-1" />
+                  <Zap size={20} className="text-[var(--ok)] flex-shrink-0 mt-1" />
                   <span className="text-gray-dark font-medium">
-                    Pay only for what you use — the lowest price in the industry, period.
+                    Pay only for what you use. The lowest price in the industry, period.
                   </span>
                 </div>
               </div>
@@ -78,13 +78,13 @@ const PricingSection = () => {
               {/* Features */}
               <div className="space-y-6 flex-1 flex flex-col justify-center">
                 <div className="flex items-start justify-center space-x-3 text-left w-full max-w-xs mx-auto">
-                  <Zap size={20} className="text-blue-500 flex-shrink-0 mt-1" />
+                  <Zap size={20} className="text-[var(--ink)] flex-shrink-0 mt-1" />
                   <span className="text-gray-dark font-medium">
                     Build and deploy AI agents for your internal tools and applications.
                   </span>
                 </div>
                 <div className="flex items-center justify-center space-x-3 text-left w-full max-w-xs mx-auto">
-                  <DollarSign size={20} className="text-blue-500 flex-shrink-0" />
+                  <DollarSign size={20} className="text-[var(--ink)] flex-shrink-0" />
                   <span className="text-gray-dark font-medium">Standard pricing applies after 1,000 calls.</span>
                 </div>
               </div>
@@ -95,6 +95,9 @@ const PricingSection = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex justify-center mt-12">
+          <a href={`${process.env.NEXT_PUBLIC_INTERNAL_URL || ''}/login`} className="btn btn-primary no-underline" style={{ fontSize: 17, padding: '14px 26px' }}>Get started</a>
         </div>
       </div>
     </section>

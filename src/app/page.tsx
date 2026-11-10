@@ -18,7 +18,7 @@ export async function generateMetadata() {
   const meta = await getMetaData("/", pageUrl);
 
   return generateSEOMetadata({
-    title: meta?.title || '50Agents',
+    title: meta?.title || '50agents',
     description: meta?.description,
     keywords: meta?.keywords,
     canonical: meta?.name,

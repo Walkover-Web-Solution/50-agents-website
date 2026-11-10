@@ -12,7 +12,7 @@ interface SEOConfig {
 
 export function generateMetadata(config: SEOConfig): Metadata {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://50agents.com';
-  const siteName = '50Agents';
+  const siteName = '50agents';
 
   const fullTitle = config.title.includes(siteName) ? config.title : `${config.title} | ${siteName}`;
 
@@ -73,11 +73,11 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: '50Agents',
+    name: '50agents',
     url: 'https://50agents.com',
     logo: 'https://50agents.com/50_agents_logo.png',
     description:
-      'Deploy AI agents that perform any task inside 5000+ apps just by typing a prompt. Automate workflows, manage tasks, and boost productivity with intelligent AI agents.',
+      'Deploy AI agents that perform any task inside 2,300+ apps just by typing a prompt. Automate workflows, manage tasks, and boost productivity with intelligent AI agents.',
     sameAs: [
       // Add social media URLs here when available
     ],
@@ -93,7 +93,7 @@ export function generateWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: '50Agents',
+    name: '50agents',
     url: 'https://50agents.com',
     description: 'AI Agents for Every App - Perform Any Task with Natural Language',
     potentialAction: {
@@ -108,15 +108,15 @@ export function generateSoftwareApplicationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: '50Agents',
+    name: '50agents',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Web',
     description:
-      'Deploy AI agents that perform any task inside 5000+ apps just by typing a prompt. Automate workflows, manage tasks, and boost productivity with intelligent AI agents.',
+      'Deploy AI agents that perform any task inside 2,300+ apps just by typing a prompt. Automate workflows, manage tasks, and boost productivity with intelligent AI agents.',
     url: 'https://50agents.com',
     author: {
       '@type': 'Organization',
-      name: '50Agents',
+      name: '50agents',
     },
     offers: {
       '@type': 'Offer',

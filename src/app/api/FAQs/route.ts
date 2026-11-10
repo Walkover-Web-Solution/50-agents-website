@@ -20,7 +20,8 @@ export async function GET() {
         }
 
         const data = await res.json();
-        return NextResponse.json(data?.data?.rows || []);
+        // never send who edited a row (names and emails) to the public
+    return NextResponse.json((data?.data?.rows || []).map(({ createdby, updatedby, ...row }: any) => row));
     } catch (error: any) {
         console.error(error?.response?.data || error.message);
         return NextResponse.json({ error: 'Failed to fetch FAQs' }, { status: 500 });

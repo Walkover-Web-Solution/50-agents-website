@@ -18,7 +18,7 @@ const TalkToUs = () => {
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute inset-0 rounded-full blur-xl bg-linear-to-r from-blue-500/50 to-purple-600/50 -z-10"
+        className="absolute inset-0 rounded-full blur-xl bg-black/10 -z-10"
       />
 
       <motion.a
@@ -40,7 +40,7 @@ const TalkToUs = () => {
           "transition-colors duration-300 group overflow-hidden"
         )}
         style={{
-          background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)',
+          background: 'var(--ink)',
         }}
       >
         {/* Shimmer effect */}

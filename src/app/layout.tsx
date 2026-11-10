@@ -5,14 +5,14 @@ import '../styles/_import.scss';
 
 export const metadata = {
   title: {
-    template: '%s | 50Agents',
-    default: '50Agents | AI Agents for Every App - Perform Any Task with Natural Language',
+    template: '%s',
+    default: '50agents: apps, AI agents and automations that do the work',
   },
   description:
-    'Deploy AI agents that perform any task inside 5000+ apps just by typing a prompt. Automate workflows, manage tasks, and boost productivity with intelligent AI agents. No code required.',
+    'Apps, automations, AI agents and browser agents, built around how your business works. Works with 2,300+ apps.',
   category: 'technology',
-  generator: '50Agents',
-  applicationName: '50Agents',
+  generator: '50agents',
+  applicationName: '50agents',
   referrer: 'origin-when-cross-origin',
   keywords: [
     '50agents',
@@ -48,9 +48,9 @@ export const metadata = {
     'ai operational efficiency',
     'automated ai tasks',
   ],
-  authors: [{ name: '50Agents Team' }],
-  creator: '50Agents',
-  publisher: '50Agents',
+  authors: [{ name: '50agents' }],
+  creator: '50agents',
+  publisher: '50agents',
   formatDetection: {
     email: false,
     address: false,
@@ -77,10 +77,17 @@ export const metadata = {
   },
 };
 
+const VARIANT_SCRIPT = "(function(){var F={orbit:'https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap',stage:'https://fonts.googleapis.com/css2?family=Public+Sans:wght@500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap',strip:'https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap'},k='50a-variant',v=null,q=new URLSearchParams(location.search).get('v');try{v=localStorage.getItem(k)}catch(e){}if(!F[v]){v=['orbit','stage','strip'][Math.floor(Math.random()*3)];try{localStorage.setItem(k,v)}catch(e){}}if(F[q])v=q;document.documentElement.setAttribute('data-v',v);var l=document.createElement('link');l.rel='stylesheet';l.href=F[v];document.head.appendChild(l);if(v!=='orbit'){var m=document.createElement('link');m.rel='stylesheet';m.href='https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;800&display=swap';document.head.appendChild(m);}})();";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head></head>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* the visitor's A/B/C version from the home page (or a new one, kept), so every page wears the same design (D152) */}
+        <script dangerouslySetInnerHTML={{ __html: VARIANT_SCRIPT }} />
+      </head>
       <body style={{ height: '100vh' }}>
         <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
         <ClientLayout>{children}</ClientLayout>
