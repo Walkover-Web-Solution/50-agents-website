@@ -14,10 +14,10 @@
   try{v=localStorage.getItem(k)}catch(e){}
   if(!F[v]){v=['orbit','stage','strip'][Math.floor(Math.random()*3)];try{localStorage.setItem(k,v)}catch(e){}}
   if(F[q])v=q;
-  window.VARIANT=v;window.HERO_FILE=H[v];window.JOIN_URL='/login';document.documentElement.setAttribute('data-v',v);
+  window.VARIANT=v;window.HERO_FILE=H[v];window.JOIN_URL='https://50agents-app.embarko.app/login';document.documentElement.setAttribute('data-v',v);
   var l=document.createElement('link');l.rel='stylesheet';l.href=F[v];document.head.appendChild(l);})();
 </script>
-<link rel="stylesheet" href="site.css?v=85">
+<link rel="stylesheet" href="site.css?v=89">
 <style>
 :root[data-v=orbit]{--panel:#FFFFFF;--panel-edge:inset 0 0 0 1px #ECEDF0;--ok:#17703F;--ask:#B4410B;--bad:#A3242F;--note:#3355CC;--page:#FFFFFF;--surface:#FFFFFF;--ink:#111214;--mute:#4F535B;--line:#E7E8EB;--wash:#F6F7F9;--wash2:#FAFAFB;--pattern:rgba(17,18,20,.09);--display:'Schibsted Grotesk',system-ui,sans-serif;--ui:'Schibsted Grotesk',system-ui,sans-serif;--h-weight:500;--h3-weight:500;--h-track:-.025em;--r:14px;--r-lg:22px;--shadow:0 0 0 1px #E7E8EB,0 14px 34px rgba(17,18,20,.06);--shadow-sm:0 0 0 1px #E7E8EB,0 6px 16px rgba(17,18,20,.05);--t1:#E2E9FF;--t2:#FFEDC2;--t3:#FFE1D6;--t4:#E8E0FF;--bubble-in:#F2F3F5;--bubble-out:#FFE6DA;--best:#EAF6EE}
 :root[data-v=stage]{--panel:#FFFFFF;--panel-edge:0 1px 0 #E3E4E8,0 18px 44px rgba(20,21,24,.06);--ok:#17703F;--ask:#B4410B;--bad:#A3242F;--note:#3355CC;--ok:#1F5C40;--ask:#9C3D10;--page:#FFFFFF;--surface:#FFFFFF;--ink:#141518;--mute:#4B4E55;--line:#E3E4E8;--wash:#FFFFFF;--wash2:#F4F5F7;--pattern:rgba(20,21,24,.08);--display:'Bricolage Grotesque',system-ui,sans-serif;--ui:'Schibsted Grotesk',system-ui,sans-serif;--h-weight:600;--h3-weight:600;--h-track:-.04em;--r:16px;--r-lg:24px;--shadow:0 1px 0 #E3E4E8,0 16px 40px rgba(20,21,24,.07);--shadow-sm:0 0 0 1px #E3E4E8,0 6px 16px rgba(20,21,24,.05);--t1:#DCE4F2;--t2:#F3E4C2;--t3:#F0D9DB;--t4:#D3E7DB;--bubble-in:#EEF0F3;--bubble-out:#F5E7E8;--best:#E3EFE8}
@@ -26,11 +26,10 @@
 </head>
 <body>
 <header class="site-head" id="sitehead"><div class="wrap"><a class="logo" href="/" data-logo aria-label="50agents, from viaSocket"></a><a class="cta" href="/join">Get started</a></div></header>
-<script>/* signed-in visitors (the app sets proxy_auth_token) get their dashboard, not the sign-up (D167) */try{if(localStorage.getItem('proxy_auth_token')){var a=document.querySelector('#sitehead .cta');a.textContent='Go to dashboard';a.href='/org';}}catch(e){}</script>
 <iframe class="hero-frame" title="50agents"></iframe>
 <script>document.querySelector('.hero-frame').src='hero/'+window.HERO_FILE;</script>
 <div id="sections"></div>
 <script src="hero/crew.js?v=8"></script>
-<script src="site.js?v=72"></script>
+<script src="site.js?v=73"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 'use client';
 
+import SignupLink from '@/components/SignupLink';
 import { Clock, DollarSign, Star, Zap } from 'lucide-react';
 
 const PricingSection = () => {
@@ -97,7 +98,7 @@ const PricingSection = () => {
           </div>
         </div>
         <div className="flex justify-center mt-12">
-          <a href={`${process.env.NEXT_PUBLIC_INTERNAL_URL || ''}/login`} className="btn btn-primary no-underline" style={{ fontSize: 17, padding: '14px 26px' }}>Get started</a>
+          <SignupLink button="pricing" className="btn btn-primary no-underline" style={{ fontSize: 17, padding: '14px 26px' }}>Get started</SignupLink>
         </div>
       </div>
     </section>
