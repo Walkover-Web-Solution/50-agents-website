@@ -8,7 +8,7 @@
   const ARRIVED=(()=>{const o={};new URLSearchParams(location.search).forEach((v,k)=>{if(k.startsWith('utm_'))o[k]=v;});
     try{if(Object.keys(o).length)sessionStorage.setItem('50a-utm',JSON.stringify(o));else return JSON.parse(sessionStorage.getItem('50a-utm')||'{}');}catch(e){}return o;})();
   const signup=btn=>{const u=new URL(window.JOIN_URL||'https://50agents-app.embarko.app/login',location.href);
-    Object.entries({utm_source:'50agents.com',utm_medium:'website',utm_campaign:V,utm_content:btn,...ARRIVED}).forEach(([k,v])=>u.searchParams.set(k,v));return u.href;};
+    Object.entries({utm_source:'50agents.com',utm_medium:'website',utm_campaign:V,utm_content:btn,...ARRIVED,lv:V}).forEach(([k,v])=>u.searchParams.set(k,v));return u.href;}; // lv: the version, always (ads may override utm_campaign)
   let heroCta=null;
   const frame=document.querySelector('.hero-frame');
   if(frame){
