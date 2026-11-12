@@ -2,8 +2,13 @@
    Each landing page includes crew.js first, then this file. Needs http (it fetches sections.html). v1 is site-v1.js. */
 (async function(){
   /* the hero: live from its builder's file, its own header hidden (the page carries one), its CTAs scroll to #join */
-  /* the A/B variant (set by the live index page) rides along to the sign-up, so sign-ups can be counted per variant */
-  const JOIN=window.JOIN_URL||'https://50agents.com/login'; // the live sign-up (D143); the repo build sets /login
+  /* Sign-up links carry UTMs (Jii, 12 Nov): source 50agents.com, medium website, campaign = this visitor's version,
+     content = which button. utm_* the visitor arrived with win, and are kept for the visit so later pages carry them too. */
+  const V=window.VARIANT||(document.title.match(/Orbit|Stage|Strip/)||[''])[0].toLowerCase()||'unknown';
+  const ARRIVED=(()=>{const o={};new URLSearchParams(location.search).forEach((v,k)=>{if(k.startsWith('utm_'))o[k]=v;});
+    try{if(Object.keys(o).length)sessionStorage.setItem('50a-utm',JSON.stringify(o));else return JSON.parse(sessionStorage.getItem('50a-utm')||'{}');}catch(e){}return o;})();
+  const signup=btn=>{const u=new URL(window.JOIN_URL||'https://50agents-app.embarko.app/login',location.href);
+    Object.entries({utm_source:'50agents.com',utm_medium:'website',utm_campaign:V,utm_content:btn,...ARRIVED}).forEach(([k,v])=>u.searchParams.set(k,v));return u.href;};
   let heroCta=null;
   const frame=document.querySelector('.hero-frame');
   if(frame){
@@ -25,7 +30,7 @@
         if(boxy)bottom=r.bottom;});
       /* close the gap, but never so far that the tools row climbs above the fold: it starts just below the first screen at the earliest */
       if(bottom)document.documentElement.style.setProperty('--hero-blank',Math.max(0,Math.round(Math.min(frame.offsetHeight-bottom,frame.offsetHeight-innerHeight+88)))+'px');
-      d.querySelectorAll('a[href="#join"]').forEach(a=>{a.onclick=e=>{e.preventDefault();location.href=JOIN;};if(/join early access/i.test(a.textContent))a.textContent='Get started';});
+      d.querySelectorAll('a[href="#join"]').forEach(a=>{const to=signup(a.classList.contains('t')?'hero-tile':'hero');a.onclick=e=>{e.preventDefault();location.href=to;};if(/join early access/i.test(a.textContent))a.textContent='Get started';});
       heroCta=[...d.querySelectorAll('a[href="#join"]')].find(a=>a.offsetParent&&getComputedStyle(a).visibility!=='hidden')||null;
     }catch(e){}};
     frame.addEventListener('load',()=>{fit();setTimeout(fit,800);});addEventListener('resize',fit);
@@ -42,7 +47,7 @@
   const host=document.getElementById('sections');
   host.innerHTML=await (await fetch('sections.html?'+Date.now())).text();
 
-  document.querySelectorAll('a[href="/join"],a[href="#join"]').forEach(a=>a.href=JOIN);
+  document.querySelectorAll('a[href="/join"],a[href="#join"]').forEach(a=>a.href=signup(a.closest('#sitehead')?'header':a.closest('#join')?'signup-box':'page'));
 
   document.querySelectorAll('[data-logo-mini]').forEach(e=>wordmark(e,{byline:false}));
 

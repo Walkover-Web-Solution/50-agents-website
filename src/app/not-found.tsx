@@ -1,3 +1,5 @@
+import SignupLink from '@/components/SignupLink';
+
 // 404 in the landing's design (landing/design-system, shared tokens): the crew, one line, the way back.
 export default function NotFound() {
   return (
@@ -9,7 +11,7 @@ export default function NotFound() {
         <p style={{ margin: '16px auto 0', fontSize: 19, lineHeight: 1.5, color: '#4F535B' }}>It may have moved, or it never existed.</p>
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginTop: 32 }}>
           <a href="/" style={{ background: '#111214', color: '#fff', fontWeight: 600, fontSize: 17, padding: '14px 24px', borderRadius: 10, textDecoration: 'none' }}>Back to home</a>
-          <a href="/login" style={{ color: '#111214', fontWeight: 600, fontSize: 17, padding: '14px 24px', borderRadius: 10, textDecoration: 'none', boxShadow: 'inset 0 0 0 1px #E7E8EB' }}>Get started</a>
+          <SignupLink button="404" style={{ color: '#111214', fontWeight: 600, fontSize: 17, padding: '14px 24px', borderRadius: 10, textDecoration: 'none', boxShadow: 'inset 0 0 0 1px #E7E8EB' }}>Get started</SignupLink>
         </div>
       </div>
     </div>
