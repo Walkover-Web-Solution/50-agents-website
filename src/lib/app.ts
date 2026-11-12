@@ -13,7 +13,7 @@ export function signupUrl(button: string): string {
     if (Object.keys(arrived).length) sessionStorage.setItem('50a-utm', JSON.stringify(arrived));
     else arrived = JSON.parse(sessionStorage.getItem('50a-utm') || '{}');
   } catch {}
-  const p = { utm_source: '50agents.com', utm_medium: 'website', utm_campaign: version, utm_content: button, ...arrived };
+  const p = { utm_source: '50agents.com', utm_medium: 'website', utm_campaign: version, utm_content: button, ...arrived, lv: version }; // lv: the version, always (ads may override utm_campaign)
   Object.entries(p).forEach(([k, v]) => u.searchParams.set(k, v));
   return u.href;
 }
