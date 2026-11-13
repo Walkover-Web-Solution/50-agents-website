@@ -6,7 +6,7 @@
 <title>50agents: video 3, an AI agent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>if(location.search.includes('bare'))document.documentElement.classList.add('bare');</script>
+<script data-cfasync="false">if(location.search.includes('bare'))document.documentElement.classList.add('bare');</script>
 <style>
 /* Video 3 of the reel overhaul (reel-plan.md): an AI agent doing a one-off task from the chat. The underlying process is one
    agent that looks things up, decides, asks you once, and writes: Closer (AI agent). Its interface is a chat beside a task
@@ -193,8 +193,8 @@ h1{font-weight:600;font-size:clamp(46px,6.2vw,88px);line-height:.96;letter-spaci
   <div class="stage" id="stage"><div class="world" id="world"></div></div>
 </section>
 
-<script src="crew.js?v=7"></script>
-<script>
+<script data-cfasync="false" src="crew.js?v=7"></script>
+<script data-cfasync="false">
 Object.assign(APP,{whatsapp:'#25D366',xero:'#13B5EA'});
 logoUsed.push('closer'); // the 0 in a logo is never this film's agent
 wordmark(document.getElementById('wm'));
