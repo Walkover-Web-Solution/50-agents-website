@@ -9,6 +9,10 @@
     try{if(Object.keys(o).length)sessionStorage.setItem('50a-utm',JSON.stringify(o));else return JSON.parse(sessionStorage.getItem('50a-utm')||'{}');}catch(e){}return o;})();
   const signup=btn=>{const u=new URL(window.JOIN_URL||'https://50agents-app.embarko.app/login',location.href);
     Object.entries({utm_source:'50agents.com',utm_medium:'website',utm_campaign:V,utm_content:btn,...ARRIVED,lv:V}).forEach(([k,v])=>u.searchParams.set(k,v));return u.href;}; // lv: the version, always (ads may override utm_campaign)
+  /* performance (Jii, 13 Nov: laggy scroll): loops wait while their section is off screen, scroll work runs once per frame */
+  const onScreen=el=>{const r=el.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight;};
+  const until=async el=>{while(document.hidden||!onScreen(el))await new Promise(r=>setTimeout(r,400));};
+  const perFrame=fn=>{let q=false;return()=>{if(q)return;q=true;requestAnimationFrame(()=>{q=false;fn();});};};
   let heroCta=null;
   const frame=document.querySelector('.hero-frame');
   if(frame){
@@ -37,12 +41,18 @@
     try{if(frame.contentWindow.location.href!=='about:blank'&&frame.contentDocument.readyState==='complete')fit();}catch(e){} // the hero may load before this script
   }
 
+  if(frame){let away=false,owed=false;const hw=()=>frame.contentWindow,docs=()=>{const d=frame.contentDocument;return d?[d,...[...d.querySelectorAll('iframe')].map(i=>i.contentDocument).filter(Boolean)]:[];};
+    frame.addEventListener('load',()=>{try{hw().addEventListener('message',e=>{if(away&&e.data&&e.data.film==='done'){e.stopImmediatePropagation();owed=true;}},true);}catch(e){}});
+    new IntersectionObserver(es=>{away=!es[0].isIntersecting;try{docs().forEach(d=>d.getAnimations().forEach(a=>away?a.pause():a.play()));
+      if(!away&&owed){owed=false;hw().eval('play((cur+1)%F.length)');}}catch(e){}}).observe(frame);}
+
   /* the header: the logo and the CTA glide to the corners once you scroll (D98) */
   const sh=document.getElementById('sitehead');
   if(sh){const on=()=>{sh.classList.toggle('scrolled',scrollY>8);
       const f=frame&&frame.getBoundingClientRect(), gone=!frame||(heroCta?f.top+heroCta.getBoundingClientRect().bottom<0:f.bottom<innerHeight*.4);
       sh.classList.toggle('past',gone);};
-    addEventListener('scroll',on,{passive:true});on();if(frame)frame.addEventListener('load',()=>setTimeout(on,50));}
+    addEventListener('scroll',perFrame(on),{passive:true});on();if(frame)frame.addEventListener('load',()=>setTimeout(on,50));
+    setTimeout(()=>sh.classList.add('ready'),2500);} // the logo shows even if the hero never reports in
 
   const host=document.getElementById('sections');
   host.innerHTML=await (await fetch('sections.html?'+Date.now())).text();
@@ -50,6 +60,7 @@
   document.querySelectorAll('a[href="/join"],a[href="#join"]').forEach(a=>a.href=signup(a.closest('#sitehead')?'header':a.closest('#join')?'signup-box':'page'));
 
   document.querySelectorAll('[data-logo-mini]').forEach(e=>wordmark(e,{byline:false}));
+  const idle=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('idle',!e.isIntersecting)));document.querySelectorAll('#sections .sec,#sections footer').forEach(e=>idle.observe(e));
 
   /* custom apps wear their own glyph (D86) */
   const G={calendar:['#3B6CF6','M5 7h12v10H5zM5 10.5h12M8.5 5v3.5M13.5 5v3.5'],order:['#0E9F8E','M5 7h12l-1.4 8H6.4zM8 7V5.5a3 3 0 0 1 6 0V7'],
@@ -101,7 +112,8 @@
     board(0);
     const rows=[...tasksEl.children], N=rows.length;
     /* one state for the whole scene: the stage, how many tasks the crew has picked up, how many are done */
-    const apply=(st,picked,done)=>{if(scene.dataset.stage!==String(st))scene.dataset.stage=st;
+    let applied='';
+    const apply=(st,picked,done)=>{const key=st+'|'+picked+'|'+done;if(key===applied)return;applied=key;if(scene.dataset.stage!==String(st))scene.dataset.stage=st;
       rows.forEach((r,i)=>{r.classList.toggle('picked',st>0&&i<picked);r.classList.toggle('fin',st===2&&i<done);});
       board(st===2?done:0);
       const left=st===0?N:st===1?N-picked:0;waiting.textContent=left;
@@ -126,10 +138,10 @@
       for(let p=1;p<=N;p++){if(me!==seq)return;apply(1,p,0);await w(260);}await w(900);
       for(let d=0;d<=N;d++){if(me!==seq)return;apply(2,N,d);await w(d?450:1100);}};
     btns.forEach(b=>b.onclick=()=>{manual=Date.now()+7000;play(b.dataset.state);});
-    addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',fitPin);
+    addEventListener('scroll',perFrame(onScroll),{passive:true});addEventListener('resize',fitPin);
     apply(0,0,0);fitPin();onScroll();
     if(innerWidth<=980&&!reduced){let on=false; // phones: no pinning, so it plays on its own once on screen
-      const loop=async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));for(;;){play('today');await w(3500);play('with');await w(9000);}};
+      const loop=async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));for(;;){await until(scene);play('today');await w(3500);play('with');await w(9000);}};
       const chk=()=>{if(on||scene.getBoundingClientRect().top>innerHeight*.7)return;on=true;removeEventListener('scroll',chk);loop();};
       addEventListener('scroll',chk,{passive:true});chk();}
   }
@@ -156,7 +168,7 @@
       {t:'Track competitors’ price changes',kind:'Browser agent',who:['pilot'],bg:'#2A7F86',
         ui:`<div class="u-h">${L('slack')}#pricing-watch</div>${row('Rival Co, Pro','$49 → $59','▲ 20%')}${row('BrightBake','New bundle','Spotted')}${row('3 others','','No change')}`},
       {t:'Set up new hires before day one',kind:'App',who:['sprout','keeper','booker'],bg:'#B8506A',
-        ui:`<div class="u-h">${L('docusign')}Offer signed · Leo P.</div>${row('Google account','','✓',1)}${row('Added to Slack','','✓',1)}${row('First week booked','','✓',1)}`},
+        ui:`<div class="u-h">${L('gmail')}Offer signed · Leo P.</div>${row('Google account','','✓',1)}${row('Added to Slack','','✓',1)}${row('First week booked','','✓',1)}`},
       {t:'Reorder stock before it runs out',kind:'App',who:['keeper','scout'],bg:'#5B6B2E',
         ui:`<div class="u-h">${L('shopify')}Low stock</div>${row('Oat milk','4 left','Reordering…')}${row('Flour, 25kg','2 left','✓ Ordered',1)}`},
       {t:'Turn quote requests into priced quotes',kind:'AI agent',who:['writer'],bg:'#8A4B2F',
@@ -205,7 +217,7 @@
     const end=()=>{['m1','m2','m3'].forEach(m=>K(m).classList.add('show'));ok.classList.add('done');ok.textContent='✓ Approved by Priya';
       row.classList.add('ok');K('rowchk').classList.add('on');K('rowst').textContent='Done. Priya decided, Rosa finished it';shot(WIDE);at(bot,row,.93,.5);step(4);};
     const W=ms=>new Promise(r=>setTimeout(r,ms));
-    const run=async()=>{for(;;){reset();await W(1600);
+    const run=async()=>{for(;;){await until(hf);reset();await W(1600);
       /* 1: Rosa spots a task past the rule */
       shot(wr(K('app')),.92);await W(500);row.classList.add('flag');K('rowst').textContent='Past your 2-week rule. Needs a person';step(1);await W(2200);
       /* 2: carries it to #finance and asks Priya */
@@ -280,7 +292,7 @@
     };
     if(reduced)run();
     else{let started=false;
-      const loop=async()=>{for(;;){await run();await wait(5500);body.classList.add('fade');await wait(500);}};
+      const loop=async()=>{for(;;){await until(learn);await run();await wait(5500);body.classList.add('fade');await wait(500);}};
       const check=()=>{if(started||learn.getBoundingClientRect().top>innerHeight*.75)return;started=true;removeEventListener('scroll',check);loop();};
       addEventListener('scroll',check,{passive:true});check();}
   }
@@ -288,7 +300,7 @@
   /* Join: example jobs typed into the ask box, one after another */
   const job=document.getElementById('jb-job');
   if(job&&!reduced){const JOBS=['chasing late invoices','answering order emails','booking deliveries','the weekly sales report','updating the stock sheet'];
-    (async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));for(let k=1;;k=(k+1)%JOBS.length){await w(2600);
+    (async()=>{const w=ms=>new Promise(r=>setTimeout(r,ms));for(let k=1;;k=(k+1)%JOBS.length){await until(job);await w(2600);
       for(let t=job.textContent;t.length;t=t.slice(0,-1)){job.textContent=t;await w(22);}job.textContent='';
       for(const ch of JOBS[k]){job.textContent+=ch;await w(45);}}})();}
 

@@ -52,7 +52,9 @@ h2{font-family:var(--display);font-weight:var(--h-weight);font-size:56px;line-he
 .site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:none;padding:0 var(--hero-x,32px)}
 .site-head.ready .wrap{transition:max-width .45s cubic-bezier(.2,.7,.2,1),padding .45s cubic-bezier(.2,.7,.2,1)} /* glides on scroll only, not while lining up on load */
 .site-head a{pointer-events:auto}
-.site-head .logo{font-size:30px;text-decoration:none;color:var(--ink);border-radius:16px;padding:6px 10px;margin-left:-10px;transition:background .3s,box-shadow .3s,font-size .3s}
+.site-head .logo{font-size:30px;text-decoration:none;color:var(--ink);border-radius:16px;padding:6px 10px;margin-left:-10px;transition:opacity .3s,background .3s,box-shadow .3s,font-size .3s}
+.site-head:not(.ready) .logo{opacity:0} /* shown once it lines up with the hero, so it never doubles or jumps on load */
+.idle *,.idle *::before,.idle *::after{animation-play-state:paused!important} /* off-screen sections stop animating */
 .site-head .cta{font-size:15px;padding:12px 18px;box-shadow:0 0 0 1px rgba(255,255,255,.22),0 6px 18px rgba(20,21,24,.14)} /* the hairline keeps it visible over the dark band */
 .site-head.scrolled .wrap{max-width:100%;padding:0 22px}
 .site-head.scrolled .logo{margin-left:0;font-size:26px;background:color-mix(in srgb,var(--page) 58%,transparent);-webkit-backdrop-filter:blur(18px) saturate(1.8);backdrop-filter:blur(18px) saturate(1.8);box-shadow:none}

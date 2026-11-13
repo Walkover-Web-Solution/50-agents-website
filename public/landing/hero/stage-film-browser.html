@@ -6,7 +6,7 @@
 <title>50agents: video 4, a browser agent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>if(location.search.includes('bare'))document.documentElement.classList.add('bare');</script>
+<script data-cfasync="false">if(location.search.includes('bare'))document.documentElement.classList.add('bare');</script>
 <style>
 /* Video 4 of the reel overhaul (reel-plan.md): a browser agent. The underlying process is Scout (browser agent) working
    websites the way a person would, with its own cursor: suppliers with no app to connect to. Inside 50agents: the Supplier
@@ -193,8 +193,8 @@ h1{font-weight:600;font-size:clamp(46px,6.2vw,88px);line-height:.96;letter-spaci
   <div class="stage" id="stage"><div class="world" id="world"></div></div>
 </section>
 
-<script src="crew.js?v=7"></script>
-<script>
+<script data-cfasync="false" src="crew.js?v=7"></script>
+<script data-cfasync="false">
 logoUsed.push('scout');
 wordmark(document.getElementById('wm'));
 const mob=()=>innerWidth<=860;
