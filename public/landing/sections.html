@@ -1,10 +1,6 @@
-<!-- The sections below the hero, v2 (REBUILD-PLAN.md, D99). Built one at a time with Jii's OK; v1 is sections-v1.html.
-     The same customers (Brightside, Harbor Co, Lumen) and the same crew run through every section; the visitor is the business.
-     data-h: a crew huddle; data-w: one crew member at work; data-l: real app icons; data-g: a custom app's own glyph. -->
 
-<!-- Instead (Jii, 10 Nov): feel the pain, then watch the crew take it. Stage 0: five big painful tasks. Stage 1: a crew
-     member lands on each and works on it. Stage 2: the tasks line up, done, inside a real app the crew runs. Stages never
-     skip: each one holds long enough to be seen even on a fast scroll. Cards are drawn by site.js from TASKS. -->
+
+
 <section class="sec instead" id="instead">
   <div class="pin">
     <div class="wrap">
@@ -31,7 +27,7 @@
   </div>
 </section>
 
-<!-- What it builds: the four kinds, one card design, colour means kind; the same customers as above -->
+
 <section class="sec" id="builds">
   <div class="wrap">
     <div class="head">
@@ -39,7 +35,7 @@
       <p class="lede">An app, an automation, an AI agent or a browser agent. Made around your tools, or from scratch.</p>
     </div>
     <div class="kinds">
-      <!-- Apps: two real apps, each with its own screens: a planner built from scratch, a stock tracker on Shopify -->
+      
       <article class="kcard" style="--kc:var(--k-app)">
         <span class="kind">Apps</span>
         <h3>Apps made for how you work</h3>
@@ -65,7 +61,7 @@
           </div>
         </div>
       </article>
-      <!-- Automations: the builder view: a trigger and its steps, switched on, with today's runs -->
+      
       <article class="kcard" style="--kc:var(--k-auto)">
         <span class="kind">Automations</span>
         <h3>Rules that run on their own</h3>
@@ -80,7 +76,7 @@
           </div>
         </div>
       </article>
-      <!-- AI agents: a chat with the agent, its tool calls visible, the result in plain words -->
+      
       <article class="kcard" style="--kc:var(--k-ai)">
         <span class="kind">AI agents</span>
         <h3>AI agents that read, write and decide</h3>
@@ -98,7 +94,7 @@
           </div>
         </div>
       </article>
-      <!-- Browser agents: a real browser, Scout on the cursor, placing an order on a site with no connector -->
+      
       <article class="kcard" style="--kc:var(--k-browser)">
         <span class="kind">Browser agents</span>
         <h3>Browser agents that work any website</h3>
@@ -128,7 +124,7 @@
           </div>
         </div>
       </article>
-      <!-- Your tools (Jii, 10 Nov: the lone row looked out of place): the bento's last card, full width -->
+      
       <article class="kcard ktools">
         <div><span class="kind" style="--kc:var(--k-app)">Your tools</span><h3>Works with the tools you already use</h3><p>And 2,300+ more, through viaSocket.</p></div>
         <div class="row" data-l="hubspot,gmail,shopify,quickbooks,xero,slack,whatsapp,googlesheets,stripe,notion,zendesk,googlecalendar" data-s="30"></div>
@@ -137,9 +133,7 @@
   </div>
 </section>
 
-<!-- Use cases (Jii, 10 Nov; after base44's superagent gallery): a wall of jobs the ICP would hand off, each a preview of the
-     work, the request in their words, and who does it (automation, AI agent, browser agent or a whole crew). Every one is work
-     that crosses tools, never something one app already does by itself. Each card opens the sign-up. Drawn by site.js. -->
+
 <section class="sec band band-paper" id="uses">
   <div class="wrap">
     <div class="head">
@@ -147,14 +141,11 @@
       <p class="lede">A few of the jobs businesses hand off. Yours gets built around your own tools.</p>
     </div>
   </div>
-  <!-- a wall of possibilities, not templates (Jii, 10 Nov: early access, nothing to click into yet). Two rows, each scrolled on its own -->
+  
   <div class="uses-rows" id="uses-wall"></div>
 </section>
 
-<!-- Human in the loop, as a film (Jii, 10 Nov; the first version, a static task list, was rejected). A camera moves over one
-     world: the business's own Order to cash app on the left, the team's Slack on the right. Rosa spots a task past the rule,
-     carries it to #finance and asks Priya; Priya decides; Rosa finishes it and the app shows it done. Plays when in view, loops.
-     The four steps under the film light up as it goes. -->
+
 <section class="sec" id="people">
   <div class="wrap">
     <div class="head">
@@ -198,37 +189,10 @@
   </div>
 </section>
 
-<!-- PARKED (Jii, 6 Nov): "It asks when it matters. And it remembers." We are going to work on it later and include it then.
-     Kept inside a <template>, so it is not shown and its script does not run. To bring it back, move the section out of the template. -->
-<template id="asks-parked">
-<!-- It asks, and it remembers: one real chat with Rosa (AI agent), and what Rosa keeps. You answer once in your own words;
-     it is saved, and next week Rosa uses it without asking. Claims only that: asks before a yes, remembers what you said. -->
-<section class="sec" id="asks">
-  <div class="wrap">
-    <div class="head">
-      <h2>It asks when it matters. And it remembers.</h2>
-      <p class="lede">Answer once, in your own words. Your crew keeps it and uses it next time.</p>
-    </div>
-    <div class="panel learn" id="learn">
-      <div class="chat">
-        <div class="chat-h"><span data-w="rosa" data-s="36"></span><div><b>Rosa</b><small>AI agent, payments</small></div><span class="chat-where"><span data-l="slack" data-s="16"></span>Slack</span></div>
-        <div class="chat-body" id="chat-body" aria-live="off"></div>
-        <div class="chat-compose"><span class="ct" id="ct"><span class="ph">Reply to Rosa</span></span><span class="send" id="send" aria-hidden="true">↑</span></div>
-      </div>
-      <div class="memory">
-        <div class="mem-h"><span data-w="rosa" data-s="26"></span>What Rosa remembers</div>
-        <ul class="mem-list">
-          <li><b>Invoices go out on the 1st of the month</b><small>You said, 3 weeks ago</small></li>
-          <li><b>Harbor Co pays by bank transfer</b><small>You said, last week</small></li>
-          <li class="new" id="mem-new"><b>Regular customers can split a payment in two</b><small>Your reply, Monday</small><span class="used" id="mem-used">Used for Brightside</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-</template>
 
-<!-- Who is behind it: who we are in one sentence, the two companies, quiet links (D91: companies, no people) -->
+
+
+
 <section class="sec" id="who">
   <div class="wrap who">
     <div class="who-text">
@@ -250,8 +214,7 @@
   </div>
 </section>
 
-<!-- Security (Jii, 10 Nov: bring over the current 50agents.com certifications section). Claims and badges as on the current
-     site (src/components/SecuritySection.tsx in the website repo); confirm the uptime figure before launch. -->
+
 <section class="sec band band-soft" id="security">
   <div class="wrap">
     <div class="head">
@@ -272,7 +235,7 @@
   </div>
 </section>
 
-<!-- Questions (Jii, 10 Nov): the last doubts before joining, only answers that are true today. Sign-up is the live 50agents one (D143). -->
+
 <section class="sec" id="faq">
   <div class="wrap">
     <div class="faq-wrap">
@@ -287,8 +250,7 @@
   </div>
 </section>
 
-<!-- Join: one call to action. A dark stage with the crew's colours glowing behind it, the crew waiting, and a job being
-     typed for them; the whole box opens the live sign-up (D143). The typed jobs are examples, cycling. -->
+
 <section class="sec" id="join">
   <div class="wrap">
     <div class="join-band">
@@ -304,8 +266,7 @@
   </div>
 </section>
 
-<!-- Footer (Jii, 10 Nov: the current 50agents.com footer, its links and company line; old taglines left out as they predate the
-     repositioning). The crew peeks up from the bottom edge. -->
+
 <footer class="foot">
   <div class="wrap foot-in">
     <div class="foot-brand">
