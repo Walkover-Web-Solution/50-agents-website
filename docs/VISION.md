@@ -7,7 +7,7 @@ verified_on: 2026-11-18
 
 **50agents** ([50agents.com](https://50agents.com)) is a product from [viaSocket](https://viasocket.com). You tell **Captain**, its AI, what you need in plain words, and it builds automations, AI agents, browser agents and apps that do the work in your real apps, across 2,300+ apps through viaSocket. Every workspace starts free with 2,000 credits.
 
-**This repository is the public website.** It explains the product, gets found in search and by AI assistants, and sends visitors to sign up in the app at `https://50agents-app.embarko.app/login` with attribution. It does not run the product: no agent runtime, chats or workspace data live here.
+**This repository is the public website.** It explains the product, gets found in search and by AI assistants, and sends visitors to sign up in the app at `https://50agents-app.embarko.app/login` with attribution. It does not run the product: no AI agents, automations, chats or workspace data live here.
 
 ## What is decided
 
