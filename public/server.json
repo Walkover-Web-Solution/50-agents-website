@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.50agents/website-docs",
+  "title": "50agents website",
+  "description": "Public MCP server for browsing 50agents agent templates and site metadata.",
+  "version": "0.1.0",
+  "websiteUrl": "https://50agents.com",
+  "repository": {
+    "url": "https://github.com/Walkover-Web-Solution/50-agents-website",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://50agents.com/mcp"
+    }
+  ]
+}
