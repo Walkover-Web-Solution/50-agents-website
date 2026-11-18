@@ -4,7 +4,12 @@
   "actOn": true,
   "mcp": {
     "url": "https://50agents.com/mcp",
-    "transport": "streamable-http"
+    "transport": "streamable-http",
+    "serverJson": "https://50agents.com/server.json"
+  },
+  "oauth": {
+    "protectedResourceMetadata": "https://50agents.com/.well-known/oauth-protected-resource/mcp",
+    "authorizationServerMetadata": "https://50agents.com/.well-known/oauth-authorization-server"
   },
   "nlweb": {
     "url": "https://50agents.com/ask"
