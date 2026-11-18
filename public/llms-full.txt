@@ -18,6 +18,7 @@ Every workspace starts free with 2,000 credits.
 - MCP registry server.json: https://50agents.com/server.json
 - Website API (OpenAPI): https://50agents.com/openapi.json
 - API catalog: https://50agents.com/.well-known/api-catalog
+- Pricing (markdown): https://50agents.com/pricing.md
 
 ## Product overview
 
