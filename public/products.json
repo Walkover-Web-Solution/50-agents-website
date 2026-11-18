@@ -6,6 +6,9 @@
     "url": "https://50agents.com/mcp",
     "transport": "streamable-http"
   },
+  "nlweb": {
+    "url": "https://50agents.com/ask"
+  },
   "integrationsMcp": "https://mcp.viasocket.com",
   "answerProbes": [
     {

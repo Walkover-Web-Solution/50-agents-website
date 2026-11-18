@@ -8,3 +8,5 @@ Every workspace starts free with 2,000 credits.
 
 - [Home](https://50agents.com/): what 50agents is and how it works.
 - [Sign up](https://50agents-app.embarko.app/login): create a free workspace, or sign in.
+- [Full context (llms-full.txt)](https://50agents.com/llms-full.txt): entire public site guide in one file.
+- [NLWeb /ask](https://50agents.com/ask): natural-language query over public content.
