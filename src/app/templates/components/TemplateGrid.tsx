@@ -159,7 +159,7 @@ function TemplateGrid() {
               <div className="text-center py-16 px-6 rounded-2xl" style={{ background: 'var(--wash)', border: '1px solid var(--line)' }}>
                 <h3 className="h3 mb-3">Templates are on their way.</h3>
                 <p className="mb-6" style={{ color: 'var(--mute)' }}>Until then, start from scratch: tell it what you need and it gets built for you.</p>
-                <SignupLink button="templates" className="btn btn-primary no-underline">Get started</SignupLink>
+                <SignupLink button="templates" cta="templates:empty-state" className="btn btn-primary no-underline">Get started</SignupLink>
               </div>
             </div>
           ) : (

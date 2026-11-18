@@ -33,8 +33,7 @@ verified_on: 2026-11-18
 
 - Only the home page is indexed today. `sitemap.ts` lists it alone, and the old pages stay out.
 - The home page sends its H1, subline and sections in the server HTML, so crawlers that do not run JavaScript can read them.
-- Structured data on the home page is Organization plus SoftwareApplication only (`public/landing/home-jsonld.json`, synced into the static HTML at prebuild and validated in CI via `validate:jsonld`). `public/llms.txt` describes today's product.
-- Agent discovery files under `public/.well-known/` (`ai-catalog.json`, `poppy.json`, `api-catalog`) and MCP/OpenAPI stay linked from the home page for readiness checks.
+- Structured data on the home page is Organization plus SoftwareApplication only. `public/llms.txt` describes today's product.
 - A rebuild of search pages (written pages and integration pages in their own route group) is planned. Until it lands, avoid structural changes to `src/app`.
 
 ### Copy rules

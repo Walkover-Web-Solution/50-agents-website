@@ -20,12 +20,6 @@
       "url": "https://50agents.com/openapi.json"
     },
     {
-      "identifier": "urn:air:50agents.com:docs:help",
-      "displayName": "Product docs",
-      "type": "text/html",
-      "url": "https://50agents.com/help"
-    },
-    {
       "identifier": "urn:air:50agents.com:llms:guide",
       "displayName": "Agent guide (llms.txt)",
       "type": "text/plain",

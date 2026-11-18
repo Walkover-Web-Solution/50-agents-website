@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import homeJsonLd from '../../public/landing/home-jsonld.json';
 
 interface SEOConfig {
   title: string;
@@ -70,25 +69,6 @@ export function generateMetadata(config: SEOConfig): Metadata {
   };
 }
 
-/** Keep in sync with public/landing/home-jsonld.json (validated in prebuild). */
-type GraphNode = Record<string, unknown> & { '@type'?: string };
-
-const landingGraph = homeJsonLd['@graph'] as GraphNode[];
-const landingOrganization = landingGraph.find((n) => n['@type'] === 'Organization');
-if (!landingOrganization) {
-  throw new Error('home-jsonld.json: missing Organization node');
-}
-
-export const ORGANIZATION_SAME_AS = landingOrganization.sameAs as string[];
-
-export const ORGANIZATION_CONTACT_POINT = landingOrganization.contactPoint as {
-  '@type': 'ContactPoint';
-  contactType: string;
-  email: string;
-  telephone: string;
-  availableLanguage: string;
-};
-
 // Structured Data generators
 export function generateOrganizationSchema() {
   return {
@@ -99,8 +79,14 @@ export function generateOrganizationSchema() {
     logo: 'https://50agents.com/50_agents_logo.png',
     description:
       'Deploy AI agents that perform any task inside 2,300+ apps just by typing a prompt. Automate workflows, manage tasks, and boost productivity with intelligent AI agents.',
-    sameAs: [...ORGANIZATION_SAME_AS],
-    contactPoint: { ...ORGANIZATION_CONTACT_POINT },
+    sameAs: [
+      // Add social media URLs here when available
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      availableLanguage: 'English',
+    },
   };
 }
 

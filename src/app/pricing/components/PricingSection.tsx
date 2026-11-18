@@ -98,7 +98,7 @@ const PricingSection = () => {
           </div>
         </div>
         <div className="flex justify-center mt-12">
-          <SignupLink button="pricing" className="btn btn-primary no-underline" style={{ fontSize: 17, padding: '14px 26px' }}>Get started</SignupLink>
+          <SignupLink button="pricing" cta="pricing:body" className="btn btn-primary no-underline" style={{ fontSize: 17, padding: '14px 26px' }}>Get started</SignupLink>
         </div>
       </div>
     </section>
