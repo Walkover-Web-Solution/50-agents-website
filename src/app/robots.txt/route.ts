@@ -4,12 +4,14 @@ const ROBOTS = `User-agent: *
 Allow: /
 Disallow: /org
 Disallow: /api/
+Disallow: /ingest
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 User-agent: Googlebot
 Allow: /
 Disallow: /org
 Disallow: /api/
+Disallow: /ingest
 
 Host: https://50agents.com
 Sitemap: https://50agents.com/sitemap-main.xml
