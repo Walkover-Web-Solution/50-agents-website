@@ -38,6 +38,11 @@
       "name": "faqs",
       "title": "FAQs",
       "url": "https://50agents.com/api/FAQs"
+    },
+    {
+      "name": "mcp",
+      "title": "MCP (streamable HTTP)",
+      "url": "https://50agents.com/mcp"
     }
   ]
 }
