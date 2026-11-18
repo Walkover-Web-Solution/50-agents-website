@@ -1,6 +1,14 @@
 import { MetadataRoute } from 'next';
 
-// Only the listed pages; the old ones are delisted (noindex) for now.
+const baseUrl = 'https://50agents.com';
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: 'https://50agents.com/', changeFrequency: 'weekly', priority: 1 }];
+  return [
+    { url: `${baseUrl}/`, changeFrequency: 'weekly', priority: 1 },
+    { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/ai-agents`, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${baseUrl}/templates`, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${baseUrl}/work-management`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${baseUrl}/ai-note-taker`, changeFrequency: 'monthly', priority: 0.7 },
+  ];
 }
