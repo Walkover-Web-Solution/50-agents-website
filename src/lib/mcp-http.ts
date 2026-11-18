@@ -1,24 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
+import mcpTools from './mcp-tools.json';
 
 const MCP_URL = 'https://50agents.com/mcp';
 const PROTOCOL_VERSION = '2025-11-25';
 const LEGACY_PROTOCOL_VERSION = '2024-11-05';
 
-const TOOLS = [
-  {
-    name: 'list_agent_templates',
-    description:
-      'List public AI agent templates published on 50agents (name, description, category).',
-    inputSchema: {
-      type: 'object',
-      properties: {
-        limit: { type: 'integer', minimum: 1, maximum: 100, default: 20 },
-        page: { type: 'integer', minimum: 1, default: 1 },
-        category: { type: 'string', description: 'Optional category slug filter' },
-      },
-    },
-  },
-] as const;
+/** Single public tool surface (validated in prebuild via validate-mcp-tools.mjs). */
+const TOOLS = mcpTools;
 
 type JsonRpcRequest = {
   jsonrpc?: string;

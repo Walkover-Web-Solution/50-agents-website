@@ -1,0 +1,125 @@
+# 50agents
+
+> 50agents is a product from viaSocket. You tell Captain, its AI, what you need in plain words, and it builds automations, AI agents, browser agents and apps that do the work in your real apps, with 2,300+ apps through viaSocket.
+
+Every workspace starts free with 2,000 credits.
+
+## Links
+
+- [Home](https://50agents.com/): what 50agents is and how it works.
+- [Sign up](https://50agents-app.embarko.app/login): create a free workspace, or sign in.
+- [Full context (llms-full.txt)](https://50agents.com/llms-full.txt): entire public site guide in one file.
+- [NLWeb /ask](https://50agents.com/ask): natural-language query over public content.
+
+## For AI agents and developers
+
+- MCP (streamable HTTP): https://50agents.com/mcp
+- MCP server card (SEP-2127): https://50agents.com/mcp/server-card
+- MCP registry server.json: https://50agents.com/server.json
+- Website API (OpenAPI): https://50agents.com/openapi.json
+- API catalog: https://50agents.com/.well-known/api-catalog
+
+## Product overview
+
+50agents (https://50agents.com) is a product from viaSocket. You tell Captain, its AI, what you need in plain words, and it builds automations, AI agents, browser agents and apps that do the work in your real apps, across 2,300+ apps through viaSocket.
+
+Every workspace starts free with 2,000 credits. Sign up or sign in at https://50agents-app.embarko.app/login.
+
+### The four kinds of thing Captain builds
+
+- **Automations:** the same steps every time, on an event or a schedule (for example: an invoice is paid, a thank-you email goes out, a message is posted in Slack). AI can be one step inside an automation, such as writing an email.
+- **AI agents:** judgement decides what to do on each run. An AI agent has instructions, its connected apps, a schedule or trigger, and its own chat.
+- **Browser agents:** work on websites where there is no app to connect, such as a supplier portal or a competitor's pricing page, by using the site the way a person would.
+- **Apps:** your own screens and records, built for you and run by AI agents, such as a lead tracker or an invoices desk.
+
+### How it fits your team
+
+Drafts wait for approval, and anything that spends money, reaches people outside your business, or changes access asks you first. You decide how much each AI agent does on its own.
+
+### Company
+
+50agents is from viaSocket (2,300+ app connections), by the team behind viaSocket and MSG91.
+
+## Site map
+
+| Path | Summary |
+|------|---------|
+| / | Home: what 50agents is, how it works, FAQs |
+| https://50agents-app.embarko.app/login | Sign up for a free workspace, or sign in |
+| /llms.txt | Short guide for AI agents |
+| /llms-full.txt | This file: the full public context in one request |
+| /mcp | MCP (streamable HTTP) |
+| /ask | NLWeb natural-language query over public site content |
+
+Older pages from an earlier version of the product are still reachable from the site footer but are not part of the current product and are not indexed.
+
+## FAQs (from the live site)
+
+**What is 50agents?**
+You tell it how your business works, and it builds the apps, AI agents and automations that do that work for you, across the tools you already use.
+
+**Do I need to code or set anything up?**
+No. You describe the job in plain words. It builds it, connects your tools and runs it.
+
+**Which tools does it work with?**
+2,300+ apps through viaSocket, from Gmail and Slack to Shopify and QuickBooks. Where a website has no connection, a browser agent uses it the way a person would.
+
+**Will it act without asking me?**
+Only as far as you allow. You decide how much each AI agent does on its own, and anything that changes something in your apps asks you first until you say otherwise.
+
+**What does it cost to start?**
+Nothing. Every workspace starts free with 2,000 credits.
+
+**Who makes it?**
+The team behind viaSocket and MSG91.
+
+## Public HTTP APIs (read-only)
+
+Base URL: https://50agents.com
+Catalog: https://50agents.com/.well-known/api-catalog
+OpenAPI: https://50agents.com/openapi.json
+
+| Endpoint | Purpose |
+|----------|---------|
+| GET /api/plugins | Paginated public integration plugins from the viaSocket catalog |
+| GET /api/plugins/search?q= | Search plugins by keyword |
+| GET /api/plugins/categories | Category list |
+| GET /api/plugins/count | Total plugin count |
+| GET /api/prompts | Homepage prompt examples |
+| GET /api/meta | SEO metadata rows for site pages |
+| GET /api/FAQs | FAQ entries for site pages |
+| POST /ask | NLWeb query over public site content and plugin search |
+| GET/POST /mcp | MCP streamable HTTP; tool list_agent_templates |
+
+## MCP for AI agents
+
+URL: https://50agents.com/mcp
+Transport: streamable HTTP (JSON-RPC over POST).
+Tool: list_agent_templates, with optional limit, page and category; returns public plugin metadata from /api/plugins.
+Server card (SEP-2127): https://50agents.com/mcp/server-card
+Registry entry: https://50agents.com/server.json
+
+A separate MCP for live integrations: https://mcp.viasocket.com (listed in /products.json).
+
+## Discovery
+
+- /llms.txt: concise guide and key links
+- /llms-full.txt: this document
+- /products.json: product manifest (MCP URL, probe questions)
+- The Link header on / lists llms.txt, llms-full.txt, the API catalog, OpenAPI, server.json, the MCP server card and the sitemap.
+
+## Canonical answers for common questions
+
+**What is 50agents?** You tell Captain what you need in plain words, and it builds automations, AI agents, browser agents and apps that do the work across 2,300+ apps through viaSocket.
+
+**Which tools?** 2,300+ apps through viaSocket; browser agents cover websites without a connection.
+
+**How do I start?** Sign up at https://50agents-app.embarko.app/login. Every workspace starts free with 2,000 credits.
+
+**How do I list integration plugins programmatically?** GET /api/plugins, or the MCP tool list_agent_templates.
+
+**How do I search them?** GET /api/plugins/search?q=..., or POST /ask with a natural-language question.
+
+---
+
+End of the 50agents public context. The product itself is the app at https://50agents-app.embarko.app; this file covers the website only.

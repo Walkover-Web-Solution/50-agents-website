@@ -87,6 +87,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         {/* the visitor's A/B/C version from the home page (or a new one, kept), so every page wears the same design (D152) */}
         <script dangerouslySetInnerHTML={{ __html: VARIANT_SCRIPT }} />
+        {/* cookieless analytics, loaded after render (public/ph.js) */}
+        <script defer src="/ph.js" data-cfasync="false" />
       </head>
       <body style={{ height: '100vh' }}>
         <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
