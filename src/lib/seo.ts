@@ -126,3 +126,91 @@ export function generateSoftwareApplicationSchema() {
     },
   };
 }
+
+const HOME_FAQ_ITEMS = [
+  {
+    question: 'What is 50agents?',
+    answer:
+      'You tell it how your business works, and it builds the apps, AI agents and automations that do that work for you, across the tools you already use.',
+  },
+  {
+    question: 'Do I need to code or set anything up?',
+    answer:
+      'No. You describe the job in plain words. It builds it, connects your tools and runs it.',
+  },
+  {
+    question: 'Which tools does it work with?',
+    answer:
+      '2,300+ apps through viaSocket, from Gmail and Slack to Shopify and QuickBooks. Where a website has no connection, a browser agent uses it the way a person would.',
+  },
+] as const;
+
+export function generateHomeFAQPageSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: HOME_FAQ_ITEMS.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function generateWebPageSchema({
+  name,
+  description,
+  path,
+}: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  const url = `https://50agents.com${path}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name,
+    description,
+    url,
+    isPartOf: {
+      '@type': 'WebSite',
+      name: '50agents',
+      url: 'https://50agents.com',
+    },
+  };
+}
+
+export function generateContactPageSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact 50agents',
+    url: 'https://50agents.com/contact',
+    description: 'How to reach the team behind 50agents.',
+  };
+}
+
+export function generateCollectionPageSchema({
+  name,
+  description,
+  path,
+  numberOfItems,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  numberOfItems?: number;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description,
+    url: `https://50agents.com${path}`,
+    ...(typeof numberOfItems === 'number' ? { numberOfItems } : {}),
+  };
+}

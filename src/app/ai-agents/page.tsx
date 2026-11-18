@@ -3,7 +3,11 @@ import Header from '../../components/Header';
 import PluginGrid from './components/PluginGrid';
 import SearchAndFilterClient from './components/SearchAndFilterClient';
 import Pagination from './components/Pagination';
-import { generateMetadata as generateSEOMetadata, generateSoftwareApplicationSchema } from '@/lib/seo';
+import {
+  generateCollectionPageSchema,
+  generateMetadata as generateSEOMetadata,
+  generateSoftwareApplicationSchema,
+} from '@/lib/seo';
 import { headers } from "next/headers";
 import { getMetaData } from '@/lib/meta';
 import { getBaseUrl } from '@/lib/api';
@@ -207,16 +211,25 @@ async function ServicesPage({ searchParams }: PageProps) {
     );
   }
 
-  // Generate structured data
-  const structuredData = generateSoftwareApplicationSchema();
+  const collectionSchema = generateCollectionPageSchema({
+    name: 'AI agents catalog',
+    description: 'Browse AI agents across 2,300+ connected apps.',
+    path: '/ai-agents',
+    numberOfItems: totalAppsCount,
+  });
 
   return (
     <div className="min-h-screen w-full flex flex-col">
-      {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData),
+          __html: JSON.stringify(generateSoftwareApplicationSchema()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionSchema),
         }}
       />
       <Header />

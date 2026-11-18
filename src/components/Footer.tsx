@@ -15,7 +15,10 @@ const COLS = [
     { label: 'Getting Started Guide', href: 'https://50agents.com/help/meeting-agent', out: true },
   ] },
   { title: 'Company', links: [
-    { label: 'Privacy Policy', href: 'https://50agents.com/help/privacy-policy', out: true },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'Privacy', href: '/privacy' },
+    { label: 'Privacy Policy (full)', href: 'https://50agents.com/help/privacy-policy', out: true },
     { label: 'Careers', href: 'https://walkover.in/careers', out: true },
     { label: 'viaSocket', href: 'https://viasocket.com', out: true },
     { label: 'MSG91', href: 'https://msg91.com', out: true },

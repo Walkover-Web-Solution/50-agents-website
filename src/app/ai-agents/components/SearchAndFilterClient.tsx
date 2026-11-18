@@ -60,8 +60,13 @@ export default function SearchAndFilterClient({
               d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
+          <label htmlFor="ai-agents-search" className="sr-only">
+            Search AI agents
+          </label>
           <input
-            type="text"
+            id="ai-agents-search"
+            type="search"
+            name="search"
             placeholder="Search agents..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
