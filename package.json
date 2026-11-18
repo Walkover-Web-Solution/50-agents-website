@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/sync-landing-sections.mjs",
     "build": "next build",
     "build:dev": "dotenv -e .env.dev next build",
     "build:prod": "dotenv -e .env.prod next build",
