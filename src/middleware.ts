@@ -14,6 +14,29 @@ Tell it how you work. 50agents builds apps, AI agents and automations on your to
 - [AI note taker](https://50agents.com/ai-note-taker)
 `;
 
+const NOT_FOUND_MARKDOWN = `# Page not found
+
+This page does not exist on 50agents.com. It may have moved, or it never existed.
+
+## Links
+
+- [Home](https://50agents.com/)
+- [Agent guide (llms.txt)](https://50agents.com/llms.txt)
+- [Docs / help center](https://50agents.com/help)
+- [AI agents catalog](https://50agents.com/ai-agents)
+- [MCP for AI agents](https://50agents.com/mcp)
+`;
+
+const APP_PAGES = new Set([
+  '/ai-agents',
+  '/ai-note-taker',
+  '/login',
+  '/org',
+  '/pricing',
+  '/templates',
+  '/work-management',
+]);
+
 function prefersMarkdown(acceptHeader: string | null): boolean {
   if (!acceptHeader) return false;
 
@@ -36,20 +59,54 @@ function prefersMarkdown(acceptHeader: string | null): boolean {
   return bestMarkdown >= bestHtml;
 }
 
+function isHandledByApp(pathname: string): boolean {
+  if (pathname === '/') return true;
+  if (APP_PAGES.has(pathname)) return true;
+  if (pathname.startsWith('/ai-agents/')) return true;
+  if (pathname.startsWith('/api/')) return true;
+  if (pathname.startsWith('/.well-known/')) return true;
+  if (pathname === '/mcp' || pathname.startsWith('/mcp/')) return true;
+  if (pathname.startsWith('/services/')) return true;
+  if (pathname.startsWith('/landing/') || pathname.startsWith('/assets/') || pathname.startsWith('/_next/')) {
+    return true;
+  }
+  if (pathname === '/robots.txt' || pathname === '/sitemap.xml' || pathname === '/sitemap-main.xml') {
+    return true;
+  }
+  if (/\.[a-z0-9]+$/i.test(pathname)) return true;
+  return false;
+}
+
+function markdownResponse(body: string, status: number): NextResponse {
+  return new NextResponse(body, {
+    status,
+    headers: {
+      'Content-Type': 'text/markdown; charset=utf-8',
+      Vary: 'Accept',
+      'Cache-Control': 'public, max-age=0, must-revalidate',
+    },
+  });
+}
+
 export function middleware(request: NextRequest) {
-  if (request.nextUrl.pathname !== '/') {
+  const { pathname } = request.nextUrl;
+  const wantsMarkdown = prefersMarkdown(request.headers.get('accept'));
+
+  if (!wantsMarkdown) {
+    if (pathname === '/') {
+      const response = NextResponse.next();
+      response.headers.append('Vary', 'Accept');
+      return response;
+    }
     return NextResponse.next();
   }
 
-  if (prefersMarkdown(request.headers.get('accept'))) {
-    return new NextResponse(HOME_MARKDOWN, {
-      status: 200,
-      headers: {
-        'Content-Type': 'text/markdown; charset=utf-8',
-        Vary: 'Accept',
-        'Cache-Control': 'public, max-age=0, must-revalidate',
-      },
-    });
+  if (pathname === '/') {
+    return markdownResponse(HOME_MARKDOWN, 200);
+  }
+
+  if (!isHandledByApp(pathname)) {
+    return markdownResponse(NOT_FOUND_MARKDOWN, 404);
   }
 
   const response = NextResponse.next();
@@ -58,5 +115,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/',
+  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
 };
