@@ -2,8 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import mcpTools from './mcp-tools.json';
 
 const MCP_URL = 'https://50agents.com/mcp';
-const PROTOCOL_VERSION = '2025-11-25';
-const LEGACY_PROTOCOL_VERSION = '2024-11-05';
+/** Current MCP revision (SEP-2575); advertised via server/discover. */
+export const CURRENT_PROTOCOL_VERSION = '2026-07-28';
+const LEGACY_PROTOCOL_VERSIONS = ['2025-11-25', '2024-11-05'] as const;
+export const SUPPORTED_PROTOCOL_VERSIONS = [
+  CURRENT_PROTOCOL_VERSION,
+  ...LEGACY_PROTOCOL_VERSIONS,
+] as const;
+
+const SERVER_INFO = { name: '50agents', version: '0.1.0' };
 
 /** Single public tool surface (validated in prebuild via validate-mcp-tools.mjs). */
 const TOOLS = mcpTools;
@@ -50,15 +57,40 @@ function corsHeaders(): HeadersInit {
   return {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Accept, Mcp-Session-Id',
+    'Access-Control-Allow-Headers':
+      'Content-Type, Accept, MCP-Protocol-Version, Mcp-Session-Id',
+  };
+}
+
+function discoverResult() {
+  return {
+    resultType: 'complete' as const,
+    supportedVersions: [...SUPPORTED_PROTOCOL_VERSIONS],
+    capabilities: { tools: {} },
+    _meta: {
+      'io.modelcontextprotocol/serverInfo': SERVER_INFO,
+    },
+    instructions:
+      'Read-only marketing site MCP. Use list_agent_templates to browse public AI agent templates before sign-up.',
+    ttlMs: 3_600_000,
+    cacheScope: 'public' as const,
   };
 }
 
 function negotiatedProtocol(clientVersion: unknown): string {
-  if (typeof clientVersion === 'string' && clientVersion.startsWith('2025')) {
-    return PROTOCOL_VERSION;
+  if (
+    typeof clientVersion === 'string' &&
+    (SUPPORTED_PROTOCOL_VERSIONS as readonly string[]).includes(clientVersion)
+  ) {
+    return clientVersion;
   }
-  return LEGACY_PROTOCOL_VERSION;
+  if (typeof clientVersion === 'string' && clientVersion.startsWith('2026')) {
+    return CURRENT_PROTOCOL_VERSION;
+  }
+  if (typeof clientVersion === 'string' && clientVersion.startsWith('2025')) {
+    return '2025-11-25';
+  }
+  return '2024-11-05';
 }
 
 export function handleMcpOptions() {
@@ -73,6 +105,7 @@ export function handleMcpGet() {
       transport: 'streamable-http',
       url: MCP_URL,
       tools: TOOLS.map((t) => t.name),
+      supportedProtocolVersions: [...SUPPORTED_PROTOCOL_VERSIONS],
     },
     { headers: corsHeaders() }
   );
@@ -96,13 +129,16 @@ export async function handleMcpPost(request: NextRequest) {
   const { id, method, params } = body;
 
   switch (method) {
+    case 'server/discover':
+      return jsonRpc(id, discoverResult());
+
     case 'initialize':
       return jsonRpc(id, {
         protocolVersion: negotiatedProtocol(
           (params as { protocolVersion?: string } | undefined)?.protocolVersion
         ),
         capabilities: { tools: {} },
-        serverInfo: { name: '50agents', version: '0.1.0' },
+        serverInfo: SERVER_INFO,
       });
 
     case 'tools/list':
