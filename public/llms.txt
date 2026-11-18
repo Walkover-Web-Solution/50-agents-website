@@ -1,0 +1,26 @@
+# 50agents
+
+> Apps, AI agents and automations across 2,300+ apps—built around how your business works.
+
+## Docs
+
+- [Help Center](https://50agents.com/help): Product documentation, policies, and how-to guides.
+- [Getting Started — Meeting Agent](https://50agents.com/help/meeting-agent): Set up the AI meeting recorder.
+
+## Product
+
+- [Home](https://50agents.com/): Positioning, capabilities, and getting started.
+- [AI Agents](https://50agents.com/ai-agents): Browse and deploy AI agents for apps.
+- [Agent Templates](https://50agents.com/templates): Pre-built agent templates to start from.
+- [Work Management](https://50agents.com/work-management): Tasks, workflows, and team work.
+- [AI Meeting Recorder](https://50agents.com/ai-note-taker): Record meetings and generate notes.
+- [Pricing](https://50agents.com/pricing): Plans and pricing.
+
+## API
+
+- [Plugins](https://50agents.com/api/plugins): List available AI agent plugins.
+- [Plugin search](https://50agents.com/api/plugins/search): Search the plugin catalog.
+- [Plugin categories](https://50agents.com/api/plugins/categories): Plugin category listing.
+- [Prompts](https://50agents.com/api/prompts): Sample prompts surfaced on the marketing site.
+- [Page metadata](https://50agents.com/api/meta): SEO metadata for site routes.
+- [FAQs](https://50agents.com/api/FAQs): FAQ content for site pages.
