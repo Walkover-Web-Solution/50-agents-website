@@ -8,14 +8,35 @@ const TOOLS = [
   {
     name: 'list_agent_templates',
     description:
-      'List public AI agent templates published on 50agents (name, description, category).',
+      'List public AI agent templates published on 50agents. Returns paginated name, description, and category for each template. Use when discovering or browsing templates; not for mutating workspace data.',
     inputSchema: {
       type: 'object',
       properties: {
-        limit: { type: 'integer', minimum: 1, maximum: 100, default: 20 },
-        page: { type: 'integer', minimum: 1, default: 1 },
-        category: { type: 'string', description: 'Optional category slug filter' },
+        limit: {
+          type: 'integer',
+          minimum: 1,
+          maximum: 100,
+          default: 20,
+          description:
+            'Maximum number of templates to return in one page (1–100). Example: 20.',
+        },
+        page: {
+          type: 'integer',
+          minimum: 1,
+          default: 1,
+          description:
+            '1-based page index when paginating results. Example: 1 for the first page.',
+        },
+        category: {
+          type: 'string',
+          description:
+            'Optional category slug to filter templates (e.g. "sales"). Omit to list all categories.',
+        },
       },
+    },
+    annotations: {
+      readOnlyHint: true,
+      destructiveHint: false,
     },
   },
 ] as const;

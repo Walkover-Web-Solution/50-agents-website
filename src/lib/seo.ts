@@ -69,6 +69,21 @@ export function generateMetadata(config: SEOConfig): Metadata {
   };
 }
 
+/** Official profiles and support contacts (privacy policy, 25 Apr 2025). Keep in sync with public/landing/index.html JSON-LD. */
+export const ORGANIZATION_SAME_AS = [
+  'https://github.com/Walkover-Web-Solution/50-agents-website',
+  'https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio',
+  'https://viasocket.com',
+] as const;
+
+export const ORGANIZATION_CONTACT_POINT = {
+  '@type': 'ContactPoint',
+  contactType: 'customer service',
+  email: 'support@viasocket.com',
+  telephone: '+91-731-2560056',
+  availableLanguage: 'English',
+} as const;
+
 // Structured Data generators
 export function generateOrganizationSchema() {
   return {
@@ -79,14 +94,8 @@ export function generateOrganizationSchema() {
     logo: 'https://50agents.com/50_agents_logo.png',
     description:
       'Deploy AI agents that perform any task inside 2,300+ apps just by typing a prompt. Automate workflows, manage tasks, and boost productivity with intelligent AI agents.',
-    sameAs: [
-      // Add social media URLs here when available
-    ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      availableLanguage: 'English',
-    },
+    sameAs: [...ORGANIZATION_SAME_AS],
+    contactPoint: { ...ORGANIZATION_CONTACT_POINT },
   };
 }
 
