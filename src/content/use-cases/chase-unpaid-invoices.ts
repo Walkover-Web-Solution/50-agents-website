@@ -62,26 +62,11 @@ const page: UseCase = {
     { q: 'Should reminders go out from your email?', choices: ['Yes, after I approve each one', 'No, just tell me'], picked: 'Yes, after I approve each one' },
   ],
   steps: [
-    {
-      title: 'You ask, Captain asks back',
-      body: 'Say "Chase my unpaid invoices". Captain asks four things: the apps you use today, where your invoices are now, the currency, and whether reminders should go out from your email. Each has a usual answer you can take with one tap.',
-    },
-    {
-      title: 'It builds your invoices desk',
-      body: 'One list of invoices with the invoice number, client, email, amount, sent date, due date, status and notes. Three views on it: To collect (a board by status, with totals), Late (overdue, oldest due date first) and All invoices.',
-    },
-    {
-      title: 'You bring your invoices in',
-      body: 'Add invoices one at a time, paste a table, or drop in a CSV or Excel file, and mark the ones you have sent as Sent. The desk then shows what you are still owed, what is late and what was paid this month.',
-    },
-    {
-      title: 'Collector drafts the reminders',
-      body: 'Collector, the desk\'s AI agent, watches for invoices marked Sent that are a day past their due date. For each one it writes a short, polite reminder to the client: the invoice, the amount, the due date and how to pay, if you have told it how.',
-    },
-    {
-      title: 'You approve, and it goes from your Gmail',
-      body: 'Each reminder waits in Needs you, the one place for everything that needs your yes. Approve and send, change it, or decline it. Collector marks the invoice Reminded and notes on it what it wrote.',
-    },
+    { title: 'You ask, Captain asks back', body: 'Say "Chase my unpaid invoices". Captain asks four quick things: your apps, where your invoices are, the currency, and whether reminders go from your email.' },
+    { title: 'It builds your invoices desk', body: 'One list of invoices and three views on it: To collect, Late (oldest due date first) and All invoices.' },
+    { title: 'You bring your invoices in', body: 'Add them one at a time, paste a table, or drop in a CSV or Excel file, and mark the ones you have sent as Sent.' },
+    { title: 'Collector drafts the reminders', body: "A day after an invoice is due, Collector, the desk's AI agent, writes a short, polite reminder: the invoice, the amount, the due date and how to pay." },
+    { title: 'You approve, and it goes from your Gmail', body: 'Each reminder waits in Needs you. Approve and send, change it, or decline it. Collector marks the invoice Reminded.' },
   ],
   uses: [
     {
