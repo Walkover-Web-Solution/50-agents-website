@@ -43,6 +43,17 @@
       "name": "mcp",
       "title": "MCP (streamable HTTP)",
       "url": "https://50agents.com/mcp"
+    },
+    {
+      "name": "mcp-server-card",
+      "title": "MCP server card (SEP-2127)",
+      "url": "https://50agents.com/mcp/server-card",
+      "type": "application/mcp-server-card+json"
+    },
+    {
+      "name": "openapi",
+      "title": "Website OpenAPI",
+      "url": "https://50agents.com/openapi.json"
     }
   ]
 }

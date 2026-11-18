@@ -47,7 +47,7 @@ const nextConfig: NextConfig = {
                     {
                         key: 'Link',
                         value:
-                            '</llms.txt>; rel="describedby"; type="text/plain", </.well-known/api-catalog>; rel="api-catalog", </sitemap-main.xml>; rel="sitemap"',
+                            '</llms.txt>; rel="describedby"; type="text/plain", </.well-known/api-catalog>; rel="api-catalog", </openapi.json>; rel="service-desc"; type="application/json", </server.json>; rel="service-desc"; type="application/json", </mcp/server-card>; rel="service-desc"; type="application/mcp-server-card+json", </sitemap-main.xml>; rel="sitemap"',
                     },
                 ],
             },
