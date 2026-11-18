@@ -102,7 +102,8 @@ A separate MCP for live integrations: https://mcp.viasocket.com (listed in /prod
 - /llms.txt: concise guide and key links
 - /llms-full.txt: this document
 - /products.json: product manifest (MCP URL, probe questions)
-- The Link header on / lists llms.txt, llms-full.txt, the API catalog, OpenAPI, server.json, the MCP server card and the sitemap.
+- /.well-known/ai-catalog.json: typed index of MCP, OpenAPI, docs, llms.txt and agent skills (also linked with rel="ai-catalog" on the homepage)
+- The Link header on / lists llms.txt, llms-full.txt, the API catalog, ai-catalog.json, OpenAPI, server.json, the MCP server card and the sitemap.
 
 ## Canonical answers for common questions
 
