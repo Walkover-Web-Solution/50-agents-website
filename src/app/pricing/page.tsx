@@ -1,5 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { LegacyPageGuide } from '@/components/LegacyPageGuide';
+import { PRICING_PAGE_GUIDE } from '@/lib/legacy-page-guides';
 import PricingSection from './components/PricingSection';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { headers } from 'next/headers';
@@ -35,6 +37,7 @@ function PricingPage() {
       <Header />
       <div className="flex-1 pt-20">
         <PricingSection />
+        <LegacyPageGuide sections={PRICING_PAGE_GUIDE} />
       </div>
       <Footer />
     </div>

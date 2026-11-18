@@ -1,5 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { LegacyPageGuide } from '@/components/LegacyPageGuide';
+import { AI_NOTE_TAKER_PAGE_GUIDE } from '@/lib/legacy-page-guides';
 import HeroNoteTaker from './components/HeroNoteTaker';
 import FAQSection from '@/components/FAQSection';
 import { getFaqData } from '@/lib/fetchFAQs';
@@ -22,7 +24,7 @@ export async function generateMetadata() {
 
   const pageUrl = `${proto}://${host}/ai-note-taker`;
 
-  const meta = await getMetaData("/ai-note-taker", pageUrl);5
+  const meta = await getMetaData("/ai-note-taker", pageUrl);
 
   return generateSEOMetadata({
     title: meta?.title || 'AI Note Taker - Automate Your Meeting Notes',
@@ -59,6 +61,7 @@ const aiNoteTakerPage = async () => {
         <PrivateAndSecure />
         <div className="divider" />
         <FAQSection subHeading="Answers to common questions about 50agents and its features. If you have any other questions, please don't hesitate to contact us." faqs={faqData || []} />
+        <LegacyPageGuide sections={AI_NOTE_TAKER_PAGE_GUIDE} />
       </div>
       <Footer />
     </div>

@@ -16,11 +16,13 @@ const PricingSection = () => {
           </p>
         </div>
 
+        <h2 className="h2 text-center mb-6">Plans and usage-based credits</h2>
         {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-6">
 
           {/* AI Note Taker Card */}
-          <div className="bg-gray-light border-2 border-dark/20 hover:border-dark rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden flex flex-col group">
+          <article className="bg-gray-light border-2 border-dark/20 hover:border-dark rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden flex flex-col group">
+            <h3 className="h3 text-center mb-2 relative z-10">AI Note Taker</h3>
             <div className="absolute top-0 right-0 bg-base border-b-2 border-l-2 border-dark/20 group-hover:border-dark text-black font-bold px-4 py-1 rounded-bl-xl text-sm z-10 shadow-sm transition-colors duration-300">
               AI Note Taker
             </div>
@@ -59,10 +61,11 @@ const PricingSection = () => {
                 <p className="text-gray-dark font-bold">🎯 Start with meetings, scale to full AI automation</p>
               </div>
             </div>
-          </div>
+          </article>
 
           {/* Internal Application Card */}
-          <div className="bg-gray-light border-2 border-dark/20 hover:border-dark rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden flex flex-col group">
+          <article className="bg-gray-light border-2 border-dark/20 hover:border-dark rounded-3xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden flex flex-col group">
+            <h3 className="h3 text-center mb-2 relative z-10">Internal application agents</h3>
             <div className="absolute top-0 right-0 bg-base border-b-2 border-l-2 border-dark/20 group-hover:border-dark text-black font-bold px-4 py-1 rounded-bl-xl text-sm z-10 shadow-sm transition-colors duration-300">
               Internal Application
             </div>
@@ -95,7 +98,7 @@ const PricingSection = () => {
                 <p className="text-gray-dark font-bold">🚀 Empower your team with intelligent agents</p>
               </div>
             </div>
-          </div>
+          </article>
         </div>
         <div className="flex justify-center mt-12">
           <SignupLink button="pricing" cta="pricing:body" className="btn btn-primary no-underline" style={{ fontSize: 17, padding: '14px 26px' }}>Get started</SignupLink>

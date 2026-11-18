@@ -1,5 +1,8 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { LegacyPageGuide } from '@/components/LegacyPageGuide';
+import { TemplatesServerOutline } from '@/components/TemplatesServerOutline';
+import { TEMPLATES_PAGE_GUIDE } from '@/lib/legacy-page-guides';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { headers } from 'next/headers';
 import { getMetaData } from '@/lib/meta';
@@ -34,7 +37,9 @@ function TemplatesPage() {
     >
       <Header />
       <div className="flex-1 pt-20">
+        <TemplatesServerOutline />
         <TemplateGrid />
+        <LegacyPageGuide sections={TEMPLATES_PAGE_GUIDE} />
       </div>
       <Footer />
     </div>
