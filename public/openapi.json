@@ -1,0 +1,346 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "50agents Website API",
+    "version": "1.0.0",
+    "description": "Public read-only HTTP API exposed by the 50agents marketing site (https://50agents.com) for plugins, FAQs, page metadata, and prompts."
+  },
+  "servers": [
+    {
+      "url": "https://50agents.com",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/api/meta": {
+      "get": {
+        "operationId": "listPageMetadata",
+        "summary": "List SEO metadata for site pages",
+        "description": "Returns CMS rows with title, description, keywords, and canonical paths keyed by page name.",
+        "responses": {
+          "200": {
+            "description": "Metadata rows",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/PageMetadata" }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Upstream or configuration error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorMessage" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FAQs": {
+      "get": {
+        "operationId": "listFaqs",
+        "summary": "List FAQ entries",
+        "description": "Returns FAQ content used across marketing pages.",
+        "responses": {
+          "200": {
+            "description": "FAQ rows",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/FaqRow" }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Upstream or configuration error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorMessage" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/prompts": {
+      "get": {
+        "operationId": "listHomepagePrompts",
+        "summary": "List homepage prompt examples",
+        "description": "Returns curated prompt examples displayed on the homepage.",
+        "responses": {
+          "200": {
+            "description": "Prompt rows",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "type": "object", "additionalProperties": true }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Upstream or configuration error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorMessage" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plugins": {
+      "get": {
+        "operationId": "listPlugins",
+        "summary": "List integration plugins",
+        "description": "Paginated list of app integrations available to 50agents.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": { "type": "integer", "minimum": 1, "default": 1 },
+            "description": "Page number (1-based)"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 40 },
+            "description": "Items per page"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "schema": { "type": "string" },
+            "description": "Filter by category slug"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Plugin page",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PluginListResponse" }
+              }
+            }
+          },
+          "500": {
+            "description": "Upstream error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PluginErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plugins/search": {
+      "get": {
+        "operationId": "searchPlugins",
+        "summary": "Search integrations by keyword",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "minLength": 1 },
+            "description": "Search query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Matching plugins",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PluginSearchResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing search query",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PluginErrorResponse" }
+              }
+            }
+          },
+          "500": {
+            "description": "Upstream error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PluginErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plugins/count": {
+      "get": {
+        "operationId": "getPluginCount",
+        "summary": "Get total integrated app count",
+        "responses": {
+          "200": {
+            "description": "Count payload",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PluginCountResponse" }
+              }
+            }
+          },
+          "500": {
+            "description": "Upstream error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/PluginCountErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/plugins/categories": {
+      "get": {
+        "operationId": "listPluginCategories",
+        "summary": "List plugin categories",
+        "description": "Returns visible integration categories with app counts.",
+        "responses": {
+          "200": {
+            "description": "Category list",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CategoryListResponse" }
+              }
+            }
+          },
+          "500": {
+            "description": "Upstream error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CategoryErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "none": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "These routes are public; no client credentials are required."
+      }
+    },
+    "schemas": {
+      "ErrorMessage": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        },
+        "required": ["error"]
+      },
+      "PageMetadata": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "FaqRow": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "Plugin": {
+        "type": "object",
+        "properties": {
+          "rowid": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "appslugname": { "type": "string" },
+          "iconurl": { "type": "string", "format": "uri" },
+          "category": { "type": "array", "items": { "type": "string" } },
+          "domain": { "type": "string" },
+          "brandcolor": { "type": "string" },
+          "autonumber": { "type": "integer" }
+        }
+      },
+      "PluginListResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": { "type": "array", "items": { "$ref": "#/components/schemas/Plugin" } },
+          "pagination": {
+            "type": "object",
+            "properties": {
+              "page": { "type": "integer" },
+              "limit": { "type": "integer" },
+              "offset": { "type": "integer" }
+            }
+          }
+        }
+      },
+      "PluginSearchResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "data": { "type": "array", "items": { "$ref": "#/components/schemas/Plugin" } },
+          "query": { "type": "string" }
+        }
+      },
+      "PluginErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "error": { "type": "string" },
+          "data": { "type": "array", "items": { "$ref": "#/components/schemas/Plugin" } }
+        }
+      },
+      "PluginCountResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "count": { "type": "integer" }
+        }
+      },
+      "PluginCountErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "error": { "type": "string" },
+          "count": { "type": "integer" }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "appcount": { "type": "integer" },
+          "hidden": { "type": "boolean" }
+        }
+      },
+      "CategoryListResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "categories": { "type": "array", "items": { "$ref": "#/components/schemas/Category" } },
+          "totalCategories": { "type": "integer" }
+        }
+      },
+      "CategoryErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "error": { "type": "string" },
+          "categories": { "type": "array", "items": { "$ref": "#/components/schemas/Category" } }
+        }
+      }
+    }
+  },
+  "security": []
+}
