@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/validate-mcp-tools.mjs && node scripts/sync-landing-sections.mjs && node scripts/generate-llms-full.mjs",
+    "prebuild": "node scripts/validate-mcp-tools.mjs && node scripts/validate-ai-catalog.mjs && node scripts/sync-landing-sections.mjs && node scripts/generate-llms-full.mjs",
+    "validate:ai-catalog": "node scripts/validate-ai-catalog.mjs",
     "build": "next build",
     "validate:mcp-tools": "node scripts/validate-mcp-tools.mjs",
     "build:dev": "dotenv -e .env.dev next build",

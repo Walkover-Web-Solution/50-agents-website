@@ -34,6 +34,7 @@ verified_on: 2026-11-18
 - Only the home page is indexed today. `sitemap.ts` lists it alone, and the old pages stay out.
 - The home page sends its H1, subline and sections in the server HTML, so crawlers that do not run JavaScript can read them.
 - Structured data on the home page is Organization plus SoftwareApplication only. `public/llms.txt` describes today's product.
+- `public/.well-known/ai-catalog.json` indexes MCP, OpenAPI, docs, llms.txt and agent skills; the homepage links it with `rel="ai-catalog"` and a `Link` header (checked in prebuild).
 - A rebuild of search pages (written pages and integration pages in their own route group) is planned. Until it lands, avoid structural changes to `src/app`.
 
 ### Copy rules

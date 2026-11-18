@@ -2,8 +2,8 @@
   "specVersion": "1.0",
   "entries": [
     {
-      "identifier": "urn:air:50agents.com:mcp:server-card",
-      "displayName": "MCP server card (SEP-2127)",
+      "identifier": "urn:air:50agents.com:mcp:endpoint",
+      "displayName": "MCP server (streamable HTTP)",
       "type": "application/mcp-server-card+json",
       "url": "https://50agents.com/mcp/server-card"
     },
@@ -20,16 +20,22 @@
       "url": "https://50agents.com/openapi.json"
     },
     {
+      "identifier": "urn:air:50agents.com:docs:help",
+      "displayName": "Product docs",
+      "type": "text/html",
+      "url": "https://50agents.com/help"
+    },
+    {
       "identifier": "urn:air:50agents.com:llms:guide",
       "displayName": "Agent guide (llms.txt)",
       "type": "text/plain",
       "url": "https://50agents.com/llms.txt"
     },
     {
-      "identifier": "urn:air:50agents.com:llms:full",
-      "displayName": "Full agent context (llms-full.txt)",
-      "type": "text/plain",
-      "url": "https://50agents.com/llms-full.txt"
+      "identifier": "urn:air:50agents.com:skills:public-site",
+      "displayName": "Public site agent skills",
+      "type": "application/agent-skills+json",
+      "url": "https://50agents.com/.well-known/agent-skills.json"
     }
   ]
 }
