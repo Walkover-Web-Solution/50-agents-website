@@ -1,168 +1,69 @@
 ---
 covers: ["*"]
-verified_at: 987b4ee
 verified_on: 2026-11-18
 ---
 
-# Product Vision & Strategic Direction
+# Product vision and direction for this repository
 
-**50agents** (marketed at [50agents.com](https://50agents.com)) is a Walkover product, built on [viaSocket](https://viasocket.com), that lets people describe how their business works in plain language and get apps, automations, AI agents, and browser agents that run work across 2,300+ connected apps. **This repository** is the public marketing and discovery website: it explains that product, drives sign-up, surfaces integrations and templates for SEO, and hands visitors to the live application with consistent attribution—not the agent runtime itself.
+**50agents** ([50agents.com](https://50agents.com)) is a product from [viaSocket](https://viasocket.com). You tell **Captain**, its AI, what you need in plain words, and it builds automations, AI agents, browser agents and apps that do the work in your real apps, across 2,300+ apps through viaSocket. Every workspace starts free with 2,000 credits.
 
-## Authoritative Sources & Status
+**This repository is the public website.** It explains the product, gets found in search and by AI assistants, and sends visitors to sign up in the app at `https://50agents-app.embarko.app/login` with attribution. It does not run the product: no agent runtime, chats or workspace data live here.
 
-**Sources used (2026-11-18, codebase at `6d07997`):**
+## What is decided
 
-| Source | Role |
-|--------|------|
-| `public/landing/index.html`, `sections.html`, `site.js` | Primary home-page positioning, FAQs, CTAs, hero variants |
-| `src/app/layout.tsx`, `next.config.ts` | Global SEO defaults, `/` rewrite to static landing |
-| `src/lib/app.ts`, `src/components/SignupLink.tsx` | Sign-up URL and UTM contract to the app |
-| Product routes: `/ai-agents`, `/ai-agents/[slug]`, `/templates`, `/pricing`, `/ai-note-taker`, `/work-management` | Feature marketing and conversion paths |
-| `src/lib/seo.ts`, `src/app/sitemap.ts` | Metadata and indexing policy |
-| `package.json`, `wrangler.toml` | Stack (Next.js 16, Cloudflare Pages) |
-| Recent git history (e.g. PR #27 FAQ/claim cleanup) | Direction on substantiated marketing copy |
-| `README.md` | Scaffold only (not product truth) |
+### The home page is the site
 
-**No `AGENTS.md`, root `VISION.md`, or PRDs** were found in this repository.
+- `/` is the static landing in `public/landing/`, built from the landing source with `build-live.py` and inlined at build by `scripts/sync-landing-sections.mjs`. Copy and design changes start in the landing source, not in `public/landing/`.
+- It runs an A/B/C test of three hero versions: `orbit`, `stage` and `strip`. Each visitor keeps their version (localStorage key `50a-variant`); `?v=` previews one. Only the hero differs between versions: the page title and every section below the hero are shared.
+- It is the only page visitors are led to. The header carries the wordmark and one button, **Get started**, and no page links.
 
-### Approved Direction
+### Old pages: kept, not promoted
 
-- **Product promise (as stated on the site):** Visitors describe work in natural language; 50agents builds and runs apps, automations, AI agents, and browser agents on their existing tools (via viaSocket) or from scratch, including sites without connectors via browser agents.
-- **Audience:** Operators and team leads at small and mid-sized businesses who juggle many SaaS tools and manual “work between tools,” without requiring them to code (per landing FAQs and hero narratives).
-- **Trust line:** From viaSocket / Walkover; integrations scale via viaSocket’s app catalog; human-in-the-loop when rules or risk require a person (landing “people” section, FAQs).
-- **Website role:** Market the product, attribute traffic (UTM / variant `lv`), list integrations and templates, publish pricing and feature pages, and route “Get started” to `https://50agents-app.embarko.app/login` (see `src/lib/app.ts` and `public/landing/site.js`).
-- **Copy discipline:** Do not publish security, compliance, or performance claims unless sourced and approved (consistent with recent landing cleanup).
+- `/ai-note-taker`, `/work-management`, `/templates`, `/ai-agents`, every `/ai-agents/<slug>`, and `/pricing` describe the earlier product.
+- They stay live and reachable from the footer only, and they are `noindex, follow` with self canonicals. Nothing is deleted, so any of them can come back.
+- Their own buttons may still point at the earlier app; that is intended.
 
-### Current Implementation
+### Sign-up and attribution
 
-- **Home:** `next.config.ts` rewrites `/` to static `public/landing/` (built per comment from `agentic-apps/landing`); three hero variants (`orbit`, `stage`, `strip`) with persisted `50a-variant`.
-- **Marketing pages:** Next.js App Router pages with shared header/footer, design tokens aligned to landing variants (`src/app/layout.tsx`).
-- **Integration catalog:** Edge API routes proxy `INTEGRATION_URL` / `plug-service.viasocket.com` for list, search, categories, and per-app SEO pages under `/ai-agents/[slug]`.
-- **Templates:** Grid loads ideas via RTK Query; unauthenticated users redirect toward login with `pendingTemplateId`.
-- **Legacy / transitional surfaces:** `src/app/page.tsx` + `LandingPage` (superseded at `/` but still in tree); `/login` and `/org` with `proxy_auth_token` and Redux APIs pointed at `NEXT_PUBLIC_BASE_URL` paths (`/agent`, `/chat`, `/template`, etc.)—overlap with the separate app host.
-- **Hosting signals:** Edge runtime on many routes; `@cloudflare/next-on-pages` and `wrangler.toml` for Cloudflare deployment.
-- **Sitemap:** Only `/` listed today (`src/app/sitemap.ts`).
+- Every Get started goes to `https://50agents-app.embarko.app/login` (`src/lib/app.ts`, `public/landing/site.js`). That page handles both sign-up and sign-in.
+- Every link carries `utm_source=50agents.com`, `utm_medium=website`, `utm_campaign=<version>`, `utm_content=<button>`, and always `lv=<version>`. UTMs the visitor arrived with win; `lv` always survives. The app stores them at sign-up.
+- Do not add a second destination or drop a parameter.
 
-### Proposals & Roadmaps
+### Search and AI visibility
 
-- **Landing repositioning (Nov 2026):** Comments in `next.config.ts` and `src/lib/app.ts` reference a new home page and open sign-up on the embarko app; old `page.tsx` home awaits “site audit.”
-- **Hero experimentation:** Random or `?v=` forced assignment of landing variants for conversion learning (not documented beyond code).
-- **Work Management:** Dedicated page promoting `work.50agents.com` (separate URL—not defined whether fully merged into 50agents narrative).
+- Only the home page is indexed today. `sitemap.ts` lists it alone, and the old pages stay out.
+- The home page sends its H1, subline and sections in the server HTML, so crawlers that do not run JavaScript can read them.
+- Structured data on the home page is Organization plus SoftwareApplication only. `public/llms.txt` describes today's product.
+- A rebuild of search pages (written pages and integration pages in their own route group) is planned. Until it lands, avoid structural changes to `src/app`.
 
-### Unknowns & Ambiguities
+### Copy rules
 
-See [docs/OPEN_QUESTIONS.md](./OPEN_QUESTIONS.md) for owner decisions (app vs website boundary, pricing authority, SEO/sitemap scope, help center hosting, success metrics).
+- Claim nothing beyond the facts in the first paragraph. In particular: no security certifications (no SOC 2, ISO, GDPR or "secure" claims), no uptime figures, no customer counts, logos or testimonials, until there is a source.
+- Write viaSocket with a lowercase v. The only integration number is 2,300+. No em dashes anywhere.
+- Say "AI agent" or "browser agent", never just "agent". Captain is always Captain.
 
----
+## Who it is for
 
-## Target Audience & Ideal Customer Profile (ICP)
+Non-technical owners and operators of small and mid-size businesses who lose time to the work between their tools: orders, invoices, customer messages, reports. Write so they understand it in one read, and show the work rather than describe a platform.
 
-### Primary persona
+## Principles
 
-| Attribute | Description |
-|-----------|-------------|
-| **Role** | Business owner, ops lead, or functional lead (finance, sales, support) at an SMB |
-| **Workflow** | Coordinates orders, invoices, customer comms, and reporting across many apps (e.g. Xero, Shopify, Slack, WhatsApp) with manual handoffs |
-| **Technical level** | Non-developer; comfortable with SaaS tools and plain-language instructions; does not want to build or maintain integrations by hand |
+1. **Plain words first.** What an operator understands in one read beats technical precision.
+2. **Show the work.** Concrete scenarios (orders, invoices, approvals), not abstract platform language.
+3. **Measured handoff.** Every call to action keeps the attribution above.
+4. **Only defensible claims.** Weaker-sounding copy is better than an unsourced claim.
+5. **Fast and static where possible.** The home page is static; heavy logic belongs in the app.
 
-### Secondary personas
+## Not in this repository
 
-| Persona | Interest on this site |
-|---------|----------------------|
-| **Team admin** | Pricing, security copy, workspace/org selection flows (where still on-domain) |
-| **Evaluator / collaborator** | Integration pages, templates, help links, Chrome extension |
-| **Auditor / security reviewer** | Privacy policy links, FAQ answers, any substantiated compliance statements |
+- Running AI agents, automations or chats, or storing workspace data (that is the app).
+- Mock endpoints or sample data presented as live integrations. A website feature that needs a new API gets its contract written down first.
+- Unsourced trust claims, thin mass-generated pages, or keyword stuffing.
+- A second home page. The old Next.js home (`src/app/page.tsx`, `LandingPage.tsx`) stays in the tree, unused, until the old site is retired.
 
----
+## How to judge a request
 
-## Problems Solved & Value Proposition
-
-| Customer problem | How 50agents addresses it (per site copy) | What sets it apart (as stated) |
-|------------------|-------------------------------------------|--------------------------------|
-| Manual work between tools (retyping orders, chasing payments, copying data) | Agents and automations run across connected apps; browser agents for sites without APIs | “Your crew” metaphor—multiple agent types (app, automation, AI, browser) built around *your* workflow |
-| Building custom software is slow and expensive | Describe the job in plain words; platform builds apps/screens around the workflow | No-code setup emphasized in FAQs |
-| Tool sprawl (2,300+ apps) | viaSocket connectivity; searchable `/ai-agents` catalog | Heritage from viaSocket integration network |
-| Fear of autonomous AI changing production data | Human approval for exceptions; configurable autonomy (FAQ) | Slack/team loop illustrated on landing |
-| Meeting follow-up overhead | AI Note Taker product page and pricing tier | Low hourly pricing message on `/pricing` |
-| Discovering what to automate first | Templates gallery, use-case wall on landing, per-app agent pages | Template → login → workspace handoff |
-
----
-
-## Core Principles & Design Philosophy
-
-1. **Plain-language promise, not technical jargon**  
-   *Trade-off:* Engineering precision in UI copy is secondary to what a business operator understands in one read.
-
-2. **Show the work, don’t abstract it**  
-   Landing demos use concrete scenarios (orders, invoices, Slack approvals).  
-   *Trade-off:* Less generic “platform” language; more maintenance when narratives change.
-
-3. **Convert with measured handoff**  
-   Every serious CTA should preserve `utm_source`, `utm_medium`, `utm_campaign` (variant), and `utm_content` (button id) into the app login URL.  
-   *Trade-off:* Extra client-side logic; inconsistent paths (`APP_LOGIN` vs `NEXT_PUBLIC_INTERNAL_URL`) must not fragment attribution.
-
-4. **SEO through real integrations**  
-   Programmatic pages per connected app, structured data in `src/lib/seo.ts`, canonical URLs on agent detail routes.  
-   *Trade-off:* Dependency on upstream plugin APIs; empty/error states must not emit thin spam pages.
-
-5. **Substantiated trust only**  
-   Avoid badges, uptime, or compliance claims without approved sources (see landing FAQ refresh and PR #27).  
-   *Trade-off:* Weaker-sounding security sections until legal/product supplies evidence.
-
-6. **Edge-friendly marketing site**  
-   Prefer static landing + edge-rendered catalog pages; cache integration responses sensibly.  
-   *Trade-off:* Not a place for heavy server-side product logic.
-
----
-
-## Strategic Priorities & Success Measures
-
-**Stated in repository (priorities implied by structure and recent changes):**
-
-1. Ship and iterate the static landing as the canonical home experience.
-2. Maintain accurate, searchable integration marketing (`/ai-agents`).
-3. Funnel sign-ups to the embarko-hosted app with variant and button attribution.
-4. Keep marketing claims aligned with what the product can defend.
-
-**Success metrics:** Not stated in the repository. See [OPEN_QUESTIONS.md](./OPEN_QUESTIONS.md#operations-and-success).
-
----
-
-## Boundaries & Non-Goals
-
-**This repository deliberately does not:**
-
-- Execute agent tasks, host chat threads, or store customer workspace data (that lives behind `NEXT_PUBLIC_BASE_URL` / the embarko app).
-- Invent integration or agent APIs; website routes are proxies and presentation only.
-- Replace product documentation in the Help Center (`50agents.com/help` links are out of band until hosting is confirmed).
-- Present unsourced SOC, GDPR, uptime, or certification claims as facts.
-
-**Anti-patterns (break the vision):**
-
-- Adding “mock” backend endpoints or fake integrations instead of documenting real contracts in `docs/CONTRACTS.md`.
-- Expanding authenticated product UI here while CTAs explicitly migrate users to `50agents-app.embarko.app`.
-- Reintroducing delisted or unverified marketing claims removed from landing.
-- Duplicating hero/home implementations without retiring the superseded path.
-- SEO tricks (mass thin pages, keyword stuffing) that misrepresent per-app capabilities from API text.
-
----
-
-## How Future Agents Must Evaluate Requests
-
-1. **Compare to approved direction** — Does the change help explain 50agents, improve discovery/SEO, or improve attributed conversion? If it builds product behavior, it likely belongs in the app/backend repos, not here.
-
-2. **Check ICP and scenarios** — Copy and UX should still read for non-technical operators juggling real tools; avoid developer-only defaults on public pages.
-
-3. **Apply principles** — Preserve UTM/variant attribution, edge/static performance, and substantiated claims.
-
-4. **Respect non-goals** — Decline or redirect requests for agent runtime features, fabricated APIs, or unverified trust badges.
-
-5. **Clarify ambiguous requests** — If a request could mean either marketing-site or platform work, stop and ask (see OPEN_QUESTIONS). Use `needs_decision` when vision is silent.
-
-6. **Conflicts** — Explain the conflict against this file; recommend declining or narrowing scope; never rewrite this vision to bypass a conflict without an explicit owner decision to change direction.
-
-7. **Direction changes** — If owners approve a new strategic direction, implement the code/docs change **and** update this file in the same PR.
-
-8. **Missing backend capabilities** — If a website feature needs a new API, describe the request/response contract in `docs/CONTRACTS.md` (create or extend it). Do not ship pretend endpoints or hard-coded sample data presented as live integrations.
-
-**Owner gate:** This draft must be reviewed and approved before merge; after approval, treat this file as the gate for all automated and human requests against this repository.
+1. Does it help a visitor understand 50agents, help it get found, or improve attributed sign-up? If it builds product behaviour, it belongs in the app.
+2. Does it keep the decisions above (one destination, attribution, old pages noindex, copy rules)?
+3. If a request conflicts with this file, say so and narrow or decline it. Change this file only when the owner changes direction, and in the same pull request as the change.
+4. If it is unclear, check [OPEN_QUESTIONS.md](./OPEN_QUESTIONS.md) and ask.
