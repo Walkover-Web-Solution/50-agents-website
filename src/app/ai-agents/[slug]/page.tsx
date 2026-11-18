@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!result) {
     return {
-      title: 'AI Agent Not Found in 50Agents',
+      title: 'AI Agent Not Found in 50agents',
+      robots: { index: false, follow: true },
       description: 'The requested AI agent could not be found.',
     };
   }
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `https://50agents.com/ai-agents/${slug}`,
     },
+    robots: { index: false, follow: true }, // old product page, not indexed until rebuilt (SEO, 18 Nov)
     openGraph: {
       title: `${appName} AI Agent | Perform Any Task Inside ${appName} with 50Agents`,
       description: `The ${appName} AI Agent can perform any task inside ${appName}. Just type a prompt — it understands, executes, and automates instantly. No setup. No code`,

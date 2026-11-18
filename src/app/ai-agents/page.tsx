@@ -24,7 +24,8 @@ export async function generateMetadata() {
     title: meta?.title || 'AI agents',
     description: meta?.description,
     keywords: meta?.keywords,
-    canonical: meta?.name,
+    canonical: '/ai-agents',
+    noIndex: true, // old product page: reachable from the footer, not indexed (SEO, 18 Nov)
     type: meta?.type,
   });
 }

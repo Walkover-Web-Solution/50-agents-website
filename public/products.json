@@ -1,0 +1,20 @@
+{
+  "name": "50agents",
+  "url": "https://50agents.com",
+  "actOn": true,
+  "mcp": {
+    "url": "https://50agents.com/mcp",
+    "transport": "streamable-http"
+  },
+  "integrationsMcp": "https://mcp.viasocket.com",
+  "answerProbes": [
+    {
+      "question": "What is 50agents?",
+      "expectInHtml": "apps, AI agents and automations"
+    },
+    {
+      "question": "Which tools does 50agents work with?",
+      "expectInHtml": "2,300"
+    }
+  ]
+}
