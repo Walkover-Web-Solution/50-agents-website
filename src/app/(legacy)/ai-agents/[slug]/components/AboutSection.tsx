@@ -1,6 +1,6 @@
 'use client';
 
-import AnimatedSection from '../../../../components/AnimatedSection';
+import AnimatedSection from '@/components/AnimatedSection';
 import WebsiteButton from './WebsiteButton';
 
 interface AboutSectionProps {

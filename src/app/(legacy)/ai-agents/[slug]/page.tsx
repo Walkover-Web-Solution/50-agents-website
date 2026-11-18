@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Breadcrumb from '../../../components/Breadcrumb';
-import Footer from '../../../components/Footer';
-import Header from '../../../components/Header';
+import Breadcrumb from '@/components/Breadcrumb';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import AboutSection from './components/AboutSection';
 import FAQsForSpecificService from './components/FAQsForSpecificService';
 import GetStartedSection from './components/GetStartedSection';

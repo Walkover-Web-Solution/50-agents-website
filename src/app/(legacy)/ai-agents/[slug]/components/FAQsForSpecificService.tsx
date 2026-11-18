@@ -1,6 +1,6 @@
 'use client';
 
-import FAQSection from '../../../../components/FAQSection';
+import FAQSection from '@/components/FAQSection';
 
 interface FAQsForSpecificServiceProps {
   serviceName: string;

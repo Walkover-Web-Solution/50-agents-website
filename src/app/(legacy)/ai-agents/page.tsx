@@ -1,5 +1,5 @@
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import PluginGrid from './components/PluginGrid';
 import SearchAndFilterClient from './components/SearchAndFilterClient';
 import Pagination from './components/Pagination';

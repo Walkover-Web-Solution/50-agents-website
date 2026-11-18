@@ -1,7 +1,7 @@
 'use client';
 
 import { Container } from '@mui/material';
-import AnimatedSection from '../../../../components/AnimatedSection';
+import AnimatedSection from '@/components/AnimatedSection';
 import EastIcon from '@mui/icons-material/East';
 
 interface GetStartedSectionProps {
