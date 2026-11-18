@@ -9,5 +9,6 @@ Every workspace starts free with 2,000 credits.
 - [Home](https://50agents.com/): what 50agents is and how it works.
 - [Docs](https://50agents.com/help): product guides and help center.
 - [Pricing](https://50agents.com/pricing): plans and credits.
+- [UCP profile](https://50agents.com/.well-known/ucp): agent checkout discovery (embedded checkout at pricing).
 - [MCP](https://50agents.com/mcp): streamable HTTP MCP for public template discovery.
 - [Sign up](https://50agents-app.embarko.app/login): create a free workspace, or sign in.
