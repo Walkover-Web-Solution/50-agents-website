@@ -33,6 +33,7 @@ verified_on: 2026-11-18
 
 - Only the home page is indexed today. `sitemap.ts` lists it alone, and the old pages stay out.
 - The home page sends its H1, subline and sections in the server HTML, so crawlers that do not run JavaScript can read them.
+- `/help` (exact path only) is a static hub in `public/help/index.html`, built from `src/content/help-hub.json` at prebuild, with FAQs and links to DocStar guides under `/help/*`.
 - Structured data on the home page is Organization plus SoftwareApplication only. `public/llms.txt` describes today's product.
 - A rebuild of search pages (written pages and integration pages in their own route group) is planned. Until it lands, avoid structural changes to `src/app`.
 

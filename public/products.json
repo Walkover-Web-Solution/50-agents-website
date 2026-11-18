@@ -19,11 +19,28 @@
   "answerProbes": [
     {
       "question": "What is 50agents?",
+      "page": "https://50agents.com/",
       "expectInHtml": "apps, AI agents and automations"
     },
     {
       "question": "Which tools does 50agents work with?",
+      "page": "https://50agents.com/",
       "expectInHtml": "2,300"
+    },
+    {
+      "question": "What is 50agents?",
+      "page": "https://50agents.com/help",
+      "expectInHtml": "Captain"
+    },
+    {
+      "question": "What does it cost to start?",
+      "page": "https://50agents.com/help",
+      "expectInHtml": "2,000 credits"
+    },
+    {
+      "question": "Do I need to code to use 50agents?",
+      "page": "https://50agents.com/help",
+      "expectInHtml": "plain words"
     }
   ]
 }

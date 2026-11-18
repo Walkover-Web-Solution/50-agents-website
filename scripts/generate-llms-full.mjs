@@ -41,6 +41,7 @@ Drafts wait for approval, and anything that spends money, reaches people outside
 | Path | Summary |
 |------|---------|
 | / | Home: what 50agents is, how it works, FAQs |
+| /help | Help hub: FAQs in server HTML; links to guides under /help/* |
 | https://50agents-app.embarko.app/login | Sign up for a free workspace, or sign in |
 | /llms.txt | Short guide for AI agents |
 | /llms-full.txt | This file: the full public context in one request |

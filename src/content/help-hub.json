@@ -1,0 +1,53 @@
+{
+  "title": "50agents Help Center",
+  "intro": "Answers about 50agents, Captain, and how to get started. For full product context in one request, see llms-full.txt. Step-by-step guides for meetings, tools, and policies are linked below.",
+  "faqs": [
+    {
+      "q": "What is 50agents?",
+      "a": "You tell Captain, the AI for 50agents, what you need in plain words. It builds automations, AI agents, browser agents and apps that do the work in your real apps, across 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "Do I need to code or set anything up?",
+      "a": "No. You describe the job in plain words. Captain builds it, connects your tools and runs it."
+    },
+    {
+      "q": "Which tools does 50agents work with?",
+      "a": "2,300+ apps through viaSocket, from Gmail and Slack to Shopify and QuickBooks. Where a website has no connection, a browser agent uses it the way a person would."
+    },
+    {
+      "q": "Will it act without asking me?",
+      "a": "Only as far as you allow. You decide how much each AI agent does on its own. Anything that spends money, reaches people outside your business, or changes access asks you first."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "Nothing. Every workspace starts free with 2,000 credits."
+    },
+    {
+      "q": "Who makes 50agents?",
+      "a": "The team behind viaSocket and MSG91."
+    }
+  ],
+  "articles": [
+    {
+      "title": "Getting started: record a meeting with AI",
+      "href": "/help/meeting-agent",
+      "summary": "How to record meetings and capture decisions with the AI meeting recorder."
+    },
+    {
+      "title": "Pricing",
+      "href": "/help/pricing",
+      "summary": "Plans, credits, and how billing works."
+    },
+    {
+      "title": "Privacy policy",
+      "href": "/help/privacy-policy",
+      "summary": "How 50agents handles your data."
+    }
+  ],
+  "agentLinks": [
+    { "label": "Agent guide (llms.txt)", "href": "/llms.txt" },
+    { "label": "Full site context (llms-full.txt)", "href": "/llms-full.txt" },
+    { "label": "MCP for AI agents", "href": "/mcp" },
+    { "label": "Ask in natural language", "href": "/ask" }
+  ]
+}

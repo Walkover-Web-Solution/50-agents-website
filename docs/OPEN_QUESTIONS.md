@@ -15,4 +15,4 @@ What this repository still does not settle. When the owner decides one, move the
 ## Operations
 
 5. **Success measures.** Which numbers decide the hero A/B/C test (for example sign-ups per version by `lv`), and over what window?
-6. **Cloudflare settings outside this repo.** Edge caching of the home page, Rocket Loader, "Always Use HTTPS", and `noindex` for the help pages under `/help` (served by DocStar through a Cloudflare Worker, not by this app). Who owns these?
+6. **Cloudflare settings outside this repo.** Edge caching of the home page, Rocket Loader, "Always Use HTTPS", and routing for `/help`. Exact `/help` and `/help/` must hit this website worker first (static hub + `public/_redirects`); `/help/*` articles may stay on DocStar. The DocStar proxy must not take exact `/help` before this app. Who owns that worker order?

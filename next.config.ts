@@ -34,6 +34,9 @@ const nextConfig: NextConfig = {
         return {
             beforeFiles: [
                 { source: '/', has: wantsMarkdown, destination: '/index.md' },
+                // Exact /help only: agent-readable hub in this repo. /help/* stays on DocStar.
+                { source: '/help', destination: '/help/index.html' },
+                { source: '/help/', destination: '/help/index.html' },
                 { source: '/', destination: '/landing/index.html' },
             ],
             fallback: [{ source: '/:path*', has: wantsMarkdown, destination: '/missing.md' }],
