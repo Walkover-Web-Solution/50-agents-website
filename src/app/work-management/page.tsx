@@ -27,7 +27,8 @@ export async function generateMetadata() {
     title: meta?.title || 'Work Management - Automate Your Work',
     description: meta?.description,
     keywords: meta?.keywords,
-    canonical: meta?.name,
+    canonical: '/work-management',
+    noIndex: true, // old product page: reachable from the footer, not indexed (SEO, 18 Nov)
     type: meta?.type,
   });
 }

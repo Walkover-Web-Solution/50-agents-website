@@ -21,7 +21,8 @@ export async function generateMetadata() {
     title: meta?.title || 'Pricing Plans',
     description: meta?.description,
     keywords: meta?.keywords,
-    canonical: meta?.name,
+    canonical: '/pricing',
+    noIndex: true, // old product page: reachable from the footer, not indexed (SEO, 18 Nov)
     type: meta?.type,
   });
 }
