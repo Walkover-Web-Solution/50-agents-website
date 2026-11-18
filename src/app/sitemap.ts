@@ -1,14 +1,8 @@
 import { MetadataRoute } from 'next';
 
-const baseUrl = 'https://50agents.com';
-
+// Only indexable pages: the home page. The old product pages are noindex and stay out (SEO, 18 Nov).
+// lastModified is the date the landing last changed: update it with each landing deploy (a request-time date would be false).
+const HOME_UPDATED = '2026-11-18';
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: `${baseUrl}/`, changeFrequency: 'weekly', priority: 1 },
-    { url: `${baseUrl}/pricing`, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/ai-agents`, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${baseUrl}/templates`, changeFrequency: 'weekly', priority: 0.7 },
-    { url: `${baseUrl}/work-management`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/ai-note-taker`, changeFrequency: 'monthly', priority: 0.7 },
-  ];
+  return [{ url: 'https://50agents.com/', lastModified: HOME_UPDATED, changeFrequency: 'weekly', priority: 1 }];
 }

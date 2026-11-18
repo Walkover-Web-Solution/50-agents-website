@@ -8,15 +8,15 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/org', '/api/', '/_next/'],
+        disallow: ['/org', '/api/'],
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/org', '/api/', '/_next/'],
+        disallow: ['/org', '/api/'],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap-main.xml`, // /sitemap.xml is redirected outside this repo; see sitemap-main.xml/route.ts
     host: baseUrl,
   };
 }

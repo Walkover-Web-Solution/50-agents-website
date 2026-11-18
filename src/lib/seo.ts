@@ -11,7 +11,8 @@ interface SEOConfig {
 }
 
 export function generateMetadata(config: SEOConfig): Metadata {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://50agents.com';
+  // the public address, fixed: the env value pointed canonicals at api.50agents.com (SEO audit, 18 Nov)
+  const baseUrl = 'https://50agents.com';
   const siteName = '50agents';
 
   const fullTitle = config.title.includes(siteName) ? config.title : `${config.title} | ${siteName}`;
@@ -22,7 +23,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
     keywords: config.keywords,
 
     // Basic meta tags
-    robots: config.noIndex ? 'noindex, nofollow' : 'index, follow',
+    robots: config.noIndex ? 'noindex, follow' : 'index, follow',
 
     // Canonical URL
     alternates: {
