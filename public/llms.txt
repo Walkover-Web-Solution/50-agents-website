@@ -7,7 +7,14 @@ Every workspace starts free with 2,000 credits.
 ## Links
 
 - [Home](https://50agents.com/): what 50agents is and how it works.
-- [MCP](https://50agents.com/mcp): streamable HTTP MCP for public template discovery.
 - [Sign up](https://50agents-app.embarko.app/login): create a free workspace, or sign in.
 - [Full context (llms-full.txt)](https://50agents.com/llms-full.txt): entire public site guide in one file.
 - [NLWeb /ask](https://50agents.com/ask): natural-language query over public content.
+
+## For AI agents and developers
+
+- MCP (streamable HTTP): https://50agents.com/mcp
+- MCP server card (SEP-2127): https://50agents.com/mcp/server-card
+- MCP registry server.json: https://50agents.com/server.json
+- Website API (OpenAPI): https://50agents.com/openapi.json
+- API catalog: https://50agents.com/.well-known/api-catalog

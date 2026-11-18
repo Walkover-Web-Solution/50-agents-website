@@ -17,14 +17,10 @@ function ClientLayout({ children }: ClientLayoutProps) {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <Provider store={store}>
       <Box component="main" className="flex h-screen w-full">{children}</Box>
-      <TalkToUs />
+      {mounted ? <TalkToUs /> : null}
     </Provider>
   );
 }
