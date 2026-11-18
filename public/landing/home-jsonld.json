@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "50agents",
+      "url": "https://50agents.com",
+      "logo": "https://50agents.com/50_agents_logo.png",
+      "sameAs": [
+        "https://github.com/Walkover-Web-Solution/50-agents-website",
+        "https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio",
+        "https://viasocket.com"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "support@viasocket.com",
+        "telephone": "+91-731-2560056",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "50agents",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://50agents.com",
+      "description": "Tell Captain what you need in plain words, and it builds automations, AI agents, browser agents and apps that work across 2,300+ apps.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Every workspace starts free with 2,000 credits."
+      }
+    }
+  ]
+}

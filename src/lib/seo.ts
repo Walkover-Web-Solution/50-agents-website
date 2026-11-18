@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import homeJsonLd from '../../public/landing/home-jsonld.json';
 
 interface SEOConfig {
   title: string;
@@ -69,20 +70,24 @@ export function generateMetadata(config: SEOConfig): Metadata {
   };
 }
 
-/** Official profiles and support contacts (privacy policy, 25 Apr 2025). Keep in sync with public/landing/index.html JSON-LD. */
-export const ORGANIZATION_SAME_AS = [
-  'https://github.com/Walkover-Web-Solution/50-agents-website',
-  'https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio',
-  'https://viasocket.com',
-] as const;
+/** Keep in sync with public/landing/home-jsonld.json (validated in prebuild). */
+type GraphNode = Record<string, unknown> & { '@type'?: string };
 
-export const ORGANIZATION_CONTACT_POINT = {
-  '@type': 'ContactPoint',
-  contactType: 'customer service',
-  email: 'support@viasocket.com',
-  telephone: '+91-731-2560056',
-  availableLanguage: 'English',
-} as const;
+const landingGraph = homeJsonLd['@graph'] as GraphNode[];
+const landingOrganization = landingGraph.find((n) => n['@type'] === 'Organization');
+if (!landingOrganization) {
+  throw new Error('home-jsonld.json: missing Organization node');
+}
+
+export const ORGANIZATION_SAME_AS = landingOrganization.sameAs as string[];
+
+export const ORGANIZATION_CONTACT_POINT = landingOrganization.contactPoint as {
+  '@type': 'ContactPoint';
+  contactType: string;
+  email: string;
+  telephone: string;
+  availableLanguage: string;
+};
 
 // Structured Data generators
 export function generateOrganizationSchema() {

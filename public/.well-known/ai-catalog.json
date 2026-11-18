@@ -2,8 +2,14 @@
   "specVersion": "1.0",
   "entries": [
     {
-      "identifier": "urn:air:50agents.com:mcp:website-docs",
-      "displayName": "50agents public MCP",
+      "identifier": "urn:air:50agents.com:mcp:server-card",
+      "displayName": "MCP server card (SEP-2127)",
+      "type": "application/mcp-server-card+json",
+      "url": "https://50agents.com/mcp/server-card"
+    },
+    {
+      "identifier": "urn:air:50agents.com:mcp:registry",
+      "displayName": "MCP registry server.json",
       "type": "application/mcp-server-card+json",
       "url": "https://50agents.com/server.json"
     },

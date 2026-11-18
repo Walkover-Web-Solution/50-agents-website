@@ -1,10 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CREW_FACES } from './crewFaces';
 
 // The 50agents wordmark, as on the landing: Schibsted Grotesk 800, the 0 is a crew member picked at random (D69, D93).
 export default function Logo({ size = 26, byline = true }: { size?: number; byline?: boolean }) {
-  const [id] = useState(() => { const ids = Object.keys(CREW_FACES); return ids[Math.floor(Math.random() * ids.length)]; });
+  // a fixed crew member on the server, a random one after mount, so server and client HTML match (no hydration mismatch)
+  const [id, setId] = useState('keeper');
+  useEffect(() => { const ids = Object.keys(CREW_FACES); setId(ids[Math.floor(Math.random() * ids.length)]); }, []);
   return (
     <span className="inline-flex flex-col items-start leading-none" aria-label="50agents, from viaSocket">
       <span className="inline-flex items-center whitespace-nowrap" style={{ fontFamily: "'Schibsted Grotesk', system-ui, sans-serif", fontWeight: 800, letterSpacing: '-.045em', fontSize: size, color: 'var(--ink)' }}>
