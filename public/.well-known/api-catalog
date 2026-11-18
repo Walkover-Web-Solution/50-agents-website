@@ -43,6 +43,11 @@
       "name": "mcp",
       "title": "MCP (streamable HTTP)",
       "url": "https://50agents.com/mcp"
+    },
+    {
+      "name": "ask",
+      "title": "NLWeb ask",
+      "url": "https://50agents.com/ask"
     }
   ]
 }
