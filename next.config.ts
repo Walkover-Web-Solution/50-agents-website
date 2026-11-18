@@ -47,7 +47,7 @@ const nextConfig: NextConfig = {
                     {
                         key: 'Link',
                         value:
-                            '</llms.txt>; rel="describedby"; type="text/plain", </.well-known/api-catalog>; rel="api-catalog", </sitemap.xml>; rel="sitemap"',
+                            '</llms.txt>; rel="describedby"; type="text/plain", </.well-known/api-catalog>; rel="api-catalog", </sitemap-main.xml>; rel="sitemap"',
                     },
                 ],
             },

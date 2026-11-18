@@ -1,33 +1,10 @@
 # 50agents
 
-> Apps, AI agents, and automations built around how your business works. 2,300+ app integrations via viaSocket.
+> 50agents is a product from viaSocket. You tell Captain, its AI, what you need in plain words, and it builds automations, AI agents, browser agents and apps that do the work in your real apps, with 2,300+ apps through viaSocket.
 
-## Agent interfaces
+Every workspace starts free with 2,000 credits.
 
-- [MCP (Streamable HTTP)](https://50agents.com/mcp): Streamable HTTP MCP endpoint for agent tools.
-- [Plugins API](https://50agents.com/api/plugins): Public agent template catalog (GET).
-- [Mushrooms](https://mushroom.viasocket.com/): Full app integrations catalog on viaSocket.
-- [OpenAPI](https://50agents.com/openapi.json): OpenAPI description of public site HTTP APIs.
+## Links
 
-## Docs
-
-- [Help Center](https://50agents.com/help): Product documentation, policies, and how-to guides.
-- [Getting Started — Meeting Agent](https://50agents.com/help/meeting-agent): Set up the AI meeting recorder.
-
-## Product
-
-- [Home](https://50agents.com/): Positioning, capabilities, and getting started.
-- [AI Agents](https://50agents.com/ai-agents): Browse and deploy AI agents for apps.
-- [Agent Templates](https://50agents.com/templates): Pre-built agent templates to start from.
-- [Work Management](https://50agents.com/work-management): Tasks, workflows, and team work.
-- [AI Meeting Recorder](https://50agents.com/ai-note-taker): Record meetings and generate notes.
-- [Pricing](https://50agents.com/pricing): Plans and pricing.
-
-## API
-
-- [Plugins](https://50agents.com/api/plugins): List available AI agent plugins.
-- [Plugin search](https://50agents.com/api/plugins/search): Search the plugin catalog.
-- [Plugin categories](https://50agents.com/api/plugins/categories): Plugin category listing.
-- [Prompts](https://50agents.com/api/prompts): Sample prompts surfaced on the marketing site.
-- [Page metadata](https://50agents.com/api/meta): SEO metadata for site routes.
-- [FAQs](https://50agents.com/api/FAQs): FAQ content for site pages.
+- [Home](https://50agents.com/): what 50agents is and how it works.
+- [Sign up](https://50agents-app.embarko.app/login): create a free workspace, or sign in.
