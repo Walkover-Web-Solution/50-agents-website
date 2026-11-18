@@ -1,0 +1,115 @@
+// Guide 16 (pages-brief B5). Research: Chrome DevTools Recorder docs, Skyvern, Latenode, Browserless and Autonoly results
+// for "automate website without api", Google's robots.txt intro, read 19 Nov 2026. 50agents: browser agents' sign-in flow.
+import type { Guide } from './types';
+
+const g: Guide = {
+  slug: 'how-to-automate-a-website-that-has-no-api',
+  n: 16,
+  group: 'Browser agents',
+  kind: 'browser',
+  title: 'How to automate a website that has no API | 50agents',
+  description:
+    'Automate a website with no API: try exports, email alerts and existing integrations first, then use a browser tool that signs in once and asks before it submits.',
+  h1: 'How to automate a website that has no API',
+  short:
+    'Before you automate clicks, look for a back door the site already offers: a CSV export, an email notification you can act on, an RSS feed, or an existing integration in an automation catalog. If there is none, use a browser automation tool or a browser agent that keeps you signed in, reads the page the way a person would, and asks before it submits anything.',
+  published: '2026-11-19',
+  updated: '2026-11-19',
+  sections: [
+    {
+      id: 'ladder',
+      h2: 'Try these in order',
+      body: [
+        { p: 'Each rung is more reliable than the one below it. Most "no API" jobs stop at rung two or three.' },
+        {
+          table: {
+            head: ['Rung', 'Look for', 'Example'],
+            rows: [
+              ['1. An existing integration', 'The site in an automation catalog, even if its own docs mention no API', 'Search viaSocket’s catalog of 2,300+ apps, or Zapier’s, by the site’s name.'],
+              ['2. An email it already sends', 'Order confirmations, alerts, daily digests', 'A supplier emails each invoice; an automation reads that email instead of the portal.'],
+              ['3. An export or feed', 'Download as CSV, scheduled reports, RSS', 'A bank portal emails a monthly statement CSV.'],
+              ['4. A recorder', 'Record the clicks once, replay them', 'Chrome’s Recorder replays a user flow and can be edited step by step ([Chrome](https://developer.chrome.com/docs/devtools/recorder)).'],
+              ['5. A browser agent', 'An AI that reads the page and decides where to click', 'Copes with small layout changes; needs approvals for anything it submits.'],
+            ],
+          },
+        },
+      ],
+    },
+    {
+      id: 'recorder-vs-agent',
+      h2: 'Recorder or browser agent?',
+      body: [
+        {
+          table: {
+            head: ['', 'Recorder or script', 'Browser agent'],
+            rows: [
+              ['How it finds things', 'Exact buttons and fields it recorded', 'Reads the page and looks for what you described'],
+              ['When the site changes', 'Breaks at the changed step', 'Often copes, sometimes guesses wrong'],
+              ['Same result every run', 'Yes', 'Mostly'],
+              ['Best for', 'Stable internal tools, many repeats a day', 'A few pages, layouts that shift, reading more than clicking'],
+            ],
+          },
+        },
+        { note: 'Whatever you use, the site’s rules still apply. Check its terms, keep to what a person would do by hand, and stop at CAPTCHAs: they are the site saying no.' },
+      ],
+    },
+    {
+      id: 'steps',
+      h2: 'How to set it up, step by step',
+      body: [
+        {
+          steps: [
+            { title: 'Write down the job as a person would do it', body: '"Sign in, open Reports, choose last month, download the CSV." Every step, every click. If you cannot write it, a tool cannot do it.' },
+            { title: 'Split reading from doing', body: 'Reading a page is low risk. Submitting a form, placing an order or changing a setting is not. Plan for every "doing" step to ask you first.' },
+            { title: 'Sort out the sign-in', body: 'Never paste a password into a chat or a shared sheet. Use a tool that lets you sign in yourself once and keeps the session, and expect to sign in again when the site logs you out.' },
+            { title: 'Run it once while you watch', body: 'Most tools show the browser live or record what it did. Watch the first run end to end.' },
+            { title: 'Add a check that it worked', body: 'A file downloaded, a confirmation number on the page, a row count. Without a check, a failed run looks like a quiet one.' },
+            { title: 'Schedule it no more often than needed', body: 'Daily or weekly is enough for most portals, and it keeps you well inside what the site expects from a person.' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'example',
+      h2: 'How 50agents handles a sign-in',
+      body: [
+        { p: 'In 50agents a browser agent has one browser of its own, so a site you sign in to stays signed in between runs. When it reaches a page that needs a person, it does not ask for your password: it opens a Needs you item. Tap Do it now, sign in yourself in its browser, then tap Done, carry on and it runs again from there.' },
+        { ask: 'Set up a browser agent that reads last week\'s invoices on my supplier portal every Monday and tells me the total' },
+        {
+          view: {
+            type: 'need',
+            face: 'scout',
+            who: 'Supplier invoices',
+            from: 'browser agent',
+            when: 'Monday 9:01',
+            label: 'Sign in needed',
+            title: 'Sign in to portal.supplier.example',
+            facts: [['Page', 'portal.supplier.example/login'], ['Why', 'The invoices page needs your sign-in. I will not type a password.']],
+            choices: ['Do it now', 'Skip portal.supplier.example'],
+          },
+          caption: 'A browser agent asking for a sign-in in Needs you. Do it now opens its browser on that page for you; the session is kept for its next runs. Example data.',
+        },
+      ],
+    },
+  ],
+  wrong: [
+    { title: 'The site changed and the script broke', body: 'Recorded clicks point at a button that moved. Keep scripts short, and prefer a browser agent for pages that change often.' },
+    { title: 'Signed out mid-run', body: 'Sessions expire and two-step sign-in comes back. Expect a sign-in request every few weeks.' },
+    { title: 'A submit went through twice', body: 'A retry repeated the last step. Have every submit ask first, and check for the confirmation before trying again.' },
+    { title: 'Blocked by the site', body: 'Too many visits, or the site does not want automation. Slow down; if it shows a CAPTCHA, stop.' },
+    { title: 'It failed and nobody knew', body: 'No check at the end. Make the last step prove the job is done.' },
+  ],
+  faqs: [
+    { q: 'Can I automate a website without an API?', a: 'Yes, by driving a browser: a recorder replays clicks, a browser agent reads the page and decides where to click. Check first for an export, an email notification or an existing integration, which are more reliable.' },
+    { q: 'Is this the same as RPA?', a: 'Close. RPA (robotic process automation) is the older name for software that clicks through screens like a person. Browser agents add AI to read pages that change.' },
+    { q: 'Will it break when the site changes?', a: 'Recorded scripts often do. Browser agents cope with small changes and can still misread a redesigned page, so keep a check at the end of each run.' },
+  ],
+  sources: [
+    { label: 'Chrome for Developers: Recorder panel', href: 'https://developer.chrome.com/docs/devtools/recorder' },
+    { label: 'Google Search Central: Introduction to robots.txt', href: 'https://developers.google.com/search/docs/crawling-indexing/robots/intro' },
+    { label: 'Skyvern: Turn any website into an API', href: 'https://www.skyvern.com/blog/turn-any-website-into-an-api-methods-and-best-practices-september-2025/' },
+  ],
+  related: ['browser-automation-without-code', 'how-to-automate-form-filling-on-websites', 'webhooks-explained-for-non-developers'],
+};
+
+export default g;

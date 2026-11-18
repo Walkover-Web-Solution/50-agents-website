@@ -1,0 +1,40 @@
+// The apps the guides and role pages draw, with their icons from viaSocket's catalog
+// (plug-service.viasocket.com/api/v1/plugins/recommend/integrations?service=<slug>, read 19 Nov 2026).
+import type { AppRef } from './types';
+
+const I = 'https://stuff.thingsofbrand.com/';
+export const APPS = {
+  gmail: { name: 'Gmail', icon: `${I}gmail.com/images/imge_idrA5FDGTH_1763454052978.svg` },
+  sheets: { name: 'Google Sheets', icon: `${I}google.com/images/img4_googlesheet.png` },
+  slack: { name: 'Slack', icon: `${I}slack.com/images/img668216333e_slack.jpg` },
+  hubspot: { name: 'HubSpot', icon: `${I}hubspot.com/images/img61728fea98_hubspot.jpg` },
+  stripe: { name: 'Stripe', icon: `${I}stripe.com/images/img67eab239fe_stripe.jpg` },
+  shopify: { name: 'Shopify', icon: `${I}shopify.com/images/img6fb21a1332_shopify.jpg` },
+  calendar: { name: 'Google Calendar', icon: `${I}google.com/images/img7_Google-Calendar.png` },
+  quickbooks: { name: 'QuickBooks', icon: `${I}quickbooks.intuit.com/images/imgf_Screenshot-2025-03-20-141203.png` },
+  xero: { name: 'Xero', icon: `${I}xero.com/images/img6b682e64a8_xero.jpg` },
+  freshdesk: { name: 'Freshdesk', icon: `${I}freshdesk.com/images/imgf_freshdesk.png` },
+  zendesk: { name: 'Zendesk Support', icon: `${I}zendesk.com/images/img66436a589b_zendesk.jpg` },
+  razorpay: { name: 'Razorpay', icon: `${I}razorpay.com/images/img678aa307e6_razorpay.jpg` },
+  woocommerce: { name: 'WooCommerce', icon: `${I}woocommerce.com/images/img4_Woo_logo_color.svg` },
+  pipedrive: { name: 'Pipedrive', icon: `${I}pipedrive.com/images/img615f7335ac_pipedrive.jpg` },
+  typeform: { name: 'Typeform', icon: `${I}typeform.com/images/img6df5b471b3_typeform.jpg` },
+  calendly: { name: 'Calendly', icon: `${I}calendly.com/images/img666fed0cf4_calendly.jpg` },
+  intercom: { name: 'Intercom', icon: `${I}intercom.com/images/img64da81ea37_intercom.jpg` },
+  asana: { name: 'Asana', icon: `${I}asana.com/images/img658df77d87_asana.jpg` },
+  trello: { name: 'Trello', icon: `${I}trello.com/images/img6e60f5aa10_trello.jpg` },
+  zohobooks: { name: 'Zoho Books', icon: `${I}zoho.com/images/img3_zohobooks.png` },
+  airtable: { name: 'Airtable', icon: `${I}airtable.com/images/img6da0d45803_airtable.jpg` },
+  notion: { name: 'Notion', icon: `${I}notion.so/images/img667018e3f8_notion.jpg` },
+  clickup: { name: 'ClickUp', icon: `${I}clickup.com/images/img68198d062e_clickup.jpg` },
+  fbleads: { name: 'Facebook Lead Ads', icon: `${I}facebook.com/images/img6f6ece6e88_facebook.jpg` },
+  keka: { name: 'Keka', icon: `${I}keka.com/images/img3_keka.png` },
+  personio: { name: 'Personio', icon: `${I}personio.com/images/img8_personio.png` },
+  greenhouse: { name: 'Greenhouse', icon: `${I}greenhouse.com/images/img6095b7e1e7_greenhouse.jpg` },
+  recruitee: { name: 'Recruitee', icon: `${I}recruitee.com/images/img6241051782_recruitee.jpg` },
+  breezy: { name: 'Breezy HR', icon: `${I}breezy.hr/images/img68895befad_breezy.jpg` },
+  teamtailor: { name: 'Teamtailor', icon: `${I}teamtailor.com/images/img67999ad007_teamtailor.jpg` },
+  calamari: { name: 'Calamari', icon: `${I}calamari.io/images/img6_calamari.png` },
+  rotacloud: { name: 'RotaCloud', icon: `${I}rotacloud.com/images/img681ac6b959_rotacloud.jpg` },
+  zohopeople: { name: 'Zoho People', icon: `${I}zoho.com/images/imgb_Zoho-People.png` },
+} satisfies Record<string, AppRef>;

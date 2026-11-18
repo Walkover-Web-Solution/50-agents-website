@@ -1,0 +1,125 @@
+// Guide 5 (pages-brief B5). Research: OpenAI agents guide (PDF), OpenAI Agents SDK human-in-the-loop docs, Anthropic's
+// prompting best practices, OWASP LLM06, Airtable, read 19 Nov 2026. 50agents: Needs you (app/src/features/needs/CLAUDE.md).
+import type { Guide } from './types';
+import { APPS } from './apps';
+
+const g: Guide = {
+  slug: 'how-to-make-an-ai-agent-ask-before-it-acts',
+  n: 5,
+  group: 'AI agents',
+  kind: 'ai',
+  title: 'How to make an AI agent ask before it acts | 50agents',
+  description:
+    'Make an AI agent ask before it acts: sort actions by risk, hold the risky ones in an approval the software enforces, show the full action, and plan for no answer.',
+  h1: 'How to make an AI agent ask before it acts',
+  short:
+    'Sort every action the AI agent can take into "does alone" and "asks first", put sends, payments, deletions and access changes in the second group, and use a tool that holds those actions until a person approves them, rather than relying on a sentence in the prompt. Each approval should show exactly what will happen, let you change it, and stay open until someone answers.',
+  published: '2026-11-19',
+  updated: '2026-11-19',
+  sections: [
+    {
+      id: 'why-prompt-is-not-enough',
+      h2: 'Why "ask me first" in the prompt is not enough',
+      body: [
+        { p: 'You can tell a model to check with you before doing anything risky, and it usually will. Anthropic publishes exactly such a prompt, then says plainly that prompt text guides the model but enforces nothing; for anything that moves money, a person should approve each call in the software ([Anthropic](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)). OWASP lists human approval of high-impact actions as a defence against AI agents doing too much ([OWASP](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)).' },
+        { note: 'The test: if the AI agent decided to skip the question, would the action still go through? If yes, you have a polite request, not an approval.' },
+      ],
+    },
+    {
+      id: 'tiers',
+      h2: 'Sort actions into three groups',
+      body: [
+        {
+          table: {
+            head: ['Group', 'Examples', 'What happens'],
+            rows: [
+              ['Does alone', 'Reading email, searching a CRM, reading a web page, writing a note in its own report', 'Runs, and shows up in its log.'],
+              ['Asks first', 'Sending an email or message to anyone else, changing a record in your apps', 'Waits for a yes, with the full action shown.'],
+              ['Always asks', 'Payments and refunds, deleting, sharing files, adding people or changing access', 'Waits for a yes, no matter what you loosen elsewhere.'],
+            ],
+          },
+        },
+        { p: 'OpenAI’s builder guide suggests the same sort: rate each tool low, medium or high by whether it only reads, whether it can be undone, and how much money is involved, and hand control to a person on high-risk actions and when the AI agent keeps failing ([OpenAI](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)).' },
+      ],
+    },
+    {
+      id: 'good-approval',
+      h2: 'What a good approval shows',
+      body: [
+        {
+          ul: [
+            '**Who is asking and from where:** which AI agent, on which run.',
+            '**Exactly what will happen:** the recipient, the subject and the full text; the record and the field and the new value; the amount and who gets it.',
+            '**Why:** one line of the AI agent’s reasoning, so you can spot a wrong premise.',
+            '**Change, not only yes or no:** most approvals need a small edit, and a reviewer who can only decline will approve things they should have fixed.',
+            '**It stays open:** an unanswered approval should wait, not expire into "yes".',
+          ],
+        },
+      ],
+    },
+    {
+      id: 'steps',
+      h2: 'How to set it up, step by step',
+      body: [
+        {
+          steps: [
+            { title: 'List every action the AI agent can take', body: 'From its apps: read, create, update, send, delete, share. You will be surprised how many it has.' },
+            { title: 'Put each one in a group', body: 'Use the table above. When in doubt, put it in asks first; you can move it later.' },
+            { title: 'Remove what it never needs', body: 'An action it never uses should not be there at all. Fewer actions means fewer approvals and less to go wrong.' },
+            { title: 'Pick where approvals arrive', body: 'One place you check a few times a day, on your phone too. Approvals scattered across email, chat and dashboards get missed.' },
+            { title: 'Watch the approve-without-edits rate', body: 'If you approve almost everything of one kind unchanged for a few weeks, consider letting that kind run alone. If you edit most, fix the instructions.' },
+            { title: 'Plan for retries', body: 'An approved action can run twice if the tool crashes in between. OpenAI’s SDK docs advise making approved actions safe to repeat ([OpenAI](https://openai.github.io/openai-agents-python/human_in_the_loop/)); ask your tool how it handles this.' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'example',
+      h2: 'How it works in 50agents: Needs you',
+      body: [
+        { p: '50agents puts every approval in one place called Needs you, on its own screen, on Home and in the chat it came from. By default anything that spends money, reaches people outside your workspace or changes access asks first, and you set each AI agent’s freedom from there. An item stays open until you tap an answer; the AI agent never answers it for you.' },
+        {
+          view: {
+            type: 'need',
+            face: 'writer',
+            who: 'Quiet deals follow-up',
+            from: 'AI agent',
+            when: '9:03',
+            label: 'Send an email',
+            app: APPS.gmail,
+            title: 'Follow up with Oakridge Builders',
+            mail: {
+              to: 'jordan@oakridge.example',
+              subject: 'Re: Quote for the Harbour St fit-out',
+              body: ['Hi Jordan,', 'Following up on the quote I sent on 12 November. Happy to walk through the timeline or adjust the scope if the budget has moved. Would a 15-minute call on Thursday work?', 'Best,', 'Alex'],
+            },
+            facts: [['Why', 'Deal open, no reply in 7 days']],
+            choices: ['Approve and send', 'Change', 'Decline'],
+          },
+          caption: 'A Needs you card from an AI agent: who asks, the full email, why it wants to send it, and Approve, Change or Decline. Nothing is sent until you answer. Example data.',
+        },
+      ],
+    },
+  ],
+  wrong: [
+    { title: 'Rubber-stamping', body: 'Too many approvals and you stop reading them. Trim what asks, and group low-risk items into one daily report instead.' },
+    { title: 'Approving without context', body: 'The card says "Send email?" without the text. Never approve what you cannot see in full.' },
+    { title: 'Nobody answers', body: 'The approval sits for a week and the moment passes. Check approvals at fixed times, and give the AI agent a rule for stale items ("if not approved in 2 days, drop it and tell me").' },
+    { title: 'The AI agent decides when to ask', body: 'If asking is up to the AI, one day it will not ask. Put the rule in the tool’s settings, not only in the prompt.' },
+    { title: 'Approved twice', body: 'A retry after a crash sends the same email again. Prefer tools that record each approved action once.' },
+  ],
+  faqs: [
+    { q: 'What is human in the loop for AI agents?', a: 'A person approves certain actions before they happen. It is different from a person reviewing a report after the fact, which some call human on the loop.' },
+    { q: 'Can I approve from my phone?', a: 'Pick a tool where you can. Approvals that wait for you to be at a desk slow the AI agent down to your desk hours.' },
+    { q: 'When can I let it act without asking?', a: 'When you have approved that kind of action unchanged many times, and a mistake would be cheap and easy to undo. Never for payments, deletions or access.' },
+  ],
+  sources: [
+    { label: 'Anthropic: Claude prompting best practices', href: 'https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices' },
+    { label: 'OWASP: LLM06:2025 Excessive Agency', href: 'https://genai.owasp.org/llmrisk/llm062025-excessive-agency/' },
+    { label: 'OpenAI: A practical guide to building agents (PDF)', href: 'https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf' },
+    { label: 'OpenAI Agents SDK: Human in the loop', href: 'https://openai.github.io/openai-agents-python/human_in_the_loop/' },
+  ],
+  related: ['how-to-give-an-ai-agent-access-to-your-apps-safely', 'how-to-draft-email-replies-with-ai-and-still-check-them', 'how-to-write-instructions-for-an-ai-agent'],
+};
+
+export default g;

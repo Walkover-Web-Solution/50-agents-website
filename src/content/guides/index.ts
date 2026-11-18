@@ -1,0 +1,34 @@
+import type { Guide } from './types';
+import gAiAgentVsAutomationWhichOneYouNeed from './ai-agent-vs-automation-which-one-you-need';
+import gAiAgentsForSmallBusiness10JobsThatWorkToday from './ai-agents-for-small-business-10-jobs-that-work-today';
+import gBrowserAutomationWithoutCode from './browser-automation-without-code';
+import gHowMuchAutomationCostsCreditsTasksAndRunsCompared from './how-much-automation-costs-credits-tasks-and-runs-compared';
+import gHowToAutomateAWebsiteThatHasNoApi from './how-to-automate-a-website-that-has-no-api';
+import gHowToAutomateDataEntryBetweenTwoApps from './how-to-automate-data-entry-between-two-apps';
+import gHowToAutomateFormFillingOnWebsites from './how-to-automate-form-filling-on-websites';
+import gHowToAutomateInvoiceReminders from './how-to-automate-invoice-reminders';
+import gHowToAutomateLeadFollowUpFromGmail from './how-to-automate-lead-follow-up-from-gmail';
+import gHowToAutomateWeeklyReportsByEmail from './how-to-automate-weekly-reports-by-email';
+import gHowToBuildACustomerRequestsDeskFromYourInbox from './how-to-build-a-customer-requests-desk-from-your-inbox';
+import gHowToBuildASimpleCrmWithoutCode from './how-to-build-a-simple-crm-without-code';
+import gHowToBuildAnAiAgentWithoutCode from './how-to-build-an-ai-agent-without-code';
+import gHowToBuildAnAppFromGoogleSheets from './how-to-build-an-app-from-google-sheets';
+import gHowToBuildAnInvoiceTracker from './how-to-build-an-invoice-tracker';
+import gHowToChooseAnAiAgentBuilder from './how-to-choose-an-ai-agent-builder';
+import gHowToDraftEmailRepliesWithAiAndStillCheckThem from './how-to-draft-email-replies-with-ai-and-still-check-them';
+import gHowToGetADailyCalendarSummaryInSlack from './how-to-get-a-daily-calendar-summary-in-slack';
+import gHowToGiveAnAiAgentAccessToYourAppsSafely from './how-to-give-an-ai-agent-access-to-your-apps-safely';
+import gHowToLogStripePaymentsInGoogleSheets from './how-to-log-stripe-payments-in-google-sheets';
+import gHowToMakeAnAiAgentAskBeforeItActs from './how-to-make-an-ai-agent-ask-before-it-acts';
+import gHowToMonitorCompetitorPricesAutomatically from './how-to-monitor-competitor-prices-automatically';
+import gHowToSendNewHubspotContactsToSlack from './how-to-send-new-hubspot-contacts-to-slack';
+import gHowToSendShopifyOrdersToGoogleSheets from './how-to-send-shopify-orders-to-google-sheets';
+import gHowToTriageYourInboxWithAi from './how-to-triage-your-inbox-with-ai';
+import gHowToWriteInstructionsForAnAiAgent from './how-to-write-instructions-for-an-ai-agent';
+import gInternalToolsWithoutCodeWhatToBuildFirst from './internal-tools-without-code-what-to-build-first';
+import gWebhooksExplainedForNonDevelopers from './webhooks-explained-for-non-developers';
+import gWhatToAutomateFirstInASmallBusiness from './what-to-automate-first-in-a-small-business';
+import gZapierVsMakeVsN8nForASmallTeam from './zapier-vs-make-vs-n8n-for-a-small-team';
+
+// Every guide built so far, in the order of pages-brief B5.
+export const GUIDES: Guide[] = [gAiAgentVsAutomationWhichOneYouNeed, gAiAgentsForSmallBusiness10JobsThatWorkToday, gBrowserAutomationWithoutCode, gHowMuchAutomationCostsCreditsTasksAndRunsCompared, gHowToAutomateAWebsiteThatHasNoApi, gHowToAutomateDataEntryBetweenTwoApps, gHowToAutomateFormFillingOnWebsites, gHowToAutomateInvoiceReminders, gHowToAutomateLeadFollowUpFromGmail, gHowToAutomateWeeklyReportsByEmail, gHowToBuildACustomerRequestsDeskFromYourInbox, gHowToBuildASimpleCrmWithoutCode, gHowToBuildAnAiAgentWithoutCode, gHowToBuildAnAppFromGoogleSheets, gHowToBuildAnInvoiceTracker, gHowToChooseAnAiAgentBuilder, gHowToDraftEmailRepliesWithAiAndStillCheckThem, gHowToGetADailyCalendarSummaryInSlack, gHowToGiveAnAiAgentAccessToYourAppsSafely, gHowToLogStripePaymentsInGoogleSheets, gHowToMakeAnAiAgentAskBeforeItActs, gHowToMonitorCompetitorPricesAutomatically, gHowToSendNewHubspotContactsToSlack, gHowToSendShopifyOrdersToGoogleSheets, gHowToTriageYourInboxWithAi, gHowToWriteInstructionsForAnAiAgent, gInternalToolsWithoutCodeWhatToBuildFirst, gWebhooksExplainedForNonDevelopers, gWhatToAutomateFirstInASmallBusiness, gZapierVsMakeVsN8nForASmallTeam].sort((a, b) => a.n - b.n);

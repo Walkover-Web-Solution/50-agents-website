@@ -18,7 +18,7 @@ const COLS: { head: string; links: { label: string; href: string; out?: boolean 
   { head: 'Build', links: [{ label: 'AI agents', href: '/ai-agents' }, { label: 'Automations', href: '/automations' }, { label: 'Browser agents', href: '/browser-agents' }, { label: 'Apps', href: '/apps' }] },
   { head: 'Explore', links: [{ label: 'Use cases', href: '/use-cases' }, { label: 'Integrations', href: '/integrations' }, { label: 'Compare', href: '/compare' }, { label: 'Guides', href: '/guides' }] },
   { head: 'Resources', links: [{ label: 'Help Center', href: 'https://50agents.com/help', out: true }, { label: 'MCP for AI agents', href: '/mcp', out: true }] },
-  { head: 'Company', links: [{ label: 'Privacy Policy', href: 'https://50agents.com/help/privacy-policy', out: true }, { label: 'Careers', href: 'https://walkover.in/careers', out: true }, { label: 'viaSocket', href: 'https://viasocket.com', out: true }, { label: 'MSG91', href: 'https://msg91.com', out: true }] },
+  { head: 'Company', links: [{ label: 'About', href: '/about' }, { label: 'Contact', href: '/contact' }, { label: 'Privacy Policy', href: 'https://50agents.com/help/privacy-policy', out: true }, { label: 'Careers', href: 'https://walkover.in/careers', out: true }, { label: 'viaSocket', href: 'https://viasocket.com', out: true }, { label: 'MSG91', href: 'https://msg91.com', out: true }] },
 ];
 
 export function Footer() {

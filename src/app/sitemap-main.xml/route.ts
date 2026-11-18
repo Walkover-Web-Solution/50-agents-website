@@ -1,12 +1,8 @@
-import sitemap from '../sitemap';
+import { sitemapIndex } from '@/site/sitemaps';
 
-// The same sitemap at a second address: /sitemap.xml is redirected to a dead dev API by a rule outside this repo
-// (Cloudflare). robots.txt points here until that rule is removed (SEO, 18 Nov).
-export const runtime = 'edge';
-
+// The same sitemap index at a second address: /sitemap.xml is redirected by a Cloudflare rule outside this repo.
+// robots.txt points here until that rule is removed (SEO, 18 Nov).
+export const dynamic = 'force-static';
 export function GET() {
-  const urls = sitemap().map((u) => `<url><loc>${u.url}</loc>${u.lastModified ? `<lastmod>${new Date(u.lastModified).toISOString()}</lastmod>` : ''}${u.changeFrequency ? `<changefreq>${u.changeFrequency}</changefreq>` : ''}${u.priority !== undefined ? `<priority>${u.priority}</priority>` : ''}</url>`).join('');
-  return new Response(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}</urlset>`, {
-    headers: { 'content-type': 'application/xml; charset=utf-8' },
-  });
+  return sitemapIndex();
 }

@@ -18,6 +18,26 @@ const page: UseCase = {
   ask: 'Chase my unpaid invoices',
   updated: '2026-11-19',
   published: '2026-11-19',
+  promises: ['Nothing is sent without your OK', 'Sends from your own Gmail', 'Connect Gmail, bring in your invoices'],
+  plan: {
+    mode: 'building an app',
+    name: 'Invoices desk',
+    line: 'What is owed to you, the late ones first',
+    faces: ['closer', 'keeper'],
+    rows: [
+      { label: 'Views', value: 'To collect · Late · All invoices' },
+      { label: 'Numbers', value: 'Still to collect · Late · Paid this month' },
+      { label: 'Crew', value: 'Collector, an AI agent: reminds clients of late invoices, asks before sending any email', face: 'closer' },
+    ],
+  },
+  heroQuestion: 1,
+  factsLabel: 'Late payments in numbers',
+  seeIt: {
+    h2: 'What you get: an invoices desk that chases for you',
+    intro: 'This is the app Captain builds from that one sentence, shown with example invoices. Switch between the overview, with a reminder waiting for your OK, the To collect board and the late list.',
+  },
+  view: { type: 'invoices' },
+  howH2: 'How it chases unpaid invoices, step by step',
   facts: [
     {
       figure: '59%',
@@ -77,9 +97,13 @@ const page: UseCase = {
       chips: ['Add by hand', 'Paste a table', 'CSV or Excel'],
     },
   ],
+  usesNote: 'Gmail’s actions as listed in viaSocket’s catalog of 2,300+ apps, read 19 Nov 2026.',
   asksFirst:
     'Every email. A reminder reaches someone outside your business, so the app will not build a step that sends one without asking first. You see the client, the subject and the full text before it goes, and you can change any of it.',
-  cadence: {
+  table: {
+    h2: 'When to send payment reminders',
+    label: 'Reminder schedule',
+    cols: ['When', 'Tone', 'Ask Captain'],
     intro:
       'Out of the box, Collector drafts one reminder the day after an invoice is due. Most guides chase again every week or two, firmer each time. Here is a schedule to start from; Collector can take up to three more stages, one sentence each.',
     rows: [
@@ -95,6 +119,7 @@ const page: UseCase = {
       { label: 'GoCardless', href: 'https://gocardless.com/en-us/guides/posts/how-to-chase-an-overdue-invoice' },
     ],
   },
+  yoursIntro: 'Say it your way. Each of these builds a different desk; copy one into Captain.',
   variations: [
     'Chase my unpaid invoices, only those over $500',
     'Chase my unpaid invoices in INR',
@@ -107,6 +132,7 @@ const page: UseCase = {
     'A file import keeps one invoice per client email today, so add a second invoice to the same client by hand. We are fixing this.',
     'Reminders do not attach the invoice PDF. Replies land in your Gmail as usual.',
   ],
+  otherWaysH2: 'Other ways to chase unpaid invoices',
   otherWays: [
     {
       title: 'By hand',
@@ -158,6 +184,8 @@ const page: UseCase = {
     { href: '/integrations/gmail', label: 'Gmail' },
     { href: '/guides/how-to-automate-invoice-reminders', label: 'How to automate invoice reminders' },
   ],
+  finalH2: 'Start your invoices desk',
+  byline: 'Captain builds this from the invoices recipe in the 50agents app; the views above are drawn from that app, filled with example data.',
 };
 
 export default page;

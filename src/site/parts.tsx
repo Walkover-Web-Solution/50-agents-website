@@ -1,5 +1,5 @@
 // Small shared pieces of the search pages: crew faces, app logos, the kind badge, breadcrumbs, the button.
-import SignupLink from '@/components/SignupLink';
+import { BuildLink } from './integrations/build-link';
 import { FACES } from './faces';
 import type { Kind } from './types';
 
@@ -11,8 +11,9 @@ export const KINDS: Record<Kind, { label: string; tint: string; face: string; hu
   browser: { label: 'Browser agent', tint: '#E8E0FF', face: 'scout', hub: '/browser-agents' },
 };
 
-// Pages that exist today. A link to one that doesn't yet is drawn as plain text, never a 404.
-export const LIVE = new Set<string>(['/use-cases/chase-unpaid-invoices']);
+import { LIVE } from './routes';
+export { LIVE };
+// A link to a page that doesn't exist yet is drawn as plain text, never a 404.
 export function MaybeLink({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
   return LIVE.has(href) ? <a href={href} className={className}>{children}</a> : <span className={className} data-soon={href}>{children}</span>;
 }
@@ -22,7 +23,10 @@ export function Face({ id, size = 24, className = '' }: { id: string; size?: num
 }
 
 const APP_COLOUR: Record<string, string> = { gmail: '#EA4335', googlesheets: '#34A853', hubspot: '#FF7A59', slack: '#4A154B', stripe: '#635BFF', quickbooks: '#2CA01C', xero: '#13B5EA' };
-export function AppLogo({ app, size = 20 }: { app: string; size?: number }) {
+// An app's logo: its catalog icon when given (viaSocket's catalog, e.g. stuff.thingsofbrand.com), else simple-icons.
+export function AppLogo({ app, size = 20, icon }: { app: string; size?: number; icon?: string }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  if (icon) return <img src={icon} alt="" width={size} height={size} loading="lazy" style={{ borderRadius: size / 5, objectFit: 'contain', flex: 'none' }} />;
   if (app === 'file')
     return (
       <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#111214" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -55,13 +59,10 @@ export function Crumbs({ trail }: { trail: { label: string; href?: string }[] })
   );
 }
 
-// "Build this with Captain": the sign-up link with the website's UTMs (D207), utm_content = the page and the place.
-export function Cta({ page, place, children = 'Build this with Captain', ghost = false }: { page: string; place: string; children?: React.ReactNode; ghost?: boolean }) {
-  return (
-    <SignupLink button={page} cta={`${page}:${place}`} className={ghost ? 'btn ghost' : 'btn'}>
-      {children}
-    </SignupLink>
-  );
+// "Build this with Captain": sign-up with the page's UTMs (campaign seo-<family>, content <page>__<place>) and its ask as
+// `draft`, which the app keeps through sign-in and puts in Captain's box (app/src/server/auth.ts, spec search-draft).
+export function Cta({ page, place, children = 'Build this with Captain', ghost = false, ask, campaign = 'seo-use-case' }: { page: string; place: string; children?: React.ReactNode; ghost?: boolean; ask?: string; campaign?: string }) {
+  return <BuildLink page={page} place={place} campaign={campaign} ask={ask} className={ghost ? 'btn ghost' : 'btn'}>{children}</BuildLink>;
 }
 
 export function Wordmark({ face = 'keeper', size = 26 }: { face?: string; size?: number }) {

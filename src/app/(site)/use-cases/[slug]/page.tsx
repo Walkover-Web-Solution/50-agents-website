@@ -3,8 +3,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { USE_CASES } from '@/content/use-cases';
 import { AppLogo, Crumbs, Cta, Face, KindBadge, KINDS, MaybeLink } from '@/site/parts';
-import { CaptainBuild, InvoicesDesk } from '@/site/product/invoices';
 import { CopyAsk } from '@/site/copy';
+import { CaptainBuild } from '@/site/product/captain';
+import { ProductView } from '@/site/product/view';
+import '@/site/css/use-cases.css';
 
 const BASE = 'https://50agents.com';
 export const dynamicParams = false;
@@ -27,6 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+const COUNT = ['no', 'one', 'two', 'three', 'four', 'five', 'six'];
 const longDate = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
 export default async function UseCasePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -73,22 +76,20 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
           <h1>{u.h1}</h1>
           <p className="answer">{u.answer[0]} {u.answer[1]}</p>
           <div className="hero-cta">
-            <Cta page={u.slug} place="hero" />
+            <Cta page={u.slug} place="hero" ask={u.ask} />
             <span className="hero-note">Free to start with 2,000 credits</span>
           </div>
           <ul className="promises">
-            <li><Check />Nothing is sent without your OK</li>
-            <li><Check />Sends from your own Gmail</li>
-            <li><Check />Connect Gmail, bring in your invoices</li>
+            {u.promises.map(p => <li key={p}><Check />{p}</li>)}
           </ul>
         </div>
         <div className="hero-side">
-          <CaptainBuild ask={u.ask} q={u.questions[1]} />
+          <CaptainBuild ask={u.ask} q={u.heroQuestion !== undefined ? u.questions?.[u.heroQuestion] : undefined} plan={u.plan} />
         </div>
       </section>
 
       {/* Why it matters: two sourced numbers */}
-      <section className="wrap facts" aria-label="Late payments in numbers">
+      <section className={u.facts.length === 1 ? 'wrap facts uc-one' : 'wrap facts'} aria-label={u.factsLabel}>
         {u.facts.map(f => (
           <p key={f.figure} className="fact">
             <b>{f.figure}</b> <span>{f.text}</span>
@@ -100,30 +101,42 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
       {/* 3. The real thing: the app it builds, working */}
       <section className="wrap band" id="see-it">
         <div className="sec-head">
-          <h2>What you get: an invoices desk that chases for you</h2>
-          <p>This is the app Captain builds from that one sentence, shown with example invoices. Switch between the overview, with a reminder waiting for your OK, the To collect board and the late list.</p>
+          <h2>{u.seeIt.h2}</h2>
+          <p>{u.seeIt.intro}</p>
         </div>
-        <InvoicesDesk />
+        <ProductView view={u.view} />
       </section>
 
       {/* 2. What it does, step by step */}
       <section className="wrap band" id="how">
         <div className="sec-head">
-          <h2>How it chases unpaid invoices, step by step</h2>
+          <h2>{u.howH2}</h2>
         </div>
         <ol className="steps">
           {u.steps.map(s => (
             <li key={s.title}><h3>{s.title}</h3><p>{s.body}</p></li>
           ))}
         </ol>
-        <div className="qs">
-          <p className="qs-h"><Face id="lead" size={22} /> The four questions Captain asks first</p>
-          <div className="qs-grid">
-            {u.questions.map(q => (
-              <div key={q.q}><p>{q.q}</p><div>{q.choices.map(c => <span key={c}>{c}</span>)}</div></div>
-            ))}
+        {u.questions && (
+          <div className="qs">
+            <p className="qs-h"><Face id="lead" size={22} /> The {COUNT[u.questions.length]} questions Captain asks first</p>
+            <div className={`qs-grid n${u.questions.length}`}>
+              {u.questions.map(q => (
+                <div key={q.q}><p>{q.q}</p><div>{q.choices.map(c => <span key={c}>{c}</span>)}</div></div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+        {u.planParts && (
+          <div className="qs">
+            <p className="qs-h"><Face id="lead" size={22} /> What Captain&rsquo;s plan shows before you tap Build it</p>
+            <div className={`qs-grid uc-parts n${u.planParts.length}`}>
+              {u.planParts.map(x => (
+                <div key={x.title}><p>{x.title}</p><span className="uc-part">{x.body}</span></div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* 4 and 5. What it uses, what asks you first */}
@@ -133,7 +146,7 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
           <div className="uses">
             {u.uses.map(x => (
               <div key={x.name} className="use">
-                <span className="use-logo"><AppLogo app={x.app} size={26} /></span>
+                <span className="use-logo"><AppLogo app={x.app} icon={x.icon} size={26} /></span>
                 <div>
                   <h3>{x.name}</h3>
                   <p>{x.why}</p>
@@ -142,7 +155,7 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
               </div>
             ))}
           </div>
-          <p className="src">Gmail&rsquo;s actions as listed in viaSocket&rsquo;s catalog of 2,300+ apps, read 19 Nov 2026.</p>
+          <p className="src">{u.usesNote}</p>
         </div>
         <div className="asks">
           <h2>What asks you first</h2>
@@ -151,23 +164,23 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
       </section>
 
       {/* The schedule people ask about, sourced */}
-      {u.cadence && (
+      {u.table && (
         <section className="wrap band" id="schedule">
           <div className="sec-head">
-            <h2>When to send payment reminders</h2>
-            <p>{u.cadence.intro}</p>
+            <h2>{u.table.h2}</h2>
+            <p>{u.table.intro}</p>
           </div>
-          <div className="cadence" role="table" aria-label="Reminder schedule">
-            <div className="cad-row cad-h" role="row"><span role="columnheader">When</span><span role="columnheader">Tone</span><span role="columnheader">Ask Captain</span></div>
-            {u.cadence.rows.map(r => (
+          <div className="cadence" role="table" aria-label={u.table.label}>
+            <div className="cad-row cad-h" role="row">{u.table.cols.map(c => <span key={c} role="columnheader">{c}</span>)}</div>
+            {u.table.rows.map(r => (
               <div key={r.when} className={`cad-row${r.ask ? '' : ' cad-on'}`} role="row">
                 <span role="cell"><b>{r.when}</b></span>
                 <span role="cell">{r.tone}</span>
-                <span role="cell">{r.ask ? <CopyAsk text={r.ask} small /> : <em>Built in</em>}</span>
+                <span role="cell">{r.ask ? <CopyAsk text={r.ask} small /> : <em>{u.table!.done ?? 'Built in'}</em>}</span>
               </div>
             ))}
           </div>
-          <p className="src">{u.cadence.note} Sources: {u.cadence.sources.map((s, i) => <span key={s.href}>{i ? ', ' : ''}<a href={s.href} target="_blank" rel="noopener">{s.label}</a></span>)}, read 19 Nov 2026.</p>
+          <p className="src">{u.table.note} Sources: {u.table.sources.map((s, i) => <span key={s.href}>{i ? ', ' : ''}<a href={s.href} target="_blank" rel="noopener">{s.label}</a></span>)}, read 19 Nov 2026.</p>
         </section>
       )}
 
@@ -175,17 +188,17 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
       <section className="wrap band" id="yours">
         <div className="sec-head">
           <h2>Make it yours</h2>
-          <p>Say it your way. Each of these builds a different desk; copy one into Captain.</p>
+          <p>{u.yoursIntro}</p>
         </div>
         <div className="asks-list">
           {u.variations.map(v => <CopyAsk key={v} text={v} />)}
         </div>
-        <div className="inline-cta"><Cta page={u.slug} place="inline" /></div>
+        <div className="inline-cta"><Cta page={u.slug} place="inline" ask={u.ask} /></div>
       </section>
 
       {/* 7. By hand or with another tool */}
       <section className="wrap band" id="other-ways">
-        <div className="sec-head"><h2>Other ways to chase unpaid invoices</h2></div>
+        <div className="sec-head"><h2>{u.otherWaysH2}</h2></div>
         <div className="ways">
           {u.otherWays.map(w => (
             <div key={w.title} className="way">
@@ -236,16 +249,16 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
       {/* Final CTA, with the crew peeking */}
       <section className="wrap">
         <div className="final">
-          <h2>Start your invoices desk</h2>
+          <h2>{u.finalH2}</h2>
           <p>Tell Captain &ldquo;{u.ask}&rdquo;. Every workspace starts free with 2,000 credits.</p>
-          <Cta page={u.slug} place="final" />
+          <Cta page={u.slug} place="final" ask={u.ask} />
           <span className="peek l" aria-hidden="true"><Face id="closer" size={52} /><Face id="keeper" size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="sorter" size={46} /></span>
         </div>
-        <p className="byline">By the 50agents team · Last updated {longDate(u.updated)} · Captain builds this from the invoices recipe in the 50agents app; the views above are drawn from that app, filled with example data.</p>
+        <p className="byline">By the 50agents team · Last updated {longDate(u.updated)} · {u.byline}</p>
       </section>
 
-      <div className="sticky"><span>{u.h1}</span><Cta page={u.slug} place="sticky">Build it</Cta></div>
+      <div className="sticky"><span>{u.h1}</span><Cta page={u.slug} place="sticky" ask={u.ask}>Build it</Cta></div>
     </div>
   );
 }
