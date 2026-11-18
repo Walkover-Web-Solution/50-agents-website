@@ -1,3 +1,4 @@
+import AgentPageSummary from '@/components/AgentPageSummary';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import HeroNoteTaker from './components/HeroNoteTaker';
@@ -22,7 +23,7 @@ export async function generateMetadata() {
 
   const pageUrl = `${proto}://${host}/ai-note-taker`;
 
-  const meta = await getMetaData("/ai-note-taker", pageUrl);5
+  const meta = await getMetaData("/ai-note-taker", pageUrl);
 
   return generateSEOMetadata({
     title: meta?.title || 'AI Note Taker - Automate Your Meeting Notes',
@@ -46,6 +47,13 @@ const aiNoteTakerPage = async () => {
     >
       <Header />
       <div>
+        <AgentPageSummary
+          heading="AI meeting recorder and note taker"
+          paragraphs={[
+            'Record meetings, generate structured notes automatically, and share outcomes with your team without manual transcription.',
+            'Pricing for meeting recording is $0.99 per hour with no monthly commitment. Notes stay private to your workspace and integrate with your existing calendar and collaboration tools.',
+          ]}
+        />
         <HeroNoteTaker />
         <div className="divider" />
         <ShowAppsMarquee />

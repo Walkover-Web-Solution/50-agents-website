@@ -1,3 +1,4 @@
+import AgentPageSummary from '@/components/AgentPageSummary';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import FAQSection from '@/components/FAQSection';
@@ -45,6 +46,13 @@ const workManagementPage = async () => {
     >
       <Header />
       <div>
+        <AgentPageSummary
+          heading="Work management"
+          paragraphs={[
+            '50agents work management combines tasks, custom categories, and AI execution so teams can plan work and let agents handle repetitive steps.',
+            'Track items in one workspace, route work with smart views, and automate status updates, reminders, and handoffs across the apps your team already uses.',
+          ]}
+        />
         <HeroWorkManagement />
         <div className="divider" />
         <SmarterWork />

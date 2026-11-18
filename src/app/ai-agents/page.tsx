@@ -1,3 +1,4 @@
+import AgentPageSummary from '@/components/AgentPageSummary';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import PluginGrid from './components/PluginGrid';
@@ -221,6 +222,17 @@ async function ServicesPage({ searchParams }: PageProps) {
       />
       <Header />
       <div className="flex-1 pt-16">
+        <AgentPageSummary
+          heading={
+            selectedCategory
+              ? `AI agents for ${currCatAppsCount} ${selectedCategory} apps`
+              : `AI agents for ${Math.floor((+totalAppsCount + 100) / 50) * 50}+ apps`
+          }
+          paragraphs={[
+            'The 50agents directory lists AI agents and automation plugins you can deploy across CRM, email, analytics, support, and 2,300+ connected applications.',
+            'Search or filter by category, open an agent to see what it automates, and launch it in your workspace. Agents run with your connected apps through viaSocket.',
+          ]}
+        />
         <div className="container mx-auto  pb-8 text-black">
           {/* Page Header */}
           <div className="border border-dark px-4 mb-16 h-[300px] flex items-center mx-auto justify-center bg-[url('/assets/img/cross-lines-bg.svg')] bg-cover">

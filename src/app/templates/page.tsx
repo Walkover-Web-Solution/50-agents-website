@@ -1,3 +1,4 @@
+import AgentPageSummary from '@/components/AgentPageSummary';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
@@ -33,7 +34,14 @@ function TemplatesPage() {
       className="min-h-full w-full flex flex-col"
     >
       <Header />
-      <div className="flex-1 pt-20">
+      <div className="flex-1">
+        <AgentPageSummary
+          heading="Agent templates"
+          paragraphs={[
+            'Browse ready-made AI agent templates you can launch in a 50agents workspace. Templates cover sales follow-ups, support triage, reporting, and common cross-app workflows.',
+            'Each template describes what the agent does, which apps it connects to, and how to customize it with Captain. Use the grid below to explore categories and start from a proven pattern.',
+          ]}
+        />
         <TemplateGrid />
       </div>
       <Footer />
