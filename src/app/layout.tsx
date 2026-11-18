@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import ClientLayout from './ClientLayout';
 import './globals.css';
 import '../styles/_import.scss';
@@ -89,7 +88,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script defer src="/ph.js" data-cfasync="false" />
       </head>
       <body style={{ height: '100vh' }}>
-        <Script src="https://tally.so/widgets/embed.js" strategy="afterInteractive" />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

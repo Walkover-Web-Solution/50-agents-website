@@ -36,8 +36,8 @@ function PricingPage() {
     >
       <Header />
       <div className="flex-1 pt-20">
-        <PricingSection />
         <LegacyPageGuide sections={PRICING_PAGE_GUIDE} />
+        <PricingSection />
       </div>
       <Footer />
     </div>

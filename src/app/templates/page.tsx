@@ -37,9 +37,9 @@ function TemplatesPage() {
     >
       <Header />
       <div className="flex-1 pt-20">
+        <LegacyPageGuide sections={TEMPLATES_PAGE_GUIDE} />
         <TemplatesServerOutline />
         <TemplateGrid />
-        <LegacyPageGuide sections={TEMPLATES_PAGE_GUIDE} />
       </div>
       <Footer />
     </div>

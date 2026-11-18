@@ -72,6 +72,54 @@ export const TEMPLATES_PAGE_GUIDE: LegacyGuideSection[] = [
   },
 ];
 
+export const AI_AGENTS_PAGE_GUIDE: LegacyGuideSection[] = [
+  {
+    title: 'Public AI agent catalog',
+    paragraphs: [
+      'This directory lists agent templates grouped by the apps they connect to through viaSocket. Each card is a starting point: triggers, steps, and optional AI judgement that you can deploy in your workspace and tailor with Captain.',
+      'Agents complement the home page story — automations for repeat work, AI agents for decisions, browser agents for sites without APIs, and custom apps when you need your own screens.',
+    ],
+    subsections: [
+      {
+        title: 'Search and categories',
+        paragraphs: [
+          'Use search to find an app by name, or filter by category to narrow thousands of plugins. Selecting a card opens a detail page with capabilities, FAQs, and a path to deploy.',
+        ],
+      },
+      {
+        title: 'Deploying an agent',
+        paragraphs: [
+          'After you sign in, Captain connects your accounts, respects approval rules for outbound messages and spending, and logs every run so you can tune how much runs automatically.',
+        ],
+      },
+    ],
+  },
+];
+
+export const WORK_MANAGEMENT_PAGE_GUIDE: LegacyGuideSection[] = [
+  {
+    title: 'How work management fits 50agents',
+    paragraphs: [
+      'Work management is the layer where plans, tasks, and AI execution meet. Teams map how work should flow, then let agents and automations handle recurring steps while people approve exceptions.',
+      'The standalone work product at work.50agents.com extends this site: boards, views, and AI that categorizes and completes routine task work.',
+    ],
+    subsections: [
+      {
+        title: 'Plans and execution',
+        paragraphs: [
+          'Define categories and custom views so everyone sees the same source of truth. AI can draft updates, move cards, and remind owners when deadlines slip.',
+        ],
+      },
+      {
+        title: 'Connected to the rest of your stack',
+        paragraphs: [
+          'Because 50agents sits on viaSocket, work items can trigger automations in Slack, email, accounting, or CRM tools without retyping context between systems.',
+        ],
+      },
+    ],
+  },
+];
+
 export const LOGIN_PAGE_GUIDE: LegacyGuideSection[] = [
   {
     title: 'Why sign in',

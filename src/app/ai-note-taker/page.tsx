@@ -49,6 +49,7 @@ const aiNoteTakerPage = async () => {
       <Header />
       <div>
         <HeroNoteTaker />
+        <LegacyPageGuide sections={AI_NOTE_TAKER_PAGE_GUIDE} />
         <div className="divider" />
         <ShowAppsMarquee />
         <div className="divider" />
@@ -61,7 +62,6 @@ const aiNoteTakerPage = async () => {
         <PrivateAndSecure />
         <div className="divider" />
         <FAQSection subHeading="Answers to common questions about 50agents and its features. If you have any other questions, please don't hesitate to contact us." faqs={faqData || []} />
-        <LegacyPageGuide sections={AI_NOTE_TAKER_PAGE_GUIDE} />
       </div>
       <Footer />
     </div>

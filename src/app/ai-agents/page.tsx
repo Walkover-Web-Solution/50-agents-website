@@ -1,5 +1,8 @@
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import { LegacyPageGuide } from '@/components/LegacyPageGuide';
+import { ProductCatalogOutline } from '@/components/ProductCatalogOutline';
+import { AI_AGENTS_PAGE_GUIDE } from '@/lib/legacy-page-guides';
 import PluginGrid from './components/PluginGrid';
 import SearchAndFilterClient from './components/SearchAndFilterClient';
 import Pagination from './components/Pagination';
@@ -232,8 +235,19 @@ async function ServicesPage({ searchParams }: PageProps) {
               ) : (
                 <h1 className="h1">AI Agents for {Math.floor((+totalAppsCount + 100) / 50) * 50}+ Apps</h1>
               )}
+              <h2 className="h2 mt-3">Browse public agent templates by connected app</h2>
             </div>
           </div>
+
+          <ProductCatalogOutline
+            heading="Featured integrations"
+            intro="Each entry is a public agent template wired through viaSocket. Pick an app to see ready-made automations and AI agents, then deploy them in your workspace with Captain."
+            items={paginatedPlugins.slice(0, 12).map((plugin) => ({
+              id: plugin.rowid,
+              title: plugin.name,
+              description: plugin.description || 'AI agent template for this app.',
+            }))}
+          />
 
           {/* Search and Filter Controls */}
           <SearchAndFilterClient
@@ -255,6 +269,7 @@ async function ServicesPage({ searchParams }: PageProps) {
             hasNextPage={hasNextPage}
           />
         </div>
+        <LegacyPageGuide sections={AI_AGENTS_PAGE_GUIDE} />
 
         {/* Footer */}
         <Footer />

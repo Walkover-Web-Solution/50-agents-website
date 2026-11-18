@@ -1,5 +1,7 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { LegacyPageGuide } from '@/components/LegacyPageGuide';
+import { WORK_MANAGEMENT_PAGE_GUIDE } from '@/lib/legacy-page-guides';
 import FAQSection from '@/components/FAQSection';
 import { getFaqData } from '@/lib/fetchFAQs';
 import { headers } from 'next/headers';
@@ -56,6 +58,7 @@ const workManagementPage = async () => {
         <CTASection />
         <div className="divider" />
         <FAQSection subHeading="Answers to common questions about 50agents and its features. If you have any other questions, please don't hesitate to contact us." faqs={faqData || []} />
+        <LegacyPageGuide sections={WORK_MANAGEMENT_PAGE_GUIDE} />
       </div>
       <Footer />
     </div>
