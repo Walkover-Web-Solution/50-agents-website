@@ -11,6 +11,9 @@
     "protectedResourceMetadata": "https://50agents.com/.well-known/oauth-protected-resource/mcp",
     "authorizationServerMetadata": "https://50agents.com/.well-known/oauth-authorization-server"
   },
+  "nlweb": {
+    "url": "https://50agents.com/ask"
+  },
   "integrationsMcp": "https://mcp.viasocket.com",
   "answerProbes": [
     {
