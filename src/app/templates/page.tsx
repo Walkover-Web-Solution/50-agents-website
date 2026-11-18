@@ -21,7 +21,8 @@ export async function generateMetadata() {
     title: meta?.title || 'Templates',
     description: meta?.description,
     keywords: meta?.keywords,
-    canonical: meta?.name,
+    canonical: '/templates',
+    noIndex: true, // old product page: reachable from the footer, not indexed (SEO, 18 Nov)
     type: meta?.type,
   });
 }

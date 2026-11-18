@@ -1,0 +1,15 @@
+# 50agents
+
+> Apps, AI agents, and automations built around how your business works. 2,300+ app integrations via viaSocket.
+
+## Agent interfaces
+
+- MCP (Streamable HTTP): https://50agents.com/mcp
+- Public agent template catalog: GET https://50agents.com/api/plugins
+- Mushrooms (full app integrations): https://mushroom.viasocket.com/
+
+## Key pages
+
+- https://50agents.com/pricing
+- https://50agents.com/ai-agents
+- https://50agents.com/templates

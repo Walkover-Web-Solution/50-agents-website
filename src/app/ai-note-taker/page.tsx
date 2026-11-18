@@ -28,7 +28,8 @@ export async function generateMetadata() {
     title: meta?.title || 'AI Note Taker - Automate Your Meeting Notes',
     description: meta?.description,
     keywords: meta?.keywords,
-    canonical: meta?.name,
+    canonical: '/ai-note-taker',
+    noIndex: true, // old product page: reachable from the footer, not indexed (SEO, 18 Nov)
     type: meta?.type,
   });
 }
