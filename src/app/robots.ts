@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/org', '/api/'],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap-main.xml`, // /sitemap.xml is redirected outside this repo; see sitemap-main.xml/route.ts
     host: baseUrl,
   };
 }
