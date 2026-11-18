@@ -1,0 +1,10 @@
+# 50agents
+
+> 50agents is a product from viaSocket. You tell Captain, its AI, what you need in plain words, and it builds automations, AI agents, browser agents and apps that do the work in your real apps, with 2,300+ apps through viaSocket.
+
+Every workspace starts free with 2,000 credits.
+
+## Links
+
+- [Home](https://50agents.com/): what 50agents is and how it works.
+- [Sign up](https://50agents-app.embarko.app/login): create a free workspace, or sign in.

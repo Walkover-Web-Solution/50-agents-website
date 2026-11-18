@@ -1,0 +1,2 @@
+# Serve the built sitemap from this site (overrides legacy edge redirects when applicable).
+/sitemap.xml  /sitemap.xml  200

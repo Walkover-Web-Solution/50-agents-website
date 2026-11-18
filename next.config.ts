@@ -39,6 +39,20 @@ const nextConfig: NextConfig = {
             },
         ];
     },
+    async headers() {
+        return [
+            {
+                source: '/',
+                headers: [
+                    {
+                        key: 'Link',
+                        value:
+                            '</llms.txt>; rel="describedby"; type="text/plain", </.well-known/api-catalog>; rel="api-catalog", </sitemap-main.xml>; rel="sitemap"',
+                    },
+                ],
+            },
+        ];
+    },
 };
 
 export default nextConfig;
