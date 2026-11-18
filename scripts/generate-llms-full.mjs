@@ -1,0 +1,144 @@
+/**
+ * Builds public/llms-full.txt for agent one-shot context (read.llms-full).
+ * Run via prebuild on each publish.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+
+const root = process.cwd();
+const outPath = path.join(root, 'public/llms-full.txt');
+const llmsPath = path.join(root, 'public/llms.txt');
+
+const llmsTxt = fs.existsSync(llmsPath)
+  ? fs.readFileSync(llmsPath, 'utf8').trim()
+  : '';
+
+const body = `${llmsTxt}
+
+## Product overview
+
+50agents (https://50agents.com) is a product from viaSocket and Walkover. You describe how your business works in plain language; Captain (its AI) builds apps, automations, AI agents, and browser agents that run across the tools you already use—2,300+ integrations through viaSocket.
+
+Every workspace starts free with 2,000 credits. Sign up or sign in at https://50agents.com/join (app: https://50agents-app.embarko.app/login).
+
+### What you can build
+
+- **Apps** — Custom software with its own screens, built from scratch or on top of your existing tools (for example Shopify inventory views or delivery planners).
+- **Automations** — When something happens in one app, follow-up steps run in others without manual work (invoice paid → thank-you email → Slack post).
+- **AI agents** — Crew members that read, write, and decide inside connected apps; you assign work in natural language.
+- **Browser agents** — For sites without a connector, agents click and type in a real browser like a person would.
+
+### How it fits your team
+
+Agents can pause and ask a human in Slack (or similar) when a decision is outside your rules, then complete the work once approved.
+
+### Company and trust
+
+Built by the team behind viaSocket (2,300+ app connections) and MSG91 (business SMS, WhatsApp, and email). Walkover publishes 50agents.
+
+## Site map (marketing)
+
+| Path | Summary |
+|------|---------|
+| / | Home — positioning, product tour, FAQs |
+| /join | Start free workspace |
+| /ai-agents | Browse AI agents by connected app |
+| /ai-agents/{slug} | Agent page for a specific integration |
+| /templates | Public agent templates |
+| /pricing | Plans and credits |
+| /work-management | Work management product story |
+| /ai-note-taker | AI meeting recorder / note taker |
+| /mcp | MCP (streamable HTTP) for listing public templates |
+| /ask | NLWeb natural-language query over public site content |
+| /llms.txt | Short agent guide |
+| /llms-full.txt | This file — full public context in one request |
+
+## FAQs (from the live site)
+
+**What is 50agents?**  
+You tell it how your business works, and it builds the apps, AI agents, and automations that do that work for you across the tools you already use.
+
+**Do I need to code or set anything up?**  
+No. You describe the job in plain words. It builds it, connects your tools, and runs it.
+
+**Which tools does it work with?**  
+2,300+ apps through viaSocket (Gmail, Slack, Shopify, QuickBooks, Xero, HubSpot, Stripe, Notion, Zendesk, Google Calendar, WhatsApp, and many more). Where a website has no API connection, a browser agent can use the site like a person.
+
+**Will it act without asking me?**  
+Only as far as you allow. You decide autonomy per agent; material changes in your apps can require approval until you change that policy.
+
+**What does it cost to start?**  
+Free credits in every new workspace so you can try it without payment.
+
+**Who makes it?**  
+The team behind viaSocket and MSG91 (Walkover).
+
+## Public HTTP APIs (read-only)
+
+Base URL: https://50agents.com  
+Catalog: https://50agents.com/.well-known/api-catalog  
+OpenAPI: https://50agents.com/openapi.json
+
+| Endpoint | Purpose |
+|----------|---------|
+| GET /api/plugins | Paginated public agent templates (plugins) |
+| GET /api/plugins/search?q= | Search templates by keyword |
+| GET /api/plugins/categories | Category list |
+| GET /api/plugins/count | Total template count |
+| GET /api/prompts | Homepage prompt examples |
+| GET /api/meta | CMS SEO metadata rows |
+| GET /api/FAQs | FAQ entries for marketing pages |
+| POST /ask | NLWeb query over public marketing content and template search |
+| GET/POST /mcp | MCP streamable HTTP; tool list_agent_templates |
+
+Environment variables on the server (not for clients): INTEGRATION_URL points at the viaSocket integration API backing plugin data.
+
+## MCP for agents
+
+URL: https://50agents.com/mcp  
+Transport: streamable HTTP (JSON-RPC over POST).  
+Tool: list_agent_templates — optional limit, page, category; returns public template metadata from /api/plugins.
+
+Separate product MCP for live integrations: https://mcp.viasocket.com (documented in /products.json).
+
+## Agent and NLWeb discovery
+
+- /llms.txt — concise guide and key links
+- /llms-full.txt — this document
+- /products.json — product manifest (MCP URL, probe questions)
+- Link header on / includes describedby llms.txt, api-catalog, sitemap-main.xml
+
+## Integration with Chrome
+
+Chrome extension: https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio
+
+## Help and policies
+
+- Help center: https://50agents.com/help
+- Getting started: https://50agents.com/help/meeting-agent
+- Privacy: https://50agents.com/help/privacy-policy
+
+## Canonical answers for common agent questions
+
+**What is 50agents?** — Apps, AI agents, and automations that do the work across your tools; you describe needs in plain language and Captain builds and runs them (viaSocket, 2,300+ apps).
+
+**Which tools?** — 2,300+ via viaSocket; browser agents cover sites without connectors.
+
+**How to start?** — https://50agents.com/join with free workspace credits.
+
+**How to list templates programmatically?** — GET /api/plugins or MCP list_agent_templates.
+
+**How to search templates?** — GET /api/plugins/search?q=... or POST /ask with a natural-language question about integrations.
+
+---
+
+End of 50agents public llms-full context. For the interactive product, use the app at https://50agents-app.embarko.app — this file covers the marketing site only.
+`;
+
+fs.writeFileSync(outPath, body, 'utf8');
+const size = Buffer.byteLength(body, 'utf8');
+if (size < 5000) {
+  console.error(`generate-llms-full: output only ${size} bytes (need 5000+)`);
+  process.exit(1);
+}
+console.log(`generate-llms-full: wrote ${outPath} (${size} bytes)`);

@@ -54,6 +54,11 @@
       "name": "openapi",
       "title": "Website OpenAPI",
       "url": "https://50agents.com/openapi.json"
+    },
+    {
+      "name": "ask",
+      "title": "NLWeb ask",
+      "url": "https://50agents.com/ask"
     }
   ]
 }

@@ -10,10 +10,6 @@ const COLS = [
     { label: 'Pricing', href: '/pricing' },
   ] },
   { title: 'Resources', links: [
-    { label: 'MCP for AI agents', href: '/mcp' },
-    { label: 'Agent guide (llms.txt)', href: '/llms.txt' },
-    { label: 'API reference (OpenAPI)', href: '/openapi.json' },
-    { label: 'MCP registry (server.json)', href: '/server.json' },
     { label: 'Chrome Extension', href: 'https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio', out: true },
     { label: 'Help Center', href: 'https://50agents.com/help', out: true },
     { label: 'Getting Started Guide', href: 'https://50agents.com/help/meeting-agent', out: true },
