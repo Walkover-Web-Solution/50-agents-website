@@ -9,7 +9,8 @@ export const MCP_SERVER_CARD = {
   name: 'com.50agents/website-docs',
   title: '50agents website',
   version: '0.1.0',
-  description: 'Public MCP for 50agents agent templates and site metadata.',
+  description:
+    'Public read-only MCP for browsing agent templates on the marketing site. Connects to /mcp (streamable HTTP) with one tool: list_agent_templates.',
   websiteUrl: 'https://50agents.com',
   repository: {
     url: 'https://github.com/Walkover-Web-Solution/50-agents-website',
