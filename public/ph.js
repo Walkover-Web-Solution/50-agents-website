@@ -4,12 +4,30 @@
 (function () {
   if (location.hostname !== '50agents.com' && !/[?&]ph_test=1\b/.test(location.search)) return;
 
+  // The search pages' families (Search's launch check, 19 Nov), so the dashboard can break clicks down by family.
+  var HUBS = { 'ai-agents': 1, automations: 1, 'browser-agents': 1, apps: 1 };
+  var COMPANY = { about: 1, contact: 1, support: 1 };
+  function family(seg) {
+    var a = seg[0];
+    if (a === 'use-cases') return 'use-case';
+    if (seg.length === 1 && HUBS[a]) return 'hub';
+    if (a === 'integrations') {
+      if (seg.length === 1) return 'integrations-index';
+      if (seg[1] === 'category') return 'category';
+      return seg.length === 2 ? 'integration' : 'pair';
+    }
+    if (a === 'compare') return 'compare';
+    if (a === 'guides') return 'guide';
+    if (seg.length === 1 && a === 'pricing') return 'pricing';
+    if (seg.length === 1 && COMPANY[a]) return 'company';
+    return 'other';
+  }
   function where() {
     var path = location.pathname.replace(/\/+$/, '') || '/';
     var seg = path.split('/').filter(Boolean);
     if (path === '/') return { page_family: 'home', page_slug: 'home' };
     if (seg[0] === 'help' && seg[1] === 'privacy-policy') return { page_family: 'legal', page_slug: 'privacy-policy' };
-    return { page_family: 'other', page_slug: seg.join('/') };
+    return { page_family: family(seg), page_slug: seg.join('/') };
   }
   function props() {
     var p = where();
