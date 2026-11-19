@@ -20,7 +20,7 @@ export const MCP_SERVER_CARD = {
     {
       type: 'streamable-http',
       url: 'https://50agents.com/mcp',
-      supportedProtocolVersions: ['2025-11-25', '2024-11-05'],
+      supportedProtocolVersions: ['2026-07-28', '2025-11-25', '2024-11-05'],
     },
   ],
 };
