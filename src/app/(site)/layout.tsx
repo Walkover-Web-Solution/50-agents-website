@@ -1,5 +1,6 @@
 // The search pages' layout (pages-brief D1): server-rendered, the homepage's look, no Redux, MUI or old styles.
 import localFont from 'next/font/local';
+import orgLd from '@/content/site/organization-ld.json';
 import { Footer, Header } from '@/site/chrome';
 import '@/site/site.css';
 
@@ -8,9 +9,7 @@ const font = localFont({ src: '../../site/fonts/schibsted-grotesk-latin.woff2', 
 
 const ORG = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: '50agents',
-  url: 'https://50agents.com',
+  ...orgLd,
   logo: 'https://50agents.com/landing/favicon.svg',
   parentOrganization: { '@type': 'Organization', name: 'Walkover', url: 'https://walkover.in' },
 };
