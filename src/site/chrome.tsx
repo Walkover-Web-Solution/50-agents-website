@@ -1,46 +1,47 @@
 // The header and footer of every search page. The header is the homepage's: the wordmark and one button.
 // The footer links the families, so every page is a click or two from every other (pages-brief D2, internal links).
-import { Face, MaybeLink, Wordmark } from './parts';
+import { Face, Wordmark } from './parts';
 import SignupLink from '@/components/SignupLink';
 
 export function Header() {
   return (
     <header className="hd">
-      <div className="wrap hd-in">
-        <Wordmark face="keeper" />
+      <div className="hd-in">
+        <Wordmark face="keeper" size={30} />
         <SignupLink button="site-header" cta="site:header" className="btn sm">Get started</SignupLink>
       </div>
     </header>
   );
 }
 
-const COLS: { head: string; links: { label: string; href: string; out?: boolean }[] }[] = [
-  { head: 'Build', links: [{ label: 'AI agents', href: '/ai-agents' }, { label: 'Automations', href: '/automations' }, { label: 'Browser agents', href: '/browser-agents' }, { label: 'Apps', href: '/apps' }] },
-  { head: 'Explore', links: [{ label: 'Use cases', href: '/use-cases' }, { label: 'Integrations', href: '/integrations' }, { label: 'Compare', href: '/compare' }, { label: 'Guides', href: '/guides' }] },
-  { head: 'Resources', links: [{ label: 'Help Center', href: 'https://50agents.com/help', out: true }, { label: 'MCP for AI agents', href: '/mcp', out: true }] },
-  { head: 'Company', links: [{ label: 'About', href: '/about' }, { label: 'Contact', href: '/contact' }, { label: 'Privacy Policy', href: 'https://50agents.com/help/privacy-policy', out: true }, { label: 'Careers', href: 'https://walkover.in/careers', out: true }, { label: 'viaSocket', href: 'https://viasocket.com', out: true }, { label: 'MSG91', href: 'https://msg91.com', out: true }] },
+// The homepage's footer, exactly (landing/index.html): the same columns, links and crowd.
+const COLS: { head: string; links: { label: string; href: string }[] }[] = [
+  { head: 'Product', links: [{ label: 'AI Meeting Recorder', href: '/ai-note-taker' }, { label: 'Work Management', href: '/work-management' }, { label: 'Agent Templates', href: '/templates' }, { label: 'AI Agents', href: '/ai-agents' }, { label: 'Pricing', href: '/pricing' }] },
+  { head: 'Resources', links: [{ label: 'MCP for AI agents', href: '/mcp' }, { label: 'Agent guide (llms.txt)', href: '/llms.txt' }, { label: 'Chrome Extension', href: 'https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio' }, { label: 'Help Center', href: 'https://50agents.com/help' }, { label: 'Getting Started Guide', href: 'https://50agents.com/help/meeting-agent' }] },
+  { head: 'Company', links: [{ label: 'Privacy Policy', href: 'https://50agents.com/help/privacy-policy' }, { label: 'Careers', href: 'https://walkover.in/careers' }, { label: 'viaSocket', href: 'https://viasocket.com' }, { label: 'MSG91', href: 'https://msg91.com' }] },
 ];
+const CROWD = ['keeper', 'writer', 'scout', 'chaser', 'booker', 'closer', 'ledger', 'sorter', 'sprout', 'pilot', 'rosa', 'sunny'];
 
 export function Footer() {
   return (
-    <footer className="ft">
-      <div className="wrap ft-in">
-        <div>
-          <Wordmark face="rosa" size={26} />
-          <p className="ft-co"><a href="https://walkover.in" target="_blank" rel="noopener">A product by <b>Walkover</b></a></p>
-          <p className="ft-copy">© 2026 50agents. All rights reserved.</p>
+    <footer className="foot">
+      <div className="wrap foot-in">
+        <div className="foot-brand">
+          <Wordmark face="rosa" size={28} />
+          <p className="foot-co"><a href="https://walkover.in" target="_blank" rel="noopener">A product by <b>Walkover</b></a></p>
+          <p className="foot-copy">© 2026 50agents. All rights reserved.</p>
         </div>
-        <nav className="ft-cols" aria-label="Footer">
+        <nav className="foot-cols" aria-label="Footer">
           {COLS.map(c => (
             <div key={c.head}>
               <b>{c.head}</b>
-              {c.links.map(l => (l.out ? <a key={l.label} href={l.href} target={l.href.startsWith('http') ? '_blank' : undefined} rel="noopener">{l.label}</a> : <MaybeLink key={l.label} href={l.href}>{l.label}</MaybeLink>))}
+              {c.links.map(l => <a key={l.label} href={l.href} {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>{l.label}</a>)}
             </div>
           ))}
         </nav>
       </div>
       <div className="crowd" aria-hidden="true">
-        {['writer', 'keeper', 'sorter', 'scout', 'rosa', 'closer', 'ledger', 'sprout', 'booker', 'pilot', 'chaser'].map(id => <Face key={id} id={id} size={30} />)}
+        {Array.from({ length: 40 }, (_, i) => CROWD[(i * 5) % CROWD.length]).map((id, i) => <span key={i}><Face id={id} size={[30, 34, 28, 32, 30, 36, 28, 32, 30, 34][i % 10]} /></span>)}
       </div>
     </footer>
   );
