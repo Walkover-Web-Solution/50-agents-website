@@ -45,6 +45,7 @@ for (const p of pages) {
   if (p.title.length > 60 || !p.title.endsWith(' | 50agents')) bad.push(`title "${p.title}" (${p.title.length} chars)`);
   if (p.description.length < 120 || p.description.length > 160) bad.push(`description ${p.description.length} chars`);
   if (!Array.isArray(p.answer) || p.answer.length !== 2) bad.push('answer is not two sentences');
+  else if (words(p.answer.join(' ')) > 40) bad.push(`answer is ${words(p.answer.join(' '))} words, over 40 (D254)`);
   if (!p.build || !p.build.name || !p.build.when || !p.build.does?.length || !p.build.asksFirst) bad.push('build incomplete');
   if (words(p.build.asksFirst) > 8) bad.push('build.asksFirst over 8 words');
   if (p.kinds.length !== 4 || p.kinds.some((k, i) => k.kind !== ORDER[i])) bad.push(`kinds not ${ORDER.join(', ')}`);
@@ -103,7 +104,8 @@ for (const p of pages) {
   if (/^agents?\b/im.test(all) || bare.length) bad.push(`bare "agent" after: ${[...new Set(bare)].join(', ')}`);
   const counts = (all.match(/\b\d{1,3}(,\d{3})+\+?/g) || []).filter(n => n !== '2,300+');
   if (counts.length) bad.push(`numbers to check: ${counts.join(', ')}`);
-  if (/\b\d+ (triggers?|actions?|recipes?)\b/i.test(all)) bad.push('a count of triggers, actions or recipes');
+  if (/\b\d+ (triggers?|actions?|recipes?|templates?)\b/i.test(all)) bad.push('a count of triggers, actions or templates');
+  if (/\brecipes?\b/i.test(all)) bad.push('says "recipe": the page word is "template" (D254)');
 
   // uniqueness
   for (const q of pages) {

@@ -7,66 +7,53 @@
   "description": "Automate web form filling: keep the data in one list with an ID per row, fill each form, check it, submit only on approval, and save proof it went through.",
   "h1": "How to automate form filling on websites",
   "answer": [
-    "Keep the data in one list with an ID and a Status per row, then have a browser tool fill the form one row at a time, check it, and submit only after you approve, saving the confirmation back to the row.",
-    "For your own details on any site, Chrome’s built-in autofill is enough; automation is for the same form filled many times."
+    "Keep the data in one list with an ID and a status per row, fill one form at a time, and submit only after you approve.",
+    "Save each confirmation back to its row."
   ],
-  "sections": [
-    {
-      "id": "which",
-      "h2": "Which kind of form filling do you mean?",
-      "body": [
+  "chooser": {
+    "h2": "Which kind of form filling do you mean?",
+    "root": {
+      "q": "What do you want to fill?",
+      "options": [
         {
-          "table": {
-            "head": [
-              "You want to",
-              "Use",
-              "Note"
-            ],
-            "rows": [
-              [
-                "Fill your own name, address or card faster",
-                "Your browser’s autofill",
-                "Chrome fills addresses, contact details, passwords and payment methods; each can be turned off."
-              ],
-              [
-                "Paste the same snippets into many forms",
-                "A text expander",
-                "Still you clicking submit."
-              ],
-              [
-                "Fill one form many times from a list",
-                "A browser automation tool or a browser agent",
-                "This guide."
-              ],
-              [
-                "Get form submissions into your own tools",
-                "An automation on the form app’s trigger",
-                "Typeform, Google Forms and Jotform have triggers in automation catalogs; no browser needed."
-              ]
-            ]
-          }
+          "label": "My own details, on any site",
+          "then": { "answer": "Use your browser's autofill", "why": "Chrome fills addresses, contact details, passwords and payment methods, and each can be turned off. No automation needed." }
+        },
+        {
+          "label": "The same snippets in many forms",
+          "then": { "answer": "Use a text expander", "why": "It types your saved snippets on a shortcut. You still check and click submit." }
+        },
+        {
+          "label": "One form, many times, from a list",
+          "then": { "answer": "Use a browser agent or browser automation", "why": "It fills one row at a time and asks before each submit. Follow the steps below.", "kind": "browser" }
+        },
+        {
+          "label": "My own form's submissions",
+          "then": { "answer": "Use an automation on the form app", "why": "Typeform, Google Forms and Jotform have triggers in automation catalogs, so no browser is needed.", "kind": "auto", "href": "/guides/webhooks-explained-for-non-developers" }
         }
       ]
     }
-  ],
+  },
+  "sections": [],
   "method": {
-    "h2": "How to set it up, step by step",
+    "h2": "How to set it up",
     "steps": [
       {
         "title": "Put the data in one list",
-        "body": "One row per form to fill, one column per field, plus an ID and a Status (To do, Filled, Submitted, Failed). NoteForms calls this a source of truth, and it is the fix for most failures."
+        "body": "One row per form to fill, one column per field, plus an ID and a Status (To do, Filled, Submitted, Failed). A single list is the fix for most failures."
       },
       {
-        "title": "Map columns to fields by their labels",
-        "body": "Write the map once: \"Company name\" column to the \"Business name\" field. Labels change less than page layouts."
+        "title": "Map columns to fields by label",
+        "body": "Write the map once: the \"Company name\" column goes to the \"Business name\" field. Labels change less than page layouts."
       },
       {
         "title": "Check before submit",
-        "body": "Required fields filled, dates in the site’s format, nothing cut off. A tool that fills and then shows you the form is worth more than one that is fast."
+        "body": "Required fields filled, dates in the site's format, nothing cut off. A tool that fills and then shows you the form is worth more than one that is fast."
       },
       {
         "title": "Submit only on approval",
-        "body": "A submitted form usually cannot be taken back. Approve each one, at least until a few dozen have gone through clean."
+        "body": "A submitted form usually cannot be taken back. Approve each one, at least until a few dozen have gone through clean.",
+        "note": { "type": "tip", "text": "In 50agents, a browser agent alone does not read your Google Sheet. Hold the list in an app, and a browser agent in its crew works through the rows.", "about": "browser" }
       },
       {
         "title": "Save proof",
@@ -78,81 +65,23 @@
       }
     ]
   },
-  "example": {
-    "h2": "A worked example: a browser agent that asks before it submits",
-    "body": [
-      "In 50agents a browser agent submits a form only when its instructions say so, and even then it fills the form, stops, and asks you in Needs you. Approve, and it runs again to submit exactly what you saw.",
-      "One limit to know: a browser agent on its own works from what you tell it in its chat and from websites; it does not read your Google Sheet. To work through a list, build an app in 50agents to hold the rows; a browser agent in that app’s crew can read and update its records."
-    ],
-    "kind": "browser",
-    "ask": "Set up a browser agent that registers each espresso machine I tell it about on the warranty form at maker.example, and asks me before it submits",
-    "build": {
-      "name": "Warranty registrations",
-      "line": "Each machine registered on maker.example",
-      "when": "When you ask it in its chat",
-      "does": [
-        "Opens the warranty form at maker.example",
-        "Fills in the machine’s details",
-        "Shows you the filled form before it submits"
-      ],
-      "apps": [],
-      "asksFirst": "Submitting each form"
-    }
+  "captain": {
+    "at": 3,
+    "line": "Captain sets up a browser agent that fills the warranty form, stops, and asks you. Approve, and it submits exactly what you saw.",
+    "ask": "Set up a browser agent that registers each espresso machine I tell it about on the warranty form at maker.example, and asks me before it submits"
   },
   "wrong": [
-    {
-      "title": "Submitted twice",
-      "body": "A retry after a slow page. Check for the confirmation before any retry, and keep the Status column true."
-    },
-    {
-      "title": "Fields shifted",
-      "body": "The site added a field and everything moved down one. Map by label, and check a filled form before the first submit after any site change."
-    },
-    {
-      "title": "The wrong row",
-      "body": "Two rows with the same name. Use an ID per row and say it in the approval."
-    },
-    {
-      "title": "Personal data in the wrong place",
-      "body": "A form on a look-alike site, or a field that posts publicly. Fill forms only on the exact address in your list."
-    },
-    {
-      "title": "A CAPTCHA appears",
-      "body": "The site does not want automated submits. Some tools sell CAPTCHA bypass; do not use it. Ask the site for a bulk upload or an API instead."
-    }
+    { "title": "Submitted twice", "body": "A retry after a slow page. Check for the confirmation before any retry, and keep the Status column true.", "about": "browser" },
+    { "title": "Fields shifted", "body": "The site added a field and everything moved down one. Map by label, and check a filled form before the first submit after any site change.", "about": "browser" },
+    { "title": "The wrong row", "body": "Two rows share a name. Give each row an ID and show it in the approval.", "about": "app" },
+    { "title": "A form on a look-alike site", "body": "Personal data went to the wrong address. Fill forms only on the exact address in your list.", "about": "browser" },
+    { "title": "A CAPTCHA appears", "body": "The site does not want automated submits. Do not use CAPTCHA bypass; ask the site for a bulk upload or an API instead.", "about": "browser" }
   ],
   "faqs": [
-    {
-      "q": "How do I fill the same web form many times automatically?",
-      "a": "Keep the data in a sheet with one row per form, and use a browser automation tool or browser agent to fill one row at a time. Submit only after a check, and save the confirmation to the row."
-    },
-    {
-      "q": "Can I fill a web form from a spreadsheet?",
-      "a": "Yes. That is the most reliable setup: the sheet is the source, the tool fills from it and writes the result back."
-    },
-    {
-      "q": "What about forms with a CAPTCHA?",
-      "a": "Stop there. A CAPTCHA is the site asking for a person. Do those by hand, or ask the site for a bulk option."
-    }
+    { "q": "How do I fill the same web form many times automatically?", "a": "Keep the data in a sheet with one row per form, and use a browser automation tool or browser agent to fill one row at a time. Submit only after a check, and save the confirmation to the row." },
+    { "q": "Can I fill a web form from a spreadsheet?", "a": "Yes. That is the most reliable setup: the sheet is the source, the tool fills from it and writes the result back." },
+    { "q": "What about forms with a CAPTCHA?", "a": "Stop there. A CAPTCHA is the site asking for a person. Do those by hand, or ask the site for a bulk option." }
   ],
-  "sources": [
-    {
-      "label": "Google Chrome help: Autofill",
-      "href": "https://support.google.com/chrome/answer/142893"
-    },
-    {
-      "label": "NoteForms: Automate form filling guide",
-      "href": "https://noteforms.com/resources/automate-form-filling-guide"
-    },
-    {
-      "label": "Axiom: Filling out web forms",
-      "href": "https://axiom.ai/automate/filling-out-web-forms"
-    }
-  ],
-  "related": [
-    "how-to-automate-a-website-that-has-no-api",
-    "browser-automation-without-code",
-    "how-to-make-an-ai-agent-ask-before-it-acts"
-  ],
+  "related": ["how-to-automate-a-website-that-has-no-api", "browser-automation-without-code", "how-to-make-an-ai-agent-ask-before-it-acts"],
   "updated": "2026-11-19"
 }

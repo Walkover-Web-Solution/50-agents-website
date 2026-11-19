@@ -179,7 +179,7 @@ const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /** A catalog description, shown only when it reads as a description (some are change notes, not descriptions). */
 export function plainDesc(d: string): string {
-  if (!d || /^(added|conditionally|update .* sample response|fixed|changed)\b/i.test(d) || /sample response/i.test(d)) return '';
+  if (!d || /^(added|conditionally|update .* sample response|update .* logic|fixed|changed)\b/i.test(d) || /sample response/i.test(d)) return '';
   return d.charAt(0).toUpperCase() + d.slice(1);
 }
 

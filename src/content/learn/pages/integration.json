@@ -7,13 +7,13 @@
   "description": "An integration is a ready-made connection between two apps so data moves without copying by hand. Native integrations versus platforms like viaSocket.",
   "h1": "What is an integration?",
   "definition": [
-    "An integration is a ready-made connection between two pieces of software, so data moves between them without anyone copying it by hand.",
-    "It usually sits on each app's API and takes care of signing in, field names and limits, so you choose what should happen rather than how."
+    "An integration is a ready-made connection between two pieces of software, so data moves between them without copying by hand.",
+    "It handles sign-in, field names and limits, so you choose what happens."
   ],
   "example": {
     "kind": "ai",
     "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
-    "why": "Two integrations, HubSpot and Gmail, both through viaSocket. You connect each app once in Connections; this AI agent then uses only those two, and no connection is shared with an AI agent it was not given to.",
+    "why": "HubSpot and Gmail are connected once through viaSocket; this AI agent uses only those.",
     "build": {
       "name": "Deal follow-ups",
       "line": "quiet deals, a follow-up drafted for each",

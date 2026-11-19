@@ -18,6 +18,8 @@ const results = pages.map(p => {
   if (p.title.length > 60 || !p.title.endsWith(' | 50agents')) bad.push(`title ${p.title.length} chars or no " | 50agents"`);
   if (p.description.length < 120 || p.description.length > 155) bad.push(`description ${p.description.length} chars`);
   if (p.answer.length !== 2 || p.answer.some(a => !/[.?]$/.test(a) || /[.?]\s+[A-Z]/.test(a))) bad.push('answer is not two sentences');
+  // D254: the hero answer is 40 words at most in total
+  if (words(p.answer.join(' ')) > 40) bad.push(`answer is ${words(p.answer.join(' '))} words (40 at most in total)`);
   // the worked example
   const ex = p.example;
   if (!KINDS.includes(ex.kind) || !ex.ask || !ex.build) bad.push('example without kind, ask and plan');
@@ -46,7 +48,7 @@ const results = pages.map(p => {
   bad.push(...style(all));
   for (const q of pages) if (q.slug !== p.slug && overlap(sh[p.slug], sh[q.slug]) >= 0.5) bad.push(`overlaps ${q.slug}`);
   const n = words(all);
-  if (n < 350) bad.push(`only ${n} words of its own`);
+  if (n < 300) bad.push(`only ${n} words of its own (300 at least; D254 made heroes and subheaders shorter)`);
   return { slug: p.slug, words: n, bad };
 });
 for (const r of Object.keys(rows)) if (!pages.some(p => p.slug === r)) results.push({ slug: r, words: 0, bad: ['a row with no page'] });

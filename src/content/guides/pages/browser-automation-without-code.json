@@ -7,9 +7,71 @@
   "description": "No-code browser automation comes in three kinds: recorders, scrapers and AI browser agents. What each is good at, where each breaks, and how to start.",
   "h1": "Browser automation without code",
   "answer": [
-    "No-code browser automation comes in three kinds: recorders that replay your clicks, scrapers you train to pull data from pages, and AI browser agents that read a page and decide what to do.",
-    "Pick by the job: scrapers for the same data from many pages, recorders for the same clicks on a stable site, browser agents for a few pages that change or need judgement."
+    "There are three kinds: recorders that replay your clicks, scrapers that pull data from pages, and AI browser agents that read a page and decide.",
+    "Pick by the job: many similar pages, stable clicks, or pages that change."
   ],
+  "chooser": {
+    "h2": "Which kind do you need?",
+    "root": {
+      "q": "What does the job do on the website?",
+      "options": [
+        {
+          "label": "Pulls the same data from pages",
+          "then": {
+            "q": "How many pages a run?",
+            "options": [
+              {
+                "label": "Hundreds, same layout",
+                "then": {
+                  "answer": "A scraper",
+                  "why": "You point it at the data on one page and it pulls the same fields from every similar page. It breaks when the layout changes, so spot-check it."
+                }
+              },
+              {
+                "label": "A few, and they change",
+                "then": {
+                  "answer": "An AI browser agent",
+                  "why": "It reads each page from your description, so a moved button or a new layout does not stop it. It can misjudge an ambiguous page.",
+                  "kind": "browser"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Clicks through the same steps",
+          "then": {
+            "q": "Does the site stay the same?",
+            "options": [
+              {
+                "label": "Yes, it rarely changes",
+                "then": {
+                  "answer": "A recorder",
+                  "why": "Click through once while it records, and it replays the same clicks as often as you like. A pop-up or a moved button breaks it."
+                }
+              },
+              {
+                "label": "No, or it needs judgement",
+                "then": {
+                  "answer": "An AI browser agent",
+                  "why": "Describe the job in words; it reads the page before it clicks, and asks you before it signs in or submits anything.",
+                  "kind": "browser"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Reads pages and judges them",
+          "then": {
+            "answer": "An AI browser agent",
+            "why": "Reading, comparing and deciding what matters is the part recorders and scrapers cannot do.",
+            "kind": "browser"
+          }
+        }
+      ]
+    }
+  },
   "sections": [
     {
       "id": "kinds",
@@ -26,21 +88,21 @@
             "rows": [
               [
                 "Recorder",
-                "Clicking through once while it records",
-                "The same clicks on a stable site, many times",
-                "A button moves or a pop-up appears"
+                "Clicking through once",
+                "The same clicks, many times",
+                "A button moves"
               ],
               [
                 "Scraper",
-                "Pointing at the data on one page",
-                "The same fields from hundreds of similar pages",
-                "The page layout changes"
+                "Pointing at the data",
+                "Same fields from many pages",
+                "The layout changes"
               ],
               [
                 "AI browser agent",
-                "Describing the job in words",
-                "A few pages, layouts that shift, reading and judging",
-                "A page is ambiguous; it may guess"
+                "Describing the job",
+                "Pages that shift, judging",
+                "A page is ambiguous"
               ]
             ]
           }
@@ -62,93 +124,82 @@
               [
                 "Browse AI",
                 "Scraper and page monitor",
-                "50 credits a month, 2 websites"
+                "Yes, small monthly limits"
               ],
               [
                 "Axiom",
                 "No-code browser bots",
-                "2 hours of runtime"
+                "Yes, a short free runtime"
               ],
               [
                 "Bardeen",
                 "Scraping and enrichment for sales",
-                "100 credits"
+                "Yes, a free tier"
               ],
               [
                 "UI.Vision",
-                "Open-source recorder (browser extension)",
-                "Free"
+                "Open-source recorder extension",
+                "Yes, free"
               ]
             ]
           }
         },
         {
-          "p": "Two details hide in their plans. Runtime- and credit-based plans charge for failed runs on some tools and not others (Axiom says failed runs do not count against its runtime). And desktop runs need your computer awake, while cloud runs do not. For how the units turn into a bill, see [how much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared)."
+          "p": "Check two things in any plan: whether failed runs are billed (Axiom does not count them against its runtime), and whether runs happen in the cloud or need your computer awake. For how the units become a bill, see [how much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared)."
         }
       ]
     }
   ],
   "method": {
-    "h2": "How to pick and start, step by step",
+    "h2": "How to pick and start",
     "steps": [
       {
         "title": "Write the job as clicks",
-        "body": "Which site, which pages, what to read or fill, how often. Count the pages per run."
+        "body": "Which site, which pages, what to read or fill, and how often. Count the pages per run."
       },
       {
-        "title": "Pick the kind from the table",
-        "body": "Many pages, same layout: scraper. Same clicks daily on a stable tool: recorder. A few pages that move or need reading: browser agent."
+        "title": "Pick the kind",
+        "body": "Many pages with the same layout: a scraper. The same clicks daily on a stable tool: a recorder. A few pages that move or need reading: a browser agent."
       },
       {
         "title": "Check cloud or desktop",
-        "body": "If it must run at 6:00 while your laptop sleeps, you need cloud runs."
+        "body": "If it must run at 6:00 while your laptop sleeps, you need cloud runs.",
+        "note": {
+          "type": "warn",
+          "text": "A desktop-only tool misses every scheduled run while your computer is asleep or off.",
+          "about": "browser"
+        }
       },
       {
         "title": "Plan the sign-in",
         "body": "Sites behind a login need a kept session. Avoid tools that want your password stored in a text field."
       },
       {
-        "title": "Run it for a week with a check at the end",
-        "body": "A count, a confirmation, a file. Look at every run that week."
+        "title": "Run it for a week, checking each run",
+        "body": "Each run should end with a check: a count, a confirmation, a file. Look at every run that first week."
       }
     ]
   },
-  "example": {
-    "h2": "The browser agent kind in 50agents",
-    "body": [
-      "A 50agents browser agent is the third kind. You describe the job to Captain; the browser agent runs on a schedule with its own browser, shows the page live while it works, and lists the pages it visited in each report. It reads before it clicks: web search, a feed or a public page first, its browser only when the job needs that page. Up to 15 pages and about 8 minutes a run."
-    ],
-    "kind": "browser",
-    "ask": "Set up a browser agent that reads the new listings on rentals.example each morning and tells me the ones under $2,000 in Riverside",
-    "build": {
-      "name": "Riverside rentals",
-      "line": "New listings under $2,000, each morning",
-      "when": "Each morning",
-      "does": [
-        "Opens rentals.example in its own browser",
-        "Reads the new two-bed listings in Riverside",
-        "Tells you the ones under $2,000"
-      ],
-      "apps": [],
-      "asksFirst": "Signing in or submitting anything"
-    }
+  "captain": {
+    "at": 1,
+    "line": "Captain sets up a browser agent with its own browser, on a schedule. It shows the page live while it works and lists the pages it visited in each report.",
+    "ask": "Set up a browser agent that reads the new listings on rentals.example each morning and tells me the ones under $2,000 in Riverside"
   },
   "wrong": [
     {
       "title": "\"No code\" turns into code",
-      "body": "Users of several tools report needing custom scripts for anything past the basics. Try your hardest page in the free tier before you commit."
+      "body": "Users of several tools report needing custom scripts past the basics. Try your hardest page in the free tier before you commit.",
+      "about": "browser"
     },
     {
       "title": "Credits burned on failures",
-      "body": "A broken page retried all night. Check how failed runs are billed, and cap retries."
-    },
-    {
-      "title": "The laptop went to sleep",
-      "body": "A desktop-only tool missed the 6:00 run. Use cloud runs for anything scheduled."
+      "body": "A broken page gets retried all night. Check how failed runs are billed, and cap retries.",
+      "about": "browser"
     },
     {
       "title": "Quietly wrong data",
-      "body": "A scraper picked the wrong column after a redesign. Spot-check a few values each week."
+      "body": "A scraper picks the wrong column after a redesign. Spot-check a few values each week.",
+      "about": "browser"
     }
   ],
   "faqs": [
@@ -162,29 +213,7 @@
     },
     {
       "q": "What is the difference between a browser agent and a scraper?",
-      "a": "A scraper pulls the same fields from pages you trained it on. A browser agent reads the page and decides what to do from your description, so it can handle pages it has not seen, and can also misjudge them."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Browse AI: Pricing",
-      "href": "https://www.browse.ai/pricing"
-    },
-    {
-      "label": "Axiom: Pricing",
-      "href": "https://axiom.ai/pricing"
-    },
-    {
-      "label": "Bardeen: Pricing",
-      "href": "https://www.bardeen.ai/pricing"
-    },
-    {
-      "label": "UI.Vision: Pricing",
-      "href": "https://ui.vision/pricing"
-    },
-    {
-      "label": "Latenode community: No-code headless browser automation",
-      "href": "https://community.latenode.com/t/no-code-headless-browser-automation-is-it-actually-possible-or-just-marketing/59673"
+      "a": "A scraper pulls the same fields from pages you trained it on. A browser agent reads the page and decides what to do from your description, so it handles pages it has not seen, and can also misjudge them."
     }
   ],
   "related": [

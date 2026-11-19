@@ -7,13 +7,13 @@
   "description": "A browser agent is an AI agent that works in a web browser: it opens pages, reads, clicks and fills in forms on sites with no app to connect.",
   "h1": "What is a browser agent?",
   "definition": [
-    "A browser agent is an AI agent that does its work in a web browser: it opens pages, reads what is on them, clicks and fills in forms, deciding each step as it goes.",
-    "It is the tool for websites that offer no app or API to connect to, such as a competitor's pricing page or a supplier's portal."
+    "A browser agent is an AI agent that works in a web browser: it opens pages, reads them, clicks and fills in forms.",
+    "It suits websites with no app or API to connect, like a supplier's portal."
   ],
   "example": {
     "kind": "browser",
     "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
-    "why": "Pricing pages have no app to connect. It opens each one in its own browser, reads the plans and prices, and says what changed since the last run.",
+    "why": "Pricing pages have no app to connect, so it reads them in a browser.",
     "build": {
       "name": "Price watch",
       "line": "competitor pricing pages, read every morning",

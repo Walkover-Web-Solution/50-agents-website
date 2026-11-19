@@ -3,111 +3,127 @@
   "type": "alternatives",
   "tool": "lindy",
   "query": "lindy alternatives",
-  "title": "Lindy alternatives, with checked prices | 50agents",
-  "description": "Lindy alternatives: Gumloop for team AI agents, Relevance AI for sales, Zapier Agents, n8n to self-host, and 50agents for AI agents plus apps. Prices checked.",
+  "title": "Lindy alternatives: AI agent tools compared | 50agents",
+  "description": "Lindy alternatives: Gumloop for team AI agents, Relevance AI for sales, Zapier Agents, n8n to self-host, and 50agents for AI agents plus apps and automations.",
   "h1": "Lindy alternatives",
   "answer": [
-    "If your team builds and shares AI agents, Gumloop is made for that; if the assistant is mainly for sales, Relevance AI ships ready-made teams of sales AI agents.",
-    "If the data must stay on your own servers, n8n's AI Agent node runs self-hosted; if you want AI agents plus the apps and automations around them, 50agents builds all four from plain words."
+    "Gumloop builds shared team AI agents and Relevance AI builds sales AI agent teams.",
+    "n8n self-hosts; 50agents adds apps and automations to AI agents, free to start."
   ],
   "ask": "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
-  "lede": "Lindy is an AI assistant you talk to, billed for every active user, and its credit-using actions pause when the pool runs low.",
+  "lede": "AI agent tools like Lindy, and how each one differs.",
   "entries": [
     {
       "tool": "fifty",
-      "suits": "People who want what Lindy does for their inbox, plus the team tools around it: a leads app, a requests desk, an automation that logs every payment.",
+      "best": "AI agents, apps and automations",
       "price": "Free to start",
-      "limit": "It does not live in iMessage or Slack DMs the way Lindy does, and it cannot learn a task by watching you once.",
-      "limitUrl": "https://www.lindy.ai/"
+      "diff": "Built from one sentence",
+      "src": "https://50agents.com"
     },
     {
       "tool": "gumloop",
-      "suits": "Teams that build AI agents once and share them, with IT deciding which tools and models each person may use.",
-      "price": "No free plan. Pro: $37 a month (20,000 credits)",
-      "limit": "No free plan: a 14-day Pro trial with a card, and credits do not roll over.",
-      "limitUrl": "https://docs.gumloop.com/core-concepts/credits.md"
+      "best": "Team AI agents, IT controls",
+      "price": "$37 a month (Pro)",
+      "diff": "Cloud browser with saved logins",
+      "src": "https://docs.gumloop.com/core-concepts/agent_browser.md"
     },
     {
       "tool": "relevance",
-      "suits": "Sales and revenue teams who want teams of AI agents wired into Salesforce, HubSpot and Gong, with reps approving drafts from Slack or Teams.",
-      "price": "No free plan. Pro: $19 a month billed yearly (2,500 actions)",
-      "limit": "The free plan is retired, and extra actions cost $80 per 1,000 above the plan.",
-      "limitUrl": "https://relevanceai.com/docs/get-started/pricing"
+      "best": "Sales AI agent teams",
+      "price": "$19 a month, billed yearly",
+      "diff": "Wired into Salesforce, HubSpot, Gong",
+      "src": "https://relevanceai.com/"
     },
     {
       "tool": "zapier",
-      "suits": "Teams already running Zaps who want an AI agent that can use them. Zapier Agents sit next to your Zaps in the same account.",
-      "price": "Free: 100 tasks a month. Professional: $19.99 a month billed yearly (750 tasks)",
-      "limit": "Zapier Agents are billed in activities, on top of Zap tasks, so you track two meters.",
-      "limitUrl": "https://zapier.com/pricing"
+      "best": "AI agents beside workflows",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Zapier Agents, 10,541+ apps",
+      "src": "https://zapier.com/pricing"
     },
     {
       "tool": "n8n",
-      "suits": "Teams with a developer who want an AI agent whose data stays on their own servers. The AI Agent node is on every plan.",
-      "price": "No free cloud plan. Starter: €20 a month billed yearly (2.5K executions)",
-      "limit": "It is a workflow builder, not an assistant you chat with all day: someone has to build the AI agent node by node.",
-      "limitUrl": "https://n8n.io/pricing/"
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "AI Agent node, self-hosted",
+      "src": "https://n8n.io/pricing/"
     }
   ],
-  "pick": {
-    "us": [
-      "You want AI agents and the apps and automations around them in one workspace.",
-      "Several people will use it, and you would rather not add a seat for each one.",
-      "You want anything sent to people outside to wait for your yes."
-    ],
-    "them": [
-      "You want an assistant in iMessage, Slack and email, not another app to open. That is where Lindy is strongest.",
-      "You teach it by showing it once. Lindy's Watch and Learn is something the tools here do not match.",
-      "It is just you, so per-user billing costs you nothing extra."
-    ]
+  "stay": {
+    "best": "Work in Slack, iMessage, email",
+    "price": "$29.99 a month per user",
+    "diff": "Learns by watching you once",
+    "src": "https://www.lindy.ai/"
   },
+  "strengths": [
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    },
+    {
+      "title": "It knows your business",
+      "line": "Hours, prices, policies and tone, remembered once and used in every reply.",
+      "face": "writer"
+    },
+    {
+      "title": "You approve what goes out",
+      "line": "Emails to clients wait in Needs you until you say yes.",
+      "face": "lead"
+    },
+    {
+      "title": "Apps with your own records",
+      "line": "Lists, boards and tables, run by a crew of AI agents.",
+      "face": "sorter"
+    }
+  ],
   "move": [
     {
-      "title": "Write down what each Lindy does",
-      "body": "We found no export for Lindy AI agents on Lindy's own pages, so open each one and copy its instructions, its apps, when it runs and what it asks before acting."
+      "title": "List what Lindy does",
+      "body": "Write down each task: which inbox, which calendar, what it drafts."
     },
     {
-      "title": "Turn each into one sentence",
-      "body": "For example \"draft a reply to each new support email and ask me before sending\". That sentence is what you give Captain or any other builder."
+      "title": "Tell Captain the first task",
+      "body": "Say it in one sentence, like \"draft replies to new support emails\"."
     },
     {
-      "title": "Reconnect the apps",
-      "body": "Gmail, Calendar and Slack connections do not move. Connect them in the new tool; 50agents asks for each one in the chat when it needs it."
+      "title": "Teach it your business",
+      "body": "Add your hours, prices and policies once; replies draw on them."
     },
     {
-      "title": "Pause Lindy before the cycle renews",
-      "body": "Run the new AI agent for a few days while Lindy is paused, then cancel before the next billing cycle; monthly Lindy credits do not roll over."
+      "title": "Approve the first drafts",
+      "body": "Every reply waits in Needs you until you approve it."
     }
   ],
   "faqs": [
     {
-      "q": "What is cheaper than Lindy for a team?",
-      "a": "Lindy bills every active user from $29.99 a month, so the gap grows with each person. Compare the tools in the table on what a whole team pays, not one seat; 50agents is free to start for the whole workspace."
-    },
-    {
       "q": "Is there a free Lindy alternative?",
-      "a": "Lindy itself gives $50 in credits for 7 days. Zapier and 50agents have ongoing free starts; Gumloop and Relevance AI have no free plan."
+      "a": "Lindy starts with $50 in credits for 7 days. 50agents is free to start, and n8n has a self-hosted version on GitHub."
     },
     {
-      "q": "Which Lindy alternative works with the most apps?",
-      "a": "Zapier, with 10,541+. Lindy lists 2,733 apps plus MCP servers, and 50agents works with 2,300+ through viaSocket."
+      "q": "Do these alternatives ask before acting?",
+      "a": "Gumloop gates tool calls until you approve, and Relevance AI has approval steps. In 50agents, anything that reaches someone outside waits for your yes."
+    },
+    {
+      "q": "Which works with the most apps?",
+      "a": "Zapier connects 10,541+ apps. Lindy lists 2,733 plus MCP servers, and 50agents works with 2,300+ through viaSocket."
     }
   ],
   "related": [
     {
       "href": "/compare/50agents-vs-lindy",
       "title": "50agents vs Lindy",
-      "line": "Assistant against workspace, row by row"
+      "line": "Row by row, with marks"
     },
     {
       "href": "/compare/gumloop-alternatives",
       "title": "Gumloop alternatives",
-      "line": "For teams building AI agents together"
+      "line": "Other team AI agent builders"
     },
     {
       "href": "/compare/relevance-ai-alternatives",
       "title": "Relevance AI alternatives",
-      "line": "For sales teams weighing AI agent tools"
+      "line": "AI agents for sales teams"
     }
   ],
   "updated": "2026-11-19"

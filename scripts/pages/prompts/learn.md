@@ -16,11 +16,20 @@ company that named it). Note where they disagree and what the term is most often
 
 ## Fields
 - `title` under 60 characters, ends " | 50agents". `description` 120 to 160 characters, the definition first.
-- `h1`: "What is <term>?". `definition`: two sentences a reader could quote. The first, 40 words at most, says what it is; the second says what it is for or how it differs.
-- `example`: `ask` exactly the row's ask; `kind` and `build` copied from the use case page; `why`: 40 words at most on why this ask shows the term.
+- `h1`: "What is <term>?". `definition`: two sentences a reader could quote, 40 words at most in total. The first (about 20 to 24 words) says what it is; the second says what it is for or how it differs.
+- `example`: `ask` exactly the row's ask; `kind` and `build` copied from the use case page; `why`: the subheader over the example, one short line of 14 words at most on why this ask shows the term.
 - `vs`: `term` the row's confused term, `href` its glossary page if it has one, and 3 rows (label, a = this term, b = that term), each cell 12 words at most. Be exact, not flattering.
-- `sources`: only for facts about the outside world, primary pages you read today. Leave it out otherwise.
+- `sources`: only for facts about the outside world, primary pages you read today. Leave it out otherwise. Kept in the data, never shown.
 - `links`: 3 reads that exist: a hub, a guide and a related term. `updated`: today's date, ISO.
+
+## Round 2 rules (D254, Jii's review)
+- The hero answer is 40 words at most in total (both sentences together). Every subheader the page shows is one short
+  line, 14 words at most, direct and concise.
+- No dates anywhere on the page: no byline date, no "Updated", no "Prices checked", no "read <date>". `updated` is used
+  only for JSON-LD `dateModified` and the sitemap.
+- No source lines on the page. `sources` (where the type has it) stays in the data so the facts can be checked; it is
+  never shown.
+- The hero film shows the ask typing into Captain, with no plan card. `build` is kept in the data as a fact.
 
 ## Rules (from the brief, Part A5, word for word where quoted)
 - "Write like a sharp operator explaining something to a peer." Short sentences, plain verbs, "you". Show, don't claim.

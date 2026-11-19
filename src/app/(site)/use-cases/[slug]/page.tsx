@@ -7,11 +7,9 @@ import { PAGES } from '@/content/use-cases/pages';
 import { AppLogo, Crumbs, Cta, Face, KindBadge, KINDS, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
-import { PlanCard } from '@/site/usecase/plan-card';
 import { ScrollStepper } from '@/site/usecase/stepper';
 import { stepPicture } from '@/site/usecase/pictures';
-import { appIcon, appName, appsIn } from '@/site/usecase/apps-data';
-import { CATEGORIES } from '@/content/integrations/categories';
+import { appIcon, appName, appsIn, topApps } from '@/site/usecase/apps-data';
 import type { UseCasePage } from '@/site/usecase/types';
 import '@/site/css/usecase.css';
 
@@ -36,7 +34,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-const month = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 // More use cases: the same kind first, then shared tags, then the rest; six, linked statically.
 function related(u: UseCasePage) {
@@ -44,10 +41,23 @@ function related(u: UseCasePage) {
   return PAGES.filter(x => x.slug !== u.slug).sort((a, b) => score(b) - score(a)).slice(0, 6);
 }
 
-function Cell({ v, us }: { v: string; us?: boolean }) {
+function Mark({ v }: { v: string }) {
   const t = v.toLowerCase();
-  const mark = t.startsWith('yes') ? 'y' : t.startsWith('no') ? 'n' : t.startsWith('partly') || t.startsWith('only') || t.startsWith('if ') || t.startsWith('some') ? 'p' : '';
-  return <td className={us ? 'us' : undefined}>{mark && <i className={`mk ${mark}`} aria-hidden="true" />}{v}</td>;
+  const k = /^yes\b/.test(t) ? 'y' : /^no\b/.test(t) ? 'n' : /^(partly|only|if |some|depends)/.test(t) ? 'p' : '';
+  if (!k) return null;
+  return (
+    <svg className={`mk ${k}`} width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+      <circle cx="10" cy="10" r="10" />
+      {k === 'y' && <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+      {k === 'n' && <path d="M7 7l6 6M13 7l-6 6" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />}
+      {k === 'p' && <path d="M6 10h8" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />}
+    </svg>
+  );
+}
+// A cell's words without the leading Yes/No when the mark already says it ("Yes, always" -> "Always").
+const rest = (v: string) => { const m = v.match(/^(yes|no)\b[,.]?\s*(.*)$/i); return m ? (m[2] ? m[2][0].toUpperCase() + m[2].slice(1) : '') : v; };
+function Cell({ v, us }: { v: string; us?: boolean }) {
+  return <td className={us ? 'us' : undefined}><span className="cell"><Mark v={v} /><span>{rest(v) || (v.toLowerCase().startsWith('yes') ? 'Yes' : 'No')}</span></span></td>;
 }
 
 export default async function UseCasePageView({ params }: { params: Promise<{ slug: string }> }) {
@@ -55,8 +65,10 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
   if (!u) notFound();
   const k = KINDS[u.kind];
   const url = `${BASE}/use-cases/${u.slug}`;
-  const cat = CATEGORIES.find(c => c.slug === u.category);
-  const wall = appsIn(u.category, 30, u.build.apps);
+  const own = u.build.apps.map(a => ({ s: a, n: appName(a), i: appIcon(a) ?? '' }));
+  const cat = appsIn(u.category, 24, u.build.apps);
+  const rowA = [...own, ...cat.slice(0, 14)];
+  const rowB = [...cat.slice(14), ...topApps(30, [...u.build.apps, ...cat.map(a => a.s)])].slice(0, 18);
   const more = related(u);
   const ld = [
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -79,44 +91,33 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
         <KindBadge kind={u.kind} />
         <h1>{u.h1}</h1>
         <p className="answer">{u.answer[0]} {u.answer[1]}</p>
-        <PromptFilm ask={u.ask} button={<Cta page={u.slug} place="hero" ask={u.ask}>Build it</Cta>}>
-          <PlanCard u={u} />
-        </PromptFilm>
+        <PromptFilm ask={u.ask} button={<Cta page={u.slug} place="hero" ask={u.ask}>Build it</Cta>} />
         <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
       </section>
 
       {/* How it works: a stepper that moves with the scroll */}
       <section className="wrap sec" id="how">
-        <div className="sec-h c"><h2>How it works</h2><p>From one sentence to {u.build.name.toLowerCase()} running for you.</p></div>
+        <div className="sec-h c"><h2>How it works</h2></div>
         <ScrollStepper steps={u.steps} pictures={u.steps.map(s => <div key={s.key}>{stepPicture(s.key, u)}</div>)} />
       </section>
 
-      {/* The apps: this job's apps large, then the category from the catalog, and 2,300+ */}
-      <section className="wrap sec" id="apps">
-        <div className="sec-h c">
-          <h2>{u.build.apps.length ? <>Works with {u.build.apps.map(appName).join(' and ')}, and 2,300+ more apps</> : <>No app needed. And 2,300+ apps when you want them</>}</h2>
-          <p>Through viaSocket&rsquo;s catalog. Swap in the {cat?.short ?? 'other'} apps you already use.</p>
-        </div>
-        <div className="uc3-apps">
-          {u.build.apps.map(a => (
-            <MaybeLink key={a} href={`/integrations/${a}`} className="uc3-app"><AppLogo app={a} icon={appIcon(a)} size={44} /><b>{appName(a)}</b></MaybeLink>
-          ))}
-        </div>
-        {wall.length > 0 && (
-          <div className="uc3-wall" aria-label={`${cat?.name ?? 'More'} apps in the catalog`}>
-            <div className="uc3-wall-row">
-              {[...wall, ...wall].map((a, i) => (
-                <span key={a.s + i} className="uc3-tile" title={a.n} aria-hidden={i >= wall.length ? 'true' : undefined}><AppLogo app={a.s} icon={a.i} size={34} /><span className="sr">{a.n}</span></span>
+      {/* The apps: how many, and two rows of them moving (this job's apps and its category first) */}
+      <section className="sec" id="apps">
+        <div className="wrap sec-h c"><h2>Works with {u.build.apps.length ? u.build.apps.map(appName).join(', ') + ' and ' : ''}2,300+ apps</h2></div>
+        <div className="uc3-wall" aria-label="Apps 50agents works with">
+          {[rowA, rowB].map((row, n) => (
+            <div key={n} className={n ? 'uc3-wall-row rev' : 'uc3-wall-row'}>
+              {[...row, ...row].map((a, i) => (
+                <span key={a.s + i} className="uc3-tile" title={a.n} aria-hidden={i >= row.length ? 'true' : undefined}><AppLogo app={a.s} icon={a.i} size={34} eager /><span className="sr">{a.n}</span></span>
               ))}
             </div>
-          </div>
-        )}
-        <p className="uc3-more-apps"><MaybeLink href={cat ? `/integrations/category/${cat.slug}` : '/integrations'}>See all {cat?.short ?? ''} apps</MaybeLink></p>
+          ))}
+        </div>
       </section>
 
       {/* Compared: the other ways to do this job, honestly, against 50agents */}
       <section className="wrap sec" id="compare">
-        <div className="sec-h c"><h2>Other ways to do it, compared</h2>{u.stat && <p>{u.stat.text} <a href={u.stat.href} target="_blank" rel="noopener">{u.stat.source}</a></p>}</div>
+        <div className="sec-h c"><h2>Other ways to do it, compared</h2>{u.stat && <p>{u.stat.text}</p>}</div>
         <div className="uc3-cmp">
           <table>
             <thead><tr><th scope="col"><span className="sr">What matters</span></th>{u.compare.methods.map(m => <th key={m} scope="col">{m}</th>)}<th scope="col" className="us"><span className="uc3-us"><Face id={k.face} size={20} />50agents</span></th></tr></thead>
@@ -127,7 +128,6 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
             </tbody>
           </table>
         </div>
-        {u.compare.sources && <p className="uc3-src">From each tool&rsquo;s own pages: {u.compare.sources.map((x, i) => <span key={x.href}>{i ? ', ' : ''}<a href={x.href} target="_blank" rel="noopener">{x.label}</a></span>)}.</p>}
       </section>
 
       {/* Questions */}
@@ -167,7 +167,6 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
           <span className="peek l" aria-hidden="true"><Face id={k.face} size={52} /><Face id="keeper" size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="rosa" size={46} /></span>
         </div>
-        <p className="byline">By the 50agents team · Updated {month(u.updated)}</p>
       </section>
 
       <StickyBar><span>{u.h1}</span><Cta page={u.slug} place="sticky" ask={u.ask}>Build it</Cta></StickyBar>

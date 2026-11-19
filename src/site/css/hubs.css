@@ -1,19 +1,14 @@
-/* Kind hubs, v3 (D253): the use case page's parts (usecase.css) with two small additions. */
-.hub3-film{width:100%;display:flex;justify-content:center}
+/* Kind hubs, v3 (D253, D254): the use case page's parts (usecase.css) with a few additions. */
 
-/* "which kind": the current kind's column in its tint, without the use case table's last-column corners */
-.hub-kt table{min-width:860px}
-.hub-kt thead th{font-size:15.5px;color:var(--ink)}
+/* "which kind": the use case table (uc3-cmp) with four kinds; the current kind's column raised on its tint */
+.hub-kt table{min-width:880px}
+.hub-kt thead th{font-size:15px;color:var(--ink)}
 .hub-kt thead th a{color:inherit;text-underline-offset:3px}
-.hub-kt tbody th{width:18%}
-.hub-kt td,.hub-kt th.us{width:20.5%}
-.hub-kt thead th.us,.hub-kt tbody tr:last-child td.us{border-radius:0}
-.hub-kt td a{text-underline-offset:3px}
+.hub-kt tbody th{width:20%}
+.hub-kt td a{color:var(--ink);text-underline-offset:3px}
+.hub-kt td.us{font-weight:600}
 
 /* link cards: fewer than three sit centred instead of leaving an empty column */
 .cards3.hub3-n1{grid-template-columns:minmax(0,360px);justify-content:center}
 .cards3.hub3-n2{grid-template-columns:repeat(2,minmax(0,360px));justify-content:center}
 @media (max-width:760px){.cards3.hub3-n1,.cards3.hub3-n2{grid-template-columns:1fr}}
-
-/* PromptFilm's last stage is the class "plan", which also matches the plan card's .plan box: undo that on the film itself.
-   (The use case page shows the same stray outline; the fix belongs in film.tsx, reported to its owner.) */

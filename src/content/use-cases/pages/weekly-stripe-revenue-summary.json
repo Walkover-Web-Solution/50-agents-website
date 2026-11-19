@@ -7,8 +7,8 @@
   "description": "Tell Captain to set up an AI agent that reads last week's Stripe payments every Monday and emails you the totals and what changed, after you approve it.",
   "h1": "Stripe weekly revenue report by email",
   "answer": [
-    "To get a Stripe weekly revenue report by email, tell Captain \"Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00\" in 50agents.",
-    "It builds an AI agent that reads last week and the week before, writes a short email with the totals and what changed, and sends it from your Gmail once you allow it."
+    "To get a weekly Stripe revenue email, tell Captain \"Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00\".",
+    "It builds an AI agent that emails weekly totals from Gmail once you allow it."
   ],
   "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
   "stat": {

@@ -18,8 +18,9 @@ const out = pages.map(p => {
   if (p.title.length > 60 || !p.title.endsWith(' | 50agents')) bad.push(`title ${p.title.length} chars or no " | 50agents"`);
   if (p.description.length < 120 || p.description.length > 160) bad.push(`description ${p.description.length} chars`);
   if (p.definition.length !== 2) bad.push('definition is not two sentences');
-  if (words(p.definition[0]) > 40) bad.push(`definition's first sentence is ${words(p.definition[0])} words`);
-  if (words(p.example.why) > 40) bad.push(`example "why" is ${words(p.example.why)} words`);
+  // D254: the hero (the definition) is 40 words at most in total; the "why" is a subheader, one line of 14 words at most
+  if (words(p.definition.join(' ')) > 40) bad.push(`definition is ${words(p.definition.join(' '))} words (40 at most in total)`);
+  if (words(p.example.why) > 14) bad.push(`example "why" is ${words(p.example.why)} words (14 at most)`);
   if (p.vs.rows.length !== 3) bad.push('comparison rows not 3');
   p.vs.rows.forEach(r => (words(r.a) > 12 || words(r.b) > 12) && bad.push(`comparison cell over 12 words in "${r.label}"`));
   if (p.links.length !== 3) bad.push('links not 3');
@@ -33,7 +34,7 @@ const out = pages.map(p => {
   // uniqueness
   pages.forEach(q => { if (q.slug !== p.slug) { const j = overlap(sh[p.slug], sh[q.slug]); if (j >= 0.5) bad.push(`overlaps ${q.slug} (${j.toFixed(2)})`); } });
   // length: short on purpose
-  if (words(all) < 120 || words(all) > 320) bad.push(`${words(all)} words of its own (120 to 320)`);
+  if (words(all) < 100 || words(all) > 320) bad.push(`${words(all)} words of its own (100 to 320; D254 made heroes and subheaders shorter)`);
   return { slug: p.slug, words: words(all), bad };
 });
 report('learn', pages.length, out, 'gates-learn.mjs');

@@ -7,8 +7,8 @@
   "description": "To follow up HubSpot deals with no reply, an AI agent checks every weekday at 9:00, finds the quiet ones and drafts a Gmail follow-up you approve first.",
   "h1": "Follow up HubSpot deals with no reply",
   "answer": [
-    "To follow up HubSpot deals with no reply, tell Captain \"Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00\" in 50agents.",
-    "It builds an AI agent that checks your deals each weekday morning, drafts a short follow-up in the same Gmail thread for each quiet one, and sends nothing until you approve it."
+    "To follow up quiet HubSpot deals, tell Captain \"Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00\".",
+    "It drafts each follow-up in Gmail and sends nothing until you approve."
   ],
   "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
   "stat": {

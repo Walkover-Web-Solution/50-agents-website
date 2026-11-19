@@ -7,13 +7,13 @@
   "description": "An AI assistant answers and does tasks when you ask, inside a conversation. How it differs from an AI agent, with a real example from 50agents.",
   "h1": "What is an AI assistant?",
   "definition": [
-    "An AI assistant is AI you talk to that answers questions and does tasks when you ask, such as drafting an email or reading a web page.",
-    "It works while you are in the conversation; an AI agent keeps working on its own schedule after you leave."
+    "An AI assistant is AI you talk to that answers questions and does tasks when you ask, like drafting an email.",
+    "It works while you are in the chat; an AI agent keeps going after you leave."
   ],
   "example": {
     "kind": "ai",
     "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
-    "why": "Captain is the assistant here. Ask it for something that repeats, like this evening brief, and it builds an AI agent, because the work has to happen when you are not in the chat.",
+    "why": "Captain is the assistant; a repeating brief needs an AI agent that runs alone.",
     "build": {
       "name": "Tomorrow",
       "line": "tomorrow's meetings, in one Slack message",

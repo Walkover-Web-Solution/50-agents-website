@@ -7,13 +7,13 @@
   "description": "Human in the loop means a person approves or decides at set points while AI does the rest. Which steps should wait for you, with a real example.",
   "h1": "What is human in the loop?",
   "definition": [
-    "Human in the loop means a person approves, corrects or decides at set points while AI or automation does the rest of the work.",
-    "The point is to keep people on the decisions that are costly to get wrong, not on every step."
+    "Human in the loop means a person approves, corrects or decides at set points while AI or automation does the rest.",
+    "It keeps people on the costly decisions, not on every step."
   ],
   "example": {
     "kind": "ai",
     "ask": "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
-    "why": "The loop is the reply to your customer. The AI agent reads and drafts on its own; each draft waits in Needs you with Approve and send, Change or Decline, and your changes teach its next drafts.",
+    "why": "Each drafted reply waits in Needs you until you approve, change or decline it.",
     "build": {
       "name": "Support replies",
       "line": "new support mail, a reply drafted for each",

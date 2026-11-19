@@ -5,8 +5,8 @@
  "description": "Connect HubSpot and tell Captain the job: deal changes posted in Slack, an AI agent that drafts follow-ups for quiet deals, or your own lead app.",
  "h1": "AI agents and automations for HubSpot",
  "answer": [
-  "To put HubSpot to work in 50agents, connect it once and tell Captain the job, such as “when a deal is created or updated in HubSpot, post it in a Slack channel”.",
-  "Captain builds an automation for fixed steps, or an AI agent when each deal needs judgement, on HubSpot’s own triggers and actions, and anything that emails a customer waits for your approval."
+  "Connect HubSpot and tell Captain the job, such as “when a deal is created or updated in HubSpot, post it in a Slack channel”.",
+  "Captain builds an automation for fixed steps, or an AI agent for deals that need judgement."
  ],
  "ask": "Set up an automation: when a deal is created or updated in HubSpot, post it in a Slack channel",
  "recipe": {

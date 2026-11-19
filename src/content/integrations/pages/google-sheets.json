@@ -5,8 +5,8 @@
  "description": "Connect Google Sheets and tell Captain the job: every Shopify order as a row, work that starts when a row changes, or an app built from your sheet.",
  "h1": "AI agents and automations for Google Sheets",
  "answer": [
-  "To put Google Sheets to work in 50agents, connect it once and tell Captain what should land in it, such as “when a new order comes in on Shopify, add it as a row to my Google Sheet”.",
-  "Captain builds an automation that adds, updates or looks up rows, an AI agent that reads a sheet and acts on what it finds, or an app with real screens built from your columns."
+  "Connect Google Sheets and tell Captain what lands in it, such as “when a new order comes in on Shopify, add it as a row to my Google Sheet”.",
+  "Captain builds the automation, AI agent or app."
  ],
  "ask": "Set up an automation: when a new order comes in on Shopify, add it as a row to my Google Sheet",
  "recipe": {

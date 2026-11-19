@@ -8,8 +8,8 @@
   "description": "What finance hands to AI first: late invoices chased, each payment logged, a weekly revenue note, failed payments flagged, bills pulled from email.",
   "h1": "AI agents and automations for finance teams",
   "answer": [
-    "Finance teams hand off the chasing and the copying first: reminders drafted for late invoices, every Stripe payment logged as a row, and a Monday note on last week’s revenue.",
-    "In 50agents each is one sentence to Captain, built on Stripe, QuickBooks, Xero, Gmail and Google Sheets; nothing that reaches a client or moves money happens without your approval."
+    "Finance teams hand off chasing and copying first: reminders for late invoices, every Stripe payment logged, a Monday revenue note.",
+    "Captain builds each from one sentence; nothing reaches a client or moves money without your approval."
   ],
   "example": {
     "kind": "auto",

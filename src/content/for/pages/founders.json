@@ -8,8 +8,8 @@
   "description": "What founders doing everything themselves hand off first: the morning inbox, tomorrow’s meetings, unpaid invoices, a weekly revenue note and new leads.",
   "h1": "AI agents and automations for founders",
   "answer": [
-    "Founders hand off the inbox first: an AI agent that goes through unread email each morning and drafts the replies, then the jobs that leak money when nobody has time, like chasing invoices.",
-    "In 50agents you tell Captain what you need, or ask it to read your website and say what it would take off your plate; it builds each job and asks you before anything leaves your business."
+    "Founders hand off the inbox first: an AI agent that drafts replies to unread email each morning, then chasing invoices.",
+    "Or ask Captain to read your website and say what it would take off your plate."
   ],
   "example": {
     "kind": "ai",

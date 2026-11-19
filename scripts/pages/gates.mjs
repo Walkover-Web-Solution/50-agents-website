@@ -23,6 +23,7 @@ for (const p of pages) {
   if (p.title.length > 60) bad.push(`title ${p.title.length} chars`);
   if (p.description.length < 120 || p.description.length > 160) bad.push(`description ${p.description.length} chars`);
   if (p.answer.length !== 2) bad.push('answer is not two sentences');
+  if (words(p.answer.join(' ')) > 40) bad.push(`answer is ${words(p.answer.join(' '))} words (40 at most)`);
   if (p.steps.length < 4 || p.steps.length > 5) bad.push('steps not 4 or 5');
   p.steps.forEach(s => words(s.body) > 30 && bad.push(`step "${s.title}" is ${words(s.body)} words`));
   if (p.steps.at(-1).key === 'approve' && !p.approval) bad.push('approve step without approval');

@@ -7,13 +7,13 @@
   "description": "An API is the set of requests an app accepts from other software, like \"list last week's payments\". Why it decides what you can connect and automate.",
   "h1": "What is an API?",
   "definition": [
-    "An API is the published set of requests a piece of software accepts from other software, such as \"list last week's payments\" or \"create a contact\".",
-    "If an app has an API, other tools can read and change its data without anyone opening its screens; if it has none, only something that uses the screens can."
+    "An API is the published set of requests an app accepts from other software, such as \"list last week's payments\".",
+    "With one, tools read and change its data without opening its screens."
   ],
   "example": {
     "kind": "ai",
     "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
-    "why": "Every Monday the AI agent asks Stripe's API, through viaSocket, for last week's payments. It never opens Stripe's dashboard; it gets the payments as data.",
+    "why": "It asks Stripe's API for the payments as data, never opening the dashboard.",
     "build": {
       "name": "Monday revenue",
       "line": "last week in Stripe, in one email",

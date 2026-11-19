@@ -7,8 +7,8 @@
   "description": "Tell Captain to go through your unread Gmail every weekday at 8:00. An AI agent sorts it, drafts the replies, and you approve each one before it is sent.",
   "h1": "AI inbox triage, with replies drafted",
   "answer": [
-    "To triage your inbox with AI, tell Captain \"Go through my unread email now, then every weekday at 8:00, and draft replies\" in 50agents.",
-    "It builds an AI agent that reads your unread Gmail, sorts it by what needs you, and drafts a reply for each email that needs one; every reply waits for your approval before it is sent."
+    "To triage your inbox with AI, tell Captain \"Go through my unread email now, then every weekday at 8:00, and draft replies\".",
+    "It builds an AI agent that sorts your unread Gmail and drafts replies, asking before sending."
   ],
   "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
   "build": {

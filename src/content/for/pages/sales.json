@@ -8,8 +8,8 @@
   "description": "What sales teams hand to AI agents first: quiet deals followed up, leads pulled from email, new contacts logged and posted, new leads researched.",
   "h1": "AI agents and automations for sales teams",
   "answer": [
-    "Sales teams hand off the follow-up first: an AI agent that finds deals with no reply in five days and drafts the next email, and a lead list that fills itself from the inbox.",
-    "In 50agents you describe each job to Captain in a sentence; it builds the AI agent, automation or app in HubSpot, Gmail, Slack and the rest of your 2,300+ apps, and every email waits for your yes."
+    "Sales teams hand off follow-up first: drafted emails for deals quiet five days, and a lead list filled from the inbox.",
+    "Captain builds each job from a sentence in HubSpot, Gmail and 2,300+ apps; every email waits for your yes."
   ],
   "example": {
     "kind": "ai",

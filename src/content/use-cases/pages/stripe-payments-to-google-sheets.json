@@ -7,8 +7,8 @@
   "description": "Tell Captain \"every new Stripe payment is added as a row to my Google Sheet\" and get an automation with the customer, amount in dollars and date.",
   "h1": "Stripe payments to Google Sheets",
   "answer": [
-    "To send Stripe payments to Google Sheets, tell Captain \"Set up an automation: every new Stripe payment is added as a row to my Google Sheet\" in 50agents.",
-    "It builds an automation that starts when a payment succeeds, looks up the customer, and adds a row with the customer, the amount and the date. It writes only to your own sheet, so nothing waits for approval."
+    "To send Stripe payments to Google Sheets, tell Captain \"Set up an automation: every new Stripe payment is added as a row to my Google Sheet\".",
+    "It builds an automation that writes only to your sheet, so nothing needs approval."
   ],
   "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
   "stat": {

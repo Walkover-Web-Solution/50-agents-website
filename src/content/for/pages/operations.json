@@ -8,8 +8,8 @@
   "description": "What operations hands off first: orders logged, form requests turned into tasks, competitor prices watched, a daily schedule and a weekly ops report.",
   "h1": "AI agents and automations for operations teams",
   "answer": [
-    "Operations teams hand off the copying between tools first: each order or form becomes a row or a task in the right place, the same way every time.",
-    "In 50agents you describe it to Captain and it builds automations across Google Sheets, Asana, Trello, ClickUp and your other apps, plus browser agents for websites with no app."
+    "Operations teams hand off the copying between tools first: each order or form becomes a row or task, the same way every time.",
+    "Captain builds the automations, plus browser agents for websites with no app."
   ],
   "example": {
     "kind": "auto",

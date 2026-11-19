@@ -1,14 +1,14 @@
-// A category of the A to Z, v3 (D253): one of 20 curated categories, its members mapped from the catalog's own labels.
-// A centred head, one search, the apps as a calm logo grid (most used first), a few real recipes, the other categories.
+// A category of the directory, v3 round 2 (D254): one of 20 curated categories, its members mapped from the catalog's own
+// labels. A centred head, then the directory panel with this category picked (its apps most used first, one search,
+// numbered pages), then a few real templates.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Crumbs, KINDS, MaybeLink } from '@/site/parts';
+import { Crumbs, KINDS } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { BuildLink } from '@/site/integrations/build-link';
 import { catalog, loadApp, nameOf, recipeAsk, topRecipes, type Recipe } from '@/site/integrations/data';
-import { DirSearch } from '@/site/integrations/dir-search';
-import { AppGrid, BASE, CategoryCards, crumbsLd, Final, LdScript, RecipeRows } from '@/site/integrations/parts';
+import { BASE, crumbsLd, DirectoryPanel, Final, LdScript, TemplatesBox } from '@/site/integrations/parts';
 import '@/site/css/usecase.css';
 import '@/site/css/integrations.css';
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ cat: stri
   const { c, members } = d;
   const title = `${c.name} integrations for AI agents and automations`;
   // 155 characters at most: name three example apps, or fewer when their names run long
-  const describe = (n: number) => `${c.name} apps 50agents works with through viaSocket, such as ${list(members.slice(0, n).map(m => m.n))}, each with real triggers, actions and recipes for Captain.`;
+  const describe = (n: number) => `${c.name} apps 50agents works with through viaSocket, such as ${list(members.slice(0, n).map(m => m.n))}, each with real triggers, actions and templates for Captain.`;
   const description = [3, 2, 1].map(describe).find(d => d.length <= 155) ?? describe(1).slice(0, 155);
   const url = `${BASE}/integrations/category/${c.slug}`;
   return {
@@ -51,7 +51,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
   const d = load(cat);
   if (!d) notFound();
   const { c, members } = d;
-  const read = catalog().read;
   // One top recipe from each of the best known members that has one, so the examples span the category.
   const examples: Recipe[] = [];
   for (const m of members) {
@@ -73,28 +72,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
       <section className="wrap uc3-hero ig3-hero ig3-dir-hero">
         <h1>{c.name} integrations for AI agents and automations</h1>
         <p className="answer">50agents builds automations, AI agents and apps on {c.short} apps such as {list(top)}, through viaSocket. {c.about}</p>
-        <div className="ig3-search"><DirSearch label={`Search ${c.short} apps`} /></div>
       </section>
 
-      <section className="wrap sec ig3-az" aria-label={`${c.name} apps`}>
-        <div className="sec-h c"><h2>{c.name} apps</h2><p>Most used first. Each has its own page with every trigger, action and recipe.</p></div>
-        <div data-letter="all"><AppGrid apps={members} /></div>
+      <section className="wrap ig4-dir-sec" aria-label={`${c.name} apps`}>
+        <DirectoryPanel apps={members} current={`/integrations/category/${c.slug}`} head={<h2>{c.name} apps</h2>} label={`Search ${c.short} apps`} />
       </section>
 
       {examples.length > 0 && (
-        <section className="wrap sec" id="recipes" data-hide-on-search>
-          <div className="sec-h c"><h2>What people build with {c.short} apps</h2><p>One ready recipe from each of the most used {c.short} apps. Build this puts it in Captain&rsquo;s box.</p></div>
-          <RecipeRows recipes={examples} page={page} campaign={C} />
+        <section className="wrap sec" id="templates">
+          <div className="sec-h c"><h2>{c.short} templates</h2><p>One from each of the most used {c.short} apps.</p></div>
+          <TemplatesBox recipes={examples} page={page} campaign={C} />
         </section>
       )}
 
-      <section className="wrap sec" id="categories">
-        <div className="sec-h c"><h2>Other categories</h2></div>
-        <CategoryCards cats={CATEGORIES.filter(x => x.slug !== c.slug)} />
-        <p className="uc3-more-apps"><MaybeLink href="/integrations">Every app, A to Z</MaybeLink></p>
-      </section>
-
-      <Final h2={`Build on your ${c.short} apps`} p="Tell Captain the job in plain words. Free to start." ask={ask} page={page} campaign={C} updated={read} />
+      <Final h2={`Build on your ${c.short} apps`} p="Tell Captain the job in plain words. Free to start." ask={ask} page={page} campaign={C} />
 
       <StickyBar><span>{c.name} apps</span><BuildLink page={page} place="sticky" campaign={C} ask={ask} className="btn">Build it</BuildLink></StickyBar>
     </div>

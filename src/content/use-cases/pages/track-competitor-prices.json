@@ -7,8 +7,8 @@
   "description": "Tell Captain to set up a browser agent that reads your competitors' pricing pages every day at 9:00 and reports which price changed, from what to what.",
   "h1": "Monitor competitor prices automatically",
   "answer": [
-    "To monitor competitor prices automatically, tell Captain \"Set up a browser agent that checks my competitors' pricing pages every day at 9:00\" in 50agents.",
-    "It builds a browser agent that opens each pricing page in its own browser, compares what it reads with the last run and leaves you a report; nothing waits for approval because it only reads."
+    "To monitor competitor prices automatically, tell Captain \"Set up a browser agent that checks my competitors' pricing pages every day at 9:00\".",
+    "It builds a browser agent that reports price changes; it only reads, so nothing needs approval."
   ],
   "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
   "build": {

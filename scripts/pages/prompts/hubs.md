@@ -17,13 +17,22 @@ Search the row's queries. Read the top 3 to 5 results and the "People also ask" 
 ## Fields
 - `title` under 60 characters, ends " | 50agents". `description` 120 to 160 characters, answer first.
 - `crumb`: the kind, plural ("AI agents"). `h1`: what you can do, in plain words. `line`: under 12 words, for link cards elsewhere.
-- `answer`: the kind in two sentences, 45 words at most each. The first says what it is in 50agents with one concrete example; the second says how you get one from Captain and what asks first.
-- `example`: `ask` exactly the row's ask; `build` copied from the use case page.
-- `useCases`: one sentence over the use case cards.
-- `apps`: `slugs` the row's apps; `h2` a heading that says 2,300+ apps; `p` one sentence on how this kind uses apps.
+- `answer`: the kind in two sentences, 40 words at most in total. The first says what it is in 50agents with one concrete example; the second says how you get one from Captain and what asks first.
+- `example`: `ask` exactly the row's ask; `build` copied from the use case page (kept as a fact; the hero shows no plan card).
+- `useCases`: the subheader over the use case cards, one short line of 14 words at most.
+- `apps`: the row's apps, as a list of catalog slugs, most-used first. The template writes the heading itself: "Works with <the first three> and 2,300+ apps" over two marquee rows.
 - `faqs`: 5 or 6 questions from People also ask, each answered in 2 or 3 sentences (70 words at most), from the facts file only. Include one on what it can't do yet, and one comparing it with the tools searchers name, fairly: say where they are better. No prices.
 - `links`: 3 reads that exist: a guide, a glossary term, a comparison.
 - `final`: the closing heading, an invitation in under 8 words. `updated`: today's date, ISO.
+
+## Round 2 rules (D254, Jii's review)
+- The hero answer is 40 words at most in total (both sentences together). Every subheader the page shows is one short
+  line, 14 words at most, direct and concise.
+- No dates anywhere on the page: no byline date, no "Updated", no "Prices checked", no "read <date>". `updated` is used
+  only for JSON-LD `dateModified` and the sitemap.
+- No source lines on the page. `sources` (where the type has it) stays in the data so the facts can be checked; it is
+  never shown.
+- The hero film shows the ask typing into Captain, with no plan card. `build` is kept in the data as a fact.
 
 ## Rules (from the brief, Part A5, word for word where quoted)
 - "Write like a sharp operator explaining something to a peer." Short sentences, plain verbs, "you". Show, don't claim.

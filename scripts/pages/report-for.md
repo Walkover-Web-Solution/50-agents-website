@@ -4,11 +4,11 @@ Pages 8, passed 8, failed 0. Run: node scripts/pages/gates-for.mjs
 
 | Page | Words | Result |
 |---|---|---|
-| agencies | 380 | pass |
-| ecommerce | 388 | pass |
-| finance | 419 | pass |
-| founders | 385 | pass |
-| hr | 441 | pass |
-| operations | 371 | pass |
-| sales | 437 | pass |
-| support | 455 | pass |
+| agencies | 355 | pass |
+| ecommerce | 371 | pass |
+| finance | 396 | pass |
+| founders | 352 | pass |
+| hr | 417 | pass |
+| operations | 349 | pass |
+| sales | 406 | pass |
+| support | 427 | pass |

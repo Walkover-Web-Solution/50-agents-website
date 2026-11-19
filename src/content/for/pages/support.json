@@ -8,8 +8,8 @@
   "description": "What support teams hand to AI first: replies drafted from your own answers, a requests desk, email sorted, urgent tickets flagged, a weekly summary.",
   "h1": "AI agents and automations for support teams",
   "answer": [
-    "Support teams hand off the first draft: an AI agent that reads each new support email and writes the reply from what your business knows, and a desk that tracks every request by status.",
-    "In 50agents you describe the job to Captain and it builds it on Gmail, Zendesk, Freshdesk or Intercom; every reply waits for a person to approve, change or decline it."
+    "Support teams hand off the first draft: an AI agent writes each reply from what your business knows, and a desk tracks every request.",
+    "Every reply waits for a person to approve, change or decline it."
   ],
   "example": {
     "kind": "ai",

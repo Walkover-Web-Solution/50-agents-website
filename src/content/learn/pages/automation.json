@@ -7,13 +7,13 @@
   "description": "An automation runs the same steps every time an event happens or a schedule comes round, with no person starting it. A plain definition and an example.",
   "h1": "What is an automation?",
   "definition": [
-    "An automation is a set of steps that runs the same way every time something happens or a schedule comes round, with no person starting it.",
-    "It follows rules rather than judgement, so the same input gives the same result, run after run."
+    "An automation is a set of steps that runs the same way each time an event happens or a schedule comes round.",
+    "It follows rules, not judgement, so the same input gives the same result."
   ],
   "example": {
     "kind": "auto",
     "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
-    "why": "A new payment starts it and a row goes into your sheet, with no AI in the run. Captain tries it on a real payment and leaves it as a draft until you make it live.",
+    "why": "Each new payment adds a row, the same way every time, with no AI.",
     "build": {
       "name": "Payments sheet",
       "line": "every Stripe payment, one row each",

@@ -3,111 +3,122 @@
   "type": "alternatives",
   "tool": "gumloop",
   "query": "gumloop alternatives",
-  "title": "Gumloop alternatives, with checked prices | 50agents",
-  "description": "Gumloop alternatives: Lindy for a personal AI assistant, Relevance AI for sales AI agents, n8n to self-host, and 50agents to start free. Prices checked.",
+  "title": "Gumloop alternatives: AI agent builders | 50agents",
+  "description": "Gumloop alternatives: Lindy for an AI assistant, Relevance AI for sales, n8n and Activepieces to self-host, and 50agents for browser agents, free to start.",
   "h1": "Gumloop alternatives",
   "answer": [
-    "Gumloop has no free plan, so if you want to try before paying, 50agents is free to start and Activepieces has a free plan for up to 5 users.",
-    "If you want AI agents on your own servers, n8n and Activepieces both self-host; for one person's assistant, Lindy fits better, and for sales teams, Relevance AI comes ready-made."
+    "Lindy works in your inbox and calendar; Relevance AI focuses on sales.",
+    "n8n and Activepieces self-host. 50agents builds browser agents and AI agents from plain words, free to start."
   ],
   "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
-  "lede": "Gumloop is a team AI agent builder: shared AI agents, any model, and IT deciding who may use which tools.",
+  "lede": "Other AI agent builders, and where each one starts.",
   "entries": [
     {
       "tool": "fifty",
-      "suits": "Teams who want fixed steps and AI judgement in one place. Captain decides whether the job is an automation, an AI agent, a browser agent or an app.",
+      "best": "Browser agents from one sentence",
       "price": "Free to start",
-      "limit": "Its browser agent cannot get past a login without your OK; Gumloop's browser keeps a credential vault and lets you take over the session.",
-      "limitUrl": "https://docs.gumloop.com/core-concepts/agent_browser.md"
+      "diff": "Leaves a report each run",
+      "src": "https://50agents.com"
     },
     {
       "tool": "lindy",
-      "suits": "People whose Gumloop AI agents were really their own assistant: inbox, calendar, meeting notes. Lindy works in Slack, iMessage and email.",
-      "price": "$50 in credits for 7 days. Team: from $29.99 a month per active user",
-      "limit": "Billed per active user from $29.99 a month, which adds up across a team.",
-      "limitUrl": "https://www.lindy.ai/pricing"
+      "best": "Inbox and calendar work",
+      "price": "$29.99 a month per user",
+      "diff": "Works in Slack, iMessage, email",
+      "src": "https://www.lindy.ai/"
     },
     {
       "tool": "relevance",
-      "suits": "Revenue teams that want prebuilt teams of AI agents for prospecting and follow-up, with approvals reps answer from Slack or Teams.",
-      "price": "No free plan. Pro: $19 a month billed yearly (2,500 actions)",
-      "limit": "No free plan either, and extra actions cost $80 per 1,000.",
-      "limitUrl": "https://relevanceai.com/docs/get-started/pricing"
+      "best": "Sales AI agent teams",
+      "price": "$19 a month, billed yearly",
+      "diff": "Wired into Salesforce, HubSpot, Gong",
+      "src": "https://relevanceai.com/"
     },
     {
       "tool": "n8n",
-      "suits": "Teams with a developer who want AI agents and flows on their own servers, with human approval for tool calls and a code node.",
-      "price": "No free cloud plan. Starter: €20 a month billed yearly (2.5K executions)",
-      "limit": "More setup than Gumloop: someone builds the AI agent node by node, and the cloud plan has no free tier.",
-      "limitUrl": "https://n8n.io/pricing/"
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Bills per run, not step",
+      "src": "https://n8n.io/pricing/"
     },
     {
       "tool": "activepieces",
-      "suits": "Teams who want a free plan, AI agents, and an MIT-licensed core they can self-host later.",
-      "price": "Free: 1,000 credits, up to 5 users. Plus: $20 a month flat (10,000 credits)",
-      "limit": "AI steps cost 2, 10 or 20 credits depending on the model, so AI-heavy work still uses credits quickly.",
-      "limitUrl": "https://www.activepieces.com/pricing"
+      "best": "Open source, flat pricing",
+      "price": "Free plan; Plus $20 a month",
+      "diff": "Self-host, MIT-licensed core",
+      "src": "https://www.activepieces.com/"
     }
   ],
-  "pick": {
-    "us": [
-      "You want to try before you pay, with no card.",
-      "Your jobs mix fixed steps, AI judgement and records of their own, and you would rather describe them than build them.",
-      "You want sends to people outside to wait for your yes by default."
-    ],
-    "them": [
-      "You need IT-level control over which tools and models each person can use. That is what Gumloop is built for.",
-      "Your AI agents work in websites behind logins, and you use the credential vault and take over the browser when needed.",
-      "You run it on Enterprise, where credits roll over."
-    ]
+  "stay": {
+    "best": "Watching an AI agent browse",
+    "price": "$37 a month (Pro)",
+    "diff": "IT controls tools and models",
+    "src": "https://www.gumloop.com/"
   },
+  "strengths": [
+    {
+      "title": "Websites with no app",
+      "line": "A browser agent reads sites on a schedule and leaves you a report.",
+      "face": "scout"
+    },
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    }
+  ],
   "move": [
     {
-      "title": "Copy each AI agent's instructions",
-      "body": "We found no export for Gumloop AI agents on Gumloop's own pages, so copy each one's instructions, tools and model before you cancel."
+      "title": "List your Gumloop AI agents",
+      "body": "Note what each one does, what it reads and when it runs."
     },
     {
-      "title": "Split AI agents from flows",
-      "body": "Anything that does the same steps every time is an automation; anything that decides is an AI agent. Moving them as the right kind usually makes them cheaper to run."
+      "title": "Start with a browser job",
+      "body": "Tell Captain the sites to check and what to look for."
     },
     {
-      "title": "Rebuild from the instructions",
-      "body": "Paste the AI agent's instructions into Captain as the ask. Captain asks what it cannot know, for example which sheet or which Slack channel, then shows the plan."
+      "title": "Check the first report",
+      "body": "The browser agent runs on its schedule and leaves you a report."
     },
     {
-      "title": "Cancel before the next cycle",
-      "body": "Gumloop credits do not roll over, so time the switch to the end of your billing period."
+      "title": "Move the rest",
+      "body": "Move each remaining AI agent the same way, then cancel your plan."
     }
   ],
   "faqs": [
     {
       "q": "Does Gumloop have a free plan?",
-      "a": "No. Its docs describe a 14-day Pro trial that needs a card and becomes a paid Pro plan unless you cancel."
-    },
-    {
-      "q": "What is the closest alternative to Gumloop?",
-      "a": "For team AI agents with controls, Relevance AI. For the same mix of AI agents and fixed steps without building, 50agents. For self-hosting, n8n."
+      "a": "No. Gumloop offers a 14-day Pro trial that needs a card. Pro is $37 a month for 20,000 credits."
     },
     {
       "q": "Which Gumloop alternative has a browser agent?",
-      "a": "Lindy drives a browser on Pro and up, and 50agents has browser agents for websites with no app to connect. Zapier Agents has a Chrome extension that works on the page you have open."
+      "a": "Lindy can drive a browser on Pro and up. 50agents has browser agents that read and use websites with no app to connect."
+    },
+    {
+      "q": "Can I self-host a Gumloop alternative?",
+      "a": "Yes. n8n and Activepieces both run on your own servers."
     }
   ],
   "related": [
     {
       "href": "/compare/50agents-vs-gumloop",
       "title": "50agents vs Gumloop",
-      "line": "Row by row, ticks and crosses"
+      "line": "Row by row, with marks"
     },
     {
       "href": "/compare/lindy-alternatives",
       "title": "Lindy alternatives",
-      "line": "If you want an assistant, not a builder"
+      "line": "AI assistants for your inbox"
     },
     {
       "href": "/compare/relevance-ai-alternatives",
       "title": "Relevance AI alternatives",
-      "line": "For sales teams weighing AI agent tools"
+      "line": "AI agents for sales teams"
     }
   ],
   "updated": "2026-11-19"

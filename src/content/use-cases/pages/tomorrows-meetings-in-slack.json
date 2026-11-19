@@ -7,8 +7,8 @@
   "description": "Tell Captain to set up an AI agent that reads tomorrow's Google Calendar every day at 18:00 and sends the meetings to you in one Slack message.",
   "h1": "Daily calendar summary in Slack",
   "answer": [
-    "To get a daily calendar summary in Slack, tell Captain \"Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack\" in 50agents.",
-    "It builds an AI agent that reads tomorrow's events every day at 18:00 and writes them as one short message, which waits for your approval before it is posted."
+    "To get a daily calendar summary in Slack, tell Captain \"Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack\".",
+    "It builds an AI agent that posts tomorrow's meetings at 18:00, after you approve."
   ],
   "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
   "build": {

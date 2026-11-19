@@ -5,12 +5,11 @@ import { HUBS } from '@/content/hubs';
 import { INDEX_ASK } from '@/content/pages/indexes';
 import { Crumbs, Cta, Face, MaybeLink } from '../parts';
 import { ReadCard } from '../hubs/cards';
-import { BASE, crumbsLd, Ld, month } from '../hubs/meta';
+import { BASE, crumbsLd, Ld } from '../hubs/meta';
 import '../css/usecase.css';
 import '../css/hubs.css';
 import '../css/pages.css';
 
-const UPDATED = '2026-11-19';
 // Placeholder until Jii confirms the address (B11). No mailto link is made from it.
 export const CONTACT_EMAIL: string | null = null;
 
@@ -28,7 +27,6 @@ function Final({ page, h2 }: { page: string; h2: string }) {
         <span className="peek l" aria-hidden="true"><Face id="writer" size={50} /><Face id="keeper" size={44} /></span>
         <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="scout" size={46} /></span>
       </div>
-      <p className="byline">By the 50agents team · Updated {month(UPDATED)}</p>
     </section>
   );
 }
@@ -58,11 +56,11 @@ export function AboutPage() {
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'About' }]} /></div>
       <section className="wrap ix3-hero">
         <h1>About 50agents</h1>
-        <p>50agents is a product of viaSocket, made by Walkover. You tell Captain, its AI, what you need in plain words, and it builds the thing that does the work in your real apps, 2,300+ of them through viaSocket.</p>
+        <p>50agents is a product of viaSocket, made by Walkover. Tell Captain, its AI, what you need, and it builds the thing that does the work in 2,300+ apps.</p>
       </section>
 
       <section className="wrap sec ix3-first" id="kinds">
-        <div className="sec-h c"><h2>What Captain builds</h2><p>One of four kinds, picked from what you say. Captain tells you which in one line.</p></div>
+        <div className="sec-h c"><h2>What Captain builds</h2><p>One of four kinds, picked from what you say.</p></div>
         <div className="cards3 ix3-two">{HUBS.map(h => <ReadCard key={h.slug} href={`/${h.slug}`} label={h.h1} />)}</div>
       </section>
 
@@ -100,7 +98,7 @@ export function ContactPage() {
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} /></div>
       <section className="wrap ix3-hero">
         <h1>Contact the 50agents team</h1>
-        <p>Write to the team about 50agents, your workspace or a partnership. For how-to questions, the Help Center has guides. 50agents is a product of viaSocket, made by Walkover.</p>
+        <p>Write to the team about 50agents, your workspace or a partnership. For how-to questions, the Help Center has guides.</p>
       </section>
       <section className="wrap sec ix3-first" id="ways">
         <div className="sec-h c"><h2>Ways to reach us</h2></div>

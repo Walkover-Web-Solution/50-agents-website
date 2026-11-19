@@ -5,8 +5,8 @@
  "description": "Connect Gmail and tell Captain the job: an email sent on each new form response, an AI agent that drafts replies to unread mail, or a desk for requests.",
  "h1": "AI agents and automations for Gmail",
  "answer": [
-  "To put Gmail to work in 50agents, connect it once and tell Captain the job, such as “when a new Google Forms response comes in, send an email from my Gmail”.",
-  "Captain builds an automation, an AI agent or an app that reads, labels, drafts and sends through your own Gmail, and every email to someone outside your business waits for your approval first."
+  "Connect Gmail and tell Captain the job, such as “when a new Google Forms response comes in, send an email from my Gmail”.",
+  "Captain reads, labels, drafts and sends through your Gmail, and emails to outsiders wait for your OK."
  ],
  "ask": "Set up an automation: when a new Google Forms response comes in, send an email from my Gmail",
  "recipe": {

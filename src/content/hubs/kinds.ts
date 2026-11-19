@@ -1,17 +1,26 @@
-// "Which kind do I need": the same comparison on all four hubs. The rules are Captain's own (app/PRODUCT.md, D218);
-// each example is a use case page built from a live starting ask (app/src/features/templates/list.ts).
+// "Which kind do I need": the same comparison on all four hubs, in the use case table's style (D254): short cells, a mark
+// plus at most 5 words. The rules are Captain's own (app/PRODUCT.md, D218, scripts/pages/product-facts.md); each example
+// is a use case page built from a live starting ask (app/src/features/templates/list.ts).
+// A cell starting "Yes", "No", "Only" or "Partly" gets a drawn mark (src/site/hubs/marks.tsx); "Yes"/"No" is then dropped.
 import type { Kind } from '@/site/types';
 
-export type KindRow = { kind: Kind; pick: string; starts: string; ai: string; example: string };
+export const KIND_ORDER: Kind[] = ['ai', 'auto', 'browser', 'app'];
 
-export const KIND_ROWS: KindRow[] = [
-  { kind: 'ai', pick: 'Each run needs judgement: which deals, what to say', starts: 'A schedule, or when you ask it in its chat', ai: 'Every run', example: 'follow-up-quiet-hubspot-deals' },
-  { kind: 'auto', pick: 'The same steps every time: when X happens, do Y', starts: 'An app event, a schedule, or a call to its address', ai: 'Only in a step that needs it', example: 'stripe-payments-to-google-sheets' },
-  { kind: 'browser', pick: 'The work is on websites with no app to connect', starts: 'A schedule, or when you ask it', ai: 'Every run, in its own browser', example: 'track-competitor-prices' },
-  { kind: 'app', pick: 'You need screens and records of your own', starts: 'You open it; its crew works on a schedule or when records change', ai: 'In its crew, not in the screens', example: 'chase-unpaid-invoices' },
+/** One row per thing that tells the kinds apart; `cells` in KIND_ORDER. */
+export const KIND_ROWS: { label: string; cells: Record<Kind, string> }[] = [
+  { label: 'Best for', cells: { ai: 'A judgement on each run', auto: 'The same steps every time', browser: 'Websites with no app', app: 'Your own lists and screens' } },
+  { label: 'Starts on an app event', cells: { ai: 'No, a schedule or its chat', auto: 'Yes', browser: 'No, a schedule or when asked', app: 'Only on its own records' } },
+  { label: 'Decides on each run', cells: { ai: 'Yes', auto: 'Only in an AI step', browser: 'Yes, in its own browser', app: 'Only in its crew' } },
+  { label: 'Screens of its own', cells: { ai: 'No, its own chat', auto: 'No', browser: 'No, it leaves a report', app: 'Yes, lists and boards' } },
 ];
 
-export const KIND_LABELS: [keyof Omit<KindRow, 'kind'>, string][] = [['pick', 'Pick it when'], ['starts', 'Starts on'], ['ai', 'AI on each run'], ['example', 'For example']];
+/** The use case page each kind's "For example" cell links to. */
+export const KIND_EXAMPLES: Record<Kind, string> = {
+  ai: 'follow-up-quiet-hubspot-deals',
+  auto: 'stripe-payments-to-google-sheets',
+  browser: 'track-competitor-prices',
+  app: 'chase-unpaid-invoices',
+};
 
-export const KIND_RULE =
-  'Captain picks the kind from what you say and tells you which in one line. Your own word wins: ask for an automation and you get one, unless it truly cannot be one.';
+/** The line under "Which kind do I need?": one short line (D254). */
+export const KIND_RULE = 'Captain picks the kind from what you say. Your own word wins.';

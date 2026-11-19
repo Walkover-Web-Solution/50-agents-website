@@ -7,8 +7,8 @@
   "description": "To send new HubSpot contacts to Google Sheets and Slack, tell Captain once: each contact becomes a sheet row and a channel post you approve. Free to start.",
   "h1": "Send new HubSpot contacts to Google Sheets and Slack",
   "answer": [
-    "To send new HubSpot contacts to Google Sheets and Slack, tell Captain \"Set up an automation: every new HubSpot contact is added as a row to my Google Sheet\" in 50agents.",
-    "It builds an automation that starts on each new contact, adds the row with the fields you pick, and holds the Slack post in Needs you until you approve it."
+    "To send new HubSpot contacts to Google Sheets and Slack, tell Captain \"Set up an automation: every new HubSpot contact is added as a row to my Google Sheet\".",
+    "It builds an automation and asks before each Slack post."
   ],
   "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
   "stat": {

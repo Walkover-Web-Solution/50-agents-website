@@ -7,8 +7,8 @@
   "description": "To draft replies to customer emails with AI, an AI agent reads new support mail in Gmail, writes each answer from what you told it and waits for your OK.",
   "h1": "AI to draft replies to customer emails",
   "answer": [
-    "To draft replies to customer emails with AI, tell Captain \"Set up an AI agent that reads new support emails, drafts a reply from what you know about my business\" in 50agents.",
-    "It builds an AI agent that reads your support mail on a schedule, drafts a reply in each customer's thread, and asks you before anything is sent."
+    "To draft replies to customer emails with AI, tell Captain \"Set up an AI agent that reads new support emails\".",
+    "It builds an AI agent that drafts a reply in each customer's thread and asks before sending."
   ],
   "ask": "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
   "stat": {

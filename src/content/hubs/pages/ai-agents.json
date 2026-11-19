@@ -8,31 +8,74 @@
   "h1": "Build an AI agent by describing the job",
   "line": "Judgement on each run, in your apps, on a schedule.",
   "answer": [
-    "An AI agent in 50agents is a worker with instructions, the apps you give it, a schedule and its own chat, and it uses judgement on each run: which deals need a nudge, what a reply should say.",
-    "You describe the job to Captain, approve the plan it shows you, and the AI agent is built; it reads on its own, and any change in an app waits for your yes."
+    "An AI agent works in your apps on a schedule and decides on each run which deals need a nudge and what to say.",
+    "Describe the job to Captain, approve its plan, and every send waits for your yes."
   ],
   "example": {
     "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
-    "build": {"name":"Deal follow-ups","line":"quiet deals, a follow-up drafted for each","when":"Every weekday at 9:00","does":["Finds deals quiet for 5 days","Reads your last Gmail thread","Drafts a follow-up to approve"],"apps":["hubspot","gmail"],"asksFirst":"Every email it would send"}
+    "build": {
+      "name": "Deal follow-ups",
+      "line": "quiet deals, a follow-up drafted for each",
+      "when": "Every weekday at 9:00",
+      "does": [
+        "Finds deals quiet for 5 days",
+        "Reads your last Gmail thread",
+        "Drafts a follow-up to approve"
+      ],
+      "apps": [
+        "hubspot",
+        "gmail"
+      ],
+      "asksFirst": "Every email it would send"
+    }
   },
-  "useCases": "Each one is a Playbook in the app: tap it and Captain plans it for your business before anything is built.",
-  "apps": {
-    "slugs": ["gmail", "hubspot", "stripe", "google-calendar", "slack"],
-    "h2": "Give it the apps it needs, from 2,300+",
-    "p": "An AI agent uses only the apps you give it, from the ones your workspace has connected through viaSocket."
-  },
+  "useCases": "Each one is a Playbook: Captain plans it for your business first.",
+  "apps": [
+    "gmail",
+    "hubspot",
+    "stripe",
+    "google-calendar",
+    "slack"
+  ],
   "faqs": [
-    { "q": "What is an AI agent builder?", "a": "A tool that turns a description of a job into software that does the job in your apps on its own schedule. In 50agents the builder is Captain: you describe the job, it asks what it cannot guess, shows a plan, and builds the AI agent when you tap Build it." },
-    { "q": "Can I build an AI agent without code?", "a": "Yes. Everything is in plain words: the ask, Captain's plan, the AI agent's instructions and the changes you make later in its chat. There is no canvas to wire and no code to write." },
-    { "q": "Will an AI agent send emails without asking me?", "a": "Not by default. Reading runs on its own; sending, updating a record or changing access waits in Needs you for one tap. AI agents ask before sending, even to you, until you allow it in Settings." },
-    { "q": "AI agent or automation: which do I need?", "a": "If the steps are the same every time, an automation: it uses AI only in a step that needs it, and it can start on an app event. If each run needs a decision, such as which deals are worth a follow-up, an AI agent. Captain picks and tells you which." },
-    { "q": "What can't an AI agent do yet?", "a": "It cannot start the moment a new email arrives; it runs on a schedule or when you ask it in its chat. It has no email address of its own and sends from the apps you connect, and Undo covers its own setup, not what it changed in your outside apps." },
-    { "q": "How is this different from Lindy or Zapier?", "a": "Lindy is built around one AI assistant you hire, and in Zapier you set up each AI agent yourself. In 50agents, Captain plans the AI agent from your sentence and you approve the plan; Lindy states a SOC 2 report and Zapier has a larger app directory, and 50agents holds no security certification." }
+    {
+      "q": "What is an AI agent builder?",
+      "a": "A tool that turns a description of a job into software that does the job in your apps on its own schedule. In 50agents the builder is Captain: you describe the job, it asks what it cannot guess, shows a plan, and builds the AI agent when you tap Build it."
+    },
+    {
+      "q": "Can I build an AI agent without code?",
+      "a": "Yes. Everything is in plain words: the ask, Captain's plan, the AI agent's instructions and the changes you make later in its chat. There is no canvas to wire and no code to write."
+    },
+    {
+      "q": "Will an AI agent send emails without asking me?",
+      "a": "Not by default. Reading runs on its own; sending, updating a record or changing access waits in Needs you for one tap. AI agents ask before sending, even to you, until you allow it in Settings."
+    },
+    {
+      "q": "AI agent or automation: which do I need?",
+      "a": "If the steps are the same every time, an automation: it uses AI only in a step that needs it, and it can start on an app event. If each run needs a decision, such as which deals are worth a follow-up, an AI agent. Captain picks and tells you which."
+    },
+    {
+      "q": "What can't an AI agent do yet?",
+      "a": "It cannot start the moment a new email arrives; it runs on a schedule or when you ask it in its chat. It has no email address of its own and sends from the apps you connect, and Undo covers its own setup, not what it changed in your outside apps."
+    },
+    {
+      "q": "How is this different from Lindy or Zapier?",
+      "a": "Lindy is built around one AI assistant you hire, and in Zapier you set up each AI agent yourself. In 50agents, Captain plans the AI agent from your sentence and you approve the plan; Lindy states a SOC 2 report and Zapier has a larger app directory, and 50agents holds no security certification."
+    }
   ],
   "links": [
-    { "label": "How to build an AI agent without code", "href": "/guides/how-to-build-an-ai-agent-without-code" },
-    { "label": "What is an AI agent?", "href": "/learn/ai-agent" },
-    { "label": "Lindy alternatives", "href": "/compare/lindy-alternatives" }
+    {
+      "label": "How to build an AI agent without code",
+      "href": "/guides/how-to-build-an-ai-agent-without-code"
+    },
+    {
+      "label": "What is an AI agent?",
+      "href": "/learn/ai-agent"
+    },
+    {
+      "label": "Lindy alternatives",
+      "href": "/compare/lindy-alternatives"
+    }
   ],
   "final": "Describe your first AI agent",
   "updated": "2026-11-19"

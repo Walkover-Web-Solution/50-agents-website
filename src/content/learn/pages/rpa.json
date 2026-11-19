@@ -7,13 +7,13 @@
   "description": "RPA is software that replays a person's recorded clicks in an app's screens. How it differs from a browser agent, with a real example from 50agents.",
   "h1": "What is RPA (robotic process automation)?",
   "definition": [
-    "RPA, robotic process automation, is software that copies the clicks and keystrokes a person makes in an application's screens and replays them to do repetitive office work.",
-    "It follows the recorded path exactly, so it works well on screens that never change and stops when one does."
+    "RPA, robotic process automation, is software that replays the clicks and keystrokes a person recorded in an application's screens.",
+    "It follows that path exactly, so it breaks when a screen changes."
   ],
   "example": {
     "kind": "browser",
     "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
-    "why": "An RPA bot for this would be recorded box by box and break on a redesign. The browser agent is given the goal instead and finds the prices wherever they now sit.",
+    "why": "Recorded clicks break on a redesign; the browser agent looks for the prices.",
     "build": {
       "name": "Price watch",
       "line": "competitor pricing pages, read every morning",

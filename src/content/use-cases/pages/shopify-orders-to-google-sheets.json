@@ -7,8 +7,8 @@
   "description": "Tell Captain \"every new Shopify order is added as a row to my Google Sheet\" and get an automation that lists the items and total, one row per order or item.",
   "h1": "Shopify orders to Google Sheets",
   "answer": [
-    "To send Shopify orders to Google Sheets, tell Captain \"Set up an automation: every new Shopify order is added as a row to my Google Sheet\" in 50agents.",
-    "It builds an automation that starts on each new order, lists the items and the total, and writes one row per order or one per item, as you choose. It writes only to your own sheet, so nothing waits for approval."
+    "To send Shopify orders to Google Sheets, tell Captain \"Set up an automation: every new Shopify order is added as a row to my Google Sheet\".",
+    "It builds an automation that writes only to your sheet, so nothing needs approval."
   ],
   "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
   "stat": {

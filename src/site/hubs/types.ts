@@ -12,12 +12,12 @@ export type HubPage = {
   crumb: string; // 'AI agents'
   h1: string;
   line: string; // one line for link cards on other pages, under 12 words
-  answer: [string, string]; // the kind in two sentences
-  example: { ask: string; build: UseCasePage['build'] }; // a real starting ask of this kind (app templates/list.ts) and Captain's plan for it
-  useCases: string; // one sentence over the use case cards
-  apps: { slugs: string[]; h2: string; p: string }; // the apps it is most used with (catalog slugs), large, then the wall
+  answer: [string, string]; // the kind in two sentences, 40 words at most in total (D254)
+  example: { ask: string; build: UseCasePage['build'] }; // a real starting ask of this kind (app templates/list.ts); `build` is kept as a fact, not drawn
+  useCases: string; // the line under the use case cards' heading, 14 words at most
+  apps: string[]; // the apps it is most used with (catalog slugs): the first three are named in "Works with ...", all lead the marquee
   faqs: { q: string; a: string }[]; // 5 or 6, each answer 2 or 3 sentences
   links: { label: string; href: string }[]; // 3 reads: a guide, a glossary term, a comparison
   final: string; // the closing heading
-  updated: string; // ISO date, shown as "Updated <Month Year>"
+  updated: string; // ISO date, for JSON-LD dateModified only: no date is shown (D254)
 };

@@ -28,8 +28,8 @@ with this app (sync records, get alerts, follow up, report) and what the app's o
 - `slug`, `query`: from the row.
 - `title` under 60 characters, ends " | 50agents". `description` 120 to 160 characters, answer first.
 - `h1`: "AI agents and automations for <App>" unless the query reads better.
-- `answer`: two sentences. The first starts with "To put <App> to work in 50agents, connect it once and tell Captain the
-  job, such as" and quotes the ask's job in plain words. The second says what Captain builds and what asks first.
+- `answer`: two sentences, 40 words at most in total (D254). The first starts with "Connect <App> and tell Captain the
+  job, such as" and quotes the ask's job in plain words. The second, short, says what Captain builds.
 - `ask`: exactly the row's ask. `recipe`: exactly the row's recipe.
 - `build`: Captain's plan for the ask: name (2 or 3 words), line (under 10 words), when (the recipe's trigger in plain
   words), does (1 to 3 lines, under 9 words each), apps (the recipe's two apps), asksFirst (under 8 words, true to the
@@ -45,7 +45,8 @@ with this app (sync records, get alerts, follow up, report) and what the app's o
 - `faqs`: 4 to 6 questions from People also ask and your research, each answered in 2 or 3 sentences, from the facts
   file and the catalog only. Name a trigger or action in curly quotes, exactly as the catalog writes it: “Send Message”.
   If the app has its own AI, one question compares it fairly and says where the app's own AI is better.
-- `sources`: the app's own AI pages you read for that answer, as label and URL. Leave it out if you read none.
+- `sources`: the app's own AI pages you read for that answer, as label and URL, kept in the data for checking; the page
+  shows no source line (D254). Leave it out if you read none.
 - `updated`: today's date, ISO.
 
 ## Rules (from the brief, Part A5, word for word where quoted)
@@ -55,4 +56,7 @@ with this app (sync records, get alerts, follow up, report) and what the app's o
 - "AI agent" or "browser agent", never a bare "agent". Captain is Captain. viaSocket with a lowercase v. The app count is written 2,300+.
 - No dates in the text, no credits, no prices for 50agents ("free to start" at most).
 - "Use only the triggers, actions and apps in the input. If the data doesn't answer a question, leave the question out."
-- Numbers: no stats and no counts of triggers, actions or recipes; only numbers that are in the row or the catalog, and times of day in asks.
+- Numbers: no stats and no counts of triggers, actions or templates; only numbers that are in the row or the catalog, and times of day in asks.
+- Ready-made starting points are "templates" in every word the visitor reads ("Templates for <App>", "<App> and <Other>
+  templates"), the word the 50agents app uses; never "recipes". The input keeps the catalog's field name, `recipes`.
+- No dates anywhere in the words, and no source lines (D254).

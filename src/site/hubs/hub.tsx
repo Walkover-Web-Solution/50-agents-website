@@ -1,20 +1,18 @@
-// A kind hub, v3 (D253): one template, filled from the hub's JSON (src/content/hubs/pages), written by the page pipeline.
-// The kind in two sentences with a real ask typed into Captain, the "which kind" comparison, the use cases of this kind
-// (from the use case pages), the apps wall, questions, more to read. Every visual is a shared, data-driven component.
+// A kind hub, v3 (D253, D254): one template, filled from the hub's JSON (src/content/hubs/pages), written by the page
+// pipeline. The kind in two sentences with a real ask typed into Captain (no plan card), the "which kind" comparison, the
+// use cases of this kind (from the use case pages), "Works with ... 2,300+ apps" over two marquee rows, questions, more to
+// read. No date on the page: `updated` goes to JSON-LD only. Every visual is a shared, data-driven component.
 import type { HubPage } from './types';
-import type { UseCasePage } from '../usecase/types';
 import { HUBS } from '@/content/hubs';
 import { PAGES } from '@/content/use-cases/pages';
-import { AppLogo, Crumbs, Cta, Face, KindBadge, KINDS, MaybeLink } from '../parts';
+import { Crumbs, Cta, Face, KindBadge, KINDS } from '../parts';
 import { StickyBar } from '../sticky';
 import { PromptFilm } from '../usecase/film';
-import { PlanCard } from '../usecase/plan-card';
-import { appIcon, appName } from '../usecase/apps-data';
 import { KindTable } from './kind-table';
 import { KIND_RULE } from '@/content/hubs/kinds';
-import { topApps } from './apps';
+import { AppsWall } from './apps-wall';
 import { ReadCard, live } from './cards';
-import { appLd, crumbsLd, Ld, month } from './meta';
+import { appLd, crumbsLd, Ld } from './meta';
 import '../css/usecase.css';
 import '../css/hubs.css';
 
@@ -23,9 +21,6 @@ export function HubView({ h }: { h: HubPage }) {
   const path = `/${h.slug}`;
   const page = `hub-${h.slug}`;
   const ucs = PAGES.filter(u => u.kind === h.kind);
-  const wall = topApps(30, h.apps.slugs);
-  // PlanCard draws from a use case's kind and build; a hub's example carries exactly those.
-  const plan = { kind: h.kind, build: h.example.build } as UseCasePage;
   const reads = [
     ...HUBS.filter(o => o.kind !== h.kind).map(o => ({ href: `/${o.slug}`, label: o.h1 })),
     ...live(h.links),
@@ -36,16 +31,12 @@ export function HubView({ h }: { h: HubPage }) {
       <Ld data={[crumbsLd([{ name: 'Home' }, { name: h.crumb, path }]), appLd({ name: `50agents: ${h.crumb}`, path, description: h.answer.join(' '), updated: h.updated })]} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: h.crumb }]} /></div>
 
-      {/* Hero: the kind in two sentences, and a real ask of this kind typed into Captain, its plan under it */}
+      {/* Hero: the kind in two sentences, and a real ask of this kind typed into Captain */}
       <section className="wrap uc3-hero">
         <KindBadge kind={h.kind} />
         <h1>{h.h1}</h1>
         <p className="answer">{h.answer[0]} {h.answer[1]}</p>
-        <div className="hero-cta hub3-film">
-          <PromptFilm ask={h.example.ask} button={<Cta campaign="seo-hub" page={page} place="hero" ask={h.example.ask}>Build it</Cta>}>
-            <PlanCard u={plan} />
-          </PromptFilm>
-        </div>
+        <PromptFilm ask={h.example.ask} button={<Cta campaign="seo-hub" page={page} place="hero" ask={h.example.ask}>Build it</Cta>} />
         <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
       </section>
 
@@ -72,25 +63,8 @@ export function HubView({ h }: { h: HubPage }) {
         </section>
       )}
 
-      {/* The apps: the ones this kind leans on, large, then the most connected apps in the catalog */}
-      <section className="wrap sec" id="apps">
-        <div className="sec-h c"><h2>{h.apps.h2}</h2><p>{h.apps.p}</p></div>
-        {h.apps.slugs.length > 0 && (
-          <div className="uc3-apps">
-            {h.apps.slugs.map(a => (
-              <MaybeLink key={a} href={`/integrations/${a}`} className="uc3-app"><AppLogo app={a} icon={appIcon(a)} size={44} /><b>{appName(a)}</b></MaybeLink>
-            ))}
-          </div>
-        )}
-        <div className="uc3-wall" aria-label="Apps in viaSocket's catalog">
-          <div className="uc3-wall-row">
-            {[...wall, ...wall].map((a, i) => (
-              <span key={a.s + i} className="uc3-tile" title={a.n} aria-hidden={i >= wall.length ? 'true' : undefined}><AppLogo app={a.s} icon={a.i} size={34} /><span className="sr">{a.n}</span></span>
-            ))}
-          </div>
-        </div>
-        <p className="uc3-more-apps"><MaybeLink href="/integrations">See all 2,300+ apps</MaybeLink></p>
-      </section>
+      {/* The apps: "Works with ... 2,300+ apps" over two rows, the ones this kind leans on first */}
+      <AppsWall apps={h.apps} />
 
       {/* Questions */}
       <section className="wrap sec" id="questions">
@@ -120,7 +94,6 @@ export function HubView({ h }: { h: HubPage }) {
           <span className="peek l" aria-hidden="true"><Face id={k.face} size={52} /><Face id="keeper" size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="rosa" size={46} /></span>
         </div>
-        <p className="byline">By the 50agents team · Updated {month(h.updated)}</p>
       </section>
 
       <StickyBar><span>{h.crumb}</span><Cta campaign="seo-hub" page={page} place="sticky" ask={h.example.ask}>Build it</Cta></StickyBar>

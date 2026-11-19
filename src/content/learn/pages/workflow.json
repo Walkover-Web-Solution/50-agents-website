@@ -7,13 +7,13 @@
   "description": "A workflow is the order of steps a piece of work goes through, start to finish. It exists by hand or in software; automating it hands the steps to software.",
   "h1": "What is a workflow?",
   "definition": [
-    "A workflow is the order of steps a piece of work goes through from start to finish, such as: a contact signs up, they are added to a list, the team is told.",
-    "It exists whether people do it by hand or software runs it; automating a workflow means software does some or all of the steps."
+    "A workflow is the order of steps a piece of work goes through from start to finish, by hand or in software.",
+    "Automating one means software walks some or all of its steps."
   ],
   "example": {
     "kind": "auto",
     "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
-    "why": "By hand, this workflow is: see the order in Shopify, copy the items and total into the sheet, check nothing was missed. Automated, the order of steps stays; only who walks it changes.",
+    "why": "Copying each order into the sheet is the workflow; software now walks it.",
     "build": {
       "name": "Orders sheet",
       "line": "every Shopify order, rows you choose",

@@ -1,7 +1,8 @@
-// An integration page, v3 (D253): one template for every app in viaSocket's catalog. The six flagships are filled from
-// the JSON the page pipeline wrote (src/content/integrations/pages, scripts/pages); every other app from its catalog data
-// (words.ts templatePage). Hero with the app's best recipe typed into Captain, the four kinds, triggers and actions,
-// recipes, pairings, questions. Every visual is drawn from the data, so a new app needs no design work.
+// An integration page, v3 round 2 (D253, D254): one template for every app in viaSocket's catalog. The six flagships are
+// filled from the JSON the page pipeline wrote (src/content/integrations/pages, scripts/pages); every other app from its
+// catalog data (words.ts templatePage). Hero with the app's best template typed into Captain (no plan card), the four
+// kinds, triggers and actions as tabs in a box that scrolls inside itself, templates in the same box, pairings,
+// questions. No dates and no source lines on the page. Every visual is drawn from the data.
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import { Crumbs, KINDS, MaybeLink } from '@/site/parts';
@@ -10,7 +11,7 @@ import { PromptFilm } from '@/site/usecase/film';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { BuildLink } from '@/site/integrations/build-link';
 import { appIndexable, catalog, loadApp, partnersOf, rawRedirects, topRecipes, writtenPage } from '@/site/integrations/data';
-import { BASE, crumbsLd, EventGroups, Final, HeroPlan, firstRecipe, KindCards, LdScript, Lockup, PairCards, Questions, RecipeRows, softwareLd } from '@/site/integrations/parts';
+import { BASE, crumbsLd, EventsBox, Final, firstRecipe, KindCards, LdScript, Lockup, PairCards, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
 import type { IntegrationPage } from '@/site/integrations/types';
 import { templatePage } from '@/site/integrations/words';
 import '@/site/css/usecase.css';
@@ -56,7 +57,7 @@ export default async function IntegrationPageView({ params }: { params: Promise<
   const N = app.name;
   const path = `/integrations/${slug}`;
   const recipes = topRecipes(app);
-  const shown = recipes.slice(0, 8);
+  const shown = recipes.slice(0, 24);
   const partners = partnersOf(app).slice(0, 6).map(x => x.slug);
   const cats = CATEGORIES.filter(c => app.categories.includes(c.slug));
   const C = 'seo-integration' as const;
@@ -66,14 +67,12 @@ export default async function IntegrationPageView({ params }: { params: Promise<
       <LdScript data={[crumbsLd([{ name: 'Home', path: '' }, { name: 'Integrations', path: '/integrations' }, { name: N, path }]), softwareLd(`50agents for ${N}`, path, p.answer.join(' '), p.updated)]} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations', href: '/integrations' }, { label: N }]} /></div>
 
-      {/* Hero: the app beside 50agents, the answer, and its best recipe typed into Captain with the plan under it */}
+      {/* Hero: the app beside 50agents, the answer, and its best template typed into Captain */}
       <section className="wrap uc3-hero ig3-hero">
         <Lockup apps={[slug]} />
         <h1>{p.h1}</h1>
         <p className="answer">{p.answer[0]} {p.answer[1]}</p>
-        <PromptFilm ask={p.ask} button={<span className="hero-cta"><BuildLink page={slug} place="hero" campaign={C} ask={p.ask}>Build it</BuildLink></span>}>
-          <HeroPlan build={p.build} />
-        </PromptFilm>
+        <PromptFilm ask={p.ask} button={<span className="hero-cta"><BuildLink page={slug} place="hero" campaign={C} ask={p.ask}>Build it</BuildLink></span>} />
         <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
       </section>
 
@@ -83,19 +82,19 @@ export default async function IntegrationPageView({ params }: { params: Promise<
         <KindCards kinds={p.kinds} page={slug} campaign={C} />
       </section>
 
-      {/* Triggers and actions, grouped in plain words */}
+      {/* Triggers and actions: two tabs, one search, a box that scrolls inside itself */}
       {app.events.length > 0 && (
         <section className="wrap sec" id="triggers-and-actions">
-          <div className="sec-h c"><h2>{N} triggers and actions</h2><p>What starts the work, and what can be done in {N}.</p></div>
-          <EventGroups groups={p.groups} app={app} />
+          <div className="sec-h c"><h2>{N} triggers and actions</h2><p>A trigger starts the work; actions are the steps in {N}.</p></div>
+          <EventsBox app={app} />
         </section>
       )}
 
-      {/* Top recipes, one button each */}
+      {/* Templates, one button each, in the same box */}
       {shown.length > 0 && (
-        <section className="wrap sec" id="recipes">
-          <div className="sec-h c"><h2>Ready-made {N} recipes</h2></div>
-          <RecipeRows recipes={shown} page={slug} campaign={C} />
+        <section className="wrap sec" id="templates">
+          <div className="sec-h c"><h2>Templates for {N}</h2><p>Pick one and Captain builds it with you.</p></div>
+          <TemplatesBox recipes={shown} page={slug} campaign={C} search="Search templates" />
         </section>
       )}
 
@@ -114,10 +113,10 @@ export default async function IntegrationPageView({ params }: { params: Promise<
       {/* Questions */}
       <section className="wrap sec" id="questions">
         <div className="sec-h c"><h2>Questions about {N} in 50agents</h2></div>
-        <Questions faqs={p.faqs} sources={p.sources} />
+        <Questions faqs={p.faqs} />
       </section>
 
-      <Final h2={`Build on ${N}`} p={<>Tell Captain &ldquo;{p.ask}&rdquo;, or the job in your own words. Free to start.</>} ask={p.ask} page={slug} campaign={C} updated={p.updated} />
+      <Final h2={`Build on ${N}`} p={<>Tell Captain &ldquo;{p.ask}&rdquo;, or the job in your own words. Free to start.</>} ask={p.ask} page={slug} campaign={C} />
 
       <StickyBar><span>{N} in 50agents</span><BuildLink page={slug} place="sticky" campaign={C} ask={p.ask} className="btn">Build it</BuildLink></StickyBar>
     </div>

@@ -7,56 +7,68 @@
   "description": "Get a daily calendar summary in Slack: the Google Calendar app on paid Slack plans, an automation, or an AI agent that sends tomorrow’s meetings.",
   "h1": "How to get a daily calendar summary in Slack",
   "answer": [
-    "On a paid Slack plan, the Google Calendar for Slack app can send you a daily schedule: open the app’s Home tab, then Settings, and pick the time.",
-    "On a free plan, or if you want tomorrow’s meetings the evening before with what to prepare, use an automation or an AI agent that reads your calendar at a set time and sends you a direct message."
+    "On a paid Slack plan, turn on the Google Calendar app's daily schedule in its Home tab, under Settings.",
+    "On free Slack, or for tomorrow's meetings the evening before, use an automation or an AI agent."
   ],
-  "sections": [
-    {
-      "id": "options",
-      "h2": "Your options",
-      "body": [
+  "chooser": {
+    "h2": "Which option fits?",
+    "root": {
+      "q": "When do you plan your day?",
+      "options": [
         {
-          "table": {
-            "head": [
-              "Option",
-              "Needs",
-              "Gives you"
-            ],
-            "rows": [
-              [
-                "Google Calendar for Slack, daily schedule",
-                "A paid Slack plan",
-                "Today’s events each morning, at a time you pick in the app’s settings"
-              ],
-              [
-                "Slack’s \"Today\" briefing",
-                "In open beta, on Enterprise plans with AI first",
-                "An agenda from Google or Outlook calendars among other things"
-              ],
-              [
-                "An automation (calendar, then Slack)",
-                "An automation tool",
-                "A fixed list at a fixed time; free Slack works"
-              ],
-              [
-                "An AI agent",
-                "An AI agent builder",
-                "The list plus judgement: clashes, gaps, what to prepare"
-              ]
+          "label": "In the morning",
+          "then": {
+            "q": "Are you on a paid Slack plan?",
+            "options": [
+              {
+                "label": "Yes",
+                "then": {
+                  "answer": "Use Google Calendar for Slack",
+                  "why": "Its daily schedule sends today's events each morning, at a time you pick in the app's settings. The least work of any option."
+                }
+              },
+              {
+                "label": "No",
+                "then": {
+                  "answer": "Use an automation",
+                  "why": "Calendar, then Slack, at a fixed time: a plain list of today's meetings, and free Slack works.",
+                  "kind": "auto"
+                }
+              }
             ]
           }
         },
         {
-          "p": "The built-in app is the least work. It sends today’s schedule; if you plan the night before, or want a line on each meeting, build your own."
-        },
-        {
-          "p": "Whichever you pick, the message is only useful if it arrives when you plan. If you prepare the night before, send it around 18:00; if you plan in the morning, send it before your first meeting, not at midnight when nobody reads it."
+          "label": "The evening before",
+          "then": {
+            "q": "Do you want a note on what to prepare?",
+            "options": [
+              {
+                "label": "No, just the list",
+                "then": {
+                  "answer": "Use an automation",
+                  "why": "The built-in app only sends today's schedule. An automation can send tomorrow's list at 18:00.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "Yes, and any clashes",
+                "then": {
+                  "answer": "Use an AI agent",
+                  "why": "It reads tomorrow's meetings and adds judgement: clashes, gaps, and what is worth preparing.",
+                  "kind": "ai",
+                  "href": "/use-cases/tomorrows-meetings-in-slack"
+                }
+              }
+            ]
+          }
         }
       ]
     }
-  ],
+  },
+  "sections": [],
   "method": {
-    "h2": "How to set it up, step by step",
+    "h2": "How to set it up",
     "steps": [
       {
         "title": "Pick the calendar and the window",
@@ -64,81 +76,70 @@
       },
       {
         "title": "Pick the time",
-        "body": "18:00 for tomorrow lets you prepare tonight; 8:00 for today is a morning check."
+        "body": "18:00 for tomorrow lets you prepare tonight; 8:00 for today is a morning check. Never midnight, when nobody reads it."
       },
       {
         "title": "Send it to yourself, not a channel",
-        "body": "A direct message keeps private event titles private. Post team schedules to a channel only from a team calendar."
+        "body": "A direct message keeps private event titles private. Post to a channel only from a shared team calendar.",
+        "note": {
+          "type": "warn",
+          "text": "\"Doctor\" or \"Interview: Jane Doe\" posted to a team channel cannot be taken back once people have read it.",
+          "about": "auto"
+        }
       },
       {
         "title": "Decide what each line shows",
         "body": "Time, title, who, and where (room or video link). Skip descriptions; they are long and often private."
       },
       {
-        "title": "Handle the edge cases",
-        "body": "All-day events, declined invites, recurring events moved this once, and travel across timezones. Test a day with each."
+        "title": "Test the edge cases",
+        "body": "All-day events, declined invites, a recurring event moved this once, and travel across timezones. Test a day with each."
       }
     ]
   },
-  "example": {
-    "h2": "A worked example in 50agents",
-    "body": [
-      "In 50agents this is an AI agent: Captain builds it from one sentence with Google Calendar and Slack. Each evening it reads tomorrow’s meetings and sends you one message: the meetings in order, any clash, and anything worth preparing. If a step would reach other people, it asks you first."
-    ],
+  "captain": {
+    "at": 1,
+    "line": "Captain builds an AI agent with Google Calendar and Slack that sends you tomorrow's meetings each evening, with any clash and anything worth preparing.",
     "useCase": "tomorrows-meetings-in-slack"
   },
   "wrong": [
     {
       "title": "No schedule on free Slack",
-      "body": "The Google Calendar app’s daily schedule needs a paid plan. Use an automation or an AI agent instead."
+      "body": "The Google Calendar app's daily schedule needs a paid plan. Use an automation or an AI agent instead.",
+      "about": "auto"
     },
     {
       "title": "Times off by an hour",
-      "body": "The tool used UTC or the wrong timezone. Set the window and the send time in your timezone."
-    },
-    {
-      "title": "Private events in a channel",
-      "body": "\"Doctor\" or \"Interview: Jane Doe\" posted for the team. Send personal schedules as direct messages."
+      "body": "The tool used UTC or the wrong timezone. Set the window and the send time in your timezone.",
+      "about": "auto"
     },
     {
       "title": "Declined meetings still listed",
-      "body": "Filter out events you declined, and say which are tentative."
+      "body": "Events you said no to clutter the list. Filter out declined events, and mark tentative ones.",
+      "about": "auto"
     },
     {
       "title": "Status sync fights you",
-      "body": "Slack’s calendar status follows your primary calendar only and will not override a status you set yourself, according to Slack’s help. Expect gaps there."
+      "body": "Slack's calendar status follows your primary calendar only and never overrides a status you set yourself. Expect gaps there.",
+      "about": "app"
     }
   ],
   "faqs": [
     {
       "q": "Can Slack show my daily schedule?",
-      "a": "Yes, on paid plans, through the Google Calendar for Slack app’s daily schedule notification. Turn it on in the app’s Home tab, under Settings."
+      "a": "Yes, on paid plans, through the Google Calendar for Slack app's daily schedule notification. Turn it on in the app's Home tab, under Settings."
     },
     {
-      "q": "Can I get tomorrow’s meetings the night before?",
-      "a": "Not from the built-in app, which sends today’s schedule. An automation or AI agent on an evening schedule can."
+      "q": "Can I get tomorrow's meetings the night before?",
+      "a": "Not from the built-in app, which sends today's schedule. An automation or AI agent on an evening schedule can."
     },
     {
       "q": "Does it work with Outlook calendars?",
       "a": "Slack has an Outlook Calendar app too, and automation tools connect to Outlook. The steps above are the same."
     },
     {
-      "q": "What should a daily schedule message include?",
-      "a": "Each meeting’s time, title, who is in it and where, in order, with clashes and long gaps called out. Leave out descriptions: they are long and often private."
-    },
-    {
       "q": "Should the summary go to a channel or a direct message?",
       "a": "A direct message for your own calendar, so private titles stay private. A channel only for a shared team calendar, with titles everyone may see."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Slack help: Google Calendar for Slack",
-      "href": "https://slack.com/help/articles/206329808"
-    },
-    {
-      "label": "Slack: Today, your daily briefing",
-      "href": "https://slack.com/blog/news/today-daily-briefing"
     }
   ],
   "related": [

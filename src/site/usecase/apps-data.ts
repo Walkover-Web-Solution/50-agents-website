@@ -11,3 +11,7 @@ export const appIcon = (slug: string) => BY.get(slug)?.i;
 export function appsIn(category: string, n = 28, skip: string[] = []) {
   return APPS.filter(a => a.c.includes(category) && a.i && !skip.includes(a.s)).sort((x, y) => y.r - x.r).slice(0, n);
 }
+/** The best-connected apps across the catalog, for the second marquee row. */
+export function topApps(n = 30, skip: string[] = []) {
+  return APPS.filter(a => a.i && !skip.includes(a.s)).sort((x, y) => y.r - x.r).slice(0, n);
+}

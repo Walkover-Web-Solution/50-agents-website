@@ -7,97 +7,28 @@
   "description": "Ten jobs small businesses hand to AI agents and automations today, from email triage to chasing invoices, with the apps each needs and what is not ready.",
   "h1": "AI agents for small business: 10 jobs that work today",
   "answer": [
-    "The jobs that work today are narrow and repeated: drafting email replies, following up quiet leads, chasing late invoices, summarising last week’s sales, logging payments and orders, and watching competitors’ prices.",
-    "Each reads from apps you already use and asks before it sends anything; jobs that need a phone call, a signature or a judgement you could not explain to a new hire are not ready yet."
+    "The jobs that work are narrow and repeated: drafting replies, following up leads, chasing invoices, summarising sales, logging payments, watching prices.",
+    "Each reads apps you already use and asks before it sends; calls and signatures are not ready."
   ],
   "sections": [
-    {
-      "id": "numbers",
-      "h2": "How many small businesses use AI for real work",
-      "body": [
-        {
-          "p": "Most owners have tried an AI tool; far fewer have it doing a job every week. The US Census Bureau asks a strict question, whether a firm used AI in a business function in the past two weeks, and finds that fewer than one firm in five did."
-        },
-        {
-          "p": "The jobs below are the ones that make that jump: narrow, repeated, and done in apps you already use."
-        }
-      ]
-    },
     {
       "id": "jobs",
       "h2": "The 10 jobs",
       "body": [
+        { "p": "Most owners have tried an AI tool; far fewer have one doing a job every week. The US Census Bureau finds fewer than one firm in five used AI in a business function in the past two weeks. These are the jobs that make that jump." },
         {
-          "table": {
-            "head": [
-              "Job",
-              "Kind",
-              "Apps",
-              "What it does"
-            ],
-            "rows": [
-              [
-                "Morning email triage",
-                "AI agent",
-                "Gmail",
-                "Reads unread email each weekday at 8:00 and drafts replies for you to check."
-              ],
-              [
-                "Support replies",
-                "AI agent",
-                "Gmail",
-                "Drafts answers to support email from what it knows about your business; asks before sending."
-              ],
-              [
-                "Follow up quiet deals",
-                "AI agent",
-                "HubSpot, Gmail",
-                "Finds deals with no reply in 5 days and drafts a follow-up."
-              ],
-              [
-                "Weekly revenue summary",
-                "AI agent",
-                "Stripe, Gmail",
-                "Every Monday, emails you last week’s totals and what changed."
-              ],
-              [
-                "Tomorrow’s meetings",
-                "AI agent",
-                "Google Calendar, Slack",
-                "Each evening, sends you tomorrow’s meetings."
-              ],
-              [
-                "Chase unpaid invoices",
-                "App",
-                "Gmail",
-                "A desk of what you are owed, late first, with reminders drafted."
-              ],
-              [
-                "Track leads",
-                "App",
-                "Gmail",
-                "A pipeline filled from your email, with who to follow up today."
-              ],
-              [
-                "Customer requests desk",
-                "App",
-                "Gmail",
-                "Every request by status, urgent first, replies drafted."
-              ],
-              [
-                "Log payments and orders",
-                "Automation",
-                "Stripe or Shopify, Google Sheets",
-                "Each payment or order becomes a row, the same way every time."
-              ],
-              [
-                "Watch competitor prices",
-                "Browser agent",
-                "None, it reads websites",
-                "Checks pricing pages each morning and tells you what changed."
-              ]
-            ]
-          }
+          "ul": [
+            "**Morning email triage** (AI agent, Gmail): reads unread email each weekday at 8:00 and drafts replies for you to check.",
+            "**Support replies** (AI agent, Gmail): drafts answers from what it knows about your business; asks before sending.",
+            "**Follow up quiet deals** (AI agent, HubSpot and Gmail): finds deals with no reply in 5 days and drafts a follow-up.",
+            "**Weekly revenue summary** (AI agent, Stripe and Gmail): every Monday, last week's totals and what changed.",
+            "**Tomorrow's meetings** (AI agent, Google Calendar and Slack): each evening, tomorrow's meetings in Slack.",
+            "**Chase unpaid invoices** (app, Gmail): a desk of what you are owed, late first, reminders drafted.",
+            "**Track leads** (app, Gmail): a pipeline filled from your email, with who to follow up today.",
+            "**Customer requests desk** (app, Gmail): every request by status, urgent first, replies drafted.",
+            "**Log payments and orders** (automation, Stripe or Shopify and Google Sheets): each one becomes a row.",
+            "**Watch competitor prices** (browser agent, no app needed): checks pricing pages each morning and tells you what changed."
+          ]
         }
       ]
     },
@@ -108,28 +39,29 @@
         {
           "ul": [
             "**Phone calls and voice.** Booking by phone or answering calls needs voice tools most small teams do not run.",
-            "**Signing, paying or committing for you.** Contracts, payments and refunds should always wait for a person; any honest tool will ask.",
+            "**Signing, paying or committing for you.** Contracts, payments and refunds should always wait for a person.",
             "**Judgement you cannot write down.** If you cannot explain to a new hire when to give a discount, an AI agent cannot do it either.",
-            "**Systems with no app and a login wall.** Some can be reached by a browser agent with your sign-in; some cannot, and scraping behind a login has its own legal risk."
+            "**Systems with no app and a login wall.** A browser agent can reach some with your sign-in; some it cannot."
           ]
         }
       ]
     }
   ],
   "method": {
-    "h2": "How to start with one, step by step",
+    "h2": "How to start with one",
     "steps": [
       {
-        "title": "Pick the job you did three times this week",
+        "title": "Pick a job you did three times",
         "body": "Frequency beats size. A 10-minute job done daily saves more than a 2-hour job done quarterly. [What to automate first](/guides/what-to-automate-first-in-a-small-business) has a scoring sheet."
       },
       {
         "title": "Check its apps are ones you use",
-        "body": "The jobs above run on Gmail, Google Sheets, Slack, HubSpot, Stripe, Shopify and Google Calendar. If yours are different, check the tool connects to them."
+        "body": "The jobs above run on Gmail, Google Sheets, Slack, HubSpot, Stripe, Shopify and Google Calendar. If yours differ, check the tool connects to them."
       },
       {
         "title": "Keep the first version read-and-draft",
-        "body": "Let it read and draft; you send. Move to fewer approvals once its drafts need no edits."
+        "body": "Let it read and draft; you send. Move to fewer approvals once its drafts need no edits.",
+        "note": { "type": "warn", "text": "An AI agent that reads customer email moves that data through another service. Read the tool's data terms before you connect anything sensitive.", "about": "ai" }
       },
       {
         "title": "Give it a week, then decide",
@@ -137,59 +69,22 @@
       }
     ]
   },
-  "example": {
-    "h2": "A worked example: the weekly revenue summary",
-    "body": [
-      "Here is one of the ten, ready to build in 50agents: an AI agent with Stripe and Gmail that reads last week’s payments each Monday and writes what changed, in words, not a table dump. It asks you before it sends anything, even to you."
-    ],
+  "captain": {
+    "at": 2,
+    "line": "One of the ten, ready to build: an AI agent with Stripe and Gmail that reads last week's payments each Monday and writes what changed, asking before it sends.",
     "useCase": "weekly-stripe-revenue-summary"
   },
   "wrong": [
-    {
-      "title": "Starting with the hardest job",
-      "body": "The job you dread is usually the one with the most judgement. Start with a frequent, dull one and build trust."
-    },
-    {
-      "title": "Five AI agents in week one",
-      "body": "Each needs a week of checking. Add the next one when the last one runs without edits."
-    },
-    {
-      "title": "Nobody reads the reports",
-      "body": "An AI agent whose output nobody reads is a cost. Put its reports where you already look: your inbox, Slack, one approvals screen."
-    },
-    {
-      "title": "Costs you did not expect",
-      "body": "AI agents that read whole inboxes or run every few minutes spend more. Check the cost of one run before you schedule it."
-    },
-    {
-      "title": "Customer data in a new tool",
-      "body": "An AI agent that reads customer email moves that data through another service. Read the tool’s data terms before you connect anything sensitive."
-    }
+    { "title": "Starting with the hardest job", "body": "The job you dread usually has the most judgement. Start with a frequent, dull one and build trust.", "about": "ai" },
+    { "title": "Five AI agents in week one", "body": "Each needs a week of checking. Add the next one when the last one runs without edits.", "about": "ai" },
+    { "title": "Nobody reads the reports", "body": "An AI agent whose output nobody reads is a cost. Put its reports where you already look: your inbox, Slack, one approvals screen.", "about": "ai" },
+    { "title": "Costs you did not expect", "body": "AI agents that read whole inboxes or run every few minutes spend more. Check the cost of one run before you schedule it.", "about": "ai" }
   ],
   "faqs": [
-    {
-      "q": "What is the best AI agent for a small business?",
-      "a": "The one that does your most repeated job in the apps you already use. Start from the job, then pick the tool; [how to choose an AI agent builder](/guides/how-to-choose-an-ai-agent-builder) has the questions to ask."
-    },
-    {
-      "q": "How much do AI agents cost a small business?",
-      "a": "Most tools charge by usage (credits, tasks or runs) on top of a plan. A daily AI agent that reads a few emails costs little; one that reads hundreds an hour does not. [How much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared) compares the units."
-    },
-    {
-      "q": "Is my data safe with an AI agent?",
-      "a": "It depends on what you connect and what it may do. Connect only what the job needs, keep sends behind approvals, and read the vendor’s data terms."
-    }
+    { "q": "What is the best AI agent for a small business?", "a": "The one that does your most repeated job in the apps you already use. Start from the job, then pick the tool; [how to choose an AI agent builder](/guides/how-to-choose-an-ai-agent-builder) has the questions to ask." },
+    { "q": "How much do AI agents cost a small business?", "a": "Most tools charge by usage (credits, tasks or runs) on top of a plan. A daily AI agent that reads a few emails costs little; one that reads hundreds an hour does not. [How much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared) compares the units." },
+    { "q": "Is my data safe with an AI agent?", "a": "It depends on what you connect and what it may do. Connect only what the job needs, keep sends behind approvals, and read the vendor's data terms." }
   ],
-  "sources": [
-    {
-      "label": "US Census Bureau: AI use among businesses",
-      "href": "https://census.gov/library/stories/2026/05/ai-use-businesses.html"
-    }
-  ],
-  "related": [
-    "what-to-automate-first-in-a-small-business",
-    "how-to-build-an-ai-agent-without-code",
-    "how-to-choose-an-ai-agent-builder"
-  ],
+  "related": ["what-to-automate-first-in-a-small-business", "how-to-build-an-ai-agent-without-code", "how-to-choose-an-ai-agent-builder"],
   "updated": "2026-11-19"
 }

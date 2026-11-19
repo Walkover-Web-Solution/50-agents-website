@@ -7,26 +7,17 @@
   "description": "Build an invoice tracker with eight columns, five statuses and two formulas, days late and amount still due, then a Late view and a weekly check.",
   "h1": "How to build an invoice tracker",
   "answer": [
-    "An invoice tracker is one row per invoice with eight columns (number, client, email, amount, sent date, due date, status, notes), five statuses (Draft, Sent, Reminded, Paid, Written off), and a Late view that shows unpaid invoices past their due date, oldest first.",
-    "Update the status the day money arrives, and the tracker answers the only two questions that matter: who owes you, and since when."
+    "Keep one row per invoice with eight columns, five statuses, and a Late view of unpaid invoices past due, oldest first.",
+    "Mark Paid the day money arrives, and it tells you who owes you and since when."
   ],
   "sections": [
-    {
-      "id": "why",
-      "h2": "Why bother",
-      "body": [
-        {
-          "p": "Late payment is the norm, not the exception: in a QuickBooks survey of US small businesses, more than half were owed money on unpaid invoices. Most of that is not refusal; it is invoices nobody followed up."
-        },
-        {
-          "p": "This guide is about invoices you send (money owed to you). Bills you pay are a different tracker with different dates; keep them apart."
-        }
-      ]
-    },
     {
       "id": "columns",
       "h2": "The columns and statuses",
       "body": [
+        {
+          "p": "In a QuickBooks survey of US small businesses, more than half were owed money on unpaid invoices. Most of it is not refusal; it is invoices nobody followed up. Track invoices you send here, and keep bills you pay in a separate list."
+        },
         {
           "table": {
             "head": [
@@ -38,58 +29,50 @@
               [
                 "Invoice",
                 "INV-1049",
-                "Unique. The key for everything else."
+                "Unique; the key for everything"
               ],
               [
                 "Client",
                 "Brightline Physio",
-                ""
+                "The company you billed"
               ],
               [
                 "Email",
                 "billing@brightline.example",
-                "The accounts address, not your contact’s."
+                "The accounts address, not your contact"
               ],
               [
                 "Amount",
-                "$1,250",
-                "Add a currency column if you bill in more than one."
+                "1,250",
+                "Add currency if you bill in several"
               ],
               [
-                "Sent",
-                "Tuesday 3rd",
-                "When the client received it."
-              ],
-              [
-                "Due",
-                "Tuesday 17th",
-                "Sent date plus your terms."
+                "Sent and Due",
+                "Tuesday 3rd, Tuesday 17th",
+                "Due is sent date plus terms"
               ],
               [
                 "Status",
                 "Sent",
-                "Draft, Sent, Reminded, Paid, Written off."
+                "Draft, Sent, Reminded, Paid, Written off"
               ],
               [
                 "Notes",
                 "Promised payment Friday",
-                "One line per contact."
+                "One line per contact"
               ]
             ]
           }
-        },
-        {
-          "p": "Two formulas make a sheet version useful. Days late: `=IF(AND(G2<>\"Paid\",F2<TODAY()),TODAY()-F2,\"\")`. Amount still due, if you allow part payments: a Paid so far column and `=D2-I2`."
         }
       ]
     }
   ],
   "method": {
-    "h2": "How to build it, step by step",
+    "h2": "How to build it",
     "steps": [
       {
         "title": "Create the list",
-        "body": "The eight columns above, in a sheet or a no-code app. Make Status a dropdown."
+        "body": "The columns above, in a sheet or a no-code app. Make Status a dropdown."
       },
       {
         "title": "Bring in every open invoice",
@@ -97,49 +80,57 @@
       },
       {
         "title": "Add a Late view",
-        "body": "Filter: status not Paid or Written off, due date before today. Sort by due date, oldest first."
+        "body": "Filter: status not Paid or Written off, due date before today. Sort by due date, oldest first.",
+        "note": {
+          "type": "tip",
+          "text": "In a sheet, a Days late column does this: =IF(AND(G2<>\"Paid\",F2<TODAY()),TODAY()-F2,\"\").",
+          "about": "app"
+        }
       },
       {
-        "title": "Add totals",
+        "title": "Add three totals",
         "body": "Still to collect (everything Sent or Reminded), Late, and Paid this month. Three numbers you can read in a second."
       },
       {
         "title": "Update it the day money lands",
-        "body": "Check the bank or payment app, mark Paid. A tracker that is a week behind sends you chasing paid invoices."
+        "body": "Check the bank or payment app and mark Paid.",
+        "note": {
+          "type": "warn",
+          "text": "A tracker a week behind the bank sends you chasing clients who already paid.",
+          "about": "app"
+        }
       },
       {
         "title": "Decide what happens to late ones",
-        "body": "A reminder schedule: see [how to automate invoice reminders](/guides/how-to-automate-invoice-reminders)."
+        "body": "Set a reminder schedule: see [how to automate invoice reminders](/guides/how-to-automate-invoice-reminders)."
       }
     ]
   },
-  "example": {
-    "h2": "A worked example in 50agents",
-    "body": [
-      "In 50agents, Captain builds this tracker as an app from one sentence: the invoices list with these fields and statuses, three views (To collect, Late, All invoices) and the three totals on its Overview. Drop in your CSV or Excel export and it matches the columns. Its crew member, Collector, an AI agent, drafts a reminder when a Sent invoice is a day past due and waits for your yes before sending."
-    ],
+  "captain": {
+    "at": 2,
+    "line": "Captain builds this tracker as an app, with To collect, Late and All invoices views, the three totals, and an AI agent that drafts a reminder for your yes.",
     "useCase": "chase-unpaid-invoices"
   },
   "wrong": [
     {
       "title": "Part payments marked Paid",
-      "body": "Half arrives, the row turns green, the rest is forgotten. Add a Part paid status and the amount still due."
+      "body": "Half arrives, the row turns green, and the rest is forgotten. Add a Part paid status and the amount still due.",
+      "about": "app"
     },
     {
       "title": "Duplicate invoice numbers",
-      "body": "Two invoices called INV-1049 after a template copy. Make the number unique and check before adding."
-    },
-    {
-      "title": "A week behind the bank",
-      "body": "The tracker says late; the client paid on Monday. Update on the day, or connect it to where payments land."
+      "body": "Two invoices called INV-1049 after a template copy. Make the number unique and check before adding.",
+      "about": "app"
     },
     {
       "title": "Receivables and bills in one list",
-      "body": "Money in and money out mixed up. Keep two trackers."
+      "body": "Money in and money out get mixed up. Keep two trackers.",
+      "about": "app"
     },
     {
       "title": "Due dates from the wrong terms",
-      "body": "Net 30 for a client on Net 14. Store terms per client and compute the due date from them."
+      "body": "Net 30 for a client on Net 14. Store terms per client and compute the due date from them.",
+      "about": "app"
     }
   ],
   "faqs": [
@@ -153,17 +144,7 @@
     },
     {
       "q": "Should I use my accounting app instead?",
-      "a": "If every invoice is raised there, yes: it already tracks payments. A separate tracker earns its place when invoices come from several places or you want a desk that drafts reminders."
-    }
-  ],
-  "sources": [
-    {
-      "label": "QuickBooks: Small Business Late Payments Report",
-      "href": "https://quickbooks.intuit.com/r/small-business-data/small-business-late-payments-report-2025/"
-    },
-    {
-      "label": "Ramp: How to track invoices",
-      "href": "https://ramp.com/blog/how-to-track-invoices"
+      "a": "If every invoice is raised there, yes: it already tracks payments. A separate tracker earns its place when invoices come from several places or you want reminders drafted for you."
     }
   ],
   "related": [

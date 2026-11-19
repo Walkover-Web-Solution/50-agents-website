@@ -7,13 +7,13 @@
   "description": "An AI workflow is a fixed set of steps where one or more steps are done by an AI model. The order never changes; only the AI step uses judgement.",
   "h1": "What is an AI workflow?",
   "definition": [
-    "An AI workflow is a fixed set of steps in which one or more steps are done by an AI model, such as reading an email and deciding what kind it is.",
-    "The order of steps stays the same on every run; only the AI step uses judgement, and only on its own small part of the work."
+    "An AI workflow is a fixed set of steps where one or more steps are done by an AI model, such as sorting an email.",
+    "The order never changes; only the AI step uses judgement, on its own small part."
   ],
   "example": {
     "kind": "auto",
     "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
-    "why": "As asked, no step uses AI. Add \"with a one-line note on who they are\" and the plan gains one AI step that writes the note. Every other step stays fixed, run after run.",
+    "why": "Add a note on each contact and one AI step joins the fixed ones.",
     "build": {
       "name": "Contacts to Sheet and Slack",
       "line": "each new contact, logged and shared",

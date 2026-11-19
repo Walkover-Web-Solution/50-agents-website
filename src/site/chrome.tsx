@@ -7,7 +7,7 @@ export function Header() {
   return (
     <header className="hd">
       <div className="hd-in">
-        <Wordmark face="keeper" size={30} />
+        <Wordmark face="keeper" size={24} />
         <HeaderCta />
       </div>
     </header>

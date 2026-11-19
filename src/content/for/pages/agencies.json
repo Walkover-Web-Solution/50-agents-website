@@ -8,8 +8,8 @@
   "description": "What agencies hand off first: client requests on one desk, invoices chased, new-business leads tracked, weekly client updates drafted, competitors watched.",
   "h1": "AI agents and automations for agencies",
   "answer": [
-    "Agencies hand off the client admin first: every client request on one desk instead of scattered threads, and late invoices chased without anyone writing the awkward email.",
-    "In 50agents each is an app or an AI agent Captain builds from a sentence, on Gmail, Asana, ClickUp, Google Sheets and your other tools, and anything sent to a client waits for your approval."
+    "Agencies hand off the client admin first: every client request on one desk, and late invoices chased without the awkward email.",
+    "Captain builds each from a sentence, and anything sent to a client waits for your approval."
   ],
   "example": {
     "kind": "app",

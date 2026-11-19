@@ -7,13 +7,72 @@
   "description": "Which internal tool to build first without code: score your sheets and inbox routines by how often, how many people and how costly a miss is.",
   "h1": "Internal tools without code: what to build first",
   "answer": [
-    "Build first the tool that replaces a spreadsheet or inbox routine several people touch every day and that costs money when something is missed, such as a requests desk, an invoice tracker or a lead list.",
-    "Keep version one to one list, two or three views and one automatic step, and name who owns it before anyone else uses it."
+    "Build first the tool that replaces a daily routine several people share, where a miss costs money.",
+    "Keep version one to one list, two or three views and one automatic step, with a named owner."
   ],
+  "chooser": {
+    "h2": "Which tool should you build first?",
+    "root": {
+      "q": "Where does work get missed most?",
+      "options": [
+        {
+          "label": "Customer emails",
+          "then": {
+            "answer": "A customer requests desk",
+            "why": "It replaces a shared inbox and a \"who's got this?\" chat. The step that earns it: each new email sorted by kind and priority.",
+            "kind": "app",
+            "href": "/guides/how-to-build-a-customer-requests-desk-from-your-inbox"
+          }
+        },
+        {
+          "label": "Getting paid",
+          "then": {
+            "answer": "An invoice tracker",
+            "why": "It replaces a sheet of coloured cells. The step that earns it: a reminder drafted when an invoice goes late.",
+            "kind": "app",
+            "href": "/guides/how-to-build-an-invoice-tracker"
+          }
+        },
+        {
+          "label": "New leads",
+          "then": {
+            "answer": "A lead list",
+            "why": "It replaces leads buried in email threads and notes. The step that earns it: new enquiries added from email each morning.",
+            "kind": "app",
+            "href": "/guides/how-to-build-a-simple-crm-without-code"
+          }
+        },
+        {
+          "label": "Requests between colleagues",
+          "then": {
+            "q": "What kind of request?",
+            "options": [
+              {
+                "label": "Spend, leave or discounts",
+                "then": {
+                  "answer": "An approvals list",
+                  "why": "It replaces requests by message and a reply \"ok\". The approver gets one list; the asker gets a status.",
+                  "kind": "app"
+                }
+              },
+              {
+                "label": "Setting up a client or hire",
+                "then": {
+                  "answer": "An onboarding checklist",
+                  "why": "It replaces a document copied for each new client or hire. Tasks are created and assigned on day one.",
+                  "kind": "app"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
   "sections": [
     {
       "id": "score",
-      "h2": "Score your candidates",
+      "h2": "Not sure? Score your candidates",
       "body": [
         {
           "p": "List every spreadsheet, shared inbox or \"send me a message when\" routine your team runs. Score each 1 to 3 on four questions and build the highest total first."
@@ -22,8 +81,8 @@
           "table": {
             "head": [
               "Question",
-              "1",
-              "3"
+              "Scores 1",
+              "Scores 3"
             ],
             "rows": [
               [
@@ -43,50 +102,8 @@
               ],
               [
                 "How messy is it now?",
-                "Tidy sheet",
-                "Five tabs, colour codes, \"ask Sam\""
-              ]
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "id": "candidates",
-      "h2": "Good first tools",
-      "body": [
-        {
-          "table": {
-            "head": [
-              "Tool",
-              "Replaces",
-              "The automatic step that earns it"
-            ],
-            "rows": [
-              [
-                "Customer requests desk",
-                "A shared inbox and a \"who’s got this?\" chat",
-                "Each new email sorted by kind and priority"
-              ],
-              [
-                "Invoice tracker",
-                "A sheet of invoices with coloured cells",
-                "A reminder drafted when one goes late"
-              ],
-              [
-                "Lead list",
-                "Leads in email threads and notes",
-                "New enquiries added from email each morning"
-              ],
-              [
-                "Approvals (spend, leave, discounts)",
-                "Requests by message and a reply \"ok\"",
-                "The approver gets one list, the asker gets a status"
-              ],
-              [
-                "Onboarding checklist",
-                "A document copied for each new client or hire",
-                "Tasks created and assigned on day one"
+                "A tidy sheet",
+                "Five tabs and \"ask Sam\""
               ]
             ]
           }
@@ -95,11 +112,16 @@
     }
   ],
   "method": {
-    "h2": "How to build the first one, step by step",
+    "h2": "How to build the first one",
     "steps": [
       {
         "title": "Define the record before the screens",
-        "body": "What is one item (a request, an invoice, a lead) and which fields does it need? Screens built before the data model get rebuilt."
+        "body": "What is one item (a request, an invoice, a lead) and which fields does it need?",
+        "note": {
+          "type": "warn",
+          "text": "Screens built before the fields are settled get rebuilt every time a field changes.",
+          "about": "app"
+        }
       },
       {
         "title": "Pick two or three views",
@@ -107,49 +129,42 @@
       },
       {
         "title": "Add one automatic step",
-        "body": "The one that removes the most typing or the most forgetting. Add the second only after a week of use."
+        "body": "The one that removes the most typing or the most forgetting. Add a second only after a week of use."
       },
       {
         "title": "Set access properly",
-        "body": "A shared link is not access control. Add people by account and decide who can edit."
+        "body": "A shared link is not access control. Add people by account and decide who can edit before you invite anyone."
       },
       {
         "title": "Name an owner",
-        "body": "One person who fixes it when it breaks and decides what changes. Tools without an owner rot."
+        "body": "One person who fixes it when it breaks and decides what changes. Tools without an owner rot by month three."
       },
       {
         "title": "Retire the old way",
-        "body": "Archive the sheet or the label. Two systems for one job means the new one loses."
+        "body": "Archive the sheet or the label the day the tool goes live. Two systems for one job means the new one loses."
       }
     ]
   },
-  "example": {
-    "h2": "What it looks like in 50agents",
-    "body": [
-      "In 50agents an internal tool is an app: you describe it to Captain and it builds the list, the views and the numbers, plus a crew of up to three members (AI agents or browser agents) with duties such as \"sorts each new request\". Each change you ask for is a version you can undo, Review checks the app each week and suggests fixes, and Data exports any list as CSV, so the tool never traps your records."
-    ],
+  "captain": {
+    "at": 2,
+    "line": "Captain builds the list, views and numbers, plus up to three AI agents or browser agents. Each change is a version you can undo, and any list exports as CSV.",
     "useCase": "customer-requests-desk"
   },
   "wrong": [
     {
       "title": "Version one does everything",
-      "body": "Ten views, five automations, nobody uses it. Ship one list, two views, one automatic step."
-    },
-    {
-      "title": "Screens before data",
-      "body": "The fields change and every screen breaks. Define the record first."
-    },
-    {
-      "title": "No owner",
-      "body": "It breaks in month three and nobody fixes it. Name an owner on day one."
+      "body": "Ten views and five automations, and nobody uses it. Ship one list, two views and one automatic step.",
+      "about": "app"
     },
     {
       "title": "Everyone sees everything",
-      "body": "Salaries or customer details open to the whole team. Set roles before you invite."
+      "body": "Salaries or customer details are open to the whole team. Set roles before you invite.",
+      "about": "app"
     },
     {
-      "title": "The old sheet lives on",
-      "body": "Half the team keeps using it. Archive it the day the tool goes live."
+      "title": "The automatic step runs unchecked",
+      "body": "An AI agent sorts or drafts wrongly for weeks before anyone looks. Read its work daily for the first week, then weekly.",
+      "about": "ai"
     }
   ],
   "faqs": [
@@ -163,13 +178,7 @@
     },
     {
       "q": "How do I stop an internal tool from becoming a mess?",
-      "a": "One owner, a short list of fields, and a rule that every new view or step replaces something, not adds to it."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Lovable: How to build an internal tool without code",
-      "href": "https://lovable.dev/guides/how-to-build-an-internal-tool-without-code"
+      "a": "One owner, a short list of fields, and a rule that every new view or step replaces something rather than adds to it."
     }
   ],
   "related": [

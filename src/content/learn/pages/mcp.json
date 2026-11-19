@@ -7,13 +7,13 @@
   "description": "MCP is an open standard for connecting AI apps to outside tools and data. What it is, how it differs from an API, and whether you need it at all.",
   "h1": "What is MCP (Model Context Protocol)?",
   "definition": [
-    "MCP, the Model Context Protocol, is an open standard for connecting AI applications to outside tools and data: a server describes the tools it offers, and an AI client can call them.",
-    "Anthropic introduced it, and many AI apps now speak it, so one MCP server can be used by any MCP client without custom code."
+    "MCP, the Model Context Protocol, is an open standard that lets AI applications call outside tools and data through servers.",
+    "One MCP server works with any MCP client, without custom code."
   ],
   "example": {
     "kind": "ai",
     "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
-    "why": "This AI agent reads Google Calendar and posts in Slack without MCP: 50agents connects to your apps through viaSocket. You need MCP only to give an AI app you already use the same reach.",
+    "why": "This needs no MCP: 50agents reaches Calendar and Slack through viaSocket.",
     "build": {
       "name": "Tomorrow",
       "line": "tomorrow's meetings, in one Slack message",

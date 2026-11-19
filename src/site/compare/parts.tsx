@@ -1,84 +1,78 @@
-// The pieces of a comparison page, v3 (D253): the two tables, the two pick cards, and the one sources line.
-// Every fact about another tool is drawn from src/content/compare/facts.ts; the page JSON only chooses and writes around it.
-import { CHECKED_ISO, ROWS, TOOLS, type Cell, type Fact, type Mark, type ToolId } from '@/content/compare/facts';
-import type { AltPage, VsPage } from './types';
+// The pieces of a comparison page, v4 (D254): the two tables in the use case table's pattern (short cells, drawn marks,
+// 50agents raised on its tint), the strengths cards and the move-over stepper. No dates and no source lines on the page:
+// every fact about another tool is drawn from src/content/compare/facts.ts, which keeps its URLs and read dates.
+import { ROWS, TOOLS, type Cell, type Mark } from '@/content/compare/facts';
+import { Face } from '@/site/parts';
+import type { AltPage, Strength, VsPage } from './types';
 
-export const checkedMonth = new Date(CHECKED_ISO + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
-
-// 50agents' own row shows no credits and no prices (page system): free to start, nothing more.
+// 50agents shows no credits and no prices (page system): free to start, nothing more.
 const OURS_FREE = 'Free to start';
 
 const MARK_WORD: Record<Mark, string> = { yes: 'Yes', no: 'No', partly: 'Partly' };
 function MarkIcon({ v }: { v: Mark }) {
-  const d = v === 'yes' ? 'M5 12.5 10 17.5 19 7' : v === 'no' ? 'M7 7l10 10M17 7 7 17' : 'M6 12h12';
+  const k = v === 'yes' ? 'y' : v === 'no' ? 'n' : 'p';
   return (
-    <span className={`cmp3-mk ${v}`}>
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>
-    </span>
+    <svg className={`mk ${k}`} width="20" height="20" viewBox="0 0 20 20" role="img" aria-label={MARK_WORD[v]}>
+      <circle cx="10" cy="10" r="10" />
+      {k === 'y' && <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+      {k === 'n' && <path d="M7 7l6 6M13 7l-6 6" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />}
+      {k === 'p' && <path d="M6 10h8" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />}
+    </svg>
   );
 }
 
-function CellView({ cell, who }: { cell: Cell | { v: Mark | 'text'; note: string }; who: string }) {
+function CellView({ cell, us }: { cell?: Pick<Cell, 'v' | 's'>; us?: boolean }) {
   return (
-    <td data-who={who}>
-      {cell.v !== 'text' && <><MarkIcon v={cell.v} /><b className={`cmp3-w ${cell.v}`}>{MARK_WORD[cell.v]}.</b> </>}
-      <span>{cell.note}</span>
+    <td className={us ? 'us' : undefined}>
+      <span className="cell">{cell && cell.v !== 'text' && <MarkIcon v={cell.v} />}<span>{cell?.s ?? 'Not listed'}</span></span>
     </td>
   );
 }
 
-// The versus table: the price first, then the page's rows, each a tick, a cross or "partly" with a short note.
+// The versus table: free plan and paid plans first, then the page's rows, then "Better for", each a mark and 5 words.
 export function VsTable({ p }: { p: VsPage }) {
   const us = TOOLS.fifty;
   const them = TOOLS[p.tool];
-  const paid = them.cells.price?.note.replace(/^From /, 'from ');
   const rows = p.rows.filter(r => them.cells[r] && us.cells[r]);
+  const pricing = { v: 'text' as const, s: `See ${them.name}'s pricing page` };
   return (
-    <div className="cmp3-tbl vs">
+    <div className="cmp4-tbl vs">
       <table>
         <caption className="sr">50agents and {them.name}, row by row</caption>
         <thead>
-          <tr><th scope="col"><span className="sr">What you get</span></th><th scope="col" className="us">50agents</th><th scope="col">{them.name}</th></tr>
+          <tr><th scope="col"><span className="sr">What you get</span></th><th scope="col" className="us"><span className="uc3-us"><Face id="lead" size={20} />50agents</span></th><th scope="col">{them.name}</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">Price</th>
-            <CellView who="50agents" cell={{ v: 'text', note: OURS_FREE }} />
-            <td data-who={them.name}>
-              {them.cells.free && <span className="cmp3-line">{them.cells.free.note}</span>}
-              {paid && <span className="cmp3-line">Paid plans: {paid}</span>}
-              {!them.cells.free && !paid && <span className="cmp3-line">See {them.name}&rsquo;s pricing page; we could not read it when we checked</span>}
-            </td>
-          </tr>
+          <tr><th scope="row">Free plan</th><CellView us cell={{ v: 'yes', s: OURS_FREE }} /><CellView cell={them.cells.free ?? pricing} /></tr>
+          {(them.cells.free || them.cells.price) && <tr><th scope="row">Paid plans from</th><CellView us cell={us.cells.price} /><CellView cell={them.cells.price ?? pricing} /></tr>}
           {rows.map(r => (
-            <tr key={r}>
-              <th scope="row">{ROWS[r]}</th>
-              <CellView who="50agents" cell={us.cells[r]!} />
-              <CellView who={them.name} cell={them.cells[r]!} />
-            </tr>
+            <tr key={r}><th scope="row">{ROWS[r]}</th><CellView us cell={us.cells[r]} /><CellView cell={them.cells[r]} /></tr>
           ))}
+          <tr className="edge"><th scope="row">Better for</th><CellView us cell={{ v: 'text', s: p.edge.us }} /><CellView cell={{ v: 'text', s: p.edge.them }} /></tr>
         </tbody>
       </table>
     </div>
   );
 }
 
-// The alternatives table: 50agents and 4 to 6 tools, each with who it suits, its price and one honest limitation.
+// The alternatives table: 50agents raised first, then each tool, then where staying on the page's tool is the better call.
 export function AltTable({ p }: { p: AltPage }) {
+  const rows = [...p.entries.map(e => ({ ...e, name: TOOLS[e.tool].name, us: e.tool === 'fifty' })),
+    ...(p.stay ? [{ ...p.stay, tool: p.tool, name: `Staying on ${TOOLS[p.tool].name}`, us: false }] : [])];
   return (
-    <div className="cmp3-tbl alt">
+    <div className="cmp4-tbl alt">
       <table>
-        <caption className="sr">{p.h1}: who each suits, its price and one honest limitation</caption>
+        <caption className="sr">{p.h1}: what each is best for, its starting price and one key difference</caption>
         <thead>
-          <tr><th scope="col">Tool</th><th scope="col">Who it suits</th><th scope="col">Price</th><th scope="col">One honest limitation</th></tr>
+          <tr><th scope="col">Tool</th><th scope="col">Best for</th><th scope="col">Starting price</th><th scope="col">Key difference</th></tr>
         </thead>
         <tbody>
-          {p.entries.map(e => (
-            <tr key={e.tool} className={e.tool === 'fifty' ? 'us' : undefined}>
-              <th scope="row">{TOOLS[e.tool].name}</th>
-              <td data-who="Who it suits">{e.suits}</td>
-              <td data-who="Price">{e.tool === 'fifty' ? OURS_FREE : e.price}</td>
-              <td data-who="One honest limitation">{e.limit}</td>
+          {rows.map(r => (
+            <tr key={r.name} className={r.us ? 'us' : r.tool === p.tool ? 'stay' : undefined}>
+              <th scope="row">{r.us ? <span className="uc3-us"><Face id="lead" size={20} />50agents</span> : r.name}</th>
+              <td data-h="Best for">{r.best}</td>
+              <td data-h="Starting price">{r.us ? OURS_FREE : r.price}</td>
+              <td data-h="Key difference">{r.diff}</td>
             </tr>
           ))}
         </tbody>
@@ -87,66 +81,31 @@ export function AltTable({ p }: { p: AltPage }) {
   );
 }
 
-// A short name for a source page, from its address: "pricing", "apps", "home", or the help article's first words.
-function label(url: string) {
-  try {
-    const segs = new URL(url).pathname.split('/').filter(s => s && !/^([a-z]{2}(-[a-z]{2})?|hc|articles|docs|core-concepts|api-reference)$/i.test(s));
-    if (!segs.length) return 'home';
-    if (segs.some(s => /pricing|plans/.test(s))) return 'pricing';
-    const last = decodeURIComponent(segs.at(-1)!).replace(/\.md$/, '').replace(/^\d+-/, '').replace(/^n8n-nodes-base\./, '').replace(/[-_]+/g, ' ').toLowerCase();
-    return last.split(' ').slice(0, 3).join(' ');
-  } catch { return url; }
-}
-
-// The facts each page shows, per tool, so the sources line links exactly the pages they were read on.
-export function sourcesOf(p: AltPage | VsPage): { name: string; links: { href: string; label: string }[] }[] {
-  const tools: ToolId[] = p.type === 'alternatives' ? [p.tool, ...p.entries.map(e => e.tool)] : [p.tool];
-  const out: { name: string; links: { href: string; label: string }[] }[] = [];
-  for (const id of [...new Set(tools)]) {
-    if (id === 'fifty') continue;
-    const t = TOOLS[id];
-    const facts: (Fact | Cell | undefined)[] = [t.free, t.price, t.apps, ...t.better, t.move];
-    if (p.type === 'alternatives') { const e = p.entries.find(x => x.tool === id); if (e) facts.push({ fact: '', url: e.limitUrl, read: '' }); }
-    else facts.push(t.cells.free, t.cells.price, ...p.rows.map(r => t.cells[r]));
-    const seen = new Map<string, string>();
-    for (const f of facts) if (f && !seen.has(f.url)) seen.set(f.url, label(f.url));
-    // two pages with the same short name get their host added
-    const names = [...seen.values()];
-    out.push({ name: t.name, links: [...seen].map(([href, l]) => ({ href, label: names.filter(n => n === l).length > 1 ? `${l} (${new URL(href).hostname.replace(/^www\./, '')})` : l })) });
-  }
-  return out;
-}
-
-export function SourcesLine({ p }: { p: AltPage | VsPage }) {
-  const s = sourcesOf(p);
+// Where 50agents is good: 3 or 4 cards, a crew blob, a short title and one line.
+export function Strengths({ items }: { items: Strength[] }) {
   return (
-    <p className="cmp3-src">
-      Prices checked {checkedMonth}, on each tool&rsquo;s own pages:{' '}
-      {s.map((t, i) => (
-        <span key={t.name}>
-          {i > 0 && '; '}{t.name}{' '}
-          {t.links.map((l, j) => <span key={l.href}>{j > 0 && ', '}<a href={l.href} target="_blank" rel="noopener">{l.label}</a></span>)}
-        </span>
+    <ul className={`cmp4-str n${items.length}`}>
+      {items.map(s => (
+        <li key={s.title}>
+          <Face id={s.face} size={44} />
+          <h3>{s.title}</h3>
+          <p>{s.line}</p>
+        </li>
       ))}
-      . 50agents from its live app.
-    </p>
+    </ul>
   );
 }
 
-// Who should pick which: two cards, 50agents on its tint, the other tool plain.
-export function PickCards({ p }: { p: AltPage | VsPage }) {
-  const them = TOOLS[p.tool].name;
-  const gone = p.type === 'alternatives' && !!TOOLS[p.tool].status;
+// How to move over: a horizontal stepper, numbered dots joined by a line; it stacks vertically on a phone.
+export function MoveSteps({ steps }: { steps: { title: string; body: string }[] }) {
   return (
-    <div className="cmp3-pick">
-      <div className="us">
-        <h3>Pick 50agents if</h3>
-        <ul>{p.pick.us.map(s => <li key={s.slice(0, 40)}>{s}</li>)}</ul>
-      </div>
-      <div>
-        <h3>{p.type === 'versus' ? `Pick ${them} if` : gone ? 'Pick another tool here if' : `Stay on ${them} if`}</h3>
-        <ul>{p.pick.them.map(s => <li key={s.slice(0, 40)}>{s}</li>)}</ul>
-      </div>
-    </div>
+    <ol className="cmp4-steps" style={{ ['--n' as string]: steps.length }}>
+      {steps.map((m, i) => (
+        <li key={m.title}>
+          <span className="cmp4-dot" aria-hidden="true">{i + 1}</span>
+          <div><h3>{m.title}</h3><p>{m.body}</p></div>
+        </li>
+      ))}
+    </ol>
   );
 }

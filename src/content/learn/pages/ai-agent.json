@@ -7,13 +7,13 @@
   "description": "An AI agent is software with a goal, instructions and tools that decides on each run which steps to take. A plain definition and a real example.",
   "h1": "What is an AI agent?",
   "definition": [
-    "An AI agent is software that is given a goal, instructions and access to tools, and decides on each run which steps to take to reach that goal.",
-    "Where a fixed automation does the same thing every time, an AI agent reads the situation first and chooses: which email needs a reply, which deal has gone quiet, what the reply should say."
+    "An AI agent is software given a goal, instructions and tools, which decides on each run which steps to take.",
+    "Unlike a fixed automation, it reads the situation first: which deal went quiet, what to say."
   ],
   "example": {
     "kind": "ai",
     "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
-    "why": "Each weekday it decides which deals have really gone quiet and what to say to each. That choice on every run is what makes it an AI agent.",
+    "why": "Each weekday it judges which deals went quiet and what to write.",
     "build": {
       "name": "Deal follow-ups",
       "line": "quiet deals, a follow-up drafted for each",

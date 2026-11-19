@@ -7,13 +7,13 @@
   "description": "OAuth lets one app act in another on your behalf without your password: you approve what it may do, and it gets a token you can take back.",
   "h1": "What is OAuth?",
   "definition": [
-    "OAuth is the standard way to let one app act in another on your behalf without handing over your password: you sign in to the other app, see what is being asked for, and approve.",
-    "The app then holds a token limited to what you approved, which you can take back at any time from the other app's settings."
+    "OAuth is the standard way to let one app act in another for you without sharing your password: you sign in there and approve.",
+    "The app gets a token limited to that, which you can revoke."
   ],
   "example": {
     "kind": "app",
     "ask": "Chase my unpaid invoices",
-    "why": "The invoices desk sends reminders from your Gmail. Google's own sign-in window lists what is asked for and you approve there; 50agents never sees your Google password.",
+    "why": "You approve Gmail access in Google's own window; 50agents never sees your password.",
     "build": {
       "name": "Invoices desk",
       "line": "what is owed to you, the late ones first",

@@ -1,4 +1,5 @@
-// A pair page, v3 (D253): the app template, short. Every real recipe between two apps from the catalog snapshot.
+// A pair page, v3 round 2 (D253, D254): the app template, short. Every real template (the catalog's recipes) between two
+// apps from the catalog snapshot, in a box that scrolls inside itself; the triggers and actions they use, as tabs.
 // One canonical order per pair (the trigger app first; alphabetical when recipes run both ways). The other order is
 // generated too and answers with a permanent redirect to it (permanentRedirect: 308 from the server, which search
 // engines treat as a 301). Indexable only with 3 or more recipes.
@@ -8,10 +9,11 @@ import { Crumbs, KINDS, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { BuildLink } from '@/site/integrations/build-link';
-import { catalog, findPair, loadApp, nameOf, pairIndexable, pairPath, pairRecipes, pairs, recipeAsk } from '@/site/integrations/data';
+import { findPair, loadApp, nameOf, pairIndexable, pairPath, pairRecipes, pairs, recipeAsk } from '@/site/integrations/data';
 import { canon } from '@/content/integrations/slugs';
-import { BASE, crumbsLd, Final, HeroPlan, LdScript, Lockup, PairEvents, Questions, RecipeRows, softwareLd } from '@/site/integrations/parts';
-import { pairWords, recipeBuild } from '@/site/integrations/words';
+import { BASE, crumbsLd, Final, LdScript, Lockup, PairEventsBox, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
+import { pairWords } from '@/site/integrations/words';
+import { catalog } from '@/site/integrations/data';
 import '@/site/css/usecase.css';
 import '@/site/css/integrations.css';
 
@@ -39,7 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ app: stri
   const { a, b, pair } = d;
   const url = `${BASE}${pairPath(pair)}`;
   const title = `${a.name} and ${b.name} automations`;
-  const description = `Connect ${a.name} and ${b.name} in 50agents: every ready recipe between them from viaSocket’s catalog, each one an ask Captain builds as an automation you approve.`;
+  const description = `Connect ${a.name} and ${b.name} in 50agents: every ready template between them from viaSocket’s catalog, each one an ask Captain builds as an automation you approve.`;
   return {
     title: { absolute: title.length < 48 ? `${title} | 50agents` : title },
     description,
@@ -75,20 +77,18 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
         <Lockup apps={[a.slug, b.slug]} />
         <h1>{w.h1}</h1>
         <p className="answer">{w.answer[0]} {w.answer[1]}</p>
-        <PromptFilm ask={ask} button={<span className="hero-cta"><BuildLink page={page} place="hero" campaign={C} ask={ask}>Build it</BuildLink></span>}>
-          <HeroPlan build={recipeBuild(recipes[0])} />
-        </PromptFilm>
+        <PromptFilm ask={ask} button={<span className="hero-cta"><BuildLink page={page} place="hero" campaign={C} ask={ask}>Build it</BuildLink></span>} />
         <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
       </section>
 
-      <section className="wrap sec" id="recipes">
-        <div className="sec-h c"><h2>Every {a.name} and {b.name} recipe</h2></div>
-        <RecipeRows recipes={recipes.slice(0, 10)} more={recipes.slice(10)} page={page} campaign={C} />
+      <section className="wrap sec" id="templates">
+        <div className="sec-h c"><h2>{a.name} and {b.name} templates</h2><p>Pick one and Captain builds it with you.</p></div>
+        <TemplatesBox recipes={recipes} page={page} campaign={C} search="Search templates" />
       </section>
 
       <section className="wrap sec" id="steps">
-        <div className="sec-h c"><h2>What each step does</h2></div>
-        <PairEvents a={a} b={b} recipes={recipes} />
+        <div className="sec-h c"><h2>The triggers and actions they use</h2></div>
+        <PairEventsBox a={a} b={b} recipes={recipes} />
       </section>
 
       <section className="wrap sec" id="questions">
@@ -97,7 +97,7 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
         <p className="uc3-more-apps"><MaybeLink href={`/integrations/${a.slug}`}>All {a.name} integrations</MaybeLink> · <MaybeLink href={`/integrations/${b.slug}`}>All {b.name} integrations</MaybeLink> · <MaybeLink href="/integrations">Every app, A to Z</MaybeLink></p>
       </section>
 
-      <Final h2={`Connect ${a.name} and ${b.name}`} p="Or pick another recipe above. Free to start." ask={ask} page={page} campaign={C} updated={read} />
+      <Final h2={`Connect ${a.name} and ${b.name}`} p="Or pick another template above. Free to start." ask={ask} page={page} campaign={C} />
 
       <StickyBar><span>{a.name} and {b.name}</span><BuildLink page={page} place="sticky" campaign={C} ask={ask} className="btn">Build it</BuildLink></StickyBar>
     </div>

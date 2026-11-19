@@ -7,8 +7,8 @@
   "description": "To track leads from email, tell Captain \"Track my leads and follow up\": a pipeline fills from your Gmail, with follow-ups drafted for you to approve.",
   "h1": "Track leads from your email",
   "answer": [
-    "To track leads from your email, tell Captain \"Track my leads and follow up\" in 50agents.",
-    "It builds a leads desk with a pipeline board, where Closer, an AI agent, adds leads it finds in your Gmail and drafts follow-ups, and asks before sending any email."
+    "To track leads from your email, tell Captain \"Track my leads and follow up\".",
+    "It builds a leads desk where Closer, an AI agent, adds leads from Gmail and drafts follow-ups, asking before any email goes out."
   ],
   "ask": "Track my leads and follow up",
   "stat": {

@@ -6,6 +6,8 @@ import type { IntegrationPage } from './types';
 
 const list = (xs: string[]) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`);
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+/** The hero's answer is 40 words at most (D254): a long second sentence gives way to a short one. */
+const fit40 = (a: [string, string], short: string): [string, string] => (`${a[0]} ${a[1]}`.split(/\s+/).length > 40 ? [a[0], short] : a);
 const q = (s: string) => `“${plainEvent(s)}”`;
 const READ_ORDER = /^(search|find|get|list|lookup|retrieve|fetch)/i;
 const KEEP = ['Google', 'Slack', 'HubSpot', 'Stripe', 'Shopify', 'Gmail'];
@@ -54,20 +56,20 @@ export function templatePage(app: AppFile): IntegrationPage {
     build = { name: `${N} plan`, line: 'Captain plans it with you', when: 'When you ask', does: ['A plan for you to approve'], apps: [app.slug], asksFirst: 'Before it builds anything' };
   }
 
-  const answer: [string, string] = [
+  const answer: [string, string] = fit40([
     r0
-      ? `In 50agents you connect ${N} once and tell Captain the job in plain words, such as: ${recipeClause(r0, nameOf)}.`
-      : `In 50agents you connect ${N} once and tell Captain the job in plain words, and it plans the steps for you to approve.`,
+      ? `Connect ${N} and tell Captain the job, such as: ${recipeClause(r0, nameOf)}.`
+      : `Connect ${N} and tell Captain the job in plain words, and it plans the steps for you to approve.`,
     triggers.length && actions.length
       ? partners.length
-        ? `Captain builds it on ${N}’s own triggers and actions, alongside apps such as ${list(partners.slice(0, 3).map(x => nameOf(x.slug)))}, and anything that reaches people outside your business asks you first.`
-        : `Captain builds an automation, an AI agent or an app on ${N}’s own triggers and actions, and anything that reaches people outside your business asks you first.`
+        ? `It works alongside apps such as ${list(partners.slice(0, 2).map(x => nameOf(x.slug)))}, and asks before anything goes outside.`
+        : `Captain builds it on ${N}’s own triggers and actions, and asks before anything goes outside.`
       : triggers.length
-        ? `${N} starts the work with its triggers, the steps run in your other apps, and anything that reaches people outside your business asks you first.`
+        ? `${N} starts the work; the steps run in your other apps.`
         : actions.length
           ? `${N} works as a step: another app’s event or a schedule starts it.`
           : `viaSocket’s catalog lists ${N} without triggers or actions yet, so tell Captain the job and it says what it can do.`,
-  ];
+  ], 'Captain asks before anything goes outside.');
 
   const kinds: IntegrationPage['kinds'] = [];
   const kindUses = (xs: Event[]) => xs.map(e => e.n);
@@ -114,7 +116,7 @@ export function templatePage(app: AppFile): IntegrationPage {
     : null;
   if (tq) faqs.push(tq);
   if (actions.length) faqs.push({ q: `What can 50agents do in ${N}?`, a: `Its actions: ${list(actions.slice(0, 8).map(e => q(e.n)))}${actions.length > 8 ? ', and the rest listed above' : ''}. Anything that reaches people outside asks you first.` });
-  if (partners.length) faqs.push({ q: `Which apps is ${N} most often paired with?`, a: `${list(partners.slice(0, 5).map(p => nameOf(p.slug)))}, in viaSocket’s recipes.` });
+  if (partners.length) faqs.push({ q: `Which apps is ${N} most often paired with?`, a: `${list(partners.slice(0, 5).map(p => nameOf(p.slug)))}, in viaSocket’s templates.` });
 
   const t = triggers.length, a = actions.length;
   const title = `AI agents, automations and apps for ${N}`.length <= 48 ? `AI agents, automations and apps for ${N} | 50agents` : `${N} automations and AI agents | 50agents`;
@@ -122,7 +124,7 @@ export function templatePage(app: AppFile): IntegrationPage {
     slug: app.slug,
     query: `${N} integrations`,
     title: title.length <= 60 ? title : `${N} integrations | 50agents`,
-    description: `Connect ${N} in 50agents and tell Captain the job: ${t || a ? `its real ${t ? 'triggers' : ''}${t && a ? ' and ' : ''}${a ? 'actions' : ''}` : 'what it can do'}${r0 ? ', and ready recipes you can build in one click' : ''}, from viaSocket’s catalog.`,
+    description: `Connect ${N} in 50agents and tell Captain the job: ${t || a ? `its real ${t ? 'triggers' : ''}${t && a ? ' and ' : ''}${a ? 'actions' : ''}` : 'what it can do'}${r0 ? ', and ready templates you can build in one click' : ''}, from viaSocket’s catalog.`,
     h1: `AI agents, automations and apps for ${N}`,
     answer,
     ask,
@@ -148,17 +150,17 @@ function biggestThing(events: Event[]): string {
 /** A pair page's words: the h1, the two-sentence answer and the questions. */
 export function pairWords(a: AppFile, b: AppFile, recipes: Recipe[]) {
   const A = a.name, B = b.name;
-  const fromA = recipes.filter(r => r.ta === a.slug), fromB = recipes.filter(r => r.ta === b.slug);
   const r0 = recipes[0];
   const starts = [...new Set(recipes.map(r => r.te))];
-  const answer: [string, string] = [
-    `To connect ${A} and ${B}, say the recipe to Captain in plain words: ${recipeClause(r0, nameOf)}.`,
-    `${A} and ${B} recipes start from ${list(starts.slice(0, 3).map(q))}${fromA.length && fromB.length ? `, in both apps` : ` in ${nameOf(r0.ta)}`}, and each one is an automation you approve.`,
-  ];
+  const both = recipes.some(r => r.ta === a.slug) && recipes.some(r => r.ta === b.slug);
+  const s2 = (n: number) => `${A} and ${B} templates start from ${list(starts.slice(0, n).map(q))}${both ? ', in both apps' : ''}.`;
+  const s1 = `To connect ${A} and ${B}, tell Captain: ${recipeClause(r0, nameOf)}.`;
+  // 40 words at most (D254): as many of the starting triggers as fit, else a short line.
+  const answer = fit40([s1, s2(3)], '') [1] ? fit40([s1, s2(3)], '') : fit40([s1, s2(2)], '')[1] ? fit40([s1, s2(2)], '') : fit40([s1, s2(1)], 'Each template is an automation you approve.');
   const faqs: { q: string; a: string }[] = [
-    { q: `What can start a ${A} and ${B} automation?`, a: `${list(starts.slice(0, 5).map(q))}${starts.length > 5 ? ', and the others in the recipes above' : ''}.` },
+    { q: `What can start a ${A} and ${B} automation?`, a: `${list(starts.slice(0, 5).map(q))}${starts.length > 5 ? ', and the others in the templates above' : ''}.` },
   ];
   const common = partnersOf(a).filter(x => x.slug !== b.slug && partnersOf(b).some(y => y.slug === x.slug)).slice(0, 5).map(x => nameOf(x.slug));
-  if (common.length) faqs.push({ q: `Which other apps work with both ${A} and ${B}?`, a: `${list(common)}. Each one has recipes with ${A} and with ${B}, so a third app can join the same job.` });
+  if (common.length) faqs.push({ q: `Which other apps work with both ${A} and ${B}?`, a: `${list(common)}. Each one has templates with ${A} and with ${B}, so a third app can join the same job.` });
   return { h1: `${A} and ${B} automations`, answer, faqs };
 }

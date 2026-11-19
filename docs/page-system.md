@@ -32,3 +32,23 @@ typography and spacing, visuals that support the text (or no visual), better tha
 - `scripts/pages/generate.mjs` runs the prompt with Claude when ANTHROPIC_API_KEY is set; until then a Claude Code
   session runs the same prompt on the same inputs.
 - A new page is a new row. A design change is a component change, and every page follows.
+
+## Round 2 (D254, Jii's review)
+- **No dates at all** on the page: no byline date, no "Prices checked", no "read <date>". Dates live only in JSON-LD
+  `dateModified`, the sitemap and the content files.
+- **No source lines** ("From each tool's own pages", "Sources: ..."). Facts stay checked in the data files.
+- **Subheaders are one short line** (under about 14 words), direct and concise. The hero's two-sentence answer is
+  40 words at most in total.
+- **Use the width:** heroes and content go wide (the hero film is 940px; tables use the full container).
+- **The hero film** (`PromptFilm`) is Captain's yellow blob beside its chat box with the ask typing in. No plan card.
+- **Apps sections** say "Works with <apps> and 2,300+ apps" and show two marquee rows of logos (see the use case page).
+- **Tables** follow the use case comparison table: short cells (a mark plus at most 5 words), the 50agents column
+  raised on the kind's tint, drawn tick, cross and partly icons. No prose in cells.
+- **Headers** are the shared ones (68px, no border). Don't override them.
+- **Captain is the yellow blob** (`Face id="lead"`); use the crew blobs where they help explain, never as decoration.
+- **Guides v4** (`src/app/(site)/guides/[slug]/page.tsx`, `src/site/guides/*`): to the point (answer, then steps). Interactions
+  are native inputs in the server HTML, so they work by keyboard and without JavaScript: a "which one do I need" chooser
+  (radios, branches shown by `:has`, an answer within 3 taps, only where there is a real choice), steps the reader ticks
+  off with progress in the sticky contents, and Captain's film inside the step 50agents does. Tips, warnings and "what
+  can go wrong" items carry the blob of the kind they are about. Tabs ("any tool" vs "in 50agents") were left out: they
+  would hide the steps or repeat them. Prompt `scripts/pages/prompts/guides.md`, gates `scripts/pages/gates-guides.mjs`.

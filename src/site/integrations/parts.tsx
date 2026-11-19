@@ -1,19 +1,17 @@
-// The integration family's pieces, v3 (D253): the hero lockup, the four kinds as link cards, the triggers and actions
-// as a calm two-column list, recipe rows with one button each, pairing cards, questions and the final block.
-// Shared pieces (PromptFilm, PlanCard, the qa accordion, cards, StickyBar) are reused as they are.
+// The integration family's pieces, v3 round 2 (D254): the hero lockup, the four kinds as link cards, triggers and actions
+// and templates in fixed-height boxes that scroll inside themselves, pairing cards, questions, the final block, and the
+// directory panel. Visible copy says "templates" (the 50agents app's word); the code keeps the catalog's name, recipe.
 import { AppLogo, Face, KINDS, MaybeLink } from '@/site/parts';
-import { PlanCard } from '@/site/usecase/plan-card';
-import type { UseCasePage } from '@/site/usecase/types';
 import { BuildLink } from './build-link';
-import { catalog, findPair, iconOf, nameOf, pairPath, plainDesc, recipeAsk, recipeClause, type AppFile, type Event, type Recipe } from './data';
+import { CatPick, Directory, ListBox } from './boxes';
+import { CATEGORIES } from '@/content/integrations/categories';
+import { findPair, iconOf, nameOf, pairPath, plainDesc, recipeAsk, recipeClause, type AppFile, type Event, type Recipe } from './data';
 import type { IntegrationPage } from './types';
 import { plainEvent } from './words';
 
 export const BASE = 'https://50agents.com';
 export type Campaign = 'seo-integration' | 'seo-pair' | 'seo-category' | 'seo-index';
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-
-export const month = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 export function Logo({ slug, size = 28 }: { slug: string; size?: number }) {
   const icon = iconOf(slug);
@@ -31,11 +29,6 @@ export function Lockup({ apps }: { apps: string[] }) {
   );
 }
 
-/** Captain's plan under the hero's prompt: the shared PlanCard, fed only the fields it reads (kind and build). */
-export function HeroPlan({ build }: { build: IntegrationPage['build'] }) {
-  return <PlanCard u={{ kind: 'auto', build } as unknown as UseCasePage} />;
-}
-
 /** The four kinds on this app, as cards: the job, two sentences, one button with its ask, and its use case if there is one. */
 export function KindCards({ kinds, page, campaign }: { kinds: IntegrationPage['kinds'] | { kind: IntegrationPage['kinds'][number]['kind']; title: string; body: string; ask: string; useCase?: string }[]; page: string; campaign: Campaign }) {
   return (
@@ -49,7 +42,7 @@ export function KindCards({ kinds, page, campaign }: { kinds: IntegrationPage['k
             <p>{k.body}</p>
             <div className="ig3-kind-go">
               <BuildLink page={page} place={`kind-${k.kind}`} campaign={campaign} ask={k.ask} className="btn sm ghost">Build this</BuildLink>
-              {k.useCase && <MaybeLink href={`/use-cases/${k.useCase}`} className="ig3-kind-more">How it works</MaybeLink>}
+              {k.useCase && <MaybeLink href={`/use-cases/${k.useCase}`} className="ig3-kind-more">See the use case</MaybeLink>}
             </div>
           </div>
         );
@@ -58,84 +51,75 @@ export function KindCards({ kinds, page, campaign }: { kinds: IntegrationPage['k
   );
 }
 
-const SHOW = 8;
-/** One trigger or action: its name in plain words and, under it, the catalog's own description when it reads as one. */
-function Ev({ e, app }: { e: Event; app: string }) {
-  const d = plainDesc(e.d);
-  return <li><b>{plainEvent(e.n, app)}</b>{d && <span>{d}</span>}</li>;
+// ---- triggers, actions and templates: fixed-height boxes that scroll inside themselves (D254) ----
+const PER = 12; // items shown before "Load more"; the box keeps its height, the list scrolls inside it
+/** One trigger or action: its name in plain words and one line, the catalog's own description. The whole description is
+ *  in the HTML; CSS shows one line (two on a phone). */
+function evLine(e: Event, app: string) {
+  return plainDesc(e.d).trim() || (e.t === 'trigger' ? `Starts the work when it happens in ${app}.` : `Runs as a step in ${app}.`);
 }
-function EventCol({ head, events, app }: { head: React.ReactNode; events: Event[]; app: string }) {
-  if (!events.length) return null;
-  const first = events.slice(0, SHOW), rest = events.slice(SHOW);
+function EvPanel({ k, events, app, logos, first }: { k: string; events: { e: Event; app: AppFile }[]; app?: string; logos?: boolean; first: boolean }) {
   return (
-    <div className="ig3-col">
-      <p className="ig3-col-h">{head}</p>
-      <ul>{first.map(e => <Ev key={e.t + e.n} e={e} app={app} />)}</ul>
-      {rest.length > 0 && (
-        <details className="ig3-more">
-          <summary>{rest.length} more</summary>
-          <ul>{rest.map(e => <Ev key={e.t + e.n} e={e} app={app} />)}</ul>
-        </details>
-      )}
-    </div>
-  );
-}
-
-/** A pair's steps: the triggers and actions its recipes use, each app in its own column with the catalog's descriptions. */
-export function PairEvents({ a, b, recipes }: { a: AppFile; b: AppFile; recipes: Recipe[] }) {
-  const used = (app: AppFile) => {
-    const names = new Set(recipes.flatMap(r => [r.ta === app.slug ? r.te : '', r.aa === app.slug ? r.ae : ''].filter(Boolean)));
-    return app.events.filter(e => names.has(e.n)).sort((x, y) => Number(y.t === 'trigger') - Number(x.t === 'trigger'));
-  };
-  return (
-    <div className="ig3-cols ig3-pair-evs">
-      {[a, b].map(app => <EventCol key={app.slug} head={<><Logo slug={app.slug} size={22} />{app.name}</>} events={used(app)} app={app.name} />)}
-    </div>
-  );
-}
-
-/** Triggers and actions, grouped by what they act on: the group and its plain-words line, then what starts the work and what it can do. */
-export function EventGroups({ groups, app }: { groups: IntegrationPage['groups']; app: AppFile }) {
-  const by = new Map(app.events.map(e => [e.n, e]));
-  return (
-    <div className="ig3-groups">
-      {groups.map(g => {
-        const evs = g.events.map(n => by.get(n)).filter((e): e is Event => !!e);
-        const t = evs.filter(e => e.t === 'trigger'), a = evs.filter(e => e.t === 'action');
-        if (!evs.length) return null;
+    <ul className="ig4-items" data-panel={k} role="tabpanel" aria-label={k} hidden={!first}>
+      {events.map(({ e, app: a }, i) => {
+        const name = plainEvent(e.n, a.name), line = evLine(e, app ?? a.name);
         return (
-          <section key={g.label} className="ig3-group">
-            <div className="ig3-group-h"><h3>{g.label}</h3>{g.line && <p>{g.line}</p>}</div>
-            <div className={t.length && a.length ? 'ig3-cols' : 'ig3-cols one'}>
-              <EventCol head="Starts the work when" events={t} app={app.name} />
-              <EventCol head="Can do" events={a} app={app.name} />
-            </div>
-          </section>
+          <li key={`${i}-${a.slug}-${e.t}-${e.n}`} data-q={`${name} ${line} ${a.name}`.toLowerCase()} hidden={i >= PER}>
+            {logos && <Logo slug={a.slug} size={26} />}
+            <span><b>{name}</b><span title={line}>{line}</span></span>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
-/** Recipe rows: the two apps, the recipe in a sentence, and one "Build this" that pastes its ask. */
-export function RecipeRows({ recipes, page, campaign, more }: { recipes: Recipe[]; page: string; campaign: Campaign; more?: Recipe[] }) {
-  const row = (r: Recipe, i: number) => (
-    <li key={i}>
-      <span className="ig3-rec-logos"><Logo slug={r.ta} size={28} /><Logo slug={r.aa} size={28} /></span>
-      <p>{cap(recipeClause(r, nameOf))}</p>
-      <BuildLink page={page} place={`recipe-${i + 1}`} campaign={campaign} ask={recipeAsk(r, nameOf)} className="btn sm ghost">Build this</BuildLink>
-    </li>
-  );
+/** An app's triggers and actions, as two tabs with one search, in a box that scrolls inside itself. */
+export function EventsBox({ app }: { app: AppFile }) {
+  const t = app.events.filter(e => e.t === 'trigger').map(e => ({ e, app })), a = app.events.filter(e => e.t === 'action').map(e => ({ e, app }));
+  const tabs = [...(t.length ? [{ key: 'triggers', label: 'Triggers' }] : []), ...(a.length ? [{ key: 'actions', label: 'Actions' }] : [])];
   return (
-    <>
-      <ul className="ig3-recs">{recipes.map(row)}</ul>
-      {more && more.length > 0 && (
-        <details className="ig3-recs-more">
-          <summary>See {more.length} more recipes</summary>
-          <ul className="ig3-recs">{more.map((r, i) => row(r, recipes.length + i))}</ul>
-        </details>
-      )}
-    </>
+    <ListBox tabs={tabs} per={PER} fixed={t.length > PER || a.length > PER} search="Search triggers and actions" empty="Nothing matches">
+      {t.length > 0 && <EvPanel k="triggers" events={t} first />}
+      {a.length > 0 && <EvPanel k="actions" events={a} first={!t.length} />}
+    </ListBox>
+  );
+}
+
+/** A pair's steps: the triggers and the actions its templates use, from both apps, each with its app's logo. */
+export function PairEventsBox({ a, b, recipes }: { a: AppFile; b: AppFile; recipes: Recipe[] }) {
+  const used = (kind: 'trigger' | 'action') => [a, b].flatMap(app => {
+    const names = new Set(recipes.flatMap(r => kind === 'trigger' ? (r.ta === app.slug ? [r.te] : []) : (r.aa === app.slug ? [r.ae] : [])));
+    return app.events.filter(e => e.t === kind && names.has(e.n)).map(e => ({ e, app }));
+  });
+  const t = used('trigger'), x = used('action');
+  const tabs = [...(t.length ? [{ key: 'triggers', label: 'Triggers' }] : []), ...(x.length ? [{ key: 'actions', label: 'Actions' }] : [])];
+  return (
+    <ListBox tabs={tabs} per={PER} fixed={t.length > PER || x.length > PER} search={t.length + x.length > PER ? 'Search these triggers and actions' : undefined} empty="Nothing matches">
+      {t.length > 0 && <EvPanel k="triggers" events={t} logos first />}
+      {x.length > 0 && <EvPanel k="actions" events={x} logos first={!t.length} />}
+    </ListBox>
+  );
+}
+
+/** Templates: the two apps, the template in a sentence, one "Build this" that pastes its ask; in the same scrolling box. */
+export function TemplatesBox({ recipes, page, campaign, search }: { recipes: Recipe[]; page: string; campaign: Campaign; search?: string }) {
+  const per = 8;
+  return (
+    <ListBox tabs={[{ key: 'templates', label: 'Templates' }]} per={per} fixed={recipes.length > per} search={recipes.length > per ? search : undefined} empty="No template matches">
+      <ul className="ig4-items ig4-tpls" data-panel="templates">
+        {recipes.map((r, i) => {
+          const line = cap(recipeClause(r, nameOf));
+          return (
+            <li key={i} data-q={`${line} ${nameOf(r.ta)} ${nameOf(r.aa)}`.toLowerCase()} hidden={i >= per}>
+              <span className="ig4-tpl-logos"><Logo slug={r.ta} size={26} /><Logo slug={r.aa} size={26} /></span>
+              <p>{line}</p>
+              <BuildLink page={page} place={`template-${i + 1}`} campaign={campaign} ask={recipeAsk(r, nameOf)} className="btn sm ghost">Build this</BuildLink>
+            </li>
+          );
+        })}
+      </ul>
+    </ListBox>
   );
 }
 
@@ -152,7 +136,7 @@ export function PairCards({ items }: { items: { me: string; other: string; recip
           <>
             <span className="ig3-pair-logos"><Logo slug={me} size={30} /><i /><Logo slug={o} size={30} /></span>
             <b>{nameOf(me)} and {nameOf(o)}</b>
-            <span>{r ? `${cap(recipeClause(r, nameOf))}.` : `Recipes between ${nameOf(me)} and ${nameOf(o)}.`}</span>
+            <span>{r ? `${cap(recipeClause(r, nameOf))}.` : `Templates for ${nameOf(me)} and ${nameOf(o)}.`}</span>
           </>
         );
         return f ? <a key={me + o} href={pairPath(f.pair)}>{body}</a> : <MaybeLink key={me + o} href={`/integrations/${o}`}>{body}</MaybeLink>;
@@ -161,26 +145,21 @@ export function PairCards({ items }: { items: { me: string; other: string; recip
   );
 }
 
-export function Questions({ faqs, sources }: { faqs: { q: string; a: string }[]; sources?: { label: string; href: string }[] }) {
+export function Questions({ faqs }: { faqs: { q: string; a: string }[] }) {
   return (
-    <>
-      <div className="qa uc3-qa">
-        {faqs.map((f, n) => (
-          <details key={f.q} open={n === 0}>
-            <summary><h3>{f.q}</h3><i aria-hidden="true" /></summary>
-            <p>{f.a}</p>
-          </details>
-        ))}
-      </div>
-      {sources && sources.length > 0 && (
-        <p className="uc3-src">From their own pages: {sources.map((x, i) => <span key={x.href}>{i ? ', ' : ''}<a href={x.href} target="_blank" rel="noopener">{x.label}</a></span>)}.</p>
-      )}
-    </>
+    <div className="qa uc3-qa">
+      {faqs.map((f, n) => (
+        <details key={f.q} open={n === 0}>
+          <summary><h3>{f.q}</h3><i aria-hidden="true" /></summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
   );
 }
 
-/** The last block: the page's ask, one button, the crew peeking in; then the one byline. */
-export function Final({ h2, p, ask, page, campaign, updated, button = 'Build it with Captain' }: { h2: string; p: React.ReactNode; ask: string; page: string; campaign: Campaign; updated: string; button?: string }) {
+/** The last block: the page's ask, one button, the crew peeking in. No byline and no date (D254). */
+export function Final({ h2, p, ask, page, campaign, button = 'Build it with Captain' }: { h2: string; p: React.ReactNode; ask: string; page: string; campaign: Campaign; button?: string }) {
   return (
     <section className="wrap sec">
       <div className="final">
@@ -190,7 +169,6 @@ export function Final({ h2, p, ask, page, campaign, updated, button = 'Build it 
         <span className="peek l" aria-hidden="true"><Face id="keeper" size={52} /><Face id="closer" size={44} /></span>
         <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="sorter" size={46} /></span>
       </div>
-      <p className="byline">By the 50agents team · Updated {month(updated)}</p>
     </section>
   );
 }
@@ -222,32 +200,28 @@ export function LdScript({ data }: { data: unknown }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
-/** The categories as link cards: the three best-connected apps' logos and the name. */
-export function CategoryCards({ cats }: { cats: { slug: string; name: string }[] }) {
+/** The directory panel (like viaSocket's own A to Z): the categories down the left (a select on a phone), and the apps as
+ *  a hairline grid with one search and numbered pages. Every app is in the HTML; the pages only hide the rest. */
+export const DIR_PER = 48;
+export function DirectoryPanel({ apps, current, head, label }: { apps: { s: string; n: string }[]; current: string; head: React.ReactNode; label: string }) {
+  const cats = [{ href: '/integrations', name: 'All apps' }, ...CATEGORIES.map(c => ({ href: `/integrations/category/${c.slug}`, name: c.name }))];
   return (
-    <div className="ig3-cats">
-      {cats.map(c => {
-        const top = catalog().apps.filter(a => a.c.includes(c.slug) && a.i).slice(0, 3);
-        return (
-          <MaybeLink key={c.slug} href={`/integrations/category/${c.slug}`} className="ig3-cat">
-            <span className="ig3-cat-logos">{top.map(a => <Logo key={a.s} slug={a.s} size={28} />)}</span>
-            <b>{c.name}</b>
-          </MaybeLink>
-        );
-      })}
+    <div className="ig4-dir" id="apps">
+      <aside className="ig4-side">
+        <CatPick cats={cats} current={current} />
+        <nav aria-label="Categories">
+          <ul>{cats.map(c => <li key={c.href}><MaybeLink href={c.href} className={c.href === current ? 'on' : undefined}>{c.name}</MaybeLink></li>)}</ul>
+        </nav>
+      </aside>
+      <Directory per={DIR_PER} total={apps.length} label={label} head={head}>
+        <ul className="ig4-grid">
+          {apps.map((a, i) => (
+            <li key={a.s} data-app="" data-q={`${a.n} ${a.s}`.toLowerCase()} hidden={i >= DIR_PER}>
+              <a href={`/integrations/${a.s}`}><Logo slug={a.s} size={28} /><b>{a.n}</b></a>
+            </li>
+          ))}
+        </ul>
+      </Directory>
     </div>
-  );
-}
-
-/** A calm grid of app tiles (logo and name), each findable by the search (data-app). */
-export function AppGrid({ apps }: { apps: { s: string; n: string }[] }) {
-  return (
-    <ul className="ig3-grid">
-      {apps.map(a => (
-        <li key={a.s} data-app={`${a.n} ${a.s}`.toLowerCase()}>
-          <a href={`/integrations/${a.s}`}><Logo slug={a.s} size={32} /><b>{a.n}</b></a>
-        </li>
-      ))}
-    </ul>
   );
 }

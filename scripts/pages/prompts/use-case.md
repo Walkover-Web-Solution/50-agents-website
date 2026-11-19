@@ -16,7 +16,7 @@ Search the row's query. Read the top 3 to 5 results and the "People also ask" qu
 ## Fields
 - `title` under 60 characters, ends " | 50agents". `description` 140 to 155 characters, answer first.
 - `h1`: the job in plain words (the query's wording when it reads well).
-- `answer`: two sentences. The first starts with "To <job>, tell Captain" and quotes the ask (shorten a long ask to its first clause inside the quote only if over 90 characters, keeping `ask` exact). The second says what Captain builds and what asks first.
+- `answer`: two sentences, 40 words at most in total. The first starts with "To <job>, tell Captain" and quotes the ask (shorten a long ask to its first clause inside the quote only if over 90 characters, keeping `ask` exact). The second says what Captain builds and what asks first.
 - `ask`: exactly the row's ask.
 - `stat`: at most one, only a number you read today on its primary source page, as one sentence, with the source name and URL. Leave it out if you have none.
 - `build`: name (2 or 3 words), line (under 10 words), when (when it runs, true to the facts file), does (2 or 3 lines, under 9 words each), apps (the row's apps), asksFirst (under 8 words).

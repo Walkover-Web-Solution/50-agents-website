@@ -5,8 +5,8 @@
  "description": "Connect Slack and tell Captain the job: channel messages logged in a sheet, tomorrow’s meetings posted each evening, or an AI agent that replies.",
  "h1": "AI agents and automations for Slack",
  "answer": [
-  "To put Slack to work in 50agents, connect it once and tell Captain the job, such as “when a new message is posted in a Slack channel, add it as a row to my Google Sheet”.",
-  "Captain builds an automation that starts from Slack or posts into it, or an AI agent that reads channels, threads and mentions and decides what to post, reply or ask."
+  "Connect Slack and tell Captain the job, such as “when a new message is posted in a Slack channel, add it as a row to my Google Sheet”.",
+  "Captain builds an automation or an AI agent that reads threads."
  ],
  "ask": "Set up an automation: when a new message is posted in a Slack channel, add it as a row to my Google Sheet",
  "recipe": {

@@ -5,8 +5,8 @@
  "description": "Connect Shopify and tell Captain the job: each new order posted in Slack, an AI agent that follows up abandoned checkouts, or a desk for order questions.",
  "h1": "AI agents and automations for Shopify",
  "answer": [
-  "To put your Shopify store to work in 50agents, connect it once and tell Captain the job, such as “when a new order comes in on Shopify, post it in a Slack channel”.",
-  "Captain builds an automation for steps that never change, like posting or logging orders, or an AI agent for work that needs judgement, like which abandoned checkout to follow up and what to say."
+  "Connect your Shopify store and tell Captain the job, such as “when a new order comes in on Shopify, post it in a Slack channel”.",
+  "Fixed steps become an automation; judgement calls, like which checkout to chase, an AI agent."
  ],
  "ask": "Set up an automation: when a new order comes in on Shopify, post it in a Slack channel",
  "recipe": {

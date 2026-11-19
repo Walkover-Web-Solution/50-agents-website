@@ -7,55 +7,56 @@
   "description": "Turn your inbox into a requests desk: one record per request with status, priority and an answer-by date, a board by status, and replies drafted.",
   "h1": "How to build a customer requests desk from your inbox",
   "answer": [
-    "Give every customer email that needs an answer its own record with a status (New, Waiting on us, Waiting on them, Solved), a priority and an answer-by date, and work from a board of those records instead of the inbox.",
-    "You can do it with Gmail labels for a few a day, a shared inbox for a small team, or a desk app that pulls requests from email and drafts the replies."
+    "Give every customer email that needs an answer a record with a status, a priority and an answer-by date.",
+    "Then work from a board of those records instead of the inbox."
   ],
-  "sections": [
-    {
-      "id": "options",
-      "h2": "Three ways, by volume",
-      "body": [
+  "chooser": {
+    "h2": "Which setup fits your volume?",
+    "root": {
+      "q": "How many people answer customer email?",
+      "options": [
         {
-          "table": {
-            "head": [
-              "Setup",
-              "Fits",
-              "Gives you",
-              "Misses"
-            ],
-            "rows": [
-              [
-                "Gmail labels and stars",
-                "One person, a few requests a day",
-                "Free, nothing new to learn",
-                "No answer-by dates, no view of what is late"
-              ],
-              [
-                "A shared inbox (Google Groups Collaborative Inbox, Front, Hiver)",
-                "A small team",
-                "Assign to a person, mark done, filter unresolved",
-                "Little reporting; priority lives in people’s heads"
-              ],
-              [
-                "A help desk (Zendesk, Freshdesk)",
-                "10+ people, many channels",
-                "Tickets, SLAs, macros, reports",
-                "Cost and a migration; heavy for a small team"
-              ],
-              [
-                "A requests desk app",
-                "A small team that wants a desk without leaving email",
-                "Records from email, board by status, replies drafted",
-                "Not a full help desk: no live chat, no phone"
-              ]
+          "label": "Just me, a few a day",
+          "then": {
+            "answer": "Gmail labels and stars",
+            "why": "Free and nothing new to learn. You get no answer-by dates and no view of what is late, so check the label daily."
+          }
+        },
+        {
+          "label": "A small team",
+          "then": {
+            "q": "Do you want replies drafted for you?",
+            "options": [
+              {
+                "label": "No, just shared and assigned",
+                "then": {
+                  "answer": "A shared inbox",
+                  "why": "Google Groups Collaborative Inbox, Front or Hiver let you assign each email to one person and filter what is unresolved."
+                }
+              },
+              {
+                "label": "Yes, and sorted on arrival",
+                "then": {
+                  "answer": "A requests desk app",
+                  "why": "It turns each email into a record, sorts it by kind and priority, and drafts a reply that waits for your yes.",
+                  "kind": "app",
+                  "href": "/use-cases/customer-requests-desk"
+                }
+              }
             ]
           }
         },
         {
-          "p": "SupportBee, which sells both, puts the line at about 10 support staff or 200 requests a day: below it a shared inbox works, above it a help desk pays off. Its signs it is time to move: two people answering the same email, messages missed, and more time spent coordinating than answering."
+          "label": "Ten or more, many channels",
+          "then": {
+            "answer": "A help desk such as Zendesk or Freshdesk",
+            "why": "Tickets, service-level targets, macros and reports across email, chat and phone. Heavy for a small team."
+          }
         }
       ]
-    },
+    }
+  },
+  "sections": [
     {
       "id": "record",
       "h2": "What each request record holds",
@@ -69,34 +70,34 @@
             ],
             "rows": [
               [
-                "Subject, Customer, Email",
+                "Subject, customer, email",
                 "From the email",
                 "Who and what"
               ],
               [
                 "Status",
                 "New, Waiting on us, Waiting on them, Solved",
-                "Separates \"we owe a reply\" from \"they do\""
+                "Who owes the next reply"
               ],
               [
                 "Priority",
                 "Low, Normal, Urgent",
-                "Urgent only when something is broken, money is at stake or the customer is upset"
+                "What to answer first"
               ],
               [
                 "Kind",
                 "Question, Problem, Request, Complaint",
-                "Tells you what to fix in the product or the policy"
+                "What to fix in product or policy"
               ],
               [
                 "Answer by",
                 "A date",
-                "Tomorrow for urgent, two days for the rest"
+                "Tomorrow if urgent, else two days"
               ],
               [
                 "Details",
                 "Long text",
-                "The ask in one line, plus what was done"
+                "The ask, plus what was done"
               ]
             ]
           }
@@ -105,11 +106,11 @@
     }
   ],
   "method": {
-    "h2": "How to set it up, step by step",
+    "h2": "How to set it up",
     "steps": [
       {
         "title": "Pick one address for requests",
-        "body": "support@ or help@. Requests to personal inboxes get lost when someone is away."
+        "body": "support@ or help@. Requests sent to personal inboxes get lost when someone is away."
       },
       {
         "title": "Decide what becomes a request",
@@ -120,8 +121,13 @@
         "body": "By hand from a label, or automatically from new email. Keep the thread link on the record."
       },
       {
-        "title": "Sort each one",
-        "body": "Kind, priority and answer-by date as it arrives. Rules first, then judgement for the unclear ones."
+        "title": "Sort each one as it arrives",
+        "body": "Set kind, priority and answer-by date. Rules first, then judgement for the unclear ones.",
+        "note": {
+          "type": "tip",
+          "text": "Write the rule for Urgent in one sentence: something is broken, money is at stake, or the customer is upset. Otherwise everything drifts to urgent.",
+          "about": "ai"
+        }
       },
       {
         "title": "Work from the board",
@@ -129,37 +135,35 @@
       },
       {
         "title": "Close the loop",
-        "body": "Waiting on them for three days with no reply: a short check-in, then Solved."
+        "body": "Waiting on them for three days with no reply: send a short check-in, then mark it Solved."
       }
     ]
   },
-  "example": {
-    "h2": "A worked example in 50agents",
-    "body": [
-      "Captain builds this desk from one sentence. It asks where requests come in and whether replies should go out from your email, then builds the requests list, a Desk board by status, an Urgent view and the Overview numbers. Its AI agent, Desk, sorts each new request (kind, priority, answer-by date, a line on why) and drafts a reply to each question from what your business knows; if it is not sure of an answer it says what it would need instead of guessing. Every reply waits for your yes."
-    ],
+  "captain": {
+    "at": 3,
+    "line": "Captain builds the desk with an AI agent that sorts each new request, drafts a reply from what your business knows, and waits for your yes.",
     "useCase": "customer-requests-desk"
   },
   "wrong": [
     {
       "title": "Two people answer the same email",
-      "body": "Nobody could see who had it. Assign each request to one person, or have one person own the desk."
+      "body": "Nobody could see who had it. Assign each request to one person, or have one person own the desk.",
+      "about": "app"
     },
     {
       "title": "A thread splits",
-      "body": "The customer replies with a new subject and it becomes a new request. Match on the customer’s email and merge."
-    },
-    {
-      "title": "Everything is urgent",
-      "body": "Priority by gut feel drifts up. Write the rule for Urgent in one sentence and stick to it."
+      "body": "The customer replies with a new subject and it becomes a new request. Match on the customer's email and merge.",
+      "about": "app"
     },
     {
       "title": "Forwarded requests lose the customer",
-      "body": "A colleague forwards an email and the request shows the colleague as the customer. Read the original sender from the forwarded text."
+      "body": "A colleague forwards an email and the record shows the colleague as the customer. Read the original sender from the forwarded text.",
+      "about": "ai"
     },
     {
       "title": "Drafts that promise too much",
-      "body": "An AI-drafted reply offers a refund you would not give. Keep policies in its memory, and review every draft before it goes."
+      "body": "An AI-drafted reply offers a refund you would not give. Keep your policies in its memory, and review every draft before it goes.",
+      "about": "ai"
     }
   ],
   "faqs": [
@@ -169,21 +173,11 @@
     },
     {
       "q": "How do I stop two people replying to the same email?",
-      "a": "Assign each conversation to one person. Google Groups’ Collaborative Inbox lets members take a conversation; a desk app shows each request’s owner and status."
+      "a": "Assign each conversation to one person. Google Groups' Collaborative Inbox lets members take a conversation; a desk app shows each request's owner and status."
     },
     {
       "q": "How do I track open customer requests?",
       "a": "Give each one a record with a status and an answer-by date, and work from a view of everything Waiting on us, oldest first."
-    }
-  ],
-  "sources": [
-    {
-      "label": "Google: Collaborative Inbox in Google Groups",
-      "href": "https://support.google.com/a/users/answer/167430"
-    },
-    {
-      "label": "SupportBee: Shared inbox vs help desk",
-      "href": "https://supportbee.com/blog/shared-inbox-vs-help-desk-which-does-your-team-need"
     }
   ],
   "related": [

@@ -8,12 +8,12 @@
   "h1": "What is no-code?",
   "definition": [
     "No-code means building working software without writing programming code, by choosing, arranging or describing what you want.",
-    "Early no-code tools meant drag-and-drop canvases; newer ones, 50agents among them, let you describe the result in a sentence and answer a few questions."
+    "Newer tools, 50agents among them, start from one sentence instead of a canvas."
   ],
   "example": {
     "kind": "app",
     "ask": "Track my leads and follow up",
-    "why": "Six words build a leads app: a pipeline, a follow-up list and a crew of AI agents. The AI writes no code; the app is built from parts that are already tested.",
+    "why": "Six words build a leads app from tested parts; nobody writes code.",
     "build": {
       "name": "Leads desk",
       "line": "your pipeline, who to follow up today",

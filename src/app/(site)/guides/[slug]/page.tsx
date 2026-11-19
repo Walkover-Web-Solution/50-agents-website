@@ -1,15 +1,20 @@
-// A guide, v3 (D253): a reading page in one template, filled from the page's JSON (src/content/guides/pages), written by
-// the page pipeline (scripts/pages). The short answer first, the method as numbered steps, a worked example (the ask
-// typed into Captain, then its plan; or a link to the use case it overlaps), what can go wrong, questions, sources.
+// A guide, v4 (D254, Jii's round 2): a reading page in one template, filled from the page's JSON
+// (src/content/guides/pages), written by the page pipeline (scripts/pages). To the point: the short answer, a "which one
+// do I need" chooser where the reader has a choice, short context, steps the reader ticks off (progress in the contents)
+// with Captain's film inside the step where 50agents does the job, what can go wrong, questions. Crew blobs only where
+// they explain (the kind a tip or a problem is about); Captain is always the yellow blob. No sources, no dates shown.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { GUIDES } from '@/content/guides/pages';
+import { PAGES as USE_CASES } from '@/content/use-cases/pages';
 import { Crumbs, Cta, Face, KINDS, MaybeLink } from '@/site/parts';
 import { PromptFilm } from '@/site/usecase/film';
 import { plain, rich } from '@/site/guides/rich';
-import { findUseCase, month, Plan, UseCaseCard } from '@/site/guides/parts';
+import { findUseCase } from '@/site/guides/parts';
+import { Chooser } from '@/site/guides/chooser';
+import { Progress } from '@/site/guides/progress';
 import { HeroSticky } from '@/site/guides/sticky';
-import type { GuideBlock, GuidePage } from '@/site/guides/types';
+import type { About, GuideBlock, GuidePage } from '@/site/guides/types';
 import '@/site/css/usecase.css';
 import '@/site/css/guides.css';
 
@@ -34,17 +39,38 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+// A table cell that starts with Yes, No or Partly gets the use case table's drawn mark.
+function Mark({ v }: { v: string }) {
+  const t = v.toLowerCase();
+  const k = /^yes\b/.test(t) ? 'y' : /^no\b/.test(t) ? 'n' : /^(partly|some|depends)\b/.test(t) ? 'p' : '';
+  if (!k) return null;
+  return (
+    <svg className={`mk ${k}`} width="18" height="18" viewBox="0 0 20 20" aria-hidden="true">
+      <circle cx="10" cy="10" r="10" />
+      {k === 'y' && <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
+      {k === 'n' && <path d="M7 7l6 6M13 7l-6 6" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />}
+      {k === 'p' && <path d="M6 10h8" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />}
+    </svg>
+  );
+}
+
 function Block({ b }: { b: GuideBlock }) {
   if ('p' in b) return <p>{rich(b.p)}</p>;
-  if ('ul' in b) return <ul className="gd3-ul">{b.ul.map(x => <li key={x}>{rich(x)}</li>)}</ul>;
+  if ('ul' in b) return <ul className="gd4-ul">{b.ul.map(x => <li key={x}>{rich(x)}</li>)}</ul>;
   return (
-    <div className="gd3-tw">
+    <div className="gd4-tw">
       <table>
-        <thead><tr>{b.table.head.map(h => <th key={h} scope="col">{h}</th>)}</tr></thead>
-        <tbody>{b.table.rows.map(r => <tr key={r.join('|')}>{r.map((c, j) => j === 0 ? <th key={j} scope="row">{rich(c)}</th> : <td key={j} data-h={b.table.head[j]}>{rich(c)}</td>)}</tr>)}</tbody>
+        <thead><tr>{b.table.head.map((h, j) => <th key={j} scope="col">{h || <span className="sr">Compared</span>}</th>)}</tr></thead>
+        <tbody>{b.table.rows.map(r => <tr key={r.join('|')}>{r.map((c, j) => j === 0 ? <th key={j} scope="row">{rich(c)}</th> : <td key={j} data-h={b.table.head[j]}><span className="cell"><Mark v={c} /><span>{rich(c)}</span></span></td>)}</tr>)}</tbody>
       </table>
     </div>
   );
+}
+
+// A crew blob beside a tip, a warning or a problem: the face of the kind it is about, named for screen readers.
+function Blob({ about, size = 34 }: { about: About; size?: number }) {
+  const k = KINDS[about];
+  return <span className="gd4-blob" style={{ ['--k' as string]: k.tint }} title={`About the ${k.label.toLowerCase()}`}><Face id={k.face} size={size} /><span className="sr">About the {k.label.toLowerCase()}: </span></span>;
 }
 
 // More guides: the page's own picks first, then the same group; three.
@@ -54,21 +80,28 @@ function more(g: GuidePage) {
   return [...picked, ...rest].slice(0, 3);
 }
 
+// The words of a chooser answer's link: the guide's or the use case's title.
+function linkLabel(href: string) {
+  const s = href.split('/').pop();
+  if (href.startsWith('/guides/')) return `Read: ${GUIDES.find(x => x.slug === s)?.h1 ?? s}`;
+  if (href.startsWith('/use-cases/')) return `See the ready-made version: ${USE_CASES.find(x => x.slug === s)?.h1 ?? s}`;
+  return 'Read more';
+}
+
 export default async function GuideView({ params }: { params: Promise<{ slug: string }> }) {
   const g = await find(params);
   if (!g) notFound();
   const k = KINDS[g.kind];
   const url = `${BASE}/guides/${g.slug}`;
-  const ex = g.example;
-  const uc = findUseCase(ex.useCase);
-  const ask = uc?.ask ?? ex.ask!;
+  const uc = findUseCase(g.captain.useCase);
+  const ask = uc?.ask ?? g.captain.ask!;
+  const steps = g.method.steps;
   const toc = [
+    ...(g.chooser ? [{ id: 'which', label: g.chooser.h2 }] : []),
     ...g.sections.map(s => ({ id: s.id, label: s.h2 })),
-    { id: 'method', label: g.method.h2 },
-    { id: 'example', label: ex.h2 },
+    { id: 'steps', label: g.method.h2 },
     { id: 'what-can-go-wrong', label: 'What can go wrong' },
     { id: 'questions', label: 'Questions people ask' },
-    { id: 'sources', label: 'Sources' },
   ];
   const ld = [
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -78,33 +111,40 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
     ] },
     { '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, description: g.description, abstract: plain(g.answer.join(' ')), url, mainEntityOfPage: url,
       dateModified: g.updated, inLanguage: 'en', author: { '@type': 'Organization', name: '50agents', url: BASE },
-      publisher: { '@type': 'Organization', name: '50agents', url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/landing/favicon.svg` } },
-      citation: g.sources.map(s => s.href) },
+      publisher: { '@type': 'Organization', name: '50agents', url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/landing/favicon.svg` } } },
+    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })) },
   ];
 
   return (
-    <div className="page gd3" style={{ ['--k' as string]: k.tint }}>
+    <div className="page gd4" style={{ ['--k' as string]: k.tint }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides' }, { label: g.h1 }]} /></div>
 
-      <div className="wrap gd3-grid">
-        {/* Hero: the question and the short answer, in the reading column */}
-        <header className="gd3-hero">
+      <div className="wrap gd4-grid">
+        {/* Hero: the question and the short answer */}
+        <header className="gd4-hero">
           <span className="kind"><Face id={k.face} size={22} />Guide · {g.group}</span>
           <h1>{g.h1}</h1>
-          <p className="gd3-by">By the 50agents team · Updated {month(g.updated)}</p>
-          <div className="gd3-short" data-hero>
+          <div className="gd4-short" data-hero>
             <h2>The short answer</h2>
             <p>{rich(g.answer[0])} {rich(g.answer[1])}</p>
           </div>
         </header>
 
-        <nav className="gd3-toc" aria-label="Contents">
+        <nav className="gd4-toc" aria-label="Contents">
           <p>Contents</p>
           <ol>{toc.map(t => <li key={t.id}><a href={`#${t.id}`}>{t.label}</a></li>)}</ol>
+          <Progress slug={g.slug} total={steps.length} restore />
         </nav>
 
-        <article className="gd3-col">
+        <article className="gd4-col">
+          {g.chooser && (
+            <section id="which">
+              <h2>{g.chooser.h2}</h2>
+              <Chooser root={g.chooser.root} id={`ch-${g.slug}`} label={linkLabel} />
+            </section>
+          )}
+
           {g.sections.map(s => (
             <section key={s.id} id={s.id}>
               <h2>{s.h2}</h2>
@@ -112,32 +152,52 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
             </section>
           ))}
 
-          {/* The method: numbered steps that work with any tool */}
-          <section id="method">
-            <h2>{g.method.h2}</h2>
-            {g.method.intro && <p>{rich(g.method.intro)}</p>}
-            <ol className="gd3-steps">
-              {g.method.steps.map(s => <li key={s.title}><h3>{s.title}</h3><p>{rich(s.body)}</p></li>)}
+          {/* The steps: they work with any tool; the reader ticks them off. Captain's film sits in the step 50agents does. */}
+          <section id="steps">
+            <div className="gd4-steps-h">
+              <h2>{g.method.h2}</h2>
+              <div className="gd4-prog-inline"><Progress slug={g.slug} total={steps.length} /></div>
+            </div>
+            <ol className="gd4-steps">
+              {steps.map((s, i) => (
+                <li key={s.title} id={`step-${i + 1}`}>
+                  <input type="checkbox" id={`done-${i + 1}`} className="gd4-tick-in" />
+                  <label htmlFor={`done-${i + 1}`} className="gd4-tick">
+                    <span className="n" aria-hidden="true">{i + 1}</span>
+                    <svg className="t" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.4l3 3L14.5 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                    <span className="sr">Step {i + 1} done</span>
+                  </label>
+                  <div className="gd4-step">
+                    <h3>{s.title}</h3>
+                    <p>{rich(s.body)}</p>
+                    {s.note && (
+                      <div className={`gd4-note ${s.note.type}`} role="note">
+                        <Blob about={s.note.about} size={30} />
+                        <p><b>{s.note.type === 'tip' ? 'Tip.' : 'Watch out.'}</b> {rich(s.note.text)}</p>
+                      </div>
+                    )}
+                    {g.captain.at === i && (
+                      <div className="gd4-try">
+                        <h4>Do this step in 50agents</h4>
+                        <PromptFilm ask={ask} button={<Cta page={g.slug} place="step" campaign="seo-guide" ask={ask}>Build it</Cta>} />
+                        <p>{rich(g.captain.line)}{uc && <> <a href={`/use-cases/${uc.slug}`}>See the ready-made version</a>.</>}</p>
+                      </div>
+                    )}
+                  </div>
+                </li>
+              ))}
             </ol>
-          </section>
-
-          {/* The worked example in 50agents: the ask typed into Captain and its plan, or the use case page it overlaps */}
-          <section id="example">
-            <h2>{ex.h2}</h2>
-            {ex.body.map(p => <p key={p}>{rich(p)}</p>)}
-            {uc ? (
-              <UseCaseCard u={uc} />
-            ) : (
-              <PromptFilm ask={ask} button={<Cta page={g.slug} place="example" campaign="seo-guide" ask={ask}>Build it</Cta>}>
-                <Plan kind={ex.kind!} build={ex.build!} />
-              </PromptFilm>
-            )}
           </section>
 
           <section id="what-can-go-wrong">
             <h2>What can go wrong</h2>
-            <ul className="gd3-wrong">
-              {g.wrong.map(w => <li key={w.title}><h3>{w.title}</h3><p>{rich(w.body)}</p></li>)}
+            <ul className="gd4-wrong">
+              {g.wrong.map(w => (
+                <li key={w.title}>
+                  <Blob about={w.about} />
+                  <div><h3>{w.title}</h3><p>{rich(w.body)}</p></div>
+                </li>
+              ))}
             </ul>
           </section>
 
@@ -151,14 +211,6 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
                 </details>
               ))}
             </div>
-          </section>
-
-          <section id="sources">
-            <h2>Sources</h2>
-            <ol className="gd3-src">
-              {g.sources.map(s => <li key={s.href}><a href={s.href} target="_blank" rel="noopener">{s.label}</a></li>)}
-            </ol>
-            {g.pricesChecked && <p className="gd3-checked">Prices checked {month(g.pricesChecked)}.</p>}
           </section>
         </article>
       </div>

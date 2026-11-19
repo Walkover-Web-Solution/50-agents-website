@@ -3,111 +3,122 @@
   "type": "alternatives",
   "tool": "activepieces",
   "query": "activepieces alternatives",
-  "title": "Activepieces alternatives, with checked prices | 50agents",
-  "description": "Activepieces alternatives: n8n to keep self-hosting with more integrations, Make or Zapier for hosted apps, and 50agents to build from plain words.",
+  "title": "Activepieces alternatives: options and prices | 50agents",
+  "description": "Activepieces alternatives: n8n to keep self-hosting with 2,829 integrations, Make or Zapier for more apps, Power Automate for Microsoft 365, and 50agents.",
   "h1": "Activepieces alternatives",
   "answer": [
-    "If you chose Activepieces to self-host and now need more integrations, n8n is the other mature self-hosted option, with 2,829 integrations listed against Activepieces' 770+.",
-    "If you no longer want to run it yourself, Make and Zapier are the hosted choices with the most apps, and 50agents builds the automation from plain words."
+    "n8n also self-hosts and lists 2,829 integrations; Make and Zapier have larger app catalogs.",
+    "Power Automate fits Microsoft 365, and 50agents builds from plain words."
   ],
   "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
-  "lede": "The usual reason to move is a missing app: Activepieces lists 770+, fewer than Zapier, Make or n8n.",
+  "lede": "Self-hosted and hosted options next to Activepieces.",
   "entries": [
     {
       "tool": "fifty",
-      "suits": "Teams where one person runs Activepieces and everyone else sends them requests. The person who needs a workflow asks Captain for it and approves the plan.",
+      "best": "Daily summaries without building",
       "price": "Free to start",
-      "limit": "No self-hosting and no open-source core. If running on your own servers is why you chose Activepieces, 50agents is not a replacement.",
-      "limitUrl": "https://www.activepieces.com/docs/install/overview"
+      "diff": "Builds AI agents for you",
+      "src": "https://50agents.com"
     },
     {
       "tool": "n8n",
-      "suits": "Developers who want to keep self-hosting and need more integrations, a Code node in JavaScript or Python, and human approval for AI tool calls.",
-      "price": "No free cloud plan. Starter: €20 a month billed yearly (2.5K executions)",
-      "limit": "There is no free cloud plan, and cloud prices are in euros and billed yearly.",
-      "limitUrl": "https://n8n.io/pricing/"
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Bills per run, not step",
+      "src": "https://n8n.io/pricing/"
     },
     {
       "tool": "make",
-      "suits": "Teams ready to stop hosting who want a visual builder with more apps and JSON blueprints they can export.",
-      "price": "Free: 1,000 credits a month. Core: from $9 a month (10,000 credits)",
-      "limit": "Billed per credit, with most actions costing one, so long flows cost more per run than on a flat plan.",
-      "limitUrl": "https://www.make.com/en/pricing"
+      "best": "Visual, branching scenarios",
+      "price": "Free plan; Core $9 a month",
+      "diff": "Most actions use one credit",
+      "src": "https://www.make.com/en/pricing"
     },
     {
       "tool": "zapier",
-      "suits": "Teams whose main problem was missing apps: Zapier lists 10,541+.",
-      "price": "Free: 100 tasks a month. Professional: $19.99 a month billed yearly (750 tasks)",
-      "limit": "Every action step is a task, and the free plan is two-step Zaps only.",
-      "limitUrl": "https://zapier.com/pricing"
+      "best": "Connecting 10,541+ apps",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Bills each action step",
+      "src": "https://zapier.com/pricing"
     },
     {
       "tool": "powerautomate",
-      "suits": "Teams inside Microsoft 365 who can use the free licence for cloud flows with standard connectors.",
-      "price": "Free for cloud flows with standard connectors. Premium: $15.00 per user a month, paid yearly",
-      "limit": "The free licence cannot share flows and covers standard connectors only.",
-      "limitUrl": "https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types"
+      "best": "Microsoft 365 teams",
+      "price": "Free licence; Premium $15 per user",
+      "diff": "Desktop RPA for Windows apps",
+      "src": "https://www.microsoft.com/en-us/power-platform/products/power-automate"
     }
   ],
-  "pick": {
-    "us": [
-      "The people who need automations will never open a flow builder.",
-      "You would rather not run or update a server.",
-      "Some jobs need an AI agent's judgement or an app with its own records."
-    ],
-    "them": [
-      "You need air-gapped or on-premises installs. Activepieces documents both; of the others here, only n8n self-hosts.",
-      "You want a flat team price: Plus is $20 a month for up to 5 users, not per seat.",
-      "Your apps are all in its 770+, or you are happy to write the missing pieces."
-    ]
+  "stay": {
+    "best": "Self-hosting, air-gapped installs",
+    "price": "Free plan; Plus $20 a month",
+    "diff": "Flat pricing, not per user",
+    "src": "https://www.activepieces.com/pricing"
   },
+  "strengths": [
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    },
+    {
+      "title": "2,300+ apps through viaSocket",
+      "line": "Connect the apps your work already runs on.",
+      "face": "keeper"
+    }
+  ],
   "move": [
     {
-      "title": "List flows and the pieces they use",
-      "body": "Note each flow's trigger, its pieces and any inline code. Code steps are the hardest to move, so flag them."
+      "title": "List your active flows",
+      "body": "Note each trigger, the apps involved and when it runs."
     },
     {
-      "title": "Check every app in the new catalog",
-      "body": "Look each piece up in the new tool's app directory before you commit; this is where moves usually stall."
+      "title": "Start with a daily one",
+      "body": "For example: tomorrow's meetings from Google Calendar, posted in Slack."
     },
     {
-      "title": "Move the AI-heavy flows first",
-      "body": "AI steps cost the most credits on Activepieces, so they show the savings, or the lack of them, fastest."
+      "title": "Captain builds it",
+      "body": "Captain shows the plan, then builds it when you say go."
     },
     {
-      "title": "Keep the old instance running for a month",
-      "body": "Turn flows off one by one rather than shutting the server down."
+      "title": "Turn off the flow",
+      "body": "After a few days of matching results, switch off the Activepieces flow."
     }
   ],
   "faqs": [
     {
       "q": "Is Activepieces free?",
-      "a": "Its Free plan gives 1,000 credits, unlimited flows and up to 5 users, with no card. Self-hosting the MIT-licensed core is also an option."
+      "a": "Yes. The Free plan has 1,000 credits, unlimited flows and up to 5 users, with no card. Plus is $20 a month for 10,000 credits."
     },
     {
-      "q": "What is the best open-source alternative to Activepieces?",
-      "a": "n8n is the most established self-hosted alternative. Its pricing page says a self-hosted version is available on GitHub; read the licence in its repository before you rely on it."
+      "q": "Which open-source tool is like Activepieces?",
+      "a": "n8n. It self-hosts too, and its directory lists 2,829 integrations."
     },
     {
       "q": "Should I move to Pipedream?",
-      "a": "Not for workflows. Pipedream's docs say its workflows are shutting down, and it now sells Connect, an integration layer for developers."
+      "a": "Pipedream says Workflows and String are shutting down, so new workflows there would need moving again."
     }
   ],
   "related": [
     {
       "href": "/compare/n8n-alternatives",
       "title": "n8n alternatives",
-      "line": "The other self-hosted choice, and its rivals"
+      "line": "The other self-hosted option"
     },
     {
       "href": "/compare/pipedream-alternatives",
       "title": "Pipedream alternatives",
-      "line": "Where to go now that its workflows are closing"
+      "line": "Where Pipedream workflows can go"
     },
     {
       "href": "/compare/50agents-vs-n8n",
       "title": "50agents vs n8n",
-      "line": "Row by row, sourced"
+      "line": "Row by row, with marks"
     }
   ],
   "updated": "2026-11-19"

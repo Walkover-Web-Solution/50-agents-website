@@ -7,13 +7,13 @@
   "description": "An internal tool is software a business makes for its own team, not customers: a pipeline, a requests desk. Most start as a spreadsheet. An example.",
   "h1": "What is an internal tool?",
   "definition": [
-    "An internal tool is software a business makes for its own team to run its work, not for customers to use: a sales pipeline, a requests desk, a list of what is owed.",
-    "Most begin life as a spreadsheet that grew too big to keep straight."
+    "An internal tool is software a business makes for its own team, not its customers: a sales pipeline, a requests desk.",
+    "Most start as a spreadsheet that grew too big to keep straight."
   ],
   "example": {
     "kind": "app",
     "ask": "Keep track of customer requests and draft the replies",
-    "why": "Captain builds a requests list, a board by status and an urgent list, with an AI agent that drafts each reply for your OK. Bring the old spreadsheet in as a CSV file.",
+    "why": "Captain builds a requests desk for your team, with replies drafted for your OK.",
     "build": {
       "name": "Requests desk",
       "line": "every request, the urgent ones first",

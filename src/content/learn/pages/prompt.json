@@ -8,12 +8,12 @@
   "h1": "What is a prompt in AI?",
   "definition": [
     "A prompt is the text you give an AI model to tell it what to do: the task, the context it needs and any limits.",
-    "In a chat you write a new prompt each time; inside an AI agent or an automation, a fixed prompt runs again and again on new data."
+    "In a chat it changes each time; inside an AI agent it repeats."
   ],
   "example": {
     "kind": "app",
     "ask": "Chase my unpaid invoices",
-    "why": "Four words are a whole prompt to Captain: it asks what it cannot guess, such as the currency. The AI agent it builds then runs on a standing prompt of its own, its instructions.",
+    "why": "Four words are a whole prompt; Captain asks only what it cannot guess.",
     "build": {
       "name": "Invoices desk",
       "line": "what is owed to you, the late ones first",

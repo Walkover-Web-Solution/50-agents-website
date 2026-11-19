@@ -7,13 +7,13 @@
   "description": "An action is one thing software does in an app for you: add a row, send a message, update a deal. Why each app's list of actions sets what you can automate.",
   "h1": "What is an action in automation?",
   "definition": [
-    "An action is one thing software does in an app on your behalf: add a row, send a message, update a deal.",
-    "Each app offers a fixed list of actions, so what an automation or an AI agent can do in that app is set by that list."
+    "An action is one thing software does in an app on your behalf, such as adding a row, sending a message or updating a deal.",
+    "Each app offers a fixed list, which sets what you can automate there."
   ],
   "example": {
     "kind": "auto",
     "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
-    "why": "One trigger, two actions: Google Sheets' add a row, then Slack's send a message. Captain reads each app's real list of actions while planning, so the plan names only actions that exist.",
+    "why": "One trigger, then two actions: add a Sheets row, post in Slack.",
     "build": {
       "name": "Contacts to Sheet and Slack",
       "line": "each new contact, logged and shared",

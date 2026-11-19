@@ -1,6 +1,6 @@
-/* Role pages, v3 (D253): the use case page's centred hero, film, apps wall and questions (usecase.css), with the
-   5 jobs as link cards (two large, three small) and the role's apps as large tiles over the category wall. */
-.rl3-film{width:100%;max-width:680px;margin-top:44px}
+/* Role pages, v3 (D253, D254): the use case page's centred hero, film, two-row apps marquee and questions (usecase.css),
+   with the 5 jobs as link cards (two large, three small). */
+.rl3-film{width:100%;max-width:940px;margin-top:40px;display:flex;justify-content:center}
 .rl3-film .film{margin-top:0}
 
 .rl3-jobs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
@@ -14,11 +14,6 @@
 .rl3-jobs>a>span:last-child{font-size:16px;color:var(--mute);line-height:1.5}
 .rl3-jobs .big>span:last-child{color:color-mix(in srgb,var(--ink) 75%,var(--k))}
 
-.rl3-apps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:920px;margin:0 auto}
-.rl3-app{display:flex;align-items:center;gap:14px;padding:20px 22px;border-radius:20px;background:var(--k);text-decoration:none;min-width:0}
-.rl3-app b{font-size:17px;font-weight:600;line-height:1.25;min-width:0;overflow-wrap:anywhere}
-a.rl3-app:hover{box-shadow:inset 0 0 0 1px var(--ink)}
-
 .rl3-others{text-align:center;margin-top:32px!important;font-size:16px;color:var(--mute)}
 .rl3-others a{color:var(--ink);text-underline-offset:3px}
 
@@ -26,13 +21,10 @@ a.rl3-app:hover{box-shadow:inset 0 0 0 1px var(--ink)}
   .rl3-jobs{grid-template-columns:1fr 1fr}
   .rl3-jobs>a,.rl3-jobs>a.big{grid-column:auto}
   .rl3-jobs>a:last-child{grid-column:1/-1}
-  .rl3-apps{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:760px){
   .rl3-film{margin-top:32px}
   .rl3-jobs{grid-template-columns:1fr}
   .rl3-jobs>a,.rl3-jobs>a.big{padding:24px}
   .rl3-jobs .big b{font-size:21px}
-  .rl3-app{padding:16px;gap:12px;border-radius:16px}
-  .rl3-app b{font-size:15.5px}
 }

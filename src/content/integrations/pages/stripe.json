@@ -5,8 +5,8 @@
  "description": "Connect Stripe and tell Captain the job: each new subscriber posted in Slack, last week’s revenue emailed every Monday, or a desk for unpaid invoices.",
  "h1": "AI agents and automations for Stripe",
  "answer": [
-  "To put Stripe to work in 50agents, connect it once and tell Captain the job, such as “when a customer subscribes in Stripe, post it in a Slack channel”.",
-  "Captain builds an automation that fires on Stripe events such as a payment, refund, failed payment or new subscription, or an AI agent that reads your payments and writes you a summary of what changed."
+  "Connect Stripe and tell Captain the job, such as “when a customer subscribes in Stripe, post it in a Slack channel”.",
+  "Captain builds automations on payments, refunds and subscriptions, or an AI agent that sums up what changed."
  ],
  "ask": "Set up an automation: when a customer subscribes in Stripe, post it in a Slack channel",
  "recipe": {

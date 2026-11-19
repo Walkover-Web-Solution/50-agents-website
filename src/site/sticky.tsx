@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 export function StickyBar({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    const hero = document.querySelector('.hero-cta');
+    const hero = document.querySelector('.film-box .btn, .hero-cta');
     const bar = ref.current;
     if (!hero || !bar || !('IntersectionObserver' in window)) { bar?.classList.add('on'); return; }
     const io = new IntersectionObserver(([e]) => bar.classList.toggle('on', !e.isIntersecting && e.boundingClientRect.top < 0));

@@ -4,14 +4,14 @@
   "tool": "n8n",
   "query": "50agents vs n8n",
   "title": "50agents vs n8n: self-hosted or built for you | 50agents",
-  "description": "n8n is a self-hostable workflow builder with code nodes and per-run pricing; 50agents builds automations, AI agents and apps from plain words.",
+  "description": "50agents vs n8n: n8n is a self-hostable workflow builder with code nodes and per-run pricing; 50agents builds automations, AI agents and apps from plain words.",
   "h1": "50agents vs n8n",
   "answer": [
-    "Pick n8n if you are technical, want to self-host, need code nodes, or run long workflows where paying once per run matters.",
-    "Pick 50agents if the people who need the work done will describe it rather than build it; it is free to start, with no server to run."
+    "Pick n8n to self-host, write code nodes and pay one price per run.",
+    "Pick 50agents when nobody on the team wants to build: describe the job and Captain does it."
   ],
   "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
-  "lede": "n8n wins every row a developer cares about: self-hosting, a Code node, JSON export and a node canvas you control.",
+  "lede": "Self-hosted builder against built-for-you, row by row.",
   "rows": [
     "apps",
     "prompt",
@@ -23,61 +23,70 @@
     "code",
     "export"
   ],
-  "pick": {
-    "us": [
-      "Nobody on the team will maintain a server or a canvas.",
-      "You want an app, such as a leads tracker or an invoices desk, as well as automations, from the same place.",
-      "You want to start free, without picking a plan or a server first."
-    ],
-    "them": [
-      "Data must stay on your own servers.",
-      "You need code, custom HTTP calls or nodes you write yourself.",
-      "Your workflows are long and run often; one execution per run is hard to beat."
-    ]
+  "edge": {
+    "us": "Teams with no builder",
+    "them": "Self-hosting and code nodes"
   },
+  "strengths": [
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "Automations on events",
+      "line": "The same steps on a new order, payment or contact, or on a timer.",
+      "face": "keeper"
+    },
+    {
+      "title": "You approve what goes out",
+      "line": "Emails to clients wait in Needs you until you say yes.",
+      "face": "lead"
+    }
+  ],
   "move": [
     {
-      "title": "Keep the JSON",
-      "body": "Download each workflow as JSON before you change anything."
+      "title": "Download the workflow",
+      "body": "n8n workflows download as JSON. Keep it as your checklist."
     },
     {
-      "title": "Move the business workflows, keep the technical ones",
-      "body": "Workflows with Code nodes and custom HTTP stay in n8n. Workflows a non-developer keeps asking to change are the ones to rebuild in 50agents."
+      "title": "Describe it in a sentence",
+      "body": "For example: every new Stripe payment becomes a row in my Google Sheet."
     },
     {
-      "title": "Describe, test, switch",
-      "body": "Tell Captain the outcome, check the test run against n8n's last execution, then deactivate the n8n workflow."
+      "title": "Compare, then deactivate n8n",
+      "body": "Run both on a few payments, then switch the n8n workflow off."
     }
   ],
   "faqs": [
     {
       "q": "Can I self-host 50agents?",
-      "a": "No. 50agents is hosted only. If self-hosting is a requirement, n8n or Activepieces fit."
+      "a": "No. 50agents runs in the cloud. n8n can run on your own servers."
     },
     {
       "q": "Which has more integrations?",
-      "a": "n8n's directory lists 2,829 integrations; 50agents works with 2,300+ through viaSocket."
+      "a": "n8n's directory lists 2,829 integrations. 50agents works with 2,300+ apps through viaSocket."
     },
     {
       "q": "Does 50agents have code steps?",
-      "a": "No. Automations are made of fixed blocks, and Captain writes no code. If a workflow needs code, keep it in n8n."
+      "a": "No. Steps are fixed blocks. n8n has a code node in JavaScript or Python."
     }
   ],
   "related": [
     {
       "href": "/compare/n8n-alternatives",
       "title": "n8n alternatives",
-      "line": "Activepieces, Make, Zapier and more"
+      "line": "Hosted and self-hosted options"
     },
     {
       "href": "/compare/50agents-vs-make",
       "title": "50agents vs Make",
-      "line": "Row by row, ticks and crosses"
+      "line": "The canvas, or plain words"
     },
     {
       "href": "/compare/activepieces-alternatives",
       "title": "Activepieces alternatives",
-      "line": "The other open-source route"
+      "line": "The other open-source option"
     }
   ],
   "updated": "2026-11-19"

@@ -3,29 +3,20 @@
 .lg3-hero h1{font-size:clamp(40px,5vw,64px);line-height:1.02;letter-spacing:-.04em;max-width:880px}
 .lg3-def{margin:28px auto 0!important;max-width:860px;font-size:clamp(24px,2.6vw,32px);line-height:1.35;letter-spacing:-.02em;font-weight:500;text-wrap:pretty}
 .lg3-def2{margin:20px auto 0!important;max-width:680px;font-size:19px;line-height:1.55;color:var(--mute)}
-.lg3-src{margin-top:16px!important;font-size:14px;color:var(--mute)}.lg3-src a{color:var(--mute);text-underline-offset:3px}
 .lg3-film{width:100%;display:flex;justify-content:center}
+.lg3-film .film{max-width:940px}
 .lg3-film .film{margin-top:0}
 
-/* the two-column comparison: small, this term's column in its tint */
-.lg3-vs{max-width:820px;margin:0 auto;border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);overflow:hidden}
-.lg3-vs table{width:100%;border-collapse:collapse;font-size:16.5px;table-layout:fixed}
-.lg3-vs th,.lg3-vs td{text-align:left;padding:18px 20px;border-top:1px solid var(--line);vertical-align:top;line-height:1.45}
-.lg3-vs thead th{border-top:0;font-size:15px;font-weight:600}
-.lg3-vs tbody th{font-weight:500;color:var(--mute);width:28%}
-.lg3-vs .us{background:var(--k)}
+/* the comparison: the use case table (uc3-cmp) with two columns, this term's column raised on its tint (D254) */
+.lg3-vs{max-width:880px;margin:0 auto}
+.lg3-vs table{min-width:0}
+.lg3-vs tbody th{width:30%}
 @media (max-width:760px){
   .lg3-hero{align-items:flex-start;text-align:left;padding-top:28px}
   .lg3-def,.lg3-def2{margin-left:0!important}
   .lg3-hero h1{font-size:38px}
   .lg3-def{font-size:23px}.lg3-def2{font-size:17px}
-  .lg3-vs{border-radius:18px}
   .lg3-vs table{font-size:15px}
-  .lg3-vs thead tr{display:grid;grid-template-columns:1fr 1fr}
-  .lg3-vs thead th:first-child{display:none}
-  .lg3-vs tbody tr{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-  .lg3-vs tbody th{grid-column:1/-1;width:auto;padding:14px 16px 4px;border-top:0;font-size:13.5px}
-  .lg3-vs tbody td{border-top:0;padding:6px 16px 14px}
-  .lg3-vs thead th{padding:14px 16px}
-  .lg3-vs tbody td.us{background:none;box-shadow:inset 3px 0 0 var(--k)}
+  .lg3-vs th,.lg3-vs td{padding:14px 12px}
+  .lg3-vs tbody th{width:32%}
 }

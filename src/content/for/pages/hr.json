@@ -8,8 +8,8 @@
   "description": "What HR teams hand off first: leave on the team calendar, new hires announced, daily applicant summaries, interview briefs, policy questions drafted.",
   "h1": "AI agents and automations for HR teams",
   "answer": [
-    "HR teams hand off the copying between the HR system and everything else first: approved leave onto the team calendar, a new hire announced the day the offer is signed, a daily summary of applicants.",
-    "In 50agents Captain builds these on HR apps in viaSocket’s catalog such as Keka, Personio, Greenhouse and Recruitee; decisions about people stay with people."
+    "HR teams hand off the copying first: approved leave onto the team calendar, new hires announced, a daily applicant summary.",
+    "Captain builds these on Keka, Personio, Greenhouse and more; decisions about people stay with people."
   ],
   "example": {
     "kind": "auto",

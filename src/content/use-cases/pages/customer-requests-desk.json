@@ -7,8 +7,8 @@
   "description": "Tell Captain \"Keep track of customer requests and draft the replies\" to get a desk with status and urgency, and a reply drafted for each question.",
   "h1": "Track customer requests from email",
   "answer": [
-    "To track customer requests from email, tell Captain \"Keep track of customer requests and draft the replies\" in 50agents.",
-    "It builds a requests desk where every request has a status, a priority and an answer-by date, with an AI agent that sorts each new request and drafts a reply to each question, sent from your Gmail only after you approve it."
+    "To track customer requests from email, tell Captain \"Keep track of customer requests and draft the replies\".",
+    "It builds a requests desk where an AI agent sorts each request and drafts replies, sent from your Gmail only after you approve."
   ],
   "ask": "Keep track of customer requests and draft the replies",
   "build": {

@@ -8,8 +8,8 @@
   "description": "What online stores hand off first: orders and cancellations logged, \"where is my order\" replies drafted from Shopify, prices watched, a weekly sales note.",
   "h1": "AI agents and automations for ecommerce stores",
   "answer": [
-    "Online stores hand off the order admin and the \"where is my order\" emails first: every order logged, cancellations marked, and replies drafted with the order’s real status.",
-    "In 50agents you tell Captain the job and it builds it on Shopify, WooCommerce, Stripe, Razorpay and Gmail; every email to a customer waits for your approval."
+    "Online stores hand off order admin first: every order logged, and \"where is my order\" replies drafted with the real status.",
+    "Captain builds it on Shopify, WooCommerce or Stripe; every email to a customer waits for your approval."
   ],
   "example": {
     "kind": "ai",

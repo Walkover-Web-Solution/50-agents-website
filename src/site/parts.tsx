@@ -24,9 +24,9 @@ export function Face({ id, size = 24, className = '' }: { id: string; size?: num
 
 const APP_COLOUR: Record<string, string> = { gmail: '#EA4335', googlesheets: '#34A853', hubspot: '#FF7A59', slack: '#4A154B', stripe: '#635BFF', quickbooks: '#2CA01C', xero: '#13B5EA' };
 // An app's logo: its catalog icon when given (viaSocket's catalog, e.g. stuff.thingsofbrand.com), else simple-icons.
-export function AppLogo({ app, size = 20, icon }: { app: string; size?: number; icon?: string }) {
+export function AppLogo({ app, size = 20, icon, eager = false }: { app: string; size?: number; icon?: string; eager?: boolean }) {
   // eslint-disable-next-line @next/next/no-img-element
-  if (icon) return <img src={icon} alt="" width={size} height={size} loading="lazy" style={{ borderRadius: size / 5, objectFit: 'contain', flex: 'none' }} />;
+  if (icon) return <img src={icon} alt="" width={size} height={size} loading={eager ? 'eager' : 'lazy'} style={{ borderRadius: size / 5, objectFit: 'contain', flex: 'none' }} />;
   if (app === 'file')
     return (
       <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#111214" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

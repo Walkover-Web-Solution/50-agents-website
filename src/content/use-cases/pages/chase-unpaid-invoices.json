@@ -7,8 +7,8 @@
   "description": "Tell Captain \"Chase my unpaid invoices\" to get an invoices desk: late invoices first, a polite reminder drafted for each, sent from Gmail when you OK it.",
   "h1": "Chase unpaid invoices automatically",
   "answer": [
-    "To chase unpaid invoices automatically, tell Captain \"Chase my unpaid invoices\" in 50agents.",
-    "It builds you an invoices desk that lists what is late, oldest first, with an AI agent that drafts a polite reminder for each one and sends it from your Gmail only after you approve it."
+    "To chase unpaid invoices automatically, tell Captain \"Chase my unpaid invoices\".",
+    "It builds an invoices desk where an AI agent lists late invoices and drafts reminders, sent from your Gmail only after you approve."
   ],
   "ask": "Chase my unpaid invoices",
   "stat": {
