@@ -1,0 +1,70 @@
+{
+ "pair": "activecampaign/quickbooks",
+ "apps": {
+  "activecampaign": {
+   "name": "ActiveCampaign",
+   "labels": [
+    "Marketing",
+    "Email Newsletters",
+    "Marketing Automation",
+    "CRM"
+   ],
+   "about": "ActiveCampaign combines various aspects of small business marketing into an integrated and user-friendly platform. It helps businesses grow by maintaining meani"
+  },
+  "quickbooks": {
+   "name": "QuickBooks",
+   "labels": [
+    "Accounting",
+    "Finance",
+    "Business Management"
+   ],
+   "about": "QuickBooks is a comprehensive accounting software designed to manage sales, expenses, and keep track of daily business transactions. It offers features like inv"
+  }
+ },
+ "templates": [
+  {
+   "action": "quickbooks:Create Payment",
+   "triggers": [
+    "activecampaign:New Contact"
+   ]
+  },
+  {
+   "action": "activecampaign:Create Contact",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  },
+  {
+   "action": "activecampaign:New Contact",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activecampaign:New Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when new contact is added."
+  },
+  {
+   "key": "quickbooks:Create Payment",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Records a new payment transaction."
+  },
+  {
+   "key": "quickbooks:New Invoice",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new invoice is created."
+  },
+  {
+   "key": "activecampaign:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new contact."
+  }
+ ]
+}

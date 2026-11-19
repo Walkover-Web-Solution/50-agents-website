@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify takes orders and customers; anny runs the bookings. A “New Customer” in Shopify can run “Create Customer” in anny, and an “Order Cancelled” can run “Update Booking Status” to cancel.",
+  "bestTemplate": {
+    "name": "“Order Cancelled” in Shopify, then “Update Booking Status” in anny",
+    "why": "When an order is cancelled, the related booking can be accepted, rejected or cancelled to match, which frees the slot."
+  },
+  "watchOut": "“Update Booking Status” has to point at a specific booking, so keep a booking reference alongside the order. “Create Customer” can return an existing one by email."
+}

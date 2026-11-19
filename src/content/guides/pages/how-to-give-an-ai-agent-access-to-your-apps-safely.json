@@ -37,7 +37,7 @@
     }
   ],
   "method": {
-    "h2": "The checklist",
+    "h2": "How to give an AI agent access safely",
     "steps": [
       {
         "title": "One job, its own apps",

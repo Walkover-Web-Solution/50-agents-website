@@ -94,6 +94,12 @@ export function writtenPage<T>(slug: string): T | null {
   const f = path.join(PAGES_DIR, `${slug}.json`);
   return fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, 'utf8')) as T) : null;
 }
+/** The lines the pair pipeline wrote for a pair (src/content/integrations/pairs/<a>__<b>.json, canonical order), if there are any. */
+const PAIRS_DIR = path.join(process.cwd(), 'src/content/integrations/pairs');
+export function pairLines(a: string, b: string): import('./types').PairLines | null {
+  const f = path.join(PAIRS_DIR, `${a}__${b}.json`);
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
+}
 export const writtenSlugs = () => (fs.existsSync(PAGES_DIR) ? fs.readdirSync(PAGES_DIR).filter(f => f.endsWith('.json')).map(f => f.replace(/\.json$/, '')) : []);
 
 // The index rule (Search review 01, section 1: Search's call under S8, updated S20 by Jii). Every page renders; the tier
@@ -105,7 +111,8 @@ export const writtenSlugs = () => (fs.existsSync(PAGES_DIR) ? fs.readdirSync(PAG
 //   recipes, most recipes first, not in the core. Sitemaps integrations-test, pairs-test.
 // - none: everything else, noindex, follow, in no sitemap.
 // A page that fails the uniqueness gate (5-word shingle overlap of 0.5 or more with another indexed page of its family;
-// scripts/pages/uniqueness-integrations.mjs writes the list) is none, and the test cohort fills from the next in line.
+// scripts/pages/uniqueness-integrations.mjs writes the list) is none, and so is a pair with no lines of its own (S24: a pair
+// whose lines could not be written honestly stays noindex), and the test cohort fills from the next in line.
 export type Tier = 'core' | 'test' | 'none';
 const GATE_FAILED = new Set<string>(gate.failed);
 const gateFailed = (p: string) => GATE_FAILED.has(p);
@@ -130,7 +137,7 @@ function pairTiers() {
   if (_pairTiers) return _pairTiers;
   const m = new Map<string, Tier>();
   const r = catalog().rank;
-  const near = pairs().list.filter(p => (r.get(p.a) ?? 1e9) < 200 && (r.get(p.b) ?? 1e9) < 200 && !gateFailed(`/integrations/${p.a}/${p.b}`))
+  const near = pairs().list.filter(p => (r.get(p.a) ?? 1e9) < 200 && (r.get(p.b) ?? 1e9) < 200 && !gateFailed(`/integrations/${p.a}/${p.b}`) && !!pairLines(p.a, p.b))
     .map(p => ({ p, n: pairRecipes(p.a, p.b).length }));
   for (const { p, n } of near) if ((r.get(p.a) ?? 1e9) < 100 && (r.get(p.b) ?? 1e9) < 100 && n >= 3) m.set(`${p.a}|${p.b}`, 'core');
   near.filter(x => x.n >= 2 && !m.has(`${x.p.a}|${x.p.b}`)).sort((x, y) => y.n - x.n).slice(0, 150).forEach(x => m.set(`${x.p.a}|${x.p.b}`, 'test'));

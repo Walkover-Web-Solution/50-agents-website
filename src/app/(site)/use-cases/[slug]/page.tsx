@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { PAGES } from '@/content/use-cases/pages';
 import { AppLogo, Crumbs, Cta, Face, KindBadge, KINDS, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
+import { rich } from '@/site/guides/rich';
 import { PromptFilm } from '@/site/usecase/film';
 import { ScrollStepper } from '@/site/usecase/stepper';
 import { stepPicture } from '@/site/usecase/pictures';
@@ -109,7 +110,7 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
 
       {/* How it works: a stepper that moves with the scroll */}
       <section className="wrap sec" id="how">
-        <ScrollStepper head={<div className="sec-h c"><h2>How it works</h2></div>} steps={u.steps} pictures={u.steps.map(s => <div key={s.key}>{stepPicture(s.key, u)}</div>)} />
+        <ScrollStepper head={<div className="sec-h c"><h2>{u.h2.how}</h2></div>} steps={u.steps} pictures={u.steps.map(s => <div key={s.key}>{stepPicture(s.key, u)}</div>)} />
       </section>
 
       {/* The apps: how many, and two rows of them moving (this job's apps and its category first) */}
@@ -128,7 +129,7 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
 
       {/* Compared: the other ways to do this job, honestly, against 50agents */}
       <section className="wrap sec" id="compare">
-        <div className="sec-h c"><h2>Other ways to do it, compared</h2>{u.stat && <p>{u.stat.text}</p>}</div>
+        <div className="sec-h c"><h2>{u.h2.compare}</h2>{u.stat && <p>{u.stat.text}</p>}</div>
         <div className="uc3-cmp">
           <table>
             <thead><tr><th scope="col"><span className="sr">What matters</span></th><th scope="col" className="us"><span className="uc3-us"><Logo50 /></span></th>{u.compare.methods.map(m => <th key={m} scope="col">{m}</th>)}</tr></thead>
@@ -148,7 +149,7 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
           {u.faqs.map((f, n) => (
             <details key={f.q} open={n === 0}>
               <summary><h3>{f.q}</h3><i aria-hidden="true" /></summary>
-              <p>{f.a}</p>
+              <p>{rich(f.a)}</p>
             </details>
           ))}
         </div>
@@ -172,7 +173,7 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
       {/* Final: the same ask, one button */}
       <section className="wrap sec">
         <div className="final">
-          <h2>{u.h1}</h2>
+          <p className="final-t">{u.h1}</p>
           <p>Tell Captain &ldquo;{u.ask}&rdquo;. Free to start.</p>
           <Cta page={u.slug} place="final" ask={u.ask}>Build it with Captain</Cta>
           <span className="peek l" aria-hidden="true"><Face id={k.face} size={52} /><Face id="keeper" size={44} /></span>

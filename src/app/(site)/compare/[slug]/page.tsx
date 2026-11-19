@@ -10,6 +10,7 @@ import { TOOLS } from '@/content/compare/facts';
 import { AltTable, MoveSteps, Strengths, VsTable } from '@/site/compare/parts';
 import { Crumbs, Cta, Face, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
+import { rich } from '@/site/guides/rich';
 import { PromptFilm } from '@/site/usecase/film';
 import '@/site/css/usecase.css';
 import '@/site/css/compare.css';
@@ -69,7 +70,7 @@ export default async function ComparePageView({ params }: { params: Promise<{ sl
       {/* The comparison: the visual centre, one table of short cells, every competitor fact from facts.ts */}
       <section className="wrap sec" id="compare">
         <div className="sec-h c">
-          <h2>{p.type === 'alternatives' ? 'The alternatives, side by side' : `50agents and ${them.name}, side by side`}</h2>
+          <h2>{p.tableH2 ?? (p.type === 'alternatives' ? 'The alternatives, side by side' : `50agents and ${them.name}, side by side`)}</h2>
           <p>{p.lede}</p>
         </div>
         {p.type === 'alternatives' ? <AltTable p={p} /> : <VsTable p={p} />}
@@ -94,7 +95,7 @@ export default async function ComparePageView({ params }: { params: Promise<{ sl
           {p.faqs.map((f, n) => (
             <details key={f.q} open={n === 0}>
               <summary><h3>{f.q}</h3><i aria-hidden="true" /></summary>
-              <p>{f.a}</p>
+              <p>{rich(f.a)}</p>
             </details>
           ))}
         </div>

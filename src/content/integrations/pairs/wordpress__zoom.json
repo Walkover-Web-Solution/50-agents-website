@@ -1,0 +1,8 @@
+{
+ "usedFor": "WordPress holds your site's users and posts, and Zoom runs the webinar. When “New User Created” fires in WordPress, “Register Attendee for Webinar” in Zoom can sign that person up.",
+ "bestTemplate": {
+  "name": "“New User Created” in Wordpress, then “Register Attendee for Webinar” in Zoom",
+  "why": "A new sign-up is the one WordPress event here that carries a person worth registering. The other triggers cover deleted users and edited or trashed posts, which have no attendee to add."
+ },
+ "watchOut": "Every WordPress trigger in this pair can start “Register Attendee for Webinar”, including “Post Deleted” and “User Deleted”. Pick “New User Created” and leave the others off, or deletions will try to register people."
+}

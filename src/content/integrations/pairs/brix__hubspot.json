@@ -1,0 +1,8 @@
+{
+  "usedFor": "Brix runs digital signage on screens and HubSpot tracks the accounts behind them. A “New Screen” in Brix can open a record with “Create Deal”, useful when each screen you install is a customer rollout.",
+  "bestTemplate": {
+    "name": "“New Screen” in Brix, then “Create Deal” in HubSpot",
+    "why": "A new screen is the clearest sign a customer is expanding, and “Create Deal” puts it on the pipeline. The restored and recalled content triggers are about content, not sales."
+  },
+  "watchOut": "“New Screen” and “New Media” are polling, so they run on a schedule. “New Restored Content” and “New Recalled Content” are pushed as they happen."
+}

@@ -1,0 +1,8 @@
+{
+ "usedFor": "Stripe creates the customers, and Google Sheets holds your tracking rows. When “New Customer Created” fires in Stripe, “Update Spreadsheet Row” in Google Sheets can fill in columns on a row.",
+ "bestTemplate": {
+  "name": "“New Customer Created” in Stripe, then “Update Spreadsheet Row” in Google Sheets",
+  "why": "Stripe pushes each new customer as it happens, and the action writes its columns into a row. Of the two actions, it changes a single row rather than several."
+ },
+ "watchOut": "None of this pair's actions adds a new row. “Update Spreadsheet Row” and “Update Multiple Rows” change rows already in the sheet, so each customer needs a row before the trigger fires."
+}

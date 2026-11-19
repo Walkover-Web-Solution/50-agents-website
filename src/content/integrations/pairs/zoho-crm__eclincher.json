@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho CRM holds the accounts and deals, and Eclincher manages social posting by brand. A “New Account” in Zoho CRM can run “Create Brand” in Eclincher, which needs only a name, to set up a brand for that account.",
+  "bestTemplate": {
+    "name": "“New Account” in Zoho CRM, then “Create Brand” in Eclincher",
+    "why": "If you run social media for each client, a new account becomes a brand ready for posts. “Create Post” from a CRM event has no post text to work from."
+  },
+  "watchOut": "“New Account” is polling, so the brand appears on a schedule. Anything you publish later with “Create Post” reaches outside the business, so it waits in Needs you for approval."
+}

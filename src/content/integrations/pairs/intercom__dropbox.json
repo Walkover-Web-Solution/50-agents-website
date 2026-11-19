@@ -1,0 +1,8 @@
+{
+  "usedFor": "When a person is removed in Intercom, files you keep for them in Dropbox can go too. Intercom holds the contacts and conversations; “Delete File or Folder” cleans up the matching documents in Dropbox.",
+  "bestTemplate": {
+    "name": "“Contact Is Deleted” in Intercom, then “Delete File or Folder” in Dropbox",
+    "why": "A deleted contact is the one Intercom event that clearly means their files should go as well, so cleanup follows the person instead of a ticket state."
+  },
+  "watchOut": "“Delete File or Folder” removes a folder and everything inside it. Point it at the exact location for one contact and test on a throwaway folder first."
+}

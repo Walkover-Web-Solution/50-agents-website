@@ -1,0 +1,8 @@
+{
+ "usedFor": "Pipedrive tracks your sales activity, and Slack is where the team hears about it. “New Activity Created” in Pipedrive can post through “Send Message” in Slack.",
+ "bestTemplate": {
+  "name": "“New Activity Created” in Pipedrive, then “Send Message” in Slack",
+  "why": "Activities are the daily work in Pipedrive, so a Slack post keeps the team in sight of calls and follow-ups. “Send Message” accepts a channel name or ID and can schedule the post."
+ },
+ "watchOut": "“New Activity Created” is polling, so Slack hears about an activity after the next check. An automation's post to a Slack channel also waits for your approval today."
+}

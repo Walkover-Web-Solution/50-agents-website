@@ -11,7 +11,7 @@
     "Then pick a builder that works on the live sheet, or one that imports a copy and replaces it."
   ],
   "chooser": {
-    "h2": "Which builder fits?",
+    "h2": "Which app builder works best with Google Sheets?",
     "root": {
       "q": "Will people keep editing the sheet after the app exists?",
       "options": [
@@ -70,7 +70,7 @@
     }
   ],
   "method": {
-    "h2": "How to build it",
+    "h2": "How to turn a Google Sheet into an app",
     "steps": [
       {
         "title": "Name the screens you need",

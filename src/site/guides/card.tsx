@@ -5,7 +5,7 @@ import { groupSlug, metaLine } from './meta';
 import { plain } from './rich';
 import type { GuidePage } from './types';
 
-export function GuideCard({ g, h = 'h3', feat = false }: { g: GuidePage; h?: 'h2' | 'h3'; feat?: boolean }) {
+export function GuideCard({ g, h = 'h3', feat = false }: { g: GuidePage; h?: 'h2' | 'h3' | 'p'; feat?: boolean }) {
   const H = h;
   return (
     <a className="gcard" href={`/guides/${g.slug}`} data-group={groupSlug(g.group)} data-feat={feat || undefined}>

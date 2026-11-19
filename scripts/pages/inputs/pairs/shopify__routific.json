@@ -1,0 +1,56 @@
+{
+ "pair": "shopify/routific",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "routific": {
+   "name": "Routific",
+   "labels": [
+    "Productivity",
+    "Scheduling & Booking"
+   ],
+   "about": "Routific helps businesses plan and optimize delivery routes, manage drivers, and coordinate last-mile deliveries."
+  }
+ },
+ "templates": [
+  {
+   "action": "routific:Complete Order",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "routific:Complete Order",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Mark an order on a published route as delivered or missed."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

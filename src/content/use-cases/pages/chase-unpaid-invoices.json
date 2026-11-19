@@ -4,8 +4,9 @@
   "query": "chase unpaid invoices automatically",
   "category": "accounting",
   "title": "Chase unpaid invoices automatically | 50agents",
-  "description": "Tell Captain \"Chase my unpaid invoices\" to get an invoices desk: late invoices first, a polite reminder drafted for each, sent from Gmail when you OK it.",
+  "description": "To chase unpaid invoices automatically, list what is overdue, oldest first, and draft a polite reminder for each. You OK every one before Gmail sends it.",
   "h1": "Chase unpaid invoices automatically",
+  "h2": { "how": "How to chase unpaid invoices automatically", "compare": "Other ways to chase unpaid invoices" },
   "answer": [
     "To chase unpaid invoices automatically, tell Captain \"Chase my unpaid invoices\".",
     "It builds an invoices desk where an AI agent lists late invoices and drafts reminders, sent from your Gmail only after you approve."
@@ -59,10 +60,11 @@
   },
   "faqs": [
     { "q": "Will it email my clients without asking me?", "a": "No. Every reminder waits in Needs you until you approve it, change it or decline it. The app will not build a step that emails someone outside your business without asking first." },
-    { "q": "How long should I wait before chasing an unpaid invoice?", "a": "Send the first reminder within a day or two of the due date, while it is still an easy fix for the client. Then chase every week or two, firmer each time." },
-    { "q": "What if the client has already paid, or disputes the invoice?", "a": "Collector only chases invoices marked Sent. Mark one Paid and decline any reminder already waiting for it, and it is never chased again. For a dispute, move it out of Sent." },
+    { "q": "How long should I wait before chasing an unpaid invoice?", "a": "Send the first reminder within a day or two of the due date, while it is still an easy fix for the client. Then chase every week or two, firmer each time. [How to automate invoice reminders](/guides/how-to-automate-invoice-reminders) covers the setup in any tool." },
+    { "q": "What if the client has already paid, or disputes the invoice?", "a": "Collector only chases invoices marked Sent. Mark one Paid and decline any reminder already waiting for it, and it is never chased again. For a dispute, move it out of Sent. [How to build an invoice tracker](/guides/how-to-build-an-invoice-tracker) lists the columns and statuses." },
     { "q": "Does it work with QuickBooks or Xero?", "a": "Not directly: it does not sync with them. Export your open invoices as a CSV and drop the file into the desk, and Captain matches the columns." },
-    { "q": "What should a payment reminder email say?", "a": "The invoice number, the amount, the due date and how to pay, in a few friendly lines, with a question about when to expect payment. Collector writes exactly that." }
+    { "q": "What should a payment reminder email say?", "a": "The invoice number, the amount, the due date and how to pay, in a few friendly lines, with a question about when to expect payment. Collector writes exactly that." },
+    { "q": "What do I do if a client still won't pay after the reminders?", "a": "That is where a person takes over: the desk drafts reminders and you approve them, but it does not call anyone or take other action. Keep the invoice marked Sent so it stays on the late list, oldest first, until you mark it Paid." }
   ],
   "tags": ["finance", "gmail", "invoices"],
   "updated": "2026-11-19"

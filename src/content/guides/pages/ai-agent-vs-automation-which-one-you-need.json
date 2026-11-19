@@ -61,7 +61,7 @@
     }
   ],
   "method": {
-    "h2": "How to decide, then build",
+    "h2": "How to decide: AI agent or automation",
     "steps": [
       {
         "title": "Write the rule as \"when X, do Y\"",

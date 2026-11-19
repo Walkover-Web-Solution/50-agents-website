@@ -73,7 +73,7 @@
     }
   ],
   "method": {
-    "h2": "How to estimate your own cost",
+    "h2": "How to estimate what automation will cost you",
     "steps": [
       { "title": "List each workflow and its runs a month", "body": "Orders a month, emails a day times 22 working days, and so on." },
       {

@@ -1,0 +1,49 @@
+{
+ "pair": "autoquote3d/telegram",
+ "apps": {
+  "autoquote3d": {
+   "name": "AutoQuote3D",
+   "labels": [
+    "Productivity",
+    "Engineering"
+   ],
+   "about": "Instant quoting and order management software for 3D print shops: automate quotes, paid orders, fulfillment tracking and analytics."
+  },
+  "telegram": {
+   "name": "Telegram",
+   "labels": [
+    "Communication"
+   ],
+   "about": "Bots on Telegram are small applications that run entirely within the platform and can be designed to support any kind of task or service."
+  }
+ },
+ "templates": [
+  {
+   "action": "telegram:Reply To Message",
+   "triggers": [
+    "autoquote3d:New Order",
+    "autoquote3d:New Quote"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "autoquote3d:New Order",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new order is placed, optionally only for chosen statuses."
+  },
+  {
+   "key": "telegram:Reply To Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a reply to a specific message in a Telegram chat."
+  },
+  {
+   "key": "autoquote3d:New Quote",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new quote is created in your Business."
+  }
+ ]
+}

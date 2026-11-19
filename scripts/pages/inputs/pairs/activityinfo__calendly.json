@@ -1,0 +1,57 @@
+{
+ "pair": "activityinfo/calendly",
+ "apps": {
+  "activityinfo": {
+   "name": "ActivityInfo",
+   "labels": [
+    "Databases",
+    "Analytics"
+   ],
+   "about": "ActivityInfo is a data management platform for humanitarian and development organizations to collect, manage, analyze, and report on program data."
+  },
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  }
+ },
+ "templates": [
+  {
+   "action": "calendly:Create Scheduling Link",
+   "triggers": [
+    "activityinfo:New Record",
+    "activityinfo:Updated Record"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activityinfo:New Record",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new record is added to a chosen form."
+  },
+  {
+   "key": "calendly:Create Scheduling Link",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a booking link"
+  },
+  {
+   "key": "activityinfo:Updated Record",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when an existing record is changed in a chosen form."
+  }
+ ]
+}

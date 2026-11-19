@@ -18,7 +18,7 @@ Search the row's query and "<role> automation ideas". Read the top 3 to 5 result
 Note which jobs that role repeats every week and which apps it already pays for.
 
 ## Fields
-- `title` under 60 characters, ends " | 50agents". `description` 120 to 155 characters, answer first.
+- `title` under 60 characters, ends " | 50agents". `description` 120 to 155 characters. **Lead with the query and the answer** (SEO pass 01): the first words are the search the page answers, then the answer in the same sentence, product second. Never open with "Tell Captain". Check the length (155 characters at most) before you return it.
 - `h1`, `role` (mid-sentence, "sales teams"), `label` (for links, "Sales").
 - `answer`: two sentences, 40 words at most in total. The first names the jobs this role hands off first; the second
   says how 50agents builds them and what asks first.

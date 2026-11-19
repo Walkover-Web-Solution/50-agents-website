@@ -1,0 +1,64 @@
+{
+ "pair": "42min/hubspot",
+ "apps": {
+  "42min": {
+   "name": "42min",
+   "labels": [
+    "Scheduling and Booking",
+    "Productivity"
+   ],
+   "about": "42min is a free online meeting scheduler: share a booking link, let people pick a time, and the meeting lands on everyone's calendar."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "42min:Updated Booking Time",
+    "42min:New Booking"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "42min:Updated Booking Time",
+    "42min:New Booking"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "42min:Updated Booking Time",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when booking time is updated, optionally for a chosen event type."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "42min:New Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a meeting is booked, optionally for one chosen event type."
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  }
+ ]
+}

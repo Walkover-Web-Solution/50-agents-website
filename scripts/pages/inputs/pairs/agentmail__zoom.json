@@ -1,0 +1,71 @@
+{
+ "pair": "agentmail/zoom",
+ "apps": {
+  "agentmail": {
+   "name": "AgentMail",
+   "labels": [
+    "Email",
+    "Developer Tools",
+    "Communication"
+   ],
+   "about": "AgentMail provides email inboxes and API tools for AI agents to send, receive, and manage email programmatically."
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "agentmail:New Spam Complaint",
+    "agentmail:New Email Bounced",
+    "agentmail:New Email Delivered",
+    "agentmail:New Email Sent",
+    "agentmail:New Email Received"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "agentmail:New Spam Complaint",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a recipient marks a sent email as spam."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "agentmail:New Email Bounced",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a sent email bounces, with the bounce type and recipients."
+  },
+  {
+   "key": "agentmail:New Email Delivered",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a sent email reaches the recipient's mail server for selected inboxes or pods."
+  },
+  {
+   "key": "agentmail:New Email Sent",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when new email is sent from a chosen inbox."
+  },
+  {
+   "key": "agentmail:New Email Received",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when new email is received in selected inboxes or pods."
+  }
+ ]
+}

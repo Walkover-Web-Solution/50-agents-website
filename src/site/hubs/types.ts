@@ -16,7 +16,7 @@ export type HubPage = {
   example: { ask: string; build: UseCasePage['build'] }; // a real starting ask of this kind (app templates/list.ts); `build` is kept as a fact, not drawn
   useCases: string; // the line under the use case cards' heading, 14 words at most
   apps: string[]; // the apps it is most used with (catalog slugs): the first three are named in "Works with ...", all lead the marquee
-  faqs: { q: string; a: string }[]; // 5 or 6, each answer 2 or 3 sentences
+  faqs: { q: string; a: string }[]; // 5 to 7, each answer 2 or 3 sentences; an answer may carry [label](/path) links (guides/rich.tsx)
   links: { label: string; href: string }[]; // 3 reads: a guide, a glossary term, a comparison
   final: string; // the closing heading
   updated: string; // ISO date, for JSON-LD dateModified only: no date is shown (D254)

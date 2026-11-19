@@ -1,0 +1,8 @@
+{
+ "usedFor": "Pipedrive and HubSpot are both CRMs, so this pair copies work from one to the other. “New Deal” in Pipedrive can open a “Create Deal” in HubSpot as it happens.",
+ "bestTemplate": {
+  "name": "“New Deal” in Pipedrive, then “Create Deal” in HubSpot",
+  "why": "It mirrors each Pipedrive deal into HubSpot, and the trigger is pushed, so there is no wait. The other templates start from HubSpot and create a person or update a contact."
+ },
+ "watchOut": "Going the other way, “When a deal is created or updated” is polling and fires on updates, so one HubSpot deal can run “Create Person” twice. “Update Contact” also needs the contact's email."
+}

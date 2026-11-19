@@ -1,0 +1,64 @@
+{
+ "pair": "activityinfo/hubspot",
+ "apps": {
+  "activityinfo": {
+   "name": "ActivityInfo",
+   "labels": [
+    "Databases",
+    "Analytics"
+   ],
+   "about": "ActivityInfo is a data management platform for humanitarian and development organizations to collect, manage, analyze, and report on program data."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "activityinfo:Updated Record",
+    "activityinfo:New Record"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "activityinfo:Updated Record",
+    "activityinfo:New Record"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activityinfo:Updated Record",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when an existing record is changed in a chosen form."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "activityinfo:New Record",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new record is added to a chosen form."
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  }
+ ]
+}

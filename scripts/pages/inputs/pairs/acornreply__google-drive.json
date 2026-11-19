@@ -1,0 +1,59 @@
+{
+ "pair": "acornreply/google-drive",
+ "apps": {
+  "acornreply": {
+   "name": "AcornReply",
+   "labels": [
+    "Customer Support",
+    "Communication"
+   ],
+   "about": "AcornReply is an AI support inbox for small teams: create tickets from your app and keep the knowledge base its AI drafts from in sync."
+  },
+  "google-drive": {
+   "name": "Google Drive",
+   "labels": [
+    "File Management and Storage Google",
+    "Top Free Apps",
+    "Team Collaboration",
+    "Product Management",
+    "Documents",
+    "Spreadsheets"
+   ],
+   "about": "Google Drive is a secure cloud storage and file collaboration platform that lets users store, share, organize, sync, and collaborate on files from anywhere, inc"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-drive:Share File With Anyone",
+   "triggers": [
+    "acornreply:New Knowledge Base Entry"
+   ]
+  },
+  {
+   "action": "google-drive:Copy a File",
+   "triggers": [
+    "acornreply:New Knowledge Base Entry"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "acornreply:New Knowledge Base Entry",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new FAQ, article or past conversation is added to your knowledge base."
+  },
+  {
+   "key": "google-drive:Share File With Anyone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a file accessible via a shareable link and set access level (Viewer, Commenter, Editor)."
+  },
+  {
+   "key": "google-drive:Copy a File",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a copy of a Google Drive file into a selected folder, optionally giving it a new name."
+  }
+ ]
+}

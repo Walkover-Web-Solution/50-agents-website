@@ -9,7 +9,7 @@ import { Crumbs, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { BuildLink } from '@/site/integrations/build-link';
-import { findPair, loadApp, nameOf, pairIndexable, pairPath, pairRecipes, pairs, recipeAsk } from '@/site/integrations/data';
+import { findPair, loadApp, nameOf, pairIndexable, pairLines, pairPath, pairRecipes, pairs, recipeAsk } from '@/site/integrations/data';
 import { canon } from '@/content/integrations/slugs';
 import { BASE, crumbsLd, Final, LdScript, Lockup, PairEventsBox, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
 import { pairWords } from '@/site/integrations/words';
@@ -65,6 +65,7 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
   const page = `${a.slug}-${b.slug}`;
   const ask = recipeAsk(recipes[0], nameOf);
   const C = 'seo-pair' as const;
+  const lines = pairLines(pair.a, pair.b);
 
   return (
     <div className="page uc3 ig3">
@@ -80,6 +81,17 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
         <PromptFilm ask={ask} button={<span className="hero-cta"><BuildLink page={page} place="hero" campaign={C} ask={ask}>Build it</BuildLink></span>} />
         <p className="uc3-note">{w.note}</p>
       </section>
+
+      {lines && (
+        <section className="wrap sec" id="in-practice">
+          <div className="sec-h c"><h2>{a.name} and {b.name} in practice</h2></div>
+          <div className="ig3-practice">
+            <div><h3>What it is used for</h3><p>{lines.usedFor}</p></div>
+            <div><h3>The most useful template</h3><p><strong>{lines.bestTemplate.name}.</strong> {lines.bestTemplate.why}</p></div>
+            <div><h3>What to watch out for</h3><p>{lines.watchOut}</p></div>
+          </div>
+        </section>
+      )}
 
       <section className="wrap sec" id="templates">
         <div className="sec-h c"><h2>{a.name} and {b.name} templates</h2><p>Pick one and Captain builds it with you.</p></div>

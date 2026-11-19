@@ -1,0 +1,8 @@
+{
+  "usedFor": "Trello holds cards for signups or contacts, and ClearBounce checks whether an email address can be delivered to. A “New Card Created” in Trello can run “Verify Email Address” in ClearBounce on the address from the card.",
+  "bestTemplate": {
+    "name": "“New Card Created” in Trello, then “Verify Email Address” in ClearBounce",
+    "why": "Each new card has its address checked once, as the card appears. “Create Bulk Job” fits a batch instead, and it returns only a job ID."
+  },
+  "watchOut": "“Add Label to Card” is also a trigger here, so labeling an existing card sends its address through “Verify Email Address” again. Pick the trigger that matches when you want the check."
+}

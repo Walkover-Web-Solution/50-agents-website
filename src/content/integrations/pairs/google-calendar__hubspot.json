@@ -1,0 +1,8 @@
+{
+  "usedFor": "Google Calendar is where meetings get booked and HubSpot is where the person should exist. “New Event” in Google Calendar can feed “Create Contact”, so people you meet appear in the CRM without data entry.",
+  "bestTemplate": {
+    "name": "“New Event” in Google Calendar, then “Create Contact” in HubSpot",
+    "why": "Meetings with new people are where contacts start, and “Create Contact” returns the created record. “New Event” avoids re-firing on edits the way “New or Updated Event” does."
+  },
+  "watchOut": "“Create Contact” requires an email, so an event with no guest email has nothing to create. Both Google Calendar triggers are polling and run on a schedule."
+}

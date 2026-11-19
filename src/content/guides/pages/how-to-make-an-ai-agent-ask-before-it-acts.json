@@ -64,7 +64,7 @@
     }
   ],
   "method": {
-    "h2": "How to set it up",
+    "h2": "How to make an AI agent ask before it acts",
     "steps": [
       {
         "title": "List every action it can take",

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Docusign finishes the signing; OpenAI (ChatGPT) writes. When “New Envelope Completed” fires in Docusign, “Ask AI” in OpenAI can draft something from your prompt, like a summary or a welcome note.",
+  "bestTemplate": {
+    "name": "“New Envelope Completed” in Docusign, then “Ask AI” in OpenAI (ChatGPT)",
+    "why": "Once every recipient has signed, “Ask AI” can turn the event into a written draft from your prompt. “Generate Image” fits few signing uses."
+  },
+  "watchOut": "“Ask AI” writes from your prompt, so the answer is only as good as the details you pass in. Treat it as a draft, since a message to a client waits for your approval on 50agents."
+}

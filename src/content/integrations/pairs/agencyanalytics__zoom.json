@@ -1,0 +1,8 @@
+{
+  "usedFor": "AgencyAnalytics is where an agency keeps clients and reporting users; Zoom runs the webinars. A “New Client” in AgencyAnalytics can sign that client up for a webinar through “Register Attendee for Webinar”.",
+  "bestTemplate": {
+    "name": "“New Client” in AgencyAnalytics, then “Register Attendee for Webinar” in Zoom",
+    "why": "A newly created client is the natural person to invite to an onboarding or reporting webinar. “New User” also fits when you want each added login registered."
+  },
+  "watchOut": "“New Client” polls your AgencyAnalytics account, so registration follows a little after the client is created. You also need to pick a specific webinar in “Register Attendee for Webinar”."
+}

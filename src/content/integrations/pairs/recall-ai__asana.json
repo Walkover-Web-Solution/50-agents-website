@@ -1,0 +1,8 @@
+{
+  "usedFor": "Recall.ai transcribes your meetings, and Asana is where follow-up work lives. A “New Transcript Completed” in Recall.ai can run “Create Task or Subtask” in Asana, with an assignee, dates and a description.",
+  "bestTemplate": {
+    "name": "“New Transcript Completed” in Recall.ai, then “Create Task or Subtask” in Asana",
+    "why": "A finished transcript is the point where action items exist. “Create Task or Subtask” takes an assignee, tags, dates and a description, so the task arrives ready to work."
+  },
+  "watchOut": "“New Transcript Completed” is polling, so tasks appear on a schedule. “New Webhook Event” fires on every status event, so that trigger can create duplicate tasks for one meeting."
+}

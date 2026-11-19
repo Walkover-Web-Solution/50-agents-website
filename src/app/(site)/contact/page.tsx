@@ -7,7 +7,7 @@ import { pageMeta } from '@/site/hubs/meta';
 export const metadata: Metadata = pageMeta({
   path: '/contact',
   title: 'Contact the 50agents team | 50agents',
-  description: 'How to reach the team behind 50agents, a product of viaSocket by Walkover: support, the Help Center, privacy, careers and viaSocket.',
+  description: 'How to reach the team behind 50agents, a product of viaSocket by Walkover: support, the Help Center, privacy questions, careers and viaSocket itself.',
   index: CONTACT_EMAIL !== null,
 });
 

@@ -1,0 +1,54 @@
+{
+ "pair": "slack/applyra",
+ "apps": {
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  },
+  "applyra": {
+   "name": "Applyra",
+   "labels": [
+    "Marketing",
+    "Analytics"
+   ],
+   "about": "Applyra is an App Store Optimization (ASO) platform for App Store and Google Play: keyword rank tracking, competitor intelligence, ASO Health audits and top cha"
+  }
+ },
+ "templates": [
+  {
+   "action": "applyra:Track App",
+   "triggers": [
+    "slack:New Message Posted in Channel Instant",
+    "slack:New Thread Message"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "slack:New Message Posted in Channel Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+  },
+  {
+   "key": "applyra:Track App",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Start tracking an App Store or Google Play app for a selected country and language using its store ID."
+  },
+  {
+   "key": "slack:New Thread Message",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new thread message."
+  }
+ ]
+}

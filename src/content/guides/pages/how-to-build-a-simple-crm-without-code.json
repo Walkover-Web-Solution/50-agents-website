@@ -4,7 +4,7 @@
   "kind": "app",
   "query": "how to build a simple crm without code",
   "title": "How to build a simple CRM without code | 50agents",
-  "description": "Build a simple CRM without code: ten fields, five stages, a next follow-up date on every open lead and a daily list of who to contact.",
+  "description": "How to build a simple CRM without code: ten fields, five stages, a next follow-up date on every open lead and a daily list of who to contact next.",
   "h1": "How to build a simple CRM without code",
   "answer": [
     "Make one list of leads with about ten fields, five stages, and a next follow-up date on every open lead.",
@@ -115,7 +115,7 @@
     }
   ],
   "method": {
-    "h2": "How to build it",
+    "h2": "How to build a simple CRM, step by step",
     "steps": [
       {
         "title": "Make the list with these fields",

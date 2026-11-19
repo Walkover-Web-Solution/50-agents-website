@@ -1,0 +1,62 @@
+{
+ "pair": "recall-ai/google-calendar",
+ "apps": {
+  "recall-ai": {
+   "name": "Recall.ai",
+   "labels": [
+    "Transcription",
+    "Video Conferencing",
+    "Developer Tools"
+   ],
+   "about": "Recall.ai provides developer APIs for recording, transcribing, and analyzing meetings across Zoom, Google Meet, Microsoft Teams, Webex and more. Send meeting bo"
+  },
+  "google-calendar": {
+   "name": "Google Calendar",
+   "labels": [
+    "Productivity",
+    "Time Management",
+    "Top Free Apps",
+    "Calendar",
+    "Team Collaboration",
+    "Scheduling and Booking"
+   ],
+   "about": "Google Calendar is a scheduling and calendar management service that helps individuals and teams create events, manage availability, coordinate meetings, and or"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-calendar:Create Calendar Event",
+   "triggers": [
+    "recall-ai:New Webhook Event",
+    "recall-ai:New Transcript Completed",
+    "recall-ai:New Recording Becomes Ready"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "recall-ai:New Webhook Event",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Recall.ai sends a bot, recording or transcript status event to your webhook."
+  },
+  {
+   "key": "google-calendar:Create Calendar Event",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Add an event to a calendar, including time, duration, attendees, and meeting details."
+  },
+  {
+   "key": "recall-ai:New Transcript Completed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a transcript finishes processing."
+  },
+  {
+   "key": "recall-ai:New Recording Becomes Ready",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a recording becomes ready and its media is available; you can set the lookback window (minutes)."
+  }
+ ]
+}

@@ -68,7 +68,7 @@
     }
   ],
   "method": {
-    "h2": "How to build it",
+    "h2": "How to build an invoice tracker, step by step",
     "steps": [
       {
         "title": "Create the list",

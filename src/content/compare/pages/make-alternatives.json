@@ -3,9 +3,9 @@
   "type": "alternatives",
   "tool": "make",
   "query": "make.com alternatives",
-  "title": "Make alternatives: options and starting prices | 50agents",
-  "description": "Make.com alternatives: n8n with per-run pricing, Zapier with 10,541+ apps, Activepieces with flat plans, Power Automate, Gumloop, and 50agents from plain words.",
-  "h1": "Make alternatives",
+  "title": "Make.com alternatives and their starting prices | 50agents",
+  "description": "Make.com alternatives: n8n with per-run pricing, Zapier for the most apps, Activepieces with flat plans, Power Automate, Gumloop, and 50agents.",
+  "h1": "Make.com alternatives",
   "answer": [
     "n8n bills per run instead of per credit, and Activepieces has flat plans.",
     "Zapier connects the most apps; 50agents builds the scenario for you from one sentence."
@@ -99,11 +99,11 @@
     },
     {
       "q": "Which Make alternative bills per run?",
-      "a": "n8n. One execution is one run of the whole workflow, however many steps it has. Starter is €20 a month billed yearly."
+      "a": "n8n. One execution is one run of the whole workflow, however many steps it has. Starter is €20 a month billed yearly. See [50agents vs n8n](/compare/50agents-vs-n8n)."
     },
     {
       "q": "Can I move Make scenarios to another tool automatically?",
-      "a": "No. A blueprint is a .json file you can import elsewhere in Make. In another tool you rebuild, starting with the busiest scenario."
+      "a": "No. A blueprint is a .json file you can import elsewhere in Make. In another tool you rebuild, starting with the busiest scenario. To choose the tool, read [Zapier vs Make vs n8n for a small team](/guides/zapier-vs-make-vs-n8n-for-a-small-team)."
     }
   ],
   "related": [

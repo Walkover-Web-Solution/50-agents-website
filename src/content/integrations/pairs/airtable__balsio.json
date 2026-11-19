@@ -1,0 +1,8 @@
+{
+  "usedFor": "Airtable is the source of truth for your rows; Balsio is the messaging side with threads and external participants. A change in Airtable can add someone to a Balsio thread with “Add Users to Thread” or post a timed note with “Create Scheduled Message”.",
+  "bestTemplate": {
+    "name": "“Record Created Or Updated” in Airtable, then “Create Scheduled Message” in Balsio",
+    "why": "It turns a row into a message that lands in a thread at a set date and time, and its idempotency key guards against duplicate runs."
+  },
+  "watchOut": "“Record Created Or Updated” polls and also fires on edits, so one row can trigger more than once. “Create Scheduled Message” needs a thread ID, so store it on the record."
+}

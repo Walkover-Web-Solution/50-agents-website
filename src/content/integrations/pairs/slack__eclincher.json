@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack is where a team words its posts, and Eclincher publishes them. A “New Message Posted in Channel Instant” in Slack can run “Create Post” in Eclincher to publish text, with an optional scheduled time, to a brand's accounts.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Create Post” in Eclincher",
+    "why": "It turns a line written in a channel into a social post, and the scheduled time is optional. “Create Brand” only needs a name, so it is a one-off setup step."
+  },
+  "watchOut": "Anything posted in the channel can become a public post, so use a narrow channel. A post to public accounts reaches outside the business, so it waits in Needs you for approval."
+}

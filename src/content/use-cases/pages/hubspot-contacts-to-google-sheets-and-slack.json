@@ -4,8 +4,9 @@
   "query": "HubSpot new contact to Google Sheets; HubSpot Slack notification",
   "category": "crm",
   "title": "HubSpot contacts to Google Sheets and Slack | 50agents",
-  "description": "To send new HubSpot contacts to Google Sheets and Slack, tell Captain once: each contact becomes a sheet row and a channel post you approve. Free to start.",
+  "description": "To send new HubSpot contacts to Google Sheets and Slack, an automation adds each as a sheet row and posts a Slack notification once you approve it.",
   "h1": "Send new HubSpot contacts to Google Sheets and Slack",
+  "h2": { "how": "How to send HubSpot contacts to Google Sheets and Slack", "compare": "Other ways to send HubSpot contacts to Sheets and Slack" },
   "answer": [
     "To send new HubSpot contacts to Google Sheets and Slack, tell Captain \"Set up an automation: every new HubSpot contact is added as a row to my Google Sheet\".",
     "It builds an automation and asks before each Slack post."

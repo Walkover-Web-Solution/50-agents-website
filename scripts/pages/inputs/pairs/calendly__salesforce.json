@@ -1,0 +1,69 @@
+{
+ "pair": "calendly/salesforce",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "salesforce": {
+   "name": "Salesforce",
+   "labels": [
+    "CRM",
+    "Sales and CRM",
+    "Marketing Automation"
+   ],
+   "about": "Salesforce is a leading cloud-based customer relationship management (CRM) platform that provides businesses with tools to manage customer interactions, sales p"
+  }
+ },
+ "templates": [
+  {
+   "action": "salesforce:New Contact",
+   "triggers": [
+    "calendly:New Meeting Book or Invitee Created"
+   ]
+  },
+  {
+   "action": "salesforce:New Lead",
+   "triggers": [
+    "calendly:When a meeting is scheduled, rescheduled, or canceled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:New Meeting Book or Invitee Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when someone books a meeting for any event type."
+  },
+  {
+   "key": "salesforce:New Contact",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new Contact is created."
+  },
+  {
+   "key": "calendly:When a meeting is scheduled, rescheduled, or canceled",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update polling logic to reduce duplicate trigger hits."
+  },
+  {
+   "key": "salesforce:New Lead",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new Lead is created."
+  }
+ ]
+}

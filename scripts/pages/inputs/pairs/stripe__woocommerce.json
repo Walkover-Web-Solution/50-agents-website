@@ -1,0 +1,80 @@
+{
+ "pair": "stripe/woocommerce",
+ "apps": {
+  "stripe": {
+   "name": "Stripe",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "Stripe is a financial technology company that provides a set of tools and APIs (Application Programming Interfaces) for online businesses to handle payments, su"
+  },
+  "woocommerce": {
+   "name": "WooCommerce",
+   "labels": [
+    "E-commerce",
+    "Website Management",
+    "Online Store"
+   ],
+   "about": "WooCommerce is a customizable, open-source eCommerce platform built on WordPress. It is designed to help businesses of all sizes create and manage an online sto"
+  }
+ },
+ "templates": [
+  {
+   "action": "woocommerce:Update Product",
+   "triggers": [
+    "stripe:New Customer Created",
+    "stripe:Payment Link Created"
+   ]
+  },
+  {
+   "action": "stripe:When a payment succeeds",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "woocommerce:Create Coupon",
+   "triggers": [
+    "stripe:When a payment succeeds"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "stripe:New Customer Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when customer is created"
+  },
+  {
+   "key": "woocommerce:Update Product",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Updates an existing product in your WooCommerce store."
+  },
+  {
+   "key": "stripe:Payment Link Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when payment link created"
+  },
+  {
+   "key": "woocommerce:New Order Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new order is created."
+  },
+  {
+   "key": "stripe:When a payment succeeds",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a payment succeeds."
+  },
+  {
+   "key": "woocommerce:Create Coupon",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new coupon in your WooCommerce store."
+  }
+ ]
+}

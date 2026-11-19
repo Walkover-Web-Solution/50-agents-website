@@ -51,7 +51,7 @@
     }
   ],
   "method": {
-    "h2": "How to set it up",
+    "h2": "How to log Stripe payments in Google Sheets",
     "steps": [
       {
         "title": "Make the sheet first",

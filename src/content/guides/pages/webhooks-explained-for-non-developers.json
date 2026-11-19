@@ -53,7 +53,7 @@
     }
   ],
   "method": {
-    "h2": "How to use one",
+    "h2": "How to set up a webhook, step by step",
     "steps": [
       {
         "title": "Look for a built-in trigger first",

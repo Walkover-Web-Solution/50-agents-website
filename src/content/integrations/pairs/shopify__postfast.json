@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds the store and its blog, PostFast holds the social calendar. When Shopify publishes a “New Blog Article”, PostFast can run “Create Post” to schedule it or save a draft for a social account.",
+  "bestTemplate": {
+    "name": "“New Blog Article” in Shopify, then “Create Post” in PostFast",
+    "why": "A published article is something worth sharing, and “Create Post” can schedule it with media and a first comment. “Abandoned Checkout” would turn a shopper's cart into a public post, which makes little sense."
+  },
+  "watchOut": "“New Blog Article” is a polling trigger, so PostFast hears about it on a schedule, not the moment the article goes live. Save the post as a draft if you want to read it first."
+}

@@ -1,0 +1,95 @@
+{
+ "pair": "zoom/google-drive",
+ "apps": {
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  },
+  "google-drive": {
+   "name": "Google Drive",
+   "labels": [
+    "File Management and Storage Google",
+    "Top Free Apps",
+    "Team Collaboration",
+    "Product Management",
+    "Documents",
+    "Spreadsheets"
+   ],
+   "about": "Google Drive is a secure cloud storage and file collaboration platform that lets users store, share, organize, sync, and collaborate on files from anywhere, inc"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-drive:Share File With Anyone",
+   "triggers": [
+    "zoom:When a participant joins a webinar",
+    "zoom:When a new webinar is created",
+    "zoom:When someone registers for the selected webinar",
+    "zoom:When a meeting summary is completed",
+    "zoom:Meeting Is Created",
+    "zoom:When a meeting ends",
+    "zoom:When someone registers for the meeting",
+    "zoom:When a participant joins a meeting"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "zoom:When a participant joins a webinar",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a participant joins a webinar. If a specific webinar ID is provided, runs only when a participant joins that webinar."
+  },
+  {
+   "key": "google-drive:Share File With Anyone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a file accessible via a shareable link and set access level (Viewer, Commenter, Editor)."
+  },
+  {
+   "key": "zoom:When a new webinar is created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a new webinar is created in the account."
+  },
+  {
+   "key": "zoom:When someone registers for the selected webinar",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever someone registers for the selected webinar."
+  },
+  {
+   "key": "zoom:When a meeting summary is completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever any meeting summary is completed."
+  },
+  {
+   "key": "zoom:Meeting Is Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when meeting is created"
+  },
+  {
+   "key": "zoom:When a meeting ends",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever any meeting in the account ends."
+  },
+  {
+   "key": "zoom:When someone registers for the meeting",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever someone registers for the selected meeting."
+  },
+  {
+   "key": "zoom:When a participant joins a meeting",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a participant joins a meeting. If a specific meeting ID is provided, runs only when a participant joins that meeting."
+  }
+ ]
+}

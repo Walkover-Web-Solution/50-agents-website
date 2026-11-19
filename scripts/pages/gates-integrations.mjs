@@ -119,7 +119,60 @@ for (const p of pages) {
   if (bad.length) failed++;
   report.push(`| ${p.slug} | ${words(all)} | ${bad.length ? 'FAIL: ' + bad.join('; ') : 'pass'} |`);
 }
-const md = `# Gate report: integrations\n\nPages ${pages.length}, passed ${pages.length - failed}, failed ${failed}. Run: node scripts/pages/gates-integrations.mjs\n\n| Page | Words | Result |\n|---|---|---|\n${report.join('\n')}\n`;
+
+// ---- Pair lines (Search S24): src/content/integrations/pairs/<a>__<b>.json, one per indexed pair ----
+const PAIRS = 'src/content/integrations/pairs';
+const pairRows = [];
+let pairFailed = 0;
+const pairFiles = fs.existsSync(PAIRS) ? fs.readdirSync(PAIRS).filter(f => f.endsWith('.json')).sort() : [];
+for (const f of pairFiles) {
+  const [a, b] = f.replace(/\.json$/, '').split('__');
+  const bad = [];
+  let d;
+  try { d = JSON.parse(fs.readFileSync(`${PAIRS}/${f}`, 'utf8')); } catch { pairRows.push(`| ${a}/${b} | FAIL: not JSON |`); pairFailed++; continue; }
+  const strs = [d.usedFor, d.bestTemplate?.name, d.bestTemplate?.why, d.watchOut];
+  if (strs.some(x => typeof x !== 'string' || !x.trim())) bad.push('a field is missing');
+  else {
+    const A = JSON.parse(fs.readFileSync(`${CAT}/apps/${index.find(x => x.s.toLowerCase() === a)?.s ?? a}.json`, 'utf8'));
+    const B = JSON.parse(fs.readFileSync(`${CAT}/apps/${index.find(x => x.s.toLowerCase() === b)?.s ?? b}.json`, 'utf8'));
+    const all = strs.join('\n');
+    for (const [k, t] of [['usedFor', d.usedFor], ['bestTemplate.why', d.bestTemplate.why], ['watchOut', d.watchOut]]) {
+      const n = t.split(/(?<=[.?])\s+/).length;
+      if (n > 3) bad.push(`${k} is ${n} sentences`);
+      if (words(t) > 60) bad.push(`${k} is ${words(t)} words`);
+    }
+    if (!all.includes(A.name) || !all.includes(B.name)) bad.push('does not name both apps');
+    if (!d.usedFor.includes(A.name) && !d.usedFor.includes(B.name)) bad.push('usedFor names neither app');
+    // Facts: the template named is a real one (its trigger and action in the catalog's words, in this pair's templates).
+    const events = new Map([...A.events, ...B.events].map(e => [norm(e.n), e]));
+    const quoted = [...d.bestTemplate.name.matchAll(/“([^”]+)”/g)].map(m => norm(m[1]));
+    if (quoted.length !== 2 || !quoted.every(n => events.has(n))) bad.push('bestTemplate.name must quote one trigger and one action of the pair');
+    else {
+      const [t, ac] = quoted;
+      const ok = [...A.recipes, ...B.recipes].some(r => norm(r.te) === t && norm(r.ae) === ac && [r.ta, r.aa].map(x => x.toLowerCase()).sort().join() === [a, b].sort().join());
+      if (!ok) bad.push('bestTemplate is not a template between these two apps');
+    }
+    for (const m of all.matchAll(/“([^”]+)”/g)) if (!events.has(norm(m[1]).replace(/[.,]$/, ''))) bad.push(`quoted “${m[1]}” is not a trigger or action of either app`);
+    for (const x of index) {
+      if (x.s.toLowerCase() === a || x.s.toLowerCase() === b || A.name.includes(x.n) || B.name.includes(x.n) || x.n.length < 4 || NOT_APPS.has(x.n) || (!/\s/.test(x.n) && DICT.has(x.n.toLowerCase()))) continue;
+      if (new RegExp(`(^|[^\\w-])${esc(x.n)}(?![\\w-])`).test(all)) bad.push(`names ${x.n}, a third app`);
+    }
+    if (/—/.test(all)) bad.push('em dash');
+    if (/!/.test(all)) bad.push('exclamation mark');
+    BANNED.forEach(w => all.toLowerCase().includes(w) && bad.push(`banned: ${w}`));
+    if (/ViaSocket/.test(all)) bad.push('ViaSocket');
+    if (/credit/i.test(all)) bad.push('mentions credits');
+    if (/\$\s?\d|\bper month\b/i.test(all)) bad.push('a price');
+    if (/\b(19|20)\d\d\b/.test(all)) bad.push('a year');
+    const bare = [...all.matchAll(/(\S+)\s+agents?\b/gi)].map(m => m[1]).filter(w => !/^(AI|browser|50)$/i.test(w));
+    if (/^agents?\b/im.test(all) || bare.length) bad.push(`bare "agent" after: ${[...new Set(bare)].join(', ')}`);
+    if (/\brecipes?\b/i.test(all)) bad.push('says "recipe"');
+    if (/\b\d+ (triggers?|actions?|templates?)\b/i.test(all)) bad.push('a count');
+  }
+  if (bad.length) pairFailed++;
+  pairRows.push(`| ${a}/${b} | ${bad.length ? 'FAIL: ' + [...new Set(bad)].join('; ') : 'pass'} |`);
+}
+const md = `# Gate report: integrations\n\nPages ${pages.length}, passed ${pages.length - failed}, failed ${failed}. Run: node scripts/pages/gates-integrations.mjs\n\n| Page | Words | Result |\n|---|---|---|\n${report.join('\n')}\n\n## Pair lines\n\nPairs ${pairFiles.length}, passed ${pairFiles.length - pairFailed}, failed ${pairFailed}.\n\n| Pair | Result |\n|---|---|\n${pairRows.join('\n')}\n`;
 fs.writeFileSync('scripts/pages/report-integrations.md', md);
 console.log(md);
-process.exit(failed ? 1 : 0);
+process.exit(failed || pairFailed ? 1 : 0);

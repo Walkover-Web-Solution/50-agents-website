@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack is where someone drops an app worth watching, and Applyra tracks App Store and Google Play rankings. A “New Message Posted in Channel Instant” in Slack can run “Track App” in Applyra to start tracking it.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Track App” in Applyra",
+    "why": "A teammate posts a store ID in a channel and tracking starts without opening Applyra. This trigger is pushed when the message lands, while “New Thread Message” is polling."
+  },
+  "watchOut": "“Track App” needs a store ID plus a country and a language, so a free-form message is not enough on its own. Agree one message format for the channel."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds buyers and orders, and Sendly is the SMS service that needs their phone numbers. “Order Paid” can run “Create or Update Contact”, so each paying customer exists in Sendly.",
+  "bestTemplate": {
+    "name": "“Order Paid” in Shopify, then “Create or Update Contact” in Sendly",
+    "why": "The action works from the phone number and updates the contact if that number already exists, so repeat buyers do not pile up as duplicates."
+  },
+  "watchOut": "“Create or Update Contact” is keyed on a phone number, so an order without one has nothing to create. “Abandoned Checkout” is polling and runs on a schedule."
+}

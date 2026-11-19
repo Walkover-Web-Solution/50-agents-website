@@ -1,0 +1,48 @@
+{
+ "pair": "shopify/postfast",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "postfast": {
+   "name": "PostFast",
+   "labels": [
+    "Social Media Marketing"
+   ],
+   "about": "PostFast is a social media scheduler that plans, schedules and publishes posts to 11 platforms (X, LinkedIn, Instagram, Facebook, TikTok, YouTube, Pinterest, Th"
+  }
+ },
+ "templates": [
+  {
+   "action": "postfast:Create Post",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Blog Article"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "postfast:Create Post",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Schedule a post or save a draft for a social account, with media, first comment and platform settings."
+  },
+  {
+   "key": "shopify:New Blog Article",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new blog article is published."
+  }
+ ]
+}

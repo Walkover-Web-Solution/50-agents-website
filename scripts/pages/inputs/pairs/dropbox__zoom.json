@@ -1,0 +1,48 @@
+{
+ "pair": "dropbox/zoom",
+ "apps": {
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Add a meeting registrant",
+   "triggers": [
+    "dropbox:New or Updated File",
+    "dropbox:New File in Folder"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "dropbox:New or Updated File",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new file is added or updated in a folder. Make sure the number of files/folders in the watched folder does not exceed 6000."
+  },
+  {
+   "key": "zoom:Add a meeting registrant",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Registers an attendee for a specified Zoom meeting and returns the registration confirmation."
+  },
+  {
+   "key": "dropbox:New File in Folder",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new file is added to a folder. Make sure the number of files/folders in the watched folder does not exceed 6000."
+  }
+ ]
+}

@@ -3,9 +3,9 @@
   "kind": "app",
   "query": "no code app builder; build an app from Google Sheets; internal tool without code",
   "title": "No-code app builder run by AI agents | 50agents",
-  "description": "Describe what you track and Captain builds your own app: lists, a board, a table and numbers, plus a crew of AI agents that keeps it up to date.",
+  "description": "A no-code app builder: describe what you track, or start from your Google Sheet, and Captain builds the app plus the AI agents that keep it up to date.",
   "crumb": "Apps",
-  "h1": "Build your own business app by describing it",
+  "h1": "No-code app builder: describe the app, Captain builds it",
   "line": "Your own screens and records, with a crew of AI agents.",
   "answer": [
     "An app is your own screens and records, like a leads pipeline, with a crew of AI agents working in it.",
@@ -40,11 +40,11 @@
     },
     {
       "q": "Can I build an app from Google Sheets?",
-      "a": "You can bring a sheet in: download it as CSV or Excel, drop it into the app and check where each column goes. The app does not stay linked to the sheet; for a live link, Glide or Softr fit better."
+      "a": "You can bring a sheet in: download it as CSV or Excel, drop it into the app and check where each column goes. The app does not stay linked to the sheet; for a live link, [Glide](/compare/50agents-vs-glide) or [Softr](/compare/50agents-vs-softr) fit better."
     },
     {
       "q": "What is an internal tool, and is this one?",
-      "a": "An internal tool is software your team uses to run the business, not something customers see: a pipeline, a requests desk, an invoices list. A 50agents app is exactly that, with AI agents doing the routine work in it."
+      "a": "An internal tool is software your team uses to run the business, not something customers see: a pipeline, a requests desk, an [invoice tracker](/guides/how-to-build-an-invoice-tracker). A 50agents app is exactly that, with AI agents doing the routine work in it. [Internal tools without code: what to build first](/guides/internal-tools-without-code-what-to-build-first) helps you pick."
     },
     {
       "q": "Who does the work in the app?",

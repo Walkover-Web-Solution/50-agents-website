@@ -34,8 +34,9 @@ Search the row's query. Read the top 3 to 5 results and the "People also ask" qu
 questions and the move steps only; facts about tools still come only from `tools`.
 
 ## Fields and limits
-- `title` under 60 characters, ends " | 50agents", no year. `description` 120 to 160 characters, answer first.
-- `h1`: the query in plain words ("Zapier alternatives", "50agents vs Zapier").
+- `title` under 60 characters, ends " | 50agents", no year, and starts with the searcher's wording ("Best Zapier alternatives: who each one suits", "Make.com alternatives and their starting prices"). `description` 120 to 155 characters. **Lead with the query and the answer** (SEO pass 01): the first words are the search the page answers, then the answer in the same sentence, product second. Never open with "Tell Captain". Check the length (155 characters at most) before you return it. **No competitor numbers or prices in a description that runs over 155 characters**; a shorter one may keep a fact the page sources (10,541+ for Zapier). "Free to start" is allowed.
+- `h1`: the query in plain words, as searchers type it ("Zapier alternatives", "Make.com alternatives", "50agents vs Zapier").
+- `tableH2` (optional, alternatives pages): the table's heading carrying the query, 12 words at most ("The best Zapier alternatives, side by side"). Leave it out and the template uses "The alternatives, side by side". The word "best" is allowed here and in the title only because it mirrors the query; nowhere else.
 - `answer`: two sentences, **40 words at most in total**, that answer the query on their own.
   Versus: "Pick <tool> for ...", then "Pick 50agents to ...". It feeds the meta and JSON-LD; it is not shown.
 - `line`: the hero's one short line under Captain's box (D255), **14 words at most**: what 50agents gives this reader.
@@ -57,7 +58,7 @@ questions and the move steps only; facts about tools still come only from `tools
   `scout` browser agent, `sorter` app). Pick the strengths that matter to this page's reader.
 - `move`: **3 or 4** steps to move work over. `title` 5 words at most, `body` one line, 16 words at most. Use the
   tool's `move` fact when there is one.
-- `faqs`: **3 or 4** questions from People also ask, each answered in 40 words at most.
+- `faqs`: **3 or 4** questions from People also ask, each answered in 40 words at most (the visible words; a link `[label](/path)` counts as its label). Answer from `tools` only and skip a question that needs a fact you do not have. Add links to the matching guide and the sibling comparison pages inside the answers, as `[label](/path)`, only to pages that exist.
 - `related`: 3 other comparison pages (their /compare/ paths), each `line` 8 words at most.
 - `updated`: today's date, ISO. It is never shown; it feeds JSON-LD and the sitemap.
 

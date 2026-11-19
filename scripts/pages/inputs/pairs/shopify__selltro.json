@@ -1,0 +1,70 @@
+{
+ "pair": "shopify/selltro",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "selltro": {
+   "name": "Selltro",
+   "labels": [
+    "eCommerce",
+    "Sales & CRM"
+   ],
+   "about": "Selltro is a Malaysian commerce operations platform for online stores, marketplaces, POS, CRM, agents and sales teams, with orders, products and customers in on"
+  }
+ },
+ "templates": [
+  {
+   "action": "selltro:Update Order Tracking Status",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "selltro:Create Order",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "selltro:Update Order Tracking Status",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Set an order to picked up, in transit or out for delivery, with an optional tracking number."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "selltro:Create Order",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create an order from SKUs and buyer details; prices are taken from your live catalog."
+  }
+ ]
+}

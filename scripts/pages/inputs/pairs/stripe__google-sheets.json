@@ -1,0 +1,64 @@
+{
+ "pair": "stripe/google-sheets",
+ "apps": {
+  "stripe": {
+   "name": "Stripe",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "Stripe is a financial technology company that provides a set of tools and APIs (Application Programming Interfaces) for online businesses to handle payments, su"
+  },
+  "google-sheets": {
+   "name": "Google Sheets",
+   "labels": [
+    "Productivity",
+    "Top Free Apps",
+    "Spreadsheets",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Google Sheets is a cloud-based spreadsheet application that lets users create, edit, share, and collaborate on spreadsheets in real time."
+  }
+ },
+ "templates": [
+  {
+   "action": "google-sheets:Update Spreadsheet Row",
+   "triggers": [
+    "stripe:New Customer Created"
+   ]
+  },
+  {
+   "action": "google-sheets:Update Multiple Rows",
+   "triggers": [
+    "stripe:New Customer Created",
+    "stripe:Payment Link Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "stripe:New Customer Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when customer is created"
+  },
+  {
+   "key": "google-sheets:Update Spreadsheet Row",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update columns in sheet row"
+  },
+  {
+   "key": "google-sheets:Update Multiple Rows",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update values in one or more rows of a Google Sheet."
+  },
+  {
+   "key": "stripe:Payment Link Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when payment link created"
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+{
+ "usedFor": "Facebook Lead Ads captures your leads, and Google Drive keeps the files. When “New Lead Submitted” fires in Facebook Lead Ads, “Create a new sheet or doc or slide” in Google Drive can start a file for it.",
+ "bestTemplate": {
+  "name": "“New Lead Submitted” in Facebook Lead Ads, then “Create a new sheet or doc or slide” in Google Drive",
+  "why": "It creates a doc, sheet or slide for each lead and can save it to a chosen folder, which makes it the most useful of the three. “Create Folder” only makes an empty folder."
+ },
+ "watchOut": "“Share File With Anyone” in this pair opens a file to anyone with the link. Keep it away from lead documents, since they hold people's details."
+}

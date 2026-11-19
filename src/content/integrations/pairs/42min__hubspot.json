@@ -1,0 +1,8 @@
+{
+  "usedFor": "42min is the scheduler people book through; HubSpot is where deals are tracked. A “New Booking” in 42min can run “Create Deal” so every booked meeting starts as a deal.",
+  "bestTemplate": {
+    "name": "“New Booking” in 42min, then “Create Deal” in HubSpot",
+    "why": "A booking is the moment someone commits time, and you can limit it to one event type so only sales calls become deals."
+  },
+  "watchOut": "“Update Deal” needs the deal ID, so use “Updated Booking Time” with a deal that already exists. Using “Create Deal” on a reschedule would add a second deal."
+}

@@ -1,0 +1,62 @@
+{
+ "pair": "asana/slack",
+ "apps": {
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "asana:New Task Created in Selected Project"
+   ]
+  },
+  {
+   "action": "slack:Send Interactive Message",
+   "triggers": [
+    "asana:New Task Created in Selected Project"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "asana:New Task Created in Selected Project",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Polls the selected Asana project and fires once for each task created since the previous check, oldest first. Each item is one task (gid, name, completed, created_at, assignee, created_by, custom_fields, tags…"
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "slack:Send Interactive Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a message with buttons or a form to collect approvals or responses."
+  }
+ ]
+}

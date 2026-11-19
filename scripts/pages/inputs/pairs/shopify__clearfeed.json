@@ -1,0 +1,62 @@
+{
+ "pair": "shopify/clearfeed",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "clearfeed": {
+   "name": "ClearFeed",
+   "labels": [
+    "Customer Support",
+    "Team Chat"
+   ],
+   "about": "ClearFeed is a customer support platform that helps teams manage and respond to customer requests from Slack, including shared inboxes, ticket routing, and supp"
+  }
+ },
+ "templates": [
+  {
+   "action": "clearfeed:Update Custom Field",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Blog Article"
+   ]
+  },
+  {
+   "action": "clearfeed:Delete Custom Field",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Blog Article"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "clearfeed:Update Custom Field",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update the name or configuration (select/multi-select options or text length) of an existing ClearFeed custom field by ID."
+  },
+  {
+   "key": "shopify:New Blog Article",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new blog article is published."
+  },
+  {
+   "key": "clearfeed:Delete Custom Field",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Delete a selected ClearFeed custom field."
+  }
+ ]
+}

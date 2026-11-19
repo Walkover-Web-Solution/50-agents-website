@@ -1,0 +1,8 @@
+{
+ "usedFor": "WooCommerce takes the orders, and Google Sheets is the ledger. “New Order Created” in WooCommerce can add each order through “Add New Row to Sheet” in Google Sheets.",
+ "bestTemplate": {
+  "name": "“New Order Created” in WooCommerce, then “Add New Row to Sheet” in Google Sheets",
+  "why": "It gives you one row per order as it is created. “Add Multiple Rows” suits bulk data, but an order is a single event."
+ },
+ "watchOut": "“Delete Rows” is also in this pair and removes rows by range or row number. Do not point it at “New Order Created”, or orders will be wiped from the sheet."
+}

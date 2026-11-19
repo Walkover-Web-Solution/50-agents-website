@@ -51,7 +51,7 @@
     }
   ],
   "method": {
-    "h2": "How to set it up",
+    "h2": "How to send HubSpot contacts to Slack, step by step",
     "steps": [
       {
         "title": "Decide which contacts deserve a ping",

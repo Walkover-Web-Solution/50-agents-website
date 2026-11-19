@@ -1,0 +1,150 @@
+{
+ "pair": "activecampaign/calendly",
+ "apps": {
+  "activecampaign": {
+   "name": "ActiveCampaign",
+   "labels": [
+    "Marketing",
+    "Email Newsletters",
+    "Marketing Automation",
+    "CRM"
+   ],
+   "about": "ActiveCampaign combines various aspects of small business marketing into an integrated and user-friendly platform. It helps businesses grow by maintaining meani"
+  },
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  }
+ },
+ "templates": [
+  {
+   "action": "calendly:Create One-Time Meeting",
+   "triggers": [
+    "activecampaign:New Campaign Unsubscribe",
+    "activecampaign:New Deal Added or Updated",
+    "activecampaign:New Campaign Link Click",
+    "activecampaign:Deal Task Completed",
+    "activecampaign:New or Updated Account",
+    "activecampaign:New Contact Note",
+    "activecampaign:New Contact Task",
+    "activecampaign:New or Updated Contact",
+    "activecampaign:Tag Added or Removed From Contact",
+    "activecampaign:New Campaign Starts Sending",
+    "activecampaign:New Campaign Open",
+    "activecampaign:New Contact Added to List",
+    "activecampaign:New Deal Note",
+    "activecampaign:New Deal Task",
+    "activecampaign:Updated Contact"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activecampaign:New Campaign Unsubscribe",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a contact unsubscribes as a result of a campaign email sent to them."
+  },
+  {
+   "key": "calendly:Create One-Time Meeting",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a one-time meeting"
+  },
+  {
+   "key": "activecampaign:New Deal Added or Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new deal is added or updated."
+  },
+  {
+   "key": "activecampaign:New Campaign Link Click",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a contact clicks a link in a campaign message (will only run once for each unique link)."
+  },
+  {
+   "key": "activecampaign:Deal Task Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a deal task has been completed."
+  },
+  {
+   "key": "activecampaign:New or Updated Account",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new deal is created or existing deal is updated."
+  },
+  {
+   "key": "activecampaign:New Contact Note",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new contact note is added."
+  },
+  {
+   "key": "activecampaign:New Contact Task",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a new contact task is created."
+  },
+  {
+   "key": "activecampaign:New or Updated Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new contact is added or existing contact details are updated."
+  },
+  {
+   "key": "activecampaign:Tag Added or Removed From Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a a Tag is added or removed from a Contact."
+  },
+  {
+   "key": "activecampaign:New Campaign Starts Sending",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new campaign starts sending."
+  },
+  {
+   "key": "activecampaign:New Campaign Open",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a contact opens a campaign (will trigger once per contact per campaign)."
+  },
+  {
+   "key": "activecampaign:New Contact Added to List",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new contact is added to the list."
+  },
+  {
+   "key": "activecampaign:New Deal Note",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new deal note is created."
+  },
+  {
+   "key": "activecampaign:New Deal Task",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new deal task is added."
+  },
+  {
+   "key": "activecampaign:Updated Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when an existing contact details are updated."
+  }
+ ]
+}

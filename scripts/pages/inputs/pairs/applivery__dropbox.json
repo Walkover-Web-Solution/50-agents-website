@@ -1,0 +1,57 @@
+{
+ "pair": "applivery/dropbox",
+ "apps": {
+  "applivery": {
+   "name": "Applivery",
+   "labels": [
+    "Developer Tools",
+    "IT Operations",
+    "Devices"
+   ],
+   "about": "Applivery helps teams manage, distribute, and update mobile apps across devices, with tools for app testing, deployment, and mobile device management."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "applivery:New Feedback Report",
+    "applivery:New Build Processed",
+    "applivery:New Build Uploaded"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "applivery:New Feedback Report",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new feedback or bug report is received for a chosen app or any app."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "applivery:New Build Processed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a build finishes processing and is ready to install in a chosen app or any app."
+  },
+  {
+   "key": "applivery:New Build Uploaded",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new build is uploaded to an app or to any app in the workspace."
+  }
+ ]
+}

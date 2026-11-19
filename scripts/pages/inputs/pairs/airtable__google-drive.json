@@ -1,0 +1,64 @@
+{
+ "pair": "airtable/google-drive",
+ "apps": {
+  "airtable": {
+   "name": "Airtable",
+   "labels": [
+    "Databases",
+    "Task Management",
+    "Project Management",
+    "App Builder",
+    "Productivity",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Airtable is a flexible no-code platform for building collaborative databases, workflows, apps, and AI-powered team operations, helping organizations organize da"
+  },
+  "google-drive": {
+   "name": "Google Drive",
+   "labels": [
+    "File Management and Storage Google",
+    "Top Free Apps",
+    "Team Collaboration",
+    "Product Management",
+    "Documents",
+    "Spreadsheets"
+   ],
+   "about": "Google Drive is a secure cloud storage and file collaboration platform that lets users store, share, organize, sync, and collaborate on files from anywhere, inc"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-drive:Create a new sheet or doc or slide",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  },
+  {
+   "action": "google-drive:Create Folder",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "airtable:Record Created Or Updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when record changes"
+  },
+  {
+   "key": "google-drive:Create a new sheet or doc or slide",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new Google Docs document, Sheet, or Slide in Google Drive and optionally save it to a chosen folder."
+  },
+  {
+   "key": "google-drive:Create Folder",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new folder in Google Drive. Optionally specify a parent folder to place it inside."
+  }
+ ]
+}

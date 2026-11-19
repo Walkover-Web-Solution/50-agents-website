@@ -1,0 +1,51 @@
+{
+ "pair": "monday-com/craft-docs",
+ "apps": {
+  "monday-com": {
+   "name": "monday.com",
+   "labels": [
+    "Project Management",
+    "Top Free Apps"
+   ],
+   "about": "monday.com is a work operating system that powers teams to run projects and workflows with confidence. It's a simple but intuitive tool that enables people to m"
+  },
+  "craft-docs": {
+   "name": "Craft",
+   "labels": [
+    "Documents",
+    "Notes",
+    "Productivity"
+   ],
+   "about": "Craft is a docs and notes app for writing, organizing and sharing documents, daily notes and tasks."
+  }
+ },
+ "templates": [
+  {
+   "action": "craft-docs:Create Document",
+   "triggers": [
+    "monday-com:Item Column Value Changes",
+    "monday-com:New User Joins"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "monday-com:Item Column Value Changes",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a column value on a board is updated."
+  },
+  {
+   "key": "craft-docs:Create Document",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a document in a folder, Unsorted or Templates, with optional starting content."
+  },
+  {
+   "key": "monday-com:New User Joins",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new user joins"
+  }
+ ]
+}

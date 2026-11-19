@@ -1,0 +1,8 @@
+{
+  "usedFor": "Phone activity in Twilio becomes sales work in HubSpot. “New Incoming Call” can run “Create Deal”, so Twilio is where the contact first reaches you and HubSpot is where the team follows it up.",
+  "bestTemplate": {
+    "name": "“New Incoming Call” in Twilio, then “Create Deal” in HubSpot",
+    "why": "It is pushed the moment a call arrives, and an inbound call is the clearest buying signal, so the deal exists while the caller is still fresh."
+  },
+  "watchOut": "“New Message”, “New Alert Appears” and “New Phone Number Is Added” are polling, so they run on a schedule. “Update Deal” also needs the ID of an existing deal."
+}

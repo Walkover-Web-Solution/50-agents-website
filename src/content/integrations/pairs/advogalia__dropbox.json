@@ -1,0 +1,8 @@
+{
+  "usedFor": "Advogalia is the law office platform that holds cases, clients and deadlines, and Dropbox stores the files. A “New Case” in Advogalia can run “Upload File to Dropbox” to save a file from a public link into a chosen folder.",
+  "bestTemplate": {
+    "name": "“New Case” in Advogalia, then “Upload File to Dropbox” in Dropbox",
+    "why": "A new case is when a folder of documents starts, and the action lets you choose whether existing files are added, replaced or updated. “New Deadline” and “New Client” can run it too."
+  },
+  "watchOut": "All three Advogalia triggers are polling, so files land on a schedule. “Upload File to Dropbox” saves from a public web link, so the file must be reachable at one."
+}

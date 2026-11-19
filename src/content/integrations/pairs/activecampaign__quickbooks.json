@@ -1,0 +1,8 @@
+{
+ "usedFor": "QuickBooks holds your invoices, and ActiveCampaign is where you market to the people on them. “New Invoice” in QuickBooks can add each one through “Create Contact” in ActiveCampaign.",
+ "bestTemplate": {
+  "name": "“New Invoice” in QuickBooks, then “Create Contact” in ActiveCampaign",
+  "why": "Each invoice brings a real paying customer into ActiveCampaign. The other direction records a QuickBooks payment when a contact is added, which a new contact does not mean."
+ },
+ "watchOut": "“New Invoice” is polling, so contacts appear after the next check. “Create Contact” makes a new contact, so a customer with several invoices runs it several times. Check how repeats are handled."
+}

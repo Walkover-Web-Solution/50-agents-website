@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoom is where the call happens and Calendly handles what comes next. When “When a meeting ends” fires in Zoom, “Create Scheduling Link” can produce a booking link for the follow-up.",
+  "bestTemplate": {
+    "name": "“When a meeting ends” in Zoom, then “Create Scheduling Link” in Calendly",
+    "why": "Ending is the natural moment to offer a follow-up slot, and the action creates a booking link you can pass on."
+  },
+  "watchOut": "“When a participant joins a meeting” also reaches this action, which would make a link per join. Use “When a meeting ends” to get one link per meeting."
+}

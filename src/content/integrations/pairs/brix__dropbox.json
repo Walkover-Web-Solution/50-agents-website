@@ -1,0 +1,8 @@
+{
+ "usedFor": "Brix runs the screens, and Dropbox stores the files. When “New Media” appears in the Brix library, “Upload File to Dropbox” can save a copy to a Dropbox folder.",
+ "bestTemplate": {
+  "name": "“New Media” in Brix, then “Upload File to Dropbox” in Dropbox",
+  "why": "Only “New Media” brings a file along, so it is the one that gives the action something to save. The screen and recalled-content triggers have no file to copy."
+ },
+ "watchOut": "“Upload File to Dropbox” saves from a public web link, so check the Brix file is reachable that way. “New Media” is polling, so copies appear after the next check."
+}

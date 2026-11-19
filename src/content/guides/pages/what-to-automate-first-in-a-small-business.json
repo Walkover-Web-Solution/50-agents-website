@@ -76,7 +76,7 @@
     }
   ],
   "method": {
-    "h2": "How to start",
+    "h2": "How to choose what to automate first",
     "steps": [
       { "title": "List last week's repeated tasks", "body": "From your calendar, sent mail and to-do list. Aim for 15." },
       { "title": "Score them", "body": "Times a month times minutes each, and the cost of a mistake." },

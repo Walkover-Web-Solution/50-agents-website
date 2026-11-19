@@ -1,0 +1,51 @@
+{
+ "pair": "beatandraise/hubspot",
+ "apps": {
+  "beatandraise": {
+   "name": "beatandraise",
+   "labels": [
+    "Analytics",
+    "Business Intelligence"
+   ],
+   "about": "SEC EDGAR filings API: find companies and filings, read 10-K/10-Q/8-K items and financial statements, track insider trades and 13F holders."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "beatandraise:New Insider Transaction",
+    "beatandraise:New Filing"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "beatandraise:New Insider Transaction",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs daily when a new Form 4 insider transaction is filed for a chosen company."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "beatandraise:New Filing",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs daily when a company files a new SEC filing, filtered by company, form type or 8-K item."
+  }
+ ]
+}

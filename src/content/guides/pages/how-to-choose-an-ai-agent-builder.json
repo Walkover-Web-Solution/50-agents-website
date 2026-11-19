@@ -53,7 +53,7 @@
     }
   ],
   "method": {
-    "h2": "How to run the test",
+    "h2": "How to choose an AI agent builder, step by step",
     "steps": [
       { "title": "Pick one real job", "body": "One you do weekly, with real apps and a send at the end. \"Follow up quiet deals\" is a good test." },
       { "title": "Shortlist two or three builders", "body": "By question 1: they must reach your apps." },

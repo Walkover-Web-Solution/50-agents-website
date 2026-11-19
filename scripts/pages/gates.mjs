@@ -1,14 +1,17 @@
 // The page pipeline's gates (brief D7), in code, on every use case page JSON. Writes report-use-cases.md.
 // A page that fails is regenerated once; if it fails again it is listed and kept out of the site.
 import fs from 'node:fs';
+import { plain, linksIn, leadsWithAsk, namesJob } from './gates-lib.mjs';
+import { PATHS } from './checks.mjs';
 const DIR = 'src/content/use-cases/pages';
 const rows = Object.fromEntries(JSON.parse(fs.readFileSync('scripts/pages/rows-use-cases.json', 'utf8')).map(r => [r.slug, r]));
 const index = new Set(JSON.parse(fs.readFileSync('src/content/integrations/catalog/index.json', 'utf8')).apps.map(a => a.s));
 const BANNED = ['unlock', 'unleash', 'seamless', 'effortless', 'leverage', 'robust', 'elevate', 'empower', 'supercharge', 'game-changer', 'revolutioniz', 'cutting-edge', 'delve', 'harness', 'streamline', 'synergy', 'journey', 'landscape', 'realm', 'tapestry', "today's fast-paced", 'look no further', 'say goodbye to', 'next level', 'imagine a world'];
 const words = s => s.split(/\s+/).filter(Boolean).length;
-const texts = p => [p.title, p.description, p.h1, ...p.answer, p.build.name, p.build.line, p.build.when, ...p.build.does, p.build.asksFirst,
+const raw = p => [p.h2?.how, p.h2?.compare, ...p.faqs.map(f => f.a)].filter(Boolean); // fields that may carry [label](/path) links
+const texts = p => [p.title, p.description, p.h1, p.h2?.how ?? '', p.h2?.compare ?? '', ...p.answer, p.build.name, p.build.line, p.build.when, ...p.build.does, p.build.asksFirst,
   ...p.steps.flatMap(s => [s.title, s.body]), ...p.run.flatMap(r => [r.when, r.did]), ...(p.approval ? [p.approval.title, ...p.approval.lines] : []),
-  ...(p.result ? [p.result.title, ...p.result.lines] : []), ...p.compare.methods, ...p.compare.rows.flatMap(r => [r.label, ...r.cells]), ...p.faqs.flatMap(f => [f.q, f.a])];
+  ...(p.result ? [p.result.title, ...p.result.lines] : []), ...p.compare.methods, ...p.compare.rows.flatMap(r => [r.label, ...r.cells]), ...p.faqs.flatMap(f => [f.q, plain(f.a)])];
 const shingles = t => { const w = t.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean), s = new Set(); for (let i = 0; i + 5 <= w.length; i++) s.add(w.slice(i, i + 5).join(' ')); return s; };
 
 const pages = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(`${DIR}/${f}`, 'utf8')));
@@ -28,7 +31,22 @@ for (const p of pages) {
   p.steps.forEach(s => words(s.body) > 30 && bad.push(`step "${s.title}" is ${words(s.body)} words`));
   if (p.steps.at(-1).key === 'approve' && !p.approval) bad.push('approve step without approval');
   if (p.steps.at(-1).key === 'result' && !p.result) bad.push('result step without result');
-  if (p.faqs.length < 4 || p.faqs.length > 5) bad.push('faqs not 4 or 5');
+  if (p.faqs.length < 4 || p.faqs.length > 6) bad.push('faqs not 4 to 6');
+  // SEO pass 01: the description leads with the query and the answer; the section headings name the page's own job
+  if (leadsWithAsk(p.description)) bad.push('description opens with "Tell Captain": lead with the query and the answer');
+  if (!p.h2 || !p.h2.how || !p.h2.compare) bad.push('h2.how and h2.compare are required');
+  else {
+    if (!/^How\b/.test(p.h2.how)) bad.push(`h2.how "${p.h2.how}" does not start with "How"`);
+    if (!/^Other ways to\b/.test(p.h2.compare)) bad.push(`h2.compare "${p.h2.compare}" does not start with "Other ways to"`);
+    for (const k of ['how', 'compare']) {
+      if (words(p.h2[k]) > 12) bad.push(`h2.${k} is ${words(p.h2[k])} words (12 at most)`);
+      if (!namesJob(p.h2[k], p.query)) bad.push(`h2.${k} "${p.h2[k]}" does not name the page's job (${p.query})`);
+      if (p.h2[k].toLowerCase() === p.h1.toLowerCase()) bad.push(`h2.${k} repeats the H1`);
+    }
+  }
+  // links in answers are internal, to pages that exist
+  raw(p).flatMap(linksIn).forEach(l => !PATHS.has(l) && bad.push(`link ${l} is not a page`));
+  if (raw(p).some(t => /\]\(https?:/.test(t))) bad.push('an outside link in the text');
   if (p.compare.rows.length < 4 || p.compare.rows.length > 5) bad.push('compare rows not 4 or 5');
   p.compare.rows.forEach(r => r.cells.length !== p.compare.methods.length + 1 && bad.push(`compare row "${r.label}" has ${r.cells.length} cells`));
   // facts

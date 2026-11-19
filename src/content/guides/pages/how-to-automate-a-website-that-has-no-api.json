@@ -62,7 +62,7 @@
     }
   ],
   "method": {
-    "h2": "How to set it up",
+    "h2": "How to automate a website with no API",
     "steps": [
       {
         "title": "Write the job as a person does it",

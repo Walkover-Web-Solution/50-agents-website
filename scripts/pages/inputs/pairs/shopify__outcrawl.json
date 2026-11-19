@@ -1,0 +1,56 @@
+{
+ "pair": "shopify/outcrawl",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "outcrawl": {
+   "name": "Outcrawl",
+   "labels": [
+    "Developer Tools",
+    "Artificial Intelligence"
+   ],
+   "about": "Outcrawl is a web data API for AI agents to scrape pages, search the web, crawl sites and run browsing agents."
+  }
+ },
+ "templates": [
+  {
+   "action": "outcrawl:Scrape Page",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "outcrawl:Scrape Page",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Scrape a web page and return its content for a provided URL."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

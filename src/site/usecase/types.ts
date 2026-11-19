@@ -12,6 +12,11 @@ export type UseCasePage = {
   title: string; // under 60 characters
   description: string; // 140 to 155 characters, answer first
   h1: string;
+  /** The page's own section headings (SEO pass 01): they name the job, never "How it works" or "Other ways to do it". */
+  h2: {
+    how: string; // "How to <the job>" over the stepper, the query's own words, 10 words at most
+    compare: string; // "Other ways to <the job>" over the comparison table, 10 words at most
+  };
   answer: [string, string]; // the first two sentences
   ask: string; // the words that build it; pasted into Captain by every button
   stat?: { text: string; source: string; href: string }; // at most one, a sentence, never a big figure
@@ -32,7 +37,7 @@ export type UseCasePage = {
     rows: { label: string; cells: string[] }[]; // 4 or 5; each cell "Yes", "No", "Partly" or 6 words at most; last cell is 50agents
     sources?: { label: string; href: string }[];
   };
-  faqs: { q: string; a: string }[]; // 4 or 5, each answer 2 or 3 sentences
+  faqs: { q: string; a: string }[]; // 4 to 6, each answer 2 or 3 sentences; an answer may carry [label](/path) links (rich.tsx) to a guide or comparison
   tags: string[]; // for related use cases
   updated: string; // ISO date, used in the sitemap and as "Updated <Month Year>"
 };

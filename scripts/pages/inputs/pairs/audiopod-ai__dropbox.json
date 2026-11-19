@@ -1,0 +1,49 @@
+{
+ "pair": "audiopod-ai/dropbox",
+ "apps": {
+  "audiopod-ai": {
+   "name": "AudioPod AI",
+   "labels": [
+    "AI Tools",
+    "Video & Audio"
+   ],
+   "about": "AudioPod AI is an AI audio platform for text to speech, transcription with speaker labels, stem separation, noise removal, voice cloning and music generation."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "audiopod-ai:New Job Failed",
+    "audiopod-ai:New Job Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "audiopod-ai:New Job Failed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job fails, optionally only for chosen job types."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "audiopod-ai:New Job Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job finishes successfully, optionally only for chosen job types."
+  }
+ ]
+}

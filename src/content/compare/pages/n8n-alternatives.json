@@ -3,9 +3,10 @@
   "type": "alternatives",
   "tool": "n8n",
   "query": "n8n alternatives",
-  "title": "n8n alternatives: hosted and self-hosted options | 50agents",
+  "title": "Best n8n alternatives, hosted and self-hosted | 50agents",
   "description": "n8n alternatives compared: Activepieces to keep self-hosting, Make for a visual canvas, Zapier for 10,541+ apps, Gumloop for AI agents, and 50agents.",
   "h1": "n8n alternatives",
+  "tableH2": "The best n8n alternatives, side by side",
   "answer": [
     "Activepieces is open source and self-hostable like n8n.",
     "Make offers a visual canvas, Zapier connects 10,541+ apps, Gumloop builds AI agents, and 50agents builds the job from plain words."
@@ -105,7 +106,7 @@
     },
     {
       "q": "Can I import n8n workflows into another tool?",
-      "a": "n8n workflows download as JSON for n8n. In another tool you rebuild them, so start with the ones that run most."
+      "a": "n8n workflows download as JSON for n8n. In another tool you rebuild them, so start with the ones that run most. To choose the tool, read [Zapier vs Make vs n8n for a small team](/guides/zapier-vs-make-vs-n8n-for-a-small-team)."
     }
   ],
   "related": [

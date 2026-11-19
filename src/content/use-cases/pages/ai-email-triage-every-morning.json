@@ -3,9 +3,10 @@
   "kind": "ai",
   "query": "AI inbox triage; AI draft email replies",
   "category": "email",
-  "title": "AI inbox triage and draft replies | 50agents",
-  "description": "Tell Captain to go through your unread Gmail every weekday at 8:00. An AI agent sorts it, drafts the replies, and you approve each one before it is sent.",
-  "h1": "AI inbox triage, with replies drafted",
+  "title": "AI inbox triage for Gmail, with replies drafted | 50agents",
+  "description": "AI inbox triage for Gmail: every weekday at 8:00 an AI agent sorts your unread mail and drafts the replies. Nothing is sent until you approve each one.",
+  "h1": "AI inbox triage for Gmail, with replies drafted",
+  "h2": { "how": "How AI inbox triage works in Gmail", "compare": "Other ways to triage your inbox with AI" },
   "answer": [
     "To triage your inbox with AI, tell Captain \"Go through my unread email now, then every weekday at 8:00, and draft replies\".",
     "It builds an AI agent that sorts your unread Gmail and drafts replies, asking before sending."
@@ -53,8 +54,8 @@
     ]
   },
   "faqs": [
-    { "q": "Can AI tell which emails need a reply?", "a": "Yes. The AI agent reads each unread email and decides whether it needs a reply, a read, a wait or nothing. Tell it to put anything it is unsure about under read, so nothing slips past you." },
-    { "q": "Will it send emails for me?", "a": "Not without your yes. AI agents ask before sending, even to you, until you allow it in Settings. Each reply waits in Needs you." },
+    { "q": "Can AI tell which emails need a reply?", "a": "Yes. The AI agent reads each unread email and decides whether it needs a reply, a read, a wait or nothing. Tell it to put anything it is unsure about under read, so nothing slips past you. [How to triage your inbox with AI](/guides/how-to-triage-your-inbox-with-ai) explains the four piles." },
+    { "q": "Will it send emails for me?", "a": "Not without your yes. AI agents ask before sending, even to you, until you allow it in Settings. Each reply waits in Needs you. See [How to make an AI agent ask before it acts](/guides/how-to-make-an-ai-agent-ask-before-it-acts)." },
     { "q": "Does it answer the moment an email arrives?", "a": "No. It runs on a schedule, here every weekday at 8:00, or when you ask it in its chat. It is a morning pass over your unread mail, not an instant responder." },
     { "q": "How does it learn how I write?", "a": "From its instructions and your corrections. Tell its chat what to change, such as shorter replies or a different sign-off, and later drafts follow it." },
     { "q": "Is this the same as AI for support email?", "a": "No. A support queue is one address with questions to answer. This reads your own mixed inbox, where most mail is not a question and the job is deciding what needs you." }

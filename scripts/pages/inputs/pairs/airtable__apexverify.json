@@ -1,0 +1,60 @@
+{
+ "pair": "airtable/apexverify",
+ "apps": {
+  "airtable": {
+   "name": "Airtable",
+   "labels": [
+    "Databases",
+    "Task Management",
+    "Project Management",
+    "App Builder",
+    "Productivity",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Airtable is a flexible no-code platform for building collaborative databases, workflows, apps, and AI-powered team operations, helping organizations organize da"
+  },
+  "apexverify": {
+   "name": "ApexVerify",
+   "labels": [
+    "Email Verification",
+    "Data Enrichment"
+   ],
+   "about": "ApexVerify verifies email addresses and phone numbers in real time or in bulk batches to keep contact lists clean and deliverable."
+  }
+ },
+ "templates": [
+  {
+   "action": "apexverify:Create Verification Batch",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  },
+  {
+   "action": "apexverify:Verify Email or Phone",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "airtable:Record Created Or Updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when record changes"
+  },
+  {
+   "key": "apexverify:Create Verification Batch",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Upload a list of emails or phone numbers as a new batch and prepare it for verification."
+  },
+  {
+   "key": "apexverify:Verify Email or Phone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Verify an email address or phone number and get its quality result; choose verification type and target country."
+  }
+ ]
+}

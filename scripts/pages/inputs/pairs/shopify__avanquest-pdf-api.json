@@ -1,0 +1,70 @@
+{
+ "pair": "shopify/avanquest-pdf-api",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "avanquest-pdf-api": {
+   "name": "Avanquest PDF API",
+   "labels": [
+    "Documents",
+    "Developer Tools"
+   ],
+   "about": "Avanquest PDF API converts, merges, compresses, splits, OCRs, protects and extracts data from PDF files through a REST API."
+  }
+ },
+ "templates": [
+  {
+   "action": "avanquest-pdf-api:Merge PDFs",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "avanquest-pdf-api:Convert Office Document to PDF",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "avanquest-pdf-api:Merge PDFs",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Merge two or more PDF files into a single PDF; provide file URLs and optional passwords, page ranges, or a callback URL."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "avanquest-pdf-api:Convert Office Document to PDF",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Convert a Word, Excel, PowerPoint or OpenDocument file into a PDF."
+  }
+ ]
+}

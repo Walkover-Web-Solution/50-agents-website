@@ -51,7 +51,7 @@
     }
   ],
   "method": {
-    "h2": "How to set it up",
+    "h2": "How to send Shopify orders to Google Sheets",
     "steps": [
       {
         "title": "Build the header row",

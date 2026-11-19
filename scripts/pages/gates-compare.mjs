@@ -7,6 +7,8 @@
 // Writes report-compare.md.
 // Run from the repo root: node scripts/pages/gates-compare.mjs  (Node 23+ reads facts.ts directly)
 import fs from 'node:fs';
+import { plain, linksIn, leadsWithAsk } from './gates-lib.mjs';
+import { PATHS as LIVE_PATHS } from './checks.mjs';
 const { TOOLS, ROWS, isWin } = await import(new URL('../../src/content/compare/facts.ts', import.meta.url));
 const DIR = 'src/content/compare/pages';
 const ROWS_IN = JSON.parse(fs.readFileSync('scripts/pages/rows-compare.json', 'utf8'));
@@ -63,9 +65,9 @@ const alts = p => p.type === 'alternatives' ? p.entries : [];
 const cellTexts = p => alts(p).flatMap(e => [e.best, e.price, e.diff]).filter(Boolean);
 // D255 (product-facts.md): apps for people outside your team on your own domain, and export, are shown as yes.
 const DENIES = /(workspace only|(for|to) the people in your workspace|apps are for your (own )?(team|workspace)|no (customer |client )?portals?|no custom domains?|(can't|cannot|can not|does not|doesn't|do not|don't) export|no export)/i;
-const texts = p => [p.title, p.description, p.h1, ...p.answer, p.line, p.lede, ...(p.notice ? [p.notice.h, p.notice.body] : []),
+const texts = p => [p.title, p.description, p.h1, p.tableH2 ?? '', ...p.answer, p.line, p.lede, ...(p.notice ? [p.notice.h, p.notice.body] : []),
   ...cellTexts(p), ...(p.strengths ?? []).flatMap(s => [s.title, s.line]),
-  ...p.move.flatMap(m => [m.title, m.body]), ...p.faqs.flatMap(f => [f.q, f.a]), ...p.related.flatMap(r => [r.title, r.line])];
+  ...p.move.flatMap(m => [m.title, m.body]), ...p.faqs.flatMap(f => [f.q, plain(f.a)]), ...p.related.flatMap(r => [r.title, r.line])];
 const shingles = t => { const w = t.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean), s = new Set(); for (let i = 0; i + 5 <= w.length; i++) s.add(w.slice(i, i + 5).join(' ')); return s; };
 
 const pages = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(`${DIR}/${f}`, 'utf8')));
@@ -96,7 +98,12 @@ for (const p of pages) {
   if (p.move.length < 3 || p.move.length > 4) bad.push('move not 3 or 4 steps');
   p.move.forEach(m => { max(m.title, 5, `move "${m.title}" title`); max(m.body, 16, `move "${m.title}" body`); });
   if (p.faqs.length < 3 || p.faqs.length > 4) bad.push('faqs not 3 or 4');
-  p.faqs.forEach(f => max(f.a, 40, `faq "${f.q}"`));
+  p.faqs.forEach(f => max(plain(f.a), 40, `faq "${f.q}"`));
+  // SEO pass 01: the description leads with the query and the answer; a table heading that carries the query is a short line;
+  // links in answers are internal and live
+  if (leadsWithAsk(p.description)) bad.push('description opens with "Tell Captain": lead with the query and the answer');
+  if (p.tableH2) max(p.tableH2, 12, 'tableH2');
+  p.faqs.flatMap(f => linksIn(f.a)).forEach(l => !LIVE_PATHS.has(l) && bad.push(`link ${l} is not a page`));
   if (p.related.length !== 3) bad.push('related not 3');
   p.related.forEach(r => { max(r.line, 8, `related ${r.href} line`); if (!PATHS.has(r.href) || r.href === `/compare/${p.slug}`) bad.push(`related ${r.href} is not another comparison page`); });
   if (p.type === 'alternatives') {
@@ -141,7 +148,7 @@ for (const p of pages) {
     if (/\b(50agents|Captain)\b/.test(s) && !ids.some(i => i !== 'fifty') && /credit|[$€£]\d/i.test(s)) bad.push(`credits or a price for 50agents: ${s.slice(0, 60)}`);
   }
   // safe wording: neutral, nothing on their quality, security, reliability or customers
-  const safe = texts(p).filter(s => s !== p.title && s !== p.h1);
+  const safe = texts(p).filter(s => s !== p.title && s !== p.h1 && s !== p.tableH2); // a heading that mirrors the query ("The best Zapier alternatives") is not a claim
   for (const s of safe.flatMap(sentences)) {
     const other = named(s).some(i => i !== 'fifty');
     const l = s.match(LOADED); if (l) bad.push(`loaded word "${l[0]}": ${s.slice(0, 60)}`);

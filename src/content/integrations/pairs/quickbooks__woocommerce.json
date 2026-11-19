@@ -1,0 +1,8 @@
+{
+  "usedFor": "WooCommerce takes the orders; QuickBooks keeps the books. A “New Order Created” in the store can run “Create Invoice” in QuickBooks, so the sale is on the ledger without retyping it.",
+  "bestTemplate": {
+    "name": "“New Order Created” in WooCommerce, then “Create Invoice” in QuickBooks",
+    "why": "Every order becomes an invoice the moment it is placed, which is the entry your bookkeeper would otherwise key in by hand. “Create Payment” is the follow-on once money lands."
+  },
+  "watchOut": "“New Order Created” fires per order, so cancelled or test orders also reach “Create Invoice” unless you filter them first. The reverse direction, “New Invoice” in QuickBooks, is polling."
+}

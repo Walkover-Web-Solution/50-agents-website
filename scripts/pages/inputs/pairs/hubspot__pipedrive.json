@@ -1,0 +1,81 @@
+{
+ "pair": "hubspot/pipedrive",
+ "apps": {
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  },
+  "pipedrive": {
+   "name": "Pipedrive",
+   "labels": [
+    "CRM",
+    "Product Management",
+    "Team Collaboration"
+   ],
+   "about": "Pipedrive is a CRM software designed to streamline sales processes. It helps businesses manage sales pipelines, track deals, organize contacts, schedule activit"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "pipedrive:New Deal"
+   ]
+  },
+  {
+   "action": "pipedrive:Create Person",
+   "triggers": [
+    "hubspot:When a deal is created or updated"
+   ]
+  },
+  {
+   "action": "hubspot:When a deal is created or updated",
+   "triggers": [
+    "pipedrive:New Deal"
+   ]
+  },
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "pipedrive:New Deal"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "pipedrive:New Deal",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new deal is created."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:When a deal is created or updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update HubSpot deal created/updated trigger sample response to include example associated contact details (first name, last name, email, phone) in the fallback sample."
+  },
+  {
+   "key": "pipedrive:Create Person",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a person and set owner, organization, emails, phones, visibility, labels, address, IMs, notes, and custom fields."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  }
+ ]
+}

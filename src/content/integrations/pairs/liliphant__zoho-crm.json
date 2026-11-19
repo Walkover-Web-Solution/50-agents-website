@@ -1,0 +1,8 @@
+{
+  "usedFor": "Liliphant handles customer conversations and produces analyzed meeting summaries, and Zoho CRM holds the leads. A “New Analyzed Meeting Summary” in Liliphant can run “Create a lead” in Zoho CRM.",
+  "bestTemplate": {
+    "name": "“New Analyzed Meeting Summary” in Liliphant, then “Create a lead” in Zoho CRM",
+    "why": "A finished summary means a conversation worth following up. “Create a lead” lets you pick a layout and an assignment rule, so the lead is routed as it is created."
+  },
+  "watchOut": "“New Analyzed Meeting Summary” is polling and set for a chosen company, so leads arrive on a schedule and only for that company."
+}

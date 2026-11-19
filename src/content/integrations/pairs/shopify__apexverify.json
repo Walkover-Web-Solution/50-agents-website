@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify captures customers and their contact details; ApexVerify checks whether those emails or phone numbers are real. A “New Customer” in Shopify can run “Verify Email or Phone” so bad addresses are caught early.",
+  "bestTemplate": {
+    "name": "“New Customer” in Shopify, then “Verify Email or Phone” in ApexVerify",
+    "why": "Each customer gets a quality result as they sign up, and you choose the verification type and target country."
+  },
+  "watchOut": "“Abandoned Checkout” is polling, so a check on that email runs after the next poll. Triggers like “New Product” carry no contact to verify, so keep this on customers."
+}

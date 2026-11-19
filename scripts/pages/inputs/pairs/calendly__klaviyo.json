@@ -1,0 +1,81 @@
+{
+ "pair": "calendly/klaviyo",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "klaviyo": {
+   "name": "Klaviyo",
+   "labels": [
+    "Marketing"
+   ],
+   "about": "Klaviyo is a powerful email and SMS marketing automation platform designed to help businesses grow by leveraging data-driven marketing strategies. It enables us"
+  }
+ },
+ "templates": [
+  {
+   "action": "klaviyo:Subscribe Profile",
+   "triggers": [
+    "calendly:When a meeting is scheduled, rescheduled, or canceled"
+   ]
+  },
+  {
+   "action": "calendly:Create Scheduling Link",
+   "triggers": [
+    "klaviyo:New Profile",
+    "klaviyo:New Campaign",
+    "klaviyo:New Event"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:When a meeting is scheduled, rescheduled, or canceled",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update polling logic to reduce duplicate trigger hits."
+  },
+  {
+   "key": "klaviyo:Subscribe Profile",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Subscribe a profile to Email marketing or SMS marketing"
+  },
+  {
+   "key": "klaviyo:New Profile",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new profile is created. Polls at the configured interval."
+  },
+  {
+   "key": "calendly:Create Scheduling Link",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a booking link"
+  },
+  {
+   "key": "klaviyo:New Campaign",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new campaign is created in a selected channel; supports polling interval and pagination."
+  },
+  {
+   "key": "klaviyo:New Event",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new event is received in Klaviyo, allowing setting of time window and handling paginated results."
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Stripe takes the payment and QuickBooks keeps the books. “When a payment succeeds” in Stripe can run “Create Payment” in QuickBooks, so cash received is recorded without someone typing it in.",
+  "bestTemplate": {
+    "name": "“When a payment succeeds” in Stripe, then “Create Payment” in QuickBooks",
+    "why": "A successful payment is money in, and “Create Payment” records the transaction, which keeps your books matching your Stripe balance."
+  },
+  "watchOut": "“Invoice Is Finalized” and “When a checkout session is completed” also run “Create Payment”. One sale can fire more than one, so pick one trigger or it is recorded twice."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "AgentMail handles the inboxes that send and receive email; HubSpot holds the deals those emails relate to. A “New Email Received” in AgentMail can run “Create Deal” or “Update Deal” in HubSpot.",
+  "bestTemplate": {
+    "name": "“New Email Received” in AgentMail, then “Create Deal” in HubSpot",
+    "why": "An inbound message is the clearest sign of new interest among the triggers, and the action opens a deal so someone owns the reply."
+  },
+  "watchOut": "“Update Deal” needs the deal ID and the new field values, which an email event does not give you. “New Email Bounced” and “New Spam Complaint” make sense for updating a deal, not for creating one."
+}

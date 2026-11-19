@@ -1,0 +1,71 @@
+{
+ "pair": "shopify/google-sheets",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "google-sheets": {
+   "name": "Google Sheets",
+   "labels": [
+    "Productivity",
+    "Top Free Apps",
+    "Spreadsheets",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Google Sheets is a cloud-based spreadsheet application that lets users create, edit, share, and collaborate on spreadsheets in real time."
+  }
+ },
+ "templates": [
+  {
+   "action": "google-sheets:Update Spreadsheet Row",
+   "triggers": [
+    "shopify:Product Updated",
+    "shopify:New Customer"
+   ]
+  },
+  {
+   "action": "google-sheets:Add New Row to Sheet",
+   "triggers": [
+    "shopify:New Order",
+    "shopify:New Customer"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Product Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a product is updated in Shopify account."
+  },
+  {
+   "key": "google-sheets:Update Spreadsheet Row",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update columns in sheet row"
+  },
+  {
+   "key": "shopify:New Customer",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new customer is created to Shopify account"
+  },
+  {
+   "key": "shopify:New Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new order is created."
+  },
+  {
+   "key": "google-sheets:Add New Row to Sheet",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+  }
+ ]
+}

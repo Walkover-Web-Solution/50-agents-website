@@ -4,7 +4,7 @@
   "tool": "n8n",
   "query": "50agents vs n8n",
   "title": "50agents vs n8n: self-hosted or built for you | 50agents",
-  "description": "50agents vs n8n: n8n is a self-hostable workflow builder with code nodes and per-run pricing; 50agents builds automations, AI agents and apps from plain words.",
+  "description": "50agents vs n8n: n8n is a self-hostable workflow builder with code nodes, priced per run; 50agents builds automations, AI agents and apps from plain words.",
   "h1": "50agents vs n8n",
   "answer": [
     "Pick n8n to self-host, write code nodes and pay one price per run.",

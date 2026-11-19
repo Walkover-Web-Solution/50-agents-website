@@ -1,0 +1,8 @@
+{
+ "usedFor": "Airtable holds your records, and Google Sheets is the copy you report from. “New Records Appear” in Airtable can add each one through “Add New Row to Sheet” in Google Sheets.",
+ "bestTemplate": {
+  "name": "“New Records Appear” in Airtable, then “Add New Row to Sheet” in Google Sheets",
+  "why": "It adds one row for each new record and nothing more. “Record Created Or Updated” also fits, but a changed record would add a second row."
+ },
+ "watchOut": "“Record Created Or Updated” is polling and fires on edits as well as new records, so with “Add New Row to Sheet” one record can land twice. For edits, send it to “Update Spreadsheet Row” instead."
+}

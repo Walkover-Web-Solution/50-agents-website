@@ -1,0 +1,52 @@
+{
+ "pair": "activecampaign/clickup",
+ "apps": {
+  "activecampaign": {
+   "name": "ActiveCampaign",
+   "labels": [
+    "Marketing",
+    "Email Newsletters",
+    "Marketing Automation",
+    "CRM"
+   ],
+   "about": "ActiveCampaign combines various aspects of small business marketing into an integrated and user-friendly platform. It helps businesses grow by maintaining meani"
+  },
+  "clickup": {
+   "name": "ClickUp",
+   "labels": [
+    "Productivity",
+    "Top Free Apps"
+   ],
+   "about": "Plan, track, and manage any type of work with project management that flexes to your team's needs."
+  }
+ },
+ "templates": [
+  {
+   "action": "clickup:When a new task is created",
+   "triggers": [
+    "activecampaign:New or Updated Contact",
+    "activecampaign:Updated Contact"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activecampaign:New or Updated Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new contact is added or existing contact details are updated."
+  },
+  {
+   "key": "clickup:When a new task is created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a new task is created."
+  },
+  {
+   "key": "activecampaign:Updated Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when an existing contact details are updated."
+  }
+ ]
+}

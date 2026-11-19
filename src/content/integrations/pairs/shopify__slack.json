@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds the store and Slack is where the team watches it. “New Order” in Shopify can post through “Send Message”, so fulfilment sees each order as it arrives instead of refreshing the admin.",
+  "bestTemplate": {
+    "name": "“New Order” in Shopify, then “Send Message” in Slack",
+    "why": "Orders are the event a team acts on, and “Send Message” can target a channel, user or thread by name or ID, so the post can go straight to whoever packs."
+  },
+  "watchOut": "An automation's post to a Slack channel waits for approval today, so order messages are held until someone approves them. Plan who watches that queue."
+}

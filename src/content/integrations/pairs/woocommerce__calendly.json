@@ -1,0 +1,8 @@
+{
+  "usedFor": "WooCommerce holds your shoppers and Calendly books time with them. “New Customer Created” can run “Create One-Time Meeting”, so a new buyer can get an onboarding call set up.",
+  "bestTemplate": {
+    "name": "“New Customer Created” in WooCommerce, then “Create One-Time Meeting” in Calendly",
+    "why": "A new customer is the moment a welcome call makes sense, while coupon and product triggers have nothing to do with a person you would meet."
+  },
+  "watchOut": "“Customer Updated” also reaches this action, so an edited profile could create another meeting. Keep it on “New Customer Created”."
+}

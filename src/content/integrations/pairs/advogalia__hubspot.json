@@ -1,0 +1,8 @@
+{
+  "usedFor": "Advogalia is the legal platform that holds a firm's clients and cases, and HubSpot holds its marketing contacts. A “New Client” in Advogalia can run “Update Contact” in HubSpot to bring that person's record up to date.",
+  "bestTemplate": {
+    "name": "“New Client” in Advogalia, then “Update Contact” in HubSpot",
+    "why": "A new client is when a HubSpot contact should change. The action finds the contact by email, so no duplicate record is created."
+  },
+  "watchOut": "“Update Contact” finds the contact by its email, so the person must already exist in HubSpot with that address. The three Advogalia triggers are polling."
+}

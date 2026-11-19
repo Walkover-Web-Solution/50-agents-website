@@ -1,0 +1,57 @@
+{
+ "pair": "activecampaign/clearfeed",
+ "apps": {
+  "activecampaign": {
+   "name": "ActiveCampaign",
+   "labels": [
+    "Marketing",
+    "Email Newsletters",
+    "Marketing Automation",
+    "CRM"
+   ],
+   "about": "ActiveCampaign combines various aspects of small business marketing into an integrated and user-friendly platform. It helps businesses grow by maintaining meani"
+  },
+  "clearfeed": {
+   "name": "ClearFeed",
+   "labels": [
+    "Customer Support",
+    "Team Chat"
+   ],
+   "about": "ClearFeed is a customer support platform that helps teams manage and respond to customer requests from Slack, including shared inboxes, ticket routing, and supp"
+  }
+ },
+ "templates": [
+  {
+   "action": "clearfeed:Update Custom Field",
+   "triggers": [
+    "activecampaign:New Contact"
+   ]
+  },
+  {
+   "action": "clearfeed:Delete Custom Field",
+   "triggers": [
+    "activecampaign:New Contact"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activecampaign:New Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when new contact is added."
+  },
+  {
+   "key": "clearfeed:Update Custom Field",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update the name or configuration (select/multi-select options or text length) of an existing ClearFeed custom field by ID."
+  },
+  {
+   "key": "clearfeed:Delete Custom Field",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Delete a selected ClearFeed custom field."
+  }
+ ]
+}

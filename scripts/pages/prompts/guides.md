@@ -26,7 +26,7 @@ The short answer first, then steps a reader can act on. Cut every sentence that 
 steps, leave it out. 400 to 1,100 words in all.
 
 ## Fields
-- `title` under 60 characters, ends " | 50agents". `description` 120 to 155 characters, answer first.
+- `title` under 60 characters, ends " | 50agents", and starts with the query's own words (add a step count only when the page has that many steps: "How to build an AI agent without code in 7 steps"). `description` 120 to 155 characters. **Lead with the query and the answer** (SEO pass 01): the first words are the search the page answers, then the answer in the same sentence, product second. Never open with "Tell Captain". Check the length (155 characters at most) before you return it.
 - `h1`: the query's wording when it reads well.
 - `answer`: "The short answer", two sentences, **40 words at most in total**. The first answers the question outright,
   for any tool.
@@ -39,7 +39,7 @@ steps, leave it out. 400 to 1,100 words in all.
 - `sections`: 0 to 2 short sections of context before the steps (`id`, `h2`, blocks: `p` of 60 words at most, `ul`
   items of 30 at most, or `table`). A table only where it compares, at most 7 rows, every cell 8 words at most (start
   a cell with Yes, No or Partly and the page draws the mark). No pictures.
-- `method`: `h2` and 4 to 7 steps. Each step: `title` (an action, under 8 words), `body` (40 words at most, concrete:
+- `method`: `h2` (it names the guide's job and holds the query's words, 10 words at most: "How to automate invoice reminders, step by step"; never "How to set it up" or "How to build it") and 4 to 7 steps. Each step: `title` (an action, under 8 words), `body` (40 words at most, concrete:
   what to click, type, name or decide), and an optional `note`: `{ type: "tip" | "warn", text (30 words at most),
   about }`. At most 3 notes per guide, only where a reader would otherwise get it wrong. `about` is the kind of tool the
   note is about (app, auto, ai, browser): the page draws that kind's crew blob beside it, so pick the true one.
@@ -63,5 +63,6 @@ steps, leave it out. 400 to 1,100 words in all.
 - No credits, no prices for 50agents ("free to start" at most). Only the cost guide names other tools' prices.
 - "Use only the triggers, actions and apps in the input. If the data doesn't answer a question, leave the question out."
 - Numbers: only those in the row, the catalog, or another tool's own pages.
-- Internal links are written [label](/path) and only to pages that exist (src/site/routes.ts).
+- Internal links are written [label](/path) and only to pages that exist (src/site/routes.ts). Link the matching use case and sibling guides in the body text, not only in the sitewide blocks.
+- The "Read next" cards are plain links, not headings: never add a heading that is another page's title.
 - No stats blocks: at most one number used as evidence, as a sentence.

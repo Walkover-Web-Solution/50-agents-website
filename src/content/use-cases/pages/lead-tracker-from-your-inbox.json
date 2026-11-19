@@ -3,9 +3,10 @@
   "kind": "app",
   "query": "track leads from email; simple lead tracker",
   "category": "crm",
-  "title": "Track leads from your email, simple lead tracker | 50agents",
+  "title": "Track leads from email: a simple lead tracker | 50agents",
   "description": "To track leads from email, tell Captain \"Track my leads and follow up\": a pipeline fills from your Gmail, with follow-ups drafted for you to approve.",
   "h1": "Track leads from your email",
+  "h2": { "how": "How it tracks leads from your email", "compare": "Other ways to track leads from email" },
   "answer": [
     "To track leads from your email, tell Captain \"Track my leads and follow up\".",
     "It builds a leads desk where Closer, an AI agent, adds leads from Gmail and drafts follow-ups, asking before any email goes out."
@@ -151,7 +152,7 @@
   "faqs": [
     {
       "q": "What should a simple lead tracker include?",
-      "a": "Who they are (name, email, company), where they came from, the stage, the deal size, when you last spoke and when to follow up next. The next follow-up date matters most, because it tells you who to write to today."
+      "a": "Who they are (name, email, company), where they came from, the stage, the deal size, when you last spoke and when to follow up next. The next follow-up date matters most, because it tells you who to write to today. [How to build a simple CRM without code](/guides/how-to-build-a-simple-crm-without-code) goes through the fields and stages."
     },
     {
       "q": "How does it know which emails are leads?",
@@ -167,7 +168,11 @@
     },
     {
       "q": "Does a lead land the moment their email arrives?",
-      "a": "No. Closer reads your Gmail once each weekday at 9:00, so a new lead shows up the next morning at the latest."
+      "a": "No. Closer reads your Gmail once each weekday at 9:00, so a new lead shows up the next morning at the latest. [How to automate lead follow-up from Gmail](/guides/how-to-automate-lead-follow-up-from-gmail) covers the follow-up loop."
+    },
+    {
+      "q": "Can Gmail work as a CRM?",
+      "a": "Not on its own. Gmail has no field for a lead's stage, deal size or next follow-up date, which a tracker keeps on one row per lead. Closer reads your Gmail each weekday at 9:00 and adds the new leads there."
     }
   ],
   "tags": [

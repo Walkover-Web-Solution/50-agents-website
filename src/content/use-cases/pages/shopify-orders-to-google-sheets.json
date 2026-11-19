@@ -4,8 +4,9 @@
   "query": "Shopify orders to Google Sheets",
   "category": "ecommerce",
   "title": "Shopify orders to Google Sheets | 50agents",
-  "description": "Tell Captain \"every new Shopify order is added as a row to my Google Sheet\" and get an automation that lists the items and total, one row per order or item.",
+  "description": "To send Shopify orders to Google Sheets, add a row per new order with its items and total, or one row per item. Captain sets it up from one sentence.",
   "h1": "Shopify orders to Google Sheets",
+  "h2": { "how": "How to send Shopify orders to Google Sheets", "compare": "Other ways to send Shopify orders to Google Sheets" },
   "answer": [
     "To send Shopify orders to Google Sheets, tell Captain \"Set up an automation: every new Shopify order is added as a row to my Google Sheet\".",
     "It builds an automation that writes only to your sheet, so nothing needs approval."

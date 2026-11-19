@@ -1,0 +1,60 @@
+{
+ "pair": "facebook-lead-ads/zoho-crm",
+ "apps": {
+  "facebook-lead-ads": {
+   "name": "Facebook Lead Ads",
+   "labels": [
+    "Marketing",
+    "Lead Generation",
+    "Social Media"
+   ],
+   "about": "Automate the process of capturing and managing leads from Facebook. Seamlessly integrate your Facebook lead generation campaigns with your CRM or email marketin"
+  },
+  "zoho-crm": {
+   "name": "Zoho CRM",
+   "labels": [
+    "CRM",
+    "Top Free Apps",
+    "Contact Management",
+    "Marketing Automation",
+    "Business Intelligence",
+    "Analytics"
+   ],
+   "about": "Zoho CRM is an AI-powered customer relationship management platform that helps businesses manage leads, contacts, deals, customer interactions, sales automation"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoho-crm:New Lead",
+   "triggers": [
+    "facebook-lead-ads:New Lead Submitted"
+   ]
+  },
+  {
+   "action": "zoho-crm:Create a Note",
+   "triggers": [
+    "facebook-lead-ads:New Lead Submitted"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "facebook-lead-ads:New Lead Submitted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when New Lead Submitted"
+  },
+  {
+   "key": "zoho-crm:New Lead",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Apply the approved sample-code-only update. Preserve the existing action description, all other code blocks, input fields, scopes, metadata, and component mappings."
+  },
+  {
+   "key": "zoho-crm:Create a Note",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a note in the selected module"
+  }
+ ]
+}

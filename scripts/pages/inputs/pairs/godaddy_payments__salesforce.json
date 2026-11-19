@@ -1,0 +1,55 @@
+{
+ "pair": "godaddy_payments/salesforce",
+ "apps": {
+  "godaddy_payments": {
+   "name": "GoDaddy Payments",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "GoDaddy Payments is GoDaddy's payment processing service. The provided input does not describe its specific capabilities."
+  },
+  "salesforce": {
+   "name": "Salesforce",
+   "labels": [
+    "CRM",
+    "Sales and CRM",
+    "Marketing Automation"
+   ],
+   "about": "Salesforce is a leading cloud-based customer relationship management (CRM) platform that provides businesses with tools to manage customer interactions, sales p"
+  }
+ },
+ "templates": [
+  {
+   "action": "salesforce:Update Contact",
+   "triggers": [
+    "godaddy_payments:New Transaction Completed"
+   ]
+  },
+  {
+   "action": "salesforce:Create Contact",
+   "triggers": [
+    "godaddy_payments:New Transaction Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "godaddy_payments:New Transaction Completed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a transaction in your GoDaddy store is completed. You can filter by completed status and transaction type."
+  },
+  {
+   "key": "salesforce:Update Contact",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when an existing contact is updated to your account."
+  },
+  {
+   "key": "salesforce:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new contact."
+  }
+ ]
+}

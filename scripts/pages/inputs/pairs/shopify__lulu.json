@@ -1,0 +1,57 @@
+{
+ "pair": "shopify/lulu",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "lulu": {
+   "name": "Lulu",
+   "labels": [
+    "Printing",
+    "Content & Files",
+    "eCommerce"
+   ],
+   "about": "Lulu Print API automates print-on-demand book orders, file validation, shipping calculations and fulfillment tracking."
+  }
+ },
+ "templates": [
+  {
+   "action": "lulu:Create and Submit Print Order",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "lulu:Create and Submit Print Order",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a print order from book files or an existing printable and ship it to your customer."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

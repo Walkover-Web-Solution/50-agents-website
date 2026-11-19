@@ -1,0 +1,55 @@
+{
+ "pair": "shopify/automox",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "automox": {
+   "name": "Automox",
+   "labels": [
+    "IT Operations"
+   ],
+   "about": "Automox is a cloud-native endpoint management platform that helps IT teams automate patching, manage device configurations, and improve endpoint security across"
+  }
+ },
+ "templates": [
+  {
+   "action": "automox:Update Device",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "automox:Update Device",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update a device group, tags, custom name or report exception."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

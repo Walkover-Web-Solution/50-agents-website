@@ -1,0 +1,66 @@
+{
+ "pair": "zoho-crm/eclincher",
+ "apps": {
+  "zoho-crm": {
+   "name": "Zoho CRM",
+   "labels": [
+    "CRM",
+    "Top Free Apps",
+    "Contact Management",
+    "Marketing Automation",
+    "Business Intelligence",
+    "Analytics"
+   ],
+   "about": "Zoho CRM is an AI-powered customer relationship management platform that helps businesses manage leads, contacts, deals, customer interactions, sales automation"
+  },
+  "eclincher": {
+   "name": "Eclincher",
+   "labels": [
+    "Social Media Accounts"
+   ],
+   "about": "Eclincher is a social media management platform. Use this integration to publish posts, manage inboxes, and pull analytics across Facebook, Instagram, X, Linked"
+  }
+ },
+ "templates": [
+  {
+   "action": "eclincher:Create Brand",
+   "triggers": [
+    "zoho-crm:New Deals",
+    "zoho-crm:New Account"
+   ]
+  },
+  {
+   "action": "eclincher:Create Post",
+   "triggers": [
+    "zoho-crm:New Deals",
+    "zoho-crm:New Account"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "zoho-crm:New Deals",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Apply confirmed v8 polling, latest sample, and safe historical transfer updates to the existing New Deals trigger."
+  },
+  {
+   "key": "eclincher:Create Brand",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new brand by providing its name."
+  },
+  {
+   "key": "eclincher:Create Post",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Publish a post to selected brand accounts with text and optional scheduled time."
+  },
+  {
+   "key": "zoho-crm:New Account",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update perform and sample endpoints to Zoho CRM v8, adding required sample fields and safe response access."
+  }
+ ]
+}

@@ -6,6 +6,7 @@ import type { HubPage } from './types';
 import { PAGES } from '@/content/use-cases/pages';
 import { Crumbs, Cta, Face, KindBadge, KINDS } from '../parts';
 import { StickyBar } from '../sticky';
+import { rich } from '../guides/rich';
 import { PromptFilm } from '../usecase/film';
 import { KindBento } from './kind-bento';
 import { KIND_RULE } from '@/content/hubs/kinds';
@@ -69,7 +70,7 @@ export function HubView({ h }: { h: HubPage }) {
           {h.faqs.map((f, n) => (
             <details key={f.q} open={n === 0}>
               <summary><h3>{f.q}</h3><i aria-hidden="true" /></summary>
-              <p>{f.a}</p>
+              <p>{rich(f.a)}</p>
             </details>
           ))}
         </div>

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify creates the products; QRtiger makes the scannable code. A “New Product” in Shopify can run “Create Static QR Code” so each listing gets a code you can print.",
+  "bestTemplate": {
+    "name": "“New Product” in Shopify, then “Create Static QR Code” in QRtiger",
+    "why": "Each product gets a code for its URL or text, with optional colors, frame and logo, ready for packaging or a flyer."
+  },
+  "watchOut": "“Create Static QR Code” encodes the URL or text you pass in, and a static code cannot change afterward. Check the link first. “Abandoned Checkout” is polling."
+}

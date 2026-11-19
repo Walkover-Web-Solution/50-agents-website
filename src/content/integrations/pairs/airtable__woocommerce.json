@@ -1,0 +1,8 @@
+{
+  "usedFor": "Airtable is where you plan offers in a table; WooCommerce is the store that honors them. A “Record Created Or Updated” in Airtable can run “Create Coupon” in WooCommerce, turning a row into a live discount code.",
+  "bestTemplate": {
+    "name": "“Record Created Or Updated” in Airtable, then “Create Coupon” in WooCommerce",
+    "why": "It lets you manage promotions in a table and publish each one to the store, and “Create Coupon” does the actual setup."
+  },
+  "watchOut": "“Record Created Or Updated” is polling and fires on edits as well as new rows, so one record can run twice and try to create the same coupon again. Add a status field to filter."
+}

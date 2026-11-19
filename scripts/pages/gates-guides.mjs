@@ -2,7 +2,7 @@
 // point, no sources, no dates, short subheaders, a 40-word answer, interactions that earn their place), style, facts
 // against the catalog and the use case pages, uniqueness and length. Writes report-guides.md.
 // Run: node scripts/pages/gates-guides.mjs
-import { pagesIn, read, words, style, namesPrices, shingles, overlap, report, USE_CASES, PLANNED_USE_CASES } from './gates-lib.mjs';
+import { pagesIn, read, words, style, namesPrices, shingles, overlap, report, USE_CASES, PLANNED_USE_CASES, leadsWithAsk, namesJob } from './gates-lib.mjs';
 import { PATHS } from './checks.mjs';
 
 const pages = pagesIn('src/content/guides/pages');
@@ -49,6 +49,9 @@ const results = pages.map(p => {
   if (!KINDS.includes(p.kind)) bad.push(`kind ${p.kind}`);
   if (p.title.length > 60 || !p.title.endsWith(' | 50agents')) bad.push(`title "${p.title}" (${p.title.length} chars, ends " | 50agents")`);
   if (p.description.length < 120 || p.description.length > 155) bad.push(`description ${p.description.length} chars`);
+  // SEO pass 01: the description leads with the query and the answer; the steps heading names the guide's own job
+  if (leadsWithAsk(p.description)) bad.push('description opens with "Tell Captain": lead with the query and the answer');
+  if (!namesJob(p.method.h2, p.query)) bad.push(`steps heading "${p.method.h2}" does not name the guide's job (${p.query})`);
   // the short answer: two sentences, 40 words at most in total
   if (p.answer.length !== 2 || p.answer.some(a => !/[.?]$/.test(a) || /[.?]\s+[A-Z]/.test(a))) bad.push('the short answer is not two sentences');
   if (words(p.answer.join(' ')) > 40) bad.push(`the short answer is ${words(p.answer.join(' '))} words (40 at most)`);

@@ -1,0 +1,49 @@
+{
+ "pair": "42min/zoom",
+ "apps": {
+  "42min": {
+   "name": "42min",
+   "labels": [
+    "Scheduling and Booking",
+    "Productivity"
+   ],
+   "about": "42min is a free online meeting scheduler: share a booking link, let people pick a time, and the meeting lands on everyone's calendar."
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "42min:Updated Booking Time",
+    "42min:New Booking"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "42min:Updated Booking Time",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when booking time is updated, optionally for a chosen event type."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "42min:New Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a meeting is booked, optionally for one chosen event type."
+  }
+ ]
+}

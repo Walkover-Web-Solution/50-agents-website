@@ -8,7 +8,7 @@ import { pageMeta } from '@/site/hubs/meta';
 export const metadata: Metadata = pageMeta({
   path: '/support',
   title: '50agents support: Help Center and the team | 50agents',
-  description: 'Get help with 50agents: guides and answers in the Help Center, the Privacy Policy, and the ways to reach the team behind 50agents.',
+  description: 'Get help with 50agents: guides and answers in the Help Center, the Privacy Policy, and the ways to reach the people who build 50agents at viaSocket.',
   index: SUPPORT_OPEN.length === 0,
 });
 

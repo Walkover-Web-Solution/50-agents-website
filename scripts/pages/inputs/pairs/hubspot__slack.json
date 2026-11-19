@@ -1,0 +1,68 @@
+{
+ "pair": "hubspot/slack",
+ "apps": {
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "hubspot:When a company is created or updated",
+    "hubspot:When a deal is created or updated"
+   ]
+  },
+  {
+   "action": "slack:Send Interactive Message",
+   "triggers": [
+    "hubspot:When a company is created or updated",
+    "hubspot:When a deal is created or updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "hubspot:When a company is created or updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs the workflow automatically whenever a company is created or updated in the account."
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "hubspot:When a deal is created or updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update HubSpot deal created/updated trigger sample response to include example associated contact details (first name, last name, email, phone) in the fallback sample."
+  },
+  {
+   "key": "slack:Send Interactive Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a message with buttons or a form to collect approvals or responses."
+  }
+ ]
+}

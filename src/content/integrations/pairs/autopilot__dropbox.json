@@ -1,0 +1,8 @@
+{
+  "usedFor": "Autopilot runs your clients, jobs and estimates; Dropbox keeps the documents. A “New Estimate” in Autopilot can run “Upload File to Dropbox” to file a copy for the job.",
+  "bestTemplate": {
+    "name": "“New Estimate” in Autopilot, then “Upload File to Dropbox” in Dropbox",
+    "why": "Estimates are the paperwork you most want a backup of, and the action drops each into a folder you choose."
+  },
+  "watchOut": "“Upload File to Dropbox” needs a public link to the file. Triggers like “Updated Estimate” fire on every change, so the same document can be uploaded again."
+}

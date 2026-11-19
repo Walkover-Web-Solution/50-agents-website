@@ -1,0 +1,58 @@
+{
+ "pair": "calendly/hubspot",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create or Update Contact",
+   "triggers": [
+    "calendly:Invitee Canceled",
+    "calendly:New Meeting Book or Invitee Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:Invitee Canceled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when an invitee cancels a scheduled event"
+  },
+  {
+   "key": "hubspot:Create or Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates new contact or update an existing contact by its email."
+  },
+  {
+   "key": "calendly:New Meeting Book or Invitee Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when someone books a meeting for any event type."
+  }
+ ]
+}

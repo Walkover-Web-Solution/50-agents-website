@@ -1,0 +1,80 @@
+{
+ "pair": "activityinfo/google-drive",
+ "apps": {
+  "activityinfo": {
+   "name": "ActivityInfo",
+   "labels": [
+    "Databases",
+    "Analytics"
+   ],
+   "about": "ActivityInfo is a data management platform for humanitarian and development organizations to collect, manage, analyze, and report on program data."
+  },
+  "google-drive": {
+   "name": "Google Drive",
+   "labels": [
+    "File Management and Storage Google",
+    "Top Free Apps",
+    "Team Collaboration",
+    "Product Management",
+    "Documents",
+    "Spreadsheets"
+   ],
+   "about": "Google Drive is a secure cloud storage and file collaboration platform that lets users store, share, organize, sync, and collaborate on files from anywhere, inc"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-drive:Share File With Anyone",
+   "triggers": [
+    "activityinfo:Updated Record",
+    "activityinfo:New Record"
+   ]
+  },
+  {
+   "action": "google-drive:Copy a File",
+   "triggers": [
+    "activityinfo:Updated Record",
+    "activityinfo:New Record"
+   ]
+  },
+  {
+   "action": "google-drive:Share File",
+   "triggers": [
+    "activityinfo:Updated Record",
+    "activityinfo:New Record"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activityinfo:Updated Record",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when an existing record is changed in a chosen form."
+  },
+  {
+   "key": "google-drive:Share File With Anyone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a file accessible via a shareable link and set access level (Viewer, Commenter, Editor)."
+  },
+  {
+   "key": "activityinfo:New Record",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new record is added to a chosen form."
+  },
+  {
+   "key": "google-drive:Copy a File",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a copy of a Google Drive file into a selected folder, optionally giving it a new name."
+  },
+  {
+   "key": "google-drive:Share File",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Grant a specific user or anyone access to a Google Drive file as Viewer, Commenter, or Editor."
+  }
+ ]
+}

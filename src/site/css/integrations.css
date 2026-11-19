@@ -142,3 +142,8 @@ span.ig3-kind-more{display:none}
   .ig4-pages>button{padding:0 10px}
 }
 @media (max-width:760px){.ig4-dir-bar h2{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.ig4-dir-bar{padding-top:12px}}
+.ig3-practice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;max-width:1040px;margin:0 auto}
+.ig3-practice h3{font-size:19px;font-weight:500;letter-spacing:-.01em;margin-bottom:10px}
+.ig3-practice p{font-size:16.5px;line-height:1.6;color:var(--mute)}
+.ig3-practice strong{color:inherit;font-weight:600}
+@media(max-width:760px){.ig3-practice{grid-template-columns:minmax(0,1fr);gap:28px}}

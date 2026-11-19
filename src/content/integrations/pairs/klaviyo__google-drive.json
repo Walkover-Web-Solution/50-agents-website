@@ -1,0 +1,8 @@
+{
+  "usedFor": "Klaviyo holds your campaigns and profiles; Google Drive holds the files behind them. When Klaviyo records a “New Campaign”, Drive can run “Share File With Anyone” so the matching brief or creative gets a link.",
+  "bestTemplate": {
+    "name": "“New Campaign” in Klaviyo, then “Share File With Anyone” in Google Drive",
+    "why": "A new campaign is the trigger that maps to a document people actually need to see, and the action hands back a shareable link at the access level you choose."
+  },
+  "watchOut": "“Share File With Anyone” opens a file to anyone with the link, so check the access level (Viewer, Commenter or Editor) before you switch it on. “New Campaign” is polling, so the share follows the next check."
+}

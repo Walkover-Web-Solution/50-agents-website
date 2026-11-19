@@ -15,13 +15,13 @@ Search the row's queries. Read the top 3 to 5 results and the "People also ask" 
 (Zapier, Make, n8n, Lindy, Glide and others) and what they still don't get answered.
 
 ## Fields
-- `title` under 60 characters, ends " | 50agents". `description` 120 to 160 characters, answer first.
-- `crumb`: the kind, plural ("AI agents"). `h1`: what you can do, in plain words. `line`: under 12 words, for link cards elsewhere.
+- `title` under 60 characters, ends " | 50agents". `description` 120 to 155 characters. **Lead with the query and the answer** (SEO pass 01): the first words are the search the page answers, then the answer in the same sentence, product second. Never open with "Tell Captain". Check the length (155 characters at most) before you return it.
+- `crumb`: the kind, plural ("AI agents"). `h1`: what you can do, in plain words, led by the query ("AI agent builder: describe the job, Captain builds it"). `line`: under 12 words, for link cards elsewhere.
 - `answer`: the kind in two sentences, 40 words at most in total. The first says what it is in 50agents with one concrete example; the second says how you get one from Captain and what asks first.
 - `example`: `ask` exactly the row's ask; `build` copied from the use case page (kept as a fact; the hero shows no plan card).
 - `useCases`: the subheader over the use case cards, one short line of 14 words at most.
 - `apps`: the row's apps, as a list of catalog slugs, most-used first. The template writes the heading itself: "Works with <the first three> and 2,300+ apps" over two marquee rows.
-- `faqs`: 5 or 6 questions from People also ask, each answered in 2 or 3 sentences (70 words at most), from the facts file only. Include one on what it can't do yet, and one comparing it with the tools searchers name, fairly: say where they are better. No prices.
+- `faqs`: 5 to 7 questions from People also ask, each answered in 2 or 3 sentences (70 words at most), from the facts file only. Include one on what it can't do yet, and one comparing it with the tools searchers name, fairly: say where they are better. No prices. Put `[label](/path)` links to the matching guides and comparison pages inside the answers (70 visible words at most), only to pages that exist. "Free to start" is the only thing to say about cost.
 - `links`: 3 reads that exist: a guide, a glossary term, a comparison.
 - `final`: the closing heading, an invitation in under 8 words. `updated`: today's date, ISO.
 

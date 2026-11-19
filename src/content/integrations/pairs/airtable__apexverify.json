@@ -1,0 +1,8 @@
+{
+  "usedFor": "Airtable holds the contact rows; ApexVerify checks whether an email address or phone number is real. A changed record can go through “Verify Email or Phone”, or be uploaded with “Create Verification Batch”.",
+  "bestTemplate": {
+    "name": "“Record Created Or Updated” in Airtable, then “Verify Email or Phone” in ApexVerify",
+    "why": "Each new or edited row gets its email or phone checked on the spot, and you choose the verification type and target country."
+  },
+  "watchOut": "“Record Created Or Updated” polls and also fires on edits, so a row can be verified again after any change. “Verify Email or Phone” needs a verification type and country chosen."
+}

@@ -1,0 +1,8 @@
+{
+ "usedFor": "Pipedrive holds your people, and Notion holds the team's databases. When “New Person Created” fires in Pipedrive, “Create_Data_Source_Item” adds a row to a Notion data source.",
+ "bestTemplate": {
+  "name": "“New Person Created” in Pipedrive, then “Create_Data_Source_Item” in Notion",
+  "why": "It gives the team a Notion row for each new contact to hang notes and tasks on. The other direction, “New Page Is Created” into “Create Person”, only helps if a page holds the contact details."
+ },
+ "watchOut": "“New Person Created” is polling, so new people reach Notion after the next check rather than the moment they are added in Pipedrive."
+}

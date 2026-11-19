@@ -15,7 +15,7 @@ Search the row's query. Read the top 3 to 5 definitions, including a primary sou
 company that named it). Note where they disagree and what the term is most often mixed up with.
 
 ## Fields
-- `title` under 60 characters, ends " | 50agents". `description` 120 to 160 characters, the definition first.
+- `title` under 60 characters, ends " | 50agents". `description` 120 to 160 characters, the definition first (the term, then what it is; never "Tell Captain").
 - `h1`: "What is <term>?". `definition`: two sentences a reader could quote, 40 words at most in total. The first (about 20 to 24 words) says what it is; the second says what it is for or how it differs.
 - `example`: `ask` exactly the row's ask; `kind` and `build` copied from the use case page; `why`: the subheader over the example, one short line of 14 words at most on why this ask shows the term.
 - `vs`: `term` the row's confused term, `href` its glossary page if it has one, and 3 rows (label, a = this term, b = that term), each cell 12 words at most. Be exact, not flattering.

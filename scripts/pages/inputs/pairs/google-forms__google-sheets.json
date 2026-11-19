@@ -1,0 +1,64 @@
+{
+ "pair": "google-forms/google-sheets",
+ "apps": {
+  "google-forms": {
+   "name": "Google Forms",
+   "labels": [
+    "Productivity",
+    "Data Collection",
+    "Survey",
+    "Top Free Apps",
+    "Forms and Surveys",
+    "Spreadsheets",
+    "Education",
+    "Business Intelligence"
+   ],
+   "about": "Google Forms is an online form builder that lets users create forms and surveys, collect responses, and analyze data in real time."
+  },
+  "google-sheets": {
+   "name": "Google Sheets",
+   "labels": [
+    "Productivity",
+    "Top Free Apps",
+    "Spreadsheets",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Google Sheets is a cloud-based spreadsheet application that lets users create, edit, share, and collaborate on spreadsheets in real time."
+  }
+ },
+ "templates": [
+  {
+   "action": "google-sheets:Add New Row to Sheet",
+   "triggers": [
+    "google-forms:New Form Response"
+   ]
+  },
+  {
+   "action": "google-sheets:Update Spreadsheet Row",
+   "triggers": [
+    "google-forms:New Form Response"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "google-forms:New Form Response",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new google form response is received."
+  },
+  {
+   "key": "google-sheets:Add New Row to Sheet",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+  },
+  {
+   "key": "google-sheets:Update Spreadsheet Row",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update columns in sheet row"
+  }
+ ]
+}

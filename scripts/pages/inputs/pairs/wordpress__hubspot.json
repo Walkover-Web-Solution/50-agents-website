@@ -1,0 +1,78 @@
+{
+ "pair": "wordpress/hubspot",
+ "apps": {
+  "wordpress": {
+   "name": "Wordpress",
+   "labels": [
+    "Website and App Building"
+   ],
+   "about": "WordPress is a free and open-source content management system (CMS) based on PHP & MySQL. Features include a plugin architecture and a template system, referred"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "wordpress:User Deleted",
+    "wordpress:User Updates Profile",
+    "wordpress:New User Created",
+    "wordpress:Post Trash",
+    "wordpress:Post Deleted",
+    "wordpress:Post Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "wordpress:User Deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified user deleted."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "wordpress:User Updates Profile",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a user updated his profile."
+  },
+  {
+   "key": "wordpress:New User Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a new user created."
+  },
+  {
+   "key": "wordpress:Post Trash",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified post is trashed."
+  },
+  {
+   "key": "wordpress:Post Deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a post is deleted."
+  },
+  {
+   "key": "wordpress:Post Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified post updated."
+  }
+ ]
+}

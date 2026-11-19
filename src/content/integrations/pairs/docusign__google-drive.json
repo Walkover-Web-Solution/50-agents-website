@@ -1,0 +1,8 @@
+{
+  "usedFor": "Docusign holds the signing process; Google Drive holds your working files. When “New Envelope Completed” fires in Docusign, Google Drive can create a folder with “Create Folder” or start a file with “Create a new sheet or doc or slide”.",
+  "bestTemplate": {
+    "name": "“New Envelope Completed” in Docusign, then “Create Folder” in Google Drive",
+    "why": "A fully signed envelope is a closed deal, so it gets a folder, optionally under a parent folder, ready for the onboarding files."
+  },
+  "watchOut": "“New Envelope Completed” runs only after all recipients have signed, so nothing happens for partly signed ones. The Drive actions create new items and do not reuse an existing folder."
+}

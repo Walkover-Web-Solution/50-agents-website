@@ -1,0 +1,68 @@
+{
+ "pair": "calendly/clickup",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "clickup": {
+   "name": "ClickUp",
+   "labels": [
+    "Productivity",
+    "Top Free Apps"
+   ],
+   "about": "Plan, track, and manage any type of work with project management that flexes to your team's needs."
+  }
+ },
+ "templates": [
+  {
+   "action": "clickup:Create Task",
+   "triggers": [
+    "calendly:New Meeting Book or Invitee Created"
+   ]
+  },
+  {
+   "action": "calendly:Create Scheduling Link",
+   "triggers": [
+    "clickup:When a new task is created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:New Meeting Book or Invitee Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when someone books a meeting for any event type."
+  },
+  {
+   "key": "clickup:Create Task",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a task in a list and set title or markdown description, assignees (by ID or email), group assignees, tags, status, priority, start/due dates (with time), time estimate, watchers, custom fields, parent, points…"
+  },
+  {
+   "key": "clickup:When a new task is created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a new task is created."
+  },
+  {
+   "key": "calendly:Create Scheduling Link",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a booking link"
+  }
+ ]
+}

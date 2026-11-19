@@ -1,0 +1,74 @@
+{
+ "pair": "google-sheets/jotform",
+ "apps": {
+  "google-sheets": {
+   "name": "Google Sheets",
+   "labels": [
+    "Productivity",
+    "Top Free Apps",
+    "Spreadsheets",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Google Sheets is a cloud-based spreadsheet application that lets users create, edit, share, and collaborate on spreadsheets in real time."
+  },
+  "jotform": {
+   "name": "Jotform",
+   "labels": [
+    "Forms and Surveys",
+    "Databases",
+    "Website and App Building",
+    "Signatures",
+    "File Management and Storage",
+    "Top Free Apps"
+   ],
+   "about": "Jotform is an online form builder that allows users to create and manage forms for all types of data collection. It provides a user-friendly interface with drag"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-sheets:Add New Row to Sheet",
+   "triggers": [
+    "jotform:New Submission"
+   ]
+  },
+  {
+   "action": "google-sheets:Row Added Or Updated",
+   "triggers": [
+    "jotform:New Submission"
+   ]
+  },
+  {
+   "action": "google-sheets:Format Spreadsheet Row",
+   "triggers": [
+    "jotform:New Submission"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "jotform:New Submission",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Update New Submission trigger sample to return latest submission or a single-line no-data message."
+  },
+  {
+   "key": "google-sheets:Add New Row to Sheet",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+  },
+  {
+   "key": "google-sheets:Row Added Or Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when row added or updated"
+  },
+  {
+   "key": "google-sheets:Format Spreadsheet Row",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Format row font and background"
+  }
+ ]
+}

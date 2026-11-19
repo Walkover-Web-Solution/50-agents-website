@@ -119,7 +119,7 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
     { '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, description: g.description, abstract: plain(g.answer.join(' ')), url, mainEntityOfPage: url,
       dateModified: g.updated, timeRequired: `PT${readMinutes(g)}M`, inLanguage: 'en', author: { '@type': 'Organization', name: '50agents', url: BASE },
       publisher: { '@type': 'Organization', name: '50agents', url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/landing/favicon.svg` } } },
-    { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })) },
+    // No FAQPage or HowTo (brief D2, Search review 1): the questions stay as visible text.
   ];
 
   return (
@@ -230,7 +230,7 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
       <section className="wrap sec" id="more" aria-labelledby="more-h">
         <div className="sec-h c"><h2 id="more-h">Read next</h2></div>
         <div className="gx-grid gx-three">
-          {more(g).map(r => <GuideCard key={r.slug} g={r} />)}
+          {more(g).map(r => <GuideCard key={r.slug} g={r} h="p" />)}
         </div>
         <div className="uc3-all"><MaybeLink className="btn ghost" href="/guides">See all guides</MaybeLink></div>
       </section>

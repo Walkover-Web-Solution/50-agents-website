@@ -1,0 +1,8 @@
+{
+  "usedFor": "ActiveCampaign tells Calendly when a call should exist. Work that finishes on a deal, like “Deal Task Completed”, can run “Create One-Time Meeting”, so the sales follow-up sits in ActiveCampaign and the bookable time in Calendly.",
+  "bestTemplate": {
+    "name": "“Deal Task Completed” in ActiveCampaign, then “Create One-Time Meeting” in Calendly",
+    "why": "Finishing a deal task is a clear sign the next step is a conversation, and a one-time meeting gives that deal its own slot rather than a shared link."
+  },
+  "watchOut": "“New Deal Added or Updated” also fires on edits, so one deal can create a second meeting. Starting from “Deal Task Completed” is the safer choice."
+}

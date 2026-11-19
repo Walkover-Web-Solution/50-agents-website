@@ -1,0 +1,69 @@
+{
+ "pair": "shopify/apyhub",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "apyhub": {
+   "name": "ApyHub",
+   "labels": [
+    "Developer Tools"
+   ],
+   "about": "ApyHub is a catalog of ready-to-use APIs for validation, currency conversion, AI summaries, text extraction and file generation, all behind one API key."
+  }
+ },
+ "templates": [
+  {
+   "action": "apyhub:Validate Email",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "apyhub:Extract Text from Webpage",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "apyhub:Validate Email",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Check whether an email address is well formed, its domain has mail (MX) records and, unless Block Disposable Emails is set to false, it is not from a disposable email service. Returns one object with is_valid true or…"
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "apyhub:Extract Text from Webpage",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Get the visible text of a public webpage as one string or as a list of text blocks."
+  }
+ ]
+}

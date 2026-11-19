@@ -1,0 +1,103 @@
+{
+ "pair": "liliphant/hubspot",
+ "apps": {
+  "liliphant": {
+   "name": "Liliphant",
+   "labels": [
+    "Scheduling and Booking"
+   ],
+   "about": "Liliphant by Walkover helps businesses manage customer conversations and communication through WhatsApp."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Company",
+   "triggers": [
+    "liliphant:New Analyzed Meeting Summary"
+   ]
+  },
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "liliphant:New Analyzed Meeting Summary"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "liliphant:New Analyzed Meeting Summary"
+   ]
+  },
+  {
+   "action": "hubspot:Update Company",
+   "triggers": [
+    "liliphant:New Analyzed Meeting Summary"
+   ]
+  },
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "liliphant:New Analyzed Meeting Summary"
+   ]
+  },
+  {
+   "action": "hubspot:Add Notes to Contact",
+   "triggers": [
+    "liliphant:New Analyzed Meeting Summary"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "liliphant:New Analyzed Meeting Summary",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new analyzed meeting summary is generated for a chosen company."
+  },
+  {
+   "key": "hubspot:Create Company",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new company record in HubSpot using the provided company properties."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  },
+  {
+   "key": "hubspot:Update Company",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update selected HubSpot company properties for a given company ID."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "hubspot:Add Notes to Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create one or more notes for a contact by ID or email, specifying note date and body."
+  }
+ ]
+}

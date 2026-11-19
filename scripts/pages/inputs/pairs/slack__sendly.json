@@ -1,0 +1,66 @@
+{
+ "pair": "slack/sendly",
+ "apps": {
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  },
+  "sendly": {
+   "name": "Sendly",
+   "labels": [
+    "Communication"
+   ],
+   "about": "Sendly is an SMS API for developers to send transactional and marketing SMS/MMS, run OTP verification and manage contacts."
+  }
+ },
+ "templates": [
+  {
+   "action": "sendly:Create or Update Contact",
+   "triggers": [
+    "slack:New Message on Slack",
+    "slack:New Message Posted in Channel Instant"
+   ]
+  },
+  {
+   "action": "sendly:Cancel Scheduled Message",
+   "triggers": [
+    "slack:New Message on Slack",
+    "slack:New Message Posted in Channel Instant"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "slack:New Message on Slack",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new message is posted anywhere in Slack ,  across all channels and direct messages. No channel filter applied."
+  },
+  {
+   "key": "sendly:Create or Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a contact by phone number, or update it when that number already exists."
+  },
+  {
+   "key": "sendly:Cancel Scheduled Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Cancel a scheduled message and get its reserved credits back."
+  },
+  {
+   "key": "slack:New Message Posted in Channel Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+  }
+ ]
+}

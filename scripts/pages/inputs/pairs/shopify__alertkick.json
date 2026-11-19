@@ -1,0 +1,70 @@
+{
+ "pair": "shopify/alertkick",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "alertkick": {
+   "name": "AlertKick",
+   "labels": [
+    "IT Operations",
+    "Notifications"
+   ],
+   "about": "AlertKick is a server and uptime monitoring platform with heartbeats for cron jobs, on-call escalation and AI-assisted alert triage."
+  }
+ },
+ "templates": [
+  {
+   "action": "alertkick:Resume Monitor",
+   "triggers": [
+    "shopify:New Customer",
+    "shopify:Order Line Items Are Edited",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "alertkick:Pause Monitor",
+   "triggers": [
+    "shopify:New Customer",
+    "shopify:Order Line Items Are Edited",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:New Customer",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new customer is created to Shopify account"
+  },
+  {
+   "key": "alertkick:Resume Monitor",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Resume a paused monitor so its checks and alerts start again."
+  },
+  {
+   "key": "shopify:Order Line Items Are Edited",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when items on an order are edited."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "alertkick:Pause Monitor",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Pause a monitor so its checks stop and no alerts fire until it is resumed."
+  }
+ ]
+}

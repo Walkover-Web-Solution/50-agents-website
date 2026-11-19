@@ -1,0 +1,64 @@
+{
+ "pair": "freshdesk/hubspot",
+ "apps": {
+  "freshdesk": {
+   "name": "Freshdesk",
+   "labels": [
+    "Customer Support",
+    "Top Free Apps"
+   ],
+   "about": "Freshdesk is a cloud-based customer service software that provides helpdesk support with all smart automations to get things done faster. It offers ticketing, a"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "freshdesk:New Contact",
+    "freshdesk:New Ticket"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "freshdesk:New Contact",
+    "freshdesk:New Ticket"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "freshdesk:New Contact",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Trigger when a new contect is cteated."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "freshdesk:New Ticket",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Trigger when a new ticket created."
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  }
+ ]
+}

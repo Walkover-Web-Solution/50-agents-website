@@ -1,0 +1,70 @@
+{
+ "pair": "shopify/audiopod-ai",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "audiopod-ai": {
+   "name": "AudioPod AI",
+   "labels": [
+    "AI Tools",
+    "Video & Audio"
+   ],
+   "about": "AudioPod AI is an AI audio platform for text to speech, transcription with speaker labels, stem separation, noise removal, voice cloning and music generation."
+  }
+ },
+ "templates": [
+  {
+   "action": "audiopod-ai:Generate Speech",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "audiopod-ai:Separate Stems",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "audiopod-ai:Generate Speech",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Turn text into natural speech with a chosen voice, speed, format and language."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "audiopod-ai:Separate Stems",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Split a song from a link into vocals, drums, bass and other stems with a chosen mode."
+  }
+ ]
+}

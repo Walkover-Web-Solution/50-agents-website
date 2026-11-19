@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds the orders and Routific plans the delivery route. “Order Cancelled” can run “Complete Order”, so a cancelled sale is marked on the route and the driver does not chase it.",
+  "bestTemplate": {
+    "name": "“Order Cancelled” in Shopify, then “Complete Order” in Routific",
+    "why": "A cancelled order is the Shopify event that changes a route, and the action marks an order on a published route as delivered or missed."
+  },
+  "watchOut": "“Complete Order” only applies to an order on a published route, so a cancellation before routing has nothing to mark. It also records delivered or missed, not cancelled."
+}

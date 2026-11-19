@@ -1,0 +1,93 @@
+{
+ "pair": "woocommerce/calendly",
+ "apps": {
+  "woocommerce": {
+   "name": "WooCommerce",
+   "labels": [
+    "E-commerce",
+    "Website Management",
+    "Online Store"
+   ],
+   "about": "WooCommerce is a customizable, open-source eCommerce platform built on WordPress. It is designed to help businesses of all sizes create and manage an online sto"
+  },
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  }
+ },
+ "templates": [
+  {
+   "action": "calendly:Create One-Time Meeting",
+   "triggers": [
+    "woocommerce:Coupon Deleted",
+    "woocommerce:Coupon Updated",
+    "woocommerce:Customer Updated",
+    "woocommerce:Product Updated",
+    "woocommerce:New Coupon Created",
+    "woocommerce:New Customer Created",
+    "woocommerce:New Product Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "woocommerce:Coupon Deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a coupon is deleted."
+  },
+  {
+   "key": "calendly:Create One-Time Meeting",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a one-time meeting"
+  },
+  {
+   "key": "woocommerce:Coupon Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a coupon is updated."
+  },
+  {
+   "key": "woocommerce:Customer Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a customer is updated."
+  },
+  {
+   "key": "woocommerce:Product Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when an existing product is updated."
+  },
+  {
+   "key": "woocommerce:New Coupon Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new coupon is created."
+  },
+  {
+   "key": "woocommerce:New Customer Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new customer is created."
+  },
+  {
+   "key": "woocommerce:New Product Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created."
+  }
+ ]
+}

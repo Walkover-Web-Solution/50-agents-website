@@ -1,0 +1,52 @@
+{
+ "pair": "ricky/hubspot",
+ "apps": {
+  "ricky": {
+   "name": "Ricky",
+   "labels": [
+    "Customer Support",
+    "Communication",
+    "AI Tools"
+   ],
+   "about": "Ricky is an AI customer-service platform that answers WhatsApp, Instagram, Messenger and web chat in a shared inbox, with AI agents, a contact CRM, templates an"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "ricky:Updated Contact",
+    "ricky:New Contact Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "ricky:Updated Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a contact's fields, tags or custom values are saved."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "ricky:New Contact Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a contact is created in Ricky, by the API or with their first message."
+  }
+ ]
+}

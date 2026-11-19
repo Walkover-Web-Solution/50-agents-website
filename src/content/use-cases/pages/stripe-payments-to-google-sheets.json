@@ -4,8 +4,9 @@
   "query": "Stripe payments to Google Sheets",
   "category": "payments",
   "title": "Stripe payments to Google Sheets | 50agents",
-  "description": "Tell Captain \"every new Stripe payment is added as a row to my Google Sheet\" and get an automation with the customer, amount in dollars and date.",
+  "description": "To send Stripe payments to Google Sheets, add a row on each new payment with the customer, amount and date. Captain sets it up from one sentence.",
   "h1": "Stripe payments to Google Sheets",
+  "h2": { "how": "How to send Stripe payments to Google Sheets", "compare": "Other ways to send Stripe payments to Google Sheets" },
   "answer": [
     "To send Stripe payments to Google Sheets, tell Captain \"Set up an automation: every new Stripe payment is added as a row to my Google Sheet\".",
     "It builds an automation that writes only to your sheet, so nothing needs approval."

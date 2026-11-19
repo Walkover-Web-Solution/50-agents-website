@@ -1,0 +1,68 @@
+{
+ "pair": "calendly/upstash",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "upstash": {
+   "name": "Upstash",
+   "labels": [
+    "Databases",
+    "Developer Tools"
+   ],
+   "about": "Upstash is a serverless data platform for Redis, vector and search databases. Create and manage your Redis databases from viaSocket."
+  }
+ },
+ "templates": [
+  {
+   "action": "calendly:Create One-Time Meeting",
+   "triggers": [
+    "upstash:New Redis Database"
+   ]
+  },
+  {
+   "action": "upstash:Create Redis Database",
+   "triggers": [
+    "calendly:When a meeting is scheduled, rescheduled, or canceled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "upstash:New Redis Database",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new Redis database is created in your Upstash account. Note: Each run reads the full database list and returns the databases whose creation_time falls in the run window, oldest first."
+  },
+  {
+   "key": "calendly:Create One-Time Meeting",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a one-time meeting"
+  },
+  {
+   "key": "calendly:When a meeting is scheduled, rescheduled, or canceled",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update polling logic to reduce duplicate trigger hits."
+  },
+  {
+   "key": "upstash:Create Redis Database",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a Redis database with a chosen name, cloud platform, region and plan. Note: The AWS platform takes an AWS primary region and GCP a GCP region; read regions are AWS only. An empty Plan uses the account default…"
+  }
+ ]
+}

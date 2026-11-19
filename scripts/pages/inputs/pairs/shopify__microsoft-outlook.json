@@ -1,0 +1,70 @@
+{
+ "pair": "shopify/microsoft-outlook",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "microsoft-outlook": {
+   "name": "Microsoft Outlook",
+   "labels": [
+    "Email",
+    "Event Management"
+   ],
+   "about": "Microsoft Outlook is an email service developed by Microsoft, primarily used for managing emails, calendars, tasks, and contacts. It integrates seamlessly with "
+  }
+ },
+ "templates": [
+  {
+   "action": "microsoft-outlook:Create Contact",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "microsoft-outlook:Create Draft Email",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "microsoft-outlook:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Fix folder dropdown pagination/search globals, tighten email validation, remove whereClause, update help text"
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "microsoft-outlook:Create Draft Email",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a draft email with subject, body, and recipients (To, CC, BCC); auto-detect HTML or plain-text body and accept comma- or semicolon-separated recipient lists."
+  }
+ ]
+}

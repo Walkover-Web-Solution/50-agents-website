@@ -4,7 +4,7 @@
   "kind": "auto",
   "query": "zapier vs make vs n8n for a small team",
   "title": "Zapier vs Make vs n8n for a small team | 50agents",
-  "description": "Zapier vs Make vs n8n for a small team: Zapier is quickest to learn, Make shows branching visually, n8n charges per run and can self-host.",
+  "description": "Zapier vs Make vs n8n for a small team: Zapier is quickest to learn, Make shows branching on a canvas, and n8n charges per run and can be self-hosted.",
   "h1": "Zapier vs Make vs n8n for a small team",
   "answer": [
     "Pick Zapier for the quickest start and most apps, Make for branching flows you see as a diagram, n8n if someone is technical.",
@@ -77,7 +77,7 @@
     }
   ],
   "method": {
-    "h2": "How to choose in an afternoon",
+    "h2": "How to choose between Zapier, Make and n8n",
     "steps": [
       { "title": "Write your three likeliest workflows", "body": "The apps, the trigger, the steps, and how often each runs a month." },
       { "title": "Check every app is supported", "body": "Search each tool's app directory for each app, and for the exact trigger and action you need, not just the app name." },

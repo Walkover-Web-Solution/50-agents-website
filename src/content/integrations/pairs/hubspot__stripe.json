@@ -1,0 +1,8 @@
+{
+  "usedFor": "Stripe holds the billing and HubSpot holds the relationship. When “New Customer Created” fires in Stripe, “Add Notes to Contact” leaves a note on the HubSpot contact, so sales sees that they became a paying customer.",
+  "bestTemplate": {
+    "name": "“New Customer Created” in Stripe, then “Add Notes to Contact” in HubSpot",
+    "why": "A new Stripe customer is the moment billing begins, and the action writes a dated note on the contact, so the history shows when they started paying."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or an email, so the Stripe customer must carry one. “Delete Contact” in HubSpot cancels subscriptions in the other direction, so it deserves care."
+}

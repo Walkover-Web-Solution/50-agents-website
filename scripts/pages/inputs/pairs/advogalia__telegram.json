@@ -1,0 +1,56 @@
+{
+ "pair": "advogalia/telegram",
+ "apps": {
+  "advogalia": {
+   "name": "Advogalia",
+   "labels": [
+    "Productivity",
+    "CRM (Customer Relationship Management)"
+   ],
+   "about": "Advogalia is a Brazilian legal practice platform for law offices to manage cases, CRM clients, deadlines, hearings and court notices (intimações)."
+  },
+  "telegram": {
+   "name": "Telegram",
+   "labels": [
+    "Communication"
+   ],
+   "about": "Bots on Telegram are small applications that run entirely within the platform and can be designed to support any kind of task or service."
+  }
+ },
+ "templates": [
+  {
+   "action": "telegram:Reply To Message",
+   "triggers": [
+    "advogalia:New Deadline",
+    "advogalia:New Client",
+    "advogalia:New Case"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "advogalia:New Deadline",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new deadline, hearing or task is created, optionally for a chosen type or case."
+  },
+  {
+   "key": "telegram:Reply To Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a reply to a specific message in a Telegram chat."
+  },
+  {
+   "key": "advogalia:New Client",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new client is added to the CRM, optionally of a chosen relationship type."
+  },
+  {
+   "key": "advogalia:New Case",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new case is created in your Advogalia office."
+  }
+ ]
+}

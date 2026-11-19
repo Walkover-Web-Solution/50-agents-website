@@ -1,0 +1,93 @@
+{
+ "pair": "anny/hubspot",
+ "apps": {
+  "anny": {
+   "name": "anny",
+   "labels": [
+    "Scheduling & Booking",
+    "Productivity"
+   ],
+   "about": "anny is a booking and resource scheduling platform for desks, rooms, services, courses and appointments, with customers, orders and invoices."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "anny:New Invoice",
+    "anny:New Customer",
+    "anny:New Order",
+    "anny:New Booking Check-In",
+    "anny:Updated Booking",
+    "anny:New Canceled Booking",
+    "anny:New Confirmed Booking",
+    "anny:New Booking"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "anny:New Invoice",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new invoice is generated."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "anny:New Customer",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new customer record is created."
+  },
+  {
+   "key": "anny:New Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a checkout is completed and a new order is placed."
+  },
+  {
+   "key": "anny:New Booking Check-In",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a customer checks in to a booking."
+  },
+  {
+   "key": "anny:Updated Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a booking changes, such as its status, dates or resource."
+  },
+  {
+   "key": "anny:New Canceled Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a booking is canceled."
+  },
+  {
+   "key": "anny:New Confirmed Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a requested booking is accepted."
+  },
+  {
+   "key": "anny:New Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new booking is created in your anny organization."
+  }
+ ]
+}

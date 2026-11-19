@@ -6,6 +6,7 @@
   "title": "AI to draft replies to customer emails | 50agents",
   "description": "To draft replies to customer emails with AI, an AI agent reads new support mail in Gmail, writes each answer from what you told it and waits for your OK.",
   "h1": "AI to draft replies to customer emails",
+  "h2": { "how": "How the AI drafts replies to customer emails", "compare": "Other ways to draft replies to customer emails" },
   "answer": [
     "To draft replies to customer emails with AI, tell Captain \"Set up an AI agent that reads new support emails\".",
     "It builds an AI agent that drafts a reply in each customer's thread and asks before sending."
@@ -151,7 +152,7 @@
   "faqs": [
     {
       "q": "Will it reply to customers without asking me?",
-      "a": "No. Every reply waits in Needs you until you approve it, change it or decline it. AI agents ask before sending, even to you, until you allow otherwise in Settings."
+      "a": "No. Every reply waits in Needs you until you approve it, change it or decline it. AI agents ask before sending, even to you, until you allow otherwise in Settings. See [How to make an AI agent ask before it acts](/guides/how-to-make-an-ai-agent-ask-before-it-acts)."
     },
     {
       "q": "What does it do when it does not know the answer?",
@@ -167,7 +168,7 @@
     },
     {
       "q": "How do I keep the replies sounding like me?",
-      "a": "Tell Captain your tone and add a few of your own past replies as examples. You can also change any draft before approving it."
+      "a": "Tell Captain your tone and add a few of your own past replies as examples. You can also change any draft before approving it. [How to draft email replies with AI and still check them](/guides/how-to-draft-email-replies-with-ai-and-still-check-them) covers the one-minute review."
     }
   ],
   "tags": [

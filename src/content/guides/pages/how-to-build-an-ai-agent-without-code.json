@@ -3,8 +3,8 @@
   "group": "AI agents",
   "kind": "ai",
   "query": "how to build an ai agent without code",
-  "title": "How to build an AI agent without code | 50agents",
-  "description": "Build an AI agent without code by writing its job card first: one job, when it runs, the apps it reads, what it may do alone, and 10 real cases to test.",
+  "title": "How to build an AI agent without code in 7 steps | 50agents",
+  "description": "How to build an AI agent without code: pick one job, write its instructions, connect only the apps it needs, test it on real cases, and approve every send.",
   "h1": "How to build an AI agent without code",
   "answer": [
     "Pick one job that needs judgement, write it as a job card, and test it on 10 to 20 real cases.",
@@ -13,7 +13,7 @@
   "sections": [
     {
       "id": "what",
-      "h2": "What an AI agent is, in builder terms",
+      "h2": "What is an AI agent?",
       "body": [
         { "p": "An AI agent is three parts: a model, the tools it can use, and its instructions. A no-code builder picks the model and turns the other two into forms. Your work is the instructions and the limits." },
         { "p": "Check you need one first. If your job is \"when X happens, do Y\", fixed steps will do it cheaper and the same way every time: read [AI agent vs automation](/guides/ai-agent-vs-automation-which-one-you-need)." }
@@ -42,7 +42,7 @@
     }
   ],
   "method": {
-    "h2": "How to build it",
+    "h2": "How to build an AI agent in 7 steps",
     "steps": [
       {
         "title": "Choose one job, not a role",

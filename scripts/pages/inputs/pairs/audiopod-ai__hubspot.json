@@ -1,0 +1,51 @@
+{
+ "pair": "audiopod-ai/hubspot",
+ "apps": {
+  "audiopod-ai": {
+   "name": "AudioPod AI",
+   "labels": [
+    "AI Tools",
+    "Video & Audio"
+   ],
+   "about": "AudioPod AI is an AI audio platform for text to speech, transcription with speaker labels, stem separation, noise removal, voice cloning and music generation."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "audiopod-ai:New Job Failed",
+    "audiopod-ai:New Job Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "audiopod-ai:New Job Failed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job fails, optionally only for chosen job types."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "audiopod-ai:New Job Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job finishes successfully, optionally only for chosen job types."
+  }
+ ]
+}

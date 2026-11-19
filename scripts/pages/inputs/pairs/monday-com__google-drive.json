@@ -1,0 +1,127 @@
+{
+ "pair": "monday-com/google-drive",
+ "apps": {
+  "monday-com": {
+   "name": "monday.com",
+   "labels": [
+    "Project Management",
+    "Top Free Apps"
+   ],
+   "about": "monday.com is a work operating system that powers teams to run projects and workflows with confidence. It's a simple but intuitive tool that enables people to m"
+  },
+  "google-drive": {
+   "name": "Google Drive",
+   "labels": [
+    "File Management and Storage Google",
+    "Top Free Apps",
+    "Team Collaboration",
+    "Product Management",
+    "Documents",
+    "Spreadsheets"
+   ],
+   "about": "Google Drive is a secure cloud storage and file collaboration platform that lets users store, share, organize, sync, and collaborate on files from anywhere, inc"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-drive:Create a new sheet or doc or slide",
+   "triggers": [
+    "monday-com:New User Joins"
+   ]
+  },
+  {
+   "action": "google-drive:Create Folder",
+   "triggers": [
+    "monday-com:New User Joins"
+   ]
+  },
+  {
+   "action": "google-drive:Share File With Anyone",
+   "triggers": [
+    "monday-com:New Subitem Created",
+    "monday-com:New SubItem Created",
+    "monday-com:Subitem Is Updated",
+    "monday-com:Item Moves to a Group",
+    "monday-com:New Item Added to Board",
+    "monday-com:Board Created Or Updated",
+    "monday-com:New User Joins",
+    "monday-com:Item Column Value Changes",
+    "monday-com:New Item Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "monday-com:New User Joins",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new user joins"
+  },
+  {
+   "key": "google-drive:Create a new sheet or doc or slide",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new Google Docs document, Sheet, or Slide in Google Drive and optionally save it to a chosen folder."
+  },
+  {
+   "key": "google-drive:Create Folder",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new folder in Google Drive. Optionally specify a parent folder to place it inside."
+  },
+  {
+   "key": "monday-com:New Subitem Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new subitem is created on a board."
+  },
+  {
+   "key": "google-drive:Share File With Anyone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a file accessible via a shareable link and set access level (Viewer, Commenter, Editor)."
+  },
+  {
+   "key": "monday-com:New SubItem Created",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new subitem is created on a board."
+  },
+  {
+   "key": "monday-com:Subitem Is Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a subitem is updated on a board."
+  },
+  {
+   "key": "monday-com:Item Moves to a Group",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an item is moved to any group on a board."
+  },
+  {
+   "key": "monday-com:New Item Added to Board",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new item is added to the board."
+  },
+  {
+   "key": "monday-com:Board Created Or Updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a board is created or updated"
+  },
+  {
+   "key": "monday-com:Item Column Value Changes",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a column value on a board is updated."
+  },
+  {
+   "key": "monday-com:New Item Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new item is created on a board."
+  }
+ ]
+}

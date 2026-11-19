@@ -1,0 +1,70 @@
+{
+ "pair": "production-list/slack",
+ "apps": {
+  "production-list": {
+   "name": "Production List",
+   "labels": [
+    "Video & Audio"
+   ],
+   "about": "Production List provides an early structured feed of new film and TV productions, production companies and weekly production lists."
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:New Message Posted in Channel Instant",
+   "triggers": [
+    "production-list:New Production Detected"
+   ]
+  },
+  {
+   "action": "slack:Message Private Channel",
+   "triggers": [
+    "production-list:New Production Detected"
+   ]
+  },
+  {
+   "action": "slack:Send Interactive Message",
+   "triggers": [
+    "production-list:New Production Detected"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "production-list:New Production Detected",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new film or TV production is detected, with optional type, stage and location filters."
+  },
+  {
+   "key": "slack:New Message Posted in Channel Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+  },
+  {
+   "key": "slack:Message Private Channel",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Message a private channel"
+  },
+  {
+   "key": "slack:Send Interactive Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a message with buttons or a form to collect approvals or responses."
+  }
+ ]
+}

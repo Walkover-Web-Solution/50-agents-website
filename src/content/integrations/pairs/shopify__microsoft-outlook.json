@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify sees the shopper who left and Outlook is where you write to them. “Abandoned Checkout” in Shopify can run “Create Draft Email”, so a follow-up waits in your drafts instead of going out unseen.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create Draft Email” in Microsoft Outlook",
+    "why": "Abandoned checkout carries the shopper's email or phone, and a draft means a person reads the message before it reaches a customer."
+  },
+  "watchOut": "“Abandoned Checkout” is polling, so it runs on a schedule and the draft can be late. A checkout with a phone number but no email gives the draft no address."
+}

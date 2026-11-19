@@ -1,0 +1,57 @@
+{
+ "pair": "applivery/zoom",
+ "apps": {
+  "applivery": {
+   "name": "Applivery",
+   "labels": [
+    "Developer Tools",
+    "IT Operations",
+    "Devices"
+   ],
+   "about": "Applivery helps teams manage, distribute, and update mobile apps across devices, with tools for app testing, deployment, and mobile device management."
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "applivery:New Feedback Report",
+    "applivery:New Build Processed",
+    "applivery:New Build Uploaded"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "applivery:New Feedback Report",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new feedback or bug report is received for a chosen app or any app."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "applivery:New Build Processed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a build finishes processing and is ready to install in a chosen app or any app."
+  },
+  {
+   "key": "applivery:New Build Uploaded",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new build is uploaded to an app or to any app in the workspace."
+  }
+ ]
+}

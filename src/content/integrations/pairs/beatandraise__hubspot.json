@@ -1,0 +1,8 @@
+{
+  "usedFor": "beatandraise reads SEC EDGAR filings; HubSpot is your CRM. A “New Filing” or “New Insider Transaction” for a company you follow can open a deal with “Create Deal”, so sales sees the signal.",
+  "bestTemplate": {
+    "name": "“New Filing” in beatandraise, then “Create Deal” in HubSpot",
+    "why": "You can filter by company, form type or 8-K item, so only filings that signal a real opportunity create a deal."
+  },
+  "watchOut": "Both beatandraise triggers run daily, so a filing shows up in HubSpot up to a day late. Filter by form type or the same company can fill your pipeline with deals."
+}

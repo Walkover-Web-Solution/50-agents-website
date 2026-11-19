@@ -1,0 +1,8 @@
+{
+ "usedFor": "Your WordPress site is where people sign up and edit their profiles, and HubSpot is where their contact record lives. “User Updates Profile” in WordPress can feed “Update Contact” in HubSpot.",
+ "bestTemplate": {
+  "name": "“User Updates Profile” in Wordpress, then “Update Contact” in HubSpot",
+  "why": "It keeps the HubSpot contact in step with what the person changed on your site, so sales sees the new details without a manual edit. The action updates the contact it finds by email."
+ },
+ "watchOut": "“Update Contact” finds the record by its email, so a WordPress user who is not already a HubSpot contact has nothing to update. Check that new sign-ups exist in HubSpot before you rely on “User Updates Profile”."
+}

@@ -1,0 +1,8 @@
+{
+ "usedFor": "Brix manages your signage screens, and Asana tracks the work. When “New Screen” appears in Brix, “Create Project” in Asana can open a rollout project for it.",
+ "bestTemplate": {
+  "name": "“New Screen” in Brix, then “Create Project” in Asana",
+  "why": "A new screen means setup work: install, content, check. “Create Project” sets the name, notes, dates and owner, and “New Screen” can be limited to one location."
+ },
+ "watchOut": "“New Screen” is polling, so the Asana project is created after the next check. “Create Project” makes a project on every run, so narrow the trigger to a location if you only track some sites."
+}

@@ -1,0 +1,62 @@
+{
+ "pair": "brix/dropbox",
+ "apps": {
+  "brix": {
+   "name": "Brix",
+   "labels": [
+    "Marketing"
+   ],
+   "about": "Brix is digital signage software for TVs and players. Post messages, cast content, run emergency takeovers, manage media and playlists, and react to recalled co"
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "brix:New Media",
+    "brix:New Screen",
+    "brix:New Restored Content",
+    "brix:New Recalled Content"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "brix:New Media",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new file is added to the media library, optionally of chosen types."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "brix:New Screen",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new screen is added, optionally within a chosen location."
+  },
+  {
+   "key": "brix:New Restored Content",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when recalled content is restored to screens."
+  },
+  {
+   "key": "brix:New Recalled Content",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a file, design, playlist or schedule is recalled from all screens."
+  }
+ ]
+}

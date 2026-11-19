@@ -1,0 +1,8 @@
+{
+  "usedFor": "Barevalue edits podcast audio with AI; Dropbox is where the finished files live. When “New Completed Order” fires in Barevalue, “Upload File to Dropbox” can save the result to a folder.",
+  "bestTemplate": {
+    "name": "“New Completed Order” in Barevalue, then “Upload File to Dropbox” in Dropbox",
+    "why": "The trigger fires when the edit is done and its files are ready, so the finished episode lands in your archive without a manual download."
+  },
+  "watchOut": "“Upload File to Dropbox” saves from a public web link, so the order has to give one. “New Failed Order” carries no finished file, so skip it for uploads."
+}

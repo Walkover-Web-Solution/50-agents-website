@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify is where orders arrive and QuickBooks is where they become invoices. “New Order” in Shopify can run “Create Invoice”, so every sale reaches accounting without re-keying.",
+  "bestTemplate": {
+    "name": "“New Order” in Shopify, then “Create Invoice” in QuickBooks",
+    "why": "“New Order” is pushed as the sale happens and “Create Invoice” is the one Shopify template that produces a bookkeeping record from an order."
+  },
+  "watchOut": "“Create Payment” records a payment, but the Shopify triggers that reach it are “New Customer”, “Order Cancelled” and edited line items. None of those is a payment, so check what you map."
+}

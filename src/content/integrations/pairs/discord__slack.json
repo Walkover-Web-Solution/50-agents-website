@@ -1,0 +1,8 @@
+{
+ "usedFor": "Discord is where your community talks, and Slack is where your team reads. When “New Message Posted to Channel” fires in Discord, “Send Message” in Slack can post it to a team channel.",
+ "bestTemplate": {
+  "name": "“New Message Posted to Channel” in Discord, then “Send Message” in Slack",
+  "why": "It is the plainest way to bring community chatter to the team, and “Send Message” takes a channel name or ID and can schedule the post. “Send Interactive Message” adds buttons if the team must reply."
+ },
+ "watchOut": "“New Message Posted to Channel” is polling, so messages reach Slack after the next check. An automation's post to a Slack channel also waits for your approval today."
+}

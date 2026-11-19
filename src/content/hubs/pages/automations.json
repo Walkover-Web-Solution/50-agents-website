@@ -3,7 +3,7 @@
   "kind": "auto",
   "query": "workflow automation for small business; automate tasks between apps",
   "title": "Workflow automation for small business | 50agents",
-  "description": "Say \"when X happens, do Y\" and Captain builds the automation, tests it on your real data with sends held back, and turns it on when you say so.",
+  "description": "Workflow automation for small business: say \"when X happens, do Y\" and Captain builds it, tests it on your real data and turns it on when you say so.",
   "crumb": "Automations",
   "h1": "Workflow automation you describe in one sentence",
   "line": "The same steps every time something happens.",
@@ -40,7 +40,7 @@
   "faqs": [
     {
       "q": "What is workflow automation for a small business?",
-      "a": "Software that does a repeated job between your apps without you: every new order logged, every new lead posted, every Friday report sent. Start with a job you do the same way at least weekly, where a mistake is cheap to fix."
+      "a": "Software that does a repeated job between your apps without you: every new [order](/guides/how-to-send-shopify-orders-to-google-sheets) or [payment](/guides/how-to-log-stripe-payments-in-google-sheets) logged, every new [HubSpot contact posted to Slack](/guides/how-to-send-new-hubspot-contacts-to-slack), every Friday report sent. Start with a job you do the same way at least weekly, where a mistake is cheap to fix."
     },
     {
       "q": "How do I start an automation in 50agents?",
@@ -60,7 +60,7 @@
     },
     {
       "q": "How is this different from Zapier, Make or n8n?",
-      "a": "In those you build each step yourself, on a list or a canvas; in 50agents Captain builds it from your sentence and tests it on your data. Zapier has a larger app directory, Make has a visual canvas, and n8n can run on your own server, which 50agents cannot."
+      "a": "In those you build each step yourself, on a list or a canvas; in 50agents Captain builds it from your sentence and tests it on your data. Zapier has a larger app directory, Make has a visual canvas, and n8n can run on your own server, which 50agents cannot. [Zapier vs Make vs n8n for a small team](/guides/zapier-vs-make-vs-n8n-for-a-small-team) compares those three."
     }
   ],
   "links": [

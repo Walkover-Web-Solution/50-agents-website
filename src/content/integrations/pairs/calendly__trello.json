@@ -1,0 +1,8 @@
+{
+  "usedFor": "Calendly takes bookings; Trello is the board where work gets tracked. A booking in Calendly can turn into a card with “Create Trello Card”.",
+  "bestTemplate": {
+    "name": "“New Meeting Book or Invitee Created” in Calendly, then “Create Trello Card” in Trello",
+    "why": "It drops a card on your board for each new booking, which gives the meeting prep a place to live. Its hook delivery is also faster than the polling option."
+  },
+  "watchOut": "“When a meeting is scheduled, rescheduled, or canceled” polls and fires for several states, so the same meeting can create more than one card. Prefer the booking trigger for one card per meeting."
+}

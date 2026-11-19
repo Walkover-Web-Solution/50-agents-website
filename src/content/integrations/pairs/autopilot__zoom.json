@@ -1,0 +1,8 @@
+{
+  "usedFor": "Autopilot tracks your clients and jobs; Zoom hosts the webinar you invite them to. A “New Client” in Autopilot can run “Register Attendee for Webinar” in Zoom, signing the client up.",
+  "bestTemplate": {
+    "name": "“New Client” in Autopilot, then “Register Attendee for Webinar” in Zoom",
+    "why": "New clients can be limited to clients or leads only, so onboarding webinars reach the right group without anyone entering names."
+  },
+  "watchOut": "“Register Attendee for Webinar” needs a specific webinar chosen, and “Updated Client” fires on any change, so one person could be registered twice. Stay on “New Client”."
+}

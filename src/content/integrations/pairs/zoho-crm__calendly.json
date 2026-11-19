@@ -1,0 +1,8 @@
+{
+ "usedFor": "Zoho CRM records your leads and contacts, and Calendly handles the booking. When “New Lead” is added in Zoho CRM, “Create Scheduling Link” in Calendly can produce a booking link for that lead.",
+ "bestTemplate": {
+  "name": "“New Lead” in Zoho CRM, then “Create Scheduling Link” in Calendly",
+  "why": "A fresh lead is the moment a booking link helps most, and the action hands you a link to pass on. Triggers such as “New Task” or “New Account” do not point at a person who would book."
+ },
+ "watchOut": "Zoho CRM triggers are polling, so the link is made after the next check, not when the lead arrives. “New or Updated Lead” also fires on edits, so one lead could get a second link."
+}

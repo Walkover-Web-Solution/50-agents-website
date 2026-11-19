@@ -1,0 +1,8 @@
+{
+ "usedFor": "Jotform collects the submissions, and Google Sheets keeps them in rows. “New Submission” in Jotform can fill the sheet through “Add New Row to Sheet”.",
+ "bestTemplate": {
+  "name": "“New Submission” in Jotform, then “Add New Row to Sheet” in Google Sheets",
+  "why": "Jotform pushes each submission as it arrives, and “Add New Row to Sheet” makes a row for it. “Format Spreadsheet Row” only changes how a row looks."
+ },
+ "watchOut": "“Add New Row to Sheet” can map by header or by column letter, so check the mapping if you rename form fields or reorder sheet columns."
+}

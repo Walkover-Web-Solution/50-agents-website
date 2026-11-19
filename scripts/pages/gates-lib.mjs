@@ -11,6 +11,22 @@ export const PLANNED_USE_CASES = new Set(read('scripts/pages/rows-use-cases.json
 
 const BANNED = ['unlock', 'unleash', 'seamless', 'effortless', 'leverage', 'robust', 'elevate', 'empower', 'supercharge', 'game-changer', 'revolutioniz', 'cutting-edge', 'delve', 'harness', 'streamline', 'synergy', 'journey', 'landscape', 'realm', 'tapestry', "today's fast-paced", 'today’s fast-paced', 'look no further', 'say goodbye to', 'next level', 'imagine a world'];
 export const words = s => s.split(/\s+/).filter(Boolean).length;
+/** The visible words of a marked-up string: "[label](/path)" is its label. */
+export const plain = s => s.replace(/\[([^\]]+)\]\(\/[^)\s]*\)/g, '$1');
+/** The internal links in a marked-up string. */
+export const linksIn = s => [...s.matchAll(/\]\((\/[^)\s]*)\)/g)].map(m => m[1]);
+// SEO pass 01: a description leads with the query and the answer, not with an instruction to the reader.
+export const leadsWithAsk = d => /^(Tell|Ask) (Captain|it)\b/i.test(d);
+const STOP = new Set('how to a an the of in for with from and your you it is on at by or what which one'.split(' '));
+const stem = w => w.replace(/s$/, '');
+const toks = s => s.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(w => w && !STOP.has(w)).map(stem);
+const GENERIC_H2 = /^(how it works|how to set it up|how to build it|how to start|how to get started|other ways to do it(, compared)?|the alternatives, side by side|how to use it)$/i;
+/** A section heading names the page's own job: not a generic template line, and it shares a word with the page's query. */
+export function namesJob(h2, query) {
+  if (!h2 || GENERIC_H2.test(h2.trim())) return false;
+  const q = new Set(toks(query));
+  return toks(h2).some(t => q.has(t));
+}
 const MONTHS = 'January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec';
 
 /** House style and the 50agents rules on every text of a page. Returns the problems found. */

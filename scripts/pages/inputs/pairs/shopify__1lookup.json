@@ -1,0 +1,56 @@
+{
+ "pair": "shopify/1lookup",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "1lookup": {
+   "name": "1Lookup",
+   "labels": [
+    "Phone & SMS",
+    "Developer Tools"
+   ],
+   "about": "1Lookup is a data verification and enrichment API that validates phone numbers, email addresses and IP addresses, screens numbers for spam and DNC, and enriches"
+  }
+ },
+ "templates": [
+  {
+   "action": "1lookup:Validate Phone Number",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "1lookup:Validate Phone Number",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Validate a phone number and get its line type, carrier, reachability, DNC flags and a recommended action."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

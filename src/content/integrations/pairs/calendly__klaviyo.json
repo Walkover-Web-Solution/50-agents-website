@@ -1,0 +1,8 @@
+{
+ "usedFor": "Calendly is where people book, and Klaviyo is where you market to them. A booking trigger in Calendly can run “Subscribe Profile” in Klaviyo to add that person to email or SMS marketing.",
+ "bestTemplate": {
+  "name": "“When a meeting is scheduled, rescheduled, or canceled” in Calendly, then “Subscribe Profile” in Klaviyo",
+  "why": "It moves everyone who books into a Klaviyo list without typing, and “Subscribe Profile” covers email or SMS. The reverse templates only create booking links."
+ },
+ "watchOut": "The trigger is polling and fires on rescheduled and canceled meetings as well as new ones, so someone who cancels still reaches “Subscribe Profile”. Check you have consent before you subscribe a booker."
+}

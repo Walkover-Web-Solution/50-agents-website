@@ -3,9 +3,10 @@
   "kind": "ai",
   "query": "daily calendar summary in Slack",
   "category": "scheduling",
-  "title": "Daily calendar summary in Slack | 50agents",
-  "description": "Tell Captain to set up an AI agent that reads tomorrow's Google Calendar every day at 18:00 and sends the meetings to you in one Slack message.",
+  "title": "Daily Google Calendar summary in Slack | 50agents",
+  "description": "A daily calendar summary in Slack: every day at 18:00 an AI agent reads tomorrow's Google Calendar and sends you all your meetings in one Slack message.",
   "h1": "Daily calendar summary in Slack",
+  "h2": { "how": "How to get tomorrow's meetings in Slack every evening", "compare": "Other ways to get tomorrow's meetings in Slack" },
   "answer": [
     "To get a daily calendar summary in Slack, tell Captain \"Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack\".",
     "It builds an AI agent that posts tomorrow's meetings at 18:00, after you approve."
@@ -53,9 +54,9 @@
     ]
   },
   "faqs": [
-    { "q": "Can Slack post my calendar every day?", "a": "Yes. Slack's own Google Calendar app can send a daily rundown, in the morning or the night before. This AI agent does that and also names clashes and anything you ask it to add." },
+    { "q": "Can Slack post my calendar every day?", "a": "Yes. Slack's own Google Calendar app can send a daily rundown, in the morning or the night before. This AI agent does that and also names clashes and anything you ask it to add. [How to get a daily calendar summary in Slack](/guides/how-to-get-a-daily-calendar-summary-in-slack) compares the ways to set it up." },
     { "q": "Why send it the evening before?", "a": "So an early meeting is not news at breakfast. At 18:00 you can still move something or prepare. Change the time in one sentence if you prefer mornings." },
-    { "q": "Can it post to a channel instead of a direct message?", "a": "Yes, name the channel. A post others will see waits for your approval, like every message this AI agent sends until you allow it in Settings." },
+    { "q": "Can it post to a channel instead of a direct message?", "a": "Yes, name the channel. A post others will see waits for your approval, like every message this AI agent sends until you allow it in Settings. See [How to make an AI agent ask before it acts](/guides/how-to-make-an-ai-agent-ask-before-it-acts)." },
     { "q": "Does it change my calendar?", "a": "No. It reads your events to write the message. The catalog has actions that edit events, but this AI agent is only asked to list tomorrow's meetings." },
     { "q": "Can it cover more than one calendar?", "a": "Yes. Name each calendar in its instructions, for example work and family, and it reads them together." }
   ],

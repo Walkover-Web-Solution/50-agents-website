@@ -1,0 +1,8 @@
+{
+ "usedFor": "Shopify is the store, and Balsio is where your team messages. When “Abandoned Checkout” fires in Shopify, “Create Scheduled Message” in Balsio can queue a follow-up reminder in a team thread.",
+ "bestTemplate": {
+  "name": "“Abandoned Checkout” in Shopify, then “Create Scheduled Message” in Balsio",
+  "why": "It turns a left-behind cart into a reminder at a time you set, so the team follows up. “Add Users to Thread” only adds people and says nothing about the checkout."
+ },
+ "watchOut": "“Create Scheduled Message” needs a thread ID and a date and time. “Abandoned Checkout” is polling, so the reminder is set after the next check."
+}

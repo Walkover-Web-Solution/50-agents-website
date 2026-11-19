@@ -1,0 +1,8 @@
+{
+ "usedFor": "Slack is where updates get typed, and Google Sheets is where you keep the log. “New Message in Channels” in Slack can add a line through “Add New Row to Sheet” in Google Sheets.",
+ "bestTemplate": {
+  "name": "“New Message in Channels” in Slack, then “Add New Row to Sheet” in Google Sheets",
+  "why": "It turns a channel into a running log with one row per message. The thread triggers only pair with “Update Spreadsheet Row”, which changes a row that is already there."
+ },
+ "watchOut": "“New Message in Channels” is polling, so rows appear after the next check. “New Thread Message Instant” is pushed by Slack, but in this pair it only feeds “Update Spreadsheet Row”."
+}

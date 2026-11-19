@@ -1,0 +1,63 @@
+{
+ "pair": "twilio/zoom",
+ "apps": {
+  "twilio": {
+   "name": "Twilio",
+   "labels": [
+    "Communication",
+    "Phone and SMS"
+   ],
+   "about": "Twilio provides a cloud API for voice, text, chat, video, and email communication that enables developers to add communication capabilities to their application"
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "twilio:New Incoming Call",
+    "twilio:New Alert Appears",
+    "twilio:New Phone Number Is Added",
+    "twilio:New Message"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "twilio:New Incoming Call",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new incoming call reaches your Twilio number; choose a TwiML response to answer or forward it."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "twilio:New Alert Appears",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new alert appears"
+  },
+  {
+   "key": "twilio:New Phone Number Is Added",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new phone number is added"
+  },
+  {
+   "key": "twilio:New Message",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new message arrives"
+  }
+ ]
+}

@@ -3,9 +3,10 @@
   "kind": "browser",
   "query": "monitor competitor prices automatically",
   "category": "analytics",
-  "title": "Monitor competitor prices automatically | 50agents",
-  "description": "Tell Captain to set up a browser agent that reads your competitors' pricing pages every day at 9:00 and reports which price changed, from what to what.",
+  "title": "Competitor price monitoring with a browser agent | 50agents",
+  "description": "To monitor competitor prices automatically, a browser agent reads each pricing page every day at 9:00 and tells you which price changed, from what to what.",
   "h1": "Monitor competitor prices automatically",
+  "h2": { "how": "How the browser agent monitors competitor prices", "compare": "Other ways to monitor competitor prices" },
   "answer": [
     "To monitor competitor prices automatically, tell Captain \"Set up a browser agent that checks my competitors' pricing pages every day at 9:00\".",
     "It builds a browser agent that reports price changes; it only reads, so nothing needs approval."
@@ -56,7 +57,7 @@
     ]
   },
   "faqs": [
-    { "q": "How often should I check competitor prices?", "a": "Daily suits most software and service pricing, and it is what this ask sets up. If your rivals reprice many times a day, a dedicated price-tracking platform fits better." },
+    { "q": "How often should I check competitor prices?", "a": "Daily suits most software and service pricing, and it is what this ask sets up. If your rivals reprice many times a day, a dedicated price-tracking platform fits better. [How to monitor competitor prices automatically](/guides/how-to-monitor-competitor-prices-automatically) covers the setup in any tool." },
     { "q": "Do I need to connect an app or an API?", "a": "No. A browser agent works from web addresses alone, in its own browser, the way you would. You only name the pages." },
     { "q": "What about pages that need a login?", "a": "A browser agent cannot log in for you without your OK. It asks first, so a members-only price list stays under your control." },
     { "q": "Will it tell me when a price drops as well as rises?", "a": "Yes. The report lists each change with the old and the new price. Ask for only drops, or only certain plans, in one sentence." },

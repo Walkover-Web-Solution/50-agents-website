@@ -1,0 +1,78 @@
+{
+ "pair": "shopify/apexverify",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "apexverify": {
+   "name": "ApexVerify",
+   "labels": [
+    "Email Verification",
+    "Data Enrichment"
+   ],
+   "about": "ApexVerify verifies email addresses and phone numbers in real time or in bulk batches to keep contact lists clean and deliverable."
+  }
+ },
+ "templates": [
+  {
+   "action": "apexverify:Create Verification Batch",
+   "triggers": [
+    "shopify:New Customer",
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "apexverify:Verify Email or Phone",
+   "triggers": [
+    "shopify:New Customer",
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:New Customer",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new customer is created to Shopify account"
+  },
+  {
+   "key": "apexverify:Create Verification Batch",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Upload a list of emails or phone numbers as a new batch and prepare it for verification."
+  },
+  {
+   "key": "apexverify:Verify Email or Phone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Verify an email address or phone number and get its quality result; choose verification type and target country."
+  },
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

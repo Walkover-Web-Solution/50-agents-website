@@ -1,0 +1,67 @@
+{
+ "pair": "zoho-crm/apexverify",
+ "apps": {
+  "zoho-crm": {
+   "name": "Zoho CRM",
+   "labels": [
+    "CRM",
+    "Top Free Apps",
+    "Contact Management",
+    "Marketing Automation",
+    "Business Intelligence",
+    "Analytics"
+   ],
+   "about": "Zoho CRM is an AI-powered customer relationship management platform that helps businesses manage leads, contacts, deals, customer interactions, sales automation"
+  },
+  "apexverify": {
+   "name": "ApexVerify",
+   "labels": [
+    "Email Verification",
+    "Data Enrichment"
+   ],
+   "about": "ApexVerify verifies email addresses and phone numbers in real time or in bulk batches to keep contact lists clean and deliverable."
+  }
+ },
+ "templates": [
+  {
+   "action": "apexverify:Create Verification Batch",
+   "triggers": [
+    "zoho-crm:New Deals",
+    "zoho-crm:New Account"
+   ]
+  },
+  {
+   "action": "apexverify:Verify Email or Phone",
+   "triggers": [
+    "zoho-crm:New Deals",
+    "zoho-crm:New Account"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "zoho-crm:New Deals",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Apply confirmed v8 polling, latest sample, and safe historical transfer updates to the existing New Deals trigger."
+  },
+  {
+   "key": "apexverify:Create Verification Batch",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Upload a list of emails or phone numbers as a new batch and prepare it for verification."
+  },
+  {
+   "key": "apexverify:Verify Email or Phone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Verify an email address or phone number and get its quality result; choose verification type and target country."
+  },
+  {
+   "key": "zoho-crm:New Account",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update perform and sample endpoints to Zoho CRM v8, adding required sample fields and safe response access."
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+{
+ "usedFor": "WordPress is where posts get published, and Slack is where the team hears about it. “New Post Created” in WordPress can announce itself through “Send Message” in Slack.",
+ "bestTemplate": {
+  "name": "“New Post Created” in Wordpress, then “Send Message” in Slack",
+  "why": "It tells the team the moment a post exists, and “Send Message” can target a channel by name or ID. “Send Interactive Message” suits a post that needs sign-off."
+ },
+ "watchOut": "An automation's post to a Slack channel waits for your approval today. Going the other way, “New Message in Channels” is polling, so “Create Post” runs after the next check."
+}

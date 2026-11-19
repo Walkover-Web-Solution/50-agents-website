@@ -1,0 +1,68 @@
+{
+ "pair": "ai-for-database/hubspot",
+ "apps": {
+  "ai-for-database": {
+   "name": "AI for Database",
+   "labels": [
+    "AI Tools",
+    "Databases"
+   ],
+   "about": "AI for Database lets teams ask questions of live databases in plain English, run SQL and saved queries, track metrics and run data workflows."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "ai-for-database:New Workflow Run Completed"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "ai-for-database:New Workflow Run Completed"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "ai-for-database:New Workflow Run Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "ai-for-database:New Workflow Run Completed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a run of a chosen workflow finishes, with its status and results."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  }
+ ]
+}

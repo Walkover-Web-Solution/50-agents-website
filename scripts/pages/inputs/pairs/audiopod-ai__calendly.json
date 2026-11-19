@@ -1,0 +1,57 @@
+{
+ "pair": "audiopod-ai/calendly",
+ "apps": {
+  "audiopod-ai": {
+   "name": "AudioPod AI",
+   "labels": [
+    "AI Tools",
+    "Video & Audio"
+   ],
+   "about": "AudioPod AI is an AI audio platform for text to speech, transcription with speaker labels, stem separation, noise removal, voice cloning and music generation."
+  },
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  }
+ },
+ "templates": [
+  {
+   "action": "calendly:Create One-Time Meeting",
+   "triggers": [
+    "audiopod-ai:New Job Failed",
+    "audiopod-ai:New Job Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "audiopod-ai:New Job Failed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job fails, optionally only for chosen job types."
+  },
+  {
+   "key": "calendly:Create One-Time Meeting",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a one-time meeting"
+  },
+  {
+   "key": "audiopod-ai:New Job Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job finishes successfully, optionally only for chosen job types."
+  }
+ ]
+}

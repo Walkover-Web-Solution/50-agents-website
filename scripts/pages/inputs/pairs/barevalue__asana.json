@@ -1,0 +1,52 @@
+{
+ "pair": "barevalue/asana",
+ "apps": {
+  "barevalue": {
+   "name": "Barevalue",
+   "labels": [
+    "Content & Files"
+   ],
+   "about": "Barevalue edits podcast audio with AI: submit an episode by link, track the order and get the edited audio, transcript and show notes."
+  },
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  }
+ },
+ "templates": [
+  {
+   "action": "asana:Create Project",
+   "triggers": [
+    "barevalue:New Failed Order",
+    "barevalue:New Completed Order"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "barevalue:New Failed Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an order fails its checks or processing."
+  },
+  {
+   "key": "asana:Create Project",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new project in a workspace and set name, notes, start/due dates, owner, privacy, color, and default view."
+  },
+  {
+   "key": "barevalue:New Completed Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an order finishes editing and its files are ready."
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "pair": "shopify/retime",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "retime": {
+   "name": "Retime",
+   "labels": [
+    "Scheduling",
+    "Productivity"
+   ],
+   "about": "Retime is an online scheduling tool that lets people book meetings with you through shareable event-type pages, with calendar sync and automatic availability."
+  }
+ },
+ "templates": [
+  {
+   "action": "retime:Update Event Type",
+   "triggers": [
+    "shopify:New Customer",
+    "shopify:Order Line Items Are Edited",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:New Customer",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new customer is created to Shopify account"
+  },
+  {
+   "key": "retime:Update Event Type",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing event type; fields left empty stay unchanged."
+  },
+  {
+   "key": "shopify:Order Line Items Are Edited",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when items on an order are edited."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

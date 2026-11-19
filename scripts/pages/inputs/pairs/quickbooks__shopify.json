@@ -1,0 +1,99 @@
+{
+ "pair": "quickbooks/shopify",
+ "apps": {
+  "quickbooks": {
+   "name": "QuickBooks",
+   "labels": [
+    "Accounting",
+    "Finance",
+    "Business Management"
+   ],
+   "about": "QuickBooks is a comprehensive accounting software designed to manage sales, expenses, and keep track of daily business transactions. It offers features like inv"
+  },
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  }
+ },
+ "templates": [
+  {
+   "action": "quickbooks:Create Invoice",
+   "triggers": [
+    "shopify:New Order"
+   ]
+  },
+  {
+   "action": "quickbooks:Create Payment",
+   "triggers": [
+    "shopify:New Customer",
+    "shopify:Order Line Items Are Edited",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "shopify:New Customer",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  },
+  {
+   "action": "shopify:Order Line Items Are Edited",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  },
+  {
+   "action": "shopify:Order Cancelled",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:New Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new order is created."
+  },
+  {
+   "key": "quickbooks:Create Invoice",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new invoice."
+  },
+  {
+   "key": "shopify:New Customer",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new customer is created to Shopify account"
+  },
+  {
+   "key": "quickbooks:Create Payment",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Records a new payment transaction."
+  },
+  {
+   "key": "shopify:Order Line Items Are Edited",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when items on an order are edited."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "quickbooks:New Invoice",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new invoice is created."
+  }
+ ]
+}

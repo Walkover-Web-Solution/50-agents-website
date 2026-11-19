@@ -1,0 +1,8 @@
+{
+ "usedFor": "Shopify and WooCommerce are rival stores, so this pair suits a team that runs one of each. “Abandoned Checkout” in Shopify can create a coupon through “Create Coupon” in WooCommerce.",
+ "bestTemplate": {
+  "name": "“Abandoned Checkout” in Shopify, then “Create Coupon” in WooCommerce",
+  "why": "It reacts to a shopper who left without paying, and “Create Coupon” makes a code in your WooCommerce store. The WooCommerce order trigger only pairs with Shopify triggers, not an action."
+ },
+ "watchOut": "“Abandoned Checkout” is polling, so the coupon appears after the next check. “Create Coupon” makes a new code on every run, and it exists only in the WooCommerce store, not in Shopify."
+}

@@ -1,0 +1,91 @@
+{
+ "pair": "calendly/slack",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "calendly:When a meeting is scheduled, rescheduled, or canceled",
+    "calendly:New Meeting Book or Invitee Created"
+   ]
+  },
+  {
+   "action": "slack:Send Interactive Message",
+   "triggers": [
+    "calendly:When a meeting is scheduled, rescheduled, or canceled"
+   ]
+  },
+  {
+   "action": "calendly:Mark Invitee As No Show",
+   "triggers": [
+    "slack:New Message on Slack"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:When a meeting is scheduled, rescheduled, or canceled",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update polling logic to reduce duplicate trigger hits."
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "slack:Send Interactive Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a message with buttons or a form to collect approvals or responses."
+  },
+  {
+   "key": "calendly:New Meeting Book or Invitee Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when someone books a meeting for any event type."
+  },
+  {
+   "key": "slack:New Message on Slack",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new message is posted anywhere in Slack ,  across all channels and direct messages. No channel filter applied."
+  },
+  {
+   "key": "calendly:Mark Invitee As No Show",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Mark an invitee as no-show"
+  }
+ ]
+}

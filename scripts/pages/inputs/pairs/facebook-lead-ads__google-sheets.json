@@ -1,0 +1,59 @@
+{
+ "pair": "facebook-lead-ads/google-sheets",
+ "apps": {
+  "facebook-lead-ads": {
+   "name": "Facebook Lead Ads",
+   "labels": [
+    "Marketing",
+    "Lead Generation",
+    "Social Media"
+   ],
+   "about": "Automate the process of capturing and managing leads from Facebook. Seamlessly integrate your Facebook lead generation campaigns with your CRM or email marketin"
+  },
+  "google-sheets": {
+   "name": "Google Sheets",
+   "labels": [
+    "Productivity",
+    "Top Free Apps",
+    "Spreadsheets",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Google Sheets is a cloud-based spreadsheet application that lets users create, edit, share, and collaborate on spreadsheets in real time."
+  }
+ },
+ "templates": [
+  {
+   "action": "google-sheets:Row Added Or Updated",
+   "triggers": [
+    "facebook-lead-ads:New Lead Submitted"
+   ]
+  },
+  {
+   "action": "google-sheets:Format Spreadsheet Row",
+   "triggers": [
+    "facebook-lead-ads:New Lead Submitted"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "facebook-lead-ads:New Lead Submitted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when New Lead Submitted"
+  },
+  {
+   "key": "google-sheets:Row Added Or Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when row added or updated"
+  },
+  {
+   "key": "google-sheets:Format Spreadsheet Row",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Format row font and background"
+  }
+ ]
+}

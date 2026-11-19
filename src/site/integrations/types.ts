@@ -35,3 +35,10 @@ export type IntegrationPage = {
   sources?: { label: string; href: string }[]; // pages read for the answers about the app's own AI, shown once under the questions
   updated: string; // ISO date: the sitemap, and "Updated <Month Year>" in the byline
 };
+
+/** The lines written for one pair page (src/content/integrations/pairs/<a>__<b>.json, canonical order), Search S24. */
+export type PairLines = {
+  usedFor: string; // what this pair is used for: one or two sentences
+  bestTemplate: { name: string; why: string }; // a real template between the two apps (the catalog's trigger and action names), and why it is the most useful
+  watchOut: string; // what to watch for between these two apps: one or two sentences
+};

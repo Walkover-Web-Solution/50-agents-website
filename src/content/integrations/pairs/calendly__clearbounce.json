@@ -1,0 +1,8 @@
+{
+  "usedFor": "Calendly collects an email from each person who books; ClearBounce checks whether it is real. A booking in Calendly can send that address to ClearBounce with “Verify Email Address”.",
+  "bestTemplate": {
+    "name": "“New Meeting Book or Invitee Created” in Calendly, then “Verify Email Address” in ClearBounce",
+    "why": "It checks each invitee's address as they book, so a typo or fake email gets caught before it enters your follow-up list."
+  },
+  "watchOut": "“Create Bulk Job” starts a job for a list of addresses, so one booking gives it a single-address list. “Verify Email Address” is the one that fits a single invitee."
+}

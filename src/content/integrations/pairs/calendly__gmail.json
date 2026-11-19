@@ -1,0 +1,8 @@
+{
+  "usedFor": "Calendly records the meeting; Gmail sends the email. A booking, reschedule or cancellation in Calendly can trigger “Send Email” in Gmail to confirm it or follow up.",
+  "bestTemplate": {
+    "name": "“New Meeting Book or Invitee Created” in Calendly, then “Send Email” in Gmail",
+    "why": "It sends a tailored email the moment someone books, with subject, body, recipients and attachments you set, such as a prep checklist."
+  },
+  "watchOut": "“When a meeting is scheduled, rescheduled, or canceled” polls and covers three states, so one person can get several emails. On 50agents, an email that reaches someone outside waits for your approval."
+}

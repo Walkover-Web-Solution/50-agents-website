@@ -1,0 +1,62 @@
+{
+ "pair": "shopify/balsio",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "balsio": {
+   "name": "Balsio",
+   "labels": [
+    "Team Collaboration",
+    "Communication"
+   ],
+   "about": "Balsio is a team messaging platform for threads, channels and conversations with teammates and external participants."
+  }
+ },
+ "templates": [
+  {
+   "action": "balsio:Add Users to Thread",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Blog Article"
+   ]
+  },
+  {
+   "action": "balsio:Create Scheduled Message",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Blog Article"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "balsio:Add Users to Thread",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Add people to a Balsio thread by email address."
+  },
+  {
+   "key": "shopify:New Blog Article",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new blog article is published."
+  },
+  {
+   "key": "balsio:Create Scheduled Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Schedules one message to be posted to a Balsio thread by thread ID at a given date and time, optionally as a reply to another message, with attachments, custom attributes and an idempotency key against duplicate runs…"
+  }
+ ]
+}

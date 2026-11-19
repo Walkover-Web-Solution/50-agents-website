@@ -1,0 +1,59 @@
+{
+ "pair": "airtable/eclincher",
+ "apps": {
+  "airtable": {
+   "name": "Airtable",
+   "labels": [
+    "Databases",
+    "Task Management",
+    "Project Management",
+    "App Builder",
+    "Productivity",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Airtable is a flexible no-code platform for building collaborative databases, workflows, apps, and AI-powered team operations, helping organizations organize da"
+  },
+  "eclincher": {
+   "name": "Eclincher",
+   "labels": [
+    "Social Media Accounts"
+   ],
+   "about": "Eclincher is a social media management platform. Use this integration to publish posts, manage inboxes, and pull analytics across Facebook, Instagram, X, Linked"
+  }
+ },
+ "templates": [
+  {
+   "action": "eclincher:Create Brand",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  },
+  {
+   "action": "eclincher:Create Post",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "airtable:Record Created Or Updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when record changes"
+  },
+  {
+   "key": "eclincher:Create Brand",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new brand by providing its name."
+  },
+  {
+   "key": "eclincher:Create Post",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Publish a post to selected brand accounts with text and optional scheduled time."
+  }
+ ]
+}

@@ -1,0 +1,74 @@
+{
+ "pair": "google-forms/hubspot",
+ "apps": {
+  "google-forms": {
+   "name": "Google Forms",
+   "labels": [
+    "Productivity",
+    "Data Collection",
+    "Survey",
+    "Top Free Apps",
+    "Forms and Surveys",
+    "Spreadsheets",
+    "Education",
+    "Business Intelligence"
+   ],
+   "about": "Google Forms is an online form builder that lets users create forms and surveys, collect responses, and analyze data in real time."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create or Update Contact",
+   "triggers": [
+    "google-forms:New Form Response"
+   ]
+  },
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "google-forms:New Form Response"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "google-forms:New Form Response"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "google-forms:New Form Response",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new google form response is received."
+  },
+  {
+   "key": "hubspot:Create or Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates new contact or update an existing contact by its email."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  }
+ ]
+}

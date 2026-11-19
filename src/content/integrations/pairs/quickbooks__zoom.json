@@ -1,0 +1,8 @@
+{
+  "usedFor": "QuickBooks bills the customer; Zoom hosts the session they paid for. A “New Invoice” in QuickBooks can run “Register Attendee for Webinar” in Zoom, so a billed client is signed up to the webinar.",
+  "bestTemplate": {
+    "name": "“New Invoice” in QuickBooks, then “Register Attendee for Webinar” in Zoom",
+    "why": "An invoice for a paid training or briefing is the natural cue to seat that person, and the action registers them straight into the webinar."
+  },
+  "watchOut": "“New Invoice” in QuickBooks is polling, so registration follows the next check. It fires on every invoice, including ones unrelated to a webinar, so narrow it before “Register Attendee for Webinar” runs."
+}

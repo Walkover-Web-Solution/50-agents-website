@@ -1,0 +1,54 @@
+{
+ "pair": "autoquote3d/slack",
+ "apps": {
+  "autoquote3d": {
+   "name": "AutoQuote3D",
+   "labels": [
+    "Productivity",
+    "Engineering"
+   ],
+   "about": "Instant quoting and order management software for 3D print shops: automate quotes, paid orders, fulfillment tracking and analytics."
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "autoquote3d:New Order",
+    "autoquote3d:New Quote"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "autoquote3d:New Order",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new order is placed, optionally only for chosen statuses."
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "autoquote3d:New Quote",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new quote is created in your Business."
+  }
+ ]
+}

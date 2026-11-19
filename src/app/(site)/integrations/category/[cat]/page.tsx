@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ cat: stri
   const title = `${c.name} integrations for AI agents and automations`;
   // 155 characters at most: name three example apps, or fewer when their names run long
   const describe = (n: number) => `${c.name} apps 50agents works with through viaSocket, such as ${list(members.slice(0, n).map(m => m.n))}, each with real triggers, actions and templates for Captain.`;
-  const description = [3, 2, 1].map(describe).find(d => d.length <= 155) ?? describe(1).slice(0, 155);
+  const description = c.description ?? [3, 2, 1].map(describe).find(d => d.length <= 155) ?? describe(1).slice(0, 155);
   const url = `${BASE}/integrations/category/${c.slug}`;
   return {
     title: { absolute: title.length <= 48 ? `${title} | 50agents` : `${c.name} integrations | 50agents` },
@@ -75,12 +75,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
       </section>
 
       <section className="wrap sec" aria-label={`${c.name} apps`}>
-        <DirectoryPanel apps={members} current={`/integrations/category/${c.slug}`} head={<h2>{c.name} apps</h2>} label={`Search ${c.short} apps`} />
+        <DirectoryPanel apps={members} current={`/integrations/category/${c.slug}`} head={<h2>{/tools$/i.test(c.name) ? c.name : `${c.name} apps`}</h2>} label={`Search ${c.short} apps`} />
       </section>
 
       {examples.length > 0 && (
         <section className="wrap sec" id="templates">
-          <div className="sec-h c"><h2>{c.short} templates</h2><p>One from each of the most used {c.short} apps.</p></div>
+          <div className="sec-h c"><h2>{c.short[0].toUpperCase() + c.short.slice(1)} templates</h2><p>One from each of the most used {c.short} apps.</p></div>
           <TemplatesBox recipes={examples} page={page} campaign={C} />
         </section>
       )}

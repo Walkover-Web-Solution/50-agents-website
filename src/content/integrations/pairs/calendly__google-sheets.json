@@ -1,0 +1,8 @@
+{
+ "usedFor": "Calendly is where people book, and Google Sheets is the schedule you track. “New Meeting Book or Invitee Created” in Calendly can add a row through “Add New Row to Sheet” in Google Sheets.",
+ "bestTemplate": {
+  "name": "“New Meeting Book or Invitee Created” in Calendly, then “Add New Row to Sheet” in Google Sheets",
+  "why": "Calendly pushes each booking as it is made, giving one row per meeting without the duplicates the polling trigger can produce."
+ },
+ "watchOut": "“Invitee Canceled” can feed “Delete Rows”, which removes rows by range or number. Check that the row it removes is the booking that was canceled, as there is no undo."
+}

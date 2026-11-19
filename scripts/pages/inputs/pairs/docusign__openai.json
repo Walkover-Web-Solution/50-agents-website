@@ -1,0 +1,56 @@
+{
+ "pair": "docusign/openai",
+ "apps": {
+  "docusign": {
+   "name": "Docusign",
+   "labels": [
+    "Document Management",
+    "E-Signature",
+    "Workflow Automation"
+   ],
+   "about": "DocuSign1 allows you to streamline your document signing process by integrating with DocuSign. Easily send, sign, and manage documents electronically, ensuring "
+  },
+  "openai": {
+   "name": "OpenAI (ChatGPT)",
+   "labels": [
+    "AI Tools",
+    "Developer Tools"
+   ],
+   "about": "ChatGPT is an AI-powered chatbot that helps users with a wide range of tasks, including answering questions, generating text, brainstorming ideas, and assisting"
+  }
+ },
+ "templates": [
+  {
+   "action": "openai:Ask AI",
+   "triggers": [
+    "docusign:New Envelope Completed"
+   ]
+  },
+  {
+   "action": "openai:Generate Image",
+   "triggers": [
+    "docusign:New Envelope Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "docusign:New Envelope Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an envelope is completed after all recipients have signed."
+  },
+  {
+   "key": "openai:Ask AI",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Generates a response based on your prompt."
+  },
+  {
+   "key": "openai:Generate Image",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create an image from prompt"
+  }
+ ]
+}

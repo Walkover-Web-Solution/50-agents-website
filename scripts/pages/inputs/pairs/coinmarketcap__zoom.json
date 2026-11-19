@@ -1,0 +1,49 @@
+{
+ "pair": "coinmarketcap/zoom",
+ "apps": {
+  "coinmarketcap": {
+   "name": "CoinMarketCap",
+   "labels": [
+    "Finance",
+    "Analytics"
+   ],
+   "about": "CoinMarketCap provides real-time and historical cryptocurrency prices, market cap, volume, rankings, coin metadata, global market metrics and the Fear and Greed"
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "coinmarketcap:New Fear and Greed Index Update",
+    "coinmarketcap:New Cryptocurrency Listed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "coinmarketcap:New Fear and Greed Index Update",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when the CoinMarketCap Crypto Fear and Greed Index publishes a new value."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "coinmarketcap:New Cryptocurrency Listed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new cryptocurrency is added to CoinMarketCap, optionally filtered by type and tag."
+  }
+ ]
+}

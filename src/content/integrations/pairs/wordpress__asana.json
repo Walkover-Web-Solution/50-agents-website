@@ -1,0 +1,8 @@
+{
+ "usedFor": "WordPress holds your site's users and posts, and Asana holds the work. “New User Created” in WordPress can open a “Create Project” in Asana, for example one project for each new member.",
+ "bestTemplate": {
+  "name": "“New User Created” in Wordpress, then “Create Project” in Asana",
+  "why": "A new user is a clear start to a piece of work, and “Create Project” sets the name, notes, dates, owner and privacy in one step. The post triggers fire on edits and deletions, which make poor project starts."
+ },
+ "watchOut": "“Create Project” makes a project each time it runs, and “User Updates Profile” fires on any profile change. Keep the trigger on “New User Created” so one person does not end up with several projects."
+}

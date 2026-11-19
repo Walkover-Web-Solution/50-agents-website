@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho CRM holds the new deals and accounts, and ApexVerify checks emails and phone numbers. A “New Account” in Zoho CRM can run “Verify Email or Phone” in ApexVerify to get a quality result for the contact.",
+  "bestTemplate": {
+    "name": "“New Account” in Zoho CRM, then “Verify Email or Phone” in ApexVerify",
+    "why": "Checking one contact as the account appears catches bad details before anyone writes to it. “Create Verification Batch” prepares an uploaded list and gives no result per contact."
+  },
+  "watchOut": "“New Account” and “New Deals” are polling, so the check runs on a schedule. “Verify Email or Phone” needs a verification type and a target country chosen up front."
+}

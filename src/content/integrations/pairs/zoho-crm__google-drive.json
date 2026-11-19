@@ -1,0 +1,8 @@
+{
+ "usedFor": "Zoho CRM is where deals and leads are tracked, and Google Drive holds the files. When “New Deals” appears in Zoho CRM, “Share File With Anyone” in Google Drive can open a link to a file.",
+ "bestTemplate": {
+  "name": "“New Deals” in Zoho CRM, then “Share File With Anyone” in Google Drive",
+  "why": "A new deal is when a proposal or contract link is wanted, and the action makes a shareable link with Viewer, Commenter or Editor access. Lead and task triggers are less tied to a document."
+ },
+ "watchOut": "The Zoho CRM triggers here are polling, so a new deal shows up on a schedule, not at once. “Share File With Anyone” makes the file open to anyone with the link, so choose Viewer unless you want edits."
+}

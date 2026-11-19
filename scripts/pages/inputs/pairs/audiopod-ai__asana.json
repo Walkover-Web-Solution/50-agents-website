@@ -1,0 +1,53 @@
+{
+ "pair": "audiopod-ai/asana",
+ "apps": {
+  "audiopod-ai": {
+   "name": "AudioPod AI",
+   "labels": [
+    "AI Tools",
+    "Video & Audio"
+   ],
+   "about": "AudioPod AI is an AI audio platform for text to speech, transcription with speaker labels, stem separation, noise removal, voice cloning and music generation."
+  },
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  }
+ },
+ "templates": [
+  {
+   "action": "asana:Create Project",
+   "triggers": [
+    "audiopod-ai:New Job Failed",
+    "audiopod-ai:New Job Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "audiopod-ai:New Job Failed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job fails, optionally only for chosen job types."
+  },
+  {
+   "key": "asana:Create Project",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new project in a workspace and set name, notes, start/due dates, owner, privacy, color, and default view."
+  },
+  {
+   "key": "audiopod-ai:New Job Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job finishes successfully, optionally only for chosen job types."
+  }
+ ]
+}

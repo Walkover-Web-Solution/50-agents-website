@@ -1,0 +1,88 @@
+{
+ "pair": "linkedin/hubspot",
+ "apps": {
+  "linkedin": {
+   "name": "LinkedIn",
+   "labels": [
+    "Social Media",
+    "Professional Networking",
+    "Job Search"
+   ],
+   "about": "LinkedIn is a professional networking platform that allows users to connect with colleagues, discover job opportunities, and share industry insights."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Add Notes to Contact",
+   "triggers": [
+    "linkedin:When a new post is published on a company page"
+   ]
+  },
+  {
+   "action": "hubspot:Update Company",
+   "triggers": [
+    "linkedin:When a new post is published on a company page"
+   ]
+  },
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "linkedin:When a new comment is added to a post on a company page",
+    "linkedin:When a new post is published on a company page"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "linkedin:When a new comment is added to a post on a company page"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "linkedin:When a new post is published on a company page",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs the workflow automatically when a new post is published on a company page you follow."
+  },
+  {
+   "key": "hubspot:Add Notes to Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create one or more notes for a contact by ID or email, specifying note date and body."
+  },
+  {
+   "key": "hubspot:Update Company",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update selected HubSpot company properties for a given company ID."
+  },
+  {
+   "key": "linkedin:When a new comment is added to a post on a company page",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically when a new comment is added to a post on the selected company page."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  }
+ ]
+}

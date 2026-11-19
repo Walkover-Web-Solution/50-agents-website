@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack carries the emails and phone numbers people paste in, and ApexVerify checks whether they are good. A “New Message Posted in Channel Instant” in Slack can run “Verify Email or Phone” in ApexVerify.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Verify Email or Phone” in ApexVerify",
+    "why": "One address per message maps to one check, and you choose the verification type and country. “Create Verification Batch” suits lists, but it only uploads a batch and prepares it."
+  },
+  "watchOut": "“New Thread Message” is polling, so a thread reply is checked on a schedule. The channel trigger also includes bot messages, so your own bot's posts can be sent to “Verify Email or Phone” too."
+}

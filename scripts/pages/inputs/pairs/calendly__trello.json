@@ -1,0 +1,56 @@
+{
+ "pair": "calendly/trello",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "trello": {
+   "name": "Trello",
+   "labels": [
+    "Project Management"
+   ],
+   "about": "Track progress of tasks in one convenient place with a visual layout that adds 'ta-da' to your to-do's"
+  }
+ },
+ "templates": [
+  {
+   "action": "trello:Create Trello Card",
+   "triggers": [
+    "calendly:New Meeting Book or Invitee Created",
+    "calendly:When a meeting is scheduled, rescheduled, or canceled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:New Meeting Book or Invitee Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when someone books a meeting for any event type."
+  },
+  {
+   "key": "trello:Create Trello Card",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Remove the response-field selector and always return the curated card response fields."
+  },
+  {
+   "key": "calendly:When a meeting is scheduled, rescheduled, or canceled",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update polling logic to reduce duplicate trigger hits."
+  }
+ ]
+}

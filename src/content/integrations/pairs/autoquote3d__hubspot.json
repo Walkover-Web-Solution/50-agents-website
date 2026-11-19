@@ -1,0 +1,8 @@
+{
+  "usedFor": "AutoQuote3D produces quotes and orders for a 3D print shop; HubSpot holds the customers. A “New Quote” in AutoQuote3D can run “Create Deal” so each quote is tracked in the pipeline.",
+  "bestTemplate": {
+    "name": "“New Quote” in AutoQuote3D, then “Create Deal” in HubSpot",
+    "why": "A quote is an open sales opportunity, so a deal lets you follow up before it goes cold. “New Order” can update the contact."
+  },
+  "watchOut": "“New Quote” and “New Order” are polling, so HubSpot updates after the next check. “Update Contact” finds the person by email."
+}

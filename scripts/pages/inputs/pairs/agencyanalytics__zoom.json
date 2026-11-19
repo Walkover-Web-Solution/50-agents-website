@@ -1,0 +1,50 @@
+{
+ "pair": "agencyanalytics/zoom",
+ "apps": {
+  "agencyanalytics": {
+   "name": "AgencyAnalytics",
+   "labels": [
+    "Analytics",
+    "Business Intelligence",
+    "Marketing"
+   ],
+   "about": "AgencyAnalytics is a client reporting platform for marketing agencies: dashboards and reports for SEO, PPC, social and more."
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "agencyanalytics:New Client",
+    "agencyanalytics:New User"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "agencyanalytics:New Client",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new client is created in your AgencyAnalytics account."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "agencyanalytics:New User",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new user is added to your AgencyAnalytics account."
+  }
+ ]
+}

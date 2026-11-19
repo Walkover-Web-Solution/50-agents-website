@@ -1,0 +1,8 @@
+{
+  "usedFor": "Barevalue handles AI podcast editing orders; Asana tracks the production work. A “New Failed Order” or “New Completed Order” in Barevalue can start a project through “Create Project” in Asana.",
+  "bestTemplate": {
+    "name": "“New Failed Order” in Barevalue, then “Create Project” in Asana",
+    "why": "A failed check or processing error needs a person, so it gets a project with an owner and due date. Completed orders rarely need one."
+  },
+  "watchOut": "“Create Project” needs a workspace and a name. If you attach it to “New Completed Order” as well, every finished episode creates its own project."
+}

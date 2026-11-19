@@ -3,9 +3,9 @@
   "kind": "ai",
   "query": "AI agent builder; AI agents for small business",
   "title": "AI agent builder for small business | 50agents",
-  "description": "Describe the job and Captain builds an AI agent that works in your apps on a schedule, drafts instead of sending, and asks you before any change.",
+  "description": "An AI agent builder for small business: describe the job and Captain builds an AI agent that works in your apps on a schedule and asks before any change.",
   "crumb": "AI agents",
-  "h1": "Build an AI agent by describing the job",
+  "h1": "AI agent builder: describe the job, Captain builds it",
   "line": "Judgement on each run, in your apps, on a schedule.",
   "answer": [
     "An AI agent works in your apps on a schedule and decides on each run which deals need a nudge and what to say.",
@@ -40,7 +40,7 @@
   "faqs": [
     {
       "q": "What is an AI agent builder?",
-      "a": "A tool that turns a description of a job into software that does the job in your apps on its own schedule. In 50agents the builder is Captain: you describe the job, it asks what it cannot guess, shows a plan, and builds the AI agent when you tap Build it."
+      "a": "A tool that turns a description of a job into software that does the job in your apps on its own schedule. In 50agents the builder is Captain: you describe the job, it asks what it cannot guess, shows a plan, and builds the AI agent when you tap Build it. [How to choose an AI agent builder](/guides/how-to-choose-an-ai-agent-builder) lists the questions to ask."
     },
     {
       "q": "Can I build an AI agent without code?",
@@ -52,7 +52,7 @@
     },
     {
       "q": "AI agent or automation: which do I need?",
-      "a": "If the steps are the same every time, an automation: it uses AI only in a step that needs it, and it can start on an app event. If each run needs a decision, such as which deals are worth a follow-up, an AI agent. Captain picks and tells you which."
+      "a": "If the steps are the same every time, an automation: it uses AI only in a step that needs it, and it can start on an app event. If each run needs a decision, such as which deals are worth a follow-up, an AI agent. Captain picks and tells you which. See [AI agent vs automation](/guides/ai-agent-vs-automation-which-one-you-need) for the full comparison."
     },
     {
       "q": "What can't an AI agent do yet?",
@@ -60,7 +60,11 @@
     },
     {
       "q": "How is this different from Lindy or Zapier?",
-      "a": "Lindy is built around one AI assistant you hire, and in Zapier you set up each AI agent yourself. In 50agents, Captain plans the AI agent from your sentence and you approve the plan; Lindy states a SOC 2 report and Zapier has a larger app directory, and 50agents holds no security certification."
+      "a": "Lindy is built around one AI assistant you hire, and in Zapier you set up each AI agent yourself. In 50agents, Captain plans the AI agent from your sentence and you approve the plan; Lindy states a SOC 2 report and Zapier has a larger app directory, and 50agents holds no security certification. See [50agents vs Lindy](/compare/50agents-vs-lindy) and [Gumloop alternatives](/compare/gumloop-alternatives)."
+    },
+    {
+      "q": "Is there a free AI agent builder?",
+      "a": "50agents is free to start. Describe the job to Captain, review its plan, and tap Build it when you are happy with it."
     }
   ],
   "links": [

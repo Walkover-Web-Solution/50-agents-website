@@ -1,0 +1,8 @@
+{
+  "usedFor": "Advogalia holds a law office's cases, clients and deadlines, and Slack is where the team talks. A “New Deadline” in Advogalia can run “Send Message” in Slack so the right people see a hearing or task.",
+  "bestTemplate": {
+    "name": "“New Deadline” in Advogalia, then “Send Message” in Slack",
+    "why": "Deadlines and hearings are the items a team cannot miss. “Send Message” can post to a channel, a user or a thread, and it can schedule the message."
+  },
+  "watchOut": "“New Deadline” is polling, so Slack hears about it on a schedule. An automation's post to a Slack channel also waits for approval today."
+}

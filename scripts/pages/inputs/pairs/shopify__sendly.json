@@ -1,0 +1,77 @@
+{
+ "pair": "shopify/sendly",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "sendly": {
+   "name": "Sendly",
+   "labels": [
+    "Communication"
+   ],
+   "about": "Sendly is an SMS API for developers to send transactional and marketing SMS/MMS, run OTP verification and manage contacts."
+  }
+ },
+ "templates": [
+  {
+   "action": "sendly:Create or Update Contact",
+   "triggers": [
+    "shopify:Order Paid",
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "sendly:Cancel Scheduled Message",
+   "triggers": [
+    "shopify:Order Paid",
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Order Paid",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is paid in Shopify account."
+  },
+  {
+   "key": "sendly:Create or Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a contact by phone number, or update it when that number already exists."
+  },
+  {
+   "key": "sendly:Cancel Scheduled Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Cancel a scheduled message and get its reserved credits back."
+  },
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

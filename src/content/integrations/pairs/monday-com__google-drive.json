@@ -1,0 +1,8 @@
+{
+  "usedFor": "monday.com tracks the work and Google Drive keeps the files. When “New User Joins” fires in monday.com, “Create Folder” can set up a home in Drive for that person before they ask for one.",
+  "bestTemplate": {
+    "name": "“New User Joins” in monday.com, then “Create Folder” in Google Drive",
+    "why": "Onboarding someone is the one-off moment a fresh folder helps, and “Create Folder” can place it inside a parent folder you pick, so every new user lands in the same structure."
+  },
+  "watchOut": "“New User Joins” is polling, so it checks on a schedule. The folder shows up a little after the person joins, not at that second."
+}

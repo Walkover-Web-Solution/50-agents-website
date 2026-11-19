@@ -3,9 +3,9 @@
   "kind": "browser",
   "query": "AI browser agent; automate web browsing",
   "title": "AI browser agent: automate web browsing | 50agents",
-  "description": "A browser agent reads websites that have no app to connect, such as competitors' pricing pages, on a schedule, in its own browser that keeps your sign-ins.",
+  "description": "An AI browser agent automates web browsing on sites with no app to connect, like competitors' pricing pages, in its own browser that keeps your sign-ins.",
   "crumb": "Browser agents",
-  "h1": "A browser agent for the websites no app reaches",
+  "h1": "An AI browser agent for the websites no app reaches",
   "line": "Work on websites that have no app to connect.",
   "answer": [
     "A browser agent works on websites in a browser of its own: it opens pages, reads what only shows there and fills in forms.",
@@ -31,7 +31,7 @@
   "faqs": [
     {
       "q": "What is an AI browser agent?",
-      "a": "An AI that uses a real web browser to do a job: it opens pages, reads them, clicks and fills in forms, deciding each step as it goes. It is for websites that have no app or API to connect to."
+      "a": "An AI that uses a real web browser to do a job: it opens pages, reads them, clicks and fills in forms, deciding each step as it goes. It is for websites that have no app or API to connect to. [Browser automation without code](/guides/browser-automation-without-code) compares the kinds."
     },
     {
       "q": "Can it log in to websites?",
@@ -43,7 +43,7 @@
     },
     {
       "q": "Is a browser agent the same as web scraping?",
-      "a": "Close, but not the same. A scraper pulls set fields from many pages; a browser agent reads a few pages, understands them and tells you what matters, such as which price changed. For scraping many rows into a table, a tool like Browse AI fits better."
+      "a": "Close, but not the same. A scraper pulls set fields from many pages; a browser agent reads a few pages, understands them and tells you what matters, such as [which competitor price changed](/guides/how-to-monitor-competitor-prices-automatically). For scraping many rows into a table, a tool like Browse AI fits better."
     },
     {
       "q": "When should I not use a browser agent?",
@@ -51,7 +51,7 @@
     },
     {
       "q": "Can it fill in forms?",
-      "a": "Yes, when its instructions say so. It fills the form from what you give it, then stops and asks you in Needs you before it submits."
+      "a": "Yes, when its instructions say so. It fills the form from what you give it, then stops and asks you in Needs you before it submits. [How to automate form filling on websites](/guides/how-to-automate-form-filling-on-websites) shows the steps."
     }
   ],
   "links": [

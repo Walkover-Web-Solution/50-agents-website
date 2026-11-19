@@ -4,8 +4,9 @@
   "query": "Stripe weekly revenue report by email",
   "category": "payments",
   "title": "Stripe weekly revenue report by email | 50agents",
-  "description": "Tell Captain to set up an AI agent that reads last week's Stripe payments every Monday and emails you the totals and what changed, after you approve it.",
+  "description": "A Stripe weekly revenue report by email: every Monday an AI agent reads last week's payments, totals them, says what changed and emails you the summary.",
   "h1": "Stripe weekly revenue report by email",
+  "h2": { "how": "How the weekly Stripe revenue report works", "compare": "Other ways to get a weekly Stripe revenue report" },
   "answer": [
     "To get a weekly Stripe revenue email, tell Captain \"Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00\".",
     "It builds an AI agent that emails weekly totals from Gmail once you allow it."
@@ -58,8 +59,8 @@
     ]
   },
   "faqs": [
-    { "q": "Will it email me without asking?", "a": "AI agents ask before sending, even to you, until you allow it in Settings. Until then each summary waits in Needs you, where you can approve it, change it or decline it." },
-    { "q": "Stripe already emails scheduled reports. Why use this?", "a": "Stripe's email is a notice with a link to a file you download. This AI agent writes the summary itself, with the totals and what moved, so you read it in your inbox." },
+    { "q": "Will it email me without asking?", "a": "AI agents ask before sending, even to you, until you allow it in Settings. Until then each summary waits in Needs you, where you can approve it, change it or decline it. See [How to make an AI agent ask before it acts](/guides/how-to-make-an-ai-agent-ask-before-it-acts)." },
+    { "q": "Stripe already emails scheduled reports. Why use this?", "a": "Stripe's email is a notice with a link to a file you download. This AI agent writes the summary itself, with the totals and what moved, so you read it in your inbox. [How to automate weekly reports by email](/guides/how-to-automate-weekly-reports-by-email) compares other ways." },
     { "q": "What happens when a week has payments in two currencies?", "a": "Stripe records each amount in its own currency. Tell Captain to keep each currency apart in the email, so nothing is added across currencies." },
     { "q": "Will refunds show up in the summary?", "a": "Not by default. The Stripe actions it reads from cover payment intents, invoices and customers, while refunds only come as events. If refunds matter, say so and Captain tells you what it can do." },
     { "q": "Can I use this for my accounting?", "a": "No. It is a readable summary of the week. For books that reconcile to your payouts, use Stripe's scheduled reports." }

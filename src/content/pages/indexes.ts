@@ -35,7 +35,7 @@ export const INDEXES: IndexPage[] = [
     crumb: 'Use cases',
     title: 'Jobs to hand to AI agents and automations | 50agents',
     description:
-      'Ready-made jobs for a small business: chase invoices, follow up deals, log payments, watch prices. Each one is a sentence you give Captain.',
+      'Ready-made jobs for a small business: chase invoices, follow up deals, log payments, watch competitor prices. Each one is a sentence you give Captain.',
     h1: 'Use cases: jobs you can hand off today',
     line: 'Each job is one sentence you give Captain. Filter by what it builds.',
     filter: true,

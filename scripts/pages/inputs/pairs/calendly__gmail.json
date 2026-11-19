@@ -1,0 +1,60 @@
+{
+ "pair": "calendly/gmail",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "gmail": {
+   "name": "Gmail",
+   "labels": [
+    "Email",
+    "Communication",
+    "Productivity",
+    "Top Free Apps",
+    "Marketing Automation"
+   ],
+   "about": "Gmail is Google's email service that helps users send, receive, organize, search, and manage email messages with powerful spam filtering and integration across "
+  }
+ },
+ "templates": [
+  {
+   "action": "gmail:Send Email",
+   "triggers": [
+    "calendly:When a meeting is scheduled, rescheduled, or canceled",
+    "calendly:New Meeting Book or Invitee Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:When a meeting is scheduled, rescheduled, or canceled",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update polling logic to reduce duplicate trigger hits."
+  },
+  {
+   "key": "gmail:Send Email",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send an email with subject, body, recipients, optional attachments, CC/BCC, and labels."
+  },
+  {
+   "key": "calendly:New Meeting Book or Invitee Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when someone books a meeting for any event type."
+  }
+ ]
+}

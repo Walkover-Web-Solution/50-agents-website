@@ -1,0 +1,77 @@
+{
+ "pair": "production-list/shopify",
+ "apps": {
+  "production-list": {
+   "name": "Production List",
+   "labels": [
+    "Video & Audio"
+   ],
+   "about": "Production List provides an early structured feed of new film and TV productions, production companies and weekly production lists."
+  },
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  }
+ },
+ "templates": [
+  {
+   "action": "shopify:Abandoned Checkout",
+   "triggers": [
+    "production-list:New Production Detected"
+   ]
+  },
+  {
+   "action": "shopify:New Product",
+   "triggers": [
+    "production-list:New Production Detected"
+   ]
+  },
+  {
+   "action": "shopify:Order Cancelled",
+   "triggers": [
+    "production-list:New Production Detected"
+   ]
+  },
+  {
+   "action": "shopify:Create Order",
+   "triggers": [
+    "production-list:New Production Detected"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "production-list:New Production Detected",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new film or TV production is detected, with optional type, stage and location filters."
+  },
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "shopify:Create Order",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a Shopify order with variant line items, optional title/price overrides, discount codes, shipping/billing addresses, and fulfillment status."
+  }
+ ]
+}

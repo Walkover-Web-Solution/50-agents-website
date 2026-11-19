@@ -1,9 +1,10 @@
 // The page pipeline's gates for the kind hubs (family "hubs"), on every src/content/hubs/pages/*.json. Writes report-hubs.md.
 import fs from 'node:fs';
 import { words, shingles, overlap, style, example, CATALOG, PATHS, report } from './checks.mjs';
+import { plain, linksIn, leadsWithAsk } from './gates-lib.mjs';
 const DIR = 'src/content/hubs/pages';
 const rows = Object.fromEntries(JSON.parse(fs.readFileSync('scripts/pages/rows-hubs.json', 'utf8')).map(r => [r.slug, r]));
-const texts = p => [p.title, p.description, p.h1, p.line, ...p.answer, p.useCases, ...p.faqs.flatMap(f => [f.q, f.a]), p.final];
+const texts = p => [p.title, p.description, p.h1, p.line, ...p.answer, p.useCases, ...p.faqs.flatMap(f => [f.q, plain(f.a)]), p.final];
 const pages = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(`${DIR}/${f}`, 'utf8')));
 const sh = Object.fromEntries(pages.map(p => [p.slug, shingles(texts(p).join(' '))]));
 const out = pages.map(p => {
@@ -20,8 +21,11 @@ const out = pages.map(p => {
   if (words(p.useCases) > 14) bad.push(`useCases subheader is ${words(p.useCases)} words (14 at most)`);
   if (!Array.isArray(p.apps)) bad.push('apps is not a list of catalog slugs');
   if (words(p.line) > 12) bad.push('line over 12 words');
-  if (p.faqs.length < 5 || p.faqs.length > 6) bad.push('faqs not 5 or 6');
-  p.faqs.forEach(f => words(f.a) > 70 && bad.push(`answer to "${f.q}" is ${words(f.a)} words`));
+  if (p.faqs.length < 5 || p.faqs.length > 7) bad.push('faqs not 5 to 7');
+  p.faqs.forEach(f => words(plain(f.a)) > 70 && bad.push(`answer to "${f.q}" is ${words(plain(f.a))} words`));
+  // SEO pass 01: the description leads with the query and the answer; links in answers are internal and live
+  if (leadsWithAsk(p.description)) bad.push('description opens with "Tell Captain": lead with the query and the answer');
+  p.faqs.flatMap(f => linksIn(f.a)).forEach(l => !PATHS.has(l) && bad.push(`link ${l} is not a page`));
   if (p.links.length !== 3) bad.push('links not 3');
   // facts
   bad.push(...example(p.example, p.kind));

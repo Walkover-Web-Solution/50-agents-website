@@ -1,0 +1,8 @@
+{
+  "usedFor": "WooCommerce holds the orders, and Google Calendar holds the bookings behind them. An “Order Updated” in WooCommerce can run “Update Event” in Google Calendar to change an event's time, attendees or details.",
+  "bestTemplate": {
+    "name": "“Order Updated” in WooCommerce, then “Update Event” in Google Calendar",
+    "why": "If an order stands for a booked slot, the event should follow it when the order changes. “Create Calendar” makes a whole new calendar, not an entry."
+  },
+  "watchOut": "“Order Updated” fires on every update, not only new orders, so the same order can run the template more than once. “Update Event” needs a chosen calendar and an event to change."
+}

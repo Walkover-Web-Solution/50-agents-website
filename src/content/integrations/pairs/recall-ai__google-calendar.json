@@ -1,0 +1,8 @@
+{
+  "usedFor": "Recall.ai records and transcribes your meetings, and Google Calendar holds the schedule. A “New Transcript Completed” in Recall.ai can run “Create Calendar Event” in Google Calendar to put the follow-up on the calendar.",
+  "bestTemplate": {
+    "name": "“New Transcript Completed” in Recall.ai, then “Create Calendar Event” in Google Calendar",
+    "why": "A finished transcript is when you know what the follow-up is. The action takes a time, duration, attendees and details. “New Webhook Event” fires on every status event, which is more often than you want."
+  },
+  "watchOut": "“New Transcript Completed” and “New Recording Becomes Ready” are polling. “New Webhook Event” is pushed on each bot, recording or transcript status event, so one meeting can create several calendar events."
+}
