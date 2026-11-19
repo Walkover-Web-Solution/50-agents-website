@@ -63,6 +63,12 @@
     { "q": "Will it tell me when a price drops as well as rises?", "a": "Yes. The report lists each change with the old and the new price. Ask for only drops, or only certain plans, in one sentence." },
     { "q": "Where do I see the result?", "a": "On the browser agent's page in 50agents, where each run leaves its report. It runs on a schedule, so the report is there when you start your day." }
   ],
+  "variations": [
+    { "ask": "Set up a browser agent that checks my competitors' pricing pages every Monday at 9:00 and tells me when a price changes", "change": "Checks once a week" },
+    { "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me only when a price drops by more than 10%", "change": "Only drops over 10%" },
+    { "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price, a plan or a feature changes", "change": "Watches plans and features too" },
+    { "ask": "Set up a browser agent that checks the prices of my competitors' best-selling products every day at 9:00 and tells me when one changes", "change": "Product prices, not pricing pages" }
+  ],
   "tags": ["pricing", "competitors", "browser", "research"],
   "updated": "2026-11-19"
 }

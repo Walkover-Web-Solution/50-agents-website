@@ -37,6 +37,8 @@ export type UseCasePage = {
     rows: { label: string; cells: string[] }[]; // 4 or 5; each cell "Yes", "No", "Partly" or 6 words at most; last cell is 50agents
     sources?: { label: string; href: string }[];
   };
+  /** "Make it yours" (D259): 3 or 4 real variations of the ask, each buildable today; a card pastes its ask into Captain. */
+  variations: { ask: string; change: string }[]; // ask under 200 characters; change is a short line on what differs
   faqs: { q: string; a: string }[]; // 4 to 6, each answer 2 or 3 sentences; an answer may carry [label](/path) links (rich.tsx) to a guide or comparison
   tags: string[]; // for related use cases
   updated: string; // ISO date, used in the sitemap and as "Updated <Month Year>"

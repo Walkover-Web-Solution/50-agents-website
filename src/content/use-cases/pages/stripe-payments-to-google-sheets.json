@@ -63,6 +63,12 @@
     { "q": "Which Stripe event starts it?", "a": "A payment succeeding. Stripe also has New Charge Is Created and a completed checkout session, if you want a different starting point." },
     { "q": "Does it add my past payments?", "a": "No. It starts with the next payment after you build it. For earlier ones, export from Stripe and paste them into the sheet." }
   ],
+  "variations": [
+    { "ask": "Set up an automation: every new Stripe payment over $1,000 is added as a row to my Google Sheet with the customer, amount and date", "change": "Only payments over $1,000" },
+    { "ask": "Set up an automation: every new Stripe refund is added as a row to my Google Sheet with the customer, amount and date", "change": "Logs refunds instead of payments" },
+    { "ask": "Set up an automation: every new Stripe payment is added as a record to my Airtable base with the customer, amount and date", "change": "Records go to Airtable, not Sheets" },
+    { "ask": "Set up an automation: every failed Stripe payment is posted in a Slack channel with the customer and amount", "change": "Failed payments go to Slack" }
+  ],
   "tags": ["payments", "stripe", "google-sheets", "rows"],
   "updated": "2026-11-19"
 }

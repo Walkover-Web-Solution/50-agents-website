@@ -47,6 +47,20 @@ for (const p of pages) {
   // links in answers are internal, to pages that exist
   raw(p).flatMap(linksIn).forEach(l => !PATHS.has(l) && bad.push(`link ${l} is not a page`));
   if (raw(p).some(t => /\]\(https?:/.test(t))) bad.push('an outside link in the text');
+  // Make it yours (D259): 3 or 4 variations, each ask under 200 characters, in house style
+  const vars = p.variations ?? [];
+  if (vars.length < 3 || vars.length > 4) bad.push(`variations: ${vars.length} (3 or 4)`);
+  vars.forEach((v, i) => {
+    if (!v.ask || !v.change) bad.push(`variation ${i + 1} needs an ask and a change`);
+    if ((v.ask ?? '').length >= 200) bad.push(`variation ${i + 1} ask is ${v.ask.length} chars (under 200)`);
+    if (v.ask === p.ask) bad.push(`variation ${i + 1} repeats the page's ask`);
+    const t = `${v.ask ?? ''} ${v.change ?? ''}`, lo = t.toLowerCase();
+    BANNED.forEach(b => lo.includes(b) && bad.push(`variation ${i + 1} banned: ${b}`));
+    if (/—/.test(t)) bad.push(`variation ${i + 1} em dash`);
+    if (/credit/i.test(t)) bad.push(`variation ${i + 1} mentions credits`);
+    if (/\b(whatsapp|sms)\b/i.test(t)) bad.push(`variation ${i + 1} WhatsApp or SMS`);
+    if (/\b(19|20)\d\d\b/.test(t)) bad.push(`variation ${i + 1} a year in the text`);
+  });
   if (p.compare.rows.length < 4 || p.compare.rows.length > 5) bad.push('compare rows not 4 or 5');
   p.compare.rows.forEach(r => r.cells.length !== p.compare.methods.length + 1 && bad.push(`compare row "${r.label}" has ${r.cells.length} cells`));
   // facts

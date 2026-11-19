@@ -60,6 +60,12 @@
     { "q": "Does it change my calendar?", "a": "No. It reads your events to write the message. The catalog has actions that edit events, but this AI agent is only asked to list tomorrow's meetings." },
     { "q": "Can it cover more than one calendar?", "a": "Yes. Name each calendar in its instructions, for example work and family, and it reads them together." }
   ],
+  "variations": [
+    { "ask": "Set up an AI agent that sends me today's meetings from Google Calendar in Slack every weekday at 7:30", "change": "Mornings, weekdays only" },
+    { "ask": "Set up an AI agent that sends me tomorrow's meetings with people outside my company from Google Calendar in Slack every day at 18:00", "change": "Only meetings with outside people" },
+    { "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Discord every day at 18:00", "change": "Arrives in Discord, not Slack" },
+    { "ask": "Set up an AI agent that emails me tomorrow's meetings from Google Calendar with Gmail every day at 18:00", "change": "Arrives by email instead" }
+  ],
   "tags": ["calendar", "slack", "meetings", "daily"],
   "updated": "2026-11-19"
 }

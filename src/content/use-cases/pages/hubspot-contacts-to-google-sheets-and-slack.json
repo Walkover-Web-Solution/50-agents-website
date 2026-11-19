@@ -64,6 +64,12 @@
     { "q": "What if I want the row to update when a contact changes?", "a": "This automation adds a row when a contact is created. For changes, ask Captain for a second automation that updates the row, using Google Sheets' lookup and update actions." },
     { "q": "Can it post to a private Slack channel?", "a": "Yes, once you invite the Slack app to that channel. Slack only lists private channels the app belongs to." }
   ],
+  "variations": [
+    { "ask": "Set up an automation: every new HubSpot contact in the United States is added as a row to my Google Sheet and posted in a Slack channel", "change": "Only contacts in the United States" },
+    { "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Discord channel", "change": "Posts in Discord, not Slack" },
+    { "ask": "Set up an automation: every new HubSpot contact is added as a record to my Airtable base and posted in a Slack channel", "change": "Records go to Airtable, not Sheets" },
+    { "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet", "change": "Sheet only, nothing to approve" }
+  ],
   "tags": ["crm", "hubspot", "sheets", "slack"],
   "updated": "2026-11-19"
 }

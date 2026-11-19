@@ -172,6 +172,12 @@
       "a": "No. An AI agent runs on a schedule, here every weekday at 9:00, or when you ask it in its chat. It does not react to each email as it arrives."
     }
   ],
+  "variations": [
+    { "ask": "Set up an AI agent that finds my HubSpot deals over $5,000 with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve", "change": "Only deals over $5,000" },
+    { "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 10 days every Monday at 9:00 and drafts a follow-up email for me to approve", "change": "Weekly, after 10 quiet days" },
+    { "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a short, no-pressure follow-up for me to approve", "change": "A lighter, shorter follow-up" },
+    { "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up in Microsoft Outlook", "change": "Drafts in Outlook, not Gmail" }
+  ],
   "tags": [
     "sales",
     "hubspot",

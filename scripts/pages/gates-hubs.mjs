@@ -1,11 +1,40 @@
 // The page pipeline's gates for the kind hubs (family "hubs"), on every src/content/hubs/pages/*.json. Writes report-hubs.md.
 import fs from 'node:fs';
-import { words, shingles, overlap, style, example, CATALOG, PATHS, report } from './checks.mjs';
+import { words, shingles, overlap, style, example, CATALOG, PATHS, ASKS, UC_PAGES, report } from './checks.mjs';
 import { plain, linksIn, leadsWithAsk } from './gates-lib.mjs';
 const DIR = 'src/content/hubs/pages';
 const rows = Object.fromEntries(JSON.parse(fs.readFileSync('scripts/pages/rows-hubs.json', 'utf8')).map(r => [r.slug, r]));
 const texts = p => [p.title, p.description, p.h1, p.line, ...p.answer, p.useCases, ...p.faqs.flatMap(f => [f.q, plain(f.a)]), p.final];
 const pages = fs.readdirSync(DIR).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(`${DIR}/${f}`, 'utf8')));
+// D259: the possibilities gallery (src/content/hubs/gallery.json), checked per kind on that kind's hub.
+const GALLERY = JSON.parse(fs.readFileSync('src/content/hubs/gallery.json', 'utf8'));
+const TEAMS = ['sales', 'support', 'finance', 'operations', 'ecommerce', 'personal'];
+const SAYS = { ai: /\bAI agent\b/, auto: /\bautomation\b/, browser: /\bbrowser agent\b/, app: /\bapp\b/ };
+function gallery(kind) {
+  const bad = [], cards = GALLERY[kind] ?? [];
+  if (cards.length < 20 || cards.length > 30) bad.push(`gallery has ${cards.length} cards (20 to 30)`);
+  const seen = new Set();
+  cards.forEach(c => {
+    const at = `gallery "${c.job}"`;
+    if (seen.has(c.ask)) bad.push(`${at}: ask repeated`); seen.add(c.ask);
+    if (!TEAMS.includes(c.team)) bad.push(`${at}: team ${c.team} is not a filter`);
+    if (c.ask.length >= 300) bad.push(`${at}: ask is ${c.ask.length} characters (under 300)`);
+    if (words(c.job) > 12) bad.push(`${at}: job over 12 words`);
+    c.apps.forEach(a => !CATALOG.has(a) && bad.push(`${at}: app ${a} not in the catalog`));
+    if (c.from === 'app') {
+      if (!ASKS.has(c.ask)) bad.push(`${at}: marked from the app but not a starting ask in templates/list.ts`);
+      else if (ASKS.get(c.ask) !== kind) bad.push(`${at}: the app's ask is a ${ASKS.get(c.ask)}, not a ${kind}`);
+    } else if (c.from === 'site') {
+      if (ASKS.has(c.ask)) bad.push(`${at}: is the app's own ask, mark it from "app"`);
+      if (!SAYS[kind].test(c.ask)) bad.push(`${at}: a written ask must name its kind`);
+    } else bad.push(`${at}: from is neither "app" nor "site"`);
+    bad.push(...style(`${c.job}\n${c.ask}`).map(b => `${at}: ${b}`));
+  });
+  // every starting ask and use case of this kind is in its gallery
+  [...ASKS].filter(([, k]) => k === kind).forEach(([a]) => !seen.has(a) && bad.push(`gallery misses the app's ask "${a.slice(0, 40)}..."`));
+  UC_PAGES.filter(u => u.kind === kind).forEach(u => !seen.has(u.ask) && bad.push(`gallery misses use case ${u.slug}`));
+  return bad;
+}
 const sh = Object.fromEntries(pages.map(p => [p.slug, shingles(texts(p).join(' '))]));
 const out = pages.map(p => {
   const bad = [], row = rows[p.slug], all = texts(p).join('\n');
@@ -34,6 +63,8 @@ const out = pages.map(p => {
   p.links.forEach(l => !PATHS.has(l.href) && bad.push(`link to a page that does not exist: ${l.href}`));
   // style
   bad.push(...style(all));
+  // the gallery
+  bad.push(...gallery(p.kind));
   // uniqueness
   pages.forEach(q => { if (q.slug !== p.slug) { const j = overlap(sh[p.slug], sh[q.slug]); if (j >= 0.5) bad.push(`overlaps ${q.slug} (${j.toFixed(2)})`); } });
   // length

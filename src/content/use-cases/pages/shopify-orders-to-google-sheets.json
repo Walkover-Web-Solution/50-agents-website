@@ -64,6 +64,12 @@
     { "q": "Can it only add paid orders?", "a": "Yes. New Order fires when an order is created, and Order Paid fires when it is paid. Tell Captain you want paid orders only." },
     { "q": "Does it add my past orders?", "a": "No. It starts with the next order after you build it. For earlier ones, use Shopify's own export and paste the file into your sheet." }
   ],
+  "variations": [
+    { "ask": "Set up an automation: every new Shopify order over $100 is added as a row to my Google Sheet with its items and total", "change": "Only orders over $100" },
+    { "ask": "Set up an automation: every paid Shopify order is added as a row to my Google Sheet with its items and total", "change": "Adds orders once they are paid" },
+    { "ask": "Set up an automation: every new Shopify order is added as a record to my Airtable base with its items and total", "change": "Records go to Airtable, not Sheets" },
+    { "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet and posted in a Slack channel", "change": "Each order in Slack too, after your OK" }
+  ],
   "tags": ["ecommerce", "shopify", "google-sheets", "orders"],
   "updated": "2026-11-19"
 }

@@ -1,10 +1,10 @@
 // A use case page, v3 (D253): one template, filled from the page's JSON (src/content/use-cases/pages), written by the
-// page pipeline (scripts/pages). Hero with the ask typed into Captain, a scroll stepper, the apps, a comparison,
-// questions, more use cases. Every visual is drawn from the data, so a new page needs no design work.
+// page pipeline (scripts/pages). Hero with the ask typed into Captain, a scroll stepper, the apps, variations of the ask
+// (D259), questions, more use cases. Every visual is drawn from the data, so a new page needs no design work.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PAGES } from '@/content/use-cases/pages';
-import { AppLogo, Crumbs, Cta, Face, KindBadge, KINDS, MaybeLink } from '@/site/parts';
+import { AppLogo, Crumbs, Cta, Face, KINDS } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { rich } from '@/site/guides/rich';
 import { PromptFilm } from '@/site/usecase/film';
@@ -42,30 +42,6 @@ function related(u: UseCasePage) {
   return PAGES.filter(x => x.slug !== u.slug).sort((a, b) => score(b) - score(a)).slice(0, 6);
 }
 
-// The 50agents wordmark, small, for table headers (D255: our logo, not a kind face)
-function Logo50() {
-  return <span className="logo50"><span className="logo50-d" aria-hidden="true"><Face id="writer" size={17} /></span><span className="sr">50agents</span></span>;
-}
-
-function Mark({ v }: { v: string }) {
-  const t = v.toLowerCase();
-  const k = /^yes\b/.test(t) ? 'y' : /^no\b/.test(t) ? 'n' : /^(partly|only|if |some|depends)/.test(t) ? 'p' : '';
-  if (!k) return null;
-  return (
-    <svg className={`mk ${k}`} width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-      <circle cx="10" cy="10" r="10" />
-      {k === 'y' && <path d="M6 10.2l2.6 2.6L14 7.4" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />}
-      {k === 'n' && <path d="M7 7l6 6M13 7l-6 6" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />}
-      {k === 'p' && <path d="M6 10h8" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" />}
-    </svg>
-  );
-}
-// A cell's words without the leading Yes/No when the mark already says it ("Yes, always" -> "Always").
-const rest = (v: string) => { const m = v.match(/^(yes|no)\b[,.]?\s*(.*)$/i); return m ? (m[2] ? m[2][0].toUpperCase() + m[2].slice(1) : '') : v; };
-function Cell({ v, us }: { v: string; us?: boolean }) {
-  return <td className={us ? 'us' : undefined}><span className="cell"><Mark v={v} /><span>{rest(v) || (v.toLowerCase().startsWith('yes') ? 'Yes' : 'No')}</span></span></td>;
-}
-
 export default async function UseCasePageView({ params }: { params: Promise<{ slug: string }> }) {
   const u = await find(params);
   if (!u) notFound();
@@ -78,8 +54,6 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
   const more = related(u);
   // apps named in the H1 show their logos above it (D255)
   const named = u.build.apps.filter(a => u.h1.toLowerCase().includes(appName(a).toLowerCase()));
-  // the comparison shows only the points where 50agents wins (D255): our cell is a yes or a plain strength, not a no or a "partly"
-  const wins = u.compare.rows.filter(r => { const t = (r.cells.at(-1) ?? '').toLowerCase(); return !/^(no\b|partly|only|if |some|depends)/.test(t); });
   const ld = [
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
@@ -131,7 +105,20 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
         </div>
       </section>
 
-      {/* The comparison section was removed (Jii, D258: "shitty and vague"); its replacement is being decided with him. */}
+      {/* Make it yours (D259): real variations of the ask; each card opens Captain with that ask filled in */}
+      <section className="wrap sec" id="variations">
+        <div className="sec-h c"><h2>Make it yours</h2><p>Change one thing, and Captain builds that version instead.</p></div>
+        <ul className="uc3-vars">
+          {u.variations.map(v => (
+            <li key={v.ask}>
+              <Cta page={u.slug} place="variation" ask={v.ask} ghost>
+                <span className="uc3-var-ask">&ldquo;{v.ask}&rdquo;</span>
+                <span className="uc3-var-foot"><span>{v.change}</span><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5.5l4.5 4.5-4.5 4.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+              </Cta>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {/* Questions */}
       <section className="wrap sec" id="questions">

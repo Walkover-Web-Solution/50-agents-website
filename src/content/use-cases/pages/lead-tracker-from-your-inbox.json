@@ -175,6 +175,12 @@
       "a": "Not on its own. Gmail has no field for a lead's stage, deal size or next follow-up date, which a tracker keeps on one row per lead. Closer reads your Gmail each weekday at 9:00 and adds the new leads there."
     }
   ],
+  "variations": [
+    { "ask": "Track my leads from emails that ask about price or a quote, and follow up", "change": "Only emails asking about price" },
+    { "ask": "Track my leads and follow up after 7 quiet days", "change": "Waits a week before a follow-up" },
+    { "ask": "Track my leads and follow up with short, friendly emails signed with my first name", "change": "Shorter follow-ups, signed by you" },
+    { "ask": "Track my leads with a deal value on each, and follow up", "change": "The board totals value by stage" }
+  ],
   "tags": [
     "sales",
     "gmail",

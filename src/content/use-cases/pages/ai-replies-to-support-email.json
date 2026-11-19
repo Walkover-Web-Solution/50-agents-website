@@ -171,6 +171,12 @@
       "a": "Tell Captain your tone and add a few of your own past replies as examples. You can also change any draft before approving it. [How to draft email replies with AI and still check them](/guides/how-to-draft-email-replies-with-ai-and-still-check-them) covers the one-minute review."
     }
   ],
+  "variations": [
+    { "ask": "Set up an AI agent that reads new support emails every weekday at 9:00, drafts a reply from what you know about my business, and asks me before sending", "change": "Runs once each weekday morning" },
+    { "ask": "Set up an AI agent that reads new support emails, drafts short, friendly replies signed with my first name, and asks me before sending", "change": "Shorter replies, signed by you" },
+    { "ask": "Set up an AI agent that reads new support emails in Microsoft Outlook, drafts a reply from what you know about my business, and asks me before sending", "change": "Works in Outlook instead of Gmail" },
+    { "ask": "Set up an AI agent that reads new support emails, drafts replies, and posts in Slack the ones it cannot answer", "change": "Open questions land in Slack" }
+  ],
   "tags": [
     "support",
     "gmail",

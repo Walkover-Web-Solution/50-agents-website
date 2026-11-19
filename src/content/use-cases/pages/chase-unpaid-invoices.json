@@ -66,6 +66,12 @@
     { "q": "What should a payment reminder email say?", "a": "The invoice number, the amount, the due date and how to pay, in a few friendly lines, with a question about when to expect payment. Collector writes exactly that." },
     { "q": "What do I do if a client still won't pay after the reminders?", "a": "That is where a person takes over: the desk drafts reminders and you approve them, but it does not call anyone or take other action. Keep the invoice marked Sent so it stays on the late list, oldest first, until you mark it Paid." }
   ],
+  "variations": [
+    { "ask": "Chase my unpaid invoices, but only the ones over $500", "change": "Only invoices over $500 get a reminder" },
+    { "ask": "Chase my unpaid invoices, starting 7 days after each due date", "change": "The first reminder waits a week" },
+    { "ask": "Chase my unpaid invoices with short, firm reminders signed with my first name", "change": "A firmer tone, signed by you" },
+    { "ask": "Chase my unpaid invoices and send the reminders from my Microsoft Outlook", "change": "Reminders go from Outlook, not Gmail" }
+  ],
   "tags": ["finance", "gmail", "invoices"],
   "updated": "2026-11-19"
 }

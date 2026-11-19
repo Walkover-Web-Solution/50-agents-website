@@ -1,6 +1,6 @@
 // A kind hub, v3 (D253, D254, D255): one template, filled from the hub's JSON (src/content/hubs/pages), written by the page
 // pipeline. The hero is the use case page's: a real ask typed into Captain as the subheader and one short line under it.
-// Then the four kinds as a bento (this kind leads), the use cases of this kind, "Works with ... 2,300+ apps" over two
+// Then the possibilities gallery (D259), the four kinds as a bento (this kind leads), the use cases of this kind, "Works with ... 2,300+ apps" over two
 // marquee rows, questions, more to read. No date on the page: `updated` goes to JSON-LD only.
 import type { HubPage } from './types';
 import { PAGES } from '@/content/use-cases/pages';
@@ -9,6 +9,7 @@ import { StickyBar } from '../sticky';
 import { rich } from '../guides/rich';
 import { PromptFilm } from '../usecase/film';
 import { KindBento } from './kind-bento';
+import { Gallery } from './gallery';
 import { KIND_RULE } from '@/content/hubs/kinds';
 import { AppsWall } from './apps-wall';
 import { ReadCard, live } from './cards';
@@ -36,6 +37,9 @@ export function HubView({ h }: { h: HubPage }) {
         <PromptFilm ask={h.example.ask} button={<Cta campaign="seo-hub" page={page} place="hero" ask={h.example.ask}>Build it</Cta>} />
         <p className="uc3-note">{h.answer[1]}</p>
       </section>
+
+      {/* What you can build (D259): 20 to 30 jobs of this kind under team filters, each opening Captain with its ask */}
+      <Gallery kind={h.kind} page={page} label={h.crumb} />
 
       {/* Which kind: the four kinds as cards, this kind leading; the others link to their hubs */}
       <section className="wrap sec" id="which-kind">

@@ -65,6 +65,12 @@
     { "q": "Will refunds show up in the summary?", "a": "Not by default. The Stripe actions it reads from cover payment intents, invoices and customers, while refunds only come as events. If refunds matter, say so and Captain tells you what it can do." },
     { "q": "Can I use this for my accounting?", "a": "No. It is a readable summary of the week. For books that reconcile to your payouts, use Stripe's scheduled reports." }
   ],
+  "variations": [
+    { "ask": "Set up an AI agent that reads yesterday's payments in Stripe every day at 8:00 and emails me the totals and what changed", "change": "A daily summary, not weekly" },
+    { "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and posts the totals and what changed in Slack", "change": "Posts in Slack instead of email" },
+    { "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals, refunds and my five biggest customers", "change": "Adds refunds and top customers" },
+    { "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals in three short lines", "change": "Three lines, nothing more" }
+  ],
   "tags": ["finance", "stripe", "gmail", "reports"],
   "updated": "2026-11-19"
 }

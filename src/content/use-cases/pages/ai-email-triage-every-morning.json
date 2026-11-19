@@ -60,6 +60,12 @@
     { "q": "How does it learn how I write?", "a": "From its instructions and your corrections. Tell its chat what to change, such as shorter replies or a different sign-off, and later drafts follow it." },
     { "q": "Is this the same as AI for support email?", "a": "No. A support queue is one address with questions to answer. This reads your own mixed inbox, where most mail is not a question and the job is deciding what needs you." }
   ],
+  "variations": [
+    { "ask": "Go through my unread email every weekday at 8:00 and draft replies only to emails from clients", "change": "Drafts only for client emails" },
+    { "ask": "Go through my unread email every day at 18:00, weekends included, and draft replies", "change": "Runs every evening, weekends too" },
+    { "ask": "Go through my unread Microsoft Outlook email every weekday at 8:00 and draft replies", "change": "Reads Outlook instead of Gmail" },
+    { "ask": "Go through my unread email every weekday at 8:00 and send me a short list in Slack of what needs me", "change": "A list in Slack instead of drafts" }
+  ],
   "tags": ["email", "gmail", "inbox", "drafts"],
   "updated": "2026-11-19"
 }

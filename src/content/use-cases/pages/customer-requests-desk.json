@@ -60,6 +60,12 @@
     { "q": "How is this different from an AI agent that only replies to support email?", "a": "A reply-only AI agent answers and keeps nothing. The desk keeps each request as a record until it is solved, with status, priority, answer-by date and what was sent. If every question has a one-reply answer, replying alone is enough." },
     { "q": "When do I need a help desk instead of a tracker?", "a": "When several people share the inbox and need to assign requests between them or report on response times. This desk is one list of requests, each with a status, priority and answer-by date, and a reply drafted for you to approve." }
   ],
+  "variations": [
+    { "ask": "Keep track of customer requests and draft replies only for the urgent ones", "change": "Drafts only for urgent requests" },
+    { "ask": "Keep track of customer requests and draft a nudge when one has waited on the customer for 3 days", "change": "Nudges customers after 3 quiet days" },
+    { "ask": "Keep track of customer requests and draft short, friendly replies signed with my first name", "change": "Shorter replies, signed by you" },
+    { "ask": "Keep track of customer requests and send the replies from my Microsoft Outlook", "change": "Replies go from Outlook, not Gmail" }
+  ],
   "tags": ["support", "gmail", "requests", "desk"],
   "updated": "2026-11-19"
 }

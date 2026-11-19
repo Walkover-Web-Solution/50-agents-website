@@ -66,3 +66,39 @@ a.kb-card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
 /* D255: even gaps. The closing card sits in its .sec with no margin of its own. */
 .hub3 .final,.ix3 .final{margin-top:0}
+
+/* The possibilities gallery (D259): one card per job under team filters. Hairline borders, no faces, no tints. The whole
+   card opens Captain (the job's link stretches over it); "See how" sits above that link. */
+.gal-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:32px}
+.gal-chips button{height:42px;padding:0 18px;border:0;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:inherit;font-size:15.5px;font-weight:500;color:var(--ink);cursor:pointer;transition:background .2s,box-shadow .2s,color .2s}
+.gal-chips button:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.gal-chips button[aria-pressed=true]{background:var(--ink);color:#fff;box-shadow:none}
+.gal-chips button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.gal-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.gal-grid[data-show=sales]>:not([data-team=sales]),.gal-grid[data-show=support]>:not([data-team=support]),
+.gal-grid[data-show=finance]>:not([data-team=finance]),.gal-grid[data-show=operations]>:not([data-team=operations]),
+.gal-grid[data-show=ecommerce]>:not([data-team=ecommerce]),.gal-grid[data-show=personal]>:not([data-team=personal]){display:none}
+.gal-card{position:relative;display:flex;flex-direction:column;gap:16px;min-width:0;padding:20px 20px 18px;border-radius:16px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .2s}
+.gal-card:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.gal-card:focus-within{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.gal-apps{display:flex;align-items:center;gap:8px;min-height:26px}
+.gal-none{font-size:14px;font-weight:500;color:var(--mute)}
+.gal-card h3{margin:0;font-size:17.5px;font-weight:500;letter-spacing:-.01em;line-height:1.35;text-wrap:pretty}
+.gal-go{color:var(--ink);text-decoration:none}
+.gal-go::after{content:"";position:absolute;inset:0;border-radius:16px}
+.gal-go:focus-visible{outline:none}
+.gal-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14.5px}
+.gal-ask{font-weight:600;color:var(--mute);transition:color .2s}
+.gal-ask span{display:inline-block;transition:transform .2s}
+.gal-card:hover .gal-ask{color:var(--ink)}
+.gal-card:hover .gal-ask span{transform:translateX(3px)}
+.gal-how{position:relative;z-index:1;color:var(--ink);font-weight:500;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.gal-how:hover{text-decoration-color:var(--ink)}
+@media (max-width:1100px){.gal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:820px){.gal-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){
+  .gal-grid{grid-template-columns:1fr;gap:10px}
+  .gal-chips{justify-content:flex-start;gap:6px;margin-bottom:24px}
+  .gal-chips button{height:38px;padding:0 14px;font-size:14.5px}
+  .gal-card{padding:18px}
+}
