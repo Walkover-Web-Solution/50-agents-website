@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { HOME_AGENT_LINK } from "./src/lib/home-agent-link";
 
 const nextConfig: NextConfig = {
     // PostHog's endpoints end in a slash (/ingest/e/); Next must not redirect them away (posthog.com/docs/libraries/next-js)
@@ -57,11 +58,7 @@ const nextConfig: NextConfig = {
             {
                 source: '/',
                 headers: [
-                    {
-                        key: 'Link',
-                        value:
-                            '</llms.txt>; rel="describedby"; type="text/plain", </llms-full.txt>; rel="alternate"; type="text/plain"; title="Full agent context", </.well-known/api-catalog>; rel="api-catalog", </.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/ai-catalog+json", </openapi.json>; rel="service-desc"; type="application/json", </server.json>; rel="service-desc"; type="application/json", </mcp/server-card>; rel="service-desc"; type="application/mcp-server-card+json", </sitemap-main.xml>; rel="sitemap"',
-                    },
+                    { key: 'Link', value: HOME_AGENT_LINK },
                 ],
             },
         ];
