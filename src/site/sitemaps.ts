@@ -20,6 +20,7 @@ type Entry = { path: string; date: string };
 // Pages set to noindex until a fact is confirmed: /contact until its email is, /support until no channel is a placeholder.
 const noindex = new Set([...(CONTACT_EMAIL ? [] : ['/contact']), ...(SUPPORT_OPEN.length ? ['/support'] : [])]);
 
+// Each family has its own static route, src/app/sitemaps/<name>.xml/route.ts: add one with a new family.
 export const FAMILIES: Record<string, () => Entry[]> = {
   main: () => [{ path: '/', date: HOME_UPDATED }, ...PAGES.filter(p => !noindex.has(p)).map(path => ({ path, date: WRITTEN }))],
   'use-cases': () => USE_CASES.map(u => ({ path: `/use-cases/${u.slug}`, date: u.updated })),

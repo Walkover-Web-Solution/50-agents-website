@@ -11,7 +11,7 @@
     "validate:mcp-protocol": "node scripts/validate-mcp-protocol.mjs",
     "build:dev": "dotenv -e .env.dev next build",
     "build:prod": "dotenv -e .env.prod next build",
-    "build:pages": "pnpm exec next-on-pages",
+    "build:pages": "node scripts/build-pages.mjs",
     "start": "next start",
     "lint": "eslint"
   },
@@ -28,6 +28,7 @@
     "baseline-browser-mapping": "^2.8.32",
     "eslint": "^9",
     "eslint-config-next": "16.0.5",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vercel": "47.0.4"
   }
 }

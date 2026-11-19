@@ -4,13 +4,13 @@
 // kinds, triggers and actions in two equal columns with "Load more", templates with "Load more" (D260), pairings,
 // questions. No dates and no source lines on the page. Every visual is drawn from the data.
 import type { Metadata } from 'next';
-import { notFound, permanentRedirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { Crumbs, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { BuildLink } from '@/site/integrations/build-link';
-import { appIndexable, catalog, loadApp, partnersOf, rawRedirects, topRecipes, writtenPage } from '@/site/integrations/data';
+import { appIndexable, catalog, loadApp, partnersOf, topRecipes, writtenPage } from '@/site/integrations/data';
 import { BASE, crumbsLd, EventsBox, Final, firstRecipe, KindCards, LdScript, Lockup, PairCards, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
 import type { IntegrationPage } from '@/site/integrations/types';
 import { templatePage } from '@/site/integrations/words';
@@ -19,10 +19,10 @@ import '@/site/css/integrations.css';
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  // Every canonical slug, plus each raw slug that redirects to one (mixed case, or a duplicate of the same app).
-  return [...catalog().apps.map(a => ({ app: a.s })), ...rawRedirects().map(([raw]) => ({ app: raw }))];
+  // Every canonical slug. A raw slug (mixed case, or a duplicate of the same app) 308s to it in src/middleware.ts: not
+  // pre-rendered, so two files never differ only by case (they collide on a case-insensitive disk).
+  return catalog().apps.map(a => ({ app: a.s }));
 }
-const redirectTo = (slug: string) => rawRedirects().find(([raw]) => raw === slug)?.[1];
 
 function load(slug: string) {
   const app = loadApp(slug);
@@ -49,8 +49,6 @@ export async function generateMetadata({ params }: { params: Promise<{ app: stri
 
 export default async function IntegrationPageView({ params }: { params: Promise<{ app: string }> }) {
   const { app: slug } = await params;
-  const to = redirectTo(slug);
-  if (to) permanentRedirect(`/integrations/${to}`);
   const d = load(slug);
   if (!d) notFound();
   const { app, p } = d;

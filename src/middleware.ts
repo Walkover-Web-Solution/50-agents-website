@@ -11,6 +11,7 @@ import { canon } from './content/integrations/slugs';
 //    /ai-agents itself is the new AI agents hub and is not touched here.
 // 4. Pair pages (Search S26): only the indexable pairs exist, in one canonical order (live-pairs.json, a few KB, so no
 //    catalog in this bundle). The reversed order, or a mixed-case or duplicate slug, 308s to the canonical page.
+//    An app page asked with a mixed-case or duplicate slug 308s to the canonical slug (slugs.ts canon) the same way.
 // 5. A Cloudflare preview (*.pages.dev) answers X-Robots-Tag: noindex, nofollow on every page (deploy plan step 3);
 //    production is unchanged. Cloudflare's _headers file doesn't apply to the worker's responses, so it is set here.
 const MAP = OLD as Record<string, string>;
@@ -64,6 +65,13 @@ function route(request: NextRequest): NextResponse {
     return gone();
   }
   if (/^\/services(\/|$)/.test(pathname)) return gone();
+
+  const app = path.match(/^\/integrations\/([^/]+)$/);
+  if (app) {
+    let x: string;
+    try { x = decodeURIComponent(app[1]); } catch { return NextResponse.next(); }
+    if (canon(x) !== x) { url.pathname = `/integrations/${canon(x)}`; return NextResponse.redirect(url, 308); }
+  }
 
   const pair = path.match(/^\/integrations\/([^/]+)\/([^/]+)$/);
   if (pair) {
