@@ -1,27 +1,105 @@
 /* Guides, v5 (D255 round 3, "lifeless"; Jii: make /guides the best of the product blogs).
    The index: a featured guide drawn large, then every guide as a card with its cover, under category filters.
-   The guide: an article. Cover, strong H1, the short answer, the reading time; an editorial column (19px, 68ch) beside
+   v6 (D258, round 4): covers are small calm elements from data (no crowds of faces); the guide's hero is centred with
+   the short answer in a soft box; steps are numbered sections (no ticking); tips and problems carry an icon, not a face.
+   The guide (v5): an article. Strong H1, the short answer, the reading time; an editorial column (19px, 68ch) beside
    sticky contents that follow the reading; steps the reader ticks; the crew stand beside tips and problems (worried at
    a warning); related guides with their covers. The covers (.gcv) are drawn from each guide's data (cover.tsx).
    Neutral surfaces only (D255): the kind tint lives on the kind badge and one small element inside a cover.
    Interactive parts are native inputs: the chooser's radios (branches shown by :has) and the steps' checkboxes.
    Also the link card to a use case (.ucard), shared with the role pages. */
 
-/* ---------- the cover ---------- */
-.gcv{position:relative;overflow:hidden;border-radius:20px;background:#F2F1ED;aspect-ratio:16/10;isolation:isolate}
-.gcv>svg{display:block;width:100%;height:100%}
-.gcv .c1,.gcv .c2{transform-box:fill-box;transform-origin:50% 100%;transition:transform .45s cubic-bezier(.2,.8,.2,1.25)}
-a:hover .gcv .c1,a:focus-visible .gcv .c1{transform:translateY(-7px) rotate(-3deg)}
-a:hover .gcv .c2,a:focus-visible .gcv .c2{transform:translateY(-4px) rotate(4deg)}
-.gcv-hero{border-radius:28px}
-.gcv-hero .c1{animation:gcv-hop .9s cubic-bezier(.2,.8,.2,1.3) .25s both}
-.gcv-hero .c2{animation:gcv-hop .9s cubic-bezier(.2,.8,.2,1.3) .45s both}
-@keyframes gcv-hop{from{transform:translateY(18px) scale(.9);opacity:0}to{transform:none;opacity:1}}
+/* ---------- the cover (v6, D258): one small calm element from the guide's data, ink and hairlines, one soft accent.
+   Sized in container units so the card, the featured guide and a phone read the same. ---------- */
+.gcv{position:relative;overflow:hidden;border-radius:20px;background:#F2F1ED;aspect-ratio:16/10;container-type:inline-size;--cvi:#16171A;--cvl:#E2E0DA}
+.gcv-in{position:absolute;inset:0;display:grid;place-items:center;padding:7cqw 8cqw;font-size:3.8cqw;line-height:1.35;color:var(--cvi);letter-spacing:-.005em;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+a:hover .gcv-in,a:focus-visible .gcv-in{transform:translateY(-1.2cqw)}
+.gcv-in>*{width:100%;max-width:76cqw}
+.cv-card{background:#fff;border-radius:3.6cqw;box-shadow:0 0 0 1px var(--cvl),0 .8cqw 2.4cqw rgba(22,23,26,.05)}
+.cv-k{display:block;font-size:3cqw;font-weight:600;color:#6B6E75}
+.cv-bars{display:grid;gap:1.5cqw;width:100%}
+.cv-bars i{display:block;height:1.6cqw;border-radius:2cqw;background:rgba(22,23,26,.14)}
+.cv-bars i:nth-child(2){width:78%}.cv-bars i:nth-child(3){width:52%}
+.gcv svg{display:block}
+.cv-cap{position:absolute;display:block;width:10cqw}
+.cv-cap .face{display:block;height:auto!important;width:100%}
+.cv-cap .face svg{width:100%;height:auto}
+/* chat: the ask in an ink-lined bubble, the reply on the kind's tint */
+.cv-chat{display:grid;gap:2.6cqw}
+.cv-me{justify-self:end;max-width:64cqw;padding:2.6cqw 3.4cqw;border-radius:3.6cqw 3.6cqw 1cqw 3.6cqw;background:#fff;box-shadow:0 0 0 1px var(--cvl)}
+.cv-me span{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cv-ai{position:relative;display:flex;align-items:flex-end;gap:2.4cqw}
+.cv-ai .cv-cap{position:static;flex:none}
+.cv-reply{flex:0 1 46cqw;padding:3.2cqw;border-radius:3.6cqw 3.6cqw 3.6cqw 1cqw;background:var(--k)}
+/* approval card */
+.cv-approve{position:relative;display:grid;gap:1.6cqw;padding:4cqw;max-width:66cqw!important}
+.cv-approve b{font-size:4.1cqw;font-weight:600;line-height:1.25}
+.cv-approve p{color:#5B5E66;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cv-btns{display:flex;gap:1.6cqw;margin-top:1cqw}
+.cv-btns span{padding:1.4cqw 2.8cqw;border-radius:2cqw;font-size:3.1cqw;font-weight:600;box-shadow:inset 0 0 0 1px var(--cvl)}
+.cv-btns span.on{background:var(--cvi);color:#fff;box-shadow:none}
+.cv-approve .cv-cap{right:-5cqw;top:-5cqw;width:9cqw}
+/* flow: the apps it connects, joined by a hairline; the last one is where the work lands */
+.cv-flow{display:grid;gap:3cqw;justify-items:center}
+.cv-flow ol{list-style:none;margin:0;padding:0;display:flex;align-items:center;justify-content:center;gap:7cqw;width:100%}
+.cv-flow li{position:relative;flex:0 1 auto;padding:3cqw 3.4cqw;border-radius:3cqw;background:#fff;box-shadow:0 0 0 1px var(--cvl);font-weight:600;font-size:4.1cqw;text-align:center;line-height:1.2}
+.cv-flow li.on{background:var(--k);box-shadow:0 0 0 1px rgba(22,23,26,.18)}
+.cv-flow li+li::before{content:"";position:absolute;right:100%;top:50%;width:7cqw;border-top:1px solid var(--cvi)}
+.cv-flow li+li::after{content:"";position:absolute;right:calc(100% + .2cqw);top:calc(50% - .9cqw);width:1.6cqw;height:1.6cqw;border-top:1px solid var(--cvi);border-right:1px solid var(--cvi);transform:rotate(45deg)}
+/* a mini table from the guide's first table */
+.cv-table{overflow:hidden;font-size:3.3cqw}
+.cv-table>div{display:grid;grid-template-columns:repeat(var(--cols),minmax(0,1fr));gap:2.4cqw;padding:2.2cqw 3.2cqw;border-top:1px solid var(--cvl)}
+.cv-table>div.h{border-top:0;font-weight:600;color:#6B6E75;font-size:2.9cqw}
+.cv-table>div.on{background:var(--k);border-top-color:transparent}
+.cv-table span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cv-table>div>span:first-child{font-weight:600}
+/* the first steps, numbered; the first one done */
+.cv-list{list-style:none;margin:0;padding:1.4cqw 0}
+.cv-list li{display:flex;align-items:center;gap:2.6cqw;padding:2.2cqw 3.6cqw;border-top:1px solid var(--cvl);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cv-list li:first-child{border-top:0}
+.cv-list .t,.cv-fork .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cv-list .n{flex:none;display:grid;place-items:center;width:5.4cqw;height:5.4cqw;border-radius:50%;box-shadow:inset 0 0 0 1px var(--cvl);font-size:2.9cqw;font-weight:600}
+.cv-list li.on .n{background:var(--k);box-shadow:inset 0 0 0 1px rgba(22,23,26,.2)}
+.cv-list .n svg{width:3.4cqw;height:3.4cqw}
+/* an inbox: three rows, one picked out with its label */
+.cv-inbox{padding:1.4cqw 0}
+.cv-inbox>div{display:flex;align-items:center;gap:2.6cqw;padding:2.6cqw 3.6cqw;border-top:1px solid var(--cvl)}
+.cv-inbox>div:first-child{border-top:0}
+.cv-inbox .dot{flex:none;width:4.4cqw;height:4.4cqw;border-radius:50%;background:#EDECE7}
+.cv-inbox .cv-bars{gap:1.2cqw}
+.cv-inbox>div.on .dot{background:var(--cvi)}
+.cv-tag{flex:none;padding:1cqw 2.4cqw;border-radius:2cqw;background:var(--k);font-size:3cqw;font-weight:600;white-space:nowrap}
+/* a browser frame with the pointer on the part being read */
+.cv-browser{position:relative;padding-bottom:3.6cqw}
+.cv-browser .bar{display:flex;align-items:center;gap:1.2cqw;padding:2.2cqw 3cqw;border-bottom:1px solid var(--cvl)}
+.cv-browser .bar i{width:1.6cqw;height:1.6cqw;border-radius:50%;background:#E4E2DC}
+.cv-browser .bar span{flex:0 1 40%;height:3cqw;margin-left:2cqw;border-radius:2cqw;background:#F2F1ED}
+.cv-browser .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4cqw;padding:3.6cqw 3.6cqw 0}
+.cv-browser .tiles span{display:grid;gap:1.6cqw;padding:2cqw;border-radius:2.4cqw;box-shadow:inset 0 0 0 1px var(--cvl)}
+.cv-browser .tiles b{height:9cqw;border-radius:1.6cqw;background:#F2F1ED}
+.cv-browser .tiles span.on{background:var(--k);box-shadow:inset 0 0 0 1px rgba(22,23,26,.2)}
+.cv-browser .tiles span.on b{background:rgba(255,255,255,.7)}
+.cv-browser .form{display:grid;gap:2.4cqw;padding:3.6cqw 3.6cqw 0}
+.cv-browser .form span{display:grid;gap:1cqw}
+.cv-browser .form b{width:22%;height:1.4cqw;border-radius:2cqw;background:rgba(22,23,26,.14)}
+.cv-browser .form em{height:4.4cqw;border-radius:1.4cqw;box-shadow:inset 0 0 0 1px var(--cvl)}
+.cv-browser .form span.on em{background:var(--k);box-shadow:inset 0 0 0 1px rgba(22,23,26,.25)}
+.cv-browser .ptr{position:absolute;right:30%;bottom:14%;width:3.4cqw;fill:var(--cvi);stroke:#fff;stroke-width:1.2;stroke-linejoin:round}
+.cv-browser:has(.form) .ptr{right:24%;bottom:38%}
+/* a chooser: the question, then its options on a hairline; the right one ticked */
+.cv-fork .q{font-weight:600;font-size:4.1cqw;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cv-fork ul{list-style:none;margin:2.6cqw 0 0 2cqw;padding:0 0 0 5cqw;border-left:1px solid var(--cvi);display:grid;gap:1.8cqw}
+.cv-fork li{position:relative;justify-self:start;display:flex;align-items:center;gap:1.4cqw;max-width:100%;padding:1.6cqw 3cqw;border-radius:5cqw;background:#fff;box-shadow:0 0 0 1px var(--cvl);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cv-fork li::before{content:"";position:absolute;right:100%;top:50%;width:5cqw;border-top:1px solid var(--cvi)}
+.cv-fork ul{overflow:visible}
+.cv-fork li{overflow:visible}
+.cv-fork li.on{background:var(--k);box-shadow:0 0 0 1px rgba(22,23,26,.22);font-weight:600}
+.cv-fork li svg{flex:none;width:3.4cqw;height:3.4cqw}
 
 /* ---------- the index ---------- */
 .sec.gx-first{padding-top:72px}
 .gfeat{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:center;text-decoration:none}
-.gfeat .gcv{border-radius:28px}
+.gfeat .gcv{border-radius:24px}
 .gfeat-t{display:grid;gap:14px;align-content:center}
 .gfeat h2{font-size:clamp(32px,3.6vw,46px);line-height:1.04;letter-spacing:-.035em}
 .gfeat-l{font-size:18px;line-height:1.55;color:var(--mute)}
@@ -53,20 +131,19 @@ a:hover .gcv .c2,a:focus-visible .gcv .c2{transform:translateY(-4px) rotate(4deg
 .gcard:focus-visible{outline:2px solid var(--ink);outline-offset:6px;border-radius:20px}
 .gx-three{margin-top:0}
 
-/* ---------- the guide: hero ---------- */
+/* ---------- the guide: hero (v6, D258): centred like the prototype; the short answer in a soft warm-grey box ---------- */
 .gd5-bar{display:none}
-.gd5-hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:center;padding-top:40px}
-.gd5-hero-t{min-width:0}
-.gd5-hero h1{margin-top:22px;font-size:clamp(42px,5.2vw,66px);line-height:1;letter-spacing:-.042em}
-.gd5-short{margin-top:28px}
-.gd5-short h2{font-size:14px;font-weight:600;letter-spacing:0;line-height:1.3;color:var(--mute);margin-bottom:8px}
-.gd5-short p{font-size:21px;line-height:1.5;letter-spacing:-.008em;max-width:40ch}
-.gd5-meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:24px!important;font-size:15px;color:var(--mute)}
-.gd5-meta span+span::before{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.5;margin-right:18px;vertical-align:middle}
+.gd6-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:48px}
+.gd6-k{display:inline-block;padding:5px 13px;border-radius:999px;background:var(--k);font-size:14px;font-weight:600}
+.gd6-hero h1{margin-top:22px;font-size:clamp(40px,5vw,62px);line-height:1.04;letter-spacing:-.04em;max-width:900px;text-wrap:balance}
+.gd6-short{margin-top:36px;max-width:760px;padding:28px 36px 30px;border-radius:24px;background:#F2F1ED}
+.gd6-short h2{font-size:14px;font-weight:600;letter-spacing:0;line-height:1.3;color:var(--mute);margin-bottom:10px}
+.gd6-short p{font-size:20px;line-height:1.55;letter-spacing:-.008em;text-wrap:pretty}
+.gd6-meta{margin-top:20px!important;font-size:15px;color:var(--mute)}
 
 /* ---------- the guide: contents beside the column ---------- */
 .gd5-grid{display:grid;grid-template-columns:220px minmax(0,1fr);column-gap:80px;align-items:start}
-.gd5-toc{position:sticky;top:110px;margin-top:104px;font-size:14.5px;max-height:calc(100vh - 140px);overflow:auto;--read:0}
+.gd5-toc{position:sticky;top:110px;margin-top:0;font-size:14.5px;max-height:calc(100vh - 140px);overflow:auto;--read:0}
 .gd5-toc>p{font-size:14px;font-weight:600;margin-bottom:14px!important}
 .gd5-toc ol{position:relative;list-style:none;margin:0;padding:0;display:grid;gap:2px}
 .gd5-toc ol::before,.gd5-toc ol::after{content:"";position:absolute;left:0;top:0;width:2px;border-radius:2px}
@@ -75,16 +152,10 @@ a:hover .gcv .c2,a:focus-visible .gcv .c2{transform:translateY(-4px) rotate(4deg
 .gd5-toc a{display:block;padding:7px 0 7px 18px;color:var(--mute);text-decoration:none;line-height:1.35;transition:color .2s}
 .gd5-toc a:hover,.gd5-toc a:focus-visible,.gd5-toc a[aria-current]{color:var(--ink)}
 .gd5-toc a[aria-current]{font-weight:600}
-.gd5-toc .gd4-prog{margin-top:26px;padding-top:20px;border-top:1px solid var(--line)}
-.gd4-prog{display:grid;gap:8px}
-.gd4-prog-bar{display:block;height:6px;border-radius:6px;background:var(--line);overflow:hidden}
-.gd4-prog-bar i{display:block;height:100%;border-radius:6px;background:var(--ok);transition:width .3s}
-.gd4-prog-t{font-size:13.5px;color:var(--mute)}
-
-/* ---------- the guide: the editorial column ---------- */
 .gd5-col{min-width:0;max-width:720px}
-.gd5-col>section{padding-top:104px;scroll-margin-top:84px}
-.gd5-col>section>h2,.gd4-steps-h h2{font-size:clamp(28px,3vw,38px);line-height:1.08;letter-spacing:-.032em;margin-bottom:24px}
+.gd5-col>section{padding-top:96px;scroll-margin-top:84px}
+.gd5-col>section:first-child{padding-top:0}
+.gd5-col>section>h2{font-size:clamp(28px,3vw,38px);line-height:1.08;letter-spacing:-.032em;margin-bottom:24px}
 .gd5-col>section>p{font-size:19px;line-height:1.7;max-width:68ch}
 .gd5-col>section>*+*{margin-top:22px}
 .gd5-col>section>h2+*{margin-top:0}
@@ -117,39 +188,26 @@ a:hover .gcv .c2,a:focus-visible .gcv .c2{transform:translateY(-4px) rotate(4deg
 .gch-q:has(>.gch-opts>label:nth-child(3)>input:checked)>.gch-next>.gch-b:nth-child(3),
 .gch-q:has(>.gch-opts>label:nth-child(4)>input:checked)>.gch-next>.gch-b:nth-child(4){display:block}
 .gch-a{display:flex;gap:16px;align-items:flex-start;padding:22px 24px;border-radius:20px;background:#fff;box-shadow:0 0 0 1px var(--line)}
-.gch-a-face{display:grid;place-items:center;flex:none;width:56px;height:56px;border-radius:16px;background:var(--k)}
+.gch-a-k{display:inline-block;margin-bottom:8px;padding:3px 10px;border-radius:999px;background:var(--k);font-size:13px;font-weight:600}
 .gch-a-t{font-size:20px;font-weight:600;letter-spacing:-.015em;line-height:1.3}
 .gch-a-w{margin-top:6px!important;font-size:17px;line-height:1.55;color:var(--mute)}
 .gch-a-l{margin-top:10px!important;font-size:16px;font-weight:500}
 
-/* the steps: tick each off; the number turns into a tick */
-.gd4-steps-h{display:flex;align-items:baseline;justify-content:space-between;gap:24px}
-.gd4-prog-inline{display:none}
+/* the steps: numbered sections */
 .gd4-steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.gd4-steps>li{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:14px;padding:26px 0;border-bottom:1px solid var(--line);scroll-margin-top:84px}
-.gd4-tick-in{position:absolute;opacity:0;width:1px;height:1px;margin:0}
-.gd4-tick{display:grid;place-items:center;width:44px;height:44px;margin-top:-4px;border-radius:50%;cursor:pointer}
-.gd4-tick .n,.gd4-tick .t{grid-area:1/1;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;font-size:15px;font-weight:600}
-.gd4-tick .n{background:var(--ink);color:#fff;transition:opacity .15s}
-.gd4-tick .t{padding:7px;background:var(--ok);color:#fff;opacity:0;transform:scale(.6);transition:opacity .2s,transform .2s}
-.gd4-tick:hover .n{box-shadow:0 0 0 4px var(--line)}
-.gd4-tick-in:focus-visible+.gd4-tick{outline:2px solid var(--ink);outline-offset:1px}
-.gd4-tick-in:checked+.gd4-tick .n{opacity:0}
-.gd4-tick-in:checked+.gd4-tick .t{opacity:1;transform:none}
-.gd4-tick-in:checked~.gd4-step h3{color:var(--mute)}
+.gd4-steps>li{position:relative;display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:14px;padding:28px 0;border-bottom:1px solid var(--line);scroll-margin-top:84px}
+.gd6-n{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-size:15px;font-weight:600}
 .gd4-step{min-width:0}
-.gd4-step h3{font-size:20px;font-weight:600;letter-spacing:-.015em;padding-top:4px;transition:color .2s}
+.gd4-step h3{font-size:20px;font-weight:600;letter-spacing:-.015em;padding-top:4px}
 .gd4-step>p{margin-top:8px!important;font-size:17.5px;line-height:1.65;color:var(--mute);max-width:66ch}
 
-/* a tip or a warning, said by the crew member of the kind it is about: the blob stands beside a speech bubble.
-   A warning shows the crew's worried face (its own frown and brows), a tip its smile. */
-.gd5-blob{display:block;flex:none;width:44px;padding-top:4px}
-.gd5-blob .face{display:block}
-.gd5-blob.warn .face .smile{display:none}
-.gd5-blob.warn .face .frown,.gd5-blob.warn .face .brow{display:inline}
-.gd5-note{display:flex;gap:14px;align-items:flex-start;margin-top:20px}
-.gd5-note p{position:relative;flex:1;min-width:0;padding:14px 18px;border-radius:4px 18px 18px 18px;background:var(--wash);font-size:16.5px;line-height:1.55;color:var(--ink)}
-.gd5-note.warn p{background:#fff;box-shadow:inset 0 0 0 1.5px var(--ink)}
+/* a tip or a warning: a small line icon beside a soft box (D258: no faces) */
+.gd6-ic{display:grid;place-items:center;flex:none;width:32px;height:32px;margin-top:6px;border-radius:50%;background:var(--wash)}
+.gd6-ic svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.gd6-ic.warn{background:#FBEFE6}
+.gd6-ic.warn svg{stroke:var(--warn)}
+.gd5-note{display:flex;gap:12px;align-items:flex-start;margin-top:20px}
+.gd5-note p{flex:1;min-width:0;padding:14px 18px;border-radius:16px;background:var(--wash);font-size:16.5px;line-height:1.55;color:var(--ink)}
 .gd5-note b{font-weight:600}
 
 /* Captain's film inside the step 50agents does */
@@ -159,7 +217,7 @@ a:hover .gcv .c2,a:focus-visible .gcv .c2{transform:translateY(-4px) rotate(4deg
 .gd4-try>p{margin-top:16px!important;font-size:16px;line-height:1.55;color:color-mix(in srgb,var(--ink) 80%,var(--k))}
 .gd4-try>p a{color:var(--ink);font-weight:500}
 
-/* what can go wrong: each problem beside the worried face of the kind it is about */
+/* what can go wrong: each problem beside a small warning icon */
 .gd5-wrong{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .gd5-wrong li{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--line)}
 .gd5-wrong h3{font-size:19px;font-weight:600;padding-top:4px}
@@ -177,20 +235,16 @@ a:hover .gcv .c2,a:focus-visible .gcv .c2{transform:translateY(-4px) rotate(4deg
 .gd4 .final,.gx .final,.rl3 .final{margin-top:0}
 
 @media (prefers-reduced-motion:reduce){
-  .gd4-tick .n,.gd4-tick .t,.gd4-prog-bar i,.gd4-step h3,.gd5-toc ol::after,.gcv .c1,.gcv .c2{transition:none}
-  .gcv-hero .c1,.gcv-hero .c2{animation:none}
-  a:hover .gcv .c1,a:hover .gcv .c2,a:focus-visible .gcv .c1,a:focus-visible .gcv .c2{transform:none}
+  .gd5-toc ol::after,.gcv-in{transition:none}
+  a:hover .gcv-in,a:focus-visible .gcv-in{transform:none}
 }
 
 @media (max-width:1020px){
   .gfeat{grid-template-columns:1fr;gap:28px}
   .gx-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gd5-hero{grid-template-columns:1fr;gap:32px}
-  .gd5-hero .gcv{order:-1;aspect-ratio:2/1;max-width:720px}
   .gd5-grid{grid-template-columns:minmax(0,1fr)}
   .gd5-toc{display:none}
-  .gd5-col{max-width:720px}
-  .gd4-prog-inline{display:block;flex:none;width:170px}
+  .gd5-col{max-width:720px;margin:0 auto;width:100%}
   .gd5-bar{display:block;position:fixed;left:0;right:0;top:0;z-index:40;height:3px;pointer-events:none;--read:0}
   .gd5-bar i{display:block;height:100%;width:100%;background:var(--ink);transform-origin:0 50%;transform:scaleX(var(--read))}
 }
@@ -204,18 +258,13 @@ a:hover .gcv .c2,a:focus-visible .gcv .c2{transform:translateY(-4px) rotate(4deg
   .gx-chips button{flex:none;height:40px;padding:0 15px;font-size:14.5px}
   .gx-grid{grid-template-columns:1fr;gap:40px}
   .gcard-t{font-size:20px!important}
-  .gd5-hero{padding-top:20px;gap:24px}
-  .gd5-hero .gcv{border-radius:20px;aspect-ratio:16/9}
-  .gd5-hero h1{margin-top:18px;font-size:38px}
-  .gd5-short{margin-top:22px}
-  .gd5-short p{font-size:18px}
-  .gd5-meta{font-size:14px;gap:6px 14px}
-  .gd5-meta span+span::before{margin-right:14px}
-  .gd5-col>section{padding-top:80px}
+  .gd6-hero{padding-top:24px}
+  .gd6-hero h1{margin-top:18px;font-size:36px}
+  .gd6-short{margin-top:26px;padding:22px 20px 24px;border-radius:20px}
+  .gd6-short p{font-size:17.5px}
+  .gd6-meta{font-size:14px}
+  .gd5-col>section{padding-top:72px}
   .gd5-col>section>p,.gd4-ul{font-size:17px}
-  .gd4-steps-h{flex-direction:column;gap:0;align-items:stretch}
-  .gd4-steps-h h2{margin-bottom:14px}
-  .gd4-prog-inline{width:auto;margin-bottom:22px}
   /* tables stack on a phone: one block per row, each cell under its column's name */
   .gd4-tw{border-radius:16px}
   .gd4-tw table,.gd4-tw tbody,.gd4-tw tr,.gd4-tw th,.gd4-tw td{display:block}
@@ -229,16 +278,14 @@ a:hover .gcv .c2,a:focus-visible .gcv .c2{transform:translateY(-4px) rotate(4deg
   .gch-q legend{font-size:17.5px}
   .gch-opts label{font-size:15.5px;padding:10px 16px}
   .gch-a{padding:18px;gap:14px}
-  .gch-a-face{width:46px;height:46px;border-radius:13px}
   .gch-a-t{font-size:18px}
   .gch-a-w{font-size:16px}
   .gd4-steps>li{grid-template-columns:40px minmax(0,1fr);column-gap:10px;padding:22px 0}
-  .gd4-tick{width:40px;height:40px}
-  .gd4-tick .n,.gd4-tick .t{width:30px;height:30px;font-size:13.5px}
+  .gd6-n{width:30px;height:30px;font-size:13.5px}
   .gd4-step h3{font-size:18.5px;padding-top:6px}
   .gd4-step>p,.gd5-wrong p{font-size:16px}
   .gd5-note{gap:10px}
-  .gd5-blob{width:36px}
+  .gd6-ic{width:28px;height:28px}
   .gd5-note p{font-size:15.5px;padding:12px 14px}
   .gd4-try{padding:16px;border-radius:20px;margin-left:-50px}
   .gd5-wrong li{gap:14px}

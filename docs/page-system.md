@@ -90,3 +90,15 @@ typography and spacing, visuals that support the text (or no visual), better tha
 - When the API key arrives (Search T5), the pipeline writes each pair's own lines: what this pair is used for, the most
   useful template and why, and what to watch out for between these two apps. Then re-run
   `scripts/pages/uniqueness-integrations.mjs`. No looser gate.
+
+## Round 4 (D258)
+- **Frame:** the header sits in the homepage's band (`max(40px, (100vw - 1280px) / 2)` each side), opaque, with Use cases,
+  Build and Integrations on the right. Compare and Guides are footer only. Content and marquees stay inside `.wrap`.
+- **Rhythm:** `.sec` is 176px (96px on a phone).
+- **The logo never wears an automation blob:** wordmarks use `writer` (or a random non-automation face on the homepage).
+- **Use case heroes:** app icons first, then the kind label (an app shows a small crew; other kinds no blob). The
+  comparison section is removed; its replacement is being decided with Jii.
+- **Guides supersede the earlier guide notes:** calm covers built from data (a few carry Captain, no crowds); the hero is
+  the H1 and "The short answer" in a soft grey box, centred; plain numbered steps, no ticking or step counter; small
+  icons for tips and warnings.
+- **Integrations:** triggers left and actions right, each scrolling inside its own column, the box sized to its content.

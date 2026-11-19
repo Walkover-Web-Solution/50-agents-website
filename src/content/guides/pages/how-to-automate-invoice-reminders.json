@@ -20,18 +20,41 @@
           "then": {
             "q": "Do you want to read each reminder before it goes?",
             "options": [
-              { "label": "No, send them for me", "then": { "answer": "Switch on your accounting app's reminders", "why": "It sees each payment as it is recorded, so it stops chasing on its own. QuickBooks, Xero and Zoho Books all have them.", "kind": "auto" } },
-              { "label": "Yes, I want to check each one", "then": { "answer": "Use a tool with approvals", "why": "Built-in reminders send on their own. An AI agent that drafts each email and waits for your yes lets you hold one for a client who just called.", "kind": "ai", "href": "/use-cases/chase-unpaid-invoices" } }
+              {
+                "label": "No, send them for me",
+                "then": {
+                  "answer": "Switch on your accounting app's reminders",
+                  "why": "It sees each payment as it is recorded, so it stops chasing on its own. QuickBooks, Xero and Zoho Books all have them.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "Yes, I want to check each one",
+                "then": {
+                  "answer": "Use a tool with approvals",
+                  "why": "Built-in reminders send on their own. An AI agent that drafts each email and waits for your yes lets you hold one for a client who just called.",
+                  "kind": "ai",
+                  "href": "/use-cases/chase-unpaid-invoices"
+                }
+              }
             ]
           }
         },
         {
           "label": "Stripe Invoicing",
-          "then": { "answer": "Switch on Stripe's reminder emails", "why": "Stripe marks an invoice paid itself when the money clears, so its reminders stop at the right moment.", "kind": "auto" }
+          "then": {
+            "answer": "Switch on Stripe's reminder emails",
+            "why": "Stripe marks an invoice paid itself when the money clears, so its reminders stop at the right moment.",
+            "kind": "auto"
+          }
         },
         {
           "label": "A spreadsheet, or several places",
-          "then": { "answer": "Use an automation or an AI agent on one list", "why": "Something has to read your list every day. Follow the steps below, and keep the Paid column true.", "kind": "ai" }
+          "then": {
+            "answer": "Use an automation or an AI agent on one list",
+            "why": "Something has to read your list every day. Follow the steps below, and keep the Paid column true.",
+            "kind": "ai"
+          }
         }
       ]
     }
@@ -43,16 +66,38 @@
       "body": [
         {
           "table": {
-            "head": ["Part", "What it is", "The usual mistake"],
+            "head": [
+              "Part",
+              "What it is",
+              "The usual mistake"
+            ],
             "rows": [
-              ["The list", "Every open invoice, with a status", "Paid status the tool cannot see"],
-              ["The rule", "Sent, unpaid, past due, not on hold", "Chasing drafts or disputes"],
-              ["The message", "One short email per stage", "One template for day 1 and day 45"],
-              ["The stop", "Paid, a promise, or a dispute", "Nothing stops it"]
+              [
+                "The list",
+                "Every open invoice, with a status",
+                "Paid status the tool cannot see"
+              ],
+              [
+                "The rule",
+                "Sent, unpaid, past due, not on hold",
+                "Chasing drafts or disputes"
+              ],
+              [
+                "The message",
+                "One short email per stage",
+                "One template for day 1 and day 45"
+              ],
+              [
+                "The stop",
+                "Paid, a promise, or a dispute",
+                "Nothing stops it"
+              ]
             ]
           }
         },
-        { "p": "The stop matters most. A reminder to someone who has already paid costs more goodwill than a late reminder ever would." }
+        {
+          "p": "The stop matters most: chasing someone who already paid costs more goodwill than a late reminder."
+        }
       ]
     }
   ],
@@ -70,7 +115,11 @@
       {
         "title": "Set the stages and the gaps",
         "body": "A first nudge a day or two after the due date, then one every week or two, firmer each time, then a final notice. Write the stage on the invoice when a reminder goes.",
-        "note": { "type": "warn", "text": "If your accounting app's reminders are on, switch them off for these invoices. Two tools chasing one client is the most common mistake.", "about": "auto" }
+        "note": {
+          "type": "warn",
+          "text": "If your accounting app's reminders are on, switch them off for these invoices. Two tools chasing one client is the most common mistake.",
+          "about": "auto"
+        }
       },
       {
         "title": "Write one email per stage",
@@ -82,8 +131,12 @@
       },
       {
         "title": "Close the loop every day",
-        "body": "Mark invoices Paid as money arrives, before the reminders run. Then skim what went out this week; a quick read catches a wrong amount before a client does.",
-        "note": { "type": "tip", "text": "Run reminders at a fixed time each morning, after you have marked the day's payments, so nobody is chased minutes after paying.", "about": "auto" }
+        "body": "Mark invoices Paid as money arrives, before the reminders run. Then skim what went out this week to catch a wrong amount before a client does.",
+        "note": {
+          "type": "tip",
+          "text": "Run reminders at a fixed time each morning, after you have marked the day's payments, so nobody is chased minutes after paying.",
+          "about": "auto"
+        }
       }
     ]
   },
@@ -93,17 +146,45 @@
     "useCase": "chase-unpaid-invoices"
   },
   "wrong": [
-    { "title": "A client gets chased after paying", "body": "The payment landed after the tool read the list. Mark payments before the daily run, and keep the gap between the read and the send short.", "about": "auto" },
-    { "title": "Invoices never emailed get no reminder", "body": "QuickBooks only reminds on invoices sent from QuickBooks, so PDFs sent from your own mail are skipped. Use a list-based tool for those.", "about": "app" },
-    { "title": "Partial payments read as unpaid", "body": "A client pays half and still gets a full reminder. Add a Part paid status and an amount still due, and quote that amount in the email.", "about": "app" },
-    { "title": "The wrong currency or amount", "body": "Imports can turn 1.250,00 into 1.25 or drop the currency. Check a few rows after every import, and send one test to yourself first.", "about": "app" },
-    { "title": "A drafted reminder sounds wrong", "body": "An AI agent can be too firm with a good client. Read drafts before they go for the first few weeks, and tell it the tone you want per stage.", "about": "ai" }
+    {
+      "title": "A client gets chased after paying",
+      "body": "The payment landed after the tool read the list. Mark payments before the daily run, and keep the gap between the read and the send short.",
+      "about": "auto"
+    },
+    {
+      "title": "Invoices never emailed get no reminder",
+      "body": "QuickBooks only reminds on invoices sent from QuickBooks, so PDFs sent from your own mail are skipped. Use a list-based tool for those.",
+      "about": "app"
+    },
+    {
+      "title": "Partial payments read as unpaid",
+      "body": "A client pays half and still gets a full reminder. Add a Part paid status and an amount still due, and quote that amount in the email.",
+      "about": "app"
+    },
+    {
+      "title": "The wrong currency or amount",
+      "body": "Imports can turn 1.250,00 into 1.25 or drop the currency. Check a few rows after every import, and send one test to yourself first.",
+      "about": "app"
+    }
   ],
   "faqs": [
-    { "q": "Is it rude to send automatic payment reminders?", "a": "Not when they read like a person wrote them: short, specific, and polite on the first one. Clients forget invoices far more often than they refuse them, and a clear reminder with a payment link is a help." },
-    { "q": "Should the reminder include the invoice PDF?", "a": "A link to pay or view the invoice is better, because a link always shows the current amount. If you cannot attach the current PDF, leave it out and quote the number and amount in the subject." },
-    { "q": "Can I automate reminders without an accounting app?", "a": "Yes. A spreadsheet with a Status column is enough for an automation or an AI agent to read each day. The cost is that you keep Paid up to date by hand." }
+    {
+      "q": "Is it rude to send automatic payment reminders?",
+      "a": "Not when they read like a person wrote them: short, specific and polite. Clients forget invoices far more often than they refuse them."
+    },
+    {
+      "q": "Should the reminder include the invoice PDF?",
+      "a": "A link to pay or view the invoice is better, because it always shows the current amount. Quote the number and amount in the subject."
+    },
+    {
+      "q": "Can I automate reminders without an accounting app?",
+      "a": "Yes. A spreadsheet with a Status column is enough for an automation or an AI agent to read each day. The cost is that you keep Paid up to date by hand."
+    }
   ],
-  "related": ["how-to-build-an-invoice-tracker", "how-to-make-an-ai-agent-ask-before-it-acts", "what-to-automate-first-in-a-small-business"],
+  "related": [
+    "how-to-build-an-invoice-tracker",
+    "how-to-make-an-ai-agent-ask-before-it-acts",
+    "what-to-automate-first-in-a-small-business"
+  ],
   "updated": "2026-11-19"
 }

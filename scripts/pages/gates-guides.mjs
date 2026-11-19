@@ -83,7 +83,7 @@ const results = pages.map(p => {
       if (words(s.note.text) > 30) bad.push(`note in "${s.title}" over 30 words`);
     }
   });
-  if (st.filter(s => s.note).length > 3) bad.push('more than 3 notes (blobs only where they help)');
+  if (st.filter(s => s.note).length > 3) bad.push('more than 3 notes (only where they help)');
   // Captain's film, in the step 50agents does
   const c = p.captain;
   if (!c || !Number.isInteger(c.at) || c.at < 0 || c.at >= st.length) bad.push('captain.at is not a step');
@@ -118,7 +118,7 @@ const results = pages.map(p => {
   if (uc) { const o = overlap(sh[p.slug], shingles(JSON.stringify(uc))); if (o >= 0.2) bad.push(`repeats use case ${uc.slug} (${o.toFixed(2)})`); }
   // length: to the point
   const n = words(all);
-  if (n < 400 || n > 1100) bad.push(`${n} words (400 to 1,100)`);
+  if (n < 400 || n > 850) bad.push(`${n} words (400 to 850; D258: concise and to the point)`);
   return { slug: p.slug, words: n, bad };
 });
 for (const r of Object.keys(rows)) if (!slugs.has(r)) results.push({ slug: r, words: 0, bad: ['a row with no page'] });

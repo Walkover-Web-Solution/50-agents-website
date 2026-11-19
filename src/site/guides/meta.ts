@@ -1,5 +1,5 @@
 // What a guide's cards and byline say about it, from its own data: reading time (all of its text at 200 words a minute)
-// and its number of steps. No dates, no author names, no sources (D254).
+// only (D258: no step counts). No dates, no author names, no sources (D254).
 import { plain } from './rich';
 import type { Choice, ChoiceAnswer, GuidePage } from './types';
 
@@ -15,5 +15,5 @@ export function guideWords(g: GuidePage) {
 }
 
 export const readMinutes = (g: GuidePage) => Math.max(2, Math.round(guideWords(g) / 200));
-export const metaLine = (g: GuidePage) => `${readMinutes(g)} min read · ${g.method.steps.length} steps`;
+export const metaLine = (g: GuidePage) => `${readMinutes(g)} min read`;
 export const groupSlug = (group: string) => group.toLowerCase().replace(/[^a-z0-9]+/g, '-');

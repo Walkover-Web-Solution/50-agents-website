@@ -11,7 +11,7 @@ Pages 30, passed 30, failed 0. Run: node scripts/pages/gates-guides.mjs
 | how-to-automate-a-website-that-has-no-api | 767 | pass |
 | how-to-automate-data-entry-between-two-apps | 699 | pass |
 | how-to-automate-form-filling-on-websites | 651 | pass |
-| how-to-automate-invoice-reminders | 914 | pass |
+| how-to-automate-invoice-reminders | 845 | pass |
 | how-to-automate-lead-follow-up-from-gmail | 670 | pass |
 | how-to-automate-weekly-reports-by-email | 666 | pass |
 | how-to-build-a-customer-requests-desk-from-your-inbox | 675 | pass |

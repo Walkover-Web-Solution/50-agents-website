@@ -1,6 +1,6 @@
 /* The integration family, v3 round 2 (D253, D254): app pages, pair pages, the directory and its categories. Builds on
    site.css (the system: .sec, .qa, .cards3, .final) and usecase.css (the centred hero, the prompt film). Heads are centred
-   over full-width content; lists live in fixed-height boxes that scroll inside themselves; nothing small floats. */
+   over full-width content; lists fit their content up to a cap and scroll inside themselves (D258); nothing small floats. */
 .ig3 [hidden]{display:none!important}
 .ig-nologo{display:inline-grid;place-items:center;border-radius:6px;background:var(--wash);font-weight:600;font-size:13px;color:var(--mute);flex:none}
 
@@ -42,7 +42,7 @@ span.ig3-kind-more{display:none}
 .ig3-dir-hero{padding-bottom:0}
 .ig3-dir-cta{margin-top:28px}
 
-/* the list box: tabs and a search on one bar, then a box of fixed height that scrolls inside itself */
+/* the list box (templates): a search on one bar, then a box that fits its rows up to a cap and scrolls inside itself */
 .ig4-lb{border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);background:#fff;overflow:hidden}
 .ig4-lb-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 14px 14px 18px;border-bottom:1px solid var(--line)}
 .ig4-tabs{display:flex;gap:4px}
@@ -64,7 +64,7 @@ span.ig3-kind-more{display:none}
 .ig4-find:focus-within{box-shadow:inset 0 0 0 1.5px var(--ink)}
 .ig4-find input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:16px;color:var(--ink)}
 .ig4-box{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
-.ig4-box.fixed{height:600px}
+.ig4-box.capped{max-height:600px}
 .ig4-items{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
 .ig4-items>li{display:flex;align-items:flex-start;gap:14px;min-width:0;padding:18px 24px;border-bottom:1px solid var(--line)}
 .ig4-items>li:nth-child(odd){box-shadow:inset -1px 0 0 var(--line)}
@@ -80,7 +80,7 @@ span.ig3-kind-more{display:none}
 .ig4-none button{border:0;background:none;padding:0;font:inherit;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .ig4-more{display:flex;justify-content:center;padding:20px}
 
-/* the directory: like viaSocket's own, in our look; categories down the left, a hairline grid, numbered pages */
+/* the directory: like viaSocket's own, in our look; categories down the left, a hairline grid, "Load more" (D258) */
 .ig4-dir{display:grid;grid-template-columns:232px minmax(0,1fr);border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);scroll-margin-top:96px}
 .ig4-side{border-right:1px solid var(--line);padding:16px 10px}
 .ig4-side nav{position:sticky;top:92px}
@@ -97,14 +97,7 @@ span.ig3-kind-more{display:none}
 .ig4-grid a{display:flex;align-items:center;gap:12px;height:64px;padding:0 18px;text-decoration:none;transition:background .15s}
 .ig4-grid a:hover{background:var(--wash)}
 .ig4-grid b{font-size:15px;font-weight:500;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ig4-pages{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;margin-top:auto}
-.ig4-pages button{height:40px;min-width:40px;padding:0 12px;border:0;border-radius:10px;background:none;font:inherit;font-size:15px;font-weight:500;color:var(--ink);cursor:pointer}
-.ig4-pages>button{box-shadow:inset 0 0 0 1px var(--line)}
-.ig4-pages button:hover:not(:disabled){background:var(--wash)}
-.ig4-pages button:disabled{color:#B5B8BE;cursor:default}
-.ig4-pages button[aria-current=page]{background:var(--ink);color:#fff}
-.ig4-nums{display:flex;align-items:center;gap:2px}
-.ig4-gap{min-width:24px;text-align:center;color:var(--mute)}
+.ig4-dir-more{margin-top:auto;border-top:1px solid var(--line)}
 
 @media (max-width:1020px){
   .ig4-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -121,7 +114,7 @@ span.ig3-kind-more{display:none}
   .ig4-tab-w::first-letter{text-transform:uppercase}
   .ig4-lb-bar:has(.ig4-tab-app) .ig4-find{flex:none}
   .ig4-find{max-width:none}
-  .ig4-box.fixed{height:480px}
+  .ig4-box.capped{max-height:520px}
   .ig4-items{grid-template-columns:minmax(0,1fr)}
   .ig4-items>li{padding:16px 18px;box-shadow:none!important}
   .ig4-items>li>span>span{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
@@ -138,8 +131,6 @@ span.ig3-kind-more{display:none}
   .ig4-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ig4-grid a{height:58px;padding:0 12px;gap:10px}
   .ig4-grid b{font-size:14px}
-  .ig4-pages{padding:12px}
-  .ig4-pages>button{padding:0 10px}
 }
 @media (max-width:760px){.ig4-dir-bar h2{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.ig4-dir-bar{padding-top:12px}}
 .ig3-practice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;max-width:1040px;margin:0 auto}
@@ -147,3 +138,46 @@ span.ig3-kind-more{display:none}
 .ig3-practice p{font-size:16.5px;line-height:1.6;color:var(--mute)}
 .ig3-practice strong{color:inherit;font-weight:600}
 @media(max-width:760px){.ig3-practice{grid-template-columns:minmax(0,1fr);gap:28px}}
+
+/* ---- round 4 (D258): triggers and actions as two columns ----
+   Triggers on the left, actions on the right, each with its own head, count and scroll; the box fits its content up to a
+   cap, never a fixed empty height. The longer list takes the wider column. Reaching the end of a list never scrolls the
+   page (overscroll-behavior). On a phone the columns stack, each with its own capped scroll. */
+.ig5-ev{border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);background:#fff;overflow:hidden}
+.ig5-bar{display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:14px;border-bottom:1px solid var(--line)}
+.ig5-bar:has(.ig5-switch){justify-content:space-between}
+.ig5-switch{display:flex;gap:4px;min-width:0}
+.ig5-switch button{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 16px;border:0;border-radius:11px;background:none;font:inherit;font-size:16px;font-weight:500;color:var(--mute);cursor:pointer;white-space:nowrap;min-width:0}
+.ig5-switch button>span:not(.ig5-n){overflow:hidden;text-overflow:ellipsis}
+.ig5-switch button:hover{color:var(--ink)}
+.ig5-switch button[aria-pressed=true]{background:var(--wash);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.ig5-switch button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ig5-switch .ig-nologo,.ig5-switch img{flex:none}
+.ig5-n{font-size:13px;font-weight:600;color:var(--mute)}
+.ig5-cols{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+.ig5-cols.tl{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+.ig5-cols.one{grid-template-columns:minmax(0,1fr)}
+.ig5-col{display:flex;flex-direction:column;min-width:0}
+.ig5-col+.ig5-col{box-shadow:inset 1px 0 0 var(--line)}
+.ig5-col-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:18px 24px 14px;border-bottom:1px solid var(--line)}
+.ig5-col-h h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.ig5-count{font-size:14px;font-weight:500;color:var(--mute);font-variant-numeric:tabular-nums}
+.ig5-scroll{max-height:560px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.ig5-scroll:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.ig5-items{list-style:none;margin:0;padding:0}
+.ig5-items>li{display:grid;gap:3px;padding:16px 24px;border-bottom:1px solid var(--line)}
+.ig5-items>li:last-child{border-bottom:0}
+.ig5-items b{font-size:16px;font-weight:500;letter-spacing:-.01em;line-height:1.35}
+.ig5-items span{font-size:14.5px;line-height:1.45;color:var(--mute);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ig5-none{padding:24px;font-size:15px;color:var(--mute)}
+@media (max-width:760px){
+  .ig5-ev{border-radius:20px}
+  .ig5-bar{flex-direction:column;align-items:stretch;gap:12px;padding:12px}
+  .ig5-switch{display:grid;grid-template-columns:1fr 1fr}
+  .ig5-switch button{justify-content:center;padding:0 10px}
+  .ig5-cols,.ig5-cols.tl{grid-template-columns:minmax(0,1fr)}
+  .ig5-col+.ig5-col{box-shadow:inset 0 1px 0 var(--line)}
+  .ig5-col-h{padding:16px 18px 12px}
+  .ig5-scroll{max-height:380px}
+  .ig5-items>li{padding:14px 18px}
+}

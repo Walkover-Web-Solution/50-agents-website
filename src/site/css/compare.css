@@ -23,12 +23,15 @@
 .cmp4-tbl.vs tbody tr:last-child .us{border-radius:0 0 20px 20px}
 .cmp4-tbl.vs td.us{font-weight:600}
 
-/* alternatives: the 50agents row raised on the tint, first */
-.cmp4-tbl.alt th:first-child{width:22%}
-.cmp4-tbl.alt td:nth-child(3){width:24%}
-.cmp4-tbl.alt tr.us>*{background:var(--k);font-weight:600;border-bottom-color:transparent}
-.cmp4-tbl.alt tr.us>:first-child{border-radius:20px 0 0 20px}
-.cmp4-tbl.alt tr.us>:last-child{border-radius:0 20px 20px 0}
+/* alternatives (D258): platforms are columns, 50agents first and raised on the neutral tint; rows are the attributes */
+.cmp4-tbl.alt{overflow-x:auto}
+.cmp4-tbl.alt table{min-width:0}
+.cmp4-tbl.alt thead th{font-size:16px;color:var(--ink);font-weight:600;vertical-align:bottom}
+.cmp4-tbl.alt tbody th{width:150px;color:var(--mute);font-size:14px;font-weight:600}
+.cmp4-tbl.alt .us{background:var(--k);border-bottom-color:rgba(17,18,20,.07)}
+.cmp4-tbl.alt td.us{font-weight:600}
+.cmp4-tbl.alt thead .us{border-radius:20px 20px 0 0}
+.cmp4-tbl.alt tbody tr:last-child .us{border-radius:0 0 20px 20px}
 
 /* where 50agents is good: 3 or 4 cards, a crew blob each */
 .cmp4-str{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -38,14 +41,17 @@
 .cmp4-str h3{margin-top:20px;font-size:21px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
 .cmp4-str p{margin-top:10px!important;font-size:16px;line-height:1.5;color:var(--mute)}
 
-/* how to move over (D255): equal columns; a line from each circle's centre to the next one's, behind the circles;
-   title and line aligned under the circle's left edge */
-.cmp5-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));column-gap:32px}
-.cmp5-steps li{position:relative;min-width:0}
-.cmp5-steps li:not(:last-child)::before{content:"";position:absolute;top:21px;left:22px;width:calc(100% + 32px);height:2px;background:var(--line)}
+/* how to move over (D258): equal columns across the page, everything centred under its circle; a line runs from
+   each circle's centre to the next one's, behind the circles */
+.cmp5-steps{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));column-gap:32px;justify-items:center;text-align:center}
+.cmp5-steps li{position:relative;min-width:0;width:100%;display:flex;flex-direction:column;align-items:center}
+.cmp5-steps li:not(:last-child)::before{content:"";position:absolute;top:21px;left:50%;width:calc(100% + 32px);height:2px;background:var(--line)}
 .cmp5-dot{position:relative;z-index:1;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;font-size:16px;font-weight:600}
-.cmp5-steps h3{margin-top:24px;font-size:20px;font-weight:500;letter-spacing:-.015em;line-height:1.25;padding-right:8px}
-.cmp5-steps p{margin-top:8px!important;font-size:16px;line-height:1.5;color:var(--mute);padding-right:8px}
+.cmp5-steps h3{margin-top:24px;font-size:20px;font-weight:500;letter-spacing:-.015em;line-height:1.25;max-width:260px}
+.cmp5-steps p{margin-top:8px!important;font-size:16px;line-height:1.5;color:var(--mute);max-width:260px}
+
+/* even gaps: every section is a .sec with nothing of its own above or below */
+.cmp3 .sec{padding-top:128px;padding-bottom:0;margin:0}
 
 @media (max-width:1020px){
   .cmp4-str.n4{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -67,17 +73,13 @@
   .cmp4-tbl.vs .cell{gap:8px;align-items:flex-start}
   .cmp4-tbl.vs .mk{margin-top:-1px}
 
-  /* alternatives: one card per tool */
-  .cmp4-tbl.alt table,.cmp4-tbl.alt tbody,.cmp4-tbl.alt tr,.cmp4-tbl.alt th,.cmp4-tbl.alt td{display:block;width:auto!important}
-  .cmp4-tbl.alt thead{display:none}
-  .cmp4-tbl.alt tbody{display:grid;gap:12px}
-  .cmp4-tbl.alt tr{border-radius:20px;box-shadow:inset 0 0 0 1px var(--line);padding:18px}
-  .cmp4-tbl.alt tr.us{background:var(--k);box-shadow:none}
-  .cmp4-tbl.alt th,.cmp4-tbl.alt td,.cmp4-tbl.alt tr.us>*{border:0!important;padding:0;background:none;border-radius:0!important}
-  .cmp4-tbl.alt tbody th{font-size:18px;margin-bottom:10px}
-  .cmp4-tbl.alt td{display:grid;grid-template-columns:120px 1fr;gap:10px;font-weight:400!important}
-  .cmp4-tbl.alt td+td{margin-top:6px}
-  .cmp4-tbl.alt td::before{content:attr(data-h);font-size:13.5px;font-weight:600;color:var(--mute)}
+  /* alternatives: the table scrolls sideways inside its own box, the attribute column sticky */
+  .cmp4-tbl.alt{-webkit-overflow-scrolling:touch;border-radius:16px;box-shadow:inset 0 0 0 1px var(--line)}
+  .cmp4-tbl.alt table{width:max-content;min-width:100%}
+  .cmp4-tbl.alt th,.cmp4-tbl.alt td{width:160px;min-width:160px;padding:14px 14px;font-size:15px}
+  .cmp4-tbl.alt thead th:first-child,.cmp4-tbl.alt tbody th{position:sticky;left:0;z-index:2;width:104px;min-width:104px;background:#fff;font-size:13px}
+  .cmp4-tbl.alt thead .us{border-radius:0}
+  .cmp4-tbl.alt tbody tr:last-child .us{border-radius:0}
 
   .cmp4-str,.cmp4-str.n4{grid-template-columns:1fr;gap:12px}
   .cmp4-str li{padding:24px 22px;display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:start}
@@ -86,11 +88,11 @@
   .cmp4-str p{margin-top:4px!important}
 
   /* the stepper stacks: circles down the left, the line running down from centre to centre */
-  .cmp5-steps{grid-template-columns:1fr}
-  .cmp5-steps li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:18px;padding-bottom:32px}
+  .cmp5-steps{grid-template-columns:1fr;justify-items:stretch;text-align:left}
+  .cmp5-steps li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:18px;padding-bottom:32px;align-items:start}
   .cmp5-steps li:last-child{padding-bottom:0}
   .cmp5-steps li:not(:last-child)::before{top:22px;bottom:-22px;left:21px;width:2px;height:auto}
   .cmp5-dot{grid-row:span 2}
-  .cmp5-steps h3{grid-column:2;margin-top:10px;font-size:19px;padding-right:0}
-  .cmp5-steps p{grid-column:2;margin-top:4px!important;padding-right:0}
+  .cmp5-steps h3{grid-column:2;margin-top:10px;font-size:19px;max-width:none}
+  .cmp5-steps p{grid-column:2;margin-top:4px!important;max-width:none}
 }

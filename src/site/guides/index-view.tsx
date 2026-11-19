@@ -1,10 +1,10 @@
-// The /guides index, v5 (D255 round 3, "lifeless"): the heading, one featured guide drawn large with its cover, then
+// The /guides index, v6 (D258 round 4: calm covers, no crowds of faces; before that v5, D255): the heading, one featured guide drawn large with its cover, then
 // every guide as a card with its cover under category filters. The covers come from each guide's data (./cover.tsx).
 // All text is server-rendered; the filter only hides cards. No dates, no authors, no sources.
 import type { IndexPage } from '@/content/pages/indexes';
 import { INDEX_ASK } from '@/content/pages/indexes';
 import { GUIDES } from '@/content/guides/pages';
-import { Crumbs, Cta, Face, LIVE } from '../parts';
+import { Crumbs, Cta, LIVE } from '../parts';
 import { crumbsLd, Ld } from '../hubs/meta';
 import { GuideCard } from './card';
 import { GuideCover } from './cover';
@@ -60,8 +60,6 @@ export function GuidesIndex({ ix }: { ix: IndexPage }) {
           <h2>Not sure where to start?</h2>
           <p>Tell Captain &ldquo;{INDEX_ASK}&rdquo;. Free to start.</p>
           <Cta campaign="seo-index" page="index-guides" place="final" ask={INDEX_ASK}>Ask Captain</Cta>
-          <span className="peek l" aria-hidden="true"><Face id="writer" size={52} /><Face id="keeper" size={44} /></span>
-          <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="scout" size={46} /></span>
         </div>
       </section>
     </div>

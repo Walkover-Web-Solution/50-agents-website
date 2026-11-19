@@ -1,9 +1,9 @@
-// The integration family's pieces, v3 round 2 (D254): the hero lockup, the four kinds as link cards, triggers and actions
-// and templates in fixed-height boxes that scroll inside themselves, pairing cards, questions, the final block, and the
+// The integration family's pieces, v3 round 4 (D258): the hero lockup, the four kinds as link cards, triggers and actions
+// as two columns that scroll inside themselves, templates in a box that fits its rows up to a cap, pairing cards, questions, the final block, and the
 // directory panel. Visible copy says "templates" (the 50agents app's word); the code keeps the catalog's name, recipe.
 import { AppLogo, Face, KINDS, MaybeLink } from '@/site/parts';
 import { BuildLink } from './build-link';
-import { CatPick, Directory, ListBox } from './boxes';
+import { CatPick, Directory, EventBoard, ListBox } from './boxes';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { findPair, iconOf, nameOf, pairPath, plainDesc, recipeAsk, recipeClause, type AppFile, type Event, type Recipe } from './data';
 import type { IntegrationPage } from './types';
@@ -50,63 +50,59 @@ export function KindCards({ kinds, page, campaign }: { kinds: IntegrationPage['k
   );
 }
 
-// ---- triggers, actions and templates: fixed-height boxes that scroll inside themselves (D254) ----
-const PER = 12; // items shown before "Load more"; the box keeps its height, the list scrolls inside it
+// ---- triggers and actions: two columns, each scrolling inside itself (D258); templates in a capped box ----
 /** One trigger or action: its name in plain words and one line, the catalog's own description. The whole description is
- *  in the HTML; CSS shows one line (two on a phone). */
+ *  in the HTML; CSS shows two lines. */
 function evLine(e: Event, app: string) {
   return plainDesc(e.d).trim() || (e.t === 'trigger' ? `Starts the work when it happens in ${app}.` : `Runs as a step in ${app}.`);
 }
-function EvPanel({ k, events, app, logos, first }: { k: string; events: { e: Event; app: AppFile }[]; app?: string; logos?: boolean; first: boolean }) {
+function EvCol({ word, events, app }: { word: 'Triggers' | 'Actions'; events: Event[]; app: AppFile }) {
   return (
-    <ul className="ig4-items" data-panel={k} role="tabpanel" aria-label={k} hidden={!first}>
-      {events.map(({ e, app: a }, i) => {
-        const name = plainEvent(e.n, a.name), line = evLine(e, app ?? a.name);
-        return (
-          <li key={`${i}-${a.slug}-${e.t}-${e.n}`} data-q={`${name} ${line} ${a.name}`.toLowerCase()} hidden={i >= PER}>
-            {logos && <Logo slug={a.slug} size={26} />}
-            <span><b>{name}</b><span title={line}>{line}</span></span>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="ig5-col" data-col="">
+      <div className="ig5-col-h"><h3>{word}</h3><span className="ig5-count" data-n="">{events.length}</span></div>
+      <div className="ig5-scroll" data-scroll="" tabIndex={0} role="region" aria-label={`${app.name} ${word.toLowerCase()}`}>
+        <ul className="ig5-items">
+          {events.map((e, i) => {
+            const name = plainEvent(e.n, app.name), line = evLine(e, app.name);
+            return <li key={`${i}-${e.n}`} data-q={`${name} ${line} ${app.name}`.toLowerCase()}><b>{name}</b><span>{line}</span></li>;
+          })}
+        </ul>
+        <p className="ig5-none" data-none="" hidden>No {word.toLowerCase()} match.</p>
+      </div>
+    </div>
   );
 }
-
-/** data-gate="skip": the lists are shared catalog data, so the uniqueness gate leaves them out (brief D7). */
-/** An app's triggers and actions, as two tabs with one search, in a box that scrolls inside itself. */
-export function EventsBox({ app }: { app: AppFile }) {
-  const t = app.events.filter(e => e.t === 'trigger').map(e => ({ e, app })), a = app.events.filter(e => e.t === 'action').map(e => ({ e, app }));
-  const tabs = [...(t.length ? [{ key: 'triggers', label: 'Triggers' }] : []), ...(a.length ? [{ key: 'actions', label: 'Actions' }] : [])];
+/** One app's two columns: triggers on the left, actions on the right; the longer list gets the wider column. */
+function EvBoard({ app, hidden }: { app: AppFile; hidden?: boolean }) {
+  const t = app.events.filter(e => e.t === 'trigger'), a = app.events.filter(e => e.t === 'action');
+  const cls = !t.length || !a.length ? 'ig5-cols one' : t.length > a.length ? 'ig5-cols tl' : 'ig5-cols';
   return (
-    <div data-gate="skip">
-      <ListBox tabs={tabs} per={PER} fixed={t.length > PER || a.length > PER} search="Search triggers and actions" empty="Nothing matches">
-        {t.length > 0 && <EvPanel k="triggers" events={t} first />}
-        {a.length > 0 && <EvPanel k="actions" events={a} first={!t.length} />}
-      </ListBox>
+    <div className={cls} data-board={app.slug} hidden={hidden}>
+      {t.length > 0 && <EvCol word="Triggers" events={t} app={app} />}
+      {a.length > 0 && <EvCol word="Actions" events={a} app={app} />}
     </div>
   );
 }
 
-/** A pair's triggers and actions: every one of both apps (D255 round 3), in the same box as the app pages. One tab per
- *  app and kind ("HubSpot triggers", "Slack actions"), each with its app's logo; one search across all four. */
-export function PairEventsBox({ a, b }: { a: AppFile; b: AppFile }) {
-  const panels = [a, b].flatMap(app => (['trigger', 'action'] as const).map(t => ({
-    key: `${app.slug}-${t}s`,
-    app,
-    word: t === 'trigger' ? 'triggers' : 'actions',
-    events: app.events.filter(e => e.t === t).map(e => ({ e, app })),
-  }))).filter(p => p.events.length > 0);
-  const tabs = panels.map(p => ({
-    key: p.key,
-    name: `${p.app.name} ${p.word}`,
-    label: <><Logo slug={p.app.slug} size={20} /><span className="ig4-tab-app">{p.app.name}</span><span className="ig4-tab-w">{p.word}</span></>,
-  }));
+/** data-gate="skip": the lists are shared catalog data, so the uniqueness gate leaves them out (brief D7). */
+/** An app's triggers and actions: two columns, one search. */
+export function EventsBox({ app }: { app: AppFile }) {
   return (
     <div data-gate="skip">
-      <ListBox tabs={tabs} per={PER} fixed={panels.some(p => p.events.length > PER)} search="Search both apps" empty="Nothing matches">
-        {panels.map((p, i) => <EvPanel key={p.key} k={p.key} events={p.events} first={i === 0} />)}
-      </ListBox>
+      <EventBoard search="Search triggers and actions"><EvBoard app={app} /></EventBoard>
+    </div>
+  );
+}
+
+/** A pair's triggers and actions: every one of both apps (D255 round 3), the same two columns per app, an app switcher
+ *  above them and one search across both apps. */
+export function PairEventsBox({ a, b }: { a: AppFile; b: AppFile }) {
+  const apps = [a, b].filter(x => x.events.length > 0);
+  return (
+    <div data-gate="skip">
+      <EventBoard search="Search both apps" apps={apps.map(x => ({ key: x.slug, name: x.name, label: <><Logo slug={x.slug} size={22} /><span>{x.name}</span></> }))}>
+        {apps.map((x, i) => <EvBoard key={x.slug} app={x} hidden={i > 0} />)}
+      </EventBoard>
     </div>
   );
 }
@@ -210,7 +206,7 @@ export function LdScript({ data }: { data: unknown }) {
 }
 
 /** The directory panel (like viaSocket's own A to Z): the categories down the left (a select on a phone), and the apps as
- *  a hairline grid with one search and numbered pages. Every app is in the HTML; the pages only hide the rest. */
+ *  a hairline grid with one search and "Load more" (D258). Every app is in the HTML; the rest are only hidden. */
 export const DIR_PER = 48;
 export function DirectoryPanel({ apps, current, head, label }: { apps: { s: string; n: string }[]; current: string; head: React.ReactNode; label: string }) {
   const cats = [{ href: '/integrations', name: 'All apps' }, ...CATEGORIES.map(c => ({ href: `/integrations/category/${c.slug}`, name: c.name }))];
@@ -222,7 +218,7 @@ export function DirectoryPanel({ apps, current, head, label }: { apps: { s: stri
           <ul>{cats.map(c => <li key={c.href}><MaybeLink href={c.href} className={c.href === current ? 'on' : undefined}>{c.name}</MaybeLink></li>)}</ul>
         </nav>
       </aside>
-      <Directory per={DIR_PER} total={apps.length} label={label} head={head}>
+      <Directory per={DIR_PER} label={label} head={head}>
         <ul className="ig4-grid">
           {apps.map((a, i) => (
             <li key={a.s} data-app="" data-q={`${a.n} ${a.s}`.toLowerCase()} hidden={i >= DIR_PER}>

@@ -1,4 +1,7 @@
-// A guide, v5 (D255 round 3, "lifeless"): an article. The cover (drawn from the guide's data, ./cover.tsx), a strong H1,
+// A guide, v6 (D258, Jii's round 4): back to the prototype's calm. A centred hero (the H1, the short answer in a softly
+// coloured box, the reading time), then the article in a comfortable column beside sticky contents. Steps are numbered
+// sections (no ticking, no progress marker). Tips and warnings carry a small icon, never a face; the only blob is
+// Captain's, in the film inside the step 50agents does. Before that, v5 (D255 round 3, "lifeless"): an article. The cover (drawn from the guide's data, ./cover.tsx), a strong H1,
 // the short answer and the reading time; an editorial column beside sticky contents that follow the reading; related
 // guides with their covers at the end. Before that, v4 (D254, Jii's round 2): a reading page in one template, filled from the page's JSON
 // (src/content/guides/pages), written by the page pipeline (scripts/pages). To the point: the short answer, a "which one
@@ -9,18 +12,16 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { GUIDES } from '@/content/guides/pages';
 import { PAGES as USE_CASES } from '@/content/use-cases/pages';
-import { Crumbs, Cta, Face, KINDS, MaybeLink } from '@/site/parts';
+import { Crumbs, Cta, KINDS, MaybeLink } from '@/site/parts';
 import { PromptFilm } from '@/site/usecase/film';
 import { plain, rich } from '@/site/guides/rich';
 import { findUseCase } from '@/site/guides/parts';
 import { Chooser } from '@/site/guides/chooser';
-import { Progress } from '@/site/guides/progress';
 import { HeroSticky } from '@/site/guides/sticky';
 import { GuideCard } from '@/site/guides/card';
-import { GuideCover } from '@/site/guides/cover';
 import { readMinutes } from '@/site/guides/meta';
 import { ReadProgress } from '@/site/guides/read-progress';
-import type { About, GuideBlock, GuidePage } from '@/site/guides/types';
+import type { GuideBlock, GuidePage } from '@/site/guides/types';
 import '@/site/css/usecase.css';
 import '@/site/css/guides.css';
 
@@ -73,11 +74,15 @@ function Block({ b }: { b: GuideBlock }) {
   );
 }
 
-// A crew blob beside a tip, a warning or a problem: the face of the kind it is about, standing on the page (no box),
-// named for screen readers. A warning or a problem gets the worried face (the crew's own frown and brows).
-function Blob({ about, mood }: { about: About; mood: 'tip' | 'warn' }) {
-  const k = KINDS[about];
-  return <span className={`gd5-blob ${mood}`} title={`About the ${k.label.toLowerCase()}`}><Face id={k.face} size={40} /><span className="sr">About the {k.label.toLowerCase()}: </span></span>;
+// A small icon beside a tip, a warning or a problem (D258: no faces on tips or warnings).
+function Icon({ mood }: { mood: 'tip' | 'warn' }) {
+  return (
+    <span className={`gd6-ic ${mood}`} aria-hidden="true">
+      <svg viewBox="0 0 20 20">{mood === 'tip'
+        ? <path d="M10 2.8a5 5 0 0 0-3 9v1.7h6v-1.7a5 5 0 0 0-3-9zM7.8 16.2h4.4M8.6 18h2.8" />
+        : <path d="M10 3 2.6 16.5h14.8L10 3zM10 8.3v3.6M10 14.2v.2" />}</svg>
+    </span>
+  );
 }
 
 // More guides: the page's own picks first, then the same group; three.
@@ -128,25 +133,21 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
       <ReadProgress />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides' }, { label: g.h1 }]} /></div>
 
-      {/* Hero: the cover, the question, the short answer, the reading time */}
-      <header className="wrap gd5-hero">
-        <div className="gd5-hero-t">
-          <span className="kind" style={{ ['--k' as string]: k.tint }}><Face id={k.face} size={22} />{g.group}</span>
-          <h1>{g.h1}</h1>
-          <div className="gd5-short" data-hero>
-            <h2>The short answer</h2>
-            <p>{rich(g.answer[0])} {rich(g.answer[1])}</p>
-          </div>
-          <p className="gd5-meta"><span>{readMinutes(g)} min read</span><span>{steps.length} steps</span><span>Works with any tool</span></p>
+      {/* Hero, centred as in the prototype: the category, the question, the short answer in a soft box, the reading time */}
+      <header className="wrap gd6-hero">
+        <span className="gd6-k" style={{ ['--k' as string]: k.tint }}>{g.group}</span>
+        <h1>{g.h1}</h1>
+        <div className="gd6-short" data-hero>
+          <h2>The short answer</h2>
+          <p>{rich(g.answer[0])} {rich(g.answer[1])}</p>
         </div>
-        <GuideCover g={g} size="hero" />
+        <p className="gd6-meta">{readMinutes(g)} min read</p>
       </header>
 
-      <div className="wrap gd5-grid">
+      <div className="wrap sec gd5-grid">
         <nav className="gd5-toc" aria-label="Contents">
           <p>Contents</p>
           <ol>{toc.map(t => <li key={t.id}><a href={`#${t.id}`}>{t.label}</a></li>)}</ol>
-          <Progress slug={g.slug} total={steps.length} restore />
         </nav>
 
         <article className="gd5-col">
@@ -164,27 +165,19 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
             </section>
           ))}
 
-          {/* The steps: they work with any tool; the reader ticks them off. Captain's film sits in the step 50agents does. */}
+          {/* The steps: numbered sections that work with any tool. Captain's film sits in the step 50agents does. */}
           <section id="steps">
-            <div className="gd4-steps-h">
-              <h2>{g.method.h2}</h2>
-              <div className="gd4-prog-inline"><Progress slug={g.slug} total={steps.length} /></div>
-            </div>
+            <h2>{g.method.h2}</h2>
             <ol className="gd4-steps">
               {steps.map((s, i) => (
                 <li key={s.title} id={`step-${i + 1}`}>
-                  <input type="checkbox" id={`done-${i + 1}`} className="gd4-tick-in" />
-                  <label htmlFor={`done-${i + 1}`} className="gd4-tick">
-                    <span className="n" aria-hidden="true">{i + 1}</span>
-                    <svg className="t" viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.4l3 3L14.5 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                    <span className="sr">Step {i + 1} done</span>
-                  </label>
+                  <span className="gd6-n" aria-hidden="true">{i + 1}</span>
                   <div className="gd4-step">
-                    <h3>{s.title}</h3>
+                    <h3><span className="sr">Step {i + 1}: </span>{s.title}</h3>
                     <p>{rich(s.body)}</p>
                     {s.note && (
                       <div className={`gd5-note ${s.note.type}`} role="note">
-                        <Blob about={s.note.about} mood={s.note.type === 'warn' ? 'warn' : 'tip'} />
+                        <Icon mood={s.note.type === 'warn' ? 'warn' : 'tip'} />
                         <p><b>{s.note.type === 'tip' ? 'Tip.' : 'Watch out.'}</b> {rich(s.note.text)}</p>
                       </div>
                     )}
@@ -206,7 +199,7 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
             <ul className="gd5-wrong">
               {g.wrong.map(w => (
                 <li key={w.title}>
-                  <Blob about={w.about} mood="warn" />
+                  <Icon mood="warn" />
                   <div><h3>{w.title}</h3><p>{rich(w.body)}</p></div>
                 </li>
               ))}
@@ -240,8 +233,6 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
           <h2>Or let Captain build it</h2>
           <p>Tell Captain &ldquo;{ask}&rdquo;. It shows you the plan before it builds anything. Free to start.</p>
           <Cta page={g.slug} place="final" campaign="seo-guide" ask={ask}>Build it with Captain</Cta>
-          <span className="peek l" aria-hidden="true"><Face id="lead" size={50} /><Face id={k.face} size={44} /></span>
-          <span className="peek r" aria-hidden="true"><Face id="sorter" size={46} /><Face id="writer" size={48} /></span>
         </div>
       </section>
 

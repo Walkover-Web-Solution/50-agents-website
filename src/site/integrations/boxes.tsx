@@ -2,14 +2,14 @@
 import { useEffect, useRef, useState } from 'react';
 
 // The integration family's two list boxes (D254). Every item is in the server HTML (crawlers read them all); these only
-// hide what is not on screen yet, so the page never grows when someone keeps pressing "Load more" or "Next".
+// hide what is not on screen yet.
 
 const match = (el: HTMLElement, term: string) => !term || (el.dataset.q ?? '').includes(term);
 const SearchIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
 );
 
-/** A fixed-height box that scrolls inside itself: tabs (one panel each), a search, and "Load more" at the end of the list.
+/** A box that fits its content up to a cap, then scrolls inside itself (D258: never a fixed empty height): tabs (one panel each), a search, and "Load more" at the end of the list.
  *  Children are the panels, rendered on the server: `<ul data-panel={key}>` of `<li data-q="...">`, the first panel shown,
  *  items after the first `per` hidden. */
 export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matches', children }: {
@@ -81,7 +81,7 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
           )}
         </div>
       )}
-      <div ref={boxRef} className={fixed ? 'ig4-box fixed' : 'ig4-box'}>
+      <div ref={boxRef} className={fixed ? 'ig4-box capped' : 'ig4-box'}>
         {children}
         {none && (
           <p className="ig4-none" role="status">
@@ -95,12 +95,13 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
 }
 
 /** The directory's main column: its heading and one search over every app, the server-rendered grid (children:
- *  `[data-app]` tiles, the first `per` shown), and numbered pages under it. A page change brings the panel's top back. */
-export function Directory({ per, total, label, head, children }: { per: number; total: number; label: string; head: React.ReactNode; children: React.ReactNode }) {
+ *  `[data-app]` tiles, the first `per` shown), and "Load more" under it (D258: no page numbers). Every tile stays in the
+ *  HTML; the rest are only hidden. The search filters the whole list. */
+export function Directory({ per, label, head, children }: { per: number; label: string; head: React.ReactNode; children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const [q, setQ] = useState('');
-  const [page, setPage] = useState(0);
-  const [pages, setPages] = useState(Math.max(1, Math.ceil(total / per)));
+  const [shown, setShown] = useState(per);
+  const [left, setLeft] = useState(0);
   const [none, setNone] = useState(false);
   const term = q.trim().toLowerCase();
 
@@ -109,25 +110,11 @@ export function Directory({ per, total, label, head, children }: { per: number; 
     if (!root) return;
     const tiles = [...root.querySelectorAll<HTMLElement>('[data-app]')];
     const hits = tiles.filter(t => match(t, term));
-    const n = Math.max(1, Math.ceil(hits.length / per));
-    const p = Math.min(page, n - 1);
-    const on = new Set(hits.slice(p * per, p * per + per));
+    const on = new Set(hits.slice(0, shown));
     tiles.forEach(t => { t.hidden = !on.has(t); });
-    setPages(n);
+    setLeft(Math.max(0, hits.length - shown));
     setNone(hits.length === 0);
-    if (p !== page) setPage(p);
-  }, [term, page, per]);
-
-  const go = (p: number) => {
-    setPage(p);
-    const top = (ref.current?.closest('.ig4-dir') ?? ref.current) as HTMLElement | null;
-    if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-  const nums: (number | '…')[] = [];
-  for (let i = 0; i < pages; i++) {
-    if (i === 0 || i === pages - 1 || Math.abs(i - page) <= 1) nums.push(i);
-    else if (nums[nums.length - 1] !== '…') nums.push('…');
-  }
+  }, [term, shown]);
 
   return (
     <div ref={ref} className="ig4-dir-main">
@@ -135,20 +122,70 @@ export function Directory({ per, total, label, head, children }: { per: number; 
         {head}
         <label className="ig4-find">
           <SearchIcon />
-          <input type="search" value={q} onChange={e => { setQ(e.target.value); setPage(0); }} placeholder={label} aria-label={label} />
+          <input type="search" value={q} onChange={e => { setQ(e.target.value); setShown(per); }} placeholder={label} aria-label={label} />
         </label>
       </div>
       {children}
       {none && <p className="ig4-none" role="status">No app here matches &ldquo;{q.trim()}&rdquo;. Try another name, or tell Captain the job and it says which apps it needs.</p>}
-      {pages > 1 && (
-        <nav className="ig4-pages" aria-label="Pages">
-          <button type="button" onClick={() => go(page - 1)} disabled={page === 0}>Previous</button>
-          <span className="ig4-nums">
-            {nums.map((n, i) => n === '…' ? <span key={'g' + i} className="ig4-gap">…</span> : <button key={n} type="button" aria-current={n === page ? 'page' : undefined} onClick={() => go(n)}>{n + 1}</button>)}
-          </span>
-          <button type="button" onClick={() => go(page + 1)} disabled={page >= pages - 1}>Next</button>
-        </nav>
-      )}
+      {left > 0 && <div className="ig4-more ig4-dir-more"><button type="button" className="btn sm ghost" onClick={() => setShown(n => n + per)}>Load more apps</button></div>}
+    </div>
+  );
+}
+
+/** Triggers and actions (D258): two columns side by side, each with its own head, count and scroll, and one search over
+ *  both. A pair adds an app switcher above the columns. Children are rendered on the server: `[data-board]` panels (one
+ *  per app, the first shown) of `[data-col]` columns, each with a `[data-n]` count, a `ul` of `li[data-q]` and a
+ *  `[data-none]` line. Every item stays in the HTML. */
+export function EventBoard({ apps, search, children }: { apps?: { key: string; name: string; label: React.ReactNode }[]; search: string; children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [app, setApp] = useState(apps?.[0]?.key ?? '');
+  const [q, setQ] = useState('');
+  const [hits, setHits] = useState<Record<string, number>>({});
+  const term = q.trim().toLowerCase();
+
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+    const per: Record<string, number> = {};
+    root.querySelectorAll<HTMLElement>('[data-board]').forEach(panel => {
+      const key = panel.dataset.board!;
+      if (apps) panel.hidden = key !== app;
+      let total = 0;
+      panel.querySelectorAll<HTMLElement>('[data-col]').forEach(col => {
+        const items = [...col.querySelectorAll<HTMLElement>('li[data-q]')];
+        let c = 0;
+        items.forEach(li => { const hit = match(li, term); li.hidden = !hit; if (hit) c++; });
+        total += c;
+        const n = col.querySelector<HTMLElement>('[data-n]');
+        if (n) n.textContent = term ? `${c} of ${items.length}` : String(items.length);
+        const empty = col.querySelector<HTMLElement>('[data-none]');
+        if (empty) empty.hidden = c > 0;
+        const sc = col.querySelector<HTMLElement>('[data-scroll]');
+        if (sc) sc.scrollTop = 0;
+      });
+      per[key] = total;
+    });
+    setHits(per);
+  }, [app, term, apps]);
+
+  return (
+    <div ref={ref} className="ig5-ev">
+      <div className="ig5-bar">
+        {apps && apps.length > 1 ? (
+          <div className="ig5-switch" role="group" aria-label="App">
+            {apps.map(a => (
+              <button key={a.key} type="button" aria-pressed={a.key === app} aria-label={a.name} onClick={() => setApp(a.key)}>
+                {a.label}{term ? <span className="ig5-n">{hits[a.key] ?? 0}</span> : null}
+              </button>
+            ))}
+          </div>
+        ) : null}
+        <label className="ig4-find">
+          <SearchIcon />
+          <input type="search" value={q} onChange={e => setQ(e.target.value)} placeholder={search} aria-label={search} />
+        </label>
+      </div>
+      {children}
     </div>
   );
 }

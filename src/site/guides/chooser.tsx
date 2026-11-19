@@ -1,7 +1,7 @@
 // "Which one do I need" (D254, guides v4): a short tree of questions answered with native radios. The branch for the
 // chosen option shows by CSS (:has, guides.css), so it works by keyboard (arrow keys pick) and without JavaScript, and
-// every question and answer is in the server HTML. Each answer can carry the kind's blob, the same face as its badge.
-import { Face, KINDS, MaybeLink } from '../parts';
+// every question and answer is in the server HTML. An answer can name its kind in a small tinted label (no faces, D258).
+import { KINDS, MaybeLink } from '../parts';
 import { rich } from './rich';
 import type { Choice, ChoiceAnswer } from './types';
 
@@ -10,8 +10,8 @@ const isChoice = (x: Choice | ChoiceAnswer): x is Choice => 'q' in x;
 function Answer({ a, label }: { a: ChoiceAnswer; label: (href: string) => string }) {
   return (
     <div className="gch-a" style={a.kind ? { ['--k' as string]: KINDS[a.kind].tint } : undefined}>
-      {a.kind && <span className="gch-a-face" title={KINDS[a.kind].label}><Face id={KINDS[a.kind].face} size={34} /></span>}
       <div>
+        {a.kind && <span className="gch-a-k">{KINDS[a.kind].label}</span>}
         <p className="gch-a-t">{rich(a.answer)}</p>
         <p className="gch-a-w">{rich(a.why)}</p>
         {a.href && <p className="gch-a-l"><MaybeLink href={a.href}>{label(a.href)}</MaybeLink></p>}
