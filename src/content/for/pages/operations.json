@@ -1,0 +1,102 @@
+{
+  "slug": "operations",
+  "role": "operations teams",
+  "label": "Operations",
+  "kind": "auto",
+  "query": "ai agents and automations for operations teams",
+  "title": "AI agents and automations for operations teams | 50agents",
+  "description": "What operations hands off first: orders logged, form requests turned into tasks, competitor prices watched, a daily schedule and a weekly ops report.",
+  "h1": "AI agents and automations for operations teams",
+  "answer": [
+    "Operations teams hand off the copying between tools first: each order or form becomes a row or a task in the right place, the same way every time.",
+    "In 50agents you describe it to Captain and it builds automations across Google Sheets, Asana, Trello, ClickUp and your other apps, plus browser agents for websites with no app."
+  ],
+  "example": {
+    "kind": "auto",
+    "ask": "Set up an automation: when my Typeform request form is submitted, create a task in my Asana Requests project with the answers in the description",
+    "build": {
+      "name": "Requests form to Asana",
+      "line": "Each form request as a task",
+      "when": "On each Typeform submission",
+      "does": [
+        "Reads the answers",
+        "Creates a task in your Requests project"
+      ],
+      "apps": [
+        "typeform",
+        "asana"
+      ],
+      "asksFirst": "Nothing: it writes to your own Asana"
+    }
+  },
+  "jobs": [
+    {
+      "title": "Log every order",
+      "body": "Each new Shopify order is added to your Google Sheet with its items and total.",
+      "kind": "auto",
+      "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
+      "useCase": "shopify-orders-to-google-sheets"
+    },
+    {
+      "title": "Turn form requests into tasks",
+      "body": "When someone submits your request form in Typeform, create a task in the right Asana project with the details filled in.",
+      "kind": "auto",
+      "ask": "Set up an automation: when my Typeform request form is submitted, create a task in my Asana Requests project with the answers in the description"
+    },
+    {
+      "title": "Watch competitor or supplier prices",
+      "body": "A browser agent checks a list of pricing pages each morning and tells you only what changed.",
+      "kind": "browser",
+      "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
+      "useCase": "track-competitor-prices"
+    },
+    {
+      "title": "Tomorrow’s schedule in Slack",
+      "body": "Each evening, tomorrow’s meetings from Google Calendar in one Slack message.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
+      "useCase": "tomorrows-meetings-in-slack"
+    },
+    {
+      "title": "A weekly ops report",
+      "body": "Every Monday, an AI agent reads last week’s orders sheet and writes the counts, the late ones and anything unusual.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that every Monday at 9:00 reads last week’s rows in my Orders sheet and emails me the counts, late orders and anything unusual"
+    }
+  ],
+  "category": "project-management",
+  "apps": [
+    "google-sheets",
+    "asana",
+    "trello",
+    "clickup",
+    "notion",
+    "airtable",
+    "typeform",
+    "slack"
+  ],
+  "faqs": [
+    {
+      "q": "Can it work with our task tool?",
+      "a": "Asana, Trello, ClickUp, Notion and monday.com are all in viaSocket’s catalog. Name yours in the sentence to Captain."
+    },
+    {
+      "q": "What if a site we use has no app?",
+      "a": "A browser agent can read it like a person would, and asks before it submits anything. See [how to automate a website that has no API](/guides/how-to-automate-a-website-that-has-no-api)."
+    },
+    {
+      "q": "How do I know an automation stopped working?",
+      "a": "Each automation’s Overview shows its runs and the ones that did not work, so a failure shows up the same day."
+    },
+    {
+      "q": "What does it not do yet?",
+      "a": "A browser agent will not get past CAPTCHAs or bot checks; sites that block automated visits stay manual. It does not two-way sync two apps; each automation runs in one direction. Posting to a shared Slack channel asks for your approval each time today."
+    }
+  ],
+  "guides": [
+    "how-to-automate-data-entry-between-two-apps",
+    "how-to-monitor-competitor-prices-automatically",
+    "how-to-send-shopify-orders-to-google-sheets"
+  ],
+  "updated": "2026-11-19"
+}

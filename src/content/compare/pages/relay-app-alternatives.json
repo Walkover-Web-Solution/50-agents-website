@@ -1,0 +1,118 @@
+{
+  "slug": "relay-app-alternatives",
+  "type": "alternatives",
+  "tool": "relay",
+  "query": "relay.app alternatives",
+  "title": "Relay.app alternatives, with checked prices | 50agents",
+  "description": "Relay.app has shut down and deleted every workflow. Alternatives with approval steps: Zapier, Make, n8n, Activepieces and 50agents, with prices.",
+  "h1": "Relay.app alternatives",
+  "answer": [
+    "Relay.app has shut down and permanently deleted all accounts, workflows and run history, so every Relay workflow has to be rebuilt somewhere else.",
+    "For a step that waits for a person, as Relay had, look at Zapier's Human in the Loop, Make's approvals in AI agents, n8n's approvals for tool calls, or 50agents, where outside sends wait for your yes."
+  ],
+  "ask": "Chase my unpaid invoices",
+  "lede": "Relay users usually want the same mix: fixed workflows with AI steps inside, and a person approving at the steps that matter.",
+  "notice": {
+    "h": "Relay.app is closed",
+    "body": "Its homepage says it \"shut down in September 2026\" and that \"All accounts, workflows, and run history have been permanently deleted.\" There is nothing to export."
+  },
+  "entries": [
+    {
+      "tool": "fifty",
+      "suits": "Relay users who remember what their workflows did but not every step. Say it in plain words; any send outside waits in Needs you until a person approves it.",
+      "price": "Free to start",
+      "limit": "Approvals go to the people in your 50agents workspace, in the app; there are no email or Slack notifications for them yet.",
+      "limitUrl": "https://50agents.com"
+    },
+    {
+      "tool": "zapier",
+      "suits": "Teams who want the biggest app catalog (10,541+) and an approval step that pauses a Zap for review.",
+      "price": "Free: 100 tasks a month. Professional: $19.99 a month billed yearly (750 tasks)",
+      "limit": "Human in the Loop is on Professional, Team and Enterprise only, not the free plan.",
+      "limitUrl": "https://help.zapier.com/hc/en-us/articles/38731463206029-Request-approval-to-keep-your-workflow-running-with-Human-in-the-Loop"
+    },
+    {
+      "tool": "make",
+      "suits": "Teams who liked seeing the whole workflow. Make draws it on a canvas, and its AI agents can wait for a manual approval.",
+      "price": "Free: 1,000 credits a month. Core: from $9 a month (10,000 credits)",
+      "limit": "Approvals are described for AI agents; check that your scenario can pause where you need it before you rebuild.",
+      "limitUrl": "https://www.make.com/en/ai-agents"
+    },
+    {
+      "tool": "n8n",
+      "suits": "Teams with a developer who want approvals on what an AI agent does, and runs on their own servers.",
+      "price": "No free cloud plan. Starter: €20 a month billed yearly (2.5K executions)",
+      "limit": "No free cloud plan, and the workflow is built node by node.",
+      "limitUrl": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "activepieces",
+      "suits": "Small teams who want a free plan for up to 5 users, an open-source core, and the option to self-host.",
+      "price": "Free: 1,000 credits, up to 5 users. Plus: $20 a month flat (10,000 credits)",
+      "limit": "It lists 770+ apps, so check the ones your Relay workflows used.",
+      "limitUrl": "https://www.activepieces.com/"
+    }
+  ],
+  "pick": {
+    "us": [
+      "You remember what your workflows did, not how they were wired, and would rather say it than rebuild it step by step.",
+      "Emails to customers should wait for a person's yes without you setting up an approval step.",
+      "Some workflows were really AI judgement, such as drafting replies, not fixed steps."
+    ],
+    "them": [
+      "You need the biggest app catalog and a Zap that pauses for review: Zapier, with 10,541+ apps and Human in the Loop.",
+      "You want to see and edit every step on a canvas: Make.",
+      "You want runs on your own servers: n8n or Activepieces."
+    ]
+  },
+  "move": [
+    {
+      "title": "Rebuild your list from the edges",
+      "body": "Look in the apps your workflows touched: sent mail, Slack messages a workflow posted, rows it used to add. Each one points to a workflow you had."
+    },
+    {
+      "title": "Write each as one sentence",
+      "body": "For example \"every new HubSpot contact is added as a row to my Google Sheet\", and note where a person used to approve."
+    },
+    {
+      "title": "Rebuild the customer-facing ones first",
+      "body": "Anything that emailed customers is what is now not happening. Start there, with the approval step in place."
+    },
+    {
+      "title": "Clean up old connections",
+      "body": "Revoke Relay's access in Google, Slack and your other apps' connected-apps settings, and remove any webhook still pointing at Relay."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Has Relay.app shut down?",
+      "a": "Yes. Its homepage says it has shut down and that all accounts, workflows and run history were permanently deleted."
+    },
+    {
+      "q": "Can I get my Relay workflows back?",
+      "a": "Not from Relay. Its homepage says everything was permanently deleted. Rebuild from your own notes and from the traces in the apps your workflows used."
+    },
+    {
+      "q": "Which alternative is closest to Relay.app?",
+      "a": "For fixed steps with a person approving at key points, Zapier with Human in the Loop or 50agents with Needs you. For AI agents with approvals, Make or n8n."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/zapier-alternatives",
+      "title": "Zapier alternatives",
+      "line": "If Zapier is on your list, its rivals too"
+    },
+    {
+      "href": "/compare/gumloop-alternatives",
+      "title": "Gumloop alternatives",
+      "line": "For teams moving to AI agents"
+    },
+    {
+      "href": "/compare/50agents-vs-zapier",
+      "title": "50agents vs Zapier",
+      "line": "Row by row, sourced"
+    }
+  ],
+  "updated": "2026-11-19"
+}

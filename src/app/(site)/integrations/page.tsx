@@ -1,16 +1,17 @@
-// The A to Z of integrations (pages-brief B8): every app in viaSocket's catalog in the HTML, a search on the client,
-// letters, and the 20 curated categories. Replaces the old app grid on /ai-agents.
+// The A to Z of integrations, v3 (D253): a centred head, one search, the 20 categories as link cards, and every app in
+// viaSocket's catalog as a calm logo grid, all in the HTML; the search only hides what doesn't match.
 import type { Metadata } from 'next';
-import { Crumbs, Face, MaybeLink } from '@/site/parts';
+import { Crumbs, KINDS } from '@/site/parts';
+import { StickyBar } from '@/site/sticky';
 import { CATEGORIES } from '@/content/integrations/categories';
-import { FLAGSHIPS } from '@/content/integrations/flagships';
-import { catalog, readDate } from '@/site/integrations/data';
+import { catalog } from '@/site/integrations/data';
 import { BuildLink } from '@/site/integrations/build-link';
 import { DirSearch } from '@/site/integrations/dir-search';
-import { BASE, crumbsLd, LdScript, Logo } from '@/site/integrations/parts';
+import { AppGrid, BASE, CategoryCards, crumbsLd, Final, LdScript } from '@/site/integrations/parts';
+import '@/site/css/usecase.css';
 import '@/site/css/integrations.css';
 
-const TITLE = 'Integrations: the apps 50agents works with, A to Z';
+const TITLE = 'The apps 50agents works with, A to Z';
 const DESC = '50agents works with 2,300+ apps through viaSocket. Find yours A to Z or by category, with its real triggers, actions and ready recipes for Captain.';
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 const letterOf = (n: string) => (/^[a-z]/i.test(n) ? n[0].toUpperCase() : '#');
+const ASK = 'Tell me which of my apps you can work with, and what you would build first';
 
 export default function IntegrationsIndex() {
   const { apps, read } = catalog();
@@ -30,77 +32,40 @@ export default function IntegrationsIndex() {
   const letters = new Map<string, typeof apps>();
   for (const a of sorted) (letters.get(letterOf(a.n)) ?? letters.set(letterOf(a.n), []).get(letterOf(a.n))!).push(a);
   const order = [...letters.keys()].sort((a, b) => (a === '#' ? -1 : b === '#' ? 1 : a.localeCompare(b)));
-  const lead = Object.keys(FLAGSHIPS).map(s => catalog().by.get(s)!).filter(Boolean);
-  const ask = 'Tell me which of my apps you can work with, and what you would build first';
 
   return (
-    <div className="page ig">
+    <div className="page uc3 ig3" style={{ ['--k' as string]: KINDS.auto.tint }}>
       <LdScript data={crumbsLd([{ name: 'Home', path: '' }, { name: 'Integrations', path: '/integrations' }])} />
-      <div className="wrap">
-        <Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations' }]} />
-      </div>
+      <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations' }]} /></div>
 
-      <section className="wrap" style={{ paddingTop: 36 }}>
-        <div className="sec-head" style={{ maxWidth: 820 }}>
-          <h1>The apps 50agents works with, A to Z</h1>
-          <p className="answer" style={{ color: 'var(--ink)' }}>50agents works with 2,300+ apps through viaSocket, so Captain can build automations, AI agents and apps on the tools you already use. Find yours in viaSocket’s public catalog below to see its real triggers and actions, and the recipes you can build on it today.</p>
-        </div>
+      <section className="wrap uc3-hero ig3-hero ig3-dir-hero">
+        <h1>{TITLE}</h1>
+        <p className="answer">50agents works with 2,300+ apps through viaSocket, so Captain can build automations, AI agents and apps on the tools you already use. Find yours to see its real triggers and actions, and the recipes you can build on it.</p>
+        <div className="ig3-search"><DirSearch label="Search apps, such as HubSpot or Notion" /></div>
+        <div className="hero-cta ig3-dir-cta"><BuildLink page="integrations" place="hero" campaign="seo-index" ask={ASK} className="btn ghost">Not sure? Ask Captain</BuildLink></div>
       </section>
 
-      <section className="wrap" aria-labelledby="start">
-        <h2 id="start" className="ig-count" style={{ fontSize: 14, fontWeight: 600, letterSpacing: 0, marginBottom: 12 }}>Start with the most used</h2>
-        <div className="ig-top">
-          {lead.map(a => (
-            <a key={a.s} href={`/integrations/${a.s}`} className="ig-tile">
-              <Logo slug={a.s} size={32} /><b>{a.n}</b><span>{a.t} triggers · {a.a} actions</span>
-            </a>
-          ))}
-          <MaybeLink href="/integrations/google-calendar" className="ig-tile"><Logo slug="google-calendar" size={32} /><b>Google Calendar</b><span>{catalog().by.get('google-calendar')?.t ?? 0} triggers · {catalog().by.get('google-calendar')?.a ?? 0} actions</span></MaybeLink>
-          <MaybeLink href="/integrations/google-drive" className="ig-tile"><Logo slug="google-drive" size={32} /><b>Google Drive</b><span>{catalog().by.get('google-drive')?.t ?? 0} triggers · {catalog().by.get('google-drive')?.a ?? 0} actions</span></MaybeLink>
-        </div>
+      <section className="wrap sec" id="categories" data-hide-on-search>
+        <div className="sec-h c"><h2>Browse by category</h2><p>Twenty groups, from CRM to phone and SMS. Each lists its apps, most used first.</p></div>
+        <CategoryCards cats={CATEGORIES} />
       </section>
 
-      <section className="wrap band" style={{ paddingTop: 56 }} aria-label="Categories">
-        <h2 style={{ fontSize: 28 }}>Browse by category</h2>
-        <nav className="ig-cats" style={{ marginTop: 14 }}>
-          {CATEGORIES.map(c => <MaybeLink key={c.slug} href={`/integrations/category/${c.slug}`}>{c.name}</MaybeLink>)}
+      <section className="wrap sec ig3-az" id="a-to-z" aria-label="All apps, A to Z">
+        <div className="sec-h c"><h2>Every app, A to Z</h2></div>
+        <nav className="ig3-letters" aria-label="Letters">
+          {order.map(l => <a key={l} href={`#letter-${l === '#' ? 'num' : l}`}>{l}</a>)}
         </nav>
-      </section>
-
-      <section className="wrap band" style={{ paddingTop: 40 }} aria-label="All apps, A to Z">
-        <div className="ig-dir-tools">
-          <DirSearch />
-          <nav className="ig-letters" aria-label="Letters">
-            {order.map(l => <a key={l} href={`#letter-${l === '#' ? 'num' : l}`}>{l}</a>)}
-          </nav>
-        </div>
         {order.map(l => (
-          <div key={l} className="ig-letter" id={`letter-${l === '#' ? 'num' : l}`} data-letter={l}>
-            <h2>{l}</h2>
-            <ul className="ig-grid">
-              {letters.get(l)!.map(a => (
-                <li key={a.s} data-app={`${a.n} ${a.s}`.toLowerCase()}>
-                  <a href={`/integrations/${a.s}`} className="ig-tile"><Logo slug={a.s} size={24} /><b>{a.n}</b></a>
-                </li>
-              ))}
-            </ul>
+          <div key={l} className="ig3-letter" id={`letter-${l === '#' ? 'num' : l}`} data-letter={l}>
+            <h3 className="ig3-letter-h"><span>{l}</span></h3>
+            <AppGrid apps={letters.get(l)!} />
           </div>
         ))}
-        <p className="src">Every app in viaSocket&rsquo;s public catalog list, read {readDate(read)}.</p>
       </section>
 
-      <section className="wrap">
-        <div className="final">
-          <h2>Not sure where to start?</h2>
-          <p>Tell Captain which apps you use, and it says what it would build first. Every workspace starts free with 2,000 credits.</p>
-          <BuildLink page="integrations" place="final" campaign="seo-index" ask={ask}>Ask Captain</BuildLink>
-          <span className="peek l" aria-hidden="true"><Face id="scout" size={52} /><Face id="keeper" size={44} /></span>
-          <span className="peek r" aria-hidden="true"><Face id="writer" size={50} /><Face id="sorter" size={46} /></span>
-        </div>
-        <p className="byline">By the 50agents team · Last updated {readDate(read)} · From viaSocket&rsquo;s catalog, read {readDate(read)}. Also: <MaybeLink href="/use-cases">Use cases</MaybeLink> · <MaybeLink href="/automations">Automations</MaybeLink> · <MaybeLink href="/ai-agents">AI agents</MaybeLink></p>
-      </section>
+      <Final h2="Not sure where to start?" p="Tell Captain which apps you use, and it says what it would build first. Free to start." ask={ASK} page="integrations" campaign="seo-index" updated={read} button="Ask Captain" />
 
-      <div className="sticky"><span>Every app, A to Z</span><BuildLink page="integrations" place="sticky" campaign="seo-index" ask={ask} className="btn">Ask Captain</BuildLink></div>
+      <StickyBar><span>Every app, A to Z</span><BuildLink page="integrations" place="sticky" campaign="seo-index" ask={ASK} className="btn">Ask Captain</BuildLink></StickyBar>
     </div>
   );
 }

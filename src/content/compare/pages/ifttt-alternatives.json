@@ -1,0 +1,114 @@
+{
+  "slug": "ifttt-alternatives",
+  "type": "alternatives",
+  "tool": "ifttt",
+  "query": "ifttt alternatives",
+  "title": "IFTTT alternatives, with checked prices | 50agents",
+  "description": "IFTTT alternatives: Apple Shortcuts for your iPhone, Home Assistant for a local smart home, Zapier or Make for work apps, 50agents for email chores.",
+  "h1": "IFTTT alternatives",
+  "answer": [
+    "For automations on your iPhone, Apple Shortcuts already runs them on your device; for a smart home you control locally, Home Assistant lists 1,600+ integrations and keeps your data at home.",
+    "If you have moved on to work apps, Zapier and Make have free plans with multi-step workflows, and 50agents builds an AI agent for chores like drafting email replies from plain words."
+  ],
+  "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
+  "lede": "IFTTT is cheap and simple, and for many people it is enough; people leave when the free plan's hourly checks or one-step Applets get in the way.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "suits": "People who use IFTTT for admin and want more judgement than an Applet has, such as drafting replies to unread email each morning, sending nothing without a yes.",
+      "price": "Free to start",
+      "limit": "No smart-home devices, no phone app and no location triggers. It works with web apps, not your lights or your thermostat.",
+      "limitUrl": "https://ifttt.ai/"
+    },
+    {
+      "tool": "shortcuts",
+      "suits": "iPhone and iPad owners. Automations start from things only your phone knows: the time of day, arriving at a place, opening an app.",
+      "price": "Apple's own app on iPhone and iPad",
+      "limit": "Automations are \"specific to a device\", so they run on your phone, not in the cloud while it is off.",
+      "limitUrl": "https://support.apple.com/guide/shortcuts/intro-to-automation-shortcuts-apd690170742/ios"
+    },
+    {
+      "tool": "homeassistant",
+      "suits": "Smart-home fans who want everything to run at home, without a cloud, with automations such as lights on at sunset.",
+      "price": "Open source; you run it on a device at home",
+      "limit": "You run it yourself on a device at home, so setup and updates are your job.",
+      "limitUrl": "https://www.home-assistant.io/"
+    },
+    {
+      "tool": "zapier",
+      "suits": "People who moved from personal to work automations and need the long tail of business apps: 10,541+.",
+      "price": "Free: 100 tasks a month. Professional: $19.99 a month billed yearly (750 tasks)",
+      "limit": "The free plan is 100 tasks a month and two-step Zaps only, less than IFTTT's free 1,000 credits.",
+      "limitUrl": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "make",
+      "suits": "Tinkerers who want longer, branching workflows on a visual canvas, with a free plan of 1,000 credits a month.",
+      "price": "Free: 1,000 credits a month. Core: from $9 a month (10,000 credits)",
+      "limit": "Most actions cost a credit each, so a long workflow uses the free credits faster than a one-step Applet.",
+      "limitUrl": "https://www.make.com/en/pricing"
+    }
+  ],
+  "pick": {
+    "us": [
+      "Your Applets have moved from your phone and home to work apps like Gmail, Sheets and Slack.",
+      "The job needs judgement each time, such as which emails need a reply and what to say.",
+      "You want anything sent to other people to wait for your yes."
+    ],
+    "them": [
+      "Your automations involve smart-home devices or your phone. IFTTT covers both, with apps for iOS and Android.",
+      "Your Applets are one step and an hour's delay is fine. The free plan, with unlimited Applets, is hard to beat.",
+      "You want it cheap: Starter is $25.08 a year and Pro is $65.88 a year."
+    ]
+  },
+  "move": [
+    {
+      "title": "Sort Applets by where they run",
+      "body": "Phone and location ones go to Shortcuts, device ones to Home Assistant or stay on IFTTT, and web-app ones to a work automation tool."
+    },
+    {
+      "title": "Note each Applet's trigger and action",
+      "body": "We found no Applet export on IFTTT's own pages, so write them down: \"If new email from X, then add a row to my sheet\"."
+    },
+    {
+      "title": "Rebuild the web-app ones in plain words",
+      "body": "In 50agents you can type the Applet as you wrote it; Captain turns it into an automation and asks which sheet or which inbox."
+    },
+    {
+      "title": "Turn off, then delete",
+      "body": "Turn each Applet off once its replacement has run for a week."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is there a free alternative to IFTTT?",
+      "a": "Yes. Make (1,000 credits a month) and Zapier (100 tasks a month) have free plans, and 50agents is free to start. Home Assistant is open source, and Apple Shortcuts is Apple's own app on iPhone and iPad."
+    },
+    {
+      "q": "What is the best IFTTT alternative for a smart home?",
+      "a": "Home Assistant, if you are happy to run it at home: 1,600+ integrations and local control."
+    },
+    {
+      "q": "How much does IFTTT cost now?",
+      "a": "Free gives 1,000 credits a month with hourly checks. Starter is $2.09 a month, billed $25.08 yearly, with 15-minute checks, and Pro is $5.49 a month, billed $65.88 yearly."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/zapier-alternatives",
+      "title": "Zapier alternatives",
+      "line": "If you are choosing a work automation tool"
+    },
+    {
+      "href": "/compare/power-automate-alternatives",
+      "title": "Power Automate alternatives",
+      "line": "For work automations on Microsoft 365"
+    },
+    {
+      "href": "/compare/make-alternatives",
+      "title": "Make alternatives",
+      "line": "For longer workflows on a canvas"
+    }
+  ],
+  "updated": "2026-11-19"
+}

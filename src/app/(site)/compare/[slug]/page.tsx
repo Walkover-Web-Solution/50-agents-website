@@ -1,12 +1,16 @@
-// A comparison page (pages-brief B4): 12 alternatives pages and 8 versus pages, static HTML from their content files.
-// Answer first, every competitor fact linked and dated from src/content/compare/facts.ts, a sticky contents list on desktop.
+// A comparison page, v3 (D253): 12 alternatives pages and 8 versus pages, one template filled from each page's JSON
+// (src/content/compare/pages), written by the page pipeline (scripts/pages, prompt compare.md, gates-compare.mjs).
+// A centred hero with the short answer and the ask in Captain's box, then the table (the visual centre, every competitor
+// fact from facts.ts, one sources line under it), who should pick which, how to move over, questions, related pages.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { COMPARE } from '@/content/compare';
-import { CHECKED, CHECKED_ISO, TOOLS } from '@/content/compare/facts';
-import type { AltPage, VsPage } from '@/content/compare/types';
-import { AltCard, MarkIcon, Sources, Toc, VsTable } from '@/site/compare/parts';
+import { COMPARE } from '@/content/compare/pages';
+import { TOOLS } from '@/content/compare/facts';
+import { AltTable, PickCards, SourcesLine, VsTable } from '@/site/compare/parts';
 import { Crumbs, Cta, Face, MaybeLink } from '@/site/parts';
+import { StickyBar } from '@/site/sticky';
+import { PromptFilm } from '@/site/usecase/film';
+import '@/site/css/usecase.css';
 import '@/site/css/compare.css';
 
 const BASE = 'https://50agents.com';
@@ -14,12 +18,10 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return COMPARE.map(p => ({ slug: p.slug }));
 }
-
-const find = (slug: string) => COMPARE.find(p => p.slug === slug);
+const find = async (params: Promise<{ slug: string }>) => { const { slug } = await params; return COMPARE.find(p => p.slug === slug); };
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const p = find(slug);
+  const p = await find(params);
   if (!p) return {};
   const url = `${BASE}/compare/${p.slug}`;
   return {
@@ -32,201 +34,109 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-const longDate = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const month = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 export default async function ComparePageView({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const p = find(slug);
+  const p = await find(params);
   if (!p) notFound();
   const url = `${BASE}/compare/${p.slug}`;
+  const them = TOOLS[p.tool];
   const ld = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-        { '@type': 'ListItem', position: 2, name: 'Compare', item: `${BASE}/compare` },
-        { '@type': 'ListItem', position: 3, name: p.h1, item: url },
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: p.h1,
-      description: p.description,
-      mainEntityOfPage: url,
-      author: { '@type': 'Organization', name: '50agents', url: BASE },
-      publisher: { '@type': 'Organization', name: '50agents', url: BASE },
-      datePublished: p.published,
-      dateModified: p.updated,
-    },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: 'Compare', item: `${BASE}/compare` },
+      { '@type': 'ListItem', position: 3, name: p.h1, item: url },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'Article', headline: p.h1, description: p.answer.join(' '), mainEntityOfPage: url,
+      author: { '@type': 'Organization', name: '50agents', url: BASE }, publisher: { '@type': 'Organization', name: '50agents', url: BASE }, dateModified: p.updated },
+    ...(p.type === 'alternatives' ? [{ '@context': 'https://schema.org', '@type': 'ItemList', name: p.h1,
+      itemListElement: p.entries.map((e, i) => ({ '@type': 'ListItem', position: i + 1, name: TOOLS[e.tool].name, url: TOOLS[e.tool].site })) }] : []),
   ];
-  const toc = p.type === 'alternatives'
-    ? [
-        ...(p.notice ? [{ id: 'notice', label: p.notice.h }] : []),
-        { id: 'why', label: p.why.h }, { id: 'picks', label: 'Quick picks' }, { id: 'alternatives', label: 'The alternatives' },
-        { id: 'stay', label: p.stay.h }, { id: 'move', label: 'How to move over' }, { id: 'questions', label: 'Questions' }, { id: 'sources', label: 'Sources' },
-      ]
-    : [
-        { id: 'table', label: 'Side by side' }, { id: 'verdict', label: 'What the table means' }, { id: 'pick', label: 'Who should pick which' },
-        { id: 'move', label: 'How to move over' }, { id: 'questions', label: 'Questions' }, { id: 'sources', label: 'Sources' },
-      ];
-  const tools = p.type === 'alternatives' ? p.entries.map(e => e.tool) : (['fifty', p.tool] as const).slice();
 
   return (
-    <div className="page cmp" style={{ ['--k' as string]: '#EEF0F3' }}>
+    <div className="page cmp3" style={{ ['--k' as string]: '#E2E9FF' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
-      <div className="wrap">
-        <Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Compare', href: '/compare' }, { label: p.h1 }]} />
-      </div>
+      <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Compare', href: '/compare' }, { label: p.h1 }]} /></div>
 
-      <section className="wrap cmp-hero">
-        <p className="cmp-checked"><Check /> Facts checked on {CHECKED}</p>
+      {/* Hero: the question, the short answer in two sentences, and one real ask in Captain's box */}
+      <section className="wrap cmp3-hero">
         <h1>{p.h1}</h1>
-        <div className="cmp-short" id="answer">
-          <p className="cmp-short-h">The short answer</p>
-          <p>{p.answer[0]}</p>
-          <p>{p.answer[1]}</p>
+        <p className="answer">{p.answer[0]} {p.answer[1]}</p>
+        {p.type === 'alternatives' && p.notice && (
+          <p className="cmp3-notice"><b>{p.notice.h}.</b> {p.notice.body} <a href={them.status?.url ?? them.site} target="_blank" rel="noopener">{them.name}&rsquo;s own page</a></p>
+        )}
+        <div className="hero-cta cmp3-film">
+          <PromptFilm ask={p.ask} button={<Cta campaign="seo-compare" page={p.slug} place="hero" ask={p.ask}>Build it</Cta>}>{null}</PromptFilm>
         </div>
-        <p className="cmp-by">By the 50agents team · Last updated {longDate(p.updated)} · We make 50agents, so we list its limits the same way as everyone else&rsquo;s.</p>
-        <div className="hero-cta"><Cta campaign="seo-compare" page={p.slug} place="hero">Try 50agents free</Cta><span className="hero-note">Every workspace starts free with 2,000 credits</span></div>
+        <p className="uc3-note">Try one real job in 50agents. Free to start.</p>
       </section>
 
-      <div className="wrap cmp-grid">
-        <aside className="cmp-side"><Toc items={toc} /><div className="cmp-side-cta"><Cta campaign="seo-compare" page={p.slug} place="inline">Try 50agents free</Cta><span>2,000 credits to start</span></div></aside>
-        <article className="cmp-body">
-          {p.type === 'alternatives' ? <Alternatives p={p} /> : <Versus p={p} />}
+      {/* The comparison: the visual centre, one table, every competitor fact from facts.ts, sources in one line */}
+      <section className="wrap sec" id="compare">
+        <div className="sec-h c">
+          <h2>{p.type === 'alternatives' ? 'The alternatives, side by side' : `50agents and ${them.name}, side by side`}</h2>
+          <p>{p.lede}</p>
+        </div>
+        {p.type === 'alternatives' ? <AltTable p={p} /> : <VsTable p={p} />}
+        <SourcesLine p={p} />
+      </section>
 
-          <section id="move" className="cmp-sec">
-            <h2>How to move over</h2>
-            <ol className="cmp-steps">
-              {p.move.map(m => <li key={m.title}><h3>{m.title}</h3><p>{m.body}</p></li>)}
-            </ol>
-          </section>
+      {/* Who should pick which: two cards, and where the other tool is better */}
+      <section className="wrap sec" id="pick">
+        <div className="sec-h c"><h2>Who should pick which</h2><p>We make 50agents, so we say where the other tool is the better choice.</p></div>
+        <PickCards p={p} />
+      </section>
 
-          <section id="questions" className="cmp-sec">
-            <h2>Questions people ask</h2>
-            <div className="faqs">
-              {p.faqs.map(f => (
-                <details key={f.q} open>
-                  <summary><h3>{f.q}</h3></summary>
-                  <p>{f.a}</p>
-                </details>
-              ))}
-            </div>
-          </section>
+      {/* How to move over: short numbered rows */}
+      <section className="wrap sec" id="move">
+        <div className="sec-h c"><h2>How to move over</h2></div>
+        <ol className="rows cmp3-move">
+          {p.move.map((m, i) => (
+            <li key={m.title}><span className="n">{String(i + 1).padStart(2, '0')}</span><div><h3>{m.title}</h3><p>{m.body}</p></div></li>
+          ))}
+        </ol>
+      </section>
 
-          <section id="sources" className="cmp-sec">
-            <h2>Sources</h2>
-            <p className="cmp-lede">Every fact about another tool on this page was read on that tool&rsquo;s own site on {CHECKED}. Facts about 50agents are from the live app on the same day. We re-check them every 90 days; a fact we could not find on a tool&rsquo;s own pages is left out.</p>
-            <Sources tools={[...tools]} />
-          </section>
+      {/* Questions */}
+      <section className="wrap sec" id="questions">
+        <div className="sec-h c"><h2>Questions people ask</h2></div>
+        <div className="qa uc3-qa">
+          {p.faqs.map((f, n) => (
+            <details key={f.q} open={n === 0}>
+              <summary><h3>{f.q}</h3><i aria-hidden="true" /></summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
 
-          <section className="cmp-sec" aria-labelledby="related-h">
-            <h2 id="related-h">Related</h2>
-            <div className="related cmp-related">
-              {p.related.map(r => (
-                <MaybeLink key={r.href} href={r.href} className="rel">
-                  <b>{r.title}</b>
-                  <span>{r.line}</span>
-                </MaybeLink>
-              ))}
-            </div>
-            <p className="also">Also: <MaybeLink href="/compare">All comparisons</MaybeLink> · <MaybeLink href="/automations">Automations</MaybeLink> · <MaybeLink href="/ai-agents">AI agents</MaybeLink> · <MaybeLink href="/browser-agents">Browser agents</MaybeLink> · <MaybeLink href="/apps">Apps</MaybeLink></p>
-          </section>
-        </article>
-      </div>
+      {/* Related comparisons */}
+      <section className="wrap sec" id="more">
+        <div className="sec-h c"><h2>More comparisons</h2></div>
+        <div className="cards3">
+          {p.related.map(r => (
+            <MaybeLink key={r.href} href={r.href}>
+              <b>{r.title}</b>
+              <span>{r.line}</span>
+            </MaybeLink>
+          ))}
+        </div>
+        <div className="uc3-all"><MaybeLink href="/compare" className="btn ghost">See all comparisons</MaybeLink></div>
+      </section>
 
-      <section className="wrap">
+      {/* Final: the same ask, one button */}
+      <section className="wrap sec">
         <div className="final">
-          <h2>Try the sentence instead of the setup</h2>
-          <p>Tell Captain what you need, and it builds the automation, AI agent, browser agent or app in your real apps. Every workspace starts free with 2,000 credits.</p>
-          <Cta campaign="seo-compare" page={p.slug} place="final">Start free with Captain</Cta>
+          <h2>Describe the job instead of building it</h2>
+          <p>Tell Captain &ldquo;{p.ask}&rdquo;. Free to start.</p>
+          <Cta campaign="seo-compare" page={p.slug} place="final" ask={p.ask}>Build it with Captain</Cta>
           <span className="peek l" aria-hidden="true"><Face id="keeper" size={50} /><Face id="writer" size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="scout" size={48} /><Face id="sorter" size={46} /></span>
         </div>
+        <p className="byline">By the 50agents team, who make 50agents · Updated {month(p.updated)}</p>
       </section>
 
-      <div className="sticky"><span>{p.h1}</span><Cta campaign="seo-compare" page={p.slug} place="sticky">Try free</Cta></div>
+      <StickyBar><span>{p.h1}</span><Cta campaign="seo-compare" page={p.slug} place="sticky" ask={p.ask}>Build it</Cta></StickyBar>
     </div>
   );
 }
-
-function Alternatives({ p }: { p: AltPage }) {
-  return (
-    <>
-      {p.notice && (
-        <section id="notice" className="cmp-sec cmp-notice" role="note">
-          <h2>{p.notice.h}</h2>
-          <p>{p.notice.body} <a href={TOOLS[p.tool].status?.url ?? TOOLS[p.tool].site} target="_blank" rel="noopener">Source, read {CHECKED}</a></p>
-        </section>
-      )}
-      <section id="why" className="cmp-sec">
-        <h2>{p.why.h}</h2>
-        {p.why.body.map(b => <p key={b.slice(0, 32)} className="cmp-p">{b}</p>)}
-      </section>
-
-      <section id="picks" className="cmp-sec">
-        <h2>Quick picks</h2>
-        <table className="picks">
-          <thead><tr><th scope="col">If you need</th><th scope="col">Look at</th></tr></thead>
-          <tbody>
-            {p.picks.map(k => (
-              <tr key={k.need}><td>{k.need}</td><td><a href={`#alt-${k.tool}`}>{TOOLS[k.tool].name}</a></td></tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
-
-      <section id="alternatives" className="cmp-sec">
-        <h2>The alternatives, with prices and one honest limitation each</h2>
-        <p className="cmp-lede">50agents is listed first because this is our site. Its limits are written the same way as everyone else&rsquo;s.</p>
-        <div className="alts">
-          {p.entries.map((e, i) => <AltCard key={e.tool} e={e} n={i + 1} />)}
-        </div>
-      </section>
-
-      <section id="stay" className="cmp-sec">
-        <h2>{p.stay.h}</h2>
-        <ul className="cmp-list">{p.stay.items.map(s => <li key={s.slice(0, 32)}>{s}</li>)}</ul>
-      </section>
-    </>
-  );
-}
-
-function Versus({ p }: { p: VsPage }) {
-  const them = TOOLS[p.tool];
-  return (
-    <>
-      <section id="table" className="cmp-sec">
-        <h2>50agents and {them.name}, side by side</h2>
-        <p className="cmp-lede"><MarkIcon v="yes" /> <MarkIcon v="partly" /> <MarkIcon v="no" /> as each tool&rsquo;s own pages state it.</p>
-        <VsTable tool={p.tool} rows={p.rows} />
-      </section>
-
-      <section id="verdict" className="cmp-sec">
-        <h2>What the table means</h2>
-        {p.verdict.map(v => <p key={v.slice(0, 32)} className="cmp-p">{v}</p>)}
-      </section>
-
-      <section id="pick" className="cmp-sec">
-        <h2>Who should pick which</h2>
-        <div className="pick">
-          <div className="pick-c us">
-            <h3><Face id="keeper" size={22} /> Pick 50agents if</h3>
-            <ul>{p.pick.us.map(s => <li key={s.slice(0, 32)}>{s}</li>)}</ul>
-          </div>
-          <div className="pick-c">
-            <h3>Pick {them.name} if</h3>
-            <ul>{p.pick.them.map(s => <li key={s.slice(0, 32)}>{s}</li>)}</ul>
-          </div>
-        </div>
-      </section>
-    </>
-  );
-}
-
-function Check() {
-  return <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>;
-}
-

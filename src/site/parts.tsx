@@ -68,8 +68,9 @@ export function Cta({ page, place, children = 'Build this with Captain', ghost =
 export function Wordmark({ face = 'keeper', size = 26 }: { face?: string; size?: number }) {
   return (
     <a className="wm" href="/" aria-label="50agents, from viaSocket" style={{ fontSize: size }}>
-      <span className="wm-w">5<Face id={face} size={size * 0.92} />agents</span>
-      <span className="wm-by">from viaSocket</span>
+      <span className="wm-w" aria-hidden="true">5<Face id={face} size={size * 0.92} />agents</span>
+      <span className="wm-by" aria-hidden="true">from viaSocket</span>
+      <span className="sr">50agents, from viaSocket</span>
     </a>
   );
 }

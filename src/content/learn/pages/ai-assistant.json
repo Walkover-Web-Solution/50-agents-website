@@ -1,0 +1,69 @@
+{
+  "slug": "ai-assistant",
+  "term": "AI assistant",
+  "query": "what is an AI assistant",
+  "group": "AI that acts",
+  "title": "What is an AI assistant? vs an AI agent | 50agents",
+  "description": "An AI assistant answers and does tasks when you ask, inside a conversation. How it differs from an AI agent, with a real example from 50agents.",
+  "h1": "What is an AI assistant?",
+  "definition": [
+    "An AI assistant is AI you talk to that answers questions and does tasks when you ask, such as drafting an email or reading a web page.",
+    "It works while you are in the conversation; an AI agent keeps working on its own schedule after you leave."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
+    "why": "Captain is the assistant here. Ask it for something that repeats, like this evening brief, and it builds an AI agent, because the work has to happen when you are not in the chat.",
+    "build": {
+      "name": "Tomorrow",
+      "line": "tomorrow's meetings, in one Slack message",
+      "when": "Every day at 18:00",
+      "does": [
+        "Lists tomorrow's events in order",
+        "Flags clashes between meetings",
+        "Posts one message in Slack"
+      ],
+      "apps": [
+        "google-calendar",
+        "slack"
+      ],
+      "asksFirst": "Posting the message, until you allow it"
+    }
+  },
+  "vs": {
+    "term": "AI agent",
+    "href": "/learn/ai-agent",
+    "rows": [
+      {
+        "label": "Who starts the work",
+        "a": "You, with each message",
+        "b": "Its own schedule"
+      },
+      {
+        "label": "Use it for",
+        "a": "One-off work you check straight away",
+        "b": "Work that has to happen again without you"
+      },
+      {
+        "label": "In 50agents",
+        "a": "Captain",
+        "b": "What Captain builds"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "AI agents",
+      "href": "/ai-agents"
+    },
+    {
+      "label": "AI agents for small business: 10 jobs that work today",
+      "href": "/guides/ai-agents-for-small-business-10-jobs-that-work-today"
+    },
+    {
+      "label": "LLM",
+      "href": "/learn/llm"
+    }
+  ],
+  "updated": "2026-11-19"
+}

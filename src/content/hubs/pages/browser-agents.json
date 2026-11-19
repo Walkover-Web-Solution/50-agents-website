@@ -1,0 +1,39 @@
+{
+  "slug": "browser-agents",
+  "kind": "browser",
+  "query": "AI browser agent; automate web browsing",
+  "title": "AI browser agent: automate web browsing | 50agents",
+  "description": "A browser agent reads websites that have no app to connect, such as competitors' pricing pages, on a schedule, in its own browser that keeps your sign-ins.",
+  "crumb": "Browser agents",
+  "h1": "A browser agent for the websites no app reaches",
+  "line": "Work on websites that have no app to connect.",
+  "answer": [
+    "A browser agent in 50agents works on websites the way you would, in a browser of its own: it opens pages, reads what only shows there, uses a site you signed in to and fills in forms.",
+    "Tell Captain which sites and how often, and it builds one that runs on a schedule, lists every page it visited, and never submits anything without your yes."
+  ],
+  "example": {
+    "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
+    "build": {"name":"Price watch","line":"competitor pricing pages, read every morning","when":"Every day at 9:00","does":["Opens each pricing page you name","Compares prices with the last run","Leaves a report of what changed"],"apps":[],"asksFirst":"A sign-in, if a page needs one"}
+  },
+  "useCases": "A browser agent is the one kind with no app to connect: the websites are where it works.",
+  "apps": {
+    "slugs": [],
+    "h2": "No app to connect. And 2,300+ apps beside it",
+    "p": "When a site does have an app in viaSocket's catalog, Captain builds an automation or an AI agent on that app instead, which reads the data directly rather than its pages."
+  },
+  "faqs": [
+    { "q": "What is an AI browser agent?", "a": "An AI that uses a real web browser to do a job: it opens pages, reads them, clicks and fills in forms, deciding each step as it goes. It is for websites that have no app or API to connect to." },
+    { "q": "Can it log in to websites?", "a": "Yes, with you. When a site needs a sign-in, it asks in Needs you and you sign in yourself in its browser; a password never goes into a chat. The sign-in stays in its browser for later runs." },
+    { "q": "Does it get past CAPTCHAs?", "a": "No, never. It tries another source first; if one site is the only way, it asks you to solve the check yourself in its browser, or to leave that site out." },
+    { "q": "Is a browser agent the same as web scraping?", "a": "Close, but not the same. A scraper pulls set fields from many pages; a browser agent reads a few pages, understands them and tells you what matters, such as which price changed. For scraping many rows into a table, a tool like Browse AI fits better." },
+    { "q": "When should I not use a browser agent?", "a": "When the site has an app in the catalog. An app connection reads the data directly, with no pages to load or change under it, so Captain builds an automation or an AI agent there." },
+    { "q": "Can it fill in forms?", "a": "Yes, when its instructions say so. It fills the form from what you give it, then stops and asks you in Needs you before it submits." }
+  ],
+  "links": [
+    { "label": "How to automate a website that has no API", "href": "/guides/how-to-automate-a-website-that-has-no-api" },
+    { "label": "What is a browser agent?", "href": "/learn/browser-agent" },
+    { "label": "Bardeen alternatives", "href": "/compare/bardeen-alternatives" }
+  ],
+  "final": "Point a browser agent at a website",
+  "updated": "2026-11-19"
+}

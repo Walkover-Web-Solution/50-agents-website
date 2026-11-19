@@ -1,0 +1,414 @@
+{
+ "row": {
+  "slug": "google-sheets",
+  "query": "Google Sheets integrations; Google Sheets automation; AI agent for Google Sheets",
+  "ask": "Set up an automation: when a new order comes in on Shopify, add it as a row to my Google Sheet",
+  "recipe": {
+   "ta": "shopify",
+   "te": "New Order",
+   "aa": "google-sheets",
+   "ae": "Add New Row to Sheet"
+  },
+  "useCases": [
+   "shopify-orders-to-google-sheets",
+   "track-competitor-prices"
+  ],
+  "native": [],
+  "own": "Rows in and out; a sheet that outgrows itself becomes an app"
+ },
+ "app": {
+  "slug": "google-sheets",
+  "name": "Google Sheets",
+  "domain": "sheets.google.com",
+  "events": [
+   {
+    "name": "Update Spreadsheet Row",
+    "type": "action",
+    "about": "Update columns in sheet row"
+   },
+   {
+    "name": "List Rows in Sheet",
+    "type": "action",
+    "about": "Get rows from a sheet tab as objects with row numbers. Supports an optional header row, offset/limit paging, and fetching from the last row."
+   },
+   {
+    "name": "Delete Rows",
+    "type": "action",
+    "about": "Delete one or more rows from a specific sheet in a Google Spreadsheet using a row range or row numbers."
+   },
+   {
+    "name": "Add New Row to Sheet",
+    "type": "action",
+    "about": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+   },
+   {
+    "name": "Lookup Spreadsheet Rows",
+    "type": "action",
+    "about": "Find rows in a Google Sheet that match a column value or an advanced filter."
+   },
+   {
+    "name": "Copy Sheet To Spreadsheet",
+    "type": "action",
+    "about": "Copy a sheet to another file"
+   },
+   {
+    "name": "Add Multiple Rows",
+    "type": "action",
+    "about": "Add one or more rows to a specific sheet in a Google Spreadsheet. Provide data column-by-column or paste a JSON array for bulk inserts. If the sheet has no headers, they will be auto-created from your JSON keys."
+   },
+   {
+    "name": "Create Subsheet",
+    "type": "action",
+    "about": "Add a new subsheet to a spreadsheet and optionally set its position and add column headers in the first row."
+   },
+   {
+    "name": "Create Sheet Column",
+    "type": "action",
+    "about": "Insert a new column into the specified Google Sheets sheet at the given index (or append to the end) and optionally set its header."
+   },
+   {
+    "name": "Get Rows From Range",
+    "type": "action",
+    "about": "Retrieve rows from sheet range"
+   },
+   {
+    "name": "Create a Spreadsheet",
+    "type": "action",
+    "about": "create a new spreadsheet."
+   },
+   {
+    "name": "Find Subsheet",
+    "type": "action",
+    "about": "Searches a sheet in a spreadsheet by name and returns the sheet name, column titles, and number of rows."
+   },
+   {
+    "name": "Get Row Details",
+    "type": "action",
+    "about": "Retrieve values and metadata for a specific row in a spreadsheet sheet."
+   },
+   {
+    "name": "Clear Spreadsheet Row",
+    "type": "action",
+    "about": "Clears the contents of the selected row(s) while keeping the row(s) intact in the spreadsheet."
+   },
+   {
+    "name": "Create Spreadsheet From Template",
+    "type": "action",
+    "about": "Create sheet from template"
+   },
+   {
+    "name": "List Spreadsheets",
+    "type": "action",
+    "about": "Fetch all spreadsheets"
+   },
+   {
+    "name": "List Spreadsheet Tabs",
+    "type": "action",
+    "about": "Lists all tabs (sheets) in a spreadsheet and returns the total count."
+   },
+   {
+    "name": "Row Added Or Updated",
+    "type": "trigger",
+    "about": "Runs when row added or updated"
+   },
+   {
+    "name": "Batch Update Cell Values",
+    "type": "action",
+    "about": "Update multiple cells at once"
+   },
+   {
+    "name": "Format Spreadsheet Row",
+    "type": "action",
+    "about": "Format row font and background"
+   },
+   {
+    "name": "Add Conditional Formatting Rule",
+    "type": "action",
+    "about": "Apply conditional formatting to cells in a Google Sheets spreadsheet based on their values"
+   },
+   {
+    "name": "Update Sheet Name",
+    "type": "action",
+    "about": "Renames an existing sheet (tab) within a Google Spreadsheet to a new name you specify."
+   },
+   {
+    "name": "Update Multiple Rows",
+    "type": "action",
+    "about": "Update values in one or more rows of a Google Sheet."
+   },
+   {
+    "name": "Permanently Delete Spreadsheet",
+    "type": "action",
+    "about": "Permanently delete a spreadsheet from Google Drive, including files on shared drives."
+   }
+  ]
+ },
+ "recipes": [
+  {
+   "trigger": {
+    "app": "Gmail",
+    "event": "New Email Sent"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Gmail",
+    "event": "New Email Sent"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Slack",
+    "event": "New Thread Message Instant"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Slack",
+    "event": "New Thread Message Instant"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Slack",
+    "event": "New Message in Channels"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Add New Row to Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Slack",
+    "event": "New Thread Message"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Slack",
+    "event": "New Thread Message"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Google Calendar",
+    "event": "New or Updated Event"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Add New Row to Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a deal is created or updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a deal is created or updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Salesforce",
+    "event": "New Opportunity"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Add New Row to Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Shopify",
+    "event": "Product Updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Shopify",
+    "event": "Product Updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Shopify",
+    "event": "New Customer"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Shopify",
+    "event": "New Customer"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Shopify",
+    "event": "New Order"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Add New Row to Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Shopify",
+    "event": "New Customer"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Add New Row to Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Shopify",
+    "event": "Customer Updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Lookup Spreadsheet Rows"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Airtable",
+    "event": "Record Created Or Updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Airtable",
+    "event": "Record Created Or Updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  }
+ ],
+ "partners": [
+  {
+   "slug": "gmail",
+   "name": "Gmail"
+  },
+  {
+   "slug": "slack",
+   "name": "Slack"
+  },
+  {
+   "slug": "google-calendar",
+   "name": "Google Calendar"
+  },
+  {
+   "slug": "hubspot",
+   "name": "HubSpot"
+  },
+  {
+   "slug": "salesforce",
+   "name": "Salesforce"
+  },
+  {
+   "slug": "shopify",
+   "name": "Shopify"
+  },
+  {
+   "slug": "airtable",
+   "name": "Airtable"
+  },
+  {
+   "slug": "notion",
+   "name": "Notion"
+  },
+  {
+   "slug": "stripe",
+   "name": "Stripe"
+  },
+  {
+   "slug": "microsoft-outlook",
+   "name": "Microsoft Outlook"
+  },
+  {
+   "slug": "google-forms",
+   "name": "Google Forms"
+  },
+  {
+   "slug": "asana",
+   "name": "Asana"
+  }
+ ],
+ "useCases": [
+  {
+   "slug": "shopify-orders-to-google-sheets",
+   "h1": "Shopify orders to Google Sheets",
+   "apps": [
+    "Shopify",
+    "Google Sheets"
+   ]
+  },
+  {
+   "slug": "track-competitor-prices",
+   "h1": "Monitor competitor prices automatically",
+   "apps": []
+  }
+ ],
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Memory\n- The workspace remembers facts about the business (hours, prices, policies, people, tone) and documents, pasted text and links you give it; AI agents answer from these.\n- Each AI agent, app and automation has its own memory: instructions, what it learned, lessons from your corrections, its last runs. You can see, correct or forget any item.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

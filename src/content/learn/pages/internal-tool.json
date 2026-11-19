@@ -1,0 +1,67 @@
+{
+  "slug": "internal-tool",
+  "term": "Internal tool",
+  "query": "what is an internal tool",
+  "group": "Building blocks",
+  "title": "What is an internal tool? With examples | 50agents",
+  "description": "An internal tool is software a business makes for its own team, not customers: a pipeline, a requests desk. Most start as a spreadsheet. An example.",
+  "h1": "What is an internal tool?",
+  "definition": [
+    "An internal tool is software a business makes for its own team to run its work, not for customers to use: a sales pipeline, a requests desk, a list of what is owed.",
+    "Most begin life as a spreadsheet that grew too big to keep straight."
+  ],
+  "example": {
+    "kind": "app",
+    "ask": "Keep track of customer requests and draft the replies",
+    "why": "Captain builds a requests list, a board by status and an urgent list, with an AI agent that drafts each reply for your OK. Bring the old spreadsheet in as a CSV file.",
+    "build": {
+      "name": "Requests desk",
+      "line": "every request, the urgent ones first",
+      "when": "When a request is added to the desk",
+      "does": [
+        "Sorts each request by kind and urgency",
+        "Drafts a reply to each question",
+        "Sets Waiting on them once you approve"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every reply to a customer"
+    }
+  },
+  "vs": {
+    "term": "SaaS",
+    "rows": [
+      {
+        "label": "Made for",
+        "a": "Your own team",
+        "b": "Every customer the same"
+      },
+      {
+        "label": "Shaped by",
+        "a": "Your fields and stages",
+        "b": "The vendor"
+      },
+      {
+        "label": "Together",
+        "a": "Often pulls data from SaaS apps",
+        "b": "Rented, not replaced"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "Apps",
+      "href": "/apps"
+    },
+    {
+      "label": "How to build a customer requests desk from your inbox",
+      "href": "/guides/how-to-build-a-customer-requests-desk-from-your-inbox"
+    },
+    {
+      "label": "No-code",
+      "href": "/learn/no-code"
+    }
+  ],
+  "updated": "2026-11-19"
+}

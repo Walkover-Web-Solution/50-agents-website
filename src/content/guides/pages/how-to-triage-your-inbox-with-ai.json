@@ -1,0 +1,191 @@
+{
+  "slug": "how-to-triage-your-inbox-with-ai",
+  "group": "Email and calendar",
+  "kind": "ai",
+  "query": "how to triage your inbox with ai",
+  "title": "How to triage your inbox with AI | 50agents",
+  "description": "Triage your inbox with AI: sort unread mail into reply, read, file and ignore, draft the replies, and never let it delete, unsubscribe or send without you.",
+  "h1": "How to triage your inbox with AI",
+  "answer": [
+    "Have an AI read your unread email at set times, sort each message into four piles (needs a reply, needs reading, file it, ignore it), draft replies for the first pile, and leave everything in your inbox for you to send or archive.",
+    "Start with labels and drafts only; letting AI delete, unsubscribe or send on its own is where triage goes wrong."
+  ],
+  "sections": [
+    {
+      "id": "piles",
+      "h2": "The four piles",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Pile",
+              "What goes in",
+              "What the AI does"
+            ],
+            "rows": [
+              [
+                "Reply",
+                "A person asking you something",
+                "Drafts a reply in the thread, for you to check"
+              ],
+              [
+                "Read",
+                "Updates, reports, things you should know",
+                "One-line summary each"
+              ],
+              [
+                "File",
+                "Receipts, invoices, confirmations",
+                "A label; nothing else"
+              ],
+              [
+                "Ignore",
+                "Newsletters you never open, notifications",
+                "A label you can review weekly"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "Four piles, not twelve. Every extra category is a decision the AI can get wrong and you have to check."
+        }
+      ]
+    },
+    {
+      "id": "built-in",
+      "h2": "What Gmail and Outlook already do",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "",
+              "Gemini in Gmail",
+              "Copilot in Outlook"
+            ],
+            "rows": [
+              [
+                "Summarise a thread",
+                "Yes",
+                "Yes"
+              ],
+              [
+                "Draft a reply",
+                "Help me write",
+                "Draft"
+              ],
+              [
+                "Sort by importance",
+                "Search and smart suggestions",
+                "\"Prioritize my inbox\": high, normal or low, with a reason"
+              ],
+              [
+                "Which plans",
+                "Google says all Workspace plans, and Gmail users on a Google AI plan",
+                "Its Chat needs a business Microsoft Copilot subscription and a work or school account"
+              ],
+              [
+                "Runs on its own on a schedule",
+                "No: you open it",
+                "No: you open it"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "Both are good when you are already in the inbox. What they do not do is go through your mail at 8:00 before you arrive and have the drafts waiting. That is the job for an AI agent or an automation with an AI step."
+        },
+        {
+          "p": "Google’s own help warns that Gemini may suggest inaccurate information. Treat every draft from any tool as a draft."
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to set it up, step by step",
+    "steps": [
+      {
+        "title": "Write your four piles in one line each",
+        "body": "\"Reply: a client or supplier asking me something. Read: reports and team updates. File: receipts and invoices. Ignore: newsletters.\""
+      },
+      {
+        "title": "Pick the times",
+        "body": "Once before you start (8:00) and once after lunch is plenty. Every few minutes costs more and interrupts more."
+      },
+      {
+        "title": "Give it your voice and facts",
+        "body": "Three sentences on how you write, your sign-off, and the facts it will need (prices, hours, links). Without them, drafts sound like nobody."
+      },
+      {
+        "title": "Start with labels and drafts only",
+        "body": "No archiving, deleting, unsubscribing or sending. You stay the one who moves mail out of the inbox."
+      },
+      {
+        "title": "Read the first week’s piles",
+        "body": "Look for anything important in Ignore. Fix the one-line rules until nothing important is misfiled for a week."
+      }
+    ]
+  },
+  "example": {
+    "h2": "A worked example in 50agents",
+    "body": [
+      "In 50agents this is one sentence to Captain. It builds an AI agent that goes through your unread email now, then every weekday at 8:00, and drafts the replies. It marks handled mail so the next run skips it, says what it searched for when it finds nothing, and asks you before any email leaves."
+    ],
+    "useCase": "ai-email-triage-every-morning"
+  },
+  "wrong": [
+    {
+      "title": "An invoice in Ignore",
+      "body": "A rule like \"ignore anything automated\" catches bills. Name what must never be ignored: invoices, contracts, anything from your bank."
+    },
+    {
+      "title": "Auto-archive hides mail",
+      "body": "You never see what was archived. Keep everything in the inbox with labels until you trust the rules."
+    },
+    {
+      "title": "Unsubscribed from something you needed",
+      "body": "Do not let AI unsubscribe for you. Review the Ignore pile and unsubscribe yourself."
+    },
+    {
+      "title": "Encrypted or shared mailboxes skipped",
+      "body": "Copilot cannot read S/MIME or Double Key Encryption mail, and shared and group mailboxes have limits, according to Microsoft’s FAQ. Other tools have similar gaps; check yours."
+    },
+    {
+      "title": "\"No unread email\" when there was",
+      "body": "The tool searched for the word \"unread\" instead of using the unread state. Ask it to say what it searched for."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can AI manage my inbox for me?",
+      "a": "It can sort, summarise and draft. Keep sending, deleting and unsubscribing for yourself, at least until its drafts and labels are right week after week."
+    },
+    {
+      "q": "Does Gmail have AI sorting built in?",
+      "a": "Gmail has its own categories and filters, and Gemini can summarise and draft. Neither runs a scheduled pass that drafts replies before you open your inbox."
+    },
+    {
+      "q": "Is it safe to give AI access to my email?",
+      "a": "Limit what it may do: read, label, draft. Every send should wait for you. Read the vendor’s data terms before connecting."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Google Workspace: Gemini in Gmail",
+      "href": "https://workspace.google.com/products/gmail/ai/"
+    },
+    {
+      "label": "Gmail help: Gemini in Gmail",
+      "href": "https://support.google.com/mail/answer/14355636"
+    },
+    {
+      "label": "Microsoft: Frequently asked questions about Copilot in Outlook",
+      "href": "https://support.microsoft.com/en-us/outlook/frequently-asked-questions-about-copilot-in-outlook"
+    }
+  ],
+  "related": [
+    "how-to-draft-email-replies-with-ai-and-still-check-them",
+    "how-to-build-a-customer-requests-desk-from-your-inbox",
+    "how-to-get-a-daily-calendar-summary-in-slack"
+  ],
+  "updated": "2026-11-19"
+}

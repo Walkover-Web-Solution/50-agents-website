@@ -1,0 +1,643 @@
+{
+ "row": {
+  "slug": "stripe",
+  "query": "Stripe integrations; Stripe automation; AI agent for Stripe",
+  "ask": "Set up an automation: when a customer subscribes in Stripe, post it in a Slack channel",
+  "recipe": {
+   "ta": "stripe",
+   "te": "Customer Subscribes",
+   "aa": "slack",
+   "ae": "Send Message"
+  },
+  "useCases": [
+   "chase-unpaid-invoices",
+   "stripe-payments-to-google-sheets",
+   "track-competitor-prices",
+   "weekly-stripe-revenue-summary"
+  ],
+  "native": [
+   "https://docs.stripe.com/agents"
+  ],
+  "own": "Payment events; nothing moves money without a yes"
+ },
+ "app": {
+  "slug": "stripe",
+  "name": "Stripe",
+  "domain": "stripe.com",
+  "events": [
+   {
+    "name": "New Customer Created",
+    "type": "trigger",
+    "about": "Runs when customer is created"
+   },
+   {
+    "name": "Payment Link Created",
+    "type": "trigger",
+    "about": "Runs when payment link created"
+   },
+   {
+    "name": "Subscription Ends",
+    "type": "trigger",
+    "about": "Runs when subscription ends"
+   },
+   {
+    "name": "New Charge Is Created",
+    "type": "trigger",
+    "about": "Runs when charge is created"
+   },
+   {
+    "name": "Find a Subscription",
+    "type": "action",
+    "about": "Retrieves subscriptions from your Stripe account with flexible filtering options."
+   },
+   {
+    "name": "List Invoice",
+    "type": "action",
+    "about": "Search and retrieve Stripe invoices using smart filters like customer email, subscription, status, and date."
+   },
+   {
+    "name": "Find Payment Intents",
+    "type": "action",
+    "about": "Locate payment intents"
+   },
+   {
+    "name": "Find Customer",
+    "type": "action",
+    "about": "Find customer by ID/email/date"
+   },
+   {
+    "name": "Create Invoice",
+    "type": "action",
+    "about": "Create a new Stripe invoice"
+   },
+   {
+    "name": "Delete Customer",
+    "type": "action",
+    "about": "Permanently remove a customer."
+   },
+   {
+    "name": "New Event Occurs",
+    "type": "trigger",
+    "about": "Runs when new event occurs"
+   },
+   {
+    "name": "Update Customer",
+    "type": "action",
+    "about": "Update Stripe customer details"
+   },
+   {
+    "name": "Deactivate Payment Link",
+    "type": "action",
+    "about": "Deactivate a payment link"
+   },
+   {
+    "name": "Create Product",
+    "type": "action",
+    "about": "Create a new product."
+   },
+   {
+    "name": "Create Customer",
+    "type": "action",
+    "about": "Create or update a customer."
+   },
+   {
+    "name": "Cancel Subscription",
+    "type": "action",
+    "about": "Cancel an active subscription."
+   },
+   {
+    "name": "Create Price",
+    "type": "action",
+    "about": "Create a product price."
+   },
+   {
+    "name": "Collect Payment",
+    "type": "action",
+    "about": "Create a payment request in Stripe to collect money from a customer."
+   },
+   {
+    "name": "Create Payment Link",
+    "type": "action",
+    "about": "Create a payment link customers can use to pay or subscribe."
+   },
+   {
+    "name": "New Refund Created",
+    "type": "trigger",
+    "about": "Runs when a new refund is created."
+   },
+   {
+    "name": "List Coupons",
+    "type": "action",
+    "about": "Retrieve coupons from Stripe with optional date filters, pagination, limit, and expand fields."
+   },
+   {
+    "name": "List All Plans",
+    "type": "action",
+    "about": "Retrieve Stripe plans and optionally filter by product, active status, creation dates, limit, or pagination."
+   },
+   {
+    "name": "List Billing Meters",
+    "type": "action",
+    "about": "Retrieve billing meters with status filter, cursor pagination, limit, and expand options."
+   },
+   {
+    "name": "List Transfers",
+    "type": "action",
+    "about": "List transfers to connected accounts, filtered by destination, transfer group, created date, limit, or pagination."
+   },
+   {
+    "name": "Get Accounts",
+    "type": "action",
+    "about": "Retrieve a single account by ID or list accounts with date-range filters, pagination, and limit."
+   },
+   {
+    "name": "Charge Refunded",
+    "type": "trigger",
+    "about": "Runs when charge is refunded"
+   },
+   {
+    "name": "When a charge succeeds",
+    "type": "trigger",
+    "about": "Runs the workflow automatically whenever a charge succeeds."
+   },
+   {
+    "name": "When a checkout session is completed",
+    "type": "trigger",
+    "about": "Runs the workflow automatically whenever a checkout session is completed."
+   },
+   {
+    "name": "Coupon Created",
+    "type": "trigger",
+    "about": "Runs when coupon is created"
+   },
+   {
+    "name": "Customer Subscribes",
+    "type": "trigger",
+    "about": "Runs when customer subscribes"
+   },
+   {
+    "name": "Customer Updated",
+    "type": "trigger",
+    "about": "Triggers whenever any property of a customer changes."
+   },
+   {
+    "name": "Invoice Is Finalized",
+    "type": "trigger",
+    "about": "Runs when invoice is finalized"
+   },
+   {
+    "name": "When an invoice is paid",
+    "type": "trigger",
+    "about": "Runs the workflow automatically whenever an invoice is paid."
+   },
+   {
+    "name": "Invoice Item Created",
+    "type": "trigger",
+    "about": "Runs when invoice item created"
+   },
+   {
+    "name": "When a new payment intent is created",
+    "type": "trigger",
+    "about": "Runs the workflow automatically when a new payment intent is created in your Stripe account."
+   },
+   {
+    "name": "Payment Fails",
+    "type": "trigger",
+    "about": "Runs when payment fails"
+   },
+   {
+    "name": "When a payment succeeds",
+    "type": "trigger",
+    "about": "Runs the workflow automatically whenever a payment succeeds."
+   },
+   {
+    "name": "Payment Link Updated",
+    "type": "trigger",
+    "about": "Triggers when a payment link is updated."
+   },
+   {
+    "name": "Payment Method Attached",
+    "type": "trigger",
+    "about": "Triggers whenever a new payment method is attached to a customer."
+   },
+   {
+    "name": "Payment Method Automatically Updated",
+    "type": "trigger",
+    "about": "Triggers whenever a payment method’s details are automatically updated by the network."
+   },
+   {
+    "name": "Payment Method Detached",
+    "type": "trigger",
+    "about": "Triggers whenever a payment method is detached from a customer."
+   },
+   {
+    "name": "Payment Method Updated",
+    "type": "trigger",
+    "about": "Triggers whenever a payment method is updated."
+   },
+   {
+    "name": "Payout Canceled",
+    "type": "trigger",
+    "about": "Triggers whenever a payout is canceled."
+   },
+   {
+    "name": "New Payout",
+    "type": "trigger",
+    "about": "Triggers whenever a payout is canceled."
+   },
+   {
+    "name": "Payout Failed",
+    "type": "trigger",
+    "about": "Triggers whenever a payout attempt fails."
+   },
+   {
+    "name": "Payout Paid",
+    "type": "trigger",
+    "about": "Triggers whenever a payout is expected to be available in the destination account."
+   },
+   {
+    "name": "Payout Updated",
+    "type": "trigger",
+    "about": "Triggers whenever a payout is updated."
+   },
+   {
+    "name": "New Person",
+    "type": "trigger",
+    "about": "Triggers whenever a person associated with an account is created."
+   },
+   {
+    "name": "Person Deleted",
+    "type": "trigger",
+    "about": "Triggers whenever a person associated with an account is deleted."
+   },
+   {
+    "name": "Person Updated",
+    "type": "trigger",
+    "about": "Triggers whenever a person associated with an account is updated."
+   },
+   {
+    "name": "New Plan",
+    "type": "trigger",
+    "about": "Triggers whenever a plan is created."
+   },
+   {
+    "name": "Plan Deleted",
+    "type": "trigger",
+    "about": "Triggers whenever a plan is deleted."
+   },
+   {
+    "name": "Plan Updated",
+    "type": "trigger",
+    "about": "Triggers whenever a plan is updated."
+   },
+   {
+    "name": "New Price",
+    "type": "trigger",
+    "about": "Triggers whenever a price is created."
+   },
+   {
+    "name": "Price Deleted",
+    "type": "trigger",
+    "about": "Triggers whenever a price is deleted."
+   },
+   {
+    "name": "Price Updated",
+    "type": "trigger",
+    "about": "Triggers whenever a price is updated."
+   },
+   {
+    "name": "New Product",
+    "type": "trigger",
+    "about": "Triggers whenever a product is created."
+   },
+   {
+    "name": "Product Deleted",
+    "type": "trigger",
+    "about": "Triggers whenever a product is deleted."
+   },
+   {
+    "name": "Product Updated",
+    "type": "trigger",
+    "about": "Triggers whenever a product is updated."
+   },
+   {
+    "name": "New Promotion Code",
+    "type": "trigger",
+    "about": "Triggers whenever a promotion code is created."
+   },
+   {
+    "name": "Promotion Code Updated",
+    "type": "trigger",
+    "about": "Triggers whenever a promotion code is updated."
+   },
+   {
+    "name": "Quote Accepted",
+    "type": "trigger",
+    "about": "Triggers whenever a quote is accepted."
+   },
+   {
+    "name": "Quote Canceled",
+    "type": "trigger",
+    "about": "Triggers whenever a quote is canceled."
+   },
+   {
+    "name": "Quote Canceled",
+    "type": "trigger",
+    "about": "Triggers whenever a quote is canceled."
+   },
+   {
+    "name": "Search Invoice Details",
+    "type": "action",
+    "about": "search invoice by selecting id"
+   },
+   {
+    "name": "Search Customer",
+    "type": "action",
+    "about": "Find a Stripe customer by ID or email; supports limit, pagination, and creation date filters."
+   }
+  ]
+ },
+ "recipes": [
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Multiple Rows"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Payment Link Created"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Multiple Rows"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Customer Subscribes"
+   },
+   "action": {
+    "app": "Slack",
+    "event": "Send Message"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Customer Subscribes"
+   },
+   "action": {
+    "app": "Slack",
+    "event": "Send Interactive Message"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "Slack",
+    "event": "New Message Posted in Channel Instant"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Payment Link Created"
+   },
+   "action": {
+    "app": "Slack",
+    "event": "New Message Posted in Channel Instant"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "Delete Contact"
+   },
+   "action": {
+    "app": "Stripe",
+    "event": "Cancel Subscription"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Charge Is Created"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Update Contact"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Add Notes to Contact"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Update Company"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Payment Link Created"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Add Notes to Contact"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Payment Link Created"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Update Company"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "Shopify",
+    "event": "Abandoned Checkout"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "Shopify",
+    "event": "New Product"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "New Customer Created"
+   },
+   "action": {
+    "app": "Shopify",
+    "event": "Order Cancelled"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Payment Link Created"
+   },
+   "action": {
+    "app": "Shopify",
+    "event": "Abandoned Checkout"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Payment Link Created"
+   },
+   "action": {
+    "app": "Shopify",
+    "event": "New Product"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Stripe",
+    "event": "Payment Link Created"
+   },
+   "action": {
+    "app": "Shopify",
+    "event": "Order Cancelled"
+   }
+  }
+ ],
+ "partners": [
+  {
+   "slug": "google-sheets",
+   "name": "Google Sheets"
+  },
+  {
+   "slug": "slack",
+   "name": "Slack"
+  },
+  {
+   "slug": "hubspot",
+   "name": "HubSpot"
+  },
+  {
+   "slug": "shopify",
+   "name": "Shopify"
+  },
+  {
+   "slug": "mailchimp",
+   "name": "MailChimp"
+  },
+  {
+   "slug": "notion",
+   "name": "Notion"
+  },
+  {
+   "slug": "zoho-crm",
+   "name": "Zoho CRM"
+  },
+  {
+   "slug": "woocommerce",
+   "name": "WooCommerce"
+  },
+  {
+   "slug": "facebook-lead-ads",
+   "name": "Facebook Lead Ads"
+  },
+  {
+   "slug": "jotform",
+   "name": "Jotform"
+  },
+  {
+   "slug": "quickbooks",
+   "name": "QuickBooks"
+  },
+  {
+   "slug": "openai",
+   "name": "OpenAI (ChatGPT)"
+  }
+ ],
+ "useCases": [
+  {
+   "slug": "chase-unpaid-invoices",
+   "h1": "Chase unpaid invoices automatically",
+   "apps": [
+    "Gmail"
+   ]
+  },
+  {
+   "slug": "stripe-payments-to-google-sheets",
+   "h1": "Stripe payments to Google Sheets",
+   "apps": [
+    "Stripe",
+    "Google Sheets"
+   ]
+  },
+  {
+   "slug": "track-competitor-prices",
+   "h1": "Monitor competitor prices automatically",
+   "apps": []
+  },
+  {
+   "slug": "weekly-stripe-revenue-summary",
+   "h1": "Stripe weekly revenue report by email",
+   "apps": [
+    "Stripe",
+    "Gmail"
+   ]
+  }
+ ],
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Memory\n- The workspace remembers facts about the business (hours, prices, policies, people, tone) and documents, pasted text and links you give it; AI agents answer from these.\n- Each AI agent, app and automation has its own memory: instructions, what it learned, lessons from your corrections, its last runs. You can see, correct or forget any item.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

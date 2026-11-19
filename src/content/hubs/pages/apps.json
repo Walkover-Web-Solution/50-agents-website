@@ -1,0 +1,39 @@
+{
+  "slug": "apps",
+  "kind": "app",
+  "query": "no code app builder; build an app from Google Sheets; internal tool without code",
+  "title": "No-code app builder run by AI agents | 50agents",
+  "description": "Describe what you track and Captain builds your own app: lists, a board, a table and numbers, plus a crew of AI agents that keeps it up to date.",
+  "crumb": "Apps",
+  "h1": "Build your own business app by describing it",
+  "line": "Your own screens and records, with a crew of AI agents.",
+  "answer": [
+    "An app in 50agents is your own set of screens and records, such as a leads pipeline or an invoices desk, with a small crew of AI agents that fills it and works on it.",
+    "Tell Captain what you need to keep track of, answer two or three questions, and it builds the lists, the board, the table and the numbers; you bring your data in from a CSV or Excel file, or a pasted table."
+  ],
+  "example": {
+    "ask": "Track my leads and follow up",
+    "build": {"name":"Leads desk","line":"your pipeline, who to follow up today","when":"Every weekday at 9:00, and 3 quiet days after contact","does":["Adds new leads from your Gmail","Moves leads to Replied","Drafts follow-ups for quiet leads"],"apps":["gmail"],"asksFirst":"Every email to a lead"}
+  },
+  "useCases": "One per recipe the app builder has today: leads, customer requests and invoices.",
+  "apps": {
+    "slugs": ["gmail", "google-sheets"],
+    "h2": "Start from your email and the sheet you already keep",
+    "p": "All three app recipes start from Gmail. Download a sheet as CSV or Excel and drop it in; Captain matches its columns to fields."
+  },
+  "faqs": [
+    { "q": "Can I build an app without code?", "a": "Yes. You describe it, Captain asks what the app is for and which apps you use today, then shows the plan. Build it makes the app from parts that are already tested, so nothing is code written by the AI." },
+    { "q": "Can I build an app from Google Sheets?", "a": "You can bring a sheet in: download it as CSV or Excel, drop it into the app and check where each column goes. The app does not stay linked to the sheet; for a live link, Glide or Softr fit better." },
+    { "q": "What is an internal tool, and is this one?", "a": "An internal tool is software your team uses to run the business, not something customers see: a pipeline, a requests desk, an invoices list. A 50agents app is exactly that, with AI agents doing the routine work in it." },
+    { "q": "Who does the work in the app?", "a": "Its crew. In the leads app, Closer adds new leads from your email and drafts follow-ups for quiet ones, and Scout, a browser agent, reads each new lead's company website. A duty that emails people outside always asks first." },
+    { "q": "What can't an app do yet?", "a": "It cannot stay linked to a Google Sheet, show charts or a calendar, or be published to people outside your workspace. It does not sync with an accounting or CRM app unless an automation is built for it." },
+    { "q": "Can I change the app after it is built?", "a": "Yes, by asking in its chat: add a field, a screen or a duty. Each change is a version with Undo, and removing a field never deletes the records behind it." }
+  ],
+  "links": [
+    { "label": "How to build a simple CRM without code", "href": "/guides/how-to-build-a-simple-crm-without-code" },
+    { "label": "What is an internal tool?", "href": "/learn/internal-tool" },
+    { "label": "50agents vs Glide", "href": "/compare/50agents-vs-glide" }
+  ],
+  "final": "Describe the app you keep in a spreadsheet",
+  "updated": "2026-11-19"
+}

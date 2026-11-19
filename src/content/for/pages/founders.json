@@ -1,0 +1,109 @@
+{
+  "slug": "founders",
+  "role": "founders",
+  "label": "Founders",
+  "kind": "ai",
+  "query": "ai agents and automations for founders",
+  "title": "AI agents and automations for founders | 50agents",
+  "description": "What founders doing everything themselves hand off first: the morning inbox, tomorrow’s meetings, unpaid invoices, a weekly revenue note and new leads.",
+  "h1": "AI agents and automations for founders",
+  "answer": [
+    "Founders hand off the inbox first: an AI agent that goes through unread email each morning and drafts the replies, then the jobs that leak money when nobody has time, like chasing invoices.",
+    "In 50agents you tell Captain what you need, or ask it to read your website and say what it would take off your plate; it builds each job and asks you before anything leaves your business."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
+    "build": {
+      "name": "Morning inbox",
+      "line": "your unread email, sorted and answered",
+      "when": "Every weekday at 8:00",
+      "does": [
+        "Reads your unread Gmail",
+        "Sorts it by what needs you",
+        "Drafts a reply where one is due"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every reply, even to colleagues"
+    },
+    "useCase": "ai-email-triage-every-morning"
+  },
+  "jobs": [
+    {
+      "title": "Morning email, replies drafted",
+      "body": "Goes through your unread email now, then every weekday at 8:00, and drafts the replies for you to check.",
+      "kind": "ai",
+      "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
+      "useCase": "ai-email-triage-every-morning"
+    },
+    {
+      "title": "Tomorrow, in one message",
+      "body": "Each evening, tomorrow’s meetings from Google Calendar in Slack.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
+      "useCase": "tomorrows-meetings-in-slack"
+    },
+    {
+      "title": "Chase unpaid invoices",
+      "body": "A desk of what you are owed, late first, reminders drafted.",
+      "kind": "app",
+      "ask": "Chase my unpaid invoices",
+      "useCase": "chase-unpaid-invoices"
+    },
+    {
+      "title": "A weekly revenue note",
+      "body": "Every Monday, last week in Stripe: totals and what changed.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
+      "useCase": "weekly-stripe-revenue-summary"
+    },
+    {
+      "title": "Leads you would otherwise lose",
+      "body": "Enquiries from your inbox in one pipeline, with follow-ups drafted when they go quiet.",
+      "kind": "app",
+      "ask": "Track my leads and follow up",
+      "useCase": "lead-tracker-from-your-inbox"
+    }
+  ],
+  "category": "email",
+  "apps": [
+    "gmail",
+    "google-calendar",
+    "stripe",
+    "slack",
+    "google-sheets",
+    "hubspot",
+    "shopify",
+    "notion"
+  ],
+  "faqs": [
+    {
+      "q": "Is it free to start?",
+      "a": "Yes. Build one job, watch its first runs, and decide from what it actually did."
+    },
+    {
+      "q": "Where do I start if I do not know what to hand off?",
+      "a": "Ask Captain \"Read my website and tell me what you would take off my plate\". It answers straight away, without building anything, and you pick the first job from its list."
+    },
+    {
+      "q": "How long does it take to set up?",
+      "a": "Minutes per job: you write a sentence, answer Captain’s questions, check the plan and tap Build it."
+    },
+    {
+      "q": "What if I want to change something later?",
+      "a": "Tell the AI agent or app in its chat. Each change is a version you can undo."
+    },
+    {
+      "q": "What does it not do yet?",
+      "a": "It does not send email as you without your approval, and it has no email address of its own. It does not make calls, book travel or pay for anything. Notifications come inside the app (Needs you, Home), not by SMS or WhatsApp."
+    }
+  ],
+  "guides": [
+    "what-to-automate-first-in-a-small-business",
+    "how-to-triage-your-inbox-with-ai",
+    "ai-agents-for-small-business-10-jobs-that-work-today"
+  ],
+  "updated": "2026-11-19"
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "integration",
+  "term": "Integration",
+  "query": "what is an integration",
+  "group": "Building blocks",
+  "title": "What is an integration? Apps connected, explained | 50agents",
+  "description": "An integration is a ready-made connection between two apps so data moves without copying by hand. Native integrations versus platforms like viaSocket.",
+  "h1": "What is an integration?",
+  "definition": [
+    "An integration is a ready-made connection between two pieces of software, so data moves between them without anyone copying it by hand.",
+    "It usually sits on each app's API and takes care of signing in, field names and limits, so you choose what should happen rather than how."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+    "why": "Two integrations, HubSpot and Gmail, both through viaSocket. You connect each app once in Connections; this AI agent then uses only those two, and no connection is shared with an AI agent it was not given to.",
+    "build": {
+      "name": "Deal follow-ups",
+      "line": "quiet deals, a follow-up drafted for each",
+      "when": "Every weekday at 9:00",
+      "does": [
+        "Finds deals quiet for 5 days",
+        "Reads your last Gmail thread",
+        "Drafts a follow-up to approve"
+      ],
+      "apps": [
+        "hubspot",
+        "gmail"
+      ],
+      "asksFirst": "Every email it would send"
+    }
+  },
+  "vs": {
+    "term": "API",
+    "href": "/learn/api",
+    "rows": [
+      {
+        "label": "What it is",
+        "a": "Something built on an API",
+        "b": "What an app offers"
+      },
+      {
+        "label": "What you choose",
+        "a": "What should happen",
+        "b": "Every request, in its own shape"
+      },
+      {
+        "label": "Two kinds",
+        "a": "Native, for one partner, or a platform like viaSocket",
+        "b": "One per app"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "Automations",
+      "href": "/automations"
+    },
+    {
+      "label": "How to automate data entry between two apps",
+      "href": "/guides/how-to-automate-data-entry-between-two-apps"
+    },
+    {
+      "label": "OAuth",
+      "href": "/learn/oauth"
+    }
+  ],
+  "updated": "2026-11-19"
+}

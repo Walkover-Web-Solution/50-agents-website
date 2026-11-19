@@ -1,131 +1,152 @@
-// The pieces of a comparison page (pages-brief B4, Part C): plain, sourced, easy to trust.
-// Every fact shown here comes from src/content/compare/facts.ts with its link and the date it was read.
-import { CHECKED, ROWS, TOOLS, type Cell, type Fact, type Mark, type RowKey, type ToolId } from '@/content/compare/facts';
-import type { AltEntry } from '@/content/compare/types';
+// The pieces of a comparison page, v3 (D253): the two tables, the two pick cards, and the one sources line.
+// Every fact about another tool is drawn from src/content/compare/facts.ts; the page JSON only chooses and writes around it.
+import { CHECKED_ISO, ROWS, TOOLS, type Cell, type Fact, type Mark, type ToolId } from '@/content/compare/facts';
+import type { AltPage, VsPage } from './types';
 
-const host = (url: string) => {
-  try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return url; }
-};
+export const checkedMonth = new Date(CHECKED_ISO + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
-// A source line: the page the fact was read on, and when. 50agents' own facts come from the app.
-export function Src({ url, read = CHECKED, ours = false }: { url: string; read?: string; ours?: boolean }) {
-  if (ours) return <span className="cmp-src">From the 50agents app, {read}</span>;
-  return <a className="cmp-src" href={url} target="_blank" rel="noopener">{host(url)}, read {read}</a>;
-}
+// 50agents' own row shows no credits and no prices (page system): free to start, nothing more.
+const OURS_FREE = 'Free to start';
 
-export function FactLine({ label, fact, ours = false }: { label: string; fact?: Fact; ours?: boolean }) {
-  if (!fact) return null;
+const MARK_WORD: Record<Mark, string> = { yes: 'Yes', no: 'No', partly: 'Partly' };
+function MarkIcon({ v }: { v: Mark }) {
+  const d = v === 'yes' ? 'M5 12.5 10 17.5 19 7' : v === 'no' ? 'M7 7l10 10M17 7 7 17' : 'M6 12h12';
   return (
-    <div className="cmp-fact">
-      <dt>{label}</dt>
-      <dd>{fact.fact}{!ours && <> <Src url={fact.url} read={fact.read} /></>}</dd>
-    </div>
-  );
-}
-
-const MARK_LABEL: Record<Mark, string> = { yes: 'Yes', no: 'No', partly: 'Partly' };
-export function MarkIcon({ v }: { v: Mark }) {
-  const path = v === 'yes' ? <path d="M20 6 9 17l-5-5" /> : v === 'no' ? <path d="M18 6 6 18M6 6l12 12" /> : <path d="M5 12h14" />;
-  return (
-    <span className={`mk mk-${v}`}>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{path}</svg>
-      {MARK_LABEL[v]}
+    <span className={`cmp3-mk ${v}`}>
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>
     </span>
   );
 }
 
-function CellView({ cell }: { cell: Cell }) {
+function CellView({ cell, who }: { cell: Cell | { v: Mark | 'text'; note: string }; who: string }) {
   return (
-    <>
-      {cell.v !== 'text' && <MarkIcon v={cell.v} />}
-      <span className={cell.v === 'text' ? 'cell-t' : 'cell-n'}>{cell.note}</span>
-    </>
+    <td data-who={who}>
+      {cell.v !== 'text' && <><MarkIcon v={cell.v} /><b className={`cmp3-w ${cell.v}`}>{MARK_WORD[cell.v]}.</b> </>}
+      <span>{cell.note}</span>
+    </td>
   );
 }
 
-// The versus table. Only rows where the other tool has a checked cell are shown; each row links its source.
-export function VsTable({ tool, rows }: { tool: ToolId; rows: RowKey[] }) {
+// The versus table: the price first, then the page's rows, each a tick, a cross or "partly" with a short note.
+export function VsTable({ p }: { p: VsPage }) {
   const us = TOOLS.fifty;
-  const them = TOOLS[tool];
-  const shown = rows.filter(r => them.cells[r] && us.cells[r]);
+  const them = TOOLS[p.tool];
+  const paid = them.cells.price?.note.replace(/^From /, 'from ');
+  const rows = p.rows.filter(r => them.cells[r] && us.cells[r]);
   return (
-    <div className="vs-wrap">
-      <table className="vs">
-        <caption>50agents and {them.name}, checked on {CHECKED}</caption>
+    <div className="cmp3-tbl vs">
+      <table>
+        <caption className="sr">50agents and {them.name}, row by row</caption>
         <thead>
-          <tr><th scope="col">What you get</th><th scope="col">50agents</th><th scope="col">{them.name}</th><th scope="col">Source</th></tr>
+          <tr><th scope="col"><span className="sr">What you get</span></th><th scope="col" className="us">50agents</th><th scope="col">{them.name}</th></tr>
         </thead>
         <tbody>
-          {shown.map(r => {
-            const a = us.cells[r]!;
-            const b = them.cells[r]!;
-            return (
-              <tr key={r}>
-                <th scope="row">{ROWS[r]}</th>
-                <td data-who="50agents"><CellView cell={a} /></td>
-                <td data-who={them.name}><CellView cell={b} /></td>
-                <td className="vs-src"><a href={b.url} target="_blank" rel="noopener">{host(b.url)}</a><span>read {b.read}</span></td>
-              </tr>
-            );
-          })}
+          <tr>
+            <th scope="row">Price</th>
+            <CellView who="50agents" cell={{ v: 'text', note: OURS_FREE }} />
+            <td data-who={them.name}>
+              {them.cells.free && <span className="cmp3-line">{them.cells.free.note}</span>}
+              {paid && <span className="cmp3-line">Paid plans: {paid}</span>}
+              {!them.cells.free && !paid && <span className="cmp3-line">See {them.name}&rsquo;s pricing page; we could not read it when we checked</span>}
+            </td>
+          </tr>
+          {rows.map(r => (
+            <tr key={r}>
+              <th scope="row">{ROWS[r]}</th>
+              <CellView who="50agents" cell={us.cells[r]!} />
+              <CellView who={them.name} cell={them.cells[r]!} />
+            </tr>
+          ))}
         </tbody>
       </table>
-      <p className="cmp-note">The {them.name} column links the page each fact was read on. The 50agents column is from the live 50agents app on {CHECKED}. Rows we could not check on {them.name}&rsquo;s own pages are left out.</p>
     </div>
   );
 }
 
-// One alternative: who it suits, its price and apps (linked and dated), one honest limitation, and where it beats 50agents.
-export function AltCard({ e, n }: { e: AltEntry; n: number }) {
-  const t = TOOLS[e.tool];
-  const ours = e.tool === 'fifty';
+// The alternatives table: 50agents and 4 to 6 tools, each with who it suits, its price and one honest limitation.
+export function AltTable({ p }: { p: AltPage }) {
   return (
-    <article className={`alt${ours ? ' alt-us' : ''}`} id={`alt-${t.id}`}>
-      <header>
-        <span className="alt-n">{n}</span>
-        <h3>{t.name}</h3>
-        {ours && <span className="alt-tag">Our product</span>}
-      </header>
-      <p className="alt-what">{t.what.fact}</p>
-      <dl className="cmp-facts">
-        <div className="cmp-fact"><dt>Who it suits</dt><dd>{e.suits}</dd></div>
-        <FactLine label="Free" fact={t.free} ours={ours} />
-        <FactLine label="Pricing" fact={t.price} ours={ours} />
-        <FactLine label="Apps" fact={t.apps} ours={ours} />
-        <div className="cmp-fact lim"><dt>One honest limitation</dt><dd>{e.limit} {e.limitUrl && !e.limitUrl.includes('50agents.com') && <Src url={e.limitUrl} />}</dd></div>
-        {!ours && t.better.length > 0 && (
-          <div className="cmp-fact win"><dt>Better than 50agents at</dt><dd>{t.better.map(b => <span key={b.fact} className="win-i">{b.fact} <Src url={b.url} read={b.read} /></span>)}</dd></div>
-        )}
-      </dl>
-      {ours && <p className="alt-ours"><Src url={t.site} ours /></p>}
-    </article>
+    <div className="cmp3-tbl alt">
+      <table>
+        <caption className="sr">{p.h1}: who each suits, its price and one honest limitation</caption>
+        <thead>
+          <tr><th scope="col">Tool</th><th scope="col">Who it suits</th><th scope="col">Price</th><th scope="col">One honest limitation</th></tr>
+        </thead>
+        <tbody>
+          {p.entries.map(e => (
+            <tr key={e.tool} className={e.tool === 'fifty' ? 'us' : undefined}>
+              <th scope="row">{TOOLS[e.tool].name}</th>
+              <td data-who="Who it suits">{e.suits}</td>
+              <td data-who="Price">{e.tool === 'fifty' ? OURS_FREE : e.price}</td>
+              <td data-who="One honest limitation">{e.limit}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
-// Every source used on the page, once each, with the date read.
-export function Sources({ tools }: { tools: ToolId[] }) {
-  const seen = new Map<string, string>();
-  for (const id of tools) {
+// A short name for a source page, from its address: "pricing", "apps", "home", or the help article's first words.
+function label(url: string) {
+  try {
+    const segs = new URL(url).pathname.split('/').filter(s => s && !/^([a-z]{2}(-[a-z]{2})?|hc|articles|docs|core-concepts|api-reference)$/i.test(s));
+    if (!segs.length) return 'home';
+    if (segs.some(s => /pricing|plans/.test(s))) return 'pricing';
+    const last = decodeURIComponent(segs.at(-1)!).replace(/\.md$/, '').replace(/^\d+-/, '').replace(/^n8n-nodes-base\./, '').replace(/[-_]+/g, ' ').toLowerCase();
+    return last.split(' ').slice(0, 3).join(' ');
+  } catch { return url; }
+}
+
+// The facts each page shows, per tool, so the sources line links exactly the pages they were read on.
+export function sourcesOf(p: AltPage | VsPage): { name: string; links: { href: string; label: string }[] }[] {
+  const tools: ToolId[] = p.type === 'alternatives' ? [p.tool, ...p.entries.map(e => e.tool)] : [p.tool];
+  const out: { name: string; links: { href: string; label: string }[] }[] = [];
+  for (const id of [...new Set(tools)]) {
     if (id === 'fifty') continue;
     const t = TOOLS[id];
-    const facts: (Fact | undefined)[] = [t.what, t.free, t.price, t.apps, t.status, t.move, ...t.limits, ...t.better];
-    for (const f of facts) if (f && !seen.has(f.url)) seen.set(f.url, t.name);
-    for (const c of Object.values(t.cells)) if (c && !seen.has(c.url)) seen.set(c.url, t.name);
+    const facts: (Fact | Cell | undefined)[] = [t.free, t.price, t.apps, ...t.better, t.move];
+    if (p.type === 'alternatives') { const e = p.entries.find(x => x.tool === id); if (e) facts.push({ fact: '', url: e.limitUrl, read: '' }); }
+    else facts.push(t.cells.free, t.cells.price, ...p.rows.map(r => t.cells[r]));
+    const seen = new Map<string, string>();
+    for (const f of facts) if (f && !seen.has(f.url)) seen.set(f.url, label(f.url));
+    // two pages with the same short name get their host added
+    const names = [...seen.values()];
+    out.push({ name: t.name, links: [...seen].map(([href, l]) => ({ href, label: names.filter(n => n === l).length > 1 ? `${l} (${new URL(href).hostname.replace(/^www\./, '')})` : l })) });
   }
+  return out;
+}
+
+export function SourcesLine({ p }: { p: AltPage | VsPage }) {
+  const s = sourcesOf(p);
   return (
-    <ul className="cmp-sources">
-      {[...seen].map(([url, name]) => (
-        <li key={url}><b>{name}</b> <a href={url} target="_blank" rel="noopener">{url.replace(/^https?:\/\//, '')}</a></li>
+    <p className="cmp3-src">
+      Prices checked {checkedMonth}, on each tool&rsquo;s own pages:{' '}
+      {s.map((t, i) => (
+        <span key={t.name}>
+          {i > 0 && '; '}{t.name}{' '}
+          {t.links.map((l, j) => <span key={l.href}>{j > 0 && ', '}<a href={l.href} target="_blank" rel="noopener">{l.label}</a></span>)}
+        </span>
       ))}
-    </ul>
+      . 50agents from its live app.
+    </p>
   );
 }
 
-export function Toc({ items }: { items: { id: string; label: string }[] }) {
+// Who should pick which: two cards, 50agents on its tint, the other tool plain.
+export function PickCards({ p }: { p: AltPage | VsPage }) {
+  const them = TOOLS[p.tool].name;
+  const gone = p.type === 'alternatives' && !!TOOLS[p.tool].status;
   return (
-    <nav className="toc" aria-label="On this page">
-      <p>On this page</p>
-      <ol>{items.map(i => <li key={i.id}><a href={`#${i.id}`}>{i.label}</a></li>)}</ol>
-    </nav>
+    <div className="cmp3-pick">
+      <div className="us">
+        <h3>Pick 50agents if</h3>
+        <ul>{p.pick.us.map(s => <li key={s.slice(0, 40)}>{s}</li>)}</ul>
+      </div>
+      <div>
+        <h3>{p.type === 'versus' ? `Pick ${them} if` : gone ? 'Pick another tool here if' : `Stay on ${them} if`}</h3>
+        <ul>{p.pick.them.map(s => <li key={s.slice(0, 40)}>{s}</li>)}</ul>
+      </div>
+    </div>
   );
 }

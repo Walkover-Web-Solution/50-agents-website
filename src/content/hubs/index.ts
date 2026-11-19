@@ -1,9 +1,7 @@
-import type { Hub } from './types';
-import aiAgents from './ai-agents';
-import automations from './automations';
-import browserAgents from './browser-agents';
-import apps from './apps';
+import type { HubPage } from '@/site/hubs/types';
+import { HUB_PAGES } from './pages';
 
-// The four kind hubs (pages-brief B2), in the order of the "which kind" table's footer links.
-export const HUBS: Hub[] = [aiAgents, automations, browserAgents, apps];
-export const hubOf = (path: string) => HUBS.find(h => h.path === path)!;
+// The four kind hubs, in the order of the "which kind" table.
+const ORDER = ['ai-agents', 'automations', 'browser-agents', 'apps'];
+export const HUBS: HubPage[] = ORDER.map(s => HUB_PAGES.find(h => h.slug === s)).filter((h): h is HubPage => !!h);
+export const hubOf = (slug: string) => HUBS.find(h => h.slug === slug)!;

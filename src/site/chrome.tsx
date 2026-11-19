@@ -1,14 +1,14 @@
 // The header and footer of every search page. The header is the homepage's: the wordmark and one button.
 // The footer links the families, so every page is a click or two from every other (pages-brief D2, internal links).
 import { Face, Wordmark } from './parts';
-import SignupLink from '@/components/SignupLink';
+import { HeaderCta } from './header-cta';
 
 export function Header() {
   return (
     <header className="hd">
       <div className="hd-in">
         <Wordmark face="keeper" size={30} />
-        <SignupLink button="site-header" cta="site:header" className="btn sm">Get started</SignupLink>
+        <HeaderCta />
       </div>
     </header>
   );

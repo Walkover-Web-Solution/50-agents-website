@@ -1,0 +1,67 @@
+{
+  "slug": "agentic-ai",
+  "term": "Agentic AI",
+  "query": "what is agentic AI",
+  "group": "AI that acts",
+  "title": "What is agentic AI? Meaning, with an example | 50agents",
+  "description": "Agentic AI is AI that pursues a goal over several steps on its own: planning, using tools, checking and deciding. What it looks like in a small business.",
+  "h1": "What is agentic AI?",
+  "definition": [
+    "Agentic AI describes AI that pursues a goal over several steps on its own: it plans, uses tools, checks what came back and decides what to do next.",
+    "The word is about how much the AI does without being told each step, not about any one product; an AI agent is the usual unit of agentic AI."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
+    "why": "Nobody tells it which emails matter. It reads your unread mail, decides which need an answer and drafts those, then waits for you; it does not send on its own.",
+    "build": {
+      "name": "Morning inbox",
+      "line": "your unread email, sorted and answered",
+      "when": "Every weekday at 8:00",
+      "does": [
+        "Reads your unread Gmail",
+        "Sorts it by what needs you",
+        "Drafts a reply where one is due"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every reply, even to colleagues"
+    }
+  },
+  "vs": {
+    "term": "generative AI",
+    "rows": [
+      {
+        "label": "What it does",
+        "a": "Works toward a goal over several steps",
+        "b": "Makes content when asked"
+      },
+      {
+        "label": "Uses tools",
+        "a": "Yes: email, a CRM, a browser",
+        "b": "Not by itself"
+      },
+      {
+        "label": "Example",
+        "a": "Picks five of forty emails and drafts replies",
+        "b": "Writes one reply you asked for"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "AI agents",
+      "href": "/ai-agents"
+    },
+    {
+      "label": "How to triage your inbox with AI",
+      "href": "/guides/how-to-triage-your-inbox-with-ai"
+    },
+    {
+      "label": "Human in the loop",
+      "href": "/learn/human-in-the-loop"
+    }
+  ],
+  "updated": "2026-11-19"
+}

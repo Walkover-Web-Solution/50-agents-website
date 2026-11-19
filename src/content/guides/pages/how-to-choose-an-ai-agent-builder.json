@@ -1,0 +1,154 @@
+{
+  "slug": "how-to-choose-an-ai-agent-builder",
+  "group": "Choosing tools",
+  "kind": "ai",
+  "query": "how to choose an ai agent builder",
+  "title": "How to choose an AI agent builder: 8 questions | 50agents",
+  "description": "Choose an AI agent builder by testing one real job: does it reach your apps, ask before it acts, show what it did, and cost what you expect?",
+  "h1": "How to choose an AI agent builder",
+  "answer": [
+    "Take one real job, build it in two or three builders on their free tiers, and compare them on eight questions, from whether it reaches your apps and asks before risky actions to what one run costs and whether you can leave.",
+    "Feature lists matter less than how the tool behaves on your job."
+  ],
+  "sections": [
+    {
+      "id": "questions",
+      "h2": "The eight questions",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Question",
+              "What a good answer looks like"
+            ],
+            "rows": [
+              [
+                "1. Does it reach my apps?",
+                "Your apps, and the specific actions the job needs, are in its catalog."
+              ],
+              [
+                "2. Can I limit what each AI agent touches?",
+                "Per-agent apps and accounts, not one key for everything."
+              ],
+              [
+                "3. Does it ask before risky actions?",
+                "Sends, payments and deletions wait for a person, enforced by the product."
+              ],
+              [
+                "4. Can I see what it did?",
+                "Each run with what it read, what it decided and what it changed."
+              ],
+              [
+                "5. What does one run cost?",
+                "A clear unit (credits, tasks, runs) and the cost of your job’s run shown after testing."
+              ],
+              [
+                "6. How do I fix it?",
+                "Change it in words or in a form; a version history with undo."
+              ],
+              [
+                "7. Can I leave?",
+                "Export your data and instructions; no lock-in to one model."
+              ],
+              [
+                "8. Will it be around?",
+                "A company with a track record. Relay.app, often recommended in these lists, says on its own site that it has shut down."
+              ]
+            ]
+          }
+        },
+        {
+          "p": "Glean’s guide weights capabilities 25%, integrations 20%, security 20%, ease 15%, vendor 10% and cost 10%. For a small team we would move cost and ease up: an AI agent you cannot afford to run daily, or cannot fix yourself, does not get used. For how builders charge, see [how much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared)."
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to run the test, step by step",
+    "steps": [
+      {
+        "title": "Pick one real job",
+        "body": "One you do weekly, with real apps and a send at the end. \"Follow up quiet deals\" is a good test."
+      },
+      {
+        "title": "Shortlist two or three builders",
+        "body": "By question 1: they must reach your apps."
+      },
+      {
+        "title": "Build it in each on the free tier",
+        "body": "Time how long it takes and note where you got stuck."
+      },
+      {
+        "title": "Run each on the same 10 real cases",
+        "body": "Compare the outputs side by side. Count edits needed."
+      },
+      {
+        "title": "Check the run log and the bill",
+        "body": "Can you see why it did what it did? What did the 10 runs cost?"
+      },
+      {
+        "title": "Break it on purpose",
+        "body": "Disconnect an app, feed it an odd case. See what it tells you."
+      }
+    ]
+  },
+  "example": {
+    "h2": "Running the test in 50agents",
+    "body": [
+      "In 50agents you start the test with one sentence. Captain shows the plan with the apps it uses and what asks you first before anything is built, the AI agent’s runs and their receipts are on its page and in Activity, so you can see what it read and why it did what it did."
+    ],
+    "useCase": "follow-up-quiet-hubspot-deals"
+  },
+  "wrong": [
+    {
+      "title": "Choosing from a feature list",
+      "body": "Every list says \"integrations\" and \"memory\". Only a real job shows the difference."
+    },
+    {
+      "title": "Costs you cannot predict",
+      "body": "Usage per run varies with what the AI agent reads. Run your job 10 times and look at the bill before scheduling it."
+    },
+    {
+      "title": "An AI agent stuck in a loop",
+      "body": "It retries and spends. Prefer builders that cap runs and show failed runs plainly."
+    },
+    {
+      "title": "Weak logs",
+      "body": "You cannot explain to a customer why they got an email. Make question 4 a hard requirement."
+    },
+    {
+      "title": "The vendor goes away",
+      "body": "It happens. Keep your instructions and data exportable."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the best no-code AI agent builder?",
+      "a": "The one that runs your real job well, in your apps, at a cost you accept. Test two or three on the same job rather than trusting rankings."
+    },
+    {
+      "q": "AI agent builder or automation tool?",
+      "a": "An automation tool for fixed steps; an AI agent builder when each case needs judgement. Many jobs need a bit of both. See [AI agent vs automation](/guides/ai-agent-vs-automation-which-one-you-need)."
+    },
+    {
+      "q": "How much do AI agents cost to run?",
+      "a": "From a fraction of a cent to a few cents a run for small jobs, more for AI agents that read a lot. Builders price in credits, so test your job and read the usage log."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Glean: How to choose the best AI agent builder",
+      "href": "https://www.glean.com/blog/choose-best-ai-agent-builder"
+    },
+    {
+      "label": "relay.app (shutdown notice)",
+      "href": "https://relay.app/"
+    }
+  ],
+  "related": [
+    "how-to-build-an-ai-agent-without-code",
+    "zapier-vs-make-vs-n8n-for-a-small-team",
+    "how-much-automation-costs-credits-tasks-and-runs-compared"
+  ],
+  "updated": "2026-11-19"
+}

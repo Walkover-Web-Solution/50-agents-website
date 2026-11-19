@@ -8,9 +8,8 @@ import { PATHS as LEARN } from '@/content/learn/paths';
 import { PATHS as FOR } from '@/content/for/paths';
 import { PATHS as PAGES } from '@/content/pages/paths';
 import index from '@/content/integrations/catalog/index.json';
-import pairs from '@/content/integrations/catalog/pairs.json';
 import { CATEGORIES } from '@/content/integrations/categories';
-import { appIndexable, pairIndexable } from '@/site/integrations/data';
+import { appTier, catalog, pairTier, pairs } from '@/site/integrations/data';
 
 const BASE = 'https://50agents.com';
 const HOME_UPDATED = '2026-11-18'; // the landing's last change: update with each landing deploy
@@ -28,8 +27,11 @@ export const FAMILIES: Record<string, () => Entry[]> = {
   learn: () => LEARN.map(path => ({ path, date: WRITTEN })),
   for: () => FOR.map(path => ({ path, date: WRITTEN })),
   categories: () => [{ path: '/integrations', date: index.read }, ...CATEGORIES.map(c => ({ path: `/integrations/category/${c.slug}`, date: index.read }))],
-  integrations: () => index.apps.filter(a => appIndexable({ t: a.t, a: a.a, r: a.r })).map(a => ({ path: `/integrations/${a.s}`, date: index.read })),
-  pairs: () => pairs.pairs.filter(p => pairIndexable(p as never)).map(p => ({ path: `/integrations/${p.a}/${p.b}`, date: pairs.read })),
+  // Integrations and pairs by tier (Search review 01, S20): the core and a test cohort, each in its own sitemap.
+  integrations: () => catalog().apps.filter(a => appTier(a.s) === 'core').map(a => ({ path: `/integrations/${a.s}`, date: index.read })),
+  'integrations-test': () => catalog().apps.filter(a => appTier(a.s) === 'test').map(a => ({ path: `/integrations/${a.s}`, date: index.read })),
+  pairs: () => pairs().list.filter(p => pairTier(p) === 'core').map(p => ({ path: `/integrations/${p.a}/${p.b}`, date: index.read })),
+  'pairs-test': () => pairs().list.filter(p => pairTier(p) === 'test').map(p => ({ path: `/integrations/${p.a}/${p.b}`, date: index.read })),
 };
 
 const xml = (body: string) => new Response(`<?xml version="1.0" encoding="UTF-8"?>\n${body}`, { headers: { 'content-type': 'application/xml; charset=utf-8' } });

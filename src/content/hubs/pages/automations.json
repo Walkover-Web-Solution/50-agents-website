@@ -1,0 +1,39 @@
+{
+  "slug": "automations",
+  "kind": "auto",
+  "query": "workflow automation for small business; automate tasks between apps",
+  "title": "Workflow automation for small business | 50agents",
+  "description": "Say \"when X happens, do Y\" and Captain builds the automation, tests it on your real data with sends held back, and turns it on when you say so.",
+  "crumb": "Automations",
+  "h1": "Workflow automation you describe in one sentence",
+  "line": "The same steps every time something happens.",
+  "answer": [
+    "An automation in 50agents runs the same steps every time something happens or a schedule comes round, such as adding every new Stripe payment to your Google Sheet.",
+    "You say what should happen in one sentence; Captain works out the steps in your real apps, tries them on your real data with every send held back, and nothing runs until you tap Make it live."
+  ],
+  "example": {
+    "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
+    "build": {"name":"Payments sheet","line":"every Stripe payment, one row each","when":"When a payment succeeds in Stripe","does":["Looks up the customer","Writes the amount in dollars","Adds a row to your Sheet"],"apps":["stripe","google-sheets"],"asksFirst":"Nothing outside your own sheet"}
+  },
+  "useCases": "Each one moves the same data from one app to another, every time, with no AI in the run unless a step needs it.",
+  "apps": {
+    "slugs": ["google-sheets", "stripe", "shopify", "hubspot", "slack"],
+    "h2": "Any trigger or action in 2,300+ apps can be a step",
+    "p": "Through viaSocket's catalog. These are the apps the ready-made automations start from."
+  },
+  "faqs": [
+    { "q": "What is workflow automation for a small business?", "a": "Software that does a repeated job between your apps without you: every new order logged, every new lead posted, every Friday report sent. Start with a job you do the same way at least weekly, where a mistake is cheap to fix." },
+    { "q": "How do I start an automation in 50agents?", "a": "Say what should happen, for example \"every new Shopify order is added as a row to my Google Sheet with its items and total\". Captain asks only what it cannot guess, such as which sheet, plans the steps, tests them on your real data and leaves the automation as a draft until you make it live." },
+    { "q": "Does every run use AI?", "a": "No. The fixed steps run without AI. An AI step is added only where a step needs judgement, such as sorting an email, and when that step is unsure the case goes to the automation working as an AI agent." },
+    { "q": "What happens when a step fails?", "a": "Every step after a failed one is skipped, so nothing goes out after a mistake. The run shows the error in plain words, with Fix with Captain, and Care is told." },
+    { "q": "Will an automation email my customers without asking?", "a": "No. A send to anyone other than you asks first on every run, in Needs you. Writes to your own tools, such as a row in your sheet, run on their own; a post to a Slack channel also waits for approval today." },
+    { "q": "How is this different from Zapier, Make or n8n?", "a": "In those you build each step yourself, on a list or a canvas; in 50agents Captain builds it from your sentence and tests it on your data. Zapier has a larger app directory, Make has a visual canvas, and n8n can run on your own server, which 50agents cannot." }
+  ],
+  "links": [
+    { "label": "What to automate first in a small business", "href": "/guides/what-to-automate-first-in-a-small-business" },
+    { "label": "What is a trigger?", "href": "/learn/trigger" },
+    { "label": "Zapier alternatives", "href": "/compare/zapier-alternatives" }
+  ],
+  "final": "Describe your first automation",
+  "updated": "2026-11-19"
+}

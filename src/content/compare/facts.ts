@@ -1,6 +1,8 @@
 // The checked facts behind every comparison page (pages-brief B4). One record per tool: each fact, the page it was read on, and the date.
 // Read on each tool's own site on 19 Nov 2026. A fact we could not find on the tool's own page is left out, never estimated.
 // The Search team re-checks every record every 90 days (next by 17 Feb 2027): open each url, compare, change the fact and its date.
+// Corrected 19 Nov 2026 from gtm/seo/handoff/review-02-compare-facts.md (46 fails): competitor facts fixed or dropped to what
+// each source says today; 50agents' own facts are checked against the live app, not cited to the homepage.
 
 export const CHECKED = '19 Nov 2026';
 export const CHECKED_ISO = '2026-11-19';
@@ -55,14 +57,16 @@ const R = CHECKED;
 const c = (v: Cell['v'], note: string, url: string): Cell => ({ v, note, url, read: R });
 const f = (fact: string, url: string): Fact => ({ fact, url, read: R });
 
-// 50agents' own facts come from the live app's source and its product docs (agentic-apps/app: PRODUCT.md,
-// features/*/CLAUDE.md, settings/pricing.ts; gtm/FACTS.md), read 19 Nov 2026. The url is the homepage; the app is the source.
+// 50agents' own facts: what the homepage states (plain words, the four kinds, 2,300+ apps, free to start) cites the homepage;
+// the rest is true in the live app, checked against its code (agentic-apps/app/src) on 19 Nov 2026, and cites the app.
+// Pages never show credits or prices for 50agents (D253): its price cell is "Free to start", drawn by the template.
 const HOME = 'https://50agents.com';
+const APP = 'https://50agents-app.embarko.app';
 const fifty: Tool = {
   id: 'fifty',
   name: '50agents',
   site: HOME,
-  what: f('You tell Captain what you need in one sentence, and it builds an app, an automation, an AI agent or a browser agent that does the work in your real apps.', HOME),
+  what: f('You tell Captain what you need in plain words, and it builds an app, an automation, an AI agent or a browser agent that does the work in your real apps.', HOME),
   free: f('Every workspace starts free with 2,000 credits.', HOME),
   price: f('$1 buys 1,000 credits; you pay for the AI and app work you use.', HOME),
   apps: f('2,300+ apps through viaSocket.', HOME),
@@ -70,24 +74,23 @@ const fifty: Tool = {
     free: c('yes', 'Every workspace starts free with 2,000 credits', HOME),
     price: c('text', '$1 buys 1,000 credits', HOME),
     apps: c('text', '2,300+ apps through viaSocket', HOME),
-    prompt: c('yes', 'Captain builds it from one sentence and asks before guessing', HOME),
-    aiAgent: c('yes', 'Instructions, connected apps, a schedule or trigger, its own chat', HOME),
-    browser: c('yes', 'Browser agents read and use websites that have no app to connect', HOME),
-    appBuilder: c('yes', 'Lists, boards, tables and numbers, run by a crew of AI agents', HOME),
-    database: c('yes', 'An app keeps its records in 50agents; import and export CSV', HOME),
-    publicApps: c('no', 'Apps are for the people in your workspace', HOME),
-    fixed: c('yes', 'Automations run the same steps every time, on an event or a schedule', HOME),
-    approval: c('yes', 'Anything that reaches people outside, spends money or changes access waits for your yes', HOME),
-    handEdit: c('no', 'You see every step, but changes go through chat', HOME),
-    code: c('no', 'Steps are fixed blocks; there is no code step', HOME),
-    selfHost: c('no', 'Hosted only', HOME),
-    export: c('partly', 'App records export as CSV; automations and AI agents do not export', HOME),
+    prompt: c('yes', 'Captain builds it from what you say in plain words', HOME),
+    aiAgent: c('yes', 'Instructions, connected apps, a schedule or trigger, its own chat', APP),
+    browser: c('yes', 'Browser agents read and use websites that have no app to connect', APP),
+    appBuilder: c('yes', 'Lists, boards, tables and numbers, run by a crew of AI agents', APP),
+    database: c('yes', 'An app keeps its records in 50agents; import and export CSV', APP),
+    publicApps: c('no', 'Apps are for the people in your workspace', APP),
+    fixed: c('yes', 'Automations run the same steps every time, on an event or a schedule', APP),
+    approval: c('yes', 'Anything that reaches people outside, spends money or changes access waits for your yes', APP),
+    handEdit: c('no', 'You see every step, but changes go through chat', APP),
+    code: c('no', 'Steps are fixed blocks; there is no code step', APP),
+    export: c('partly', 'App records export as CSV; automations and AI agents do not export', APP),
   },
   limits: [
-    f('It is new: the product went live in November 2026, so it has far fewer finished examples and much less community help than older tools.', HOME),
-    f('There is no drag-and-drop editor. You see each step, and you change it by asking in chat.', HOME),
-    f('No self-hosting and no code steps.', HOME),
-    f('Apps are for your own workspace; there are no customer portals or custom domains.', HOME),
+    f('It is new, so it has far fewer finished examples and much less community help than older tools.', APP),
+    f('There is no drag-and-drop editor. You see each step, and you change it by asking Captain.', APP),
+    f('There are no code steps.', APP),
+    f('Apps are for your own workspace; there are no customer portals or custom domains.', APP),
   ],
   better: [],
 };
@@ -97,21 +100,19 @@ const zapier: Tool = {
   id: 'zapier',
   name: 'Zapier',
   site: 'https://zapier.com',
-  what: f('Fixed-step automations (Zaps) across a very large app catalog, plus Tables, Forms and Zapier Agents.', 'https://zapier.com/'),
+  what: f('Automated workflows across a very large app catalog, and AI agents that take action.', 'https://zapier.com/'),
   free: f('Free plan: 100 tasks a month, two-step Zaps only, 15-minute polling.', ZAP_PRICING),
   price: f('Professional: $19.99 a month billed yearly, or $29.99 billed monthly, for 750 tasks a month.', ZAP_PRICING),
-  apps: f('"Zapier connects 10537+ apps."', 'https://zapier.com/apps'),
+  apps: f('"Zapier connects 10541+ apps."', 'https://zapier.com/apps'),
   cells: {
     free: c('yes', '100 tasks a month, two-step Zaps', ZAP_PRICING),
     price: c('text', '$19.99 a month billed yearly (750 tasks)', ZAP_PRICING),
-    apps: c('text', '10,537+ apps', 'https://zapier.com/apps'),
+    apps: c('text', '10,541+ apps', 'https://zapier.com/apps'),
     prompt: c('yes', 'Copilot builds Zaps from chat', ZAP_PRICING),
     aiAgent: c('yes', 'Zapier Agents, billed in activities', ZAP_PRICING),
     browser: c('partly', 'The Zapier Agents Chrome extension works on the page you have open', 'https://help.zapier.com/hc/en-us/articles/29025734470925-Use-Zapier-Agents-Chrome-extension'),
-    appBuilder: c('yes', 'Tables and Forms', 'https://zapier.com/interfaces'),
-    fixed: c('yes', 'Zaps', 'https://zapier.com/'),
+    fixed: c('yes', 'Workflows', 'https://zapier.com/'),
     approval: c('yes', 'Human in the Loop, on Professional and up', 'https://help.zapier.com/hc/en-us/articles/38731463206029-Request-approval-to-keep-your-workflow-running-with-Human-in-the-Loop'),
-    handEdit: c('yes', 'The Zap editor', 'https://zapier.com/'),
     code: c('yes', 'JavaScript or Python steps', ZAP_PRICING),
     export: c('partly', 'JSON export of Zaps on Team and Enterprise only', 'https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account'),
   },
@@ -120,7 +121,7 @@ const zapier: Tool = {
     f('Exporting Zaps as JSON is only on Team and Enterprise; Free and Professional cannot export.', 'https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account'),
   ],
   better: [
-    f('It connects far more apps: 10,537+ against 50agents\' 2,300+.', 'https://zapier.com/apps'),
+    f('It connects far more apps: 10,541+ against 50agents\' 2,300+.', 'https://zapier.com/apps'),
     f('Mature admin controls for large companies, such as SCIM and role-based access.', 'https://zapier.com/'),
   ],
   move: f('Team and Enterprise accounts can export Zaps as JSON.', 'https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account'),
@@ -163,7 +164,7 @@ const n8n: Tool = {
   id: 'n8n',
   name: 'n8n',
   site: 'https://n8n.io',
-  what: f('A workflow builder for technical teams, with an AI Agent node, that you can run in n8n\'s cloud or on your own servers.', 'https://n8n.io/'),
+  what: f('A workflow builder for technical teams, with an AI Agent node, that you can run in n8n\'s cloud or on your own servers.', N8N_PRICING),
   free: f('No free cloud plan: a free trial with 1,000 executions. A self-hosted version is "available on GitHub".', N8N_PRICING),
   price: f('Starter: €20 a month billed yearly, for 2.5K workflow executions. Pro: €50 a month billed yearly, for 10K.', N8N_PRICING),
   apps: f('The integrations directory lists 2829 integrations.', 'https://n8n.io/integrations/'),
@@ -176,7 +177,7 @@ const n8n: Tool = {
     appBuilder: c('partly', 'Data tables, no app screens', 'https://docs.n8n.io/build/work-with-data/data-tables'),
     fixed: c('yes', 'Workflows', 'https://n8n.io/'),
     approval: c('yes', 'Human approval for tool calls', N8N_PRICING),
-    handEdit: c('yes', 'The node canvas', 'https://n8n.io/'),
+    handEdit: c('yes', 'A visual builder', 'https://n8n.io/'),
     code: c('yes', 'Code node in JavaScript or Python', 'https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code'),
     selfHost: c('yes', 'Self-host on your own servers', 'https://n8n.io/'),
     export: c('yes', 'Workflows download as JSON', 'https://docs.n8n.io/workflows/export-import/'),
@@ -189,7 +190,7 @@ const n8n: Tool = {
     f('You can run it on your own servers and keep every run and credential in your own network.', 'https://n8n.io/'),
     f('One price per run, however many steps: "An execution is a single run of your entire workflow."', N8N_PRICING),
   ],
-  move: f('Each workflow downloads as JSON, or exports in bulk from the command line.', 'https://docs.n8n.io/workflows/export-import/'),
+  move: f('Each workflow downloads as JSON.', 'https://docs.n8n.io/workflows/export-import/'),
 };
 
 const pipedream: Tool = {
@@ -237,7 +238,7 @@ const lindy: Tool = {
   ],
   better: [
     f('It works where you already talk: Slack, iMessage and email.', 'https://www.lindy.ai/'),
-    f('It can learn a task from one demonstration ("Teach a task").', 'https://www.lindy.ai/'),
+    f('It can learn a task by watching you do it once (Watch and Learn).', 'https://www.lindy.ai/'),
   ],
 };
 
@@ -260,7 +261,6 @@ const gumloop: Tool = {
     appBuilder: c('partly', 'Live artifacts: HTML pages with live data', 'https://docs.gumloop.com/core-concepts/live_artifacts.md'),
     approval: c('yes', 'Gated tool calls wait for your go-ahead', 'https://docs.gumloop.com/core-concepts/human_in_the_loop.md'),
     code: c('yes', 'Code sandbox', 'https://docs.gumloop.com/core-concepts/agent_sandbox_and_secrets.md'),
-    export: c('partly', 'AI agent configuration exports as JSON through the API; no import documented', 'https://docs.gumloop.com/api-reference/agents/list-agent-versions.md'),
   },
   limits: [
     f('There is no free plan; the trial needs a card and turns into a paid Pro plan unless you cancel.', GUM_CREDITS),
@@ -270,7 +270,6 @@ const gumloop: Tool = {
     f('A cloud browser with a credential vault, where you can watch or take over the AI agent\'s browser.', 'https://docs.gumloop.com/core-concepts/agent_browser.md'),
     f('Team controls for IT: which tools and models each person may use.', 'https://www.gumloop.com/'),
   ],
-  move: f('An AI agent\'s configuration can be exported as JSON through its API and CLI.', 'https://docs.gumloop.com/api-reference/agents/list-agent-versions.md'),
 };
 
 const REL_PRICING = 'https://relevanceai.com/docs/get-started/pricing';
@@ -298,7 +297,7 @@ const relevance: Tool = {
   ],
   better: [
     f('Ready-made sales AI agent teams wired into Salesforce, HubSpot and Gong.', 'https://relevanceai.com/'),
-    f('AI agent evaluations and A/B tests (Enterprise), for teams running AI agents at volume.', 'https://relevanceai.com/'),
+    f('AI agent evaluations (Enterprise), for teams running AI agents at volume.', 'https://relevanceai.com/'),
   ],
 };
 
@@ -306,7 +305,7 @@ const relay: Tool = {
   id: 'relay',
   name: 'Relay.app',
   site: 'https://www.relay.app',
-  what: f('Relay.app helped businesses automate their work with AI, with human-in-the-loop steps.', 'https://www.relay.app/'),
+  what: f('Relay.app helped businesses automate their work with AI.', 'https://www.relay.app/'),
   status: f('"Relay.app shut down in September 2026. All accounts, workflows, and run history have been permanently deleted."', 'https://www.relay.app/'),
   cells: {},
   limits: [],
@@ -319,7 +318,7 @@ const bardeen: Tool = {
   site: 'https://www.bardeen.ai',
   what: f('A sales prospecting tool: an AI web scraper finds leads, qualifies them and adds contact details.', 'https://www.bardeen.ai/'),
   free: f('"You will always get 100 credits for free"; unused credits expire each billing period.', 'https://www.bardeen.ai/pricing'),
-  price: f('Basic: $10 a month for 100 more credits. Premium: $50 a month, or $480 a year, for 1,000 credits.', 'https://www.bardeen.ai/pricing'),
+  price: f('Basic: $10 a month for 100 credits a month. Premium: $50 a month, or $480 a year for 12,000 credits (1,000 a month).', 'https://www.bardeen.ai/pricing'),
   cells: {},
   limits: [
     f('Credits are charged per row: 1 for scraping or web search, 3 for enrichment, so Basic\'s 100 credits enrich about 33 leads.', 'https://www.bardeen.ai/pricing'),
@@ -345,7 +344,8 @@ const activepieces: Tool = {
     f('770+ apps is a smaller catalog than Zapier, Make or n8n.', 'https://www.activepieces.com/'),
   ],
   better: [
-    f('Open source and self-hostable with Docker or Kubernetes, including air-gapped installs.', 'https://www.activepieces.com/docs/install/overview'),
+    f('Open source and self-hostable with Docker Compose or Kubernetes.', 'https://www.activepieces.com/docs/install/overview'),
+    f('Self-hosting includes air-gapped installs.', 'https://www.activepieces.com/'),
     f('Flat team pricing rather than per user.', AP_PRICING),
   ],
 };
@@ -380,7 +380,7 @@ const powerautomate: Tool = {
   apps: f('"More than 1,400 prebuilt, certified connectors."', PA),
   cells: {},
   limits: [
-    f('Premium connectors and attended RPA need the $15 per user Premium licence; each unattended bot is $150 a month and runs one desktop flow at a time.', PA_PRICING),
+    f('Premium connectors need the $15 per user Premium licence or a Process licence; attended RPA needs Premium; each unattended bot is $150 a month and runs one desktop flow at a time.', PA_PRICING),
   ],
   better: [
     f('Desktop RPA for old Windows apps with no API.', PA),
@@ -395,23 +395,17 @@ const softr: Tool = {
   name: 'Softr',
   site: 'https://www.softr.io',
   what: f('A no-code builder for business apps such as client portals and internal tools, with its own database, workflows and AI agents.', 'https://www.softr.io/'),
-  free: f('Free forever: up to 3 builders, 5 app users, 5K records, 500 workflow actions a month.', SOFTR_PRICING),
-  price: f('Basic: $19 a month billed yearly ($228 a year), or $25 billed monthly. Pro: $99 a month billed yearly, or $119 monthly.', SOFTR_PRICING),
   cells: {
-    free: c('yes', '5 app users, 5K records, 500 workflow actions a month', SOFTR_PRICING),
-    price: c('text', '$19 a month billed yearly (Basic)', SOFTR_PRICING),
     prompt: c('yes', 'AI Co-Builder makes and changes apps from plain language', 'https://docs.softr.io/start-here/ai-co-builder'),
     aiAgent: c('yes', 'Softr Agents, in apps or on a schedule', 'https://docs.softr.io/agents/overview'),
     appBuilder: c('yes', 'Portals and internal tools', 'https://www.softr.io/'),
     database: c('yes', 'Softr Databases', 'https://docs.softr.io/softr-databases/softr-databases-overview'),
-    publicApps: c('yes', 'Client users and a custom domain, from Basic', 'https://docs.softr.io/publishing/add-a-custom-domain-to-your-app'),
+    publicApps: c('yes', 'Client users from Basic; one custom domain on every plan', 'https://docs.softr.io/publishing/add-a-custom-domain-to-your-app'),
     fixed: c('yes', 'Softr Workflows', 'https://docs.softr.io/workflows/workflows'),
     handEdit: c('yes', 'A visual editor beside the AI builder', 'https://www.softr.io/'),
     export: c('partly', 'Table data downloads as CSV or XLSX', 'https://docs.softr.io/actions/export'),
   },
-  limits: [
-    f('App users are capped per plan (5 on Free), and "When you hit your monthly workflow execution limit, your workflows are paused."', SOFTR_PRICING),
-  ],
+  limits: [], // the pricing page could not be read on 19 Nov 2026; its free plan, prices and limits are left out until it can
   better: [
     f('Branded client portals on your own domain, with separate team and client users.', 'https://docs.softr.io/publishing/add-a-custom-domain-to-your-app'),
     f('A visual editor, so you can lay out pages by hand without AI.', 'https://www.softr.io/'),
@@ -424,7 +418,7 @@ const glide: Tool = {
   id: 'glide',
   name: 'Glide',
   site: 'https://www.glideapps.com',
-  what: f('GlideOS, an AI that builds internal business apps from spreadsheets, prompts or files. The older platform is now Glide Classic.', 'https://www.glideapps.com/'),
+  what: f('GlideOS, an AI that builds internal business apps from spreadsheets, prompts or files. The older platform is now Glide Classic.', GLIDE_PRICING),
   free: f('Free: limited credits, 2 team members, 10 projects, 0 published apps, 0 enabled workflows.', GLIDE_PRICING),
   price: f('Basic: $25 a month for 100 credits, 2 published apps and 1 workflow. Plus: $50 a month. "Annual plans are coming soon."', GLIDE_PRICING),
   apps: f('"GlideOS works with more than 1,000 services."', 'https://www.glideapps.com/integrations'),
@@ -434,7 +428,7 @@ const glide: Tool = {
     apps: c('text', '1,000+ services', 'https://www.glideapps.com/integrations'),
     prompt: c('yes', 'Start from a prompt, a PDF or a screenshot', GLIDE_PRICING),
     aiAgent: c('yes', 'Turns spreadsheets into apps and AI agents', 'https://www.glideapps.com/'),
-    appBuilder: c('yes', 'Internal business apps', 'https://www.glideapps.com/docs/os/data'),
+    appBuilder: c('yes', 'Business apps', 'https://www.glideapps.com/'),
     database: c('yes', 'Every project has one database', 'https://www.glideapps.com/docs/os/data'),
     publicApps: c('yes', 'Public apps from Plus', 'https://www.glideapps.com/docs/os/publishing-and-sharing'),
     fixed: c('yes', 'Workflows, on paid plans', 'https://www.glideapps.com/docs/os/workflows'),
@@ -445,8 +439,8 @@ const glide: Tool = {
     f('There is no tool to move Glide Classic apps to GlideOS.', GLIDE_PRICING),
   ],
   better: [
-    f('Public or guest apps that install on a phone\'s home screen.', 'https://www.glideapps.com/docs/os/publishing-and-sharing'),
-    f('A Postgres connection string, so BI tools can read and write the app\'s data.', 'https://www.glideapps.com/docs/os/data'),
+    f('Published apps can be added to a phone\'s home screen.', 'https://www.glideapps.com/docs/os/publishing-and-sharing'),
+    f('A Postgres connection string: read-only for BI tools, read and write for syncing.', 'https://www.glideapps.com/docs/os/data'),
   ],
   move: f('Any table in a project exports to CSV.', 'https://www.glideapps.com/docs/os/data'),
 };
@@ -470,7 +464,7 @@ const uipath: Tool = {
   id: 'uipath',
   name: 'UiPath',
   site: 'https://www.uipath.com',
-  what: f('Enterprise robotic process automation (RPA) and AI agents, built in UiPath Studio, low-code or code-first.', 'https://www.uipath.com/pricing'),
+  what: f('Enterprise robotic process automation (RPA) and AI agents, built in UiPath Studio and run with Maestro.', 'https://www.uipath.com/pricing'),
   free: f('Community: "free forever".', 'https://www.uipath.com/pricing'),
   price: f('Basic: "Starting at $25 per month". Standard and Enterprise: contact sales.', 'https://www.uipath.com/pricing'),
   cells: {},
@@ -478,7 +472,7 @@ const uipath: Tool = {
     f('Above Basic, prices are only through sales.', 'https://www.uipath.com/pricing'),
   ],
   better: [
-    f('Desktop and legacy-app robots at enterprise scale.', 'https://www.uipath.com/pricing'),
+    f('Robots for automation at enterprise scale.', 'https://www.uipath.com/pricing'),
   ],
 };
 
@@ -486,7 +480,7 @@ const shortcuts: Tool = {
   id: 'shortcuts',
   name: 'Apple Shortcuts',
   site: 'https://support.apple.com/guide/shortcuts/welcome/ios',
-  what: f('Apple\'s app for iPhone, iPad and Mac that runs one or more tasks with your apps, by tap or by automation.', 'https://support.apple.com/guide/shortcuts/welcome/ios'),
+  what: f('Apple\'s app for iPhone and iPad that runs one or more tasks with your apps, by tap or by automation.', 'https://support.apple.com/guide/shortcuts/welcome/ios'),
   cells: {},
   limits: [
     f('Automations are "specific to a device", so they run on your iPhone, not in the cloud.', 'https://support.apple.com/guide/shortcuts/intro-to-automation-shortcuts-apd690170742/ios'),

@@ -1,0 +1,83 @@
+{
+  "slug": "50agents-vs-zapier",
+  "type": "versus",
+  "tool": "zapier",
+  "query": "50agents vs zapier",
+  "title": "50agents vs Zapier: a sourced comparison | 50agents",
+  "description": "Zapier connects 10,541+ apps, with code steps and AI agents; 50agents builds automations, AI agents and apps from plain words. Every row sourced.",
+  "h1": "50agents vs Zapier",
+  "answer": [
+    "Pick Zapier if you need its 10,541+ apps, code steps in JavaScript or Python, and mature admin controls such as SCIM.",
+    "Pick 50agents if you would rather describe the job in plain words and get an automation, AI agent, browser agent or app built and tested for you; it is free to start."
+  ],
+  "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
+  "lede": "Zapier is the bigger, older and more complete tool; 50agents starts from a different place, plain words, and asks before anything reaches people outside.",
+  "rows": [
+    "apps",
+    "prompt",
+    "fixed",
+    "aiAgent",
+    "browser",
+    "approval",
+    "code",
+    "export"
+  ],
+  "pick": {
+    "us": [
+      "You can say what you want but have never built a Zap, or the person who needs it is not the person who builds them.",
+      "The job needs judgement each run (an AI agent), a website with no app (a browser agent) or records of its own (an app).",
+      "You want every send to a customer to wait for your approval by default."
+    ],
+    "them": [
+      "An app you depend on is in Zapier's 10,541+ and not in 50agents' 2,300+.",
+      "You want to write code steps in JavaScript or Python.",
+      "You need SCIM and role-based access for a large team."
+    ]
+  },
+  "move": [
+    {
+      "title": "Start with one Zap",
+      "body": "Pick a Zap that runs often. Write what it does as a sentence: \"every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel\"."
+    },
+    {
+      "title": "Give that sentence to Captain",
+      "body": "Captain asks which sheet and which channel, shows the steps and the test on your latest contact, and waits for you to make it live."
+    },
+    {
+      "title": "Run both for a week",
+      "body": "Leave the Zap on, compare the rows and messages each day, then turn the Zap off. Team and Enterprise accounts can also export the Zap as JSON for their records."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is 50agents cheaper than Zapier?",
+      "a": "It depends on what runs. Zapier counts every action step as a task, so long Zaps that run often cost the most. 50agents is free to start, and for a short Zap that runs rarely, Zapier's free plan may be enough."
+    },
+    {
+      "q": "Does 50agents connect to the same apps as Zapier?",
+      "a": "Many of them. 50agents works with 2,300+ apps through viaSocket; Zapier lists 10,541+. Check your apps first."
+    },
+    {
+      "q": "Can I import my Zaps into 50agents?",
+      "a": "No. Describe each Zap to Captain instead; it rebuilds it and tests it on your data before you make it live."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/zapier-alternatives",
+      "title": "Zapier alternatives",
+      "line": "Make, n8n, Power Automate and more, with prices"
+    },
+    {
+      "href": "/compare/50agents-vs-make",
+      "title": "50agents vs Make",
+      "line": "The canvas against plain words"
+    },
+    {
+      "href": "/compare/50agents-vs-n8n",
+      "title": "50agents vs n8n",
+      "line": "Code nodes and self-hosting against plain words"
+    }
+  ],
+  "updated": "2026-11-19"
+}

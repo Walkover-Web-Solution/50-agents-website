@@ -2,6 +2,9 @@
 // Pages import nothing heavy: the index (every app, a few fields each) and one app's file per page.
 import fs from 'node:fs';
 import path from 'node:path';
+import { canon, dropped, EXCLUDED } from '@/content/integrations/slugs';
+import gate from '@/content/integrations/index-gate.json';
+import cohort from '@/content/integrations/test-cohort.json';
 
 export type IndexApp = { s: string; n: string; i: string; c: string[]; t: number; a: number; r: number; u?: 1 };
 export type Event = { n: string; d: string; t: 'trigger' | 'action'; k: 'hook' | 'polling' };
@@ -15,20 +18,34 @@ export type Pair = { a: string; b: string; n: number };
 const DIR = path.join(process.cwd(), 'src/content/integrations/catalog');
 const json = <T,>(f: string): T => JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
 
-let _index: { read: string; apps: IndexApp[]; by: Map<string, IndexApp> } | null = null;
+let _index: { read: string; apps: IndexApp[]; by: Map<string, IndexApp>; raw: Map<string, string>; rank: Map<string, number> } | null = null;
+/** The catalog with canonical slugs (lowercase, duplicates and the old 50agents plugin left out), in popularity order. */
 export function catalog() {
   if (!_index) {
     const d = json<{ read: string; apps: IndexApp[] }>('index.json');
-    _index = { ...d, by: new Map(d.apps.map(a => [a.s, a])) };
+    const apps = d.apps.filter(a => !dropped(a.s)).map(a => ({ ...a, s: canon(a.s) }));
+    _index = { read: d.read, apps, by: new Map(apps.map(a => [a.s, a])), raw: new Map(d.apps.filter(a => !dropped(a.s)).map(a => [canon(a.s), a.s])), rank: new Map(apps.map((a, i) => [a.s, i])) };
   }
   return _index;
 }
+/** Every raw slug that is not canonical (mixed case or a duplicate), with the canonical slug it redirects to. */
+export function rawRedirects(): [string, string][] {
+  const d = json<{ apps: IndexApp[] }>('index.json');
+  return d.apps.filter(a => !EXCLUDED.has(a.s.toLowerCase()) && a.s !== canon(a.s) && catalog().by.has(canon(a.s))).map(a => [a.s, canon(a.s)]);
+}
 
-let _pairs: { list: Pair[]; by: Map<string, Pair> } | null = null;
+let _pairs: { list: Pair[]; by: Map<string, Pair>; raw: Pair[] } | null = null;
 export function pairs() {
   if (!_pairs) {
     const d = json<{ pairs: Pair[] }>('pairs.json');
-    _pairs = { list: d.pairs, by: new Map(d.pairs.map(p => [`${p.a}|${p.b}`, p])) };
+    const by = new Map<string, Pair>();
+    for (const p of d.pairs) {
+      if (EXCLUDED.has(p.a.toLowerCase()) || EXCLUDED.has(p.b.toLowerCase())) continue;
+      const a = canon(p.a), b = canon(p.b);
+      if (a === b || !catalog().by.has(a) || !catalog().by.has(b) || by.has(`${a}|${b}`) || by.has(`${b}|${a}`)) continue;
+      by.set(`${a}|${b}`, { a, b, n: p.n });
+    }
+    _pairs = { list: [...by.values()], by, raw: d.pairs.filter(p => !EXCLUDED.has(p.a.toLowerCase()) && !EXCLUDED.has(p.b.toLowerCase())) };
   }
   return _pairs;
 }
@@ -41,18 +58,88 @@ export function findPair(x: string, y: string): { pair: Pair; reversed: boolean 
   return q ? { pair: q, reversed: true } : null;
 }
 
+// A recipe whose action only looks something up (find, search, get, list, query) does nothing with the result: left out.
+const LOOKUP = /^(find|search|get|list|lookup|look up|retrieve|fetch|read|query|view|check|count|describe)\b/i;
+export const doesSomething = (r: Recipe) => !LOOKUP.test(r.ae.replace(/_/g, ' ').trim());
+
 const appCache = new Map<string, AppFile>();
+/** One app's file, by canonical slug, with canonical slugs in its recipes and lookup-only recipes left out. */
 export function loadApp(slug: string): AppFile | null {
   if (appCache.has(slug)) return appCache.get(slug)!;
-  if (!catalog().by.has(slug)) return null;
-  const a = json<AppFile>(`apps/${slug}.json`);
-  appCache.set(slug, a);
-  return a;
+  const raw = catalog().raw.get(slug);
+  if (!raw) return null;
+  const a = json<AppFile>(`apps/${raw}.json`);
+  const seen = new Set<string>();
+  const recipes = a.recipes
+    .map(r => ({ ...r, ta: canon(r.ta), aa: canon(r.aa) }))
+    .filter(r => catalog().by.has(r.ta) && catalog().by.has(r.aa) && doesSomething(r))
+    .filter(r => { const k = `${r.ta}|${r.te}|${r.aa}|${r.ae}`; return !seen.has(k) && !!seen.add(k); });
+  const app = { ...a, slug, recipes };
+  appCache.set(slug, app);
+  return app;
 }
 
-// B8 thresholds.
-export const appIndexable = (a: { t: number; a: number; r: number }) => a.t + a.a >= 5 && a.r >= 1;
-export const pairIndexable = (p: Pair) => p.n >= 3;
+/** Every recipe between two apps, the first app's recipes first. */
+export function pairRecipes(a: string, b: string): Recipe[] {
+  const A = loadApp(a), B = loadApp(b);
+  const seen = new Set<string>();
+  const all = [...(A?.recipes ?? []), ...(B?.recipes ?? [])].filter(r => (r.ta === a && r.aa === b) || (r.ta === b && r.aa === a))
+    .filter(r => { const k = `${r.ta}|${r.te}|${r.aa}|${r.ae}`; return !seen.has(k) && !!seen.add(k); });
+  return all.sort((r, s) => Number(s.ta === a) - Number(r.ta === a));
+}
+
+/** The page the pipeline wrote for an app (src/content/integrations/pages/<slug>.json), if there is one. */
+const PAGES_DIR = path.join(process.cwd(), 'src/content/integrations/pages');
+export function writtenPage<T>(slug: string): T | null {
+  const f = path.join(PAGES_DIR, `${slug}.json`);
+  return fs.existsSync(f) ? (JSON.parse(fs.readFileSync(f, 'utf8')) as T) : null;
+}
+export const writtenSlugs = () => (fs.existsSync(PAGES_DIR) ? fs.readdirSync(PAGES_DIR).filter(f => f.endsWith('.json')).map(f => f.replace(/\.json$/, '')) : []);
+
+// The index rule (Search review 01, section 1: Search's call under S8, updated S20 by Jii). Every page renders; the tier
+// sets robots and the sitemap. Slug hygiene and the lookup-only filter (above) apply to every tier.
+// - core: an app in the catalog's top 200 by popularity (the order of plugins/all) with 5 or more triggers and actions
+//   and at least 1 recipe; a pair with both apps in the top 100 and 3 or more recipes. Sitemaps integrations, pairs.
+// - test: the apps whose old /ai-agents/<slug> pages Google already showed (test-cohort.json, from
+//   gtm/seo/research/02-old-pages.md), unless in the core; 150 pairs with both apps in the top 200 and 2 or more
+//   recipes, most recipes first, not in the core. Sitemaps integrations-test, pairs-test.
+// - none: everything else, noindex, follow, in no sitemap.
+// A page that fails the uniqueness gate (5-word shingle overlap of 0.5 or more with another indexed page of its family;
+// scripts/pages/uniqueness-integrations.mjs writes the list) is none, and the test cohort fills from the next in line.
+export type Tier = 'core' | 'test' | 'none';
+const GATE_FAILED = new Set<string>(gate.failed);
+const gateFailed = (p: string) => GATE_FAILED.has(p);
+let _appTiers: Map<string, Tier> | null = null;
+function appTiers() {
+  if (_appTiers) return _appTiers;
+  const m = new Map<string, Tier>();
+  const test = new Set<string>(cohort.apps);
+  catalog().apps.forEach((a, rank) => {
+    if (gateFailed(`/integrations/${a.s}`)) return;
+    const app = loadApp(a.s);
+    if (!app) return;
+    if (rank < 200 && app.events.length >= 5 && app.recipes.length >= 1) m.set(a.s, 'core');
+    else if (test.has(a.s)) m.set(a.s, 'test');
+  });
+  return (_appTiers = m);
+}
+export const appTier = (slug: string): Tier => appTiers().get(slug) ?? 'none';
+
+let _pairTiers: Map<string, Tier> | null = null;
+function pairTiers() {
+  if (_pairTiers) return _pairTiers;
+  const m = new Map<string, Tier>();
+  const r = catalog().rank;
+  const near = pairs().list.filter(p => (r.get(p.a) ?? 1e9) < 200 && (r.get(p.b) ?? 1e9) < 200 && !gateFailed(`/integrations/${p.a}/${p.b}`))
+    .map(p => ({ p, n: pairRecipes(p.a, p.b).length }));
+  for (const { p, n } of near) if ((r.get(p.a) ?? 1e9) < 100 && (r.get(p.b) ?? 1e9) < 100 && n >= 3) m.set(`${p.a}|${p.b}`, 'core');
+  near.filter(x => x.n >= 2 && !m.has(`${x.p.a}|${x.p.b}`)).sort((x, y) => y.n - x.n).slice(0, 150).forEach(x => m.set(`${x.p.a}|${x.p.b}`, 'test'));
+  return (_pairTiers = m);
+}
+export const pairTier = (p: { a: string; b: string }): Tier => pairTiers().get(`${p.a}|${p.b}`) ?? 'none';
+
+export const appIndexable = (a: { s: string }) => appTier(a.s) !== 'none';
+export const pairIndexable = (p: { a: string; b: string }) => pairTier(p) !== 'none';
 
 export const readDate = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 
@@ -130,8 +217,7 @@ export function partnersOf(app: AppFile): { slug: string; n: number }[] {
   return [...m.entries()].map(([slug, n]) => ({ slug, n })).sort((x, y) => Number(y.n >= 3) - Number(x.n >= 3) || (rank.get(x.slug) ?? 1e9) - (rank.get(y.slug) ?? 1e9));
 }
 
-let _rank: Map<string, number> | null = null;
-const rankMap = () => (_rank ??= new Map(catalog().apps.map((a, i) => [a.s, i])));
+const rankMap = () => catalog().rank;
 
 /** Recipes ordered for show: better known partners first, spread so one partner or one trigger doesn't fill the top. */
 export function topRecipes(app: AppFile): Recipe[] {

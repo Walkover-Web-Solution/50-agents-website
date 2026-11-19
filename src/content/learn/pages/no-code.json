@@ -1,0 +1,67 @@
+{
+  "slug": "no-code",
+  "term": "No-code",
+  "query": "what is no-code",
+  "group": "Building blocks",
+  "title": "What is no-code? Describe it, get it built | 50agents",
+  "description": "No-code means building working software without writing code. How it moved from drag-and-drop canvases to describing what you want, with an example.",
+  "h1": "What is no-code?",
+  "definition": [
+    "No-code means building working software without writing programming code, by choosing, arranging or describing what you want.",
+    "Early no-code tools meant drag-and-drop canvases; newer ones, 50agents among them, let you describe the result in a sentence and answer a few questions."
+  ],
+  "example": {
+    "kind": "app",
+    "ask": "Track my leads and follow up",
+    "why": "Six words build a leads app: a pipeline, a follow-up list and a crew of AI agents. The AI writes no code; the app is built from parts that are already tested.",
+    "build": {
+      "name": "Leads desk",
+      "line": "your pipeline, who to follow up today",
+      "when": "Every weekday at 9:00, and 3 quiet days after contact",
+      "does": [
+        "Adds new leads from your Gmail",
+        "Moves leads to Replied",
+        "Drafts follow-ups for quiet leads"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every email to a lead"
+    }
+  },
+  "vs": {
+    "term": "low-code",
+    "rows": [
+      {
+        "label": "Code expected",
+        "a": "None",
+        "b": "Some, for the hard parts"
+      },
+      {
+        "label": "How you build",
+        "a": "Choose, arrange or describe",
+        "b": "Mostly visually, then code"
+      },
+      {
+        "label": "The trade",
+        "a": "Accepts limits",
+        "b": "More reach, more to maintain"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "Apps",
+      "href": "/apps"
+    },
+    {
+      "label": "Internal tools without code: what to build first",
+      "href": "/guides/internal-tools-without-code-what-to-build-first"
+    },
+    {
+      "label": "Internal tool",
+      "href": "/learn/internal-tool"
+    }
+  ],
+  "updated": "2026-11-19"
+}

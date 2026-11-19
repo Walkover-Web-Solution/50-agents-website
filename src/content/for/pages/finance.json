@@ -1,0 +1,102 @@
+{
+  "slug": "finance",
+  "role": "finance teams",
+  "label": "Finance",
+  "kind": "app",
+  "query": "ai agents and automations for finance teams",
+  "title": "AI agents and automations for finance teams | 50agents",
+  "description": "What finance hands to AI first: late invoices chased, each payment logged, a weekly revenue note, failed payments flagged, bills pulled from email.",
+  "h1": "AI agents and automations for finance teams",
+  "answer": [
+    "Finance teams hand off the chasing and the copying first: reminders drafted for late invoices, every Stripe payment logged as a row, and a Monday note on last week’s revenue.",
+    "In 50agents each is one sentence to Captain, built on Stripe, QuickBooks, Xero, Gmail and Google Sheets; nothing that reaches a client or moves money happens without your approval."
+  ],
+  "example": {
+    "kind": "auto",
+    "ask": "Set up an automation: when a Stripe payment fails, email me the customer, amount and failure reason",
+    "build": {
+      "name": "Failed payment alert",
+      "line": "Each failed Stripe payment, in your inbox",
+      "when": "On each failed Stripe payment",
+      "does": [
+        "Reads the customer, amount and reason",
+        "Emails you the details"
+      ],
+      "apps": [
+        "stripe",
+        "gmail"
+      ],
+      "asksFirst": "Nothing: the email goes only to you"
+    }
+  },
+  "jobs": [
+    {
+      "title": "Chase unpaid invoices",
+      "body": "An invoices desk with what is owed, late first. Its AI agent drafts a reminder when a Sent invoice is a day past due and waits for your yes.",
+      "kind": "app",
+      "ask": "Chase my unpaid invoices",
+      "useCase": "chase-unpaid-invoices"
+    },
+    {
+      "title": "Log every payment",
+      "body": "Each successful Stripe payment becomes a row in your Google Sheet with the customer, amount and date.",
+      "kind": "auto",
+      "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
+      "useCase": "stripe-payments-to-google-sheets"
+    },
+    {
+      "title": "A weekly revenue note",
+      "body": "Every Monday at 9:00, an AI agent reads last week in Stripe and emails you the totals and what changed, in words.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
+      "useCase": "weekly-stripe-revenue-summary"
+    },
+    {
+      "title": "Flag failed payments",
+      "body": "When a payment fails in Stripe, email you the customer, the amount and the reason the same minute, so you can reach out before the next attempt.",
+      "kind": "auto",
+      "ask": "Set up an automation: when a Stripe payment fails, email me the customer, amount and failure reason"
+    },
+    {
+      "title": "Pull bills out of email",
+      "body": "When an email with an attachment arrives from a supplier, an AI step reads the supplier, amount and due date and adds a row to your Bills sheet.",
+      "kind": "auto",
+      "ask": "Set up an automation: when an email with an invoice attached arrives in Gmail, read the supplier, amount and due date and add a row to my Bills sheet"
+    }
+  ],
+  "category": "accounting",
+  "apps": [
+    "stripe",
+    "quickbooks",
+    "xero",
+    "zoho-books",
+    "razorpay",
+    "google-sheets",
+    "gmail",
+    "slack"
+  ],
+  "faqs": [
+    {
+      "q": "Is it safe to connect Stripe?",
+      "a": "Connect only what each job needs. Automations that read Stripe events and add rows change nothing in Stripe; anything that would spend or refund money asks first."
+    },
+    {
+      "q": "Can it read invoices from PDFs?",
+      "a": "An AI step can read the text of an email and its attachment details to pull out the supplier, amount and due date. Check the first runs against the documents."
+    },
+    {
+      "q": "Does it replace my accounting software?",
+      "a": "No. It does the chasing, copying and summarising around it. Your books stay in QuickBooks, Xero or Zoho Books."
+    },
+    {
+      "q": "What does it not do yet?",
+      "a": "It does not sync with QuickBooks or Xero as a ledger; it reads their events and actions, and the invoices desk keeps its own copy. It never pays, refunds or transfers on its own; anything that moves money asks you. Reminders go by email, not SMS or WhatsApp."
+    }
+  ],
+  "guides": [
+    "how-to-automate-invoice-reminders",
+    "how-to-build-an-invoice-tracker",
+    "how-to-log-stripe-payments-in-google-sheets"
+  ],
+  "updated": "2026-11-19"
+}

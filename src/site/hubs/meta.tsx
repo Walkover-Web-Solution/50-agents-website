@@ -1,10 +1,10 @@
-// Shared bits for this builder's pages (hubs, index pages, glossary, about, contact): metadata and JSON-LD.
+// Shared bits for this builder's pages (hubs, index pages, glossary, about, contact): metadata, JSON-LD, the byline date.
 import type { Metadata } from 'next';
 
 export const BASE = 'https://50agents.com';
 
-export const longDate = (iso: string) =>
-  new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+/** "November 2026": the only date a page shows, in its byline. */
+export const month = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 export function pageMeta({ path, title, description, ogTitle, index = true }: { path: string; title: string; description: string; ogTitle?: string; index?: boolean }): Metadata {
   const url = `${BASE}${path}`;
@@ -35,7 +35,7 @@ export function appLd({ name, path, description, updated }: { name: string; path
     operatingSystem: 'Web',
     url: `${BASE}${path}`,
     description,
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Every workspace starts free with 2,000 credits.' },
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free to start.' },
     publisher: { '@type': 'Organization', name: '50agents', url: BASE },
     dateModified: updated,
   };

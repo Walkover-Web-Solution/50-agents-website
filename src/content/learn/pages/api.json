@@ -1,0 +1,69 @@
+{
+  "slug": "api",
+  "term": "API",
+  "query": "what is an API",
+  "group": "Building blocks",
+  "title": "What is an API? A plain answer for owners | 50agents",
+  "description": "An API is the set of requests an app accepts from other software, like \"list last week's payments\". Why it decides what you can connect and automate.",
+  "h1": "What is an API?",
+  "definition": [
+    "An API is the published set of requests a piece of software accepts from other software, such as \"list last week's payments\" or \"create a contact\".",
+    "If an app has an API, other tools can read and change its data without anyone opening its screens; if it has none, only something that uses the screens can."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
+    "why": "Every Monday the AI agent asks Stripe's API, through viaSocket, for last week's payments. It never opens Stripe's dashboard; it gets the payments as data.",
+    "build": {
+      "name": "Monday revenue",
+      "line": "last week in Stripe, in one email",
+      "when": "Every Monday at 9:00",
+      "does": [
+        "Reads last week's payments in Stripe",
+        "Compares them with the week before",
+        "Emails you the totals and what changed"
+      ],
+      "apps": [
+        "stripe",
+        "gmail"
+      ],
+      "asksFirst": "Sending the email, at first"
+    }
+  },
+  "vs": {
+    "term": "integration",
+    "href": "/learn/integration",
+    "rows": [
+      {
+        "label": "What it is",
+        "a": "The door an app offers",
+        "b": "A finished connection built on that door"
+      },
+      {
+        "label": "Handles sign-in and field names",
+        "a": "No, you do",
+        "b": "Yes"
+      },
+      {
+        "label": "Who uses it",
+        "a": "Developers and tools",
+        "b": "Anyone who connects the app"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "How to automate a website that has no API",
+      "href": "/guides/how-to-automate-a-website-that-has-no-api"
+    },
+    {
+      "label": "Webhook",
+      "href": "/learn/webhook"
+    },
+    {
+      "label": "MCP",
+      "href": "/learn/mcp"
+    }
+  ],
+  "updated": "2026-11-19"
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "oauth",
+  "term": "OAuth",
+  "query": "what is OAuth",
+  "group": "Building blocks",
+  "title": "What is OAuth? Apps connected without passwords | 50agents",
+  "description": "OAuth lets one app act in another on your behalf without your password: you approve what it may do, and it gets a token you can take back.",
+  "h1": "What is OAuth?",
+  "definition": [
+    "OAuth is the standard way to let one app act in another on your behalf without handing over your password: you sign in to the other app, see what is being asked for, and approve.",
+    "The app then holds a token limited to what you approved, which you can take back at any time from the other app's settings."
+  ],
+  "example": {
+    "kind": "app",
+    "ask": "Chase my unpaid invoices",
+    "why": "The invoices desk sends reminders from your Gmail. Google's own sign-in window lists what is asked for and you approve there; 50agents never sees your Google password.",
+    "build": {
+      "name": "Invoices desk",
+      "line": "what is owed to you, the late ones first",
+      "when": "A day after each invoice is due",
+      "does": [
+        "Lists late invoices, oldest first",
+        "Drafts a polite reminder for each",
+        "Marks it Reminded"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every email to a client"
+    }
+  },
+  "vs": {
+    "term": "Sign in with Google (SSO)",
+    "rows": [
+      {
+        "label": "What it does",
+        "a": "Lets an app act in another app",
+        "b": "Proves who you are to a site"
+      },
+      {
+        "label": "What to read",
+        "a": "The list of permissions",
+        "b": "Which account you use"
+      },
+      {
+        "label": "Take it back",
+        "a": "In the other app's security settings",
+        "b": "Sign out"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "RFC 6749, The OAuth 2.0 Authorization Framework",
+      "href": "https://www.rfc-editor.org/rfc/rfc6749"
+    }
+  ],
+  "links": [
+    {
+      "label": "How to give an AI agent access to your apps safely",
+      "href": "/guides/how-to-give-an-ai-agent-access-to-your-apps-safely"
+    },
+    {
+      "label": "Integration",
+      "href": "/learn/integration"
+    },
+    {
+      "label": "API",
+      "href": "/learn/api"
+    }
+  ],
+  "updated": "2026-11-19"
+}

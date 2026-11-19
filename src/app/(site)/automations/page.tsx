@@ -1,13 +1,12 @@
-// The kind hub at /automations (pages-brief B2). Content: src/content/hubs/automations.ts.
+// The kind hub at /automations. Content: src/content/hubs/pages/automations.json, written by the page pipeline (family "hubs").
 import type { Metadata } from 'next';
 import { hubOf } from '@/content/hubs';
-import { HubPage } from '@/site/hubs/hub';
+import { HubView } from '@/site/hubs/hub';
 import { pageMeta } from '@/site/hubs/meta';
-import '@/site/css/hubs.css';
 
-const hub = hubOf('/automations');
-export const metadata: Metadata = pageMeta({ path: hub.path, title: hub.title, description: hub.description, ogTitle: hub.h1 });
+const hub = hubOf('automations');
+export const metadata: Metadata = pageMeta({ path: '/automations', title: hub.title, description: hub.description, ogTitle: hub.h1 });
 
 export default function Page() {
-  return <HubPage hub={hub} />;
+  return <HubView h={hub} />;
 }

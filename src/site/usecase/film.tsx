@@ -25,7 +25,7 @@ export function PromptFilm({ ask, button, children }: { ask: string; button: Rea
     return () => { live = false; io.disconnect(); };
   }, [ask]);
   return (
-    <div ref={ref} className={`film ${stage}`}>
+    <div ref={ref} className={`film is-${stage}`}>
       <div className="film-box">
         <span className="film-cap" aria-hidden="true">Captain</span>
         <p className="film-text"><span className="sr">{ask}</span><span aria-hidden="true">{typed}</span><i className="caret" aria-hidden="true" /></p>

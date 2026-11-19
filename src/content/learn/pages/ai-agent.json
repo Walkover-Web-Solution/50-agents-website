@@ -1,0 +1,69 @@
+{
+  "slug": "ai-agent",
+  "term": "AI agent",
+  "query": "what is an AI agent",
+  "group": "AI that acts",
+  "title": "What is an AI agent? A plain definition | 50agents",
+  "description": "An AI agent is software with a goal, instructions and tools that decides on each run which steps to take. A plain definition and a real example.",
+  "h1": "What is an AI agent?",
+  "definition": [
+    "An AI agent is software that is given a goal, instructions and access to tools, and decides on each run which steps to take to reach that goal.",
+    "Where a fixed automation does the same thing every time, an AI agent reads the situation first and chooses: which email needs a reply, which deal has gone quiet, what the reply should say."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+    "why": "Each weekday it decides which deals have really gone quiet and what to say to each. That choice on every run is what makes it an AI agent.",
+    "build": {
+      "name": "Deal follow-ups",
+      "line": "quiet deals, a follow-up drafted for each",
+      "when": "Every weekday at 9:00",
+      "does": [
+        "Finds deals quiet for 5 days",
+        "Reads your last Gmail thread",
+        "Drafts a follow-up to approve"
+      ],
+      "apps": [
+        "hubspot",
+        "gmail"
+      ],
+      "asksFirst": "Every email it would send"
+    }
+  },
+  "vs": {
+    "term": "AI assistant",
+    "href": "/learn/ai-assistant",
+    "rows": [
+      {
+        "label": "Who starts the work",
+        "a": "Its own schedule, or you in its chat",
+        "b": "You, with each message"
+      },
+      {
+        "label": "When you leave",
+        "a": "Keeps working",
+        "b": "Stops"
+      },
+      {
+        "label": "In 50agents",
+        "a": "What Captain builds for you",
+        "b": "Captain, the one you talk to"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "AI agents",
+      "href": "/ai-agents"
+    },
+    {
+      "label": "How to build an AI agent without code",
+      "href": "/guides/how-to-build-an-ai-agent-without-code"
+    },
+    {
+      "label": "Agentic AI",
+      "href": "/learn/agentic-ai"
+    }
+  ],
+  "updated": "2026-11-19"
+}

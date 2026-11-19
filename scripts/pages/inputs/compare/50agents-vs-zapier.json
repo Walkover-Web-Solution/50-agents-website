@@ -1,0 +1,273 @@
+{
+ "row": {
+  "slug": "50agents-vs-zapier",
+  "type": "versus",
+  "tool": "zapier",
+  "query": "50agents vs zapier",
+  "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
+  "rows": [
+   "apps",
+   "prompt",
+   "fixed",
+   "aiAgent",
+   "browser",
+   "approval",
+   "code",
+   "export"
+  ],
+  "own": "50agents is built for a different starting point: you do not know or care how the steps fit together."
+ },
+ "tools": {
+  "fifty": {
+   "id": "fifty",
+   "name": "50agents",
+   "site": "https://50agents.com",
+   "what": {
+    "fact": "You tell Captain what you need in plain words, and it builds an app, an automation, an AI agent or a browser agent that does the work in your real apps.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "Every workspace starts free with 2,000 credits.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "$1 buys 1,000 credits; you pay for the AI and app work you use.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "2,300+ apps through viaSocket.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "cells": {
+    "free": {
+     "v": "yes",
+     "note": "Every workspace starts free with 2,000 credits",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "price": {
+     "v": "text",
+     "note": "$1 buys 1,000 credits",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "apps": {
+     "v": "text",
+     "note": "2,300+ apps through viaSocket",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "prompt": {
+     "v": "yes",
+     "note": "Captain builds it from what you say in plain words",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "aiAgent": {
+     "v": "yes",
+     "note": "Instructions, connected apps, a schedule or trigger, its own chat",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "browser": {
+     "v": "yes",
+     "note": "Browser agents read and use websites that have no app to connect",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "appBuilder": {
+     "v": "yes",
+     "note": "Lists, boards, tables and numbers, run by a crew of AI agents",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "database": {
+     "v": "yes",
+     "note": "An app keeps its records in 50agents; import and export CSV",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "publicApps": {
+     "v": "no",
+     "note": "Apps are for the people in your workspace",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "fixed": {
+     "v": "yes",
+     "note": "Automations run the same steps every time, on an event or a schedule",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "approval": {
+     "v": "yes",
+     "note": "Anything that reaches people outside, spends money or changes access waits for your yes",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "handEdit": {
+     "v": "no",
+     "note": "You see every step, but changes go through chat",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "code": {
+     "v": "no",
+     "note": "Steps are fixed blocks; there is no code step",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "export": {
+     "v": "partly",
+     "note": "App records export as CSV; automations and AI agents do not export",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    }
+   },
+   "limits": [
+    {
+     "fact": "It is new, so it has far fewer finished examples and much less community help than older tools.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "There is no drag-and-drop editor. You see each step, and you change it by asking Captain.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "There are no code steps.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Apps are for your own workspace; there are no customer portals or custom domains.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": []
+  },
+  "zapier": {
+   "id": "zapier",
+   "name": "Zapier",
+   "site": "https://zapier.com",
+   "what": {
+    "fact": "Automated workflows across a very large app catalog, and AI agents that take action.",
+    "url": "https://zapier.com/",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "Free plan: 100 tasks a month, two-step Zaps only, 15-minute polling.",
+    "url": "https://zapier.com/pricing",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "Professional: $19.99 a month billed yearly, or $29.99 billed monthly, for 750 tasks a month.",
+    "url": "https://zapier.com/pricing",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "\"Zapier connects 10541+ apps.\"",
+    "url": "https://zapier.com/apps",
+    "read": "19 Nov 2026"
+   },
+   "cells": {
+    "free": {
+     "v": "yes",
+     "note": "100 tasks a month, two-step Zaps",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "price": {
+     "v": "text",
+     "note": "$19.99 a month billed yearly (750 tasks)",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "apps": {
+     "v": "text",
+     "note": "10,541+ apps",
+     "url": "https://zapier.com/apps",
+     "read": "19 Nov 2026"
+    },
+    "prompt": {
+     "v": "yes",
+     "note": "Copilot builds Zaps from chat",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "aiAgent": {
+     "v": "yes",
+     "note": "Zapier Agents, billed in activities",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "browser": {
+     "v": "partly",
+     "note": "The Zapier Agents Chrome extension works on the page you have open",
+     "url": "https://help.zapier.com/hc/en-us/articles/29025734470925-Use-Zapier-Agents-Chrome-extension",
+     "read": "19 Nov 2026"
+    },
+    "fixed": {
+     "v": "yes",
+     "note": "Workflows",
+     "url": "https://zapier.com/",
+     "read": "19 Nov 2026"
+    },
+    "approval": {
+     "v": "yes",
+     "note": "Human in the Loop, on Professional and up",
+     "url": "https://help.zapier.com/hc/en-us/articles/38731463206029-Request-approval-to-keep-your-workflow-running-with-Human-in-the-Loop",
+     "read": "19 Nov 2026"
+    },
+    "code": {
+     "v": "yes",
+     "note": "JavaScript or Python steps",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "export": {
+     "v": "partly",
+     "note": "JSON export of Zaps on Team and Enterprise only",
+     "url": "https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account",
+     "read": "19 Nov 2026"
+    }
+   },
+   "limits": [
+    {
+     "fact": "Every action step counts as a task, code and AI steps included, so a five-step Zap uses up to five tasks a run.",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Exporting Zaps as JSON is only on Team and Enterprise; Free and Professional cannot export.",
+     "url": "https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": [
+    {
+     "fact": "It connects far more apps: 10,541+ against 50agents' 2,300+.",
+     "url": "https://zapier.com/apps",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Mature admin controls for large companies, such as SCIM and role-based access.",
+     "url": "https://zapier.com/",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "move": {
+    "fact": "Team and Enterprise accounts can export Zaps as JSON.",
+    "url": "https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account",
+    "read": "19 Nov 2026"
+   }
+  }
+ },
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Memory\n- The workspace remembers facts about the business (hours, prices, policies, people, tone) and documents, pasted text and links you give it; AI agents answer from these.\n- Each AI agent, app and automation has its own memory: instructions, what it learned, lessons from your corrections, its last runs. You can see, correct or forget any item.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

@@ -1,12 +1,15 @@
-// A category of the A to Z (pages-brief B8): one of 20 curated categories, its members mapped from the catalog's own labels.
+// A category of the A to Z, v3 (D253): one of 20 curated categories, its members mapped from the catalog's own labels.
+// A centred head, one search, the apps as a calm logo grid (most used first), a few real recipes, the other categories.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Crumbs, Face, MaybeLink } from '@/site/parts';
+import { Crumbs, KINDS, MaybeLink } from '@/site/parts';
+import { StickyBar } from '@/site/sticky';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { BuildLink } from '@/site/integrations/build-link';
-import { catalog, loadApp, nameOf, readDate, recipeAsk, topRecipes, type Recipe } from '@/site/integrations/data';
+import { catalog, loadApp, nameOf, recipeAsk, topRecipes, type Recipe } from '@/site/integrations/data';
 import { DirSearch } from '@/site/integrations/dir-search';
-import { BASE, crumbsLd, LdScript, Logo, RecipeRow } from '@/site/integrations/parts';
+import { AppGrid, BASE, CategoryCards, crumbsLd, Final, LdScript, RecipeRows } from '@/site/integrations/parts';
+import '@/site/css/usecase.css';
 import '@/site/css/integrations.css';
 
 export const dynamicParams = false;
@@ -47,7 +50,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
   if (!d) notFound();
   const { c, members } = d;
   const read = catalog().read;
-  const sorted = [...members].sort((a, b) => a.n.localeCompare(b.n, 'en', { sensitivity: 'base' }));
   // One top recipe from each of the best known members that has one, so the examples span the category.
   const examples: Recipe[] = [];
   for (const m of members) {
@@ -58,76 +60,41 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
   }
   const top = members.slice(0, 3).map(m => m.n);
   const ask = examples[0] ? recipeAsk(examples[0], nameOf) : `Tell me what you would build with my ${c.short} apps`;
-  const others = CATEGORIES.filter(x => x.slug !== c.slug);
-  const h1 = `${c.name} integrations for AI agents and automations`;
   const page = `category-${c.slug}`;
+  const C = 'seo-category' as const;
 
   return (
-    <div className="page ig">
+    <div className="page uc3 ig3" style={{ ['--k' as string]: KINDS.auto.tint }}>
       <LdScript data={crumbsLd([{ name: 'Home', path: '' }, { name: 'Integrations', path: '/integrations' }, { name: c.name, path: `/integrations/category/${c.slug}` }])} />
-      <div className="wrap">
-        <Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations', href: '/integrations' }, { label: c.name }]} />
-      </div>
+      <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations', href: '/integrations' }, { label: c.name }]} /></div>
 
-      <section className="wrap" style={{ paddingTop: 36 }}>
-        <div className="sec-head" style={{ maxWidth: 840 }}>
-          <h1>{h1}</h1>
-          <p className="answer" style={{ color: 'var(--ink)' }}>
-            50agents builds automations, AI agents and apps on {c.short} apps such as {list(top)}, through viaSocket. {c.about}
-          </p>
-        </div>
-        <nav className="ig-cats" aria-label="Categories">
-          <MaybeLink href="/integrations">All apps</MaybeLink>
-          {CATEGORIES.map(x => x.slug === c.slug ? <span key={x.slug} aria-current="page">{x.name}</span> : <MaybeLink key={x.slug} href={`/integrations/category/${x.slug}`}>{x.name}</MaybeLink>)}
-        </nav>
+      <section className="wrap uc3-hero ig3-hero ig3-dir-hero">
+        <h1>{c.name} integrations for AI agents and automations</h1>
+        <p className="answer">50agents builds automations, AI agents and apps on {c.short} apps such as {list(top)}, through viaSocket. {c.about}</p>
+        <div className="ig3-search"><DirSearch label={`Search ${c.short} apps`} /></div>
+      </section>
+
+      <section className="wrap sec ig3-az" aria-label={`${c.name} apps`}>
+        <div className="sec-h c"><h2>{c.name} apps</h2><p>Most used first. Each has its own page with every trigger, action and recipe.</p></div>
+        <div data-letter="all"><AppGrid apps={members} /></div>
       </section>
 
       {examples.length > 0 && (
-        <section className="wrap band" style={{ paddingTop: 56 }} id="recipes">
-          <div className="sec-head">
-            <h2>What people build with {c.short} apps</h2>
-            <p>One ready recipe from each of the most used {c.short} apps. Each is a real trigger and action from the catalog.</p>
-          </div>
-          <ul className="ig-recs">
-            {examples.map((r, i) => <RecipeRow key={i} r={r} page={page} place={`recipe-${i + 1}`} campaign="seo-category" />)}
-          </ul>
+        <section className="wrap sec" id="recipes" data-hide-on-search>
+          <div className="sec-h c"><h2>What people build with {c.short} apps</h2><p>One ready recipe from each of the most used {c.short} apps. Build this puts it in Captain&rsquo;s box.</p></div>
+          <RecipeRows recipes={examples} page={page} campaign={C} />
         </section>
       )}
 
-      <section className="wrap band" style={{ paddingTop: 56 }} aria-label={`${c.name} apps`}>
-        <div className="ig-dir-tools">
-          <DirSearch label={`Search ${c.short} apps`} />
-        </div>
-        <div className="ig-letter" data-letter="all" style={{ paddingTop: 20 }}>
-          <h2>{c.name} apps, A to Z</h2>
-          <ul className="ig-grid">
-            {sorted.map(a => (
-              <li key={a.s} data-app={`${a.n} ${a.s}`.toLowerCase()}>
-                <a href={`/integrations/${a.s}`} className="ig-tile"><Logo slug={a.s} size={24} /><b>{a.n}</b></a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <p className="src">Members are the apps viaSocket&rsquo;s catalog labels {c.name.toLowerCase()} (its labels mapped into 20 categories), read {readDate(read)}.</p>
+      <section className="wrap sec" id="categories">
+        <div className="sec-h c"><h2>Other categories</h2></div>
+        <CategoryCards cats={CATEGORIES.filter(x => x.slug !== c.slug)} />
+        <p className="uc3-more-apps"><MaybeLink href="/integrations">Every app, A to Z</MaybeLink></p>
       </section>
 
-      <section className="wrap band" id="related">
-        <h2>Other categories</h2>
-        <p className="also">{others.slice(0, 8).map((x, i) => <span key={x.slug}>{i ? ' · ' : ''}<MaybeLink href={`/integrations/category/${x.slug}`}>{x.name}</MaybeLink></span>)} · Up: <MaybeLink href="/integrations">All integrations, A to Z</MaybeLink></p>
-      </section>
+      <Final h2={`Build on your ${c.short} apps`} p="Tell Captain the job in plain words. Free to start." ask={ask} page={page} campaign={C} updated={read} />
 
-      <section className="wrap">
-        <div className="final">
-          <h2>Build on your {c.short} apps</h2>
-          <p>Tell Captain the job in plain words. Every workspace starts free with 2,000 credits.</p>
-          <BuildLink page={page} place="final" campaign="seo-category" ask={ask} />
-          <span className="peek l" aria-hidden="true"><Face id="keeper" size={52} /><Face id="writer" size={44} /></span>
-          <span className="peek r" aria-hidden="true"><Face id="scout" size={50} /><Face id="sorter" size={46} /></span>
-        </div>
-        <p className="byline">By the 50agents team · Last updated {readDate(read)} · From viaSocket&rsquo;s catalog, read {readDate(read)}. {nameOf(members[0]?.s ?? '')} and the rest each have their own page with every trigger and action.</p>
-      </section>
-
-      <div className="sticky"><span>{c.name} apps</span><BuildLink page={page} place="sticky" campaign="seo-category" ask={ask} className="btn">Build it</BuildLink></div>
+      <StickyBar><span>{c.name} apps</span><BuildLink page={page} place="sticky" campaign={C} ask={ask} className="btn">Build it</BuildLink></StickyBar>
     </div>
   );
 }

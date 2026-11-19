@@ -1,0 +1,68 @@
+{
+  "slug": "trigger",
+  "term": "Trigger",
+  "query": "what is a trigger in automation",
+  "group": "Automation",
+  "title": "What is a trigger in automation? With examples | 50agents",
+  "description": "A trigger is the event that starts an automation: a new order, a new contact, 9:00 on Monday. The three kinds, and why some are not instant.",
+  "h1": "What is a trigger in automation?",
+  "definition": [
+    "A trigger is the event that starts an automation: a new order in Shopify, a new contact in HubSpot, 9:00 on a Monday.",
+    "Every automation has at least one, and nothing in it runs until a trigger fires."
+  ],
+  "example": {
+    "kind": "auto",
+    "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
+    "why": "The trigger is a new order in Shopify. It hands the next step the order, its items and total, and that step writes them into a row.",
+    "build": {
+      "name": "Orders sheet",
+      "line": "every Shopify order, rows you choose",
+      "when": "When a new order is placed in Shopify",
+      "does": [
+        "Lists each item, variant and quantity",
+        "Adds one row per order or item",
+        "Writes the order total"
+      ],
+      "apps": [
+        "shopify",
+        "google-sheets"
+      ],
+      "asksFirst": "Nothing outside your own sheet"
+    }
+  },
+  "vs": {
+    "term": "a condition (filter)",
+    "rows": [
+      {
+        "label": "What it decides",
+        "a": "When a run starts",
+        "b": "Whether the run carries on"
+      },
+      {
+        "label": "Example",
+        "a": "A new order in Shopify",
+        "b": "Only orders over $500"
+      },
+      {
+        "label": "Where it sits",
+        "a": "First",
+        "b": "After the trigger"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "Automations",
+      "href": "/automations"
+    },
+    {
+      "label": "Action",
+      "href": "/learn/action"
+    },
+    {
+      "label": "Webhook",
+      "href": "/learn/webhook"
+    }
+  ],
+  "updated": "2026-11-19"
+}

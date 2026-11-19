@@ -1,0 +1,121 @@
+{
+  "slug": "make-alternatives",
+  "type": "alternatives",
+  "tool": "make",
+  "query": "make.com alternatives",
+  "title": "Make alternatives, with checked prices | 50agents",
+  "description": "Make alternatives: n8n for long scenarios, Activepieces for a flat bill, Zapier for more apps, and 50agents to build from plain words. Prices checked.",
+  "h1": "Make.com alternatives",
+  "answer": [
+    "If Make's credits run out because every module costs one, n8n charges one execution for a whole run, and Activepieces gives 10,000 credits for $20 a month flat.",
+    "If you need more apps than Make's 3,500+, Zapier lists 10,541+; if you are tired of building scenarios module by module, 50agents builds the automation from plain words."
+  ],
+  "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
+  "lede": "Make bills by credit, and on its pricing page most actions consume one, so every module adds to the cost of each run.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "suits": "People who use Make for the usual jobs, a new order to a sheet or a new lead to Slack, and are tired of mapping fields by hand.",
+      "price": "Free to start",
+      "limit": "No canvas, no routers to drag, no iterators set by hand. If you tuned nested branches and error handlers yourself, Make still does that better.",
+      "limitUrl": "https://www.make.com/en"
+    },
+    {
+      "tool": "n8n",
+      "suits": "Make users comfortable with a bit of JavaScript who run long scenarios. The canvas will feel familiar, and one run of the whole workflow is one execution.",
+      "price": "No free cloud plan. Starter: €20 a month billed yearly (2.5K executions)",
+      "limit": "No free cloud plan, and the cloud prices are in euros and billed yearly.",
+      "limitUrl": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "zapier",
+      "suits": "Teams who want the widest app coverage and a simpler, linear editor that more people on the team can follow.",
+      "price": "Free: 100 tasks a month. Professional: $19.99 a month billed yearly (750 tasks)",
+      "limit": "Zapier counts each action step as a task, so long multi-step work usually costs more than on Make.",
+      "limitUrl": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "activepieces",
+      "suits": "Small teams who want a predictable bill: a flat price for up to 5 users, with the option to self-host later.",
+      "price": "Free: 1,000 credits, up to 5 users. Plus: $20 a month flat (10,000 credits)",
+      "limit": "770+ apps, well under Make's 3,500+.",
+      "limitUrl": "https://www.activepieces.com/"
+    },
+    {
+      "tool": "powerautomate",
+      "suits": "Teams whose scenarios mostly move data between Outlook, SharePoint, Teams and Excel, where Microsoft's own connectors are deepest.",
+      "price": "Free for cloud flows with standard connectors. Premium: $15.00 per user a month, paid yearly",
+      "limit": "Non-Microsoft apps often need premium connectors, at $15 per user a month paid yearly.",
+      "limitUrl": "https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing"
+    },
+    {
+      "tool": "gumloop",
+      "suits": "Teams who started with Make's AI modules and found they want an AI agent with tools, not a fixed path.",
+      "price": "No free plan. Pro: $37 a month (20,000 credits)",
+      "limit": "There is no free plan: the 14-day trial needs a card and turns into a paid plan unless you cancel.",
+      "limitUrl": "https://docs.gumloop.com/core-concepts/credits.md"
+    }
+  ],
+  "pick": {
+    "us": [
+      "Most of your scenarios are simple and you would rather say them than build them.",
+      "The person who needs the automation is not the person who builds scenarios.",
+      "You want sends to customers to wait for your approval by default."
+    ],
+    "them": [
+      "You build complex scenarios with routers, iterators and error handlers, and you like seeing them. Make's canvas is still the best place for that.",
+      "You have many scenarios saved as blueprints and a team that knows them. The migration cost is real.",
+      "Your apps are in Make's 3,500+ and not in the others'."
+    ]
+  },
+  "move": [
+    {
+      "title": "Export blueprints",
+      "body": "In each scenario, export the blueprint (.json). It imports back into Make only, but it records every module, filter and mapping, which is what you rebuild from."
+    },
+    {
+      "title": "Find the credit-hungry scenarios",
+      "body": "Open your usage, sort scenarios by credits used and start with the top three. They decide whether the move saves money."
+    },
+    {
+      "title": "Rebuild one and compare outputs",
+      "body": "Describe the scenario to Captain as you would to a colleague, then check its test run against the last real bundle in Make's history."
+    },
+    {
+      "title": "Switch off in Make",
+      "body": "Once a week of runs match, turn the scenario off in Make. Keep the blueprint."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is cheaper than Make?",
+      "a": "For long scenarios, n8n, because it bills per run, not per module. For a small team, Activepieces is $20 a month flat for 10,000 credits. Both have limits, listed in the table."
+    },
+    {
+      "q": "Does Make have a free plan?",
+      "a": "Yes: 1,000 credits a month. Its own comparison page says paid plans start at $9 a month for 10,000 credits (Core)."
+    },
+    {
+      "q": "Can I move Make scenarios to another tool automatically?",
+      "a": "No. Blueprints import only into Make. Every alternative means rebuilding, so start with the scenarios that cost the most."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/50agents-vs-make",
+      "title": "50agents vs Make",
+      "line": "The canvas against plain words, row by row"
+    },
+    {
+      "href": "/compare/zapier-alternatives",
+      "title": "Zapier alternatives",
+      "line": "The same question from the Zapier side"
+    },
+    {
+      "href": "/compare/n8n-alternatives",
+      "title": "n8n alternatives",
+      "line": "If n8n is on your shortlist"
+    }
+  ],
+  "updated": "2026-11-19"
+}

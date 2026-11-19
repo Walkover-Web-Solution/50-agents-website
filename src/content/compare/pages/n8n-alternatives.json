@@ -1,0 +1,118 @@
+{
+  "slug": "n8n-alternatives",
+  "type": "alternatives",
+  "tool": "n8n",
+  "query": "n8n alternatives",
+  "title": "n8n alternatives, with checked prices | 50agents",
+  "description": "n8n alternatives: Activepieces to keep self-hosting, Make and Zapier to stop running servers, Gumloop for AI agents, 50agents to build from plain words.",
+  "h1": "n8n alternatives",
+  "answer": [
+    "If you want to keep self-hosting under a plain MIT licence, Activepieces is the closest n8n alternative; if you want to stop running servers, Make and Zapier are the mature hosted choices.",
+    "If your workflows are mostly AI agents, look at Gumloop; if the person who needs the automation cannot build it, 50agents lets them describe it in plain words."
+  ],
+  "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
+  "lede": "Self-hosting is n8n's strength and its cost: someone has to run the servers, and most changes wait for the developer.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "suits": "The ops lead or founder who keeps asking the developer for one more workflow. They tell Captain what they need, check the plan and the test run, and approve it.",
+      "price": "Free to start",
+      "limit": "For an n8n user this is the big one: no code steps, no self-hosting and no canvas to edit by hand.",
+      "limitUrl": "https://50agents.com"
+    },
+    {
+      "tool": "activepieces",
+      "suits": "Developers who like n8n's model but want an MIT-licensed core, Docker or Kubernetes installs (air-gapped too), and TypeScript written inline in a step.",
+      "price": "Free: 1,000 credits, up to 5 users. Plus: $20 a month flat (10,000 credits)",
+      "limit": "770+ apps against n8n's 2,829 listed integrations, and AI steps cost 2 to 20 credits each depending on the model.",
+      "limitUrl": "https://www.activepieces.com/pricing"
+    },
+    {
+      "tool": "make",
+      "suits": "Teams who want n8n's visual canvas without running it. Make's scenarios also branch and loop, take JavaScript or Python, and export as JSON blueprints.",
+      "price": "Free: 1,000 credits a month. Core: from $9 a month (10,000 credits)",
+      "limit": "Billing is per credit and most actions use one, so a long scenario costs more per run than the same workflow does as one n8n execution.",
+      "limitUrl": "https://www.make.com/en/pricing"
+    },
+    {
+      "tool": "zapier",
+      "suits": "Teams who want the least setup and the longest list of apps (10,541+), with code steps in JavaScript or Python for the edges.",
+      "price": "Free: 100 tasks a month. Professional: $19.99 a month billed yearly (750 tasks)",
+      "limit": "Every action step is a task. Long n8n workflows with dozens of nodes get expensive quickly when each node becomes a task.",
+      "limitUrl": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "gumloop",
+      "suits": "Teams whose n8n canvases are mostly an AI Agent node with tools hung off it. Gumloop is built around shared AI agents, with a code sandbox and a cloud browser.",
+      "price": "No free plan. Pro: $37 a month (20,000 credits)",
+      "limit": "No free plan (a 14-day trial with a card), and AI agents stop when the credit overage cap is reached.",
+      "limitUrl": "https://docs.gumloop.com/core-concepts/credits.md"
+    }
+  ],
+  "pick": {
+    "us": [
+      "The people who need workflows are not developers, and you want them to build their own without touching a canvas.",
+      "You would rather not run, update and back up a server for your automations.",
+      "Some jobs need records and screens of their own, not only a workflow."
+    ],
+    "them": [
+      "Your data cannot leave your network. Self-hosted n8n keeps runs and credentials on your own servers.",
+      "Your workflows are long. One execution per run, however many steps, is hard to beat at volume.",
+      "You lean on the Code node and custom HTTP calls."
+    ]
+  },
+  "move": [
+    {
+      "title": "Export the workflows as JSON",
+      "body": "Download each workflow from its menu, or export them all with n8n's command line. The JSON is your record of every node and setting, even if the tool you move to cannot import it."
+    },
+    {
+      "title": "Sort them by who changes them",
+      "body": "Workflows only developers touch can stay in n8n or move to Activepieces. Workflows that business people keep asking to change are the ones to move to a tool they can use themselves."
+    },
+    {
+      "title": "Recreate credentials, not just steps",
+      "body": "Credentials do not travel. Make a list of every app connection a workflow uses and reconnect each one in the new tool before you rebuild."
+    },
+    {
+      "title": "Run in parallel, then deactivate",
+      "body": "Keep the n8n workflow active until the new one has handled a week of real events, compare outputs, then deactivate in n8n. Keep the JSON."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the best open-source alternative to n8n?",
+      "a": "Activepieces. Its core is MIT-licensed and it self-hosts with Docker or Kubernetes, including air-gapped installs. Activepieces lists 770+ apps against n8n's 2,829."
+    },
+    {
+      "q": "Is n8n free?",
+      "a": "n8n's pricing page lists no free cloud plan: there is a trial with 1,000 executions, and Starter is €20 a month billed yearly. It says a self-hosted version is available on GitHub."
+    },
+    {
+      "q": "What is easier than n8n for non-developers?",
+      "a": "Zapier and Make are easier to learn, with editors built for people who do not code. 50agents removes the building step: you describe the job in plain words and approve the plan Captain shows."
+    },
+    {
+      "q": "Can I import n8n workflows into another tool?",
+      "a": "Not as they are. n8n workflows download as JSON, which only n8n reads, so treat the file as your record of every node and setting while you rebuild."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/50agents-vs-n8n",
+      "title": "50agents vs n8n",
+      "line": "Self-hosted workflows against built from plain words"
+    },
+    {
+      "href": "/compare/activepieces-alternatives",
+      "title": "Activepieces alternatives",
+      "line": "If you are weighing the open-source options"
+    },
+    {
+      "href": "/compare/pipedream-alternatives",
+      "title": "Pipedream alternatives",
+      "line": "For developers whose Pipedream workflows are closing"
+    }
+  ],
+  "updated": "2026-11-19"
+}

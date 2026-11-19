@@ -1,0 +1,625 @@
+{
+ "row": {
+  "slug": "activepieces-alternatives",
+  "type": "alternatives",
+  "tool": "activepieces",
+  "query": "activepieces alternatives",
+  "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
+  "tools": [
+   "fifty",
+   "n8n",
+   "make",
+   "zapier",
+   "powerautomate"
+  ],
+  "own": "Why people outgrow Activepieces"
+ },
+ "tools": {
+  "fifty": {
+   "id": "fifty",
+   "name": "50agents",
+   "site": "https://50agents.com",
+   "what": {
+    "fact": "You tell Captain what you need in plain words, and it builds an app, an automation, an AI agent or a browser agent that does the work in your real apps.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "Every workspace starts free with 2,000 credits.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "$1 buys 1,000 credits; you pay for the AI and app work you use.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "2,300+ apps through viaSocket.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "cells": {
+    "free": {
+     "v": "yes",
+     "note": "Every workspace starts free with 2,000 credits",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "price": {
+     "v": "text",
+     "note": "$1 buys 1,000 credits",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "apps": {
+     "v": "text",
+     "note": "2,300+ apps through viaSocket",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "prompt": {
+     "v": "yes",
+     "note": "Captain builds it from what you say in plain words",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "aiAgent": {
+     "v": "yes",
+     "note": "Instructions, connected apps, a schedule or trigger, its own chat",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "browser": {
+     "v": "yes",
+     "note": "Browser agents read and use websites that have no app to connect",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "appBuilder": {
+     "v": "yes",
+     "note": "Lists, boards, tables and numbers, run by a crew of AI agents",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "database": {
+     "v": "yes",
+     "note": "An app keeps its records in 50agents; import and export CSV",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "publicApps": {
+     "v": "no",
+     "note": "Apps are for the people in your workspace",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "fixed": {
+     "v": "yes",
+     "note": "Automations run the same steps every time, on an event or a schedule",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "approval": {
+     "v": "yes",
+     "note": "Anything that reaches people outside, spends money or changes access waits for your yes",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "handEdit": {
+     "v": "no",
+     "note": "You see every step, but changes go through chat",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "code": {
+     "v": "no",
+     "note": "Steps are fixed blocks; there is no code step",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "export": {
+     "v": "partly",
+     "note": "App records export as CSV; automations and AI agents do not export",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    }
+   },
+   "limits": [
+    {
+     "fact": "It is new, so it has far fewer finished examples and much less community help than older tools.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "There is no drag-and-drop editor. You see each step, and you change it by asking Captain.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "There are no code steps.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Apps are for your own workspace; there are no customer portals or custom domains.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": []
+  },
+  "activepieces": {
+   "id": "activepieces",
+   "name": "Activepieces",
+   "site": "https://www.activepieces.com",
+   "what": {
+    "fact": "Open-source automations and AI agents, hosted or on your own servers, with an MIT-licensed core.",
+    "url": "https://www.activepieces.com/",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "Free: 1,000 credits, unlimited flows, up to 5 users, no card.",
+    "url": "https://www.activepieces.com/pricing",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "Plus: $20 a month flat for 10,000 credits and up to 5 users. Team: $200 a month for 50,000 credits and 25 users.",
+    "url": "https://www.activepieces.com/pricing",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "\"770+ apps.\"",
+    "url": "https://www.activepieces.com/",
+    "read": "19 Nov 2026"
+   },
+   "cells": {},
+   "limits": [
+    {
+     "fact": "AI steps cost 2, 10 or 20 credits depending on the model, so AI-heavy flows use up the free credits fast.",
+     "url": "https://www.activepieces.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "770+ apps is a smaller catalog than Zapier, Make or n8n.",
+     "url": "https://www.activepieces.com/",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": [
+    {
+     "fact": "Open source and self-hostable with Docker Compose or Kubernetes.",
+     "url": "https://www.activepieces.com/docs/install/overview",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Self-hosting includes air-gapped installs.",
+     "url": "https://www.activepieces.com/",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Flat team pricing rather than per user.",
+     "url": "https://www.activepieces.com/pricing",
+     "read": "19 Nov 2026"
+    }
+   ]
+  },
+  "n8n": {
+   "id": "n8n",
+   "name": "n8n",
+   "site": "https://n8n.io",
+   "what": {
+    "fact": "A workflow builder for technical teams, with an AI Agent node, that you can run in n8n's cloud or on your own servers.",
+    "url": "https://n8n.io/pricing/",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "No free cloud plan: a free trial with 1,000 executions. A self-hosted version is \"available on GitHub\".",
+    "url": "https://n8n.io/pricing/",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "Starter: €20 a month billed yearly, for 2.5K workflow executions. Pro: €50 a month billed yearly, for 10K.",
+    "url": "https://n8n.io/pricing/",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "The integrations directory lists 2829 integrations.",
+    "url": "https://n8n.io/integrations/",
+    "read": "19 Nov 2026"
+   },
+   "cells": {
+    "free": {
+     "v": "partly",
+     "note": "Cloud trial with 1,000 executions; self-hosted version on GitHub",
+     "url": "https://n8n.io/pricing/",
+     "read": "19 Nov 2026"
+    },
+    "price": {
+     "v": "text",
+     "note": "€20 a month billed yearly (2.5K executions)",
+     "url": "https://n8n.io/pricing/",
+     "read": "19 Nov 2026"
+    },
+    "apps": {
+     "v": "text",
+     "note": "2,829 integrations listed",
+     "url": "https://n8n.io/integrations/",
+     "read": "19 Nov 2026"
+    },
+    "prompt": {
+     "v": "yes",
+     "note": "The AI Assistant helps create and edit workflows",
+     "url": "https://docs.n8n.io/build/ways-of-building-workflows/ai-assistant",
+     "read": "19 Nov 2026"
+    },
+    "aiAgent": {
+     "v": "yes",
+     "note": "AI Agent node on all plans",
+     "url": "https://n8n.io/pricing/",
+     "read": "19 Nov 2026"
+    },
+    "appBuilder": {
+     "v": "partly",
+     "note": "Data tables, no app screens",
+     "url": "https://docs.n8n.io/build/work-with-data/data-tables",
+     "read": "19 Nov 2026"
+    },
+    "fixed": {
+     "v": "yes",
+     "note": "Workflows",
+     "url": "https://n8n.io/",
+     "read": "19 Nov 2026"
+    },
+    "approval": {
+     "v": "yes",
+     "note": "Human approval for tool calls",
+     "url": "https://n8n.io/pricing/",
+     "read": "19 Nov 2026"
+    },
+    "handEdit": {
+     "v": "yes",
+     "note": "A visual builder",
+     "url": "https://n8n.io/",
+     "read": "19 Nov 2026"
+    },
+    "code": {
+     "v": "yes",
+     "note": "Code node in JavaScript or Python",
+     "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code",
+     "read": "19 Nov 2026"
+    },
+    "selfHost": {
+     "v": "yes",
+     "note": "Self-host on your own servers",
+     "url": "https://n8n.io/",
+     "read": "19 Nov 2026"
+    },
+    "export": {
+     "v": "yes",
+     "note": "Workflows download as JSON",
+     "url": "https://docs.n8n.io/workflows/export-import/",
+     "read": "19 Nov 2026"
+    }
+   },
+   "limits": [
+    {
+     "fact": "There is no free cloud plan, and Starter is capped at 2.5K executions a month.",
+     "url": "https://n8n.io/pricing/",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Prices are shown in euros and billed yearly; the Business plan (€667 a month) is self-hosted only.",
+     "url": "https://n8n.io/pricing/",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": [
+    {
+     "fact": "You can run it on your own servers and keep every run and credential in your own network.",
+     "url": "https://n8n.io/",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "One price per run, however many steps: \"An execution is a single run of your entire workflow.\"",
+     "url": "https://n8n.io/pricing/",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "move": {
+    "fact": "Each workflow downloads as JSON.",
+    "url": "https://docs.n8n.io/workflows/export-import/",
+    "read": "19 Nov 2026"
+   }
+  },
+  "make": {
+   "id": "make",
+   "name": "Make",
+   "site": "https://www.make.com",
+   "what": {
+    "fact": "A visual canvas for building automations (scenarios) and AI agents.",
+    "url": "https://www.make.com/en",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "Free plan: 1,000 credits a month.",
+    "url": "https://www.make.com/en/pricing",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "Paid plans start at $9 a month for 10,000 credits (Core), as Make's own comparison page states.",
+    "url": "https://www.make.com/compare/make-vs-zapier",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "\"Connect 3,500+ apps out of the box.\"",
+    "url": "https://www.make.com/en",
+    "read": "19 Nov 2026"
+   },
+   "cells": {
+    "free": {
+     "v": "yes",
+     "note": "1,000 credits a month",
+     "url": "https://www.make.com/en/pricing",
+     "read": "19 Nov 2026"
+    },
+    "price": {
+     "v": "text",
+     "note": "From $9 a month for 10,000 credits (Core)",
+     "url": "https://www.make.com/compare/make-vs-zapier",
+     "read": "19 Nov 2026"
+    },
+    "apps": {
+     "v": "text",
+     "note": "3,500+ apps",
+     "url": "https://www.make.com/en",
+     "read": "19 Nov 2026"
+    },
+    "prompt": {
+     "v": "partly",
+     "note": "Maia builds scenarios from a prompt; public beta on paid plans",
+     "url": "https://help.make.com/introduction-to-maia-by-make",
+     "read": "19 Nov 2026"
+    },
+    "aiAgent": {
+     "v": "yes",
+     "note": "Make AI Agents",
+     "url": "https://www.make.com/en/ai-agents",
+     "read": "19 Nov 2026"
+    },
+    "appBuilder": {
+     "v": "partly",
+     "note": "Data stores, but no screens or interfaces",
+     "url": "https://www.make.com/en/pricing",
+     "read": "19 Nov 2026"
+    },
+    "fixed": {
+     "v": "yes",
+     "note": "Scenarios",
+     "url": "https://www.make.com/en",
+     "read": "19 Nov 2026"
+    },
+    "approval": {
+     "v": "yes",
+     "note": "Manual approvals in AI agents",
+     "url": "https://www.make.com/en/ai-agents",
+     "read": "19 Nov 2026"
+    },
+    "handEdit": {
+     "v": "yes",
+     "note": "The visual canvas",
+     "url": "https://www.make.com/en",
+     "read": "19 Nov 2026"
+    },
+    "code": {
+     "v": "yes",
+     "note": "JavaScript or Python",
+     "url": "https://www.make.com/en",
+     "read": "19 Nov 2026"
+    },
+    "export": {
+     "v": "yes",
+     "note": "Scenarios export as a blueprint (.json)",
+     "url": "https://help.make.com/blueprints",
+     "read": "19 Nov 2026"
+    }
+   },
+   "limits": [
+    {
+     "fact": "Billing is per credit and \"most actions consume 1 credit\", so every module in a scenario adds to the cost of each run.",
+     "url": "https://www.make.com/en/pricing",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Maia, the prompt builder, is a public beta on paid plans, with a 30-day trial on Free.",
+     "url": "https://help.make.com/introduction-to-maia-by-make",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": [
+    {
+     "fact": "A mature visual canvas for branching, looping scenarios you can edit module by module.",
+     "url": "https://www.make.com/en",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "More apps: 3,500+ against 50agents' 2,300+.",
+     "url": "https://www.make.com/en",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "move": {
+    "fact": "A scenario exports as a blueprint, a .json file you can import elsewhere in Make.",
+    "url": "https://help.make.com/blueprints",
+    "read": "19 Nov 2026"
+   }
+  },
+  "zapier": {
+   "id": "zapier",
+   "name": "Zapier",
+   "site": "https://zapier.com",
+   "what": {
+    "fact": "Automated workflows across a very large app catalog, and AI agents that take action.",
+    "url": "https://zapier.com/",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "Free plan: 100 tasks a month, two-step Zaps only, 15-minute polling.",
+    "url": "https://zapier.com/pricing",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "Professional: $19.99 a month billed yearly, or $29.99 billed monthly, for 750 tasks a month.",
+    "url": "https://zapier.com/pricing",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "\"Zapier connects 10541+ apps.\"",
+    "url": "https://zapier.com/apps",
+    "read": "19 Nov 2026"
+   },
+   "cells": {
+    "free": {
+     "v": "yes",
+     "note": "100 tasks a month, two-step Zaps",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "price": {
+     "v": "text",
+     "note": "$19.99 a month billed yearly (750 tasks)",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "apps": {
+     "v": "text",
+     "note": "10,541+ apps",
+     "url": "https://zapier.com/apps",
+     "read": "19 Nov 2026"
+    },
+    "prompt": {
+     "v": "yes",
+     "note": "Copilot builds Zaps from chat",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "aiAgent": {
+     "v": "yes",
+     "note": "Zapier Agents, billed in activities",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "browser": {
+     "v": "partly",
+     "note": "The Zapier Agents Chrome extension works on the page you have open",
+     "url": "https://help.zapier.com/hc/en-us/articles/29025734470925-Use-Zapier-Agents-Chrome-extension",
+     "read": "19 Nov 2026"
+    },
+    "fixed": {
+     "v": "yes",
+     "note": "Workflows",
+     "url": "https://zapier.com/",
+     "read": "19 Nov 2026"
+    },
+    "approval": {
+     "v": "yes",
+     "note": "Human in the Loop, on Professional and up",
+     "url": "https://help.zapier.com/hc/en-us/articles/38731463206029-Request-approval-to-keep-your-workflow-running-with-Human-in-the-Loop",
+     "read": "19 Nov 2026"
+    },
+    "code": {
+     "v": "yes",
+     "note": "JavaScript or Python steps",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    "export": {
+     "v": "partly",
+     "note": "JSON export of Zaps on Team and Enterprise only",
+     "url": "https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account",
+     "read": "19 Nov 2026"
+    }
+   },
+   "limits": [
+    {
+     "fact": "Every action step counts as a task, code and AI steps included, so a five-step Zap uses up to five tasks a run.",
+     "url": "https://zapier.com/pricing",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Exporting Zaps as JSON is only on Team and Enterprise; Free and Professional cannot export.",
+     "url": "https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": [
+    {
+     "fact": "It connects far more apps: 10,541+ against 50agents' 2,300+.",
+     "url": "https://zapier.com/apps",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Mature admin controls for large companies, such as SCIM and role-based access.",
+     "url": "https://zapier.com/",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "move": {
+    "fact": "Team and Enterprise accounts can export Zaps as JSON.",
+    "url": "https://help.zapier.com/hc/en-us/articles/8496308481933-Import-and-export-Zaps-in-your-Team-or-Enterprise-account",
+    "read": "19 Nov 2026"
+   }
+  },
+  "powerautomate": {
+   "id": "powerautomate",
+   "name": "Power Automate",
+   "site": "https://www.microsoft.com/en-us/power-platform/products/power-automate",
+   "what": {
+    "fact": "Microsoft's automation platform: cloud flows, desktop RPA and process mining, built into Microsoft 365.",
+    "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "A free licence for work or school accounts covers cloud flows without sharing and standard connectors only.",
+    "url": "https://learn.microsoft.com/en-us/power-platform/admin/power-automate-licensing/types",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "Premium: $15.00 per user a month, paid yearly. Process: $150.00 per bot a month, paid yearly, for unattended RPA.",
+    "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "\"More than 1,400 prebuilt, certified connectors.\"",
+    "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate",
+    "read": "19 Nov 2026"
+   },
+   "cells": {},
+   "limits": [
+    {
+     "fact": "Premium connectors need the $15 per user Premium licence or a Process licence; attended RPA needs Premium; each unattended bot is $150 a month and runs one desktop flow at a time.",
+     "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate/pricing",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": [
+    {
+     "fact": "Desktop RPA for old Windows apps with no API.",
+     "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Deep Microsoft 365 integration, with approvals and process mining.",
+     "url": "https://www.microsoft.com/en-us/power-platform/products/power-automate",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "move": {
+    "fact": "Flows export as a package (.zip) or inside a solution.",
+    "url": "https://learn.microsoft.com/en-us/power-automate/export-import-flow-non-solution",
+    "read": "19 Nov 2026"
+   }
+  }
+ },
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Memory\n- The workspace remembers facts about the business (hours, prices, policies, people, tone) and documents, pasted text and links you give it; AI agents answer from these.\n- Each AI agent, app and automation has its own memory: instructions, what it learned, lessons from your corrections, its last runs. You can see, correct or forget any item.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

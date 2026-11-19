@@ -1,44 +1,50 @@
-// An index page (pages-brief B9): a heading, two lines and a card for every child. Children not built yet show as text.
+// An index page, v3 (D253): the heading and two lines, then each group under a centred head as link cards (`cards3`),
+// then one button with a real ask. Children not built yet are left out, never shown as dead cards.
 import type { IndexPage } from '@/content/pages/indexes';
-import { Crumbs, Face, KINDS, LIVE, MaybeLink } from '../parts';
-import { crumbsLd, Ld, longDate } from '../hubs/meta';
+import { INDEX_ASK } from '@/content/pages/indexes';
+import { Crumbs, Cta, Face, KINDS, LIVE } from '../parts';
+import { crumbsLd, Ld, month } from '../hubs/meta';
+import '../css/usecase.css';
+import '../css/hubs.css';
 import '../css/pages.css';
 
-const SIBLINGS: { href: string; label: string }[] = [
-  { href: '/use-cases', label: 'Use cases' }, { href: '/guides', label: 'Guides' }, { href: '/compare', label: 'Compare' },
-  { href: '/learn', label: 'Learn' }, { href: '/for', label: 'For teams' },
-];
-
 export function IndexView({ ix }: { ix: IndexPage }) {
-  const all = ix.groups.flatMap(g => g.cards);
-  const live = all.filter(c => LIVE.has(c.href)).length;
+  const groups = ix.groups.map(g => ({ ...g, cards: g.cards.filter(c => LIVE.has(c.href)) })).filter(g => g.cards.length);
+  const page = `index-${ix.path.slice(1)}`;
   return (
-    <div className="page">
-      <Ld data={crumbsLd([{ name: 'Home' }, { name: ix.crumb, path: ix.path }])} />
-      <div className="wrap">
-        <Crumbs trail={[{ label: 'Home', href: '/' }, { label: ix.crumb }]} />
-        <header className="ix-head">
-          <h1>{ix.h1}</h1>
-          <p>{ix.lines[0]}</p>
-          <p>{ix.lines[1]}</p>
-        </header>
-        {ix.groups.map((g, n) => (
-          <section key={g.head ?? n} className="ix-group" aria-label={g.head ?? ix.crumb}>
-            {g.head && <h2>{g.head} <span className="mute" style={{ fontSize: '0.6em' }}>{g.cards.length}</span></h2>}
-            <div className="ix-grid">
-              {g.cards.map(c => (
-                <MaybeLink key={c.href} href={c.href} className="ix-card">
-                  {c.kind && <em className="ix-k" style={{ ['--k' as string]: KINDS[c.kind].tint }}><Face id={KINDS[c.kind].face} size={16} />{KINDS[c.kind].label}</em>}
-                  <b>{c.title}</b>
-                  {c.line && <span>{c.line}</span>}
-                </MaybeLink>
-              ))}
-            </div>
-          </section>
-        ))}
-        <p className="ix-note">{live} of {all.length} pages are up; the rest are on their way and show here without a link until they are. Also: {SIBLINGS.filter(s => s.href !== ix.path).map((s, i) => <span key={s.href}>{i ? ' · ' : ''}<MaybeLink href={s.href}>{s.label}</MaybeLink></span>)}</p>
-        <p className="byline">By the 50agents team · Last updated {longDate(ix.updated)}</p>
-      </div>
+    <div className="page uc3 ix3">
+      <Ld data={[crumbsLd([{ name: 'Home' }, { name: ix.crumb, path: ix.path }]), {
+        '@context': 'https://schema.org', '@type': 'CollectionPage', name: ix.h1, description: ix.description, url: `https://50agents.com${ix.path}`,
+      }]} />
+      <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: ix.crumb }]} /></div>
+      <section className="wrap ix3-hero">
+        <h1>{ix.h1}</h1>
+        <p>{ix.lines[0]} {ix.lines[1]}</p>
+      </section>
+      {groups.map((g, n) => (
+        <section key={g.head ?? n} className={n === 0 ? 'wrap sec ix3-first' : 'wrap sec'} aria-label={g.head ?? ix.crumb}>
+          {g.head && <div className="sec-h c"><h2>{g.head}</h2>{g.p && <p>{g.p}</p>}</div>}
+          <div className={`cards3 hub3-n${Math.min(g.cards.length, 3)}`}>
+            {g.cards.map(c => (
+              <a key={c.href} href={c.href}>
+                {c.kind && <span className="k"><Face id={KINDS[c.kind].face} size={20} />{KINDS[c.kind].label}</span>}
+                <b>{c.title}</b>
+                {c.line && <span>{c.line}</span>}
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+      <section className="wrap sec">
+        <div className="final" style={{ ['--k' as string]: '#FFF4D6' }}>
+          <h2>Not sure where to start?</h2>
+          <p>Tell Captain &ldquo;{INDEX_ASK}&rdquo;. Free to start.</p>
+          <Cta campaign="seo-index" page={page} place="final" ask={INDEX_ASK}>Ask Captain</Cta>
+          <span className="peek l" aria-hidden="true"><Face id="writer" size={52} /><Face id="keeper" size={44} /></span>
+          <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="scout" size={46} /></span>
+        </div>
+        <p className="byline">By the 50agents team · Updated {month(ix.updated)}</p>
+      </section>
     </div>
   );
 }

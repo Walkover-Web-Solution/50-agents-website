@@ -1,0 +1,196 @@
+{
+  "slug": "browser-automation-without-code",
+  "group": "Browser agents",
+  "kind": "browser",
+  "query": "browser automation without code",
+  "title": "Browser automation without code: tools and limits | 50agents",
+  "description": "No-code browser automation comes in three kinds: recorders, scrapers and AI browser agents. What each is good at, where each breaks, and how to start.",
+  "h1": "Browser automation without code",
+  "answer": [
+    "No-code browser automation comes in three kinds: recorders that replay your clicks, scrapers you train to pull data from pages, and AI browser agents that read a page and decide what to do.",
+    "Pick by the job: scrapers for the same data from many pages, recorders for the same clicks on a stable site, browser agents for a few pages that change or need judgement."
+  ],
+  "sections": [
+    {
+      "id": "kinds",
+      "h2": "The three kinds",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Kind",
+              "You set it up by",
+              "Good at",
+              "Breaks when"
+            ],
+            "rows": [
+              [
+                "Recorder",
+                "Clicking through once while it records",
+                "The same clicks on a stable site, many times",
+                "A button moves or a pop-up appears"
+              ],
+              [
+                "Scraper",
+                "Pointing at the data on one page",
+                "The same fields from hundreds of similar pages",
+                "The page layout changes"
+              ],
+              [
+                "AI browser agent",
+                "Describing the job in words",
+                "A few pages, layouts that shift, reading and judging",
+                "A page is ambiguous; it may guess"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "h2": "Tools people use",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Tool",
+              "Kind",
+              "Free to try"
+            ],
+            "rows": [
+              [
+                "Browse AI",
+                "Scraper and page monitor",
+                "50 credits a month, 2 websites"
+              ],
+              [
+                "Axiom",
+                "No-code browser bots",
+                "2 hours of runtime"
+              ],
+              [
+                "Bardeen",
+                "Scraping and enrichment for sales",
+                "100 credits"
+              ],
+              [
+                "UI.Vision",
+                "Open-source recorder (browser extension)",
+                "Free"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "Two details hide in their plans. Runtime- and credit-based plans charge for failed runs on some tools and not others (Axiom says failed runs do not count against its runtime). And desktop runs need your computer awake, while cloud runs do not. For how the units turn into a bill, see [how much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared)."
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to pick and start, step by step",
+    "steps": [
+      {
+        "title": "Write the job as clicks",
+        "body": "Which site, which pages, what to read or fill, how often. Count the pages per run."
+      },
+      {
+        "title": "Pick the kind from the table",
+        "body": "Many pages, same layout: scraper. Same clicks daily on a stable tool: recorder. A few pages that move or need reading: browser agent."
+      },
+      {
+        "title": "Check cloud or desktop",
+        "body": "If it must run at 6:00 while your laptop sleeps, you need cloud runs."
+      },
+      {
+        "title": "Plan the sign-in",
+        "body": "Sites behind a login need a kept session. Avoid tools that want your password stored in a text field."
+      },
+      {
+        "title": "Run it for a week with a check at the end",
+        "body": "A count, a confirmation, a file. Look at every run that week."
+      }
+    ]
+  },
+  "example": {
+    "h2": "The browser agent kind in 50agents",
+    "body": [
+      "A 50agents browser agent is the third kind. You describe the job to Captain; the browser agent runs on a schedule with its own browser, shows the page live while it works, and lists the pages it visited in each report. It reads before it clicks: web search, a feed or a public page first, its browser only when the job needs that page. Up to 15 pages and about 8 minutes a run."
+    ],
+    "kind": "browser",
+    "ask": "Set up a browser agent that reads the new listings on rentals.example each morning and tells me the ones under $2,000 in Riverside",
+    "build": {
+      "name": "Riverside rentals",
+      "line": "New listings under $2,000, each morning",
+      "when": "Each morning",
+      "does": [
+        "Opens rentals.example in its own browser",
+        "Reads the new two-bed listings in Riverside",
+        "Tells you the ones under $2,000"
+      ],
+      "apps": [],
+      "asksFirst": "Signing in or submitting anything"
+    }
+  },
+  "wrong": [
+    {
+      "title": "\"No code\" turns into code",
+      "body": "Users of several tools report needing custom scripts for anything past the basics. Try your hardest page in the free tier before you commit."
+    },
+    {
+      "title": "Credits burned on failures",
+      "body": "A broken page retried all night. Check how failed runs are billed, and cap retries."
+    },
+    {
+      "title": "The laptop went to sleep",
+      "body": "A desktop-only tool missed the 6:00 run. Use cloud runs for anything scheduled."
+    },
+    {
+      "title": "Quietly wrong data",
+      "body": "A scraper picked the wrong column after a redesign. Spot-check a few values each week."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is there a free browser automation tool?",
+      "a": "UI.Vision is open source and free. Browse AI and Bardeen have free tiers with small monthly limits; Axiom gives a short free runtime to try."
+    },
+    {
+      "q": "Can browser automation run on a schedule?",
+      "a": "Yes, on cloud plans. Desktop tools run only while your computer is on and awake."
+    },
+    {
+      "q": "What is the difference between a browser agent and a scraper?",
+      "a": "A scraper pulls the same fields from pages you trained it on. A browser agent reads the page and decides what to do from your description, so it can handle pages it has not seen, and can also misjudge them."
+    }
+  ],
+  "sources": [
+    {
+      "label": "Browse AI: Pricing",
+      "href": "https://www.browse.ai/pricing"
+    },
+    {
+      "label": "Axiom: Pricing",
+      "href": "https://axiom.ai/pricing"
+    },
+    {
+      "label": "Bardeen: Pricing",
+      "href": "https://www.bardeen.ai/pricing"
+    },
+    {
+      "label": "UI.Vision: Pricing",
+      "href": "https://ui.vision/pricing"
+    },
+    {
+      "label": "Latenode community: No-code headless browser automation",
+      "href": "https://community.latenode.com/t/no-code-headless-browser-automation-is-it-actually-possible-or-just-marketing/59673"
+    }
+  ],
+  "related": [
+    "how-to-automate-a-website-that-has-no-api",
+    "how-to-monitor-competitor-prices-automatically",
+    "how-to-automate-form-filling-on-websites"
+  ],
+  "updated": "2026-11-19"
+}

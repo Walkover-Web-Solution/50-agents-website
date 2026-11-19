@@ -1,0 +1,6 @@
+[
+  {"slug":"ai-agents","query":"AI agent builder; AI agents for small business","kind":"ai","ask":"Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve","apps":["gmail","hubspot","stripe","google-calendar","slack"],"own":"Judgement on each run; the quiet-deals AI agent as the example"},
+  {"slug":"automations","query":"workflow automation for small business; automate tasks between apps","kind":"auto","ask":"Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date","apps":["google-sheets","stripe","shopify","hubspot","slack"],"own":"Fixed steps on an app event; the Stripe payments automation as the example"},
+  {"slug":"browser-agents","query":"AI browser agent; automate web browsing","kind":"browser","ask":"Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes","apps":[],"own":"Websites with no app; the competitor prices browser agent as the example"},
+  {"slug":"apps","query":"no code app builder; build an app from Google Sheets; internal tool without code","kind":"app","ask":"Track my leads and follow up","apps":["gmail","google-sheets"],"own":"Your own screens and records with a crew; the leads app as the example"}
+]

@@ -1,0 +1,178 @@
+{
+  "slug": "how-to-build-an-ai-agent-without-code",
+  "group": "AI agents",
+  "kind": "ai",
+  "query": "how to build an ai agent without code",
+  "title": "How to build an AI agent without code | 50agents",
+  "description": "Build an AI agent without code by writing its job card first: one job, when it runs, the apps it reads, what it may do alone, and 10 real cases to test.",
+  "h1": "How to build an AI agent without code",
+  "answer": [
+    "Pick one job that needs judgement, write it as a job card (what starts it, what it reads, what it produces, what it may do alone), and test it in a no-code builder on 10 to 20 real cases before it runs on a schedule.",
+    "Start it read-only, and let it draft rather than send until its drafts need no edits."
+  ],
+  "sections": [
+    {
+      "id": "what",
+      "h2": "What an AI agent is, in builder terms",
+      "body": [
+        {
+          "p": "OpenAI’s guide for builders defines an AI agent as three parts: a model, the tools it can use, and its instructions. A no-code builder hides the model choice and gives you the other two as forms: which apps it may use, and what it should do. Your work is the instructions and the limits."
+        },
+        {
+          "p": "Before you build one, check you need one. The same guide says to reach for an AI agent when rules have become hard to maintain, when the work needs judgement, or when the input is messy text such as emails; otherwise a fixed set of steps may be enough. Anthropic gives the same advice from the other side: start with the simplest thing that works, because an AI agent trades speed and cost for flexibility. If your job is \"when X happens, do Y\", read [AI agent vs automation](/guides/ai-agent-vs-automation-which-one-you-need) first."
+        }
+      ]
+    },
+    {
+      "id": "job-card",
+      "h2": "Write the job card before you open any tool",
+      "body": [
+        {
+          "p": "Every no-code AI agent builder asks for the same things in a different order. Write them down once, in plain words, and the build takes minutes."
+        },
+        {
+          "table": {
+            "head": [
+              "Line",
+              "Example: follow up quiet deals"
+            ],
+            "rows": [
+              [
+                "The job, in one sentence",
+                "Find deals where the customer has gone quiet and draft a follow-up."
+              ],
+              [
+                "When it runs",
+                "Every weekday at 9:00."
+              ],
+              [
+                "What it reads",
+                "HubSpot deals and their last activity; my sent email to that contact."
+              ],
+              [
+                "What counts as the case",
+                "Open deal, no reply in 5 days, not marked Lost."
+              ],
+              [
+                "What it produces",
+                "A short follow-up email per deal, in the same thread."
+              ],
+              [
+                "What it may do alone",
+                "Read HubSpot and Gmail."
+              ],
+              [
+                "What it must ask first",
+                "Sending any email. Changing any deal."
+              ],
+              [
+                "When it is unsure",
+                "Skip the deal and say why in its report."
+              ]
+            ]
+          }
+        },
+        {
+          "p": "The last line is the one people forget. An AI agent with no instruction for the unclear case will guess, and a confident guess is the most common failure builders report."
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to build it, step by step",
+    "steps": [
+      {
+        "title": "Choose one job, not a role",
+        "body": "\"Follow up quiet deals\" is a job. \"Be my sales assistant\" is a role, and it will do a little of everything badly. You can add a second AI agent later."
+      },
+      {
+        "title": "Collect 10 to 20 real examples",
+        "body": "Real emails, real deals, real tickets, including two or three awkward ones; StackAI’s build guide suggests the same 10 to 20. These are your test set; without them you are judging the AI agent on a demo."
+      },
+      {
+        "title": "Connect only the apps it needs",
+        "body": "Give it read access first. If the builder lets you pick an account or a folder, pick the narrowest one. See [how to give an AI agent access safely](/guides/how-to-give-an-ai-agent-access-to-your-apps-safely)."
+      },
+      {
+        "title": "Paste in the job card as its instructions",
+        "body": "Plain sentences, the case it handles, the output you want, and what to do when unsure. [How to write instructions for an AI agent](/guides/how-to-write-instructions-for-an-ai-agent) has a template."
+      },
+      {
+        "title": "Run it on your examples, by hand",
+        "body": "Read every result. Fix the instructions where it went wrong, then run the set again. Stop when two runs in a row need no edits on most cases."
+      },
+      {
+        "title": "Put sends behind an approval",
+        "body": "Anything that emails a customer, spends money or changes a record should wait for your yes. Loosen this per action once you trust it, not all at once."
+      },
+      {
+        "title": "Schedule it and read its first week",
+        "body": "Turn on the schedule, then read each run’s report for a week. Most problems show up in the first five runs."
+      }
+    ]
+  },
+  "example": {
+    "h2": "A worked example: the quiet deals AI agent in 50agents",
+    "body": [
+      "In 50agents you skip the forms: you tell Captain, its builder AI, the job in one sentence, and it writes the plan from your words, checks the apps are connected, and shows you the plan before anything is built. Reading runs on its own; each follow-up waits in Needs you until you approve it.",
+      "After Build it, the AI agent gets its own page with its runs, its chat and its memory. You change it by telling it (\"skip deals under $1,000\"), and every change is a version you can undo."
+    ],
+    "useCase": "follow-up-quiet-hubspot-deals"
+  },
+  "wrong": [
+    {
+      "title": "It does a bit of everything",
+      "body": "The job was a role. Split it into one AI agent per job, each with its own schedule and apps."
+    },
+    {
+      "title": "Confident wrong answers",
+      "body": "It filled a gap with a guess. Add a line for what to do when unsure (\"skip it and tell me why\"), and give it the facts it lacks in its memory."
+    },
+    {
+      "title": "It works in the demo, not on Monday",
+      "body": "You tested on clean examples. Add your awkward cases to the test set and run them every time you change the instructions."
+    },
+    {
+      "title": "Costs climb",
+      "body": "Each run reads more than it needs: whole inboxes, every deal. Narrow the search (last 24 hours, open deals only) and check the cost per run after the first week."
+    },
+    {
+      "title": "An app silently stops working",
+      "body": "A connection expired or a permission changed. Pick a builder that tells you when a run fails, and read failures the same day."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I build an AI agent for free?",
+      "a": "Most builders have a free tier that covers testing, and 50agents is free to start. Run your AI agent on a few real cases and check what one run costs before you schedule it daily."
+    },
+    {
+      "q": "How long does it take to build one?",
+      "a": "Building takes minutes once the job card is written. Getting it right takes one or two rounds of testing on real examples, which is usually an afternoon."
+    },
+    {
+      "q": "What is the difference between an AI agent and a chatbot?",
+      "a": "A chatbot answers when you write to it. An AI agent has a job, a schedule or a trigger, and access to your apps, so it does work while you are elsewhere and reports back."
+    }
+  ],
+  "sources": [
+    {
+      "label": "OpenAI: A practical guide to building agents (PDF)",
+      "href": "https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "href": "https://www.anthropic.com/engineering/building-effective-agents"
+    },
+    {
+      "label": "StackAI: How to build an AI agent without code",
+      "href": "https://www.stackai.com/insights/how-to-build-an-ai-agent-without-code-on-stackai-in-2026"
+    }
+  ],
+  "related": [
+    "how-to-write-instructions-for-an-ai-agent",
+    "ai-agent-vs-automation-which-one-you-need",
+    "how-to-choose-an-ai-agent-builder"
+  ],
+  "updated": "2026-11-19"
+}

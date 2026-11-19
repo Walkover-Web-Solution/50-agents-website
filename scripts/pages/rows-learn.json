@@ -1,0 +1,22 @@
+[
+  {"slug":"action","term":"Action","query":"what is an action in automation","group":"Automation","ask":"Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel","vs":"trigger"},
+  {"slug":"agentic-ai","term":"Agentic AI","query":"what is agentic AI","group":"AI that acts","ask":"Go through my unread email now, then every weekday at 8:00, and draft replies","vs":"generative AI"},
+  {"slug":"ai-agent","term":"AI agent","query":"what is an AI agent","group":"AI that acts","ask":"Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve","vs":"AI assistant"},
+  {"slug":"ai-assistant","term":"AI assistant","query":"what is an AI assistant","group":"AI that acts","ask":"Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00","vs":"AI agent"},
+  {"slug":"ai-workflow","term":"AI workflow","query":"what is an AI workflow","group":"Automation","ask":"Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel","vs":"AI agent"},
+  {"slug":"api","term":"API","query":"what is an API","group":"Building blocks","ask":"Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed","vs":"integration"},
+  {"slug":"automation","term":"Automation","query":"what is an automation","group":"Automation","ask":"Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date","vs":"AI agent"},
+  {"slug":"browser-agent","term":"Browser agent","query":"what is a browser agent","group":"AI that acts","ask":"Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes","vs":"RPA"},
+  {"slug":"human-in-the-loop","term":"Human in the loop","query":"what is human in the loop AI","group":"AI that acts","ask":"Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending","vs":"human on the loop"},
+  {"slug":"integration","term":"Integration","query":"what is an integration","group":"Building blocks","ask":"Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve","vs":"API"},
+  {"slug":"internal-tool","term":"Internal tool","query":"what is an internal tool","group":"Building blocks","ask":"Keep track of customer requests and draft the replies","vs":"SaaS"},
+  {"slug":"llm","term":"LLM","query":"what is an LLM large language model","group":"AI that acts","ask":"Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed","vs":"AI assistant"},
+  {"slug":"mcp","term":"MCP","query":"what is MCP model context protocol","group":"Building blocks","ask":"Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00","vs":"API"},
+  {"slug":"no-code","term":"No-code","query":"what is no-code","group":"Building blocks","ask":"Track my leads and follow up","vs":"low-code"},
+  {"slug":"oauth","term":"OAuth","query":"what is OAuth","group":"Building blocks","ask":"Chase my unpaid invoices","vs":"Sign in with Google (SSO)"},
+  {"slug":"prompt","term":"Prompt","query":"what is a prompt in AI","group":"AI that acts","ask":"Chase my unpaid invoices","vs":"instructions (system prompt)"},
+  {"slug":"rpa","term":"RPA","query":"what is RPA robotic process automation","group":"Automation","ask":"Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes","vs":"browser agent"},
+  {"slug":"trigger","term":"Trigger","query":"what is a trigger in automation","group":"Automation","ask":"Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total","vs":"a condition (filter)"},
+  {"slug":"webhook","term":"Webhook","query":"what is a webhook","group":"Automation","ask":"Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date","vs":"API"},
+  {"slug":"workflow","term":"Workflow","query":"what is a workflow","group":"Automation","ask":"Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total","vs":"automation"}
+]

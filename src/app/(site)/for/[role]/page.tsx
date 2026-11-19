@@ -1,13 +1,19 @@
-// A role page (pages-brief B7): the five jobs a role hands off first, the use cases and integrations that fit, and one
-// worked example drawn in the app's own look. Static HTML from src/content/for/<role>.ts.
+// A role page, v3 (D253): one template, filled from the page's JSON (src/content/for/pages), written by the page pipeline
+// (scripts/pages). A centred hero with the worked example's ask typed into Captain and its plan, the 5 jobs the role hands
+// off first (linked to their use case pages), the role's apps, questions, guides. Every visual is drawn from the data.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { ROLES } from '@/content/for';
-import { GUIDES } from '@/content/guides';
+import { ROLES } from '@/content/for/pages';
+import { GUIDES } from '@/content/guides/pages';
+import { CATEGORIES } from '@/content/integrations/categories';
 import { AppLogo, Crumbs, Cta, Face, KINDS, MaybeLink } from '@/site/parts';
-import { CopyAsk } from '@/site/copy';
-import { ProductView } from '@/site/guides/views';
+import { BuildLink } from '@/site/integrations/build-link';
+import { PromptFilm } from '@/site/usecase/film';
+import { appIcon, appName, appsIn } from '@/site/usecase/apps-data';
+import { findUseCase, month, Plan } from '@/site/guides/parts';
 import { plain, rich } from '@/site/guides/rich';
+import { HeroSticky } from '@/site/guides/sticky';
+import '@/site/css/usecase.css';
 import '@/site/css/guides.css';
 import '@/site/css/for.css';
 
@@ -16,10 +22,10 @@ export const dynamicParams = false;
 export function generateStaticParams() {
   return ROLES.map(r => ({ role: r.slug }));
 }
+const find = async (params: Promise<{ role: string }>) => { const { role } = await params; return ROLES.find(x => x.slug === role); };
 
 export async function generateMetadata({ params }: { params: Promise<{ role: string }> }): Promise<Metadata> {
-  const { role } = await params;
-  const r = ROLES.find(x => x.slug === role);
+  const r = await find(params);
   if (!r) return {};
   const url = `${BASE}/for/${r.slug}`;
   return {
@@ -32,156 +38,128 @@ export async function generateMetadata({ params }: { params: Promise<{ role: str
   };
 }
 
-const longDate = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
-
-export default async function RolePage({ params }: { params: Promise<{ role: string }> }) {
-  const { role } = await params;
-  const r = ROLES.find(x => x.slug === role);
+export default async function RoleView({ params }: { params: Promise<{ role: string }> }) {
+  const r = await find(params);
   if (!r) notFound();
   const k = KINDS[r.kind];
   const url = `${BASE}/for/${r.slug}`;
-  const guides = r.guides.map(s => GUIDES.find(g => g.slug === s)).filter(Boolean) as typeof GUIDES;
+  const ask = r.example.ask;
+  const cat = CATEGORIES.find(c => c.slug === r.category);
+  const wall = appsIn(r.category, 30, r.apps);
+  const guides = r.guides.map(s => GUIDES.find(g => g.slug === s)).filter(g => !!g);
   const others = ROLES.filter(x => x.slug !== r.slug);
-  const ld = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
+  const ld = [
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
       { '@type': 'ListItem', position: 2, name: 'For teams', item: `${BASE}/for` },
       { '@type': 'ListItem', position: 3, name: r.h1, item: url },
-    ],
-  };
+    ] },
+    { '@context': 'https://schema.org', '@type': 'ItemList', name: `The jobs ${r.role} hand off first`, itemListElement: r.jobs.map((j, i) => ({ '@type': 'ListItem', position: i + 1, name: j.title, ...(findUseCase(j.useCase) ? { url: `${BASE}/use-cases/${j.useCase}` } : {}) })) },
+  ];
 
   return (
-    <div className="page rl" style={{ ['--k' as string]: k.tint }}>
+    <div className="page rl3" style={{ ['--k' as string]: k.tint }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
-      <div className="wrap">
-        <Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'For teams', href: '/for' }, { label: r.h1 }]} />
-      </div>
+      <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'For teams', href: '/for' }, { label: r.h1 }]} /></div>
 
-      <header className="wrap rl-hero">
-        <div>
-          <p className="gd-eyebrow"><span className="kind" style={{ ['--k' as string]: k.tint }}><Face id={k.face} size={22} />For {r.role}</span></p>
-          <h1>{r.h1}</h1>
-          <p className="answer">{rich(r.answer[0])} {rich(r.answer[1])}</p>
-          <div className="hero-cta">
-            <Cta page={r.slug} place="hero" campaign="seo-role" ask={r.example.ask}>Build the example with Captain</Cta>
-            <span className="hero-note">Free to start with 2,000 credits</span>
-          </div>
-          <p className="gd-by">By the 50agents team · Last updated {longDate(r.updated)}</p>
+      {/* Hero: the role, the answer, and the worked example's ask typed into Captain with its plan under it */}
+      <section className="wrap uc3-hero">
+        <span className="kind"><Face id={k.face} size={22} />For {r.role}</span>
+        <h1>{r.h1}</h1>
+        <p className="answer">{rich(r.answer[0])} {rich(r.answer[1])}</p>
+        <div className="rl3-film" data-hero>
+          <PromptFilm ask={ask} button={<Cta page={r.slug} place="hero" campaign="seo-role" ask={ask}>Build it</Cta>}>
+            <Plan kind={r.example.kind} build={r.example.build} />
+          </PromptFilm>
         </div>
-      </header>
-
-      <section className="wrap band" id="jobs">
-        <div className="sec-head">
-          <h2>The 5 jobs {r.role} hand off first</h2>
-          <p>Each one is something 50agents builds today from one sentence to Captain. Copy the words, or open the page for the job.</p>
-        </div>
-        <ol className="rl-jobs">
-          {r.jobs.map(j => (
-            <li key={j.title}>
-              <div className="rl-job-h">
-                <span className="rl-k" style={{ ['--k' as string]: KINDS[j.kind].tint }}><Face id={KINDS[j.kind].face} size={18} />{KINDS[j.kind].label}</span>
-                <h3>{j.href ? <MaybeLink href={j.href}>{j.title}</MaybeLink> : j.title}</h3>
-              </div>
-              <p>{rich(j.body)}</p>
-              {j.ask && <CopyAsk text={j.ask} small />}
-            </li>
-          ))}
-        </ol>
+        <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
       </section>
 
-      <section className="wrap band" id="example">
-        <div className="rl-ex">
-          <div className="rl-ex-copy">
-            <h2>{r.example.h2}</h2>
-            <p>{rich(r.example.intro)}</p>
-            <CopyAsk text={r.example.ask} />
-            {r.example.after.map(a => <p key={a}>{rich(a)}</p>)}
-            <div className="inline-cta"><Cta page={r.slug} place="inline" campaign="seo-role" ask={r.example.ask}>Build this with Captain</Cta></div>
-          </div>
-          <div className="rl-ex-view"><ProductView view={r.example.view} caption={r.example.caption} /></div>
+      {/* The 5 jobs: each card opens its use case page, or starts it in Captain when there is no page yet */}
+      <section className="wrap sec" id="jobs">
+        <div className="sec-h c"><h2>The 5 jobs {r.role} hand off first</h2><p>Each one is a sentence to Captain. Open the ready-made page for the job, or start it from its words.</p></div>
+        <div className="rl3-jobs">
+          {r.jobs.map((j, i) => {
+            const jk = KINDS[j.kind];
+            const inner = (
+              <>
+                <span className="k"><Face id={jk.face} size={20} />{jk.label}</span>
+                <b>{j.title}</b>
+                <span>{rich(j.body)}</span>
+              </>
+            );
+            return findUseCase(j.useCase)
+              ? <a key={j.title} href={`/use-cases/${j.useCase}`} className={i < 2 ? 'big' : undefined}>{inner}</a>
+              : <BuildLink key={j.title} page={r.slug} place={`job-${i + 1}`} campaign="seo-role" ask={j.ask} className={i < 2 ? 'big' : ''}>{inner}</BuildLink>;
+          })}
         </div>
       </section>
 
-      <section className="wrap band" id="use-cases">
-        <div className="sec-head"><h2>Use cases that fit</h2></div>
-        <div className="related">
-          {r.useCases.map(u => (
-            <MaybeLink key={u.href} href={u.href} className="rel">
-              <span className="rel-k"><Face id={KINDS[u.kind].face} size={18} />{KINDS[u.kind].label}</span>
-              <b>{u.title}</b>
-              <span>{u.line}</span>
-            </MaybeLink>
-          ))}
+      {/* The apps: the role's own large, then the category from the catalog, and 2,300+ */}
+      <section className="wrap sec" id="apps">
+        <div className="sec-h c">
+          <h2>The apps {r.role} already use, and 2,300+ more</h2>
+          <p>Through viaSocket&rsquo;s catalog. Each one opens what you can build with it.</p>
         </div>
-      </section>
-
-      <section className="wrap band" id="apps">
-        <div className="sec-head"><h2>Apps {r.role} connect</h2><p>{rich(r.appsNote)}</p></div>
-        <div className="rl-apps">
+        <div className="rl3-apps">
           {r.apps.map(a => (
-            <MaybeLink key={a.slug} href={`/integrations/${a.slug}`} className="rl-app">
-              <span className="use-logo"><AppLogo app={a.slug} icon={a.icon} size={26} /></span>
-              <span><b>{a.name}</b><span>{a.line}</span></span>
-            </MaybeLink>
+            <MaybeLink key={a} href={`/integrations/${a}`} className="rl3-app"><AppLogo app={a} icon={appIcon(a)} size={36} /><b>{appName(a)}</b></MaybeLink>
           ))}
         </div>
-      </section>
-
-      <section className="wrap band" id="not-yet">
-        <div className="limits">
-          <h2>What it does not do yet</h2>
-          <ul>{r.notYet.map(n => <li key={n}>{rich(n)}</li>)}</ul>
-        </div>
-      </section>
-
-      {guides.length > 0 && (
-        <section className="wrap band" id="guides">
-          <div className="sec-head"><h2>Guides for {r.role}</h2><p>The method behind each job, for any tool.</p></div>
-          <div className="gd-more">
-            {guides.map(g => (
-              <MaybeLink key={g.slug} href={`/guides/${g.slug}`} className="rel">
-                <span className="rel-k"><Face id={KINDS[g.kind].face} size={18} />Guide · {g.group}</span>
-                <b>{g.h1}</b>
-                <span>{plain(g.short).split('. ')[0]}.</span>
-              </MaybeLink>
-            ))}
+        {wall.length > 0 && (
+          <div className="uc3-wall" aria-label={`${cat?.name ?? 'More'} apps in the catalog`}>
+            <div className="uc3-wall-row">
+              {[...wall, ...wall].map((a, i) => (
+                <span key={a.s + i} className="uc3-tile" title={a.n} aria-hidden={i >= wall.length ? 'true' : undefined}><AppLogo app={a.s} icon={a.i} size={34} /><span className="sr">{a.n}</span></span>
+              ))}
+            </div>
           </div>
-        </section>
-      )}
+        )}
+        <p className="uc3-more-apps"><MaybeLink href={cat ? `/integrations/category/${cat.slug}` : '/integrations'}>See all {cat?.short ?? ''} apps</MaybeLink></p>
+      </section>
 
-      <section className="wrap band narrow" id="questions">
-        <h2>Questions people ask</h2>
-        <div className="faqs">
-          {r.faqs.map(f => (
-            <details key={f.q} open>
-              <summary><h3>{f.q}</h3></summary>
+      <section className="wrap sec" id="questions">
+        <div className="sec-h c"><h2>Questions people ask</h2></div>
+        <div className="qa uc3-qa">
+          {r.faqs.map((f, n) => (
+            <details key={f.q} open={n === 0}>
+              <summary><h3>{f.q}</h3><i aria-hidden="true" /></summary>
               <p>{rich(f.a)}</p>
             </details>
           ))}
         </div>
-        {r.sources && <p className="src">Sources: {r.sources.map((s, i) => <span key={s.href}>{i ? ' · ' : ''}<a href={s.href} target="_blank" rel="noopener">{s.label}</a></span>)}, read 19 Nov 2026.</p>}
+        {r.sources && r.sources.length > 0 && <p className="uc3-src">Sources: {r.sources.map((s, i) => <span key={s.href}>{i ? ', ' : ''}<a href={s.href} target="_blank" rel="noopener">{s.label}</a></span>)}.</p>}
       </section>
 
-      <section className="wrap band" id="other-teams">
-        <h2>For other teams</h2>
-        <p className="rl-others">{others.map((o, i) => <span key={o.slug}>{i ? ' · ' : ''}<MaybeLink href={`/for/${o.slug}`}>{o.role[0].toUpperCase() + o.role.slice(1)}</MaybeLink></span>)}</p>
-        <p className="also">Also: <MaybeLink href="/for">All teams</MaybeLink> · <MaybeLink href="/use-cases">Use cases</MaybeLink> · <MaybeLink href="/guides">Guides</MaybeLink> · <MaybeLink href="/integrations">Integrations</MaybeLink></p>
-      </section>
+      {guides.length > 0 && (
+        <section className="wrap sec" id="guides">
+          <div className="sec-h c"><h2>Guides for {r.role}</h2><p>The method behind each job, for any tool.</p></div>
+          <div className="cards3">
+            {guides.map(g => (
+              <a key={g.slug} href={`/guides/${g.slug}`}>
+                <span className="k"><Face id={KINDS[g.kind].face} size={20} />Guide · {g.group}</span>
+                <b>{g.h1}</b>
+                <span>{plain(g.answer[0])}</span>
+              </a>
+            ))}
+          </div>
+          <p className="rl3-others">For other teams: {others.map((o, i) => <span key={o.slug}>{i ? ', ' : ''}<a href={`/for/${o.slug}`}>{o.label}</a></span>)}.</p>
+        </section>
+      )}
 
-      <section className="wrap">
+      {/* Final: the same ask, one button */}
+      <section className="wrap sec">
         <div className="final">
           <h2>Hand off the first job</h2>
-          <p>Tell Captain &ldquo;{r.example.ask}&rdquo;. It shows you the plan before it builds anything. Every workspace starts free with 2,000 credits.</p>
-          <Cta page={r.slug} place="final" campaign="seo-role" ask={r.example.ask} />
+          <p>Tell Captain &ldquo;{ask}&rdquo;. It shows you the plan before it builds anything. Free to start.</p>
+          <Cta page={r.slug} place="final" campaign="seo-role" ask={ask}>Build it with Captain</Cta>
           <span className="peek l" aria-hidden="true"><Face id="lead" size={50} /><Face id={k.face} size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="closer" size={46} /><Face id="scout" size={48} /></span>
         </div>
-        <p className="byline">By the 50agents team · Last updated {longDate(r.updated)} · Captain builds each job above from the words shown; the view is drawn from the 50agents app&rsquo;s own screens and filled with example data.</p>
+        <p className="byline">By the 50agents team · Updated {month(r.updated)}</p>
       </section>
 
-      <div className="sticky"><span>{r.h1}</span><Cta page={r.slug} place="sticky" campaign="seo-role" ask={r.example.ask}>Build it</Cta></div>
+      <HeroSticky><span>{r.h1}</span><Cta page={r.slug} place="sticky" campaign="seo-role" ask={ask}>Build it</Cta></HeroSticky>
     </div>
   );
 }
