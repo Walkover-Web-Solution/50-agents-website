@@ -14,7 +14,7 @@ which Cloudflare Pages deploys on merge to `main`. Nothing is pushed.
 | Pairs | 169 indexed with their own lines | The rest render noindex |
 | Comparisons | 20 | Facts in `src/content/compare/facts.ts` (fact-checked, review 02) |
 | Guides | 30 + /guides | Per-guide covers |
-| Pricing | /pricing | Live plans: Free 2,000/mo, Starter $19/20k, Pro $49/55k, Business $99/110k, top-ups $1/1k |
+| Pricing | /pricing | Live plans: Free 2,000/mo, Starter $19/20k, Pro $49/55k, Business $99/120k, top-ups $1/1k |
 | Trust | /about, /contact, /support | viaSocket's channels (D256) |
 | Parked | /learn, /for | Code kept in `src/app/(site)/_parked`; 404 |
 
