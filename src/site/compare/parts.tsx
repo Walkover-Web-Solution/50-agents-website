@@ -1,12 +1,17 @@
-// The pieces of a comparison page, v4 (D254): the two tables in the use case table's pattern (short cells, drawn marks,
-// 50agents raised on its tint), the strengths cards and the move-over stepper. No dates and no source lines on the page:
+// The pieces of a comparison page, v5 (D255): the two tables in the use case table's pattern (short cells, drawn marks,
+// 50agents first, under our wordmark, and only where it wins), the strengths cards and the move-over stepper. No dates and no source lines on the page:
 // every fact about another tool is drawn from src/content/compare/facts.ts, which keeps its URLs and read dates.
-import { ROWS, TOOLS, type Cell, type Mark } from '@/content/compare/facts';
+import { isWin, ROWS, TOOLS, type Cell, type Mark } from '@/content/compare/facts';
 import { Face } from '@/site/parts';
 import type { AltPage, Strength, VsPage } from './types';
 
 // 50agents shows no credits and no prices (page system): free to start, nothing more.
 const OURS_FREE = 'Free to start';
+
+// The 50agents wordmark, small, for the table headers (D255: our logo, not a kind face), as on the use case page.
+export function Logo50() {
+  return <span className="logo50" aria-label="50agents"><span aria-hidden="true">5<Face id="keeper" size={17} />agents</span></span>;
+}
 
 const MARK_WORD: Record<Mark, string> = { yes: 'Yes', no: 'No', partly: 'Partly' };
 function MarkIcon({ v }: { v: Mark }) {
@@ -29,18 +34,19 @@ function CellView({ cell, us }: { cell?: Pick<Cell, 'v' | 's'>; us?: boolean }) 
   );
 }
 
-// The versus table: free plan and paid plans first, then the page's rows, then "Better for", each a mark and 5 words.
+// The versus table (D255): 50agents first under our wordmark; free plan and paid plans first, then only the page's rows
+// where 50agents wins (isWin in facts.ts), each a mark and 5 words. No "Better for" row.
 export function VsTable({ p }: { p: VsPage }) {
   const us = TOOLS.fifty;
   const them = TOOLS[p.tool];
-  const rows = p.rows.filter(r => them.cells[r] && us.cells[r]);
+  const rows = p.rows.filter(r => isWin(r, them.cells, us.cells));
   const pricing = { v: 'text' as const, s: `See ${them.name}'s pricing page` };
   return (
     <div className="cmp4-tbl vs">
       <table>
-        <caption className="sr">50agents and {them.name}, row by row</caption>
+        <caption className="sr">Where 50agents wins against {them.name}, row by row</caption>
         <thead>
-          <tr><th scope="col"><span className="sr">What you get</span></th><th scope="col" className="us"><span className="uc3-us"><Face id="lead" size={20} />50agents</span></th><th scope="col">{them.name}</th></tr>
+          <tr><th scope="col"><span className="sr">What you get</span></th><th scope="col" className="us"><span className="uc3-us"><Logo50 /></span></th><th scope="col">{them.name}</th></tr>
         </thead>
         <tbody>
           <tr><th scope="row">Free plan</th><CellView us cell={{ v: 'yes', s: OURS_FREE }} /><CellView cell={them.cells.free ?? pricing} /></tr>
@@ -48,17 +54,15 @@ export function VsTable({ p }: { p: VsPage }) {
           {rows.map(r => (
             <tr key={r}><th scope="row">{ROWS[r]}</th><CellView us cell={us.cells[r]} /><CellView cell={them.cells[r]} /></tr>
           ))}
-          <tr className="edge"><th scope="row">Better for</th><CellView us cell={{ v: 'text', s: p.edge.us }} /><CellView cell={{ v: 'text', s: p.edge.them }} /></tr>
         </tbody>
       </table>
     </div>
   );
 }
 
-// The alternatives table: 50agents raised first, then each tool, then where staying on the page's tool is the better call.
+// The alternatives table (D255): 50agents first under our wordmark, then each tool's facts, neutrally. No "Staying on" row.
 export function AltTable({ p }: { p: AltPage }) {
-  const rows = [...p.entries.map(e => ({ ...e, name: TOOLS[e.tool].name, us: e.tool === 'fifty' })),
-    ...(p.stay ? [{ ...p.stay, tool: p.tool, name: `Staying on ${TOOLS[p.tool].name}`, us: false }] : [])];
+  const rows = p.entries.map(e => ({ ...e, name: TOOLS[e.tool].name, us: e.tool === 'fifty' }));
   return (
     <div className="cmp4-tbl alt">
       <table>
@@ -68,8 +72,8 @@ export function AltTable({ p }: { p: AltPage }) {
         </thead>
         <tbody>
           {rows.map(r => (
-            <tr key={r.name} className={r.us ? 'us' : r.tool === p.tool ? 'stay' : undefined}>
-              <th scope="row">{r.us ? <span className="uc3-us"><Face id="lead" size={20} />50agents</span> : r.name}</th>
+            <tr key={r.name} className={r.us ? 'us' : undefined}>
+              <th scope="row">{r.us ? <Logo50 /> : r.name}</th>
               <td data-h="Best for">{r.best}</td>
               <td data-h="Starting price">{r.us ? OURS_FREE : r.price}</td>
               <td data-h="Key difference">{r.diff}</td>
@@ -96,14 +100,16 @@ export function Strengths({ items }: { items: Strength[] }) {
   );
 }
 
-// How to move over: a horizontal stepper, numbered dots joined by a line; it stacks vertically on a phone.
+// How to move over: a horizontal stepper of equal columns, numbered circles joined by a line from centre to centre,
+// each title and line aligned under its circle's left edge; it stacks on a phone with the line running down.
 export function MoveSteps({ steps }: { steps: { title: string; body: string }[] }) {
   return (
-    <ol className="cmp4-steps" style={{ ['--n' as string]: steps.length }}>
+    <ol className="cmp5-steps" style={{ ['--n' as string]: steps.length }}>
       {steps.map((m, i) => (
         <li key={m.title}>
-          <span className="cmp4-dot" aria-hidden="true">{i + 1}</span>
-          <div><h3>{m.title}</h3><p>{m.body}</p></div>
+          <span className="cmp5-dot" aria-hidden="true">{i + 1}</span>
+          <h3>{m.title}</h3>
+          <p>{m.body}</p>
         </li>
       ))}
     </ol>

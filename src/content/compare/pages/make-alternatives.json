@@ -10,6 +10,7 @@
     "n8n bills per run instead of per credit, and Activepieces has flat plans.",
     "Zapier connects the most apps; 50agents builds the scenario for you from one sentence."
   ],
+  "line": "Captain builds the scenario for you from one sentence.",
   "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
   "lede": "How each alternative to Make works and where its pricing starts.",
   "entries": [
@@ -56,12 +57,6 @@
       "src": "https://docs.gumloop.com/core-concepts/agent_browser.md"
     }
   ],
-  "stay": {
-    "best": "Editing module by module",
-    "price": "Free plan; Core $9 a month",
-    "diff": "Visual canvas, 3,500+ apps",
-    "src": "https://www.make.com/en"
-  },
   "strengths": [
     {
       "title": "Describe it in plain words",

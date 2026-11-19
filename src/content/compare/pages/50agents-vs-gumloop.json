@@ -10,6 +10,7 @@
     "Pick Gumloop for team AI agents with IT controls and a cloud browser you can watch.",
     "Pick 50agents to start free and get browser agents, AI agents and apps from plain words."
   ],
+  "line": "Browser agents, AI agents and apps from plain words, free to start.",
   "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
   "lede": "Two AI agent builders, row by row.",
   "rows": [
@@ -18,13 +19,8 @@
     "aiAgent",
     "browser",
     "appBuilder",
-    "approval",
-    "code"
+    "approval"
   ],
-  "edge": {
-    "us": "Small teams starting free",
-    "them": "IT controls, watchable cloud browser"
-  },
   "strengths": [
     {
       "title": "Websites with no app",

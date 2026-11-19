@@ -10,10 +10,10 @@
     "Pick Lindy for one AI assistant that works in Slack, iMessage and email.",
     "Pick 50agents for AI agents, automations and apps for the whole workspace, free to start."
   ],
+  "line": "AI agents, automations and apps for the whole workspace, free to start.",
   "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
   "lede": "One assistant against a workspace, row by row.",
   "rows": [
-    "apps",
     "prompt",
     "aiAgent",
     "fixed",
@@ -21,10 +21,6 @@
     "appBuilder",
     "approval"
   ],
-  "edge": {
-    "us": "AI agents, apps and automations",
-    "them": "Slack, iMessage and email"
-  },
   "strengths": [
     {
       "title": "Four kinds from one chat",

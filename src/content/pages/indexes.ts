@@ -18,6 +18,8 @@ export type IndexPage = {
   groups: { head?: string; p?: string; cards: Card[] }[];
   /** Cards filtered in the browser by kind chips (All, AI agent, ...); every card stays in the HTML. */
   filter?: boolean;
+  /** /guides only: the guide shown large at the top (guides v5). */
+  featured?: string;
   updated: string; // ISO date, for JSON-LD only: no date is shown on the page (D254)
 };
 
@@ -50,6 +52,7 @@ export const INDEXES: IndexPage[] = [
     h1: 'Guides: how to do the job, with any tool',
     line: 'How to do each job in any tool, then done once in 50agents.',
     groups: groupBy(GUIDE_LIST).map(({ g, xs }) => ({ head: g, cards: xs.map(c => ({ href: `/guides/${c.slug}`, title: c.title })) })),
+    featured: 'how-to-build-an-ai-agent-without-code',
     updated: '2026-11-19',
   },
   {

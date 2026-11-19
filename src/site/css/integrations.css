@@ -4,13 +4,11 @@
 .ig3 [hidden]{display:none!important}
 .ig-nologo{display:inline-grid;place-items:center;border-radius:6px;background:var(--wash);font-weight:600;font-size:13px;color:var(--mute);flex:none}
 
-/* hero: the app's logo beside the wordmark */
+/* hero: the app's logo, or two joined (no wordmark, D255 round 3) */
 .ig3-lock{display:flex;align-items:center;justify-content:center;gap:14px}
 .ig3-lock-logo{display:inline-flex;align-items:center;gap:14px}
 .ig3-lock-logo img,.ig3-lock-logo .ig-nologo{box-shadow:0 0 0 1px var(--line);border-radius:11px!important;background:#fff;padding:4px;width:52px!important;height:52px!important}
 .ig3-lock-and{width:18px;height:1.5px;background:var(--line)}
-.ig3-lock-plus{font-size:22px;color:var(--mute);font-weight:400}
-.ig3-lock-wm{font-size:28px}
 .ig3-hero h1{font-size:clamp(40px,5.2vw,64px);max-width:860px}
 .film-box .hero-cta{display:flex;margin:0;flex:none}
 
@@ -34,7 +32,6 @@ span.ig3-kind-more{display:none}
 @media (max-width:760px){
   .ig3-lock{justify-content:flex-start;gap:10px}
   .ig3-lock-logo img,.ig3-lock-logo .ig-nologo{width:44px!important;height:44px!important}
-  .ig3-lock-wm{font-size:24px}
   .ig3-hero h1{font-size:38px}
   .ig3-kinds{grid-template-columns:minmax(0,1fr)}
   .ig3-kind{padding:24px}
@@ -53,6 +50,15 @@ span.ig3-kind-more{display:none}
 .ig4-tabs button:hover{color:var(--ink)}
 .ig4-tabs button[aria-selected=true]{background:var(--wash);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
 .ig4-tabs button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ig4-tabs button img,.ig4-tabs button .ig-nologo{flex:none}
+.ig4-tabs button{white-space:nowrap}
+.ig4-tab-app{margin-right:-3px;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+/* a pair's four tabs and the search share the bar; when they do not fit, the search takes its own row */
+.ig4-lb-bar:has(.ig4-tab-app){flex-wrap:wrap;row-gap:12px}
+.ig4-tabs:has(.ig4-tab-app){flex-wrap:wrap}
+.ig4-tabs:has(.ig4-tab-app) button{padding:0 14px}
+.ig4-lb-bar:has(.ig4-tab-app) .ig4-find{flex:1 1 220px;max-width:none}
+.ig4-tab-w{display:inline-block}
 .ig4-tab-n{font-size:13px;font-weight:600;color:var(--mute)}
 .ig4-find{display:flex;align-items:center;gap:10px;width:100%;max-width:360px;height:46px;padding:0 16px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--line);color:var(--mute);background:#fff}
 .ig4-find:focus-within{box-shadow:inset 0 0 0 1.5px var(--ink)}
@@ -75,7 +81,6 @@ span.ig3-kind-more{display:none}
 .ig4-more{display:flex;justify-content:center;padding:20px}
 
 /* the directory: like viaSocket's own, in our look; categories down the left, a hairline grid, numbered pages */
-.ig4-dir-sec{padding-top:72px}
 .ig4-dir{display:grid;grid-template-columns:232px minmax(0,1fr);border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);scroll-margin-top:96px}
 .ig4-side{border-right:1px solid var(--line);padding:16px 10px}
 .ig4-side nav{position:sticky;top:92px}
@@ -110,15 +115,19 @@ span.ig3-kind-more{display:none}
   .ig4-lb-bar{flex-direction:column;align-items:stretch;gap:12px;padding:12px}
   .ig4-tabs button{flex:1;justify-content:center}
   .ig4-tabs{width:100%}
+  /* a pair's four tabs: two by two, the logo stands for the app's name */
+  .ig4-tabs:has(.ig4-tab-app){display:grid;grid-template-columns:1fr 1fr}
+  .ig4-tab-app{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .ig4-tab-w::first-letter{text-transform:uppercase}
+  .ig4-lb-bar:has(.ig4-tab-app) .ig4-find{flex:none}
   .ig4-find{max-width:none}
   .ig4-box.fixed{height:480px}
   .ig4-items{grid-template-columns:minmax(0,1fr)}
   .ig4-items>li{padding:16px 18px;box-shadow:none!important}
   .ig4-items>li>span>span{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-  .ig4-tpls>li{flex-wrap:wrap;gap:12px}
+  .ig4-tpls>li{flex-wrap:wrap;gap:12px;align-items:flex-start}
   .ig4-tpls p{flex-basis:calc(100% - 70px)}
   .ig4-tpls .btn{margin-left:66px}
-  .ig4-dir-sec{padding-top:48px}
   .ig4-dir{grid-template-columns:minmax(0,1fr);border-radius:20px}
   .ig4-side{border-right:0;border-bottom:1px solid var(--line);padding:12px}
   .ig4-side nav{display:none}

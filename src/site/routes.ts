@@ -9,7 +9,10 @@ import { PATHS as LEARN } from '@/content/learn/paths';
 import { PATHS as FOR } from '@/content/for/paths';
 import { PATHS as PAGES } from '@/content/pages/paths';
 
+const PARKED = true;
 export const LIVE = new Set<string>([
   ...USE_CASES.map(u => `/use-cases/${u.slug}`),
-  ...HUBS, ...INTEGRATIONS, ...COMPARE, ...GUIDES, ...LEARN, ...FOR, ...PAGES,
+  // /learn and /for are parked (Jii, D255): their code stays in src/app/(site)/_parked, their links show as text.
+  ...HUBS, ...INTEGRATIONS, ...COMPARE, ...GUIDES, ...PAGES,
+  ...(PARKED ? [] : [...LEARN, ...FOR]),
 ]);

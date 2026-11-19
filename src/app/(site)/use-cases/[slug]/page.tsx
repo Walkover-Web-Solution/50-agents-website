@@ -41,6 +41,11 @@ function related(u: UseCasePage) {
   return PAGES.filter(x => x.slug !== u.slug).sort((a, b) => score(b) - score(a)).slice(0, 6);
 }
 
+// The 50agents wordmark, small, for table headers (D255: our logo, not a kind face)
+function Logo50() {
+  return <span className="logo50" aria-label="50agents"><span aria-hidden="true">5<Face id="keeper" size={17} />agents</span></span>;
+}
+
 function Mark({ v }: { v: string }) {
   const t = v.toLowerCase();
   const k = /^yes\b/.test(t) ? 'y' : /^no\b/.test(t) ? 'n' : /^(partly|only|if |some|depends)/.test(t) ? 'p' : '';
@@ -70,6 +75,10 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
   const rowA = [...own, ...cat.slice(0, 14)];
   const rowB = [...cat.slice(14), ...topApps(30, [...u.build.apps, ...cat.map(a => a.s)])].slice(0, 18);
   const more = related(u);
+  // apps named in the H1 show their logos above it (D255)
+  const named = u.build.apps.filter(a => u.h1.toLowerCase().includes(appName(a).toLowerCase()));
+  // the comparison shows only the points where 50agents wins (D255): our cell is a yes or a plain strength, not a no or a "partly"
+  const wins = u.compare.rows.filter(r => { const t = (r.cells.at(-1) ?? '').toLowerCase(); return !/^(no\b|partly|only|if |some|depends)/.test(t); });
   const ld = [
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
@@ -88,17 +97,19 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
 
       {/* Hero: the job, the answer, and the ask typed into Captain with Captain's plan under it */}
       <section className="wrap uc3-hero">
-        <KindBadge kind={u.kind} />
+        <div className="uc3-top">
+          <KindBadge kind={u.kind} />
+          {named.length > 0 && <span className="uc3-named">{named.map(a => <AppLogo key={a} app={a} icon={appIcon(a)} size={28} eager />)}</span>}
+        </div>
         <h1>{u.h1}</h1>
-        <p className="answer">{u.answer[0]} {u.answer[1]}</p>
+        {/* the chat box is the subheader (D255): the ask says what to do; one short line says what you get */}
         <PromptFilm ask={u.ask} button={<Cta page={u.slug} place="hero" ask={u.ask}>Build it</Cta>} />
-        <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
+        <p className="uc3-note">{u.answer[1]}</p>
       </section>
 
       {/* How it works: a stepper that moves with the scroll */}
       <section className="wrap sec" id="how">
-        <div className="sec-h c"><h2>How it works</h2></div>
-        <ScrollStepper steps={u.steps} pictures={u.steps.map(s => <div key={s.key}>{stepPicture(s.key, u)}</div>)} />
+        <ScrollStepper head={<div className="sec-h c"><h2>How it works</h2></div>} steps={u.steps} pictures={u.steps.map(s => <div key={s.key}>{stepPicture(s.key, u)}</div>)} />
       </section>
 
       {/* The apps: how many, and two rows of them moving (this job's apps and its category first) */}
@@ -120,10 +131,10 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
         <div className="sec-h c"><h2>Other ways to do it, compared</h2>{u.stat && <p>{u.stat.text}</p>}</div>
         <div className="uc3-cmp">
           <table>
-            <thead><tr><th scope="col"><span className="sr">What matters</span></th>{u.compare.methods.map(m => <th key={m} scope="col">{m}</th>)}<th scope="col" className="us"><span className="uc3-us"><Face id={k.face} size={20} />50agents</span></th></tr></thead>
+            <thead><tr><th scope="col"><span className="sr">What matters</span></th><th scope="col" className="us"><span className="uc3-us"><Logo50 /></span></th>{u.compare.methods.map(m => <th key={m} scope="col">{m}</th>)}</tr></thead>
             <tbody>
-              {u.compare.rows.map(r => (
-                <tr key={r.label}><th scope="row">{r.label}</th>{r.cells.map((c, i) => <Cell key={i} v={c} us={i === r.cells.length - 1} />)}</tr>
+              {wins.map(r => (
+                <tr key={r.label}><th scope="row">{r.label}</th><Cell v={r.cells.at(-1)!} us />{r.cells.slice(0, -1).map((c, i) => <Cell key={i} v={c} />)}</tr>
               ))}
             </tbody>
           </table>

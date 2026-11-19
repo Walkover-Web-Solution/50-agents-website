@@ -220,7 +220,7 @@ a.rel:hover{box-shadow:inset 0 0 0 1px var(--ink)}
 .also{margin-top:16px!important;font-size:15px;color:var(--mute)}.also a{color:var(--ink)}
 
 /* final */
-.final{position:relative;overflow:hidden;text-align:center;padding:64px 24px 76px;border-radius:28px;background:var(--k);margin-top:88px}
+.final{position:relative;overflow:hidden;text-align:center;padding:64px 24px 76px;border-radius:28px;background:var(--k);margin-top:0}
 .final p{color:var(--mute);margin:12px auto 26px!important;max-width:520px;font-size:18px}
 .peek{position:absolute;bottom:-14px;display:flex;align-items:flex-end;gap:8px}.peek.l{left:7%}.peek.r{right:7%}
 .byline{font-size:13.5px;color:var(--mute);margin-top:18px!important;text-align:center}
@@ -272,7 +272,7 @@ a.rel:hover{box-shadow:inset 0 0 0 1px var(--ink)}
    Two section layouts only: a stage (one big visual on the kind's tint) and a split (a sticky heading on the left, rows on
    the right). One rhythm: every section starts 144px below the last (88px on a phone); more space above a heading than
    below it; at most one small source line per section; cards only where the whole thing is a link. */
-.sec{padding-top:144px}
+.sec{padding-top:128px}
 .sec-h{max-width:640px;margin-bottom:48px}
 .sec-h h2{font-size:clamp(30px,3.4vw,44px);line-height:1.04;letter-spacing:-.035em}
 .sec-h p{margin-top:12px!important;font-size:17px;line-height:1.5;color:var(--mute)}
@@ -345,7 +345,7 @@ a.rel:hover{box-shadow:inset 0 0 0 1px var(--ink)}
   .stage{padding:32px}
 }
 @media (max-width:760px){
-  .sec{padding-top:88px}
+  .sec{padding-top:80px}
   .sec-h{margin-bottom:32px}.sec-h p,.split-h p{font-size:17px}
   .stage{padding:14px;border-radius:22px;margin:0 -4px}
   .stage-cap{grid-template-columns:1fr;gap:20px;margin-top:24px!important;padding:0 6px 6px}
@@ -377,3 +377,11 @@ a.rel:hover{box-shadow:inset 0 0 0 1px var(--ink)}
 @media (max-width:760px){.hd-in{height:64px;padding:0 18px}.foot{margin-top:96px}}
 
 .site .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* D255: no orange (or any kind tint) on big surfaces. Pages set --k to their kind's tint inline; this pins it to a
+   neutral warm grey for every highlight on the page. The kind badge and kind cards set their own --k on themselves. */
+.site .page{--k:#F2F1ED!important}
+
+/* D255: one rhythm. Every section is a .sec (128px above it, 80px on a phone); a section adds no margins of its own
+   at its top or bottom, and its heading block (.sec-h) is 40px above its content. */
+.sec-h{margin-bottom:40px}

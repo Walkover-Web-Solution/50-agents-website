@@ -10,6 +10,7 @@
     "Code-heavy workflows fit n8n or Activepieces, which both self-host.",
     "Simpler ones fit Zapier or Make, and 50agents rebuilds a workflow from one sentence, such as Stripe payments into a Google Sheet."
   ],
+  "line": "Rebuild a workflow from one sentence, such as Stripe payments into a Google Sheet.",
   "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
   "lede": "Where Pipedream workflows can go, side by side.",
   "notice": {
@@ -53,12 +54,6 @@
       "src": "https://www.make.com/en/pricing"
     }
   ],
-  "stay": {
-    "best": "App connections in your product",
-    "price": "Startup $99 a month, yearly",
-    "diff": "An SDK, sold as Connect",
-    "src": "https://pipedream.com/"
-  },
   "strengths": [
     {
       "title": "Automations on events",

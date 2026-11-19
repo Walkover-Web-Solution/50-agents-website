@@ -162,5 +162,7 @@ export function pairWords(a: AppFile, b: AppFile, recipes: Recipe[]) {
   ];
   const common = partnersOf(a).filter(x => x.slug !== b.slug && partnersOf(b).some(y => y.slug === x.slug)).slice(0, 5).map(x => nameOf(x.slug));
   if (common.length) faqs.push({ q: `Which other apps work with both ${A} and ${B}?`, a: `${list(common)}. Each one has templates with ${A} and with ${B}, so a third app can join the same job.` });
-  return { h1: `${A} and ${B} automations`, answer, faqs };
+  // The one short line under the hero's chat box (D255 round 3): it names 50agents, since the hero shows only the two apps.
+  const note = '50agents builds it as an automation, and asks before anything goes outside.';
+  return { h1: `${A} and ${B} automations`, answer, note, faqs };
 }

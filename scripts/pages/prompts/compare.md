@@ -37,7 +37,8 @@ questions and the move steps only; facts about tools still come only from `tools
 - `title` under 60 characters, ends " | 50agents", no year. `description` 120 to 160 characters, answer first.
 - `h1`: the query in plain words ("Zapier alternatives", "50agents vs Zapier").
 - `answer`: two sentences, **40 words at most in total**, that answer the query on their own.
-  Versus: "Pick <tool> for ...", then "Pick 50agents to ...".
+  Versus: "Pick <tool> for ...", then "Pick 50agents to ...". It feeds the meta and JSON-LD; it is not shown.
+- `line`: the hero's one short line under Captain's box (D255), **14 words at most**: what 50agents gives this reader.
 - `ask`: exactly the row's ask.
 - `lede`: the one line under the table's heading, **14 words at most**. A plain read of the table, no context.
 - `notice` (alternatives, only when the tool has a `status`): `h` (5 words) and `body` (30 words at most) from the
@@ -46,12 +47,11 @@ questions and the move steps only; facts about tools still come only from `tools
   `best` (best for, **5 words at most**), `price` (starting price, **6 words at most**, from that tool's `free` and
   `price` facts; "Free to start" for 50agents), `diff` (one key difference, **5 words at most**, neutral, from its
   facts), `src` (the facts.ts URL `diff` is read on; 50agents: https://50agents.com).
-- `stay` (alternatives, unless the tool has shut down): the table's last row, "Staying on <tool>": `best`, `price`,
-  `diff`, `src`, with the same limits. `best` comes from the tool's `better` facts: where it is the better choice.
-- `rows` (versus): exactly the row's rows. The free and paid rows are drawn first by the template, every cell from
-  facts.ts `s`.
-- `edge` (versus): the table's last row, "Better for": `us` and `them`, **5 words at most each**. `them` comes from
-  the other tool's `better` facts.
+- No `stay` row (D255): tables show only where 50agents wins. The other tools' facts are listed neutrally.
+- `rows` (versus): exactly the row's rows, each a 50agents win (`isWin` in facts.ts: 50agents' cell is a yes, or for
+  apps a higher count). The free and paid rows are drawn first by the template, every cell from facts.ts `s`.
+- No `edge` ("Better for") row (D255).
+- Apps for people outside your team on your own domain, and export, are yes for 50agents (D255, product-facts.md).
 - `strengths`: **3 or 4**, where 50agents is good and what it gives. Each: `title` (5 words at most), `line` (one
   line, 16 words at most), `face` (`lead` for Captain or plain words, `keeper` automation, `writer` AI agent,
   `scout` browser agent, `sorter` app). Pick the strengths that matter to this page's reader.

@@ -13,7 +13,7 @@ const SearchIcon = () => (
  *  Children are the panels, rendered on the server: `<ul data-panel={key}>` of `<li data-q="...">`, the first panel shown,
  *  items after the first `per` hidden. */
 export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matches', children }: {
-  tabs: { key: string; label: React.ReactNode }[]; search?: string; per: number; fixed: boolean; empty?: string; children: React.ReactNode;
+  tabs: { key: string; label: React.ReactNode; name?: string }[]; search?: string; per: number; fixed: boolean; empty?: string; children: React.ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const boxRef = useRef<HTMLDivElement>(null);
@@ -57,7 +57,8 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
     ref.current?.querySelector<HTMLElement>(`[data-tab="${next.key}"]`)?.focus();
   };
   const none = term && (hits[tab] ?? 0) === 0;
-  const elsewhere = none ? tabs.find(t => t.key !== tab && (hits[t.key] ?? 0) > 0) : undefined;
+  // the other tab with the most matches (a pair has four tabs)
+  const elsewhere = none ? tabs.filter(t => t.key !== tab && (hits[t.key] ?? 0) > 0).sort((x, y) => (hits[y.key] ?? 0) - (hits[x.key] ?? 0))[0] : undefined;
 
   return (
     <div ref={ref} className="ig4-lb">
@@ -66,7 +67,7 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
           {tabs.length > 1 ? (
             <div className="ig4-tabs" role="tablist">
               {tabs.map((t, i) => (
-                <button key={t.key} type="button" role="tab" data-tab={t.key} aria-selected={t.key === tab} tabIndex={t.key === tab ? 0 : -1} onClick={() => pick(t.key)} onKeyDown={e => onKey(e, i)}>
+                <button key={t.key} type="button" role="tab" data-tab={t.key} aria-label={t.name} aria-selected={t.key === tab} tabIndex={t.key === tab ? 0 : -1} onClick={() => pick(t.key)} onKeyDown={e => onKey(e, i)}>
                   {t.label}{term ? <span className="ig4-tab-n">{hits[t.key] ?? 0}</span> : null}
                 </button>
               ))}
@@ -84,7 +85,7 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
         {children}
         {none && (
           <p className="ig4-none" role="status">
-            {empty} &ldquo;{q.trim()}&rdquo;.{elsewhere && <> <button type="button" onClick={() => pick(elsewhere.key)}>See it in {typeof elsewhere.label === 'string' ? elsewhere.label : 'the other tab'}</button></>}
+            {empty} &ldquo;{q.trim()}&rdquo;.{elsewhere && <> <button type="button" onClick={() => pick(elsewhere.key)}>See it in {elsewhere.name ?? (typeof elsewhere.label === 'string' ? elsewhere.label : 'the other tab')}</button></>}
           </p>
         )}
         {left > 0 && <div className="ig4-more"><button type="button" className="btn sm ghost" onClick={() => setShown(s => ({ ...s, [tab]: (s[tab] ?? per) + per }))}>Load more</button></div>}

@@ -10,6 +10,7 @@
     "Lindy works in your inbox and calendar; Relevance AI focuses on sales.",
     "n8n and Activepieces self-host. 50agents builds browser agents and AI agents from plain words, free to start."
   ],
+  "line": "Browser agents and AI agents from plain words, free to start.",
   "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
   "lede": "Other AI agent builders, and where each one starts.",
   "entries": [
@@ -49,12 +50,6 @@
       "src": "https://www.activepieces.com/"
     }
   ],
-  "stay": {
-    "best": "Watching an AI agent browse",
-    "price": "$37 a month (Pro)",
-    "diff": "IT controls tools and models",
-    "src": "https://www.gumloop.com/"
-  },
   "strengths": [
     {
       "title": "Websites with no app",

@@ -10,6 +10,7 @@
     "Pick Glide for business apps from spreadsheets, published to a phone's home screen.",
     "Pick 50agents when the app is one part of the work, with AI agents that follow up for you."
   ],
+  "line": "Apps that are one part of the work, with AI agents that follow up.",
   "ask": "Track my leads and follow up",
   "lede": "Two app builders, row by row.",
   "rows": [
@@ -22,10 +23,6 @@
     "fixed",
     "export"
   ],
-  "edge": {
-    "us": "Apps that do the follow-up",
-    "them": "Phone home-screen apps, Postgres"
-  },
   "strengths": [
     {
       "title": "Apps with your own records",
@@ -64,7 +61,7 @@
     },
     {
       "q": "Can 50agents apps be public?",
-      "a": "No. 50agents apps are for the people in your workspace. Glide has public apps from Plus."
+      "a": "Yes. A 50agents app can serve people outside your team, on your own domain. Glide has public apps from Plus."
     },
     {
       "q": "Which connects to more services?",

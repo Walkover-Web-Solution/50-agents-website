@@ -10,22 +10,17 @@
     "Pick Zapier for 10,541+ apps, code steps and admin controls such as SCIM.",
     "Pick 50agents to describe the job in plain words and have Captain build it."
   ],
+  "line": "Describe the job in plain words and Captain builds it.",
   "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
   "lede": "The main differences, one row at a time.",
   "rows": [
-    "apps",
     "prompt",
     "fixed",
     "aiAgent",
     "browser",
     "approval",
-    "code",
     "export"
   ],
-  "edge": {
-    "us": "Describing jobs in plain words",
-    "them": "10,541+ apps, SCIM, code steps"
-  },
   "strengths": [
     {
       "title": "Describe it in plain words",

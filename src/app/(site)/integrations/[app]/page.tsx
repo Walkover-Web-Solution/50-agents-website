@@ -5,7 +5,7 @@
 // questions. No dates and no source lines on the page. Every visual is drawn from the data.
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
-import { Crumbs, KINDS, MaybeLink } from '@/site/parts';
+import { Crumbs, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { CATEGORIES } from '@/content/integrations/categories';
@@ -63,17 +63,16 @@ export default async function IntegrationPageView({ params }: { params: Promise<
   const C = 'seo-integration' as const;
 
   return (
-    <div className="page uc3 ig3" style={{ ['--k' as string]: KINDS.auto.tint }}>
+    <div className="page uc3 ig3">
       <LdScript data={[crumbsLd([{ name: 'Home', path: '' }, { name: 'Integrations', path: '/integrations' }, { name: N, path }]), softwareLd(`50agents for ${N}`, path, p.answer.join(' '), p.updated)]} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations', href: '/integrations' }, { label: N }]} /></div>
 
-      {/* Hero: the app beside 50agents, the answer, and its best template typed into Captain */}
+      {/* Hero (D255 round 3): the app's logo, the H1, and its best template typed into Captain as the subheader; one line */}
       <section className="wrap uc3-hero ig3-hero">
         <Lockup apps={[slug]} />
         <h1>{p.h1}</h1>
-        <p className="answer">{p.answer[0]} {p.answer[1]}</p>
         <PromptFilm ask={p.ask} button={<span className="hero-cta"><BuildLink page={slug} place="hero" campaign={C} ask={p.ask}>Build it</BuildLink></span>} />
-        <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
+        <p className="uc3-note">{p.answer[1]}</p>
       </section>
 
       {/* The four kinds on this app */}

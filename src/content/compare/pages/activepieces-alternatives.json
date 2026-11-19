@@ -10,6 +10,7 @@
     "n8n also self-hosts and lists 2,829 integrations; Make and Zapier have larger app catalogs.",
     "Power Automate fits Microsoft 365, and 50agents builds from plain words."
   ],
+  "line": "Tell Captain the job in one sentence and it builds the flow.",
   "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
   "lede": "Self-hosted and hosted options next to Activepieces.",
   "entries": [
@@ -49,12 +50,6 @@
       "src": "https://www.microsoft.com/en-us/power-platform/products/power-automate"
     }
   ],
-  "stay": {
-    "best": "Self-hosting, air-gapped installs",
-    "price": "Free plan; Plus $20 a month",
-    "diff": "Flat pricing, not per user",
-    "src": "https://www.activepieces.com/pricing"
-  },
   "strengths": [
     {
       "title": "Describe it in plain words",

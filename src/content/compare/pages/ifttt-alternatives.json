@@ -10,6 +10,7 @@
     "For your phone, Apple Shortcuts; for a local smart home, Home Assistant.",
     "For work apps, Zapier or Make. For email chores like drafting replies, 50agents builds an AI agent from one sentence."
   ],
+  "line": "For email chores like drafting replies, an AI agent from one sentence.",
   "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
   "lede": "Alternatives for phones, smart homes and work apps.",
   "entries": [
@@ -49,12 +50,6 @@
       "src": "https://www.make.com/en/pricing"
     }
   ],
-  "stay": {
-    "best": "Smart-home devices and phones",
-    "price": "Free plan; Starter $2.09 a month",
-    "diff": "iOS and Android apps",
-    "src": "https://ifttt.ai/"
-  },
   "strengths": [
     {
       "title": "AI agents that decide",

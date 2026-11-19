@@ -10,6 +10,7 @@
     "Bardeen now focuses on finding and enriching leads.",
     "For browser work, Gumloop and Lindy drive a browser, Power Automate offers desktop RPA, and 50agents builds browser agents from plain words."
   ],
+  "line": "Browser agents built from plain words, for sites with no app to connect.",
   "ask": "Track my leads and follow up",
   "lede": "Browser automation options, and what each is best for.",
   "entries": [
@@ -49,12 +50,6 @@
       "src": "https://www.microsoft.com/en-us/power-platform/products/power-automate"
     }
   ],
-  "stay": {
-    "best": "Prospecting and contact enrichment",
-    "price": "100 free credits; Basic $10",
-    "diff": "Free CSV downloads",
-    "src": "https://www.bardeen.ai/pricing"
-  },
   "strengths": [
     {
       "title": "Websites with no app",

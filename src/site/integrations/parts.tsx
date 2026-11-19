@@ -13,18 +13,17 @@ export const BASE = 'https://50agents.com';
 export type Campaign = 'seo-integration' | 'seo-pair' | 'seo-category' | 'seo-index';
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
-export function Logo({ slug, size = 28 }: { slug: string; size?: number }) {
+export function Logo({ slug, size = 28, eager }: { slug: string; size?: number; eager?: boolean }) {
   const icon = iconOf(slug);
-  return icon ? <AppLogo app={slug} icon={icon} size={size} /> : <span className="ig-nologo" style={{ width: size, height: size }} aria-hidden="true">{nameOf(slug).charAt(0)}</span>;
+  return icon ? <AppLogo app={slug} icon={icon} size={size} eager={eager} /> : <span className="ig-nologo" style={{ width: size, height: size }} aria-hidden="true">{nameOf(slug).charAt(0)}</span>;
 }
 
-/** The hero's lockup: the app's logo (or two apps' logos) beside the 50agents wordmark. */
+/** The hero's lockup: the app's logo, or two apps' logos joined. No 50agents wordmark (D255 round 3): the header carries
+ *  it, and the H1 or the line under the chat box names 50agents. */
 export function Lockup({ apps }: { apps: string[] }) {
   return (
     <p className="ig3-lock" aria-hidden="true">
-      {apps.map((a, i) => <span key={a} className="ig3-lock-logo">{i > 0 && <i className="ig3-lock-and" />}<Logo slug={a} size={40} /></span>)}
-      <span className="ig3-lock-plus">+</span>
-      <span className="wm-w ig3-lock-wm">5<Face id="keeper" size={26} />agents</span>
+      {apps.map((a, i) => <span key={a} className="ig3-lock-logo">{i > 0 && <i className="ig3-lock-and" />}<Logo slug={a} size={40} eager /></span>)}
     </p>
   );
 }
@@ -74,31 +73,41 @@ function EvPanel({ k, events, app, logos, first }: { k: string; events: { e: Eve
   );
 }
 
+/** data-gate="skip": the lists are shared catalog data, so the uniqueness gate leaves them out (brief D7). */
 /** An app's triggers and actions, as two tabs with one search, in a box that scrolls inside itself. */
 export function EventsBox({ app }: { app: AppFile }) {
   const t = app.events.filter(e => e.t === 'trigger').map(e => ({ e, app })), a = app.events.filter(e => e.t === 'action').map(e => ({ e, app }));
   const tabs = [...(t.length ? [{ key: 'triggers', label: 'Triggers' }] : []), ...(a.length ? [{ key: 'actions', label: 'Actions' }] : [])];
   return (
-    <ListBox tabs={tabs} per={PER} fixed={t.length > PER || a.length > PER} search="Search triggers and actions" empty="Nothing matches">
-      {t.length > 0 && <EvPanel k="triggers" events={t} first />}
-      {a.length > 0 && <EvPanel k="actions" events={a} first={!t.length} />}
-    </ListBox>
+    <div data-gate="skip">
+      <ListBox tabs={tabs} per={PER} fixed={t.length > PER || a.length > PER} search="Search triggers and actions" empty="Nothing matches">
+        {t.length > 0 && <EvPanel k="triggers" events={t} first />}
+        {a.length > 0 && <EvPanel k="actions" events={a} first={!t.length} />}
+      </ListBox>
+    </div>
   );
 }
 
-/** A pair's steps: the triggers and the actions its templates use, from both apps, each with its app's logo. */
-export function PairEventsBox({ a, b, recipes }: { a: AppFile; b: AppFile; recipes: Recipe[] }) {
-  const used = (kind: 'trigger' | 'action') => [a, b].flatMap(app => {
-    const names = new Set(recipes.flatMap(r => kind === 'trigger' ? (r.ta === app.slug ? [r.te] : []) : (r.aa === app.slug ? [r.ae] : [])));
-    return app.events.filter(e => e.t === kind && names.has(e.n)).map(e => ({ e, app }));
-  });
-  const t = used('trigger'), x = used('action');
-  const tabs = [...(t.length ? [{ key: 'triggers', label: 'Triggers' }] : []), ...(x.length ? [{ key: 'actions', label: 'Actions' }] : [])];
+/** A pair's triggers and actions: every one of both apps (D255 round 3), in the same box as the app pages. One tab per
+ *  app and kind ("HubSpot triggers", "Slack actions"), each with its app's logo; one search across all four. */
+export function PairEventsBox({ a, b }: { a: AppFile; b: AppFile }) {
+  const panels = [a, b].flatMap(app => (['trigger', 'action'] as const).map(t => ({
+    key: `${app.slug}-${t}s`,
+    app,
+    word: t === 'trigger' ? 'triggers' : 'actions',
+    events: app.events.filter(e => e.t === t).map(e => ({ e, app })),
+  }))).filter(p => p.events.length > 0);
+  const tabs = panels.map(p => ({
+    key: p.key,
+    name: `${p.app.name} ${p.word}`,
+    label: <><Logo slug={p.app.slug} size={20} /><span className="ig4-tab-app">{p.app.name}</span><span className="ig4-tab-w">{p.word}</span></>,
+  }));
   return (
-    <ListBox tabs={tabs} per={PER} fixed={t.length > PER || x.length > PER} search={t.length + x.length > PER ? 'Search these triggers and actions' : undefined} empty="Nothing matches">
-      {t.length > 0 && <EvPanel k="triggers" events={t} logos first />}
-      {x.length > 0 && <EvPanel k="actions" events={x} logos first={!t.length} />}
-    </ListBox>
+    <div data-gate="skip">
+      <ListBox tabs={tabs} per={PER} fixed={panels.some(p => p.events.length > PER)} search="Search both apps" empty="Nothing matches">
+        {panels.map((p, i) => <EvPanel key={p.key} k={p.key} events={p.events} first={i === 0} />)}
+      </ListBox>
+    </div>
   );
 }
 

@@ -10,23 +10,17 @@
     "Pick n8n to self-host, write code nodes and pay one price per run.",
     "Pick 50agents when nobody on the team wants to build: describe the job and Captain does it."
   ],
+  "line": "Describe the job and Captain builds it, so nobody on the team has to.",
   "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
   "lede": "Self-hosted builder against built-for-you, row by row.",
   "rows": [
-    "apps",
     "prompt",
     "fixed",
     "aiAgent",
     "appBuilder",
     "approval",
-    "handEdit",
-    "code",
     "export"
   ],
-  "edge": {
-    "us": "Teams with no builder",
-    "them": "Self-hosting and code nodes"
-  },
   "strengths": [
     {
       "title": "Describe it in plain words",

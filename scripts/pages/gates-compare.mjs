@@ -1,11 +1,13 @@
-// The page pipeline's gates for the comparison family (v4, D254: Jii's round 2), on every page JSON in
+// The page pipeline's gates for the comparison family (v5, D255: Jii's round 3; v4 was D254), on every page JSON in
 // src/content/compare/pages. Shape and word limits (short everywhere), facts (every price or count named must match
 // src/content/compare/facts.ts for a tool named in the same sentence, every table cell 5 words at most), safe wording
 // (neutral, nothing about competitors' quality, security, reliability or customers), style (house rules, no dates),
-// uniqueness (5-word shingles under 0.5). Writes report-compare.md.
+// uniqueness (5-word shingles under 0.5). D255: tables show only where 50agents wins (no "Better for" or "Staying on"
+// rows, every versus row a win by isWin in facts.ts), and nothing says 50agents can't do apps outside the team or export.
+// Writes report-compare.md.
 // Run from the repo root: node scripts/pages/gates-compare.mjs  (Node 23+ reads facts.ts directly)
 import fs from 'node:fs';
-const { TOOLS, ROWS } = await import(new URL('../../src/content/compare/facts.ts', import.meta.url));
+const { TOOLS, ROWS, isWin } = await import(new URL('../../src/content/compare/facts.ts', import.meta.url));
 const DIR = 'src/content/compare/pages';
 const ROWS_IN = JSON.parse(fs.readFileSync('scripts/pages/rows-compare.json', 'utf8'));
 const rows = Object.fromEntries(ROWS_IN.map(r => [r.slug, r]));
@@ -57,9 +59,11 @@ for (const t of Object.values(TOOLS)) for (const [k, c] of Object.entries(t.cell
   if (c.s) numbers(c.s, true).filter(n => !ok.has(n.key) && !(t.id === 'fifty')).forEach(n => factsBad.push(`${t.id}.${k} short "${n.raw}" not in its note`));
 }
 
-const alts = p => p.type === 'alternatives' ? [...p.entries, ...(p.stay ? [{ ...p.stay, tool: p.tool }] : [])] : [];
-const cellTexts = p => p.type === 'alternatives' ? alts(p).flatMap(e => [e.best, e.price, e.diff]).filter(Boolean) : [p.edge?.us, p.edge?.them].filter(Boolean);
-const texts = p => [p.title, p.description, p.h1, ...p.answer, p.lede, ...(p.notice ? [p.notice.h, p.notice.body] : []),
+const alts = p => p.type === 'alternatives' ? p.entries : [];
+const cellTexts = p => alts(p).flatMap(e => [e.best, e.price, e.diff]).filter(Boolean);
+// D255 (product-facts.md): apps for people outside your team on your own domain, and export, are shown as yes.
+const DENIES = /(workspace only|(for|to) the people in your workspace|apps are for your (own )?(team|workspace)|no (customer |client )?portals?|no custom domains?|(can't|cannot|can not|does not|doesn't|do not|don't) export|no export)/i;
+const texts = p => [p.title, p.description, p.h1, ...p.answer, p.line, p.lede, ...(p.notice ? [p.notice.h, p.notice.body] : []),
   ...cellTexts(p), ...(p.strengths ?? []).flatMap(s => [s.title, s.line]),
   ...p.move.flatMap(m => [m.title, m.body]), ...p.faqs.flatMap(f => [f.q, f.a]), ...p.related.flatMap(r => [r.title, r.line])];
 const shingles = t => { const w = t.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(Boolean), s = new Set(); for (let i = 0; i + 5 <= w.length; i++) s.add(w.slice(i, i + 5).join(' ')); return s; };
@@ -85,6 +89,7 @@ for (const p of pages) {
   if (!Array.isArray(p.answer) || p.answer.length !== 2) bad.push('answer is not two sentences');
   else max(p.answer.join(' '), 40, 'answer');
   max(p.lede, 14, 'lede');
+  if (!p.line) bad.push('no hero line (D255)'); else max(p.line, 14, 'hero line');
   if ('pick' in p) bad.push('old "pick" field: use strengths and the table\'s last row');
   if (!Array.isArray(p.strengths) || p.strengths.length < 3 || p.strengths.length > 4) bad.push('strengths not 3 or 4');
   else p.strengths.forEach(s => { max(s.title, 5, `strength "${s.title}" title`); max(s.line, 16, `strength "${s.title}" line`); if (!FACES.has(s.face)) bad.push(`strength face ${s.face}`); });
@@ -101,8 +106,7 @@ for (const p of pages) {
     if (new Set(ids).size !== ids.length) bad.push('a tool is listed twice');
     if (row && row.tools.join() !== ids.join()) bad.push('entries differ from the row');
     if (ids.includes(p.tool)) bad.push('the page\'s own tool is in its alternatives');
-    if (!p.stay && !them?.status) bad.push(`no "stay" row: say where ${them?.name} is the better choice`);
-    if (p.stay && /shut down/i.test(them?.status?.fact ?? '')) bad.push('a "stay" row for a tool that has shut down');
+    if ('stay' in p) bad.push('a "Staying on" row (dropped in D255: the table shows only where 50agents wins)');
     for (const e of alts(p)) {
       if (!TOOLS[e.tool]) { bad.push(`entry ${e.tool} not in facts.ts`); continue; }
       ['best', 'price', 'diff', 'src'].forEach(k => !e[k] && bad.push(`${e.tool} has no ${k}`));
@@ -123,13 +127,10 @@ for (const p of pages) {
       if (!ROWS[r]) bad.push(`row ${r} unknown`);
       else if (r === 'free' || r === 'price') bad.push(`row ${r} is drawn by the template`);
       else if (!them?.cells[r] || !TOOLS.fifty.cells[r]) bad.push(`row ${r} has no checked cell for both tools`);
+      else if (!isWin(r, them.cells, TOOLS.fifty.cells)) bad.push(`row ${r} is not a 50agents win (D255)`);
     });
     if (row && row.rows.join() !== p.rows.join()) bad.push('rows differ from the row');
-    if (!p.edge?.us || !p.edge?.them) bad.push('no "Better for" row (edge)');
-    else {
-      max(p.edge.us, 5, 'edge us'); max(p.edge.them, 5, 'edge them');
-      for (const [who, s] of [['fifty', p.edge.us], [p.tool, p.edge.them]]) { const ok = allowed([who]); numbers(s).filter(n => !ok.has(n.key)).forEach(n => bad.push(`edge: "${n.raw}" not in facts.ts for ${who}`)); }
-    }
+    if ('edge' in p) bad.push('a "Better for" row (dropped in D255: the table shows only where 50agents wins)');
   }
   // facts: every price or count in the writing matches facts.ts for a tool its sentence names (or the page's tools)
   const prose = texts(p).filter(s => !cellTexts(p).includes(s));
@@ -149,6 +150,7 @@ for (const p of pages) {
     const v = s.match(LEAVE); if (v) bad.push(`why people leave ("${v[0]}"): ${s.slice(0, 60)}`);
   }
   const all = texts(p).join('\n');
+  const deny = all.match(DENIES); if (deny) bad.push(`says 50agents can't (D255 marks it yes): "${deny[0]}"`);
   if (/(?<![\d,])2,000 credits|\$1 (buys|per)/.test(all)) bad.push('50agents credits or price');
   // style
   if (/—/.test(all)) bad.push('em dash');
@@ -176,7 +178,7 @@ for (const p of pages) {
   report.push(`| ${p.slug} | ${words(all)} | ${bad.length ? 'FAIL: ' + bad.join('; ').replace(/\|/g, '/') : 'pass'} |`);
 }
 if (factsBad.length) failed++;
-const md = `# Gate report: comparisons (v4, D254)\n\nPages ${pages.length}, passed ${pages.length - failed + (factsBad.length ? 1 : 0)}, failed ${failed - (factsBad.length ? 1 : 0)}. facts.ts cells: ${factsBad.length ? 'FAIL: ' + factsBad.join('; ') : 'pass'}. Run: node scripts/pages/gates-compare.mjs\n\n| Page | Words | Result |\n|---|---|---|\n${report.join('\n')}\n`;
+const md = `# Gate report: comparisons (v5, D255)\n\nPages ${pages.length}, passed ${pages.length - failed + (factsBad.length ? 1 : 0)}, failed ${failed - (factsBad.length ? 1 : 0)}. facts.ts cells: ${factsBad.length ? 'FAIL: ' + factsBad.join('; ') : 'pass'}. Run: node scripts/pages/gates-compare.mjs\n\n| Page | Words | Result |\n|---|---|---|\n${report.join('\n')}\n`;
 fs.writeFileSync('scripts/pages/report-compare.md', md);
 console.log(md);
 process.exit(failed ? 1 : 0);

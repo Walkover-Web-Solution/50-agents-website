@@ -1,15 +1,11 @@
-/* Comparison pages, v4 (D254): the use case system (usecase.css, site.css). One table as the visual centre, in the use
+/* Comparison pages, v5 (D255; v4 was D254): the use case system (usecase.css, site.css). One table as the visual centre, in the use
    case table's pattern (short cells, drawn marks, 50agents raised on its tint), strengths cards and a connected stepper.
    On a phone the hero is left-aligned, the tables reflow so nothing scrolls sideways, and the stepper stacks. */
 
-/* hero */
-.cmp3-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:48px}
-.cmp3-hero h1{margin-top:22px;font-size:clamp(44px,6vw,76px);line-height:1;letter-spacing:-.04em;max-width:1000px}
-.cmp3-hero .answer{margin:26px auto 0!important;font-size:20px;line-height:1.55;max-width:760px;color:var(--mute)}
-.cmp3-notice{margin:22px auto 0!important;max-width:720px;padding:16px 20px;border-radius:16px;background:#FFF4EE;font-size:16px;line-height:1.55;text-align:left}
+/* hero: the use case hero (.uc3-hero, D255), with the closing notice under its line, on grey (no orange) */
+.cmp3-notice{margin:22px auto 0!important;max-width:720px;padding:16px 20px;border-radius:16px;background:var(--wash);font-size:16px;line-height:1.55;text-align:left}
 .cmp3-notice b{font-weight:600}
-.cmp3-film{display:block;width:100%;max-width:940px;margin:0}
-.cmp3-film .film{margin:40px auto 0}
+.cmp3 .final{margin-top:0}
 
 /* the tables: the use case pattern, full container width */
 .cmp4-tbl{padding:12px 0 4px}
@@ -26,16 +22,13 @@
 .cmp4-tbl.vs thead .us{border-radius:20px 20px 0 0;color:var(--ink);font-size:15px}
 .cmp4-tbl.vs tbody tr:last-child .us{border-radius:0 0 20px 20px}
 .cmp4-tbl.vs td.us{font-weight:600}
-.cmp4-tbl.vs tr.edge th,.cmp4-tbl.vs tr.edge td{padding-top:22px;padding-bottom:22px}
 
-/* alternatives: the 50agents row raised on the tint, the stay row last */
+/* alternatives: the 50agents row raised on the tint, first */
 .cmp4-tbl.alt th:first-child{width:22%}
 .cmp4-tbl.alt td:nth-child(3){width:24%}
 .cmp4-tbl.alt tr.us>*{background:var(--k);font-weight:600;border-bottom-color:transparent}
 .cmp4-tbl.alt tr.us>:first-child{border-radius:20px 0 0 20px}
 .cmp4-tbl.alt tr.us>:last-child{border-radius:0 20px 20px 0}
-.cmp4-tbl.alt tr.stay>*{color:var(--mute)}
-.cmp4-tbl.alt tr.stay th{font-weight:500}
 
 /* where 50agents is good: 3 or 4 cards, a crew blob each */
 .cmp4-str{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -45,23 +38,20 @@
 .cmp4-str h3{margin-top:20px;font-size:21px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
 .cmp4-str p{margin-top:10px!important;font-size:16px;line-height:1.5;color:var(--mute)}
 
-/* how to move over: a horizontal stepper, dots joined by a line */
-.cmp4-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:24px}
-.cmp4-steps li{position:relative}
-.cmp4-steps li:not(:last-child)::after{content:"";position:absolute;top:21px;left:56px;right:-16px;height:2px;background:var(--line)}
-.cmp4-dot{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;font-size:16px;font-weight:600}
-.cmp4-steps h3{margin-top:20px;font-size:20px;font-weight:500;letter-spacing:-.015em;line-height:1.25}
-.cmp4-steps p{margin-top:8px!important;font-size:16px;line-height:1.5;color:var(--mute);max-width:300px}
+/* how to move over (D255): equal columns; a line from each circle's centre to the next one's, behind the circles;
+   title and line aligned under the circle's left edge */
+.cmp5-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));column-gap:32px}
+.cmp5-steps li{position:relative;min-width:0}
+.cmp5-steps li:not(:last-child)::before{content:"";position:absolute;top:21px;left:22px;width:calc(100% + 32px);height:2px;background:var(--line)}
+.cmp5-dot{position:relative;z-index:1;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;font-size:16px;font-weight:600}
+.cmp5-steps h3{margin-top:24px;font-size:20px;font-weight:500;letter-spacing:-.015em;line-height:1.25;padding-right:8px}
+.cmp5-steps p{margin-top:8px!important;font-size:16px;line-height:1.5;color:var(--mute);padding-right:8px}
 
 @media (max-width:1020px){
   .cmp4-str.n4{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:760px){
-  .cmp3-hero{padding-top:28px;align-items:flex-start;text-align:left}
-  .cmp3-hero h1{font-size:40px}
-  .cmp3-hero .answer{font-size:17.5px;margin-left:0!important}
   .cmp3-notice{margin-left:0!important}
-  .cmp3-film .film{margin-top:32px}
 
   /* versus: the row's label on its own line, the two cells side by side under it */
   .cmp4-tbl{padding:0}
@@ -76,8 +66,6 @@
   .cmp4-tbl.vs td:not(.us){border-bottom:0}
   .cmp4-tbl.vs .cell{gap:8px;align-items:flex-start}
   .cmp4-tbl.vs .mk{margin-top:-1px}
-  .cmp4-tbl.vs tr.edge th{padding-top:16px}
-  .cmp4-tbl.vs tr.edge td{padding-top:12px;padding-bottom:12px}
 
   /* alternatives: one card per tool */
   .cmp4-tbl.alt table,.cmp4-tbl.alt tbody,.cmp4-tbl.alt tr,.cmp4-tbl.alt th,.cmp4-tbl.alt td{display:block;width:auto!important}
@@ -97,11 +85,12 @@
   .cmp4-str h3{margin-top:0;font-size:19px}
   .cmp4-str p{margin-top:4px!important}
 
-  /* the stepper stacks: dots down the left, joined by a vertical line */
-  .cmp4-steps{grid-template-columns:1fr;gap:0}
-  .cmp4-steps li{display:grid;grid-template-columns:44px 1fr;column-gap:18px;padding-bottom:28px}
-  .cmp4-steps li:last-child{padding-bottom:0}
-  .cmp4-steps li:not(:last-child)::after{top:52px;bottom:8px;left:21px;right:auto;width:2px;height:auto}
-  .cmp4-steps h3{margin-top:9px;font-size:19px}
-  .cmp4-steps p{max-width:none}
+  /* the stepper stacks: circles down the left, the line running down from centre to centre */
+  .cmp5-steps{grid-template-columns:1fr}
+  .cmp5-steps li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:18px;padding-bottom:32px}
+  .cmp5-steps li:last-child{padding-bottom:0}
+  .cmp5-steps li:not(:last-child)::before{top:22px;bottom:-22px;left:21px;width:2px;height:auto}
+  .cmp5-dot{grid-row:span 2}
+  .cmp5-steps h3{grid-column:2;margin-top:10px;font-size:19px;padding-right:0}
+  .cmp5-steps p{grid-column:2;margin-top:4px!important;padding-right:0}
 }

@@ -10,6 +10,7 @@
     "Pick Relevance AI for ready-made sales AI agent teams wired into Salesforce, HubSpot and Gong.",
     "Pick 50agents for a lighter start: one AI agent, built from a sentence, free."
   ],
+  "line": "Start with one AI agent, built from a sentence, free.",
   "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
   "lede": "Sales AI agent teams against a lighter start, row by row.",
   "rows": [
@@ -18,13 +19,8 @@
     "aiAgent",
     "fixed",
     "browser",
-    "approval",
-    "code"
+    "approval"
   ],
-  "edge": {
-    "us": "A light, free start",
-    "them": "Ready-made sales AI agent teams"
-  },
   "strengths": [
     {
       "title": "AI agents that decide",

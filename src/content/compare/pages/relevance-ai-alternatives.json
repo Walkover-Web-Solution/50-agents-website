@@ -10,6 +10,7 @@
     "Lindy works in a rep's inbox and calendar; Gumloop builds shared team AI agents.",
     "n8n self-hosts, Zapier adds AI agents to workflows, and 50agents drafts follow-ups for your approval, free to start."
   ],
+  "line": "Follow-ups drafted by an AI agent, sent only after you approve.",
   "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
   "lede": "Options for sales teams, with what each is best for.",
   "entries": [
@@ -49,12 +50,6 @@
       "src": "https://zapier.com/pricing"
     }
   ],
-  "stay": {
-    "best": "Ready-made sales AI agents",
-    "price": "$19 a month, billed yearly",
-    "diff": "AI agent evaluations (Enterprise)",
-    "src": "https://relevanceai.com/"
-  },
   "strengths": [
     {
       "title": "AI agents that decide",

@@ -10,13 +10,15 @@ import { PATHS as PAGES } from '@/content/pages/paths';
 import index from '@/content/integrations/catalog/index.json';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { appTier, catalog, pairTier, pairs } from '@/site/integrations/data';
+import { CONTACT_EMAIL, SUPPORT_OPEN } from '@/content/pages/support';
 
 const BASE = 'https://50agents.com';
 const HOME_UPDATED = '2026-11-18'; // the landing's last change: update with each landing deploy
 const WRITTEN = '2026-11-19'; // the written families' first version; per-page dates replace this as pages are revised
 type Entry = { path: string; date: string };
 
-const noindex = new Set(['/contact']); // pages set to noindex until a fact is confirmed
+// Pages set to noindex until a fact is confirmed: /contact until its email is, /support until no channel is a placeholder.
+const noindex = new Set([...(CONTACT_EMAIL ? [] : ['/contact']), ...(SUPPORT_OPEN.length ? ['/support'] : [])]);
 
 export const FAMILIES: Record<string, () => Entry[]> = {
   main: () => [{ path: '/', date: HOME_UPDATED }, ...PAGES.filter(p => !noindex.has(p)).map(path => ({ path, date: WRITTEN }))],
@@ -24,8 +26,6 @@ export const FAMILIES: Record<string, () => Entry[]> = {
   hubs: () => HUBS.map(path => ({ path, date: WRITTEN })),
   compare: () => COMPARE.map(path => ({ path, date: WRITTEN })),
   guides: () => GUIDES.map(path => ({ path, date: WRITTEN })),
-  learn: () => LEARN.map(path => ({ path, date: WRITTEN })),
-  for: () => FOR.map(path => ({ path, date: WRITTEN })),
   categories: () => [{ path: '/integrations', date: index.read }, ...CATEGORIES.map(c => ({ path: `/integrations/category/${c.slug}`, date: index.read }))],
   // Integrations and pairs by tier (Search review 01, S20): the core and a test cohort, each in its own sitemap.
   integrations: () => catalog().apps.filter(a => appTier(a.s) === 'core').map(a => ({ path: `/integrations/${a.s}`, date: index.read })),

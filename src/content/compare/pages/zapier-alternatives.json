@@ -10,6 +10,7 @@
     "Make bills per credit and n8n bills per run, where Zapier counts each action step.",
     "Power Automate fits Microsoft 365; 50agents builds the job from plain words."
   ],
+  "line": "Describe the automation in plain words and Captain builds it.",
   "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
   "lede": "Six tools, what each is best for, and where pricing starts.",
   "entries": [
@@ -56,12 +57,6 @@
       "src": "https://www.lindy.ai/"
     }
   ],
-  "stay": {
-    "best": "Apps only Zapier connects",
-    "price": "Free plan; $19.99 a month",
-    "diff": "SCIM and role-based access",
-    "src": "https://zapier.com/"
-  },
   "strengths": [
     {
       "title": "Describe it in plain words",

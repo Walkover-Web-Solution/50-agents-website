@@ -3,7 +3,7 @@
 // numbered pages), then a few real templates.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Crumbs, KINDS } from '@/site/parts';
+import { Crumbs } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { BuildLink } from '@/site/integrations/build-link';
@@ -65,7 +65,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
   const C = 'seo-category' as const;
 
   return (
-    <div className="page uc3 ig3" style={{ ['--k' as string]: KINDS.auto.tint }}>
+    <div className="page uc3 ig3">
       <LdScript data={crumbsLd([{ name: 'Home', path: '' }, { name: 'Integrations', path: '/integrations' }, { name: c.name, path: `/integrations/category/${c.slug}` }])} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations', href: '/integrations' }, { label: c.name }]} /></div>
 
@@ -74,7 +74,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
         <p className="answer">50agents builds automations, AI agents and apps on {c.short} apps such as {list(top)}, through viaSocket. {c.about}</p>
       </section>
 
-      <section className="wrap ig4-dir-sec" aria-label={`${c.name} apps`}>
+      <section className="wrap sec" aria-label={`${c.name} apps`}>
         <DirectoryPanel apps={members} current={`/integrations/category/${c.slug}`} head={<h2>{c.name} apps</h2>} label={`Search ${c.short} apps`} />
       </section>
 

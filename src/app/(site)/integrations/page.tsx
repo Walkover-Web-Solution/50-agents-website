@@ -3,7 +3,7 @@
 // as a hairline grid, most used first, with one search and numbered pages. Every app is in the HTML; the pages only
 // hide the rest, so the page never grows.
 import type { Metadata } from 'next';
-import { Crumbs, KINDS } from '@/site/parts';
+import { Crumbs } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { catalog } from '@/site/integrations/data';
 import { BuildLink } from '@/site/integrations/build-link';
@@ -29,7 +29,7 @@ export default function IntegrationsIndex() {
   const { apps } = catalog(); // most used first
 
   return (
-    <div className="page uc3 ig3" style={{ ['--k' as string]: KINDS.auto.tint }}>
+    <div className="page uc3 ig3">
       <LdScript data={crumbsLd([{ name: 'Home', path: '' }, { name: 'Integrations', path: '/integrations' }])} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations' }]} /></div>
 
@@ -39,7 +39,7 @@ export default function IntegrationsIndex() {
         <div className="hero-cta ig3-dir-cta"><BuildLink page="integrations" place="hero" campaign="seo-index" ask={ASK} className="btn ghost">Not sure? Ask Captain</BuildLink></div>
       </section>
 
-      <section className="wrap ig4-dir-sec" aria-label="All apps">
+      <section className="wrap sec" aria-label="All apps">
         <DirectoryPanel apps={apps} current="/integrations" head={<h2>All apps</h2>} label="Search apps, such as HubSpot or Notion" />
       </section>
 

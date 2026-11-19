@@ -10,23 +10,17 @@
     "Pick Make to lay out branching scenarios on a canvas and edit them module by module.",
     "Pick 50agents to say what you need and let Captain build it."
   ],
+  "line": "Say what you need and Captain builds the scenario for you.",
   "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
   "lede": "Canvas against plain words, row by row.",
   "rows": [
-    "apps",
     "prompt",
     "fixed",
     "aiAgent",
     "appBuilder",
     "approval",
-    "handEdit",
-    "code",
     "export"
   ],
-  "edge": {
-    "us": "Saying the job in words",
-    "them": "Branching scenarios, edited visually"
-  },
   "strengths": [
     {
       "title": "Describe it in plain words",

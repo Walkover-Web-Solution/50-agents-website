@@ -35,6 +35,16 @@ export const ROWS: Record<RowKey, string> = {
   export: 'Export what you built',
 };
 
+// D255: a versus table shows only the rows where 50agents wins: its cell is a yes (a tie counts), or, for the
+// apps row, its count is higher. A row where 50agents is a no or a "partly", or has fewer apps, is left out.
+const count = (s?: string) => parseFloat((s ?? '').replace(/,/g, '').match(/\d+(\.\d+)?/)?.[0] ?? 'NaN');
+export function isWin(row: RowKey, them: Partial<Record<RowKey, Cell>>, ours: Partial<Record<RowKey, Cell>>): boolean {
+  const us = ours[row], other = them[row];
+  if (!us || !other) return false;
+  if (row === 'apps') return count(us.s) > count(other.s);
+  return us.v === 'yes';
+}
+
 export type ToolId =
   | 'fifty' | 'zapier' | 'make' | 'n8n' | 'pipedream' | 'lindy' | 'gumloop' | 'relevance' | 'relay'
   | 'bardeen' | 'activepieces' | 'ifttt' | 'powerautomate' | 'softr' | 'glide' | 'homeassistant' | 'uipath' | 'shortcuts';
@@ -80,18 +90,17 @@ const fifty: Tool = {
     browser: c('yes', 'Browser agents read and use websites that have no app to connect', APP, 'Uses sites with no app'),
     appBuilder: c('yes', 'Lists, boards, tables and numbers, run by a crew of AI agents', APP, 'Lists, boards, tables, numbers'),
     database: c('yes', 'An app keeps its records in 50agents; import and export CSV', APP, 'Records, CSV import and export'),
-    publicApps: c('no', 'Apps are for the people in your workspace', APP, 'Your workspace only'),
+    publicApps: c('yes', 'Apps for people outside your team, on your own domain (shown as yes on Jii\'s word, D255)', APP, 'On your own domain'),
     fixed: c('yes', 'Automations run the same steps every time, on an event or a schedule', APP, 'On events or schedules'),
     approval: c('yes', 'Anything that reaches people outside, spends money or changes access waits for your yes', APP, 'Outside actions wait for you'),
     handEdit: c('no', 'You see every step, but changes go through chat', APP, 'Changes go through chat'),
     code: c('no', 'Steps are fixed blocks; there is no code step', APP, 'No code steps'),
-    export: c('partly', 'App records export as CSV; automations and AI agents do not export', APP, 'App records as CSV'),
+    export: c('yes', 'Export what you build (shown as yes on Jii\'s word, D255)', APP, 'Export what you build'),
   },
   limits: [
     f('It is new, so it has far fewer finished examples and much less community help than older tools.', APP),
     f('There is no drag-and-drop editor. You see each step, and you change it by asking Captain.', APP),
     f('There are no code steps.', APP),
-    f('Apps are for your own workspace; there are no customer portals or custom domains.', APP),
   ],
   better: [],
 };

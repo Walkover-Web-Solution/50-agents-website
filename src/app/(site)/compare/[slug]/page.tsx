@@ -1,7 +1,8 @@
-// A comparison page, v4 (D254, Jii's round 2): 12 alternatives pages and 8 versus pages, one template filled from each
+// A comparison page, v5 (D255, Jii's round 3): 12 alternatives pages and 8 versus pages, one template filled from each
 // page's JSON (src/content/compare/pages), written by the page pipeline (scripts/pages, prompt compare.md, gates-compare.mjs).
-// A centred hero with a 40-word answer and the ask in Captain's box, then the table (short cells, the use case pattern),
-// where 50agents is good, how to move over (a stepper), questions, related pages. No dates and no source lines on the page.
+// The use case page's hero (the ask in Captain's box as the subheader, one short line), then the table (50agents first under
+// our wordmark, only where it wins), where 50agents is good, how to move over (a stepper), questions, related pages.
+// No dates and no source lines on the page. The full two-sentence answer stays in the JSON-LD.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { COMPARE } from '@/content/compare/pages';
@@ -51,21 +52,18 @@ export default async function ComparePageView({ params }: { params: Promise<{ sl
   ];
 
   return (
-    <div className="page cmp3" style={{ ['--k' as string]: '#E2E9FF' }}>
+    <div className="page cmp3">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: p.h1 }]} /></div>
 
-      {/* Hero: the question, the short answer in two sentences, and one real ask in Captain's box */}
-      <section className="wrap cmp3-hero">
+      {/* Hero (D255, as the use case page): the question, the ask typed into Captain's box as the subheader, one short line */}
+      <section className="wrap uc3-hero cmp5-hero">
         <h1>{p.h1}</h1>
-        <p className="answer">{p.answer[0]} {p.answer[1]}</p>
+        <PromptFilm ask={p.ask} button={<Cta campaign="seo-compare" page={p.slug} place="hero" ask={p.ask}>Build it</Cta>} />
+        <p className="uc3-note">{p.line}</p>
         {p.type === 'alternatives' && p.notice && (
           <p className="cmp3-notice"><b>{p.notice.h}.</b> {p.notice.body}</p>
         )}
-        <div className="hero-cta cmp3-film">
-          <PromptFilm ask={p.ask} button={<Cta campaign="seo-compare" page={p.slug} place="hero" ask={p.ask}>Build it</Cta>}>{null}</PromptFilm>
-        </div>
-        <p className="uc3-note">Try one real job in 50agents. Free to start.</p>
       </section>
 
       {/* The comparison: the visual centre, one table of short cells, every competitor fact from facts.ts */}

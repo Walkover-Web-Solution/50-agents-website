@@ -10,6 +10,7 @@
     "Activepieces is open source and self-hostable like n8n.",
     "Make offers a visual canvas, Zapier connects 10,541+ apps, Gumloop builds AI agents, and 50agents builds the job from plain words."
   ],
+  "line": "Say the job in plain words; Captain builds it and runs it.",
   "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
   "lede": "Self-hosted, hosted and plain-language options, side by side.",
   "entries": [
@@ -49,12 +50,6 @@
       "src": "https://docs.gumloop.com/core-concepts/agent_browser.md"
     }
   ],
-  "stay": {
-    "best": "Running on your own servers",
-    "price": "€20 a month, billed yearly",
-    "diff": "One price per run",
-    "src": "https://n8n.io/pricing/"
-  },
   "strengths": [
     {
       "title": "Describe it in plain words",

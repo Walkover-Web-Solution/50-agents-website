@@ -1,14 +1,13 @@
-// A kind hub, v3 (D253, D254): one template, filled from the hub's JSON (src/content/hubs/pages), written by the page
-// pipeline. The kind in two sentences with a real ask typed into Captain (no plan card), the "which kind" comparison, the
-// use cases of this kind (from the use case pages), "Works with ... 2,300+ apps" over two marquee rows, questions, more to
-// read. No date on the page: `updated` goes to JSON-LD only. Every visual is a shared, data-driven component.
+// A kind hub, v3 (D253, D254, D255): one template, filled from the hub's JSON (src/content/hubs/pages), written by the page
+// pipeline. The hero is the use case page's: a real ask typed into Captain as the subheader and one short line under it.
+// Then the four kinds as a bento (this kind leads), the use cases of this kind, "Works with ... 2,300+ apps" over two
+// marquee rows, questions, more to read. No date on the page: `updated` goes to JSON-LD only.
 import type { HubPage } from './types';
-import { HUBS } from '@/content/hubs';
 import { PAGES } from '@/content/use-cases/pages';
 import { Crumbs, Cta, Face, KindBadge, KINDS } from '../parts';
 import { StickyBar } from '../sticky';
 import { PromptFilm } from '../usecase/film';
-import { KindTable } from './kind-table';
+import { KindBento } from './kind-bento';
 import { KIND_RULE } from '@/content/hubs/kinds';
 import { AppsWall } from './apps-wall';
 import { ReadCard, live } from './cards';
@@ -21,29 +20,26 @@ export function HubView({ h }: { h: HubPage }) {
   const path = `/${h.slug}`;
   const page = `hub-${h.slug}`;
   const ucs = PAGES.filter(u => u.kind === h.kind);
-  const reads = [
-    ...HUBS.filter(o => o.kind !== h.kind).map(o => ({ href: `/${o.slug}`, label: o.h1 })),
-    ...live(h.links),
-  ].slice(0, 6);
+  // The other hubs are in the bento, so "Keep reading" is this hub's own reads.
+  const reads = live(h.links).slice(0, 6);
 
   return (
     <div className="page uc3 hub3" style={{ ['--k' as string]: k.tint }}>
       <Ld data={[crumbsLd([{ name: 'Home' }, { name: h.crumb, path }]), appLd({ name: `50agents: ${h.crumb}`, path, description: h.answer.join(' '), updated: h.updated })]} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: h.crumb }]} /></div>
 
-      {/* Hero: the kind in two sentences, and a real ask of this kind typed into Captain */}
+      {/* Hero: the chat box is the subheader (D255), a real ask of this kind; one short line under it */}
       <section className="wrap uc3-hero">
         <KindBadge kind={h.kind} />
         <h1>{h.h1}</h1>
-        <p className="answer">{h.answer[0]} {h.answer[1]}</p>
         <PromptFilm ask={h.example.ask} button={<Cta campaign="seo-hub" page={page} place="hero" ask={h.example.ask}>Build it</Cta>} />
-        <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
+        <p className="uc3-note">{h.answer[1]}</p>
       </section>
 
-      {/* Which kind: the same comparison on all four hubs, this kind in its tint */}
+      {/* Which kind: the four kinds as cards, this kind leading; the others link to their hubs */}
       <section className="wrap sec" id="which-kind">
         <div className="sec-h c"><h2>Which kind do I need?</h2><p>{KIND_RULE}</p></div>
-        <KindTable current={h.kind} />
+        <KindBento current={h.kind} />
       </section>
 
       {/* Use cases of this kind, from the use case pages */}
@@ -80,10 +76,12 @@ export function HubView({ h }: { h: HubPage }) {
       </section>
 
       {/* The other kinds, and more to read */}
-      <section className="wrap sec" id="more">
-        <div className="sec-h c"><h2>Keep reading</h2></div>
-        <div className="cards3">{reads.map(r => <ReadCard key={r.href} href={r.href} label={r.label} />)}</div>
-      </section>
+      {reads.length > 0 && (
+        <section className="wrap sec" id="more">
+          <div className="sec-h c"><h2>Keep reading</h2></div>
+          <div className={`cards3 hub3-n${Math.min(reads.length, 3)}`}>{reads.map(r => <ReadCard key={r.href} href={r.href} label={r.label} />)}</div>
+        </section>
+      )}
 
       {/* Final: the same ask, one button */}
       <section className="wrap sec">

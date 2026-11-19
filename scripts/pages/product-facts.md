@@ -30,5 +30,9 @@ Every product claim a page makes must follow from a line here. Keep it in step w
 - No sync with outside accounting or CRM apps unless an automation is built for it.
 - Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.
 
+## Shown as yes on Jii's word (D255)
+- Apps for people outside your team, on your own domain ("this is there, we will bring it, so mark it as a yes").
+- Exporting what you build ("we will bring the export feature as well").
+
 ## Never claim
 - An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.

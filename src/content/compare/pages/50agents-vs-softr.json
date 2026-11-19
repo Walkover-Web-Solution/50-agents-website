@@ -4,14 +4,15 @@
   "tool": "softr",
   "query": "50agents vs softr",
   "title": "50agents vs Softr: apps for your team or clients | 50agents",
-  "description": "50agents vs Softr: Softr builds client portals and internal tools on your own domain; 50agents builds team apps run by AI agents from plain words.",
+  "description": "50agents vs Softr: both build apps for your team or for people outside it on your own domain; 50agents builds them from plain words.",
   "h1": "50agents vs Softr",
   "answer": [
-    "Pick Softr for client portals on your own domain and a visual editor.",
-    "Pick 50agents for apps your team uses, with AI agents inside that draft the work for you."
+    "Pick Softr for portals and internal tools you shape in a visual editor.",
+    "Pick 50agents for apps from plain words, for your team or clients on your own domain, with AI agents inside."
   ],
+  "line": "Apps from plain words, for your team or clients on your own domain.",
   "ask": "Keep track of customer requests and draft the replies",
-  "lede": "Client portals against team apps, row by row.",
+  "lede": "Two app builders, for your team or your clients, row by row.",
   "rows": [
     "prompt",
     "appBuilder",
@@ -19,13 +20,8 @@
     "publicApps",
     "aiAgent",
     "fixed",
-    "handEdit",
     "export"
   ],
-  "edge": {
-    "us": "Team apps with AI agents",
-    "them": "Client portals on your domain"
-  },
   "strengths": [
     {
       "title": "Apps with your own records",
@@ -60,7 +56,7 @@
   "faqs": [
     {
       "q": "Can I build a client portal with 50agents?",
-      "a": "No. 50agents apps are for the people in your workspace. Softr builds portals on a custom domain, for people outside your team."
+      "a": "Yes. A 50agents app can serve people outside your team, such as clients, on your own domain. Softr builds portals on a custom domain too."
     },
     {
       "q": "Do both build apps from a prompt?",

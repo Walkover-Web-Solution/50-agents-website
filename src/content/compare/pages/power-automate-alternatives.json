@@ -10,6 +10,7 @@
     "UiPath covers enterprise RPA; Zapier and Make connect many non-Microsoft apps.",
     "n8n and Activepieces self-host, and 50agents builds the job from one sentence."
   ],
+  "line": "Any job, built from one sentence, across 2,300+ apps.",
   "ask": "Keep track of customer requests and draft the replies",
   "lede": "RPA, hosted and self-hosted options beside Power Automate.",
   "entries": [
@@ -56,12 +57,6 @@
       "src": "https://www.activepieces.com/"
     }
   ],
-  "stay": {
-    "best": "Microsoft 365 and approvals",
-    "price": "Free licence; Premium $15 per user",
-    "diff": "Desktop RPA, process mining",
-    "src": "https://www.microsoft.com/en-us/power-platform/products/power-automate"
-  },
   "strengths": [
     {
       "title": "Apps with your own records",

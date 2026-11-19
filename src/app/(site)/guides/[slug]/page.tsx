@@ -1,4 +1,6 @@
-// A guide, v4 (D254, Jii's round 2): a reading page in one template, filled from the page's JSON
+// A guide, v5 (D255 round 3, "lifeless"): an article. The cover (drawn from the guide's data, ./cover.tsx), a strong H1,
+// the short answer and the reading time; an editorial column beside sticky contents that follow the reading; related
+// guides with their covers at the end. Before that, v4 (D254, Jii's round 2): a reading page in one template, filled from the page's JSON
 // (src/content/guides/pages), written by the page pipeline (scripts/pages). To the point: the short answer, a "which one
 // do I need" chooser where the reader has a choice, short context, steps the reader ticks off (progress in the contents)
 // with Captain's film inside the step where 50agents does the job, what can go wrong, questions. Crew blobs only where
@@ -14,6 +16,10 @@ import { findUseCase } from '@/site/guides/parts';
 import { Chooser } from '@/site/guides/chooser';
 import { Progress } from '@/site/guides/progress';
 import { HeroSticky } from '@/site/guides/sticky';
+import { GuideCard } from '@/site/guides/card';
+import { GuideCover } from '@/site/guides/cover';
+import { readMinutes } from '@/site/guides/meta';
+import { ReadProgress } from '@/site/guides/read-progress';
 import type { About, GuideBlock, GuidePage } from '@/site/guides/types';
 import '@/site/css/usecase.css';
 import '@/site/css/guides.css';
@@ -67,10 +73,11 @@ function Block({ b }: { b: GuideBlock }) {
   );
 }
 
-// A crew blob beside a tip, a warning or a problem: the face of the kind it is about, named for screen readers.
-function Blob({ about, size = 34 }: { about: About; size?: number }) {
+// A crew blob beside a tip, a warning or a problem: the face of the kind it is about, standing on the page (no box),
+// named for screen readers. A warning or a problem gets the worried face (the crew's own frown and brows).
+function Blob({ about, mood }: { about: About; mood: 'tip' | 'warn' }) {
   const k = KINDS[about];
-  return <span className="gd4-blob" style={{ ['--k' as string]: k.tint }} title={`About the ${k.label.toLowerCase()}`}><Face id={k.face} size={size} /><span className="sr">About the {k.label.toLowerCase()}: </span></span>;
+  return <span className={`gd5-blob ${mood}`} title={`About the ${k.label.toLowerCase()}`}><Face id={k.face} size={40} /><span className="sr">About the {k.label.toLowerCase()}: </span></span>;
 }
 
 // More guides: the page's own picks first, then the same group; three.
@@ -110,34 +117,39 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
       { '@type': 'ListItem', position: 3, name: g.h1, item: url },
     ] },
     { '@context': 'https://schema.org', '@type': 'Article', headline: g.h1, description: g.description, abstract: plain(g.answer.join(' ')), url, mainEntityOfPage: url,
-      dateModified: g.updated, inLanguage: 'en', author: { '@type': 'Organization', name: '50agents', url: BASE },
+      dateModified: g.updated, timeRequired: `PT${readMinutes(g)}M`, inLanguage: 'en', author: { '@type': 'Organization', name: '50agents', url: BASE },
       publisher: { '@type': 'Organization', name: '50agents', url: BASE, logo: { '@type': 'ImageObject', url: `${BASE}/landing/favicon.svg` } } },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: g.faqs.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: plain(f.a) } })) },
   ];
 
   return (
-    <div className="page gd4" style={{ ['--k' as string]: k.tint }}>
+    <div className="page gd4 gd5">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      <ReadProgress />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides' }, { label: g.h1 }]} /></div>
 
-      <div className="wrap gd4-grid">
-        {/* Hero: the question and the short answer */}
-        <header className="gd4-hero">
-          <span className="kind"><Face id={k.face} size={22} />Guide · {g.group}</span>
+      {/* Hero: the cover, the question, the short answer, the reading time */}
+      <header className="wrap gd5-hero">
+        <div className="gd5-hero-t">
+          <span className="kind" style={{ ['--k' as string]: k.tint }}><Face id={k.face} size={22} />{g.group}</span>
           <h1>{g.h1}</h1>
-          <div className="gd4-short" data-hero>
+          <div className="gd5-short" data-hero>
             <h2>The short answer</h2>
             <p>{rich(g.answer[0])} {rich(g.answer[1])}</p>
           </div>
-        </header>
+          <p className="gd5-meta"><span>{readMinutes(g)} min read</span><span>{steps.length} steps</span><span>Works with any tool</span></p>
+        </div>
+        <GuideCover g={g} size="hero" />
+      </header>
 
-        <nav className="gd4-toc" aria-label="Contents">
+      <div className="wrap gd5-grid">
+        <nav className="gd5-toc" aria-label="Contents">
           <p>Contents</p>
           <ol>{toc.map(t => <li key={t.id}><a href={`#${t.id}`}>{t.label}</a></li>)}</ol>
           <Progress slug={g.slug} total={steps.length} restore />
         </nav>
 
-        <article className="gd4-col">
+        <article className="gd5-col">
           {g.chooser && (
             <section id="which">
               <h2>{g.chooser.h2}</h2>
@@ -171,8 +183,8 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
                     <h3>{s.title}</h3>
                     <p>{rich(s.body)}</p>
                     {s.note && (
-                      <div className={`gd4-note ${s.note.type}`} role="note">
-                        <Blob about={s.note.about} size={30} />
+                      <div className={`gd5-note ${s.note.type}`} role="note">
+                        <Blob about={s.note.about} mood={s.note.type === 'warn' ? 'warn' : 'tip'} />
                         <p><b>{s.note.type === 'tip' ? 'Tip.' : 'Watch out.'}</b> {rich(s.note.text)}</p>
                       </div>
                     )}
@@ -191,10 +203,10 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
 
           <section id="what-can-go-wrong">
             <h2>What can go wrong</h2>
-            <ul className="gd4-wrong">
+            <ul className="gd5-wrong">
               {g.wrong.map(w => (
                 <li key={w.title}>
-                  <Blob about={w.about} />
+                  <Blob about={w.about} mood="warn" />
                   <div><h3>{w.title}</h3><p>{rich(w.body)}</p></div>
                 </li>
               ))}
@@ -215,16 +227,10 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
         </article>
       </div>
 
-      <section className="wrap sec" id="more">
-        <div className="sec-h c"><h2>More guides</h2></div>
-        <div className="cards3">
-          {more(g).map(r => (
-            <a key={r.slug} href={`/guides/${r.slug}`}>
-              <span className="k"><Face id={KINDS[r.kind].face} size={20} />{r.group}</span>
-              <b>{r.h1}</b>
-              <span>{plain(r.answer[0])}</span>
-            </a>
-          ))}
+      <section className="wrap sec" id="more" aria-labelledby="more-h">
+        <div className="sec-h c"><h2 id="more-h">Read next</h2></div>
+        <div className="gx-grid gx-three">
+          {more(g).map(r => <GuideCard key={r.slug} g={r} />)}
         </div>
         <div className="uc3-all"><MaybeLink className="btn ghost" href="/guides">See all guides</MaybeLink></div>
       </section>

@@ -10,6 +10,7 @@
     "Relay.app has shut down, so its workflows need a new home.",
     "Zapier, Make and n8n all have approval steps; 50agents asks before anything reaches people outside, by default."
   ],
+  "line": "Anything that reaches people outside waits for your yes, by default.",
   "ask": "Chase my unpaid invoices",
   "lede": "Tools with a human-in-the-loop step, side by side.",
   "notice": {

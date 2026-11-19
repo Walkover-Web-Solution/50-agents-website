@@ -1,11 +1,11 @@
-// A pair page, v3 round 2 (D253, D254): the app template, short. Every real template (the catalog's recipes) between two
-// apps from the catalog snapshot, in a box that scrolls inside itself; the triggers and actions they use, as tabs.
+// A pair page, v3 round 3 (D253 to D255): the app template, short. Every real template (the catalog's recipes) between two
+// apps from the catalog snapshot, in a box that scrolls inside itself; every trigger and action of both apps, as tabs.
 // One canonical order per pair (the trigger app first; alphabetical when recipes run both ways). The other order is
 // generated too and answers with a permanent redirect to it (permanentRedirect: 308 from the server, which search
 // engines treat as a 301). Indexable only with 3 or more recipes.
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
-import { Crumbs, KINDS, MaybeLink } from '@/site/parts';
+import { Crumbs, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { BuildLink } from '@/site/integrations/build-link';
@@ -67,18 +67,18 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
   const C = 'seo-pair' as const;
 
   return (
-    <div className="page uc3 ig3" style={{ ['--k' as string]: KINDS.auto.tint }}>
+    <div className="page uc3 ig3">
       <LdScript data={[crumbsLd([{ name: 'Home', path: '' }, { name: 'Integrations', path: '/integrations' }, { name: a.name, path: `/integrations/${a.slug}` }, { name: `${a.name} and ${b.name}`, path }]), softwareLd(`50agents for ${a.name} and ${b.name}`, path, w.answer.join(' '), read)]} />
       <div className="wrap">
         <Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations', href: '/integrations' }, { label: a.name, href: `/integrations/${a.slug}` }, { label: `${a.name} and ${b.name}` }]} />
       </div>
 
+      {/* Hero (D255 round 3): the two apps joined, the H1, and the chat box as the subheader; one line names 50agents */}
       <section className="wrap uc3-hero ig3-hero">
         <Lockup apps={[a.slug, b.slug]} />
         <h1>{w.h1}</h1>
-        <p className="answer">{w.answer[0]} {w.answer[1]}</p>
         <PromptFilm ask={ask} button={<span className="hero-cta"><BuildLink page={page} place="hero" campaign={C} ask={ask}>Build it</BuildLink></span>} />
-        <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
+        <p className="uc3-note">{w.note}</p>
       </section>
 
       <section className="wrap sec" id="templates">
@@ -86,9 +86,9 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
         <TemplatesBox recipes={recipes} page={page} campaign={C} search="Search templates" />
       </section>
 
-      <section className="wrap sec" id="steps">
-        <div className="sec-h c"><h2>The triggers and actions they use</h2></div>
-        <PairEventsBox a={a} b={b} recipes={recipes} />
+      <section className="wrap sec" id="triggers-and-actions">
+        <div className="sec-h c"><h2>{a.name} and {b.name} triggers and actions</h2><p>Every one of both apps. A trigger starts the work; actions are the steps.</p></div>
+        <PairEventsBox a={a} b={b} />
       </section>
 
       <section className="wrap sec" id="questions">

@@ -10,6 +10,7 @@
     "Gumloop builds shared team AI agents and Relevance AI builds sales AI agent teams.",
     "n8n self-hosts; 50agents adds apps and automations to AI agents, free to start."
   ],
+  "line": "AI agents plus apps and automations in one place, free to start.",
   "ask": "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
   "lede": "AI agent tools like Lindy, and how each one differs.",
   "entries": [
@@ -49,12 +50,6 @@
       "src": "https://n8n.io/pricing/"
     }
   ],
-  "stay": {
-    "best": "Work in Slack, iMessage, email",
-    "price": "$29.99 a month per user",
-    "diff": "Learns by watching you once",
-    "src": "https://www.lindy.ai/"
-  },
   "strengths": [
     {
       "title": "AI agents that decide",

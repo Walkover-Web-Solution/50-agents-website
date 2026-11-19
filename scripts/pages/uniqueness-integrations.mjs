@@ -11,7 +11,22 @@ const BASE = process.argv[2] ?? 'http://localhost:3050';
 const GATE = 'src/content/integrations/index-gate.json';
 const get = async u => (await fetch(BASE + u)).text();
 const locs = xml => [...xml.matchAll(/<loc>https:\/\/50agents\.com([^<]+)<\/loc>/g)].map(m => m[1]);
-const text = html => {
+// Shared components are excluded (brief D7): any element marked data-gate="skip" (the full trigger and action lists,
+// which are catalog data shared by every page of the app) is cut out before shingling.
+const skip = html => {
+  let k;
+  while ((k = html.indexOf('data-gate="skip"')) >= 0) {
+    const start = html.lastIndexOf('<', k), tag = html.slice(start + 1).match(/^[a-z0-9]+/i)[0];
+    const re = new RegExp(`<${tag}[\\s>]|</${tag}>`, 'gi');
+    re.lastIndex = start + 1;
+    let depth = 1, m, end = html.length;
+    while ((m = re.exec(html))) { depth += m[0][1] === '/' ? -1 : 1; if (!depth) { end = m.index + m[0].length; break; } }
+    html = html.slice(0, start) + ' ' + html.slice(end);
+  }
+  return html;
+};
+const text = html0 => {
+  const html = skip(html0);
   const i = html.indexOf('class="page uc3 ig3"'), j = html.indexOf('<footer', i);
   return i < 0 ? '' : html.slice(i, j > 0 ? j : undefined).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ')
     .replace(/&[a-z#0-9]+;/gi, ' ').replace(/\s+/g, ' ').trim();

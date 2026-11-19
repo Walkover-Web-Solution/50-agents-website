@@ -52,3 +52,34 @@ typography and spacing, visuals that support the text (or no visual), better tha
   off with progress in the sticky contents, and Captain's film inside the step 50agents does. Tips, warnings and "what
   can go wrong" items carry the blob of the kind they are about. Tabs ("any tool" vs "in 50agents") were left out: they
   would hide the steps or repeat them. Prompt `scripts/pages/prompts/guides.md`, gates `scripts/pages/gates-guides.mjs`.
+
+## Round 3 (D255)
+- **Colour:** no kind tint on big surfaces. `.page` pins `--k` to a neutral warm grey (#F2F1ED); kind tints stay on the
+  small kind badge and on cards that are about one kind. The "partly" mark is grey. No orange anywhere.
+- **Comparison tables show only where 50agents wins**, with 50agents as the first column and our wordmark (not a kind
+  face) in its header. Rows where another way is better are dropped from the table.
+- **Rhythm:** every section is a `.sec` (128px above, 80px on a phone) with no extra top or bottom margins of its own;
+  the heading block is 40px above its content. Check the gaps between every pair of sections.
+- **Heroes:** the chat box (`PromptFilm`) is the subheader. One short line under it at most.
+- **Comparison pages (/compare):** versus tables keep only rows where 50agents wins (`isWin` in `src/content/compare/facts.ts`:
+  our cell is a yes, or for apps a higher count; no "Better for" row); alternatives tables list 50agents first and the
+  other tools' facts neutrally (no "Staying on" row). Both put our wordmark (`Logo50`) at the head. The hero is the use
+  case hero with a `line` field (14 words) under the box; the move-over stepper (`.cmp5-steps`) runs its line centre to
+  centre. Apps on your own domain and export are yes for 50agents (product-facts.md). Gates: `gates-compare.mjs`.
+- **Hubs:** the hero is the use case hero (`answer[1]` under the box). "Which kind do I need?" is a bento of the four
+  kinds (`src/site/hubs/kind-bento.tsx`, copy in `src/content/hubs/kinds.ts`): the homepage's kind cards, smaller, each
+  with a small drawn picture on its tint; the hub's own kind leads at full width, the others link to their hubs.
+- **Trust pages:** /about (crew, how it works, the four kinds strip, what it does today from product-facts.md, who
+  makes it, reach the team; no security claims, no counts), /contact and /support (`src/site/pages/trust.tsx`).
+  Support channels are carried over from viasocket.com/support in `src/content/pages/support.ts`; a channel without a
+  confirmed 50agents address is `href: null`, drawn as a dashed placeholder in development only. /support is noindex
+  and out of the sitemap while any placeholder is open; /contact while `CONTACT_EMAIL` is null.
+- **Parked:** /learn and /for (code in `src/app/(site)/_parked`, out of the site and the sitemaps).
+- **Guides v5** ("lifeless", studied Linear, Notion, Zapier, Stripe, Vercel, Intercom): every guide has a cover drawn from its
+  data by one component (`src/site/guides/cover.tsx`): the category sets the scene, the kind sets the crew face and the one
+  small tinted element, a seed from the slug varies the rest; the frame is neutral. /guides (`src/site/guides/index-view.tsx`)
+  is a featured guide (`featured` in `src/content/pages/indexes.ts`), then every guide as a cover card under category filters
+  (buttons, kept in the address, cards stay in the HTML). The guide is an article: cover, H1, short answer, "n min read · n
+  steps"; sticky contents that mark the section being read and fill as you read (a thin bar on a phone); tips and problems
+  said by the crew (worried face for warnings); "Read next" as cover cards. Pull quotes and author lines were left out: no
+  quotes and no authors to show honestly.
