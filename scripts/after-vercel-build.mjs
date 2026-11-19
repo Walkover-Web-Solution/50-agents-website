@@ -1,6 +1,6 @@
 // The step between Vercel's build and next-on-pages' conversion, for the Cloudflare Pages build.
 //
-// next-on-pages runs it itself, through a pnpm patch (patches/@cloudflare__next-on-pages.patch): right after its
+// next-on-pages runs it itself, patched on install (scripts/patch-next-on-pages.mjs, postinstall): right after its
 // `vercel build`, it runs this file. So the Pages build command can be `pnpm build:pages` or the preset
 // `npx @cloudflare/next-on-pages@1`; both use the installed, patched next-on-pages and both get this step.
 //

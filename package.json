@@ -11,9 +11,10 @@
     "validate:mcp-protocol": "node scripts/validate-mcp-protocol.mjs",
     "build:dev": "dotenv -e .env.dev next build",
     "build:prod": "dotenv -e .env.prod next build",
-    "build:pages": "next-on-pages",
+    "build:pages": "node scripts/build-pages.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "postinstall": "node scripts/patch-next-on-pages.mjs"
   },
   "dependencies": {
     "next": "16.0.5",
@@ -30,10 +31,5 @@
     "eslint-config-next": "16.0.5",
     "typescript": "^5",
     "vercel": "47.0.4"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "@cloudflare/next-on-pages": "patches/@cloudflare__next-on-pages.patch"
-    }
   }
 }
