@@ -28,7 +28,7 @@ export function Header() {
   return (
     <header className="hd">
       <div className="hd-in">
-        <Wordmark face="keeper" size={24} />
+        <Wordmark face="writer" size={24} />
         <input type="checkbox" id="nv-open" className="nv-toggle" aria-hidden="true" tabIndex={-1} />
         <nav className="nv" aria-label="Main">
           <a className="nv-a" href="/use-cases">Use cases</a>
@@ -44,13 +44,6 @@ export function Header() {
             </div>
           </div>
           <a className="nv-a" href="/integrations">Integrations</a>
-          <div className="nv-menu">
-            <a className="nv-a" href="/compare/zapier-alternatives" aria-haspopup="true">Compare <Caret /></a>
-            <div className="nv-panel nv-list">
-              {COMPARE.map(c => <a key={c.href} href={c.href}>{c.label}</a>)}
-            </div>
-          </div>
-          <a className="nv-a" href="/guides">Guides</a>
         </nav>
         <div className="hd-end">
           <HeaderCta />

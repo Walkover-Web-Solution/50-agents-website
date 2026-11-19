@@ -65,7 +65,7 @@ export function Cta({ page, place, children = 'Build this with Captain', ghost =
   return <BuildLink page={page} place={place} campaign={campaign} ask={ask} className={ghost ? 'btn ghost' : 'btn'}>{children}</BuildLink>;
 }
 
-export function Wordmark({ face = 'keeper', size = 26 }: { face?: string; size?: number }) {
+export function Wordmark({ face = 'writer', size = 26 }: { face?: string; size?: number }) {
   return (
     <a className="wm" href="/" aria-label="50agents, from viaSocket" style={{ fontSize: size }}>
       <span className="wm-w" aria-hidden="true">5<Face id={face} size={size * 0.92} />agents</span>

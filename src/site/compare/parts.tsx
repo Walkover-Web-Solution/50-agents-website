@@ -10,7 +10,7 @@ const OURS_FREE = 'Free to start';
 
 // The 50agents wordmark, small, for the table headers (D255: our logo, not a kind face), as on the use case page.
 export function Logo50() {
-  return <span className="logo50"><span className="logo50-d" aria-hidden="true"><Face id="keeper" size={17} /></span><span className="sr">50agents</span></span>;
+  return <span className="logo50"><span className="logo50-d" aria-hidden="true"><Face id="writer" size={17} /></span><span className="sr">50agents</span></span>;
 }
 
 const MARK_WORD: Record<Mark, string> = { yes: 'Yes', no: 'No', partly: 'Partly' };
@@ -62,21 +62,27 @@ export function VsTable({ p }: { p: VsPage }) {
 
 // The alternatives table (D255): 50agents first under our wordmark, then each tool's facts, neutrally. No "Staying on" row.
 export function AltTable({ p }: { p: AltPage }) {
-  const rows = p.entries.map(e => ({ ...e, name: TOOLS[e.tool].name, us: e.tool === 'fifty' }));
+  const cols = p.entries.map(e => ({ ...e, name: TOOLS[e.tool].name, us: e.tool === 'fifty' }));
+  const rows: { label: string; get: (c: (typeof cols)[number]) => string }[] = [
+    { label: 'Best for', get: c => c.best },
+    { label: 'Starting price', get: c => (c.us ? OURS_FREE : c.price) },
+    { label: 'Key difference', get: c => c.diff },
+  ];
   return (
-    <div className="cmp4-tbl alt">
-      <table>
+    <div className="cmp4-tbl alt" role="region" aria-label={`${p.h1}, scrolls sideways on a phone`} tabIndex={0}>
+      <table style={{ ['--n' as string]: cols.length }}>
         <caption className="sr">{p.h1}: what each is best for, its starting price and one key difference</caption>
         <thead>
-          <tr><th scope="col">Tool</th><th scope="col">Best for</th><th scope="col">Starting price</th><th scope="col">Key difference</th></tr>
+          <tr>
+            <th scope="col"><span className="sr">Platform</span></th>
+            {cols.map(c => <th key={c.name} scope="col" className={c.us ? 'us' : undefined}>{c.us ? <Logo50 /> : c.name}</th>)}
+          </tr>
         </thead>
         <tbody>
           {rows.map(r => (
-            <tr key={r.name} className={r.us ? 'us' : undefined}>
-              <th scope="row">{r.us ? <Logo50 /> : r.name}</th>
-              <td data-h="Best for">{r.best}</td>
-              <td data-h="Starting price">{r.us ? OURS_FREE : r.price}</td>
-              <td data-h="Key difference">{r.diff}</td>
+            <tr key={r.label}>
+              <th scope="row">{r.label}</th>
+              {cols.map(c => <td key={c.name} className={c.us ? 'us' : undefined}>{r.get(c)}</td>)}
             </tr>
           ))}
         </tbody>

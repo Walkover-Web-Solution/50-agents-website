@@ -156,3 +156,6 @@
 .logo50{display:inline-flex;align-items:center;font-weight:800;letter-spacing:-.045em;font-size:18px;color:var(--ink)}
 .logo50 .face{margin:0 1px}
 @media (max-width:1020px){.stp-head{display:block}}
+
+/* D258: the marquee stays inside the page's edges like everything else */
+.uc3-wall{max-width:1160px;margin-left:auto!important;margin-right:auto!important;padding:0 32px}

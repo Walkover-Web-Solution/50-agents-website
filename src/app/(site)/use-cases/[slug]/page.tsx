@@ -44,7 +44,7 @@ function related(u: UseCasePage) {
 
 // The 50agents wordmark, small, for table headers (D255: our logo, not a kind face)
 function Logo50() {
-  return <span className="logo50"><span className="logo50-d" aria-hidden="true"><Face id="keeper" size={17} /></span><span className="sr">50agents</span></span>;
+  return <span className="logo50"><span className="logo50-d" aria-hidden="true"><Face id="writer" size={17} /></span><span className="sr">50agents</span></span>;
 }
 
 function Mark({ v }: { v: string }) {
@@ -98,9 +98,13 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
 
       {/* Hero: the job, the answer, and the ask typed into Captain with Captain's plan under it */}
       <section className="wrap uc3-hero">
+        {/* D258: the apps first, then the kind; an app shows its crew, the other kinds no blob */}
         <div className="uc3-top">
-          <KindBadge kind={u.kind} />
           {named.length > 0 && <span className="uc3-named">{named.map(a => <AppLogo key={a} app={a} icon={appIcon(a)} size={28} eager />)}</span>}
+          <a className="kind plain" href={`/${KINDS[u.kind].hub.replace(/^\//, '')}`} style={{ ['--k' as string]: KINDS[u.kind].tint }}>
+            {u.kind === 'app' && <span className="kind-crew" aria-hidden="true"><Face id="sorter" size={20} /><Face id="closer" size={20} /><Face id="writer" size={20} /></span>}
+            {KINDS[u.kind].label}
+          </a>
         </div>
         <h1>{u.h1}</h1>
         {/* the chat box is the subheader (D255): the ask says what to do; one short line says what you get */}
@@ -127,20 +131,7 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
         </div>
       </section>
 
-      {/* Compared: the other ways to do this job, honestly, against 50agents */}
-      <section className="wrap sec" id="compare">
-        <div className="sec-h c"><h2>{u.h2.compare}</h2>{u.stat && <p>{u.stat.text}</p>}</div>
-        <div className="uc3-cmp">
-          <table>
-            <thead><tr><th scope="col"><span className="sr">What matters</span></th><th scope="col" className="us"><span className="uc3-us"><Logo50 /></span></th>{u.compare.methods.map(m => <th key={m} scope="col">{m}</th>)}</tr></thead>
-            <tbody>
-              {wins.map(r => (
-                <tr key={r.label}><th scope="row">{r.label}</th><Cell v={r.cells.at(-1)!} us />{r.cells.slice(0, -1).map((c, i) => <Cell key={i} v={c} />)}</tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+      {/* The comparison section was removed (Jii, D258: "shitty and vague"); its replacement is being decided with him. */}
 
       {/* Questions */}
       <section className="wrap sec" id="questions">
