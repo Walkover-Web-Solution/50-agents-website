@@ -4,7 +4,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { PAGES } from '@/content/use-cases/pages';
-import { AppLogo, Crumbs, Cta, Face, KINDS } from '@/site/parts';
+import { AppLogo, Crumbs, Cta, Face, KINDS, KindFace } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { rich } from '@/site/guides/rich';
 import { PromptFilm } from '@/site/usecase/film';
@@ -139,7 +139,7 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
         <div className="cards3">
           {more.map(r => (
             <a key={r.slug} href={`/use-cases/${r.slug}`}>
-              <span className="k"><Face id={KINDS[r.kind].face} size={20} />{KINDS[r.kind].label}</span>
+              <span className="k"><KindFace kind={r.kind} size={20} />{KINDS[r.kind].label}</span>
               <b>{r.h1}</b>
               <span>{r.build.name}: {r.build.line}</span>
             </a>

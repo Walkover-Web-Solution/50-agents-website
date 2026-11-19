@@ -1,6 +1,6 @@
 // One picture per step kind, drawn once and filled from the page's data: the ask, the plan, connecting the apps,
 // the runs, and what waits for you. Small, calm, in the app's look; labelled as examples where they show example data.
-import { AppLogo, Face, KINDS } from '../parts';
+import { AppLogo, Face, KINDS, KindFace } from '../parts';
 import { PlanCard } from './plan-card';
 import { appIcon, appName } from './apps-data';
 import type { StepKey, UseCasePage } from './types';
@@ -35,7 +35,7 @@ function Runs({ u }: { u: UseCasePage }) {
   const k = KINDS[u.kind];
   return (
     <div className="pic pic-runs">
-      <div className="pic-chat-h"><span className="plan-face sm" style={{ background: k.tint }}><Face id={k.face} size={18} /></span><b>{u.build.name}</b><span className="pic-live"><i />Live</span></div>
+      <div className="pic-chat-h"><span className="plan-face sm" style={{ background: k.tint }}><KindFace kind={u.kind} size={18} /></span><b>{u.build.name}</b><span className="pic-live"><i />Live</span></div>
       <ul>{u.run.map(r => <li key={r.when + r.did}><span>{r.when}</span><b>{r.did}</b></li>)}</ul>
       <p className="pic-ex">Example runs</p>
     </div>
@@ -46,7 +46,7 @@ function Approve({ u }: { u: UseCasePage }) {
   const a = u.approval!;
   return (
     <div className="pic pic-need">
-      <div className="pic-need-h"><Face id={KINDS[u.kind].face} size={22} /><span>{u.build.name} asks you</span><em><i />Needs you</em></div>
+      <div className="pic-need-h"><KindFace kind={u.kind} size={22} /><span>{u.build.name} asks you</span><em><i />Needs you</em></div>
       <b className="pic-need-t">{a.title}</b>
       {a.to && <p className="pic-to">To {a.to}</p>}
       <div className="pic-body">{a.lines.map(l => <p key={l}>{l}</p>)}</div>

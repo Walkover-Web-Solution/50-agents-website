@@ -149,11 +149,6 @@ export function Directory({ per, total, label, head, children }: { per: number; 
       {pages > 1 && (
         <nav className="ig4-pager" aria-label="Pages">
           <button type="button" className="ig4-pg-step" onClick={() => go(page - 1)} disabled={page === 0}><Arrow left /><span>Previous</span></button>
-          <ol>
-            {pageRange(page, pages).map((n, i) => n === null
-              ? <li key={`gap${i}`} className="ig4-pg-gap" aria-hidden="true">&hellip;</li>
-              : <li key={n}><button type="button" onClick={() => go(n)} aria-current={n === page ? 'page' : undefined} aria-label={`Page ${n + 1}`}>{n + 1}</button></li>)}
-          </ol>
           <button type="button" className="ig4-pg-step" onClick={() => go(page + 1)} disabled={page >= pages - 1}><span>Next</span><Arrow /></button>
         </nav>
       )}

@@ -473,4 +473,20 @@ html,body{margin:0;padding:0}
 .wrap:has(> .crumbs){max-width:none;padding:0 max(40px,calc((100vw - 1280px) / 2))}
 @media (max-width:760px){.wrap:has(> .crumbs){padding:0 18px}}
 /* 3. "Build" is a button that opens the menu; the four kinds inside are the links */
-.nv-btn{border:0;background:none;font:inherit;cursor:pointer}
+.nv-btn{border:0;background:none;font-family:inherit;line-height:inherit;cursor:pointer}
+
+/* ---- round 6 (Jii: "fix the footer") ---- */
+/* the footer sits in the header's band, and its crew stands whole on the bottom edge: one row of whole faces (the ones
+   that don't fit wrap to a hidden second row), inside the band, no longer cut in half */
+.foot-in.wrap{max-width:none;padding-left:max(40px,calc((100vw - 1280px) / 2));padding-right:max(40px,calc((100vw - 1280px) / 2))}
+.foot .crowd{flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:0 10px;height:40px;margin:8px max(40px,calc((100vw - 1280px) / 2)) 40px;overflow:hidden;opacity:.55;filter:none}
+.foot .crowd>span{transform:none;height:40px;display:flex;align-items:flex-end}
+@media (max-width:760px){.foot-in.wrap{padding-left:18px;padding-right:18px}.foot .crowd{margin:8px 18px 32px;justify-content:center}}
+/* round 6: "Keep reading" cards worth a click: a soft kind tint, the line, a Read cue at the foot */
+.cards3>.readcard{background:color-mix(in srgb,var(--k,#F2F1ED) 45%,#fff);box-shadow:none;min-height:220px}
+.cards3>.readcard:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.cards3 .readcard .rc-line{font-size:16px;color:var(--mute);line-height:1.5}
+.cards3 .readcard .rc-go{margin-top:auto;padding-top:8px;display:inline-flex;align-items:center;gap:6px;font-size:15px;font-weight:600;color:var(--ink)}
+.cards3>.readcard{align-content:stretch;grid-template-rows:auto auto 1fr auto}
+/* round 6: the Apps kind as a small crew (KindFace) */
+.kind-crew{display:inline-flex;align-items:center}.kind-crew .face+.face{margin-left:-6px}

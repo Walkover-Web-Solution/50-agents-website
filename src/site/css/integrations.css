@@ -142,7 +142,6 @@ span.ig3-kind-more{display:none}
   .ig4-pager ol{gap:2px}
   .ig4-pager button{min-width:34px;height:38px;padding:0 6px;font-size:14px}
   .ig4-pg-step{padding:0 8px!important}
-  .ig4-pg-step span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 }
 @media (max-width:760px){.ig4-dir-bar h2{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.ig4-dir-bar{padding-top:12px}}
 /* a pair "in practice" (D260): three short cards in one bordered row, a small icon on each */

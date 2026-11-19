@@ -1,7 +1,7 @@
 // The integration family's pieces, v3 round 5 (D260): the hero lockup, the four kinds as link cards, triggers and actions
 // as two equal columns that each grow with "Load more", templates that grow with "Load more", a pair's "in practice" cards,
 // pairing cards, questions, the final block, and the directory panel with numbered pages. Nothing scrolls inside itself. Visible copy says "templates" (the 50agents app's word); the code keeps the catalog's name, recipe.
-import { AppLogo, Face, KINDS, MaybeLink } from '@/site/parts';
+import { AppLogo, Face, KINDS, MaybeLink, KindFace } from '@/site/parts';
 import { BuildLink } from './build-link';
 import { CatPick, Directory, EventBoard, ListBox } from './boxes';
 import { CATEGORIES } from '@/content/integrations/categories';
@@ -36,7 +36,7 @@ export function KindCards({ kinds, page, campaign }: { kinds: IntegrationPage['k
         const K = KINDS[k.kind];
         return (
           <div key={k.kind + k.title} className="ig3-kind" style={{ ['--k' as string]: K.tint }}>
-            <span className="ig3-kind-k"><span className="ig3-kind-face"><Face id={K.face} size={22} /></span>{K.label}</span>
+            <span className="ig3-kind-k"><span className="ig3-kind-face"><KindFace kind={k.kind} size={22} /></span>{K.label}</span>
             <h3>{k.title}</h3>
             <p>{k.body}</p>
             <div className="ig3-kind-go">
@@ -51,7 +51,7 @@ export function KindCards({ kinds, page, campaign }: { kinds: IntegrationPage['k
 }
 
 // ---- triggers and actions: two equal columns, each with its own "Load more" (D260); templates the same ----
-const EV_PER = 8;
+const EV_PER = 5; // Jii, round 6: "show like 5 rows at once"
 /** One trigger or action: its name in plain words and one line, the catalog's own description. The whole description is
  *  in the HTML; CSS shows two lines. */
 function evLine(e: Event, app: string) {

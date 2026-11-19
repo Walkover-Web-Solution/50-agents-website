@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Face, KINDS } from '../parts';
+import { Face, KINDS, KindFace } from '../parts';
 import type { Kind } from '../types';
 
 // The kind chips over /use-cases (D254): All, AI agent, Automation, App, Browser agent. The cards are server-rendered
@@ -15,7 +15,7 @@ export function KindFilter({ kinds, children }: { kinds: Kind[]; children: React
       <div className="ixf-chips" role="group" aria-label="Filter by kind">
         {chips.map(c => (
           <button key={c} type="button" aria-pressed={show === c} className={show === c ? 'on' : undefined} onClick={() => setShow(c)}>
-            {c !== 'all' && <Face id={KINDS[c].face} size={20} />}
+            {c !== 'all' && <KindFace kind={c} size={20} />}
             {c === 'all' ? 'All' : KINDS[c].label}
           </button>
         ))}
