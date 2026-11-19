@@ -83,3 +83,10 @@ typography and spacing, visuals that support the text (or no visual), better tha
   steps"; sticky contents that mark the section being read and fill as you read (a thin bar on a phone); tips and problems
   said by the crew (worried face for warnings); "Read next" as cover cards. Pull quotes and author lines were left out: no
   quotes and no authors to show honestly.
+
+## Pair pages and the pipeline (Search S24)
+- Launch with the pairs that pass the uniqueness gate (24 today); the rest stay noindex. The gate keeps skipping the
+  shared trigger and action lists (`data-gate="skip"`).
+- When the API key arrives (Search T5), the pipeline writes each pair's own lines: what this pair is used for, the most
+  useful template and why, and what to watch out for between these two apps. Then re-run
+  `scripts/pages/uniqueness-integrations.mjs`. No looser gate.
