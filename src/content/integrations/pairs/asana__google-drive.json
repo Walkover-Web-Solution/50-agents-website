@@ -1,8 +1,1 @@
-{
-  "usedFor": "Asana tracks the work and Google Drive holds the files. When “New Tag Created” fires in Asana, “Copy a File” can duplicate a template into a folder, so each new tag starts with its own document.",
-  "bestTemplate": {
-    "name": "“New Tag Created” in Asana, then “Copy a File” in Google Drive",
-    "why": "A new tag usually marks a new client or topic, and “Copy a File” makes a copy of a Drive file into a selected folder with a new name, so the work starts from a ready template."
-  },
-  "watchOut": "Asana triggers here, such as “New Tag Created”, are polling. They check on a schedule, so the copy can appear a little after the tag does."
-}
+{"usedFor":"Each “New Tag Created” in Asana copies a template file into a Google Drive folder.","bestTemplate":{"name":"“New Tag Created” in Asana, then “Copy a File” in Google Drive","why":"A new tag marks a new client or topic, so work starts from a ready template."},"watchOut":"“New Tag Created” polls on a schedule, so the copy can appear a little after the tag."}

@@ -169,6 +169,26 @@
   {
    "q": "Does 50agents change my HubSpot data on its own?",
    "a": "Only through the actions you asked for, such as “Create Contact” or “Update Deal”, and each run is listed in Activity. Changes made in HubSpot cannot be undone from 50agents, so anything that reaches customers asks you first."
+  },
+  {
+   "q": "Which HubSpot changes start the work as they happen?",
+   "a": "Deletes, merges and changes to a contact’s lifecycle stage or lead status are webhooks, so they fire at once. “When a deal is created or updated”, “New Or Updated Contact” and “Ticket Created or Updated” are checked on a schedule."
+  },
+  {
+   "q": "Can it add a contact without making a duplicate?",
+   "a": "Yes. “Create or Update Contact” matches on email, so a contact that already exists is updated instead of added twice. “Create Contact” always needs an email."
+  },
+  {
+   "q": "Can it log calls, meetings and notes?",
+   "a": "Yes. “Create Engagement” adds a note, task, meeting, call or email and links it to contacts, companies, deals or tickets. “Add Notes to Contact” adds notes by contact ID or email."
+  },
+  {
+   "q": "Can it act when a task comes due?",
+   "a": "Yes. “New Task Due” starts the work when a HubSpot task becomes due, for example to post a reminder in Slack or have an AI agent draft the follow-up for your approval."
+  },
+  {
+   "q": "Can it update a deal by its name?",
+   "a": "“Update Deal” needs the deal ID. A step with “Search a Deal” finds it by deal name first, then the update changes the fields you name."
   }
  ],
  "sources": [

@@ -1,8 +1,1 @@
-{
-  "usedFor": "Freshdesk is where support requests land and HubSpot is where sales tracks accounts. A “New Ticket” in Freshdesk can run “Create Deal”, so a support conversation that hints at a sale does not stay buried.",
-  "bestTemplate": {
-    "name": "“New Ticket” in Freshdesk, then “Create Deal” in HubSpot",
-    "why": "A ticket carries a real customer and a real request, which is a better starting point for a deal than a bare contact record."
-  },
-  "watchOut": "“New Ticket” and “New Contact” are polling, so they run on a schedule. Every ticket would open a deal, so most teams filter it. “Update Deal” needs a deal ID."
-}
+{"usedFor":"A new Freshdesk ticket can open a HubSpot deal when support hears a sales opportunity.","bestTemplate":{"name":"“New Ticket” in Freshdesk, then “Create Deal” in HubSpot","why":"A ticket carries a real customer and request, a better deal start than a bare contact."},"watchOut":"Every “New Ticket” would open a deal, so most teams filter it; “Update Deal” needs a deal ID."}

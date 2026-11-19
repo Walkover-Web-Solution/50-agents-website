@@ -6,6 +6,36 @@
   "title": "What to automate first in a small business | 50agents",
   "description": "What to automate first: score each repeated task by how often, how long and what a mistake costs, then start with the frequent, low-risk ones.",
   "h1": "What to automate first in a small business",
+  "cover": {
+    "scene": "panel",
+    "panel": {
+      "label": "Last week's repeated tasks",
+      "rows": [
+        {
+          "app": "shopify",
+          "cells": [
+            "Copy orders to the sheet",
+            "Low risk"
+          ],
+          "tag": "First"
+        },
+        {
+          "app": "gmail",
+          "cells": [
+            "Sort support email",
+            "Medium"
+          ]
+        },
+        {
+          "app": "stripe",
+          "cells": [
+            "Approve refunds",
+            "High"
+          ]
+        }
+      ]
+    }
+  },
   "answer": [
     "Automate first the daily or weekly tasks that follow the same steps and are cheap to get wrong, like logging payments.",
     "Leave anything that moves money, commits you or decides about a person until last, with an approval."
@@ -15,20 +45,50 @@
     "root": {
       "q": "How often do you do it?",
       "options": [
-        { "label": "Monthly or less", "then": { "answer": "Not first", "why": "A monthly job saves little time. Start with something you do every day or week, and come back to this one." } },
+        {
+          "label": "Monthly or less",
+          "then": {
+            "answer": "Not first",
+            "why": "A monthly job saves little time. Start with something you do every day or week, and come back to this one."
+          }
+        },
         {
           "label": "Daily or weekly",
           "then": {
             "q": "Does it move money, commit you, or decide about a person?",
             "options": [
-              { "label": "Yes", "then": { "answer": "Later, with an approval on each action", "why": "Refunds, contracts, discounts and hiring still benefit, but only with a person saying yes to each one.", "kind": "ai", "href": "/guides/how-to-make-an-ai-agent-ask-before-it-acts" } },
+              {
+                "label": "Yes",
+                "then": {
+                  "answer": "Later, with an approval on each action",
+                  "why": "Refunds, contracts, discounts and hiring still benefit, but only with a person saying yes to each one.",
+                  "kind": "ai",
+                  "href": "/guides/how-to-make-an-ai-agent-ask-before-it-acts"
+                }
+              },
               {
                 "label": "No",
                 "then": {
                   "q": "Does it need reading or writing text?",
                   "options": [
-                    { "label": "No, the same steps each time", "then": { "answer": "Start here, with an automation", "why": "Fixed steps, no judgement, easy to check. Logging each order or payment in a sheet is the classic first one.", "kind": "auto", "href": "/guides/how-to-log-stripe-payments-in-google-sheets" } },
-                    { "label": "Yes, sorting or replying", "then": { "answer": "Start here, with an AI agent that drafts", "why": "It saves you time daily and you still send. Morning email triage is a good first one.", "kind": "ai", "href": "/guides/how-to-triage-your-inbox-with-ai" } }
+                    {
+                      "label": "No, the same steps each time",
+                      "then": {
+                        "answer": "Start here, with an automation",
+                        "why": "Fixed steps, no judgement, easy to check. Logging each order or payment in a sheet is the classic first one.",
+                        "kind": "auto",
+                        "href": "/guides/how-to-log-stripe-payments-in-google-sheets"
+                      }
+                    },
+                    {
+                      "label": "Yes, sorting or replying",
+                      "then": {
+                        "answer": "Start here, with an AI agent that drafts",
+                        "why": "It saves you time daily and you still send. Morning email triage is a good first one.",
+                        "kind": "ai",
+                        "href": "/guides/how-to-triage-your-inbox-with-ai"
+                      }
+                    }
                   ]
                 }
               }
@@ -43,20 +103,60 @@
       "id": "score",
       "h2": "Score your tasks",
       "body": [
-        { "p": "Write down every task you repeated last week. Multiply times a month by minutes each, and note what a mistake would cost." },
+        {
+          "p": "Write down every task you repeated last week. Multiply times a month by minutes each, and note what a mistake would cost."
+        },
         {
           "table": {
-            "head": ["Task", "Times a month", "Minutes each", "Minutes saved", "Cost of a mistake"],
+            "head": [
+              "Task",
+              "Times a month",
+              "Minutes each",
+              "Minutes saved",
+              "Cost of a mistake"
+            ],
             "rows": [
-              ["Copy each order into the sheet", "120", "2", "240", "Low"],
-              ["Sort and answer support email", "200", "3", "600", "Medium"],
-              ["Chase late invoices", "15", "10", "150", "Medium"],
-              ["Weekly sales summary", "4", "30", "120", "Low"],
-              ["Approve refunds", "10", "5", "50", "High"]
+              [
+                "Copy each order into the sheet",
+                "120",
+                "2",
+                "240",
+                "Low"
+              ],
+              [
+                "Sort and answer support email",
+                "200",
+                "3",
+                "600",
+                "Medium"
+              ],
+              [
+                "Chase late invoices",
+                "15",
+                "10",
+                "150",
+                "Medium"
+              ],
+              [
+                "Weekly sales summary",
+                "4",
+                "30",
+                "120",
+                "Low"
+              ],
+              [
+                "Approve refunds",
+                "10",
+                "5",
+                "50",
+                "High"
+              ]
             ]
           }
         },
-        { "p": "Start at the top of the Low rows. Anything that touches money, contracts or a relationship gets a human yes." }
+        {
+          "p": "Start at the top of the Low rows. Anything that touches money, contracts or a relationship gets a human yes."
+        }
       ]
     },
     {
@@ -78,15 +178,31 @@
   "method": {
     "h2": "How to choose what to automate first",
     "steps": [
-      { "title": "List last week's repeated tasks", "body": "From your calendar, sent mail and to-do list. Aim for 15." },
-      { "title": "Score them", "body": "Times a month times minutes each, and the cost of a mistake." },
-      { "title": "Pick one low-risk task from the top", "body": "One. Not three." },
+      {
+        "title": "List last week's repeated tasks",
+        "body": "From your calendar, sent mail and to-do list. Aim for 15."
+      },
+      {
+        "title": "Score them",
+        "body": "Times a month times minutes each, and the cost of a mistake."
+      },
+      {
+        "title": "Pick one low-risk task from the top",
+        "body": "One. Not three."
+      },
       {
         "title": "Fix the process before automating it",
         "body": "If the task is messy by hand (three places to look, steps in your head), tidy it first.",
-        "note": { "type": "warn", "text": "An automation copies every inconsistency in the process. Automating a broken process makes it break faster.", "about": "auto" }
+        "note": {
+          "type": "warn",
+          "text": "An automation copies every inconsistency in the process. Automating a broken process makes it break faster.",
+          "about": "auto"
+        }
       },
-      { "title": "Build it, check it for a week", "body": "Look at every run. Then pick the next one." }
+      {
+        "title": "Build it, check it for a week",
+        "body": "Look at every run. Then pick the next one."
+      }
     ]
   },
   "captain": {
@@ -95,17 +211,57 @@
     "useCase": "shopify-orders-to-google-sheets"
   },
   "wrong": [
-    { "title": "Starting with the hardest task", "body": "The one you hate most often has the most judgement. Win with a dull one first.", "about": "ai" },
-    { "title": "Messages that sound like a robot", "body": "Clients notice. Keep anything customer-facing as a draft you approve.", "about": "ai" },
-    { "title": "Reminders to people who already paid", "body": "The automation did not know. Make sure it reads the latest status right before it sends.", "about": "auto" },
-    { "title": "Tool sprawl", "body": "Five tools for five automations. Prefer one place where you can see them all.", "about": "app" }
+    {
+      "title": "Starting with the hardest task",
+      "body": "The one you hate most often has the most judgement. Win with a dull one first.",
+      "about": "ai"
+    },
+    {
+      "title": "Messages that sound like a robot",
+      "body": "Clients notice. Keep anything customer-facing as a draft you approve.",
+      "about": "ai"
+    },
+    {
+      "title": "Reminders to people who already paid",
+      "body": "The automation did not know. Make sure it reads the latest status right before it sends.",
+      "about": "auto"
+    },
+    {
+      "title": "Tool sprawl",
+      "body": "Five tools for five automations. Prefer one place where you can see them all.",
+      "about": "app"
+    }
   ],
   "faqs": [
-    { "q": "Where should a small business start with automation?", "a": "With a task done daily or weekly, the same way each time, where a mistake is cheap: logging orders or payments, sorting email, a weekly summary." },
-    { "q": "What should I not automate?", "a": "Anything that commits you (contracts, refunds, discounts) or decides about a person (hiring, firing) without a human approving it." },
-    { "q": "How much does it cost to start?", "a": "Most tools have a free tier enough to build and test one automation. See [how much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared)." },
-    { "q": "How do I know an automation is working?", "a": "Look at every run in its first week and compare it with what you would have done by hand. After that, check that it ran, and read the runs again whenever the process changes." }
+    {
+      "q": "Where should a small business start with automation?",
+      "a": "With a task done daily or weekly, the same way each time, where a mistake is cheap: logging orders or payments, sorting email, a weekly summary."
+    },
+    {
+      "q": "What should I not automate?",
+      "a": "Anything that commits you (contracts, refunds, discounts) or decides about a person (hiring, firing) without a human approving it."
+    },
+    {
+      "q": "How much does it cost to start?",
+      "a": "Most tools have a free tier enough to build and test one automation. See [how much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared)."
+    },
+    {
+      "q": "How do I know an automation is working?",
+      "a": "Look at every run in its first week and compare it with what you would have done by hand. After that, check that it ran, and read the runs again whenever the process changes."
+    },
+    {
+      "q": "How do I score my tasks?",
+      "a": "Times a month multiplied by minutes each gives the minutes saved. Note what a mistake would cost: low, medium or high. Start at the top of the low-risk rows."
+    },
+    {
+      "q": "Should I fix the process before automating it?",
+      "a": "Yes. If the task is messy by hand, with three places to look and steps in your head, tidy it first. Automating a messy task makes the mess faster."
+    }
   ],
-  "related": ["ai-agents-for-small-business-10-jobs-that-work-today", "how-much-automation-costs-credits-tasks-and-runs-compared", "internal-tools-without-code-what-to-build-first"],
+  "related": [
+    "ai-agents-for-small-business-10-jobs-that-work-today",
+    "how-much-automation-costs-credits-tasks-and-runs-compared",
+    "internal-tools-without-code-what-to-build-first"
+  ],
   "updated": "2026-11-19"
 }

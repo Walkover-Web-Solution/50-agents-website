@@ -6,6 +6,16 @@
   "title": "AI agent vs automation: which one you need | 50agents",
   "description": "Use an automation when the same input should always give the same result, and an AI agent when each case needs judgement. A test and a worked example.",
   "h1": "AI agent vs automation: which one you need",
+  "cover": {
+    "scene": "fork",
+    "q": "Does each case need judgement?",
+    "options": [
+      "No, same steps: an automation",
+      "Yes: an AI agent",
+      "One messy step: both"
+    ],
+    "pick": 2
+  },
   "answer": [
     "Use an automation when the steps are the same every time, such as copying each new order into a sheet.",
     "Use an AI agent when each case needs judgement; many jobs are an automation with one AI step."
@@ -20,8 +30,22 @@
           "then": {
             "q": "Does one step need to read messy text?",
             "options": [
-              { "label": "No", "then": { "answer": "An automation", "why": "Fixed steps do it the same way every run, cost little, and fail loudly at one step when something breaks.", "kind": "auto" } },
-              { "label": "Yes, one step sorts or writes", "then": { "answer": "An automation with one AI step", "why": "Keep the steps fixed and put the judgement in one AI step. It costs less per run and fails in fewer places than an AI agent.", "kind": "auto" } }
+              {
+                "label": "No",
+                "then": {
+                  "answer": "An automation",
+                  "why": "Fixed steps do it the same way every run, cost little, and fail loudly at one step when something breaks.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "Yes, one step sorts or writes",
+                "then": {
+                  "answer": "An automation with one AI step",
+                  "why": "Keep the steps fixed and put the judgement in one AI step. It costs less per run and fails in fewer places than an AI agent.",
+                  "kind": "auto"
+                }
+              }
             ]
           }
         },
@@ -30,8 +54,23 @@
           "then": {
             "q": "Would a different result from the same input be a problem?",
             "options": [
-              { "label": "Yes, it must match every time", "then": { "answer": "An automation, with you checking exceptions", "why": "For payroll, invoices and anything you report on, keep fixed steps and send the odd cases to a person.", "kind": "auto" } },
-              { "label": "No, judgement is the point", "then": { "answer": "An AI agent", "why": "It decides what to do on each run within its instructions. Let it read alone and ask before it sends or changes anything.", "kind": "ai", "href": "/guides/how-to-build-an-ai-agent-without-code" } }
+              {
+                "label": "Yes, it must match every time",
+                "then": {
+                  "answer": "An automation, with you checking exceptions",
+                  "why": "For payroll, invoices and anything you report on, keep fixed steps and send the odd cases to a person.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "No, judgement is the point",
+                "then": {
+                  "answer": "An AI agent",
+                  "why": "It decides what to do on each run within its instructions. Let it read alone and ask before it sends or changes anything.",
+                  "kind": "ai",
+                  "href": "/guides/how-to-build-an-ai-agent-without-code"
+                }
+              }
             ]
           }
         }
@@ -45,18 +84,48 @@
       "body": [
         {
           "table": {
-            "head": ["", "Automation", "AI agent"],
+            "head": [
+              "",
+              "Automation",
+              "AI agent"
+            ],
             "rows": [
-              ["Who decides the steps", "You, once, when you build it", "The AI, on each run"],
-              ["Starts on", "An event or a schedule", "Usually a schedule or a request"],
-              ["Same input, same output?", "Yes", "Not always"],
-              ["Good at", "Moving data, notifying, fixed rules", "Reading messy text, choosing, writing"],
-              ["Cost per run", "Low and predictable", "Higher, varies with what it reads"],
-              ["When it breaks", "Fails loudly at one step", "Can be wrong confidently"]
+              [
+                "Who decides the steps",
+                "You, once, when you build it",
+                "The AI, on each run"
+              ],
+              [
+                "Starts on",
+                "An event or a schedule",
+                "Usually a schedule or a request"
+              ],
+              [
+                "Same input, same output?",
+                "Yes",
+                "Not always"
+              ],
+              [
+                "Good at",
+                "Moving data, notifying, fixed rules",
+                "Reading messy text, choosing, writing"
+              ],
+              [
+                "Cost per run",
+                "Low and predictable",
+                "Higher, varies with what it reads"
+              ],
+              [
+                "When it breaks",
+                "Fails loudly at one step",
+                "Can be wrong confidently"
+              ]
             ]
           }
         },
-        { "p": "Take \"keep up with new leads\". An automation turns every new HubSpot contact into a row and a Slack post, but cannot tell a buyer from a student. An AI agent reads what each wrote and drafts replies to the likely buyers, which you check. Many teams run both." }
+        {
+          "p": "Take \"keep up with new leads\". An automation turns every new HubSpot contact into a row and a Slack post, but cannot tell a buyer from a student. An AI agent reads what each wrote and drafts replies to the likely buyers, which you check. Many teams run both."
+        }
       ]
     }
   ],
@@ -78,7 +147,11 @@
       {
         "title": "Put the judgement in one AI step",
         "body": "Make that one step an AI step inside an automation and keep the rest fixed. Example: sort each support email into billing, bug or question, then add it to a sheet.",
-        "note": { "type": "tip", "text": "An AI step inside an automation costs less per run than an AI agent and fails in fewer places.", "about": "auto" }
+        "note": {
+          "type": "tip",
+          "text": "An AI step inside an automation costs less per run than an AI agent and fails in fewer places.",
+          "about": "auto"
+        }
       },
       {
         "title": "Use an AI agent only when judgement decides",
@@ -92,16 +165,57 @@
     "ask": "When a support email arrives, sort it into billing, bug or question and add it to my Support sheet"
   },
   "wrong": [
-    { "title": "An AI agent where a rule would do", "body": "You pay for judgement on every run and get results that vary. If you can write the rule, write the rule.", "about": "ai" },
-    { "title": "An automation where judgement was needed", "body": "You keep adding filters for every exception until nobody can follow it. Move the judgement to an AI step or an AI agent.", "about": "auto" },
-    { "title": "Nobody can say why it did that", "body": "Keep an AI agent's run reports and an automation's run history, and read them. Pick tools that show both.", "about": "ai" },
-    { "title": "\"Agentic\" products that are automations", "body": "Some tools sold as AI agents run fixed steps. That is fine if it fits; judge them by what each run does, not the label.", "about": "auto" }
+    {
+      "title": "An AI agent where a rule would do",
+      "body": "You pay for judgement on every run and get results that vary. If you can write the rule, write the rule.",
+      "about": "ai"
+    },
+    {
+      "title": "An automation where judgement was needed",
+      "body": "You keep adding filters for every exception until nobody can follow it. Move the judgement to an AI step or an AI agent.",
+      "about": "auto"
+    },
+    {
+      "title": "Nobody can say why it did that",
+      "body": "Keep an AI agent's run reports and an automation's run history, and read them. Pick tools that show both.",
+      "about": "ai"
+    },
+    {
+      "title": "\"Agentic\" products that are automations",
+      "body": "Some tools sold as AI agents run fixed steps. That is fine if it fits; judge them by what each run does, not the label.",
+      "about": "auto"
+    }
   ],
   "faqs": [
-    { "q": "Is an AI agent just a smarter automation?", "a": "No. An automation does what you set up, the same way each time. An AI agent decides what to do within its instructions, so it handles new cases and can make new mistakes." },
-    { "q": "Can an automation use AI?", "a": "Yes. An AI step can write an email, sort a message or pull fields out of text, while the rest of the steps stay fixed." },
-    { "q": "Which is cheaper?", "a": "An automation, almost always, because it does not read and reason on every run. An AI step or an AI agent is worth its cost only where judgement saves you time." }
+    {
+      "q": "Is an AI agent just a smarter automation?",
+      "a": "No. An automation does what you set up, the same way each time. An AI agent decides what to do within its instructions, so it handles new cases and can make new mistakes."
+    },
+    {
+      "q": "Can an automation use AI?",
+      "a": "Yes. An AI step can write an email, sort a message or pull fields out of text, while the rest of the steps stay fixed."
+    },
+    {
+      "q": "Which is cheaper?",
+      "a": "An automation, almost always, because it does not read and reason on every run. An AI step or an AI agent is worth its cost only where judgement saves you time."
+    },
+    {
+      "q": "How do I know a job needs judgement?",
+      "a": "Try to write it as one rule: \"when X, do Y\". If the rule holds for every case, it is an automation. If you keep adding \"unless\" and \"it depends\", the job reads messy text or chooses, and that part needs AI."
+    },
+    {
+      "q": "Which one is easier to fix when it goes wrong?",
+      "a": "An automation, because it fails loudly at one step and you can see which. An AI agent can be wrong with confidence, so keep a log of what it read and decided, and let it ask before it sends."
+    },
+    {
+      "q": "Can I start with an automation and add an AI agent later?",
+      "a": "Yes, and it is the usual path. Build the fixed steps first, then add one AI step where text needs reading. Move to an AI agent only when what to do changes case by case."
+    }
   ],
-  "related": ["how-to-build-an-ai-agent-without-code", "how-to-automate-data-entry-between-two-apps", "how-to-choose-an-ai-agent-builder"],
+  "related": [
+    "how-to-build-an-ai-agent-without-code",
+    "how-to-automate-data-entry-between-two-apps",
+    "how-to-choose-an-ai-agent-builder"
+  ],
   "updated": "2026-11-19"
 }

@@ -1,8 +1,1 @@
-{
-  "usedFor": "anny runs your bookings; HubSpot tracks the revenue. A “New Booking” in anny can run “Create Deal” in HubSpot, so every reservation or appointment shows up in your pipeline.",
-  "bestTemplate": {
-    "name": "“New Confirmed Booking” in anny, then “Create Deal” in HubSpot",
-    "why": "A confirmed booking is accepted business, so deals only appear for bookings you actually honor, not every request."
-  },
-  "watchOut": "“Updated Booking” fires whenever a booking changes, so wiring it to “Create Deal” can create several deals for one booking. Keep “Create Deal” on one-time events like “New Booking”."
-}
+{"usedFor":"Each “New Booking” in anny opens a deal in HubSpot so reservations reach your pipeline.","bestTemplate":{"name":"“New Confirmed Booking” in anny, then “Create Deal” in HubSpot","why":"A confirmed booking is accepted business, so deals appear only for bookings you honor."},"watchOut":"“Updated Booking” fires on every change, so wiring it to “Create Deal” can create several deals."}

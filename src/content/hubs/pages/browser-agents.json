@@ -26,6 +26,14 @@
       "asksFirst": "A sign-in, if a page needs one"
     }
   },
+  "asks": [
+    "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
+    "Set up a browser agent that checks a product page I give it every day at 9:00 and tells me when the price drops",
+    "Set up a browser agent that opens my help center pages every Monday at 9:00 and tells me which links are broken",
+    "Set up a browser agent that checks my suppliers' price lists every Monday at 9:00 and tells me when a price goes up",
+    "Set up a browser agent that checks a booking page every morning at 8:00 and tells me when a new slot opens",
+    "Set up a browser agent that checks the status pages of the tools my team relies on every day at 9:00 and tells me about any outage"
+  ],
   "useCases": "The one kind with no app to connect: websites are where it works.",
   "apps": [],
   "faqs": [
@@ -52,6 +60,18 @@
     {
       "q": "Can it fill in forms?",
       "a": "Yes, when its instructions say so. It fills the form from what you give it, then stops and asks you in Needs you before it submits. [How to automate form filling on websites](/guides/how-to-automate-form-filling-on-websites) shows the steps."
+    },
+    {
+      "q": "Is a browser agent free to start?",
+      "a": "Yes. 50agents is free to start: tell Captain which sites to check and how often, review its plan and tap Build it."
+    },
+    {
+      "q": "When does a browser agent run, and what do I get?",
+      "a": "It runs on a schedule you set, such as every morning at 8:00, works in its own browser and leaves a report of what it found. It does not start on an app event; for that, Captain builds an automation."
+    },
+    {
+      "q": "Can a browser agent work inside an app?",
+      "a": "Yes. In the leads app, Scout is a browser agent that reads each new lead's company website, next to Closer, which drafts the follow-ups. Each one asks before anything reaches someone outside the business."
     }
   ],
   "links": [

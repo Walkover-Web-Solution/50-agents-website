@@ -1,22 +1,22 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-// The integration family's two list boxes (D254). Every item is in the server HTML (crawlers read them all); these only
-// hide what is not on screen yet.
+// The integration family's list boxes (D254, D260). Every item is in the server HTML (crawlers read them all); these only
+// hide what is not on screen yet. None of them scrolls inside itself (D260): they grow in place with "Load more" or page.
 
 const match = (el: HTMLElement, term: string) => !term || (el.dataset.q ?? '').includes(term);
 const SearchIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m20 20-3.5-3.5" /></svg>
 );
 
-/** A box that fits its content up to a cap, then scrolls inside itself (D258: never a fixed empty height): tabs (one panel each), a search, and "Load more" at the end of the list.
- *  Children are the panels, rendered on the server: `<ul data-panel={key}>` of `<li data-q="...">`, the first panel shown,
- *  items after the first `per` hidden. */
-export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matches', children }: {
-  tabs: { key: string; label: React.ReactNode; name?: string }[]; search?: string; per: number; fixed: boolean; empty?: string; children: React.ReactNode;
+/** A list box (D260): tabs (one panel each), a search, and "Load more" that reveals more rows in place, so the box grows
+ *  with the page. It never scrolls inside itself and never holds the wheel. Children are the panels, rendered on the
+ *  server: `<ul data-panel={key}>` of `<li data-q="...">`, the first panel shown, items after the first `per` hidden.
+ *  The search filters every item; its matches show `per` at a time too. */
+export function ListBox({ tabs, search, per, empty = 'Nothing here matches', children }: {
+  tabs: { key: string; label: React.ReactNode; name?: string }[]; search?: string; per: number; empty?: string; children: React.ReactNode;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const boxRef = useRef<HTMLDivElement>(null);
   const [tab, setTab] = useState(tabs[0]?.key ?? '');
   const [q, setQ] = useState('');
   const [shown, setShown] = useState<Record<string, number>>({});
@@ -35,20 +35,18 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
       panel.hidden = !on;
       const items = [...panel.querySelectorAll<HTMLElement>(':scope > li')];
       const n = shown[key] ?? per;
-      let c = 0;
-      items.forEach((li, i) => {
-        const hit = match(li, term);
-        if (hit) c++;
-        if (on) li.hidden = term ? !hit : i >= n;
-      });
-      counts[key] = c;
-      if (on && !term) rest = Math.max(0, items.length - n);
+      const hit = items.filter(li => match(li, term));
+      counts[key] = hit.length;
+      if (!on) return;
+      const vis = new Set(hit.slice(0, n));
+      items.forEach(li => { li.hidden = !vis.has(li); });
+      rest = Math.max(0, hit.length - n);
     });
     setHits(counts);
     setLeft(rest);
   }, [tab, term, shown, per]);
 
-  const pick = (key: string) => { setTab(key); if (boxRef.current) boxRef.current.scrollTop = 0; };
+  const pick = (key: string) => setTab(key);
   const onKey = (e: React.KeyboardEvent, i: number) => {
     const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
     if (!d) return;
@@ -57,7 +55,6 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
     ref.current?.querySelector<HTMLElement>(`[data-tab="${next.key}"]`)?.focus();
   };
   const none = term && (hits[tab] ?? 0) === 0;
-  // the other tab with the most matches (a pair has four tabs)
   const elsewhere = none ? tabs.filter(t => t.key !== tab && (hits[t.key] ?? 0) > 0).sort((x, y) => (hits[y.key] ?? 0) - (hits[x.key] ?? 0))[0] : undefined;
 
   return (
@@ -76,12 +73,12 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
           {search && (
             <label className="ig4-find">
               <SearchIcon />
-              <input type="search" value={q} onChange={e => { setQ(e.target.value); if (boxRef.current) boxRef.current.scrollTop = 0; }} placeholder={search} aria-label={search} />
+              <input type="search" value={q} onChange={e => { setQ(e.target.value); setShown({}); }} placeholder={search} aria-label={search} />
             </label>
           )}
         </div>
       )}
-      <div ref={boxRef} className={fixed ? 'ig4-box capped' : 'ig4-box'}>
+      <div className="ig4-box">
         {children}
         {none && (
           <p className="ig4-none" role="status">
@@ -94,27 +91,49 @@ export function ListBox({ tabs, search, per, fixed, empty = 'Nothing here matche
   );
 }
 
-/** The directory's main column: its heading and one search over every app, the server-rendered grid (children:
- *  `[data-app]` tiles, the first `per` shown), and "Load more" under it (D258: no page numbers). Every tile stays in the
- *  HTML; the rest are only hidden. The search filters the whole list. */
-export function Directory({ per, label, head, children }: { per: number; label: string; head: React.ReactNode; children: React.ReactNode }) {
+/** The page numbers to show (D260): the first, the last, the current one and its neighbours, with gaps as null. */
+export function pageRange(cur: number, total: number): (number | null)[] {
+  if (total <= 7) return Array.from({ length: total }, (_, i) => i);
+  const keep = new Set([0, total - 1, cur - 1, cur, cur + 1]);
+  if (cur <= 3) [1, 2, 3, 4].forEach(i => keep.add(i));
+  if (cur >= total - 4) [total - 5, total - 4, total - 3, total - 2].forEach(i => keep.add(i));
+  const xs = [...keep].filter(i => i >= 0 && i < total).sort((a, b) => a - b);
+  const out: (number | null)[] = [];
+  xs.forEach((x, i) => { if (i && x - xs[i - 1] > 1) out.push(null); out.push(x); });
+  return out;
+}
+
+const Arrow = ({ left }: { left?: boolean }) => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{left ? <path d="M19 12H5m6-6-6 6 6 6" /> : <path d="M5 12h14m-6-6 6 6-6 6" />}</svg>
+);
+
+/** The directory's main column (D260): its heading and one search over every app, the server-rendered grid (children:
+ *  `[data-app]` tiles, the first `per` shown), and numbered pages at the bottom of the same box: previous, a compact range
+ *  of page numbers, next. Every tile stays in the HTML; the other pages are only hidden. The search covers every app and
+ *  its matches are paged the same way. */
+export function Directory({ per, total, label, head, children }: { per: number; total: number; label: string; head: React.ReactNode; children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const [q, setQ] = useState('');
-  const [shown, setShown] = useState(per);
-  const [left, setLeft] = useState(0);
-  const [none, setNone] = useState(false);
+  const [page, setPage] = useState(0);
+  const [count, setCount] = useState(total);
   const term = q.trim().toLowerCase();
+  const pages = Math.max(1, Math.ceil(count / per));
 
   useEffect(() => {
     const root = ref.current;
     if (!root) return;
     const tiles = [...root.querySelectorAll<HTMLElement>('[data-app]')];
     const hits = tiles.filter(t => match(t, term));
-    const on = new Set(hits.slice(0, shown));
+    const on = new Set(hits.slice(page * per, page * per + per));
     tiles.forEach(t => { t.hidden = !on.has(t); });
-    setLeft(Math.max(0, hits.length - shown));
-    setNone(hits.length === 0);
-  }, [term, shown]);
+    setCount(hits.length);
+  }, [term, page, per]);
+
+  const go = (n: number) => {
+    setPage(n);
+    const top = ref.current?.closest('.ig4-dir')?.getBoundingClientRect().top ?? 0;
+    if (top < 0) ref.current?.closest('.ig4-dir')?.scrollIntoView({ block: 'start' });
+  };
 
   return (
     <div ref={ref} className="ig4-dir-main">
@@ -122,54 +141,79 @@ export function Directory({ per, label, head, children }: { per: number; label: 
         {head}
         <label className="ig4-find">
           <SearchIcon />
-          <input type="search" value={q} onChange={e => { setQ(e.target.value); setShown(per); }} placeholder={label} aria-label={label} />
+          <input type="search" value={q} onChange={e => { setQ(e.target.value); setPage(0); }} placeholder={label} aria-label={label} />
         </label>
       </div>
       {children}
-      {none && <p className="ig4-none" role="status">No app here matches &ldquo;{q.trim()}&rdquo;. Try another name, or tell Captain the job and it says which apps it needs.</p>}
-      {left > 0 && <div className="ig4-more ig4-dir-more"><button type="button" className="btn sm ghost" onClick={() => setShown(n => n + per)}>Load more apps</button></div>}
+      {count === 0 && <p className="ig4-none" role="status">No app here matches &ldquo;{q.trim()}&rdquo;. Try another name, or tell Captain the job and it says which apps it needs.</p>}
+      {pages > 1 && (
+        <nav className="ig4-pager" aria-label="Pages">
+          <button type="button" className="ig4-pg-step" onClick={() => go(page - 1)} disabled={page === 0}><Arrow left /><span>Previous</span></button>
+          <ol>
+            {pageRange(page, pages).map((n, i) => n === null
+              ? <li key={`gap${i}`} className="ig4-pg-gap" aria-hidden="true">&hellip;</li>
+              : <li key={n}><button type="button" onClick={() => go(n)} aria-current={n === page ? 'page' : undefined} aria-label={`Page ${n + 1}`}>{n + 1}</button></li>)}
+          </ol>
+          <button type="button" className="ig4-pg-step" onClick={() => go(page + 1)} disabled={page >= pages - 1}><span>Next</span><Arrow /></button>
+        </nav>
+      )}
     </div>
   );
 }
 
-/** Triggers and actions (D258): two columns side by side, each with its own head, count and scroll, and one search over
- *  both. A pair adds an app switcher above the columns. Children are rendered on the server: `[data-board]` panels (one
- *  per app, the first shown) of `[data-col]` columns, each with a `[data-n]` count, a `ul` of `li[data-q]` and a
- *  `[data-none]` line. Every item stays in the HTML. */
-export function EventBoard({ apps, search, children }: { apps?: { key: string; name: string; label: React.ReactNode }[]; search: string; children: React.ReactNode }) {
+/** Triggers and actions (D260): two equal columns, triggers left and actions right, each with its own head and count,
+ *  showing its first `per` and then its own "Load more" that reveals more in place. Nothing scrolls inside itself. One
+ *  search over both columns (its matches are shown `per` at a time too). A pair adds an app switcher above the columns.
+ *  Children are rendered on the server: `[data-board]` panels (one per app, the first shown) of `[data-col]` columns,
+ *  each with a `[data-n]` count, a `ul` of `li[data-q]` (after the first `per` hidden), a `[data-none]` line and a
+ *  `[data-more]` button. Every item stays in the HTML. */
+export function EventBoard({ apps, search, per, children }: { apps?: { key: string; name: string; label: React.ReactNode }[]; search: string; per: number; children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const [app, setApp] = useState(apps?.[0]?.key ?? '');
   const [q, setQ] = useState('');
+  const [shown, setShown] = useState<Record<string, number>>({});
   const [hits, setHits] = useState<Record<string, number>>({});
   const term = q.trim().toLowerCase();
 
   useEffect(() => {
     const root = ref.current;
     if (!root) return;
-    const per: Record<string, number> = {};
+    const perApp: Record<string, number> = {};
     root.querySelectorAll<HTMLElement>('[data-board]').forEach(panel => {
       const key = panel.dataset.board!;
       if (apps) panel.hidden = key !== app;
       let total = 0;
       panel.querySelectorAll<HTMLElement>('[data-col]').forEach(col => {
+        const id = `${key}:${col.dataset.col}`;
         const items = [...col.querySelectorAll<HTMLElement>('li[data-q]')];
-        let c = 0;
-        items.forEach(li => { const hit = match(li, term); li.hidden = !hit; if (hit) c++; });
-        total += c;
-        const n = col.querySelector<HTMLElement>('[data-n]');
-        if (n) n.textContent = term ? `${c} of ${items.length}` : String(items.length);
+        const hit = items.filter(li => match(li, term));
+        const n = shown[id] ?? per;
+        const vis = new Set(hit.slice(0, n));
+        items.forEach(li => { li.hidden = !vis.has(li); });
+        total += hit.length;
+        const c = col.querySelector<HTMLElement>('[data-n]');
+        if (c) c.textContent = term ? `${hit.length} of ${items.length}` : String(items.length);
         const empty = col.querySelector<HTMLElement>('[data-none]');
-        if (empty) empty.hidden = c > 0;
-        const sc = col.querySelector<HTMLElement>('[data-scroll]');
-        if (sc) sc.scrollTop = 0;
+        if (empty) empty.hidden = hit.length > 0;
+        const more = col.querySelector<HTMLElement>('[data-more]');
+        if (more) more.hidden = hit.length <= n;
       });
-      per[key] = total;
+      perApp[key] = total;
     });
-    setHits(per);
-  }, [app, term, apps]);
+    setHits(perApp);
+  }, [app, term, apps, shown, per]);
+
+  const onClick = (e: React.MouseEvent) => {
+    const btn = (e.target as HTMLElement).closest('[data-more] button');
+    if (!btn) return;
+    const col = btn.closest<HTMLElement>('[data-col]'), board = btn.closest<HTMLElement>('[data-board]');
+    if (!col || !board) return;
+    const id = `${board.dataset.board}:${col.dataset.col}`;
+    setShown(s => ({ ...s, [id]: (s[id] ?? per) + per }));
+  };
 
   return (
-    <div ref={ref} className="ig5-ev">
+    <div ref={ref} className="ig5-ev" onClick={onClick}>
       <div className="ig5-bar">
         {apps && apps.length > 1 ? (
           <div className="ig5-switch" role="group" aria-label="App">
@@ -182,7 +226,7 @@ export function EventBoard({ apps, search, children }: { apps?: { key: string; n
         ) : null}
         <label className="ig4-find">
           <SearchIcon />
-          <input type="search" value={q} onChange={e => setQ(e.target.value)} placeholder={search} aria-label={search} />
+          <input type="search" value={q} onChange={e => { setQ(e.target.value); setShown({}); }} placeholder={search} aria-label={search} />
         </label>
       </div>
       {children}

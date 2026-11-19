@@ -1,8 +1,1 @@
-{
- "usedFor": "WordPress is where posts change, and Dropbox is where the files go. When “Post Updated” fires in WordPress, “Upload File to Dropbox” can save a file from a public link into a folder you choose.",
- "bestTemplate": {
-  "name": "“Post Updated” in Wordpress, then “Upload File to Dropbox” in Dropbox",
-  "why": "Edited posts are the WordPress event closest to content files. The action also lets you choose how an existing file is handled, which matters because one post can be updated many times."
- },
- "watchOut": "“Upload File to Dropbox” saves from a public web link, so check the file you point it at is reachable that way. “Post Updated” fires on every edit, so set the existing-file option before you switch it on."
-}
+{"usedFor":"An updated WordPress post saves a file from a public link into Dropbox.","bestTemplate":{"name":"“Post Updated” in Wordpress, then “Upload File to Dropbox” in Dropbox","why":"The action lets you choose how an existing file is handled, since one post updates often."},"watchOut":"“Post Updated” fires on every edit, so set the existing-file option before switching it on."}

@@ -1,8 +1,1 @@
-{
-  "usedFor": "ActivityInfo stores program data in forms; Calendly books the meetings. When a record is added or changed in an ActivityInfo form, “Create Scheduling Link” in Calendly can produce a booking link for the follow-up call.",
-  "bestTemplate": {
-    "name": "“New Record” in ActivityInfo, then “Create Scheduling Link” in Calendly",
-    "why": "A new record is the moment a follow-up is due, so each one gets a fresh booking link. “Updated Record” would mint a link on every edit."
-  },
-  "watchOut": "Both ActivityInfo triggers, “New Record” and “Updated Record”, are polling, so a new record can take a short while to show up. Pick one form to watch."
-}
+{"usedFor":"Each new ActivityInfo record gets a Calendly booking link for the follow-up call.","bestTemplate":{"name":"“New Record” in ActivityInfo, then “Create Scheduling Link” in Calendly","why":"A new record is when a follow-up is due; “Updated Record” would link every edit."},"watchOut":"Both triggers poll, so a new record's booking link can lag; pick one form to watch."}

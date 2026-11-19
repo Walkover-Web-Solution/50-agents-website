@@ -97,6 +97,22 @@
     {
       "q": "Can I self-host a Gumloop alternative?",
       "a": "Yes. n8n and Activepieces both run on your own servers."
+    },
+    {
+      "q": "How do the prices compare?",
+      "a": "Lindy's Team plan starts at $29.99 a month for 3,000 credits. Relevance AI's Pro is $19 a month billed yearly. n8n Starter is €20 a month billed yearly. 50agents is free to start."
+    },
+    {
+      "q": "Can I move my Gumloop AI agents over?",
+      "a": "There is no import. Note what each one does, then describe it to Captain, which shows a plan before it builds."
+    },
+    {
+      "q": "Which alternative suits sales teams?",
+      "a": "Relevance AI builds sales AI agent teams wired into Salesforce, HubSpot and Gong."
+    },
+    {
+      "q": "Which alternatives wait for approval first?",
+      "a": "Lindy waits for your OK on outside actions. 50agents holds anything that reaches people outside your business until you say yes."
     }
   ],
   "related": [

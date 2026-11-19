@@ -1,8 +1,1 @@
-{
- "usedFor": "Stripe takes the payments, and WooCommerce is the store. When “When a payment succeeds” fires in Stripe, “Create Coupon” in WooCommerce can make a coupon in your store.",
- "bestTemplate": {
-  "name": "“When a payment succeeds” in Stripe, then “Create Coupon” in WooCommerce",
-  "why": "A paid customer is the best time for a thank-you or repeat-purchase coupon, and the trigger is pushed as the payment lands. The product-update templates change items, not customers."
- },
- "watchOut": "“Create Coupon” makes a new coupon on every run, so each successful payment gets one. “Update Product” changes the product on each “Payment Link Created”, so confirm that link belongs to it."
-}
+{"usedFor":"A successful Stripe payment creates a thank-you coupon in WooCommerce.","bestTemplate":{"name":"“When a payment succeeds” in Stripe, then “Create Coupon” in WooCommerce","why":"A paid customer is the best time for a repeat-purchase coupon, pushed as the payment lands."},"watchOut":"“Create Coupon” makes a new coupon on every run, so each successful payment gets one."}

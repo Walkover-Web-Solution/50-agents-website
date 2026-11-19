@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify is where products and customers live; Blog2Social shares to social networks. A “New Product” in Shopify can run “Create Post” to publish a link, image or video on a connected account.",
-  "bestTemplate": {
-    "name": "“New Product” in Shopify, then “Create Post” in Blog2Social",
-    "why": "Launches get shared as a link, image or video post on a connected social account without you copying the details."
-  },
-  "watchOut": "“Create Post” publishes to a connected account, so it is public when it runs. “Order Cancelled” and “Abandoned Checkout” are poor post triggers; “Abandoned Checkout” is also polling."
-}
+{"usedFor":"Each new Shopify product is shared by Blog2Social as a link, image or video post on a connected social account.","bestTemplate":{"name":"“New Product” in Shopify, then “Create Post” in Blog2Social","why":"Launch posts go out without copying product details by hand, in whichever format suits the account."},"watchOut":"Blog2Social publishes straight to the connected account, so each post is public the moment “Create Post” runs."}

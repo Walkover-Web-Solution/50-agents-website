@@ -1,8 +1,1 @@
-{
-  "usedFor": "Recall.ai records meetings, and Dropbox stores files. A “New Recording Becomes Ready” in Recall.ai can run “Upload File to Dropbox” to keep a copy of the recording in a chosen folder.",
-  "bestTemplate": {
-    "name": "“New Recording Becomes Ready” in Recall.ai, then “Upload File to Dropbox” in Dropbox",
-    "why": "The trigger fires once the recording's media is available, which is what an upload needs. “New Transcript Completed” covers the text side instead."
-  },
-  "watchOut": "“Upload File to Dropbox” pulls from a public web link, so the recording must be reachable at one. “New Recording Becomes Ready” is polling, with a lookback window in minutes you can set."
-}
+{"usedFor":"Ready Recall.ai recordings are uploaded to a Dropbox folder.","bestTemplate":{"name":"“New Recording Becomes Ready” in Recall.ai, then “Upload File to Dropbox” in Dropbox","why":"The trigger fires once the recording's media is available, which is what an upload needs."},"watchOut":"“Upload File to Dropbox” pulls from a public web link, so the recording must be reachable at one."}

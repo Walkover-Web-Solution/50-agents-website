@@ -50,3 +50,7 @@ list the slugs and the reason in your report.
 - Both app names appear in the text of `usedFor` and, between them, across the three fields.
 - Do not reuse an opening across pairs ("Use X and Y to ..."). The first words of each field should come from the pair's
   own facts.
+
+## Round 5 (D260)
+- Each line is one short sentence: used for, best template, watch out. They show as three compact cards.
+- Keep each pair unique: the uniqueness gate (under 0.5 shared 5-word shingles, shared lists skipped) must pass.

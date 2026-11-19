@@ -50,7 +50,15 @@ const out = pages.map(p => {
   if (words(p.useCases) > 14) bad.push(`useCases subheader is ${words(p.useCases)} words (14 at most)`);
   if (!Array.isArray(p.apps)) bad.push('apps is not a list of catalog slugs');
   if (words(p.line) > 12) bad.push('line over 12 words');
-  if (p.faqs.length < 5 || p.faqs.length > 7) bad.push('faqs not 5 to 7');
+  if (p.faqs.length < 8 || p.faqs.length > 12) bad.push('faqs not 8 to 12 (D260: more questions the page itself does not answer)');
+  // D260: the hero film types 5 or 6 real asks of this kind, the first the hub's own ask, each from its gallery
+  const gal = new Set((GALLERY[p.kind] ?? []).map(c => c.ask));
+  if (!Array.isArray(p.asks) || p.asks.length < 5 || p.asks.length > 6) bad.push('asks not 5 or 6');
+  else {
+    if (p.asks[0] !== p.example.ask) bad.push('asks[0] is not the example ask');
+    if (new Set(p.asks).size !== p.asks.length) bad.push('asks repeat');
+    p.asks.forEach(a => !gal.has(a) && bad.push(`film ask not in the ${p.kind} gallery: "${a.slice(0, 40)}..."`));
+  }
   p.faqs.forEach(f => words(plain(f.a)) > 70 && bad.push(`answer to "${f.q}" is ${words(plain(f.a))} words`));
   // SEO pass 01: the description leads with the query and the answer; links in answers are internal and live
   if (leadsWithAsk(p.description)) bad.push('description opens with "Tell Captain": lead with the query and the answer');

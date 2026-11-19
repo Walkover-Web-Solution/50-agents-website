@@ -101,4 +101,15 @@ typography and spacing, visuals that support the text (or no visual), better tha
 - **Guides supersede the earlier guide notes:** calm covers built from data (a few carry Captain, no crowds); the hero is
   the H1 and "The short answer" in a soft grey box, centred; plain numbered steps, no ticking or step counter; small
   icons for tips and warnings.
-- **Integrations:** triggers left and actions right, each scrolling inside its own column, the box sized to its content.
+- **Integrations:** triggers left and actions right (superseded in round 5: each shows 8 with "Load more", no inner scroll).
+
+## Round 5 (D260)
+- **Rhythm:** `.sec` is 204px (110px on a phone); space under the footer's crowd; no browser default body margin.
+- **Breadcrumbs:** the current page underlined, in normal weight.
+- **Final calls to action:** "One sentence to Captain. Free to start." Never repeat the full ask there.
+- **Hero film:** hubs cycle 5 or 6 real asks (`PromptFilm` with `asks` and `link`); the Build button follows the ask on screen.
+- **Nothing traps the page scroll:** no inner scrolling boxes. Lists show a set number with "Load more" (triggers and
+  actions half and half, templates, galleries) or pagination with arrows inside the container (the app directory).
+- **More questions:** every page answers 3 to 5 questions the page itself doesn't cover.
+- **Guides:** each guide's JSON has a `cover` (its apps, key object, a few words); the gate refuses two identical covers.
+  The hero is one centred axis (820px), the short answer in a pale tint from the guide's category.

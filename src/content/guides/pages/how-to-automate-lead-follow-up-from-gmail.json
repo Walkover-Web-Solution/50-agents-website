@@ -6,6 +6,34 @@
   "title": "How to automate lead follow-up from Gmail | 50agents",
   "description": "Automate lead follow-up from Gmail: log each lead with a last-contact date, follow up in the same thread after N quiet days, and stop when they reply.",
   "h1": "How to automate lead follow-up from Gmail",
+  "cover": {
+    "scene": "panel",
+    "panel": {
+      "app": "gmail",
+      "label": "Leads to follow up",
+      "rows": [
+        {
+          "cells": [
+            "Dana Lee",
+            "Quote sent"
+          ],
+          "tag": "Quiet 3 days"
+        },
+        {
+          "cells": [
+            "Omar Haddad",
+            "Replied"
+          ]
+        },
+        {
+          "cells": [
+            "Kim Park",
+            "Call booked"
+          ]
+        }
+      ]
+    }
+  },
   "answer": [
     "Keep a lead list with a stage and a last-contact date, and each morning draft a follow-up in the same thread for leads quiet three days.",
     "Stop the moment anyone from their side replies."
@@ -17,14 +45,42 @@
       "body": [
         {
           "table": {
-            "head": ["Step", "What happens", "What decides it"],
+            "head": [
+              "Step",
+              "What happens",
+              "What decides it"
+            ],
             "rows": [
-              ["Capture", "A new lead lands in the list", "An email, a form, or you"],
-              ["Contact", "You send the first email", "Stage Contacted, last contact today"],
-              ["Wait", "Nothing for N days", "Your gap, often 3 days"],
-              ["Check", "Did they reply?", "A reply from their domain"],
-              ["Follow up", "A short email, same thread", "Not replied, Won or Lost"],
-              ["Stop", "No more emails", "A reply, a meeting, the last step"]
+              [
+                "Capture",
+                "A new lead lands in the list",
+                "An email, a form, or you"
+              ],
+              [
+                "Contact",
+                "You send the first email",
+                "Stage Contacted, last contact today"
+              ],
+              [
+                "Wait",
+                "Nothing for N days",
+                "Your gap, often 3 days"
+              ],
+              [
+                "Check",
+                "Did they reply?",
+                "A reply from their domain"
+              ],
+              [
+                "Follow up",
+                "A short email, same thread",
+                "Not replied, Won or Lost"
+              ],
+              [
+                "Stop",
+                "No more emails",
+                "A reply, a meeting, the last step"
+              ]
             ]
           }
         }
@@ -34,8 +90,12 @@
       "id": "gmail-options",
       "h2": "What Gmail can do on its own",
       "body": [
-        { "p": "Gmail can remind you, not send for you: its nudges suggest emails to follow up on. To draft or send follow-ups, you need an add-on (GMass, Mixmax and others), a CRM with sequences, or an automation tool that reads your Gmail." },
-        { "p": "Whatever you use sends from your account, so Gmail's limits apply: up to 2,000 messages a day for a Workspace user, around 500 for personal Gmail. Hitting the limit stops all your sending for up to 24 hours." }
+        {
+          "p": "Gmail can remind you, not send for you: its nudges suggest emails to follow up on. To draft or send follow-ups, you need an add-on (GMass, Mixmax and others), a CRM with sequences, or an automation tool that reads your Gmail."
+        },
+        {
+          "p": "Whatever you use sends from your account, so Gmail's limits apply: up to 2,000 messages a day for a Workspace user, around 500 for personal Gmail. Hitting the limit stops all your sending for up to 24 hours."
+        }
       ]
     }
   ],
@@ -61,7 +121,11 @@
       {
         "title": "Check for replies before every send",
         "body": "Read the thread just before sending, not only when the list was last updated. Count a reply from anyone at their domain as a reply.",
-        "note": { "type": "warn", "text": "An out-of-office is not a reply. Treat \"automatic reply\" messages as quiet, and follow up after their return date.", "about": "ai" }
+        "note": {
+          "type": "warn",
+          "text": "An out-of-office is not a reply. Treat \"automatic reply\" messages as quiet, and follow up after their return date.",
+          "about": "ai"
+        }
       },
       {
         "title": "Update the list after each email",
@@ -75,16 +139,57 @@
     "useCase": "lead-tracker-from-your-inbox"
   },
   "wrong": [
-    { "title": "A follow-up after they replied", "body": "They answered from a colleague's address, or started a new thread. Check the thread and their domain right before each send.", "about": "ai" },
-    { "title": "Your whole Gmail stops sending", "body": "A big sequence hit the daily limit, which blocks all your mail, not just the automation. Keep automated sends well under it.", "about": "auto" },
-    { "title": "Follow-ups at 3 in the morning", "body": "The tool ran in another timezone. Set sends for working hours in the lead's timezone where you know it.", "about": "auto" },
-    { "title": "The same email three times", "body": "Each follow-up is a copy of the first. Write each one to offer something new, or stop after one.", "about": "ai" }
+    {
+      "title": "A follow-up after they replied",
+      "body": "They answered from a colleague's address, or started a new thread. Check the thread and their domain right before each send.",
+      "about": "ai"
+    },
+    {
+      "title": "Your whole Gmail stops sending",
+      "body": "A big sequence hit the daily limit, which blocks all your mail, not just the automation. Keep automated sends well under it.",
+      "about": "auto"
+    },
+    {
+      "title": "Follow-ups at 3 in the morning",
+      "body": "The tool ran in another timezone. Set sends for working hours in the lead's timezone where you know it.",
+      "about": "auto"
+    },
+    {
+      "title": "The same email three times",
+      "body": "Each follow-up is a copy of the first. Write each one to offer something new, or stop after one.",
+      "about": "ai"
+    }
   ],
   "faqs": [
-    { "q": "Does Gmail have automatic follow-ups built in?", "a": "No. Gmail's nudges remind you to follow up; they do not send anything. Sending needs an add-on, a CRM sequence or an automation tool." },
-    { "q": "How long should I wait before following up with a lead?", "a": "Two to three working days for a lead who asked you something, a week for a cold contact. Stop after two or three follow-ups with no reply." },
-    { "q": "Will automated follow-ups hurt my deliverability?", "a": "A few dozen personal follow-ups in the same thread will not. Hundreds of near-identical emails a day from one account can, and they also risk Gmail's sending limits." }
+    {
+      "q": "Does Gmail have automatic follow-ups built in?",
+      "a": "No. Gmail's nudges remind you to follow up; they do not send anything. Sending needs an add-on, a CRM sequence or an automation tool."
+    },
+    {
+      "q": "How long should I wait before following up with a lead?",
+      "a": "Two to three working days for a lead who asked you something, a week for a cold contact. Stop after two or three follow-ups with no reply."
+    },
+    {
+      "q": "Will automated follow-ups hurt my deliverability?",
+      "a": "A few dozen personal follow-ups in the same thread will not. Hundreds of near-identical emails a day from one account can, and they also risk Gmail's sending limits."
+    },
+    {
+      "q": "How many follow-ups should I send?",
+      "a": "Two or three at most. Each one should offer a next step: a call time, a shorter quote, an easy question. After the last one, mark the lead Lost and stop."
+    },
+    {
+      "q": "What counts as a reply?",
+      "a": "A reply from anyone at the lead's domain, not only the person you wrote to. Check the thread just before each send, not only when the list was last updated."
+    },
+    {
+      "q": "Can I send at a better time than now?",
+      "a": "Yes, and you should. Schedule follow-ups for working hours in the lead's timezone. An email at 3 in the morning looks automated, because it is."
+    }
   ],
-  "related": ["how-to-build-a-simple-crm-without-code", "how-to-draft-email-replies-with-ai-and-still-check-them", "how-to-send-new-hubspot-contacts-to-slack"],
+  "related": [
+    "how-to-build-a-simple-crm-without-code",
+    "how-to-draft-email-replies-with-ai-and-still-check-them",
+    "how-to-send-new-hubspot-contacts-to-slack"
+  ],
   "updated": "2026-11-19"
 }

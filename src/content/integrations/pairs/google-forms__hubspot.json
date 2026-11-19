@@ -1,8 +1,1 @@
-{
- "usedFor": "Google Forms collects the answers, and HubSpot keeps the contacts. When “New Form Response” arrives in Google Forms, “Create or Update Contact” in HubSpot can file the person.",
- "bestTemplate": {
-  "name": "“New Form Response” in Google Forms, then “Create or Update Contact” in HubSpot",
-  "why": "It creates the contact or updates the one with the same email, so a person who fills the form twice stays one record. “Create Contact” would not cover that."
- },
- "watchOut": "“New Form Response” is polling, so a response reaches HubSpot after the next check. The contact is matched by email, so the form needs an email question."
-}
+{"usedFor":"Each Google Forms respondent is filed in HubSpot as a contact.","bestTemplate":{"name":"“New Form Response” in Google Forms, then “Create or Update Contact” in HubSpot","why":"It updates the contact with the same email, so someone who submits twice stays one record."},"watchOut":"HubSpot matches contacts by email, so the Google Forms form needs an email question."}

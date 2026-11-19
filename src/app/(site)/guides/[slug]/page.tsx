@@ -12,14 +12,14 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { GUIDES } from '@/content/guides/pages';
 import { PAGES as USE_CASES } from '@/content/use-cases/pages';
-import { Crumbs, Cta, KINDS, MaybeLink } from '@/site/parts';
+import { Crumbs, Cta, MaybeLink } from '@/site/parts';
 import { PromptFilm } from '@/site/usecase/film';
 import { plain, rich } from '@/site/guides/rich';
 import { findUseCase } from '@/site/guides/parts';
 import { Chooser } from '@/site/guides/chooser';
 import { HeroSticky } from '@/site/guides/sticky';
 import { GuideCard } from '@/site/guides/card';
-import { readMinutes } from '@/site/guides/meta';
+import { GROUP_TINT, readMinutes } from '@/site/guides/meta';
 import { ReadProgress } from '@/site/guides/read-progress';
 import type { GuideBlock, GuidePage } from '@/site/guides/types';
 import '@/site/css/usecase.css';
@@ -103,7 +103,6 @@ function linkLabel(href: string) {
 export default async function GuideView({ params }: { params: Promise<{ slug: string }> }) {
   const g = await find(params);
   if (!g) notFound();
-  const k = KINDS[g.kind];
   const url = `${BASE}/guides/${g.slug}`;
   const uc = findUseCase(g.captain.useCase);
   const ask = uc?.ask ?? g.captain.ask!;
@@ -134,8 +133,9 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides' }, { label: g.h1 }]} /></div>
 
       {/* Hero, centred as in the prototype: the category, the question, the short answer in a soft box, the reading time */}
-      <header className="wrap gd6-hero">
-        <span className="gd6-k" style={{ ['--k' as string]: k.tint }}>{g.group}</span>
+      {/* D260: one centred axis (label, H1 and box share a max width), the box on a pale tint from the guide's category */}
+      <header className="wrap gd6-hero" style={{ ['--gt' as string]: GROUP_TINT[g.group].tint, ['--gl' as string]: GROUP_TINT[g.group].label }}>
+        <span className="gd6-k">{g.group}</span>
         <h1>{g.h1}</h1>
         <div className="gd6-short" data-hero>
           <h2>The short answer</h2>
@@ -231,7 +231,7 @@ export default async function GuideView({ params }: { params: Promise<{ slug: st
       <section className="wrap sec">
         <div className="final">
           <h2>Or let Captain build it</h2>
-          <p>Tell Captain &ldquo;{ask}&rdquo;. It shows you the plan before it builds anything. Free to start.</p>
+          <p>One sentence to Captain. Free to start.</p>
           <Cta page={g.slug} place="final" campaign="seo-guide" ask={ask}>Build it with Captain</Cta>
         </div>
       </section>

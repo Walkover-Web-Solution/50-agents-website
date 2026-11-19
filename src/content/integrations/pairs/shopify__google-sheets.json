@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify holds the store and Google Sheets is where the team keeps its own tallies. “New Order” can run “Add New Row to Sheet”, giving you a running list you can filter and share.",
-  "bestTemplate": {
-    "name": "“New Order” in Shopify, then “Add New Row to Sheet” in Google Sheets",
-    "why": "Every sale becomes one row the moment it happens, and a sheet is the simplest place to add your own columns, such as who packed it."
-  },
-  "watchOut": "“New Customer” can also run “Add New Row to Sheet”, so sending both into one sheet mixes orders and customers. Use a separate sheet for each."
-}
+{"usedFor":"Every Shopify order adds a row to Google Sheets for a running, shareable list.","bestTemplate":{"name":"“New Order” in Shopify, then “Add New Row to Sheet” in Google Sheets","why":"Every sale becomes one row at once, and a sheet takes your own columns."},"watchOut":"Sending “New Customer” and “New Order” into one sheet mixes orders with customers, so use separate sheets."}

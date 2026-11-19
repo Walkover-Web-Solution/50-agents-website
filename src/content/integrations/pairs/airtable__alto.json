@@ -1,8 +1,1 @@
-{
-  "usedFor": "Airtable lists the people you want to reach; Alto hosts your demo videos and tracks who watches. A row in Airtable can become a personal tracked link through “Create Recipient Link” in Alto, and later edits can adjust it with “Update Recipient Link”.",
-  "bestTemplate": {
-    "name": "“Record Created Or Updated” in Airtable, then “Create Recipient Link” in Alto",
-    "why": "Each person on your list gets their own tracked link to one video, and if an email is given it reuses that person's active link by default instead of making a second."
-  },
-  "watchOut": "“Record Created Or Updated” polls and fires on edits too. “Create Recipient Link” checks for an existing link by email unless Reuse Existing Link is set to No, so leave that setting alone."
-}
+{"usedFor":"Each Airtable row gets its own tracked demo link in Alto.","bestTemplate":{"name":"“Record Created Or Updated” in Airtable, then “Create Recipient Link” in Alto","why":"Each person gets a tracked link, and a given email reuses their active one."},"watchOut":"Leave Reuse Existing Link alone, and “Record Created Or Updated” also fires on edits."}

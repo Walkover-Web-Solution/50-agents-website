@@ -93,6 +93,22 @@
     {
       "q": "Which Bardeen alternative works in a browser?",
       "a": "Gumloop has a cloud browser with saved logins, Lindy drives a browser on Pro, and 50agents runs browser agents on a schedule."
+    },
+    {
+      "q": "Can I keep my Bardeen results?",
+      "a": "Yes. Results download as CSV at no cost, or go to Google Sheets, Airtable or Notion."
+    },
+    {
+      "q": "What does a row cost on Bardeen?",
+      "a": "Credits are charged per row: 1 for scraping or web search, 3 for enrichment, so Basic's 100 credits enrich about 33 leads."
+    },
+    {
+      "q": "Which alternative has a free plan?",
+      "a": "Bardeen always gives 100 free credits, and unused ones expire each billing period. 50agents is free to start. Gumloop has no free plan."
+    },
+    {
+      "q": "Which alternative suits prospecting lists?",
+      "a": "Bardeen is built for prospecting, with ready-made scrapers and contact enrichment. 50agents browser agents read websites on a schedule and leave a report."
     }
   ],
   "related": [

@@ -1,8 +1,1 @@
-{
-  "usedFor": "WooCommerce sees the buyer first; HubSpot is where you follow up. A “New Order Created” in the store can run “Create or Update Contact” in HubSpot, so every customer has a record the sales side can use.",
-  "bestTemplate": {
-    "name": "“New Order Created” in WooCommerce, then “Create or Update Contact” in HubSpot",
-    "why": "It matches on email, so a returning buyer updates their record instead of creating a duplicate, which “Create Contact” alone would not guarantee."
-  },
-  "watchOut": "“Create Contact” in HubSpot needs an email, and a repeat buyer through that action is a second attempt on the same address. Use “Create or Update Contact” when customers order more than once."
-}
+{"usedFor":"Each WooCommerce order gives the buyer a HubSpot contact the sales side can use.","bestTemplate":{"name":"“New Order Created” in WooCommerce, then “Create or Update Contact” in HubSpot","why":"It matches on email, so a returning buyer updates their record instead of duplicating."},"watchOut":"“Create Contact” needs an email, and a repeat buyer through it is a second attempt on one address."}

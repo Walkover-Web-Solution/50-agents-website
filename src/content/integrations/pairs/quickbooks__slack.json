@@ -1,8 +1,1 @@
-{
-  "usedFor": "QuickBooks is where invoices and bills get created; Slack is where your team hears about them. A “New Invoice” in QuickBooks can post through “Send Message” to a channel, or ping one person with “Send Direct Message”.",
-  "bestTemplate": {
-    "name": "“New Invoice” in QuickBooks, then “Send Message” in Slack",
-    "why": "One channel post puts every new invoice in front of the whole finance or sales team, and “Send Message” can target a channel name or ID."
-  },
-  "watchOut": "“New Invoice” and “New Bill” in QuickBooks are polling, so the Slack post lands after the next check. An automation's post to a Slack channel also waits for your approval today."
-}
+{"usedFor":"New QuickBooks invoices are posted to Slack for the finance or sales team.","bestTemplate":{"name":"“New Invoice” in QuickBooks, then “Send Message” in Slack","why":"One channel post shows every new invoice to the team; “Send Message” takes a channel ID."},"watchOut":"“New Invoice” and “New Bill” poll, so the Slack post lands after the next check and needs approval."}

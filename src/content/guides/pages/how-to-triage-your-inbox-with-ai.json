@@ -6,6 +6,39 @@
   "title": "How to triage your inbox with AI | 50agents",
   "description": "Triage your inbox with AI: sort unread mail into reply, read, file and ignore, draft the replies, and never let it delete, unsubscribe or send without you.",
   "h1": "How to triage your inbox with AI",
+  "cover": {
+    "scene": "panel",
+    "panel": {
+      "app": "gmail",
+      "label": "Unread, sorted",
+      "rows": [
+        {
+          "cells": [
+            "Can we move Thursday?"
+          ],
+          "tag": "Reply"
+        },
+        {
+          "cells": [
+            "Weekly analytics report",
+            "Read"
+          ]
+        },
+        {
+          "cells": [
+            "Receipt from Figma",
+            "File"
+          ]
+        },
+        {
+          "cells": [
+            "Newsletter",
+            "Ignore"
+          ]
+        }
+      ]
+    }
+  },
   "answer": [
     "Have an AI read your unread email at set times, sort it into four piles, and draft replies for the ones that need one.",
     "Start with labels and drafts only; never let it delete, unsubscribe or send."
@@ -160,6 +193,18 @@
     {
       "q": "Is it safe to give AI access to my email?",
       "a": "Limit what it may do: read, label, draft. Every send should wait for you. Read the vendor's data terms before connecting."
+    },
+    {
+      "q": "How many labels should I use?",
+      "a": "Four piles: Reply, Read, File and Ignore. Every extra category is a decision the AI can get wrong and you have to check."
+    },
+    {
+      "q": "How often should it sort my email?",
+      "a": "Twice a day is plenty: once before you start and once after lunch. Every few minutes costs more and interrupts more."
+    },
+    {
+      "q": "What if something important lands in Ignore?",
+      "a": "Look through Ignore during the first week, and fix the one-line rule for that pile. Keep going until nothing important is misfiled for a week."
     }
   ],
   "related": [

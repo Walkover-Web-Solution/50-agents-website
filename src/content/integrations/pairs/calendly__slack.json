@@ -1,8 +1,1 @@
-{
-  "usedFor": "Calendly knows when a meeting is booked and Slack is where the team hears about it. “New Meeting Book or Invitee Created” can post through “Send Message” to a channel, so nobody checks the booking page by hand.",
-  "bestTemplate": {
-    "name": "“New Meeting Book or Invitee Created” in Calendly, then “Send Message” in Slack",
-    "why": "It fires as soon as someone books, and “Send Message” can post to a channel, user or thread, so the right person sees the new invitee straight away."
-  },
-  "watchOut": "An automation's post to a Slack channel waits for approval today, so the first message needs a tap. “When a meeting is scheduled, rescheduled, or canceled” is polling and runs on a schedule."
-}
+{"usedFor":"The team hears about each new Calendly booking in a Slack channel.","bestTemplate":{"name":"“New Meeting Book or Invitee Created” in Calendly, then “Send Message” in Slack","why":"It fires when someone books, and “Send Message” can post to a channel, user or thread."},"watchOut":"The first Calendly post to a Slack channel needs an approval tap."}

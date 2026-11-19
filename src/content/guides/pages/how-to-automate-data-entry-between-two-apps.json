@@ -6,6 +6,49 @@
   "title": "How to automate data entry between two apps | 50agents",
   "description": "Automate data entry between two apps: pick the source of truth, a shared key such as email, a field map, and create-or-update so nothing is entered twice.",
   "h1": "How to automate data entry between two apps",
+  "cover": {
+    "scene": "pipe",
+    "from": {
+      "app": "facebook-lead-ads",
+      "label": "New lead",
+      "look": "doc",
+      "rows": [
+        {
+          "cells": [
+            "Email",
+            "ana@bloom.co"
+          ]
+        },
+        {
+          "cells": [
+            "Name",
+            "Ana Ruiz"
+          ]
+        }
+      ]
+    },
+    "via": "Match by email",
+    "to": {
+      "app": "hubspot",
+      "label": "Contact",
+      "look": "doc",
+      "rows": [
+        {
+          "cells": [
+            "Email",
+            "ana@bloom.co"
+          ]
+        },
+        {
+          "cells": [
+            "Action",
+            "Updated"
+          ],
+          "on": true
+        }
+      ]
+    }
+  },
   "answer": [
     "Pick the source of truth and a key both apps share, such as an email, map each field, and use create-or-update so nothing is entered twice.",
     "Run it beside manual entry for a week first."
@@ -17,15 +60,34 @@
       "options": [
         {
           "label": "Yes, people edit both",
-          "then": { "answer": "Two-way sync: a different, harder job", "why": "You need a rule for which change wins and a guard against loops. Start one way, and add the other direction only if you truly must.", "kind": "auto" }
+          "then": {
+            "answer": "Two-way sync: a different, harder job",
+            "why": "You need a rule for which change wins and a guard against loops. Start one way, and add the other direction only if you truly must.",
+            "kind": "auto"
+          }
         },
         {
           "label": "No, one app feeds the other",
           "then": {
             "q": "Does any field need judgement, like sorting free text?",
             "options": [
-              { "label": "No, it is copy and clean", "then": { "answer": "A one-way automation with create-or-update", "why": "Fixed steps, matched on a shared key. Follow the steps below.", "kind": "auto" } },
-              { "label": "Yes, one field needs reading", "then": { "answer": "An automation with one AI step", "why": "Keep the steps fixed and let AI handle only that field, such as sorting a message into billing, bug or question.", "kind": "ai", "href": "/guides/ai-agent-vs-automation-which-one-you-need" } }
+              {
+                "label": "No, it is copy and clean",
+                "then": {
+                  "answer": "A one-way automation with create-or-update",
+                  "why": "Fixed steps, matched on a shared key. Follow the steps below.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "Yes, one field needs reading",
+                "then": {
+                  "answer": "An automation with one AI step",
+                  "why": "Keep the steps fixed and let AI handle only that field, such as sorting a message into billing, bug or question.",
+                  "kind": "ai",
+                  "href": "/guides/ai-agent-vs-automation-which-one-you-need"
+                }
+              }
             ]
           }
         }
@@ -37,17 +99,47 @@
       "id": "map",
       "h2": "Write the field map first",
       "body": [
-        { "p": "A field map is a two-column list, written before you build. It shows you every gap. Here, Facebook Lead Ads into a CRM:" },
+        {
+          "p": "A field map is a two-column list, written before you build. It shows you every gap. Here, Facebook Lead Ads into a CRM:"
+        },
         {
           "table": {
-            "head": ["From the form", "To the CRM", "Note"],
+            "head": [
+              "From the form",
+              "To the CRM",
+              "Note"
+            ],
             "rows": [
-              ["full_name", "First name, Last name", "Split on the first space"],
-              ["email", "Email", "The key; lower-case it"],
-              ["phone_number", "Phone", "Keep the + and country code"],
-              ["Form name", "Lead source", "Fixed text per form"],
-              ["created_time", "Create date", "Convert from UTC"],
-              ["(none)", "Lifecycle stage", "Set to Lead"]
+              [
+                "full_name",
+                "First name, Last name",
+                "Split on the first space"
+              ],
+              [
+                "email",
+                "Email",
+                "The key; lower-case it"
+              ],
+              [
+                "phone_number",
+                "Phone",
+                "Keep the + and country code"
+              ],
+              [
+                "Form name",
+                "Lead source",
+                "Fixed text per form"
+              ],
+              [
+                "created_time",
+                "Create date",
+                "Convert from UTC"
+              ],
+              [
+                "(none)",
+                "Lifecycle stage",
+                "Set to Lead"
+              ]
             ]
           }
         }
@@ -64,7 +156,11 @@
       {
         "title": "Use create-or-update in the destination",
         "body": "HubSpot has \"Create or Update Contact\". Where an app has only \"Create\", add a find step first and stop if the record exists.",
-        "note": { "type": "warn", "text": "Some triggers never skip repeats, so the same person can arrive twice. Create-or-update on a key is the fix in every tool.", "about": "auto" }
+        "note": {
+          "type": "warn",
+          "text": "Some triggers never skip repeats, so the same person can arrive twice. Create-or-update on a key is the fix in every tool.",
+          "about": "auto"
+        }
       },
       {
         "title": "Clean values on the way",
@@ -90,16 +186,57 @@
     "ask": "Set up an automation: every new Facebook lead is added to HubSpot as a contact, or updated if the email already exists"
   },
   "wrong": [
-    { "title": "Ping-pong between two apps", "body": "App A updates B, which updates A, forever. Run one direction only, or skip changes made by the automation itself.", "about": "auto" },
-    { "title": "A field the other app does not have", "body": "Data drops without a sound. List every source field in the map, and put the ones with no home in a notes field.", "about": "app" },
-    { "title": "Dates in the wrong format", "body": "03/04 is March in one app and April in another. Convert to an unambiguous format on the way.", "about": "auto" },
-    { "title": "A backfill hits rate limits", "body": "Pushing 5,000 old records through an automation trips the destination's limits. Import history by file instead.", "about": "auto" }
+    {
+      "title": "Ping-pong between two apps",
+      "body": "App A updates B, which updates A, forever. Run one direction only, or skip changes made by the automation itself.",
+      "about": "auto"
+    },
+    {
+      "title": "A field the other app does not have",
+      "body": "Data drops without a sound. List every source field in the map, and put the ones with no home in a notes field.",
+      "about": "app"
+    },
+    {
+      "title": "Dates in the wrong format",
+      "body": "03/04 is March in one app and April in another. Convert to an unambiguous format on the way.",
+      "about": "auto"
+    },
+    {
+      "title": "A backfill hits rate limits",
+      "body": "Pushing 5,000 old records through an automation trips the destination's limits. Import history by file instead.",
+      "about": "auto"
+    }
   ],
   "faqs": [
-    { "q": "Can I sync two apps both ways?", "a": "You can, but it is a different job: you need a rule for which change wins, and a guard against loops. Start one way, and add the other direction only if you truly edit in both." },
-    { "q": "How do I stop duplicate records?", "a": "Match on a key both apps share, such as email or order number, and use create-or-update. Where the destination has only create, find first and skip if it exists." },
-    { "q": "What if the data needs judgement, like sorting free text?", "a": "Add an AI step for that one field, for example \"sort this message into billing, bug or question\", and keep the rest of the steps fixed." }
+    {
+      "q": "Can I sync two apps both ways?",
+      "a": "You can, but it is a different job: you need a rule for which change wins, and a guard against loops. Start one way, and add the other direction only if you truly edit in both."
+    },
+    {
+      "q": "How do I stop duplicate records?",
+      "a": "Match on a key both apps share, such as email or order number, and use create-or-update. Where the destination has only create, find first and skip if it exists."
+    },
+    {
+      "q": "What if the data needs judgement, like sorting free text?",
+      "a": "Add an AI step for that one field, for example \"sort this message into billing, bug or question\", and keep the rest of the steps fixed."
+    },
+    {
+      "q": "What if a field exists in one app but not the other?",
+      "a": "Decide on the field map before you build. Either create the field in the destination app, put the value in a notes field, or leave it out on purpose. A gap you chose beats one you find later."
+    },
+    {
+      "q": "How do I move the records I already have?",
+      "a": "Import the history once, by file, and let the automation handle new records only. Running a big backfill through the automation can hit the apps' rate limits."
+    },
+    {
+      "q": "Why did my automation stop adding records?",
+      "a": "Usually a value the second app rejected: a date in the wrong format, a phone without a country code, an email in capitals. Clean values on the way, and test with awkward records."
+    }
   ],
-  "related": ["webhooks-explained-for-non-developers", "how-to-send-new-hubspot-contacts-to-slack", "ai-agent-vs-automation-which-one-you-need"],
+  "related": [
+    "webhooks-explained-for-non-developers",
+    "how-to-send-new-hubspot-contacts-to-slack",
+    "ai-agent-vs-automation-which-one-you-need"
+  ],
   "updated": "2026-11-19"
 }

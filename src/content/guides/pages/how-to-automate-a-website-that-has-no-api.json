@@ -6,6 +6,34 @@
   "title": "How to automate a website that has no API | 50agents",
   "description": "Automate a website with no API: try exports, email alerts and integrations first, then a browser tool that signs in once and asks before it submits.",
   "h1": "How to automate a website that has no API",
+  "cover": {
+    "scene": "page",
+    "url": "portal.supplier.example/invoices",
+    "title": "Last week's invoices",
+    "look": "list",
+    "button": "Signed in",
+    "rows": [
+      {
+        "cells": [
+          "INV-341",
+          "$1,240"
+        ]
+      },
+      {
+        "cells": [
+          "INV-342",
+          "$860"
+        ]
+      },
+      {
+        "cells": [
+          "Total",
+          "$2,100"
+        ],
+        "tag": "Read"
+      }
+    ]
+  },
   "answer": [
     "First look for a back door: an existing integration, an email the site already sends, or an export.",
     "If there is none, use a recorder or a browser agent that keeps you signed in and asks before it submits anything."
@@ -17,21 +45,45 @@
       "options": [
         {
           "label": "Yes, I found it",
-          "then": { "answer": "Use the existing integration", "why": "Even if the site's own docs mention no API, a catalog entry means someone built the connection. Search viaSocket's catalog of 2,300+ apps by the site's name.", "kind": "auto" }
+          "then": {
+            "answer": "Use the existing integration",
+            "why": "Even if the site's own docs mention no API, a catalog entry means someone built the connection. Search viaSocket's catalog of 2,300+ apps by the site's name.",
+            "kind": "auto"
+          }
         },
         {
           "label": "No, it is not there",
           "then": {
             "q": "Does it email you, or let you export?",
             "options": [
-              { "label": "Yes, emails or CSV exports", "then": { "answer": "Automate from the email or the export", "why": "A supplier emails each invoice; an automation reads that email instead of the portal. Far steadier than clicking.", "kind": "auto" } },
+              {
+                "label": "Yes, emails or CSV exports",
+                "then": {
+                  "answer": "Automate from the email or the export",
+                  "why": "A supplier emails each invoice; an automation reads that email instead of the portal. Far steadier than clicking.",
+                  "kind": "auto"
+                }
+              },
               {
                 "label": "No, only the website",
                 "then": {
                   "q": "Does the page layout change often?",
                   "options": [
-                    { "label": "No, it is a stable tool", "then": { "answer": "Use a recorder", "why": "Record the clicks once and replay them; Chrome's Recorder can edit each step. Same result every run, until the site changes." } },
-                    { "label": "Yes, or I mostly read it", "then": { "answer": "Use a browser agent", "why": "It reads the page and looks for what you described, so small layout changes rarely break it. It needs approvals for anything it submits.", "kind": "browser" } }
+                    {
+                      "label": "No, it is a stable tool",
+                      "then": {
+                        "answer": "Use a recorder",
+                        "why": "Record the clicks once and replay them; Chrome's Recorder can edit each step. Same result every run, until the site changes."
+                      }
+                    },
+                    {
+                      "label": "Yes, or I mostly read it",
+                      "then": {
+                        "answer": "Use a browser agent",
+                        "why": "It reads the page and looks for what you described, so small layout changes rarely break it. It needs approvals for anything it submits.",
+                        "kind": "browser"
+                      }
+                    }
                   ]
                 }
               }
@@ -48,16 +100,38 @@
       "body": [
         {
           "table": {
-            "head": ["", "Recorder or script", "Browser agent"],
+            "head": [
+              "",
+              "Recorder or script",
+              "Browser agent"
+            ],
             "rows": [
-              ["Finds things by", "The exact buttons it recorded", "Reading the page"],
-              ["When the site changes", "Breaks at that step", "Often copes, sometimes guesses wrong"],
-              ["Same result every run", "Yes", "Mostly"],
-              ["Best for", "Stable tools, many runs a day", "A few pages, shifting layouts"]
+              [
+                "Finds things by",
+                "The exact buttons it recorded",
+                "Reading the page"
+              ],
+              [
+                "When the site changes",
+                "Breaks at that step",
+                "Often copes, sometimes guesses wrong"
+              ],
+              [
+                "Same result every run",
+                "Yes",
+                "Mostly"
+              ],
+              [
+                "Best for",
+                "Stable tools, many runs a day",
+                "A few pages, shifting layouts"
+              ]
             ]
           }
         },
-        { "p": "Either way, the site's rules apply. Check its terms, keep to what a person would do by hand, and stop at CAPTCHAs: they are the site saying no." }
+        {
+          "p": "Either way, the site's rules apply. Check its terms, keep to what a person would do by hand, and stop at CAPTCHAs: they are the site saying no."
+        }
       ]
     }
   ],
@@ -75,7 +149,11 @@
       {
         "title": "Sort out the sign-in",
         "body": "Sign in yourself once in the tool's browser and let it keep the session. Expect to sign in again when the site logs you out.",
-        "note": { "type": "warn", "text": "Never paste a password into a chat or a shared sheet. A tool that needs your password typed in for it is the wrong tool.", "about": "browser" }
+        "note": {
+          "type": "warn",
+          "text": "Never paste a password into a chat or a shared sheet. A tool that needs your password typed in for it is the wrong tool.",
+          "about": "browser"
+        }
       },
       {
         "title": "Run it once while you watch",
@@ -97,16 +175,57 @@
     "ask": "Set up a browser agent that reads last week's invoices on my supplier portal every Monday and tells me the total"
   },
   "wrong": [
-    { "title": "The site changed and the script broke", "body": "Recorded clicks point at a button that moved. Keep scripts short, and prefer a browser agent for pages that change often.", "about": "browser" },
-    { "title": "Signed out mid-run", "body": "Sessions expire and two-step sign-in comes back. Expect a sign-in request every few weeks.", "about": "browser" },
-    { "title": "A submit went through twice", "body": "A retry repeated the last step. Have every submit ask first, and check for the confirmation before trying again.", "about": "browser" },
-    { "title": "Blocked by the site", "body": "Too many visits, or the site does not want automation. Slow down; if it shows a CAPTCHA, stop.", "about": "browser" }
+    {
+      "title": "The site changed and the script broke",
+      "body": "Recorded clicks point at a button that moved. Keep scripts short, and prefer a browser agent for pages that change often.",
+      "about": "browser"
+    },
+    {
+      "title": "Signed out mid-run",
+      "body": "Sessions expire and two-step sign-in comes back. Expect a sign-in request every few weeks.",
+      "about": "browser"
+    },
+    {
+      "title": "A submit went through twice",
+      "body": "A retry repeated the last step. Have every submit ask first, and check for the confirmation before trying again.",
+      "about": "browser"
+    },
+    {
+      "title": "Blocked by the site",
+      "body": "Too many visits, or the site does not want automation. Slow down; if it shows a CAPTCHA, stop.",
+      "about": "browser"
+    }
   ],
   "faqs": [
-    { "q": "Can I automate a website without an API?", "a": "Yes, by driving a browser: a recorder replays clicks, a browser agent reads the page and decides where to click. Check first for an export, an email notification or an existing integration, which are more reliable." },
-    { "q": "Is this the same as RPA?", "a": "Close. RPA (robotic process automation) is the older name for software that clicks through screens like a person. Browser agents add AI to read pages that change." },
-    { "q": "Will it break when the site changes?", "a": "Recorded scripts often do. Browser agents cope with small changes and can still misread a redesigned page, so keep a check at the end of each run." }
+    {
+      "q": "Can I automate a website without an API?",
+      "a": "Yes, by driving a browser: a recorder replays clicks, a browser agent reads the page and decides where to click. Check first for an export, an email notification or an existing integration, which are more reliable."
+    },
+    {
+      "q": "Is this the same as RPA?",
+      "a": "Close. RPA (robotic process automation) is the older name for software that clicks through screens like a person. Browser agents add AI to read pages that change."
+    },
+    {
+      "q": "Will it break when the site changes?",
+      "a": "Recorded scripts often do. Browser agents cope with small changes and can still misread a redesigned page, so keep a check at the end of each run."
+    },
+    {
+      "q": "Is it allowed to automate a website?",
+      "a": "Check the site's terms first. Keep to what a person would do by hand, at a pace a person would, and stop at CAPTCHAs: a CAPTCHA is the site saying no."
+    },
+    {
+      "q": "Can it download files for me?",
+      "a": "Yes. \"Sign in, open Reports, choose last month, download the CSV\" is a typical job. Make the downloaded file the run's check, so a failed run never looks like a quiet one."
+    },
+    {
+      "q": "How often should it run?",
+      "a": "Daily or weekly is enough for most portals. It keeps the job well inside what the site expects from a person, and fewer runs mean fewer sign-ins to fix."
+    }
   ],
-  "related": ["browser-automation-without-code", "how-to-automate-form-filling-on-websites", "webhooks-explained-for-non-developers"],
+  "related": [
+    "browser-automation-without-code",
+    "how-to-automate-form-filling-on-websites",
+    "webhooks-explained-for-non-developers"
+  ],
   "updated": "2026-11-19"
 }

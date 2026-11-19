@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify takes the sale and Notion keeps the team's databases. “Order Paid” in Shopify can add an entry through “Create_Data_Source_Item”, building a running order log the team can sort and comment on.",
-  "bestTemplate": {
-    "name": "“Order Paid” in Shopify, then “Create_Data_Source_Item” in Notion",
-    "why": "Paid is the order that counts, and the action writes a new item into a Notion data source, which is a better log than “New Customer” or “New Product”."
-  },
-  "watchOut": "“Order Line Items Are Edited” can run the same action, so an edited order would add a second item. Keep “Order Paid” as the one trigger for the log."
-}
+{"usedFor":"Each paid Shopify order becomes an entry the team can sort and comment on in Notion.","bestTemplate":{"name":"“Order Paid” in Shopify, then “Create_Data_Source_Item” in Notion","why":"Paid is the order that counts, a better log than “New Customer” or “New Product”."},"watchOut":"“Order Line Items Are Edited” can run the same action and add a second item."}

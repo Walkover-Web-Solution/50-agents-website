@@ -1,8 +1,1 @@
-{
-  "usedFor": "Zoho CRM holds the accounts and deals, and Google Sheets holds the rows your team reports from. A “New Deals” in Zoho CRM can run “Update Spreadsheet Row” in Google Sheets to change columns on a row.",
-  "bestTemplate": {
-    "name": "“New Deals” in Zoho CRM, then “Update Spreadsheet Row” in Google Sheets",
-    "why": "A new deal updates a row your team already tracks, instead of adding a second one. “New Account” feeds the same action when you track by company."
-  },
-  "watchOut": "Both Zoho CRM triggers are polling, so rows change on a schedule. “Update Spreadsheet Row” edits an existing row, so point it at one that already exists."
-}
+{"usedFor":"A new Zoho CRM deal updates a row your team already tracks in Google Sheets.","bestTemplate":{"name":"“New Deals” in Zoho CRM, then “Update Spreadsheet Row” in Google Sheets","why":"A new deal updates a row you already track, instead of adding a second one."},"watchOut":"“Update Spreadsheet Row” edits an existing row, so point it at one that already exists."}

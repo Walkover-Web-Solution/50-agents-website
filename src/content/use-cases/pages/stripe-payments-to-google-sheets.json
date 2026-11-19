@@ -6,7 +6,10 @@
   "title": "Stripe payments to Google Sheets | 50agents",
   "description": "To send Stripe payments to Google Sheets, add a row on each new payment with the customer, amount and date. Captain sets it up from one sentence.",
   "h1": "Stripe payments to Google Sheets",
-  "h2": { "how": "How to send Stripe payments to Google Sheets", "compare": "Other ways to send Stripe payments to Google Sheets" },
+  "h2": {
+    "how": "How to send Stripe payments to Google Sheets",
+    "compare": "Other ways to send Stripe payments to Google Sheets"
+  },
   "answer": [
     "To send Stripe payments to Google Sheets, tell Captain \"Set up an automation: every new Stripe payment is added as a row to my Google Sheet\".",
     "It builds an automation that writes only to your sheet, so nothing needs approval."
@@ -21,54 +24,195 @@
     "name": "Payments sheet",
     "line": "every Stripe payment, one row each",
     "when": "When a payment succeeds in Stripe",
-    "does": ["Looks up the customer", "Writes the amount in dollars", "Adds a row to your Sheet"],
-    "apps": ["stripe", "google-sheets"],
+    "does": [
+      "Looks up the customer",
+      "Writes the amount in dollars",
+      "Adds a row to your Sheet"
+    ],
+    "apps": [
+      "stripe",
+      "google-sheets"
+    ],
     "asksFirst": "Nothing outside your own sheet"
   },
   "steps": [
-    { "key": "ask", "title": "You say it in one sentence", "body": "Name the columns you want. Captain asks which sheet to use and which currencies your payments come in." },
-    { "key": "plan", "title": "Captain shows you the plan", "body": "It starts when a payment succeeds, looks up the customer, then adds a row. Refunds can be a second automation." },
-    { "key": "connect", "title": "You connect Stripe and Google Sheets", "body": "Connect both once and pick the spreadsheet and tab. Put your column headings in row one so each value lands in its column." },
-    { "key": "run", "title": "A payment lands, a row appears", "body": "Each payment adds one row: date, customer name and email, amount as dollars, the currency, and the payment ID." },
-    { "key": "result", "title": "Your sheet fills itself", "body": "The sheet stays yours. Sort it, total it, chart it, or share it with your accountant." }
+    {
+      "key": "ask",
+      "title": "You say it in one sentence",
+      "body": "Name the columns you want. Captain asks which sheet to use and which currencies your payments come in."
+    },
+    {
+      "key": "plan",
+      "title": "Captain shows you the plan",
+      "body": "It starts when a payment succeeds, looks up the customer, then adds a row. Refunds can be a second automation."
+    },
+    {
+      "key": "connect",
+      "title": "You connect Stripe and Google Sheets",
+      "body": "Connect both once and pick the spreadsheet and tab. Put your column headings in row one so each value lands in its column."
+    },
+    {
+      "key": "run",
+      "title": "A payment lands, a row appears",
+      "body": "Each payment adds one row: date, customer name and email, amount as dollars, the currency, and the payment ID."
+    },
+    {
+      "key": "result",
+      "title": "Your sheet fills itself",
+      "body": "The sheet stays yours. Sort it, total it, chart it, or share it with your accountant."
+    }
   ],
   "run": [
-    { "when": "Today, 11:52", "did": "Added a row for a USD payment from Harbor Yoga" },
-    { "when": "Today, 10:07", "did": "Added a row for a EUR payment from Ben Ortiz" },
-    { "when": "Yesterday, 18:40", "did": "Added a row for a USD payment from Grace Liu" }
+    {
+      "when": "Today, 11:52",
+      "did": "Added a row for a USD payment from Harbor Yoga"
+    },
+    {
+      "when": "Today, 10:07",
+      "did": "Added a row for a EUR payment from Ben Ortiz"
+    },
+    {
+      "when": "Yesterday, 18:40",
+      "did": "Added a row for a USD payment from Grace Liu"
+    }
   ],
   "result": {
     "title": "Rows added to Payments",
-    "lines": ["Harbor Yoga | harbor@example.com | 240.00 | USD", "Ben Ortiz | ben@example.com | 36.00 | EUR", "Grace Liu | grace@example.com | 120.00 | USD"]
+    "lines": [
+      "Harbor Yoga | harbor@example.com | 240.00 | USD",
+      "Ben Ortiz | ben@example.com | 36.00 | EUR",
+      "Grace Liu | grace@example.com | 120.00 | USD"
+    ]
   },
   "compare": {
-    "methods": ["Export from the Dashboard", "Zapier or IFTTT", "A Stripe connector add-on"],
+    "methods": [
+      "Export from the Dashboard",
+      "Zapier or IFTTT",
+      "A Stripe connector add-on"
+    ],
     "rows": [
-      { "label": "Set up", "cells": ["None", "A trigger and a row step", "Install and authorize", "One sentence"] },
-      { "label": "New payments arrive on their own", "cells": ["No, you export", "Yes", "On a refresh schedule", "Yes, as each succeeds"] },
-      { "label": "Amount shown as dollars", "cells": ["Yes", "Only if you add a step", "Yes", "Yes"] },
-      { "label": "Refunds in the sheet", "cells": ["Yes, in reports", "A separate Zap", "Yes", "A second automation"] },
-      { "label": "Pulls in past payments", "cells": ["Yes", "No, new ones only", "Yes", "No, new ones only"] }
+      {
+        "label": "Set up",
+        "cells": [
+          "None",
+          "A trigger and a row step",
+          "Install and authorize",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "New payments arrive on their own",
+        "cells": [
+          "No, you export",
+          "Yes",
+          "On a refresh schedule",
+          "Yes, as each succeeds"
+        ]
+      },
+      {
+        "label": "Amount shown as dollars",
+        "cells": [
+          "Yes",
+          "Only if you add a step",
+          "Yes",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Refunds in the sheet",
+        "cells": [
+          "Yes, in reports",
+          "A separate Zap",
+          "Yes",
+          "A second automation"
+        ]
+      },
+      {
+        "label": "Pulls in past payments",
+        "cells": [
+          "Yes",
+          "No, new ones only",
+          "Yes",
+          "No, new ones only"
+        ]
+      }
     ],
     "sources": [
-      { "label": "Zapier", "href": "https://zapier.com/apps/google-sheets/integrations/stripe/1126286/add-new-stripe-payments-to-google-sheets-rows" },
-      { "label": "IFTTT", "href": "https://ifttt.com/applets/ZvR4m7Gi-log-new-stripe-payments-to-google-sheets" },
-      { "label": "Mixed Analytics", "href": "https://mixedanalytics.com/knowledge-base/import-stripe-data-to-google-sheets/" }
+      {
+        "label": "Zapier",
+        "href": "https://zapier.com/apps/google-sheets/integrations/stripe/1126286/add-new-stripe-payments-to-google-sheets-rows"
+      },
+      {
+        "label": "IFTTT",
+        "href": "https://ifttt.com/applets/ZvR4m7Gi-log-new-stripe-payments-to-google-sheets"
+      },
+      {
+        "label": "Mixed Analytics",
+        "href": "https://mixedanalytics.com/knowledge-base/import-stripe-data-to-google-sheets/"
+      }
     ]
   },
   "faqs": [
-    { "q": "Does it handle refunds?", "a": "Stripe has its own refund events, New Refund Created and Charge Refunded. Build a second automation on one of them that adds a refund row or updates the payment's row. Tell Captain which you prefer." },
-    { "q": "Why is my amount too big in the sheet?", "a": "Stripe sends amounts in the currency's smallest unit, so a raw copy shows cents as dollars. Ask Captain for amounts in dollars with a currency column, since yen has no cents and needs no conversion." },
-    { "q": "Can it add Stripe's fees to the sheet?", "a": "Not today. None of the Stripe actions in the catalog look up fees, so keep fees in Stripe's own reports and use the sheet for the customer, amount and date." },
-    { "q": "Which Stripe event starts it?", "a": "A payment succeeding. Stripe also has New Charge Is Created and a completed checkout session, if you want a different starting point." },
-    { "q": "Does it add my past payments?", "a": "No. It starts with the next payment after you build it. For earlier ones, export from Stripe and paste them into the sheet." }
+    {
+      "q": "Does it handle refunds?",
+      "a": "Stripe has its own refund events, New Refund Created and Charge Refunded. Build a second automation on one of them that adds a refund row or updates the payment's row. Tell Captain which you prefer."
+    },
+    {
+      "q": "Why is my amount too big in the sheet?",
+      "a": "Stripe sends amounts in the currency's smallest unit, so a raw copy shows cents as dollars. Ask Captain for amounts in dollars with a currency column, since yen has no cents and needs no conversion."
+    },
+    {
+      "q": "Can it add Stripe's fees to the sheet?",
+      "a": "Not today. None of the Stripe actions in the catalog look up fees, so keep fees in Stripe's own reports and use the sheet for the customer, amount and date."
+    },
+    {
+      "q": "Which Stripe event starts it?",
+      "a": "A payment succeeding. Stripe also has New Charge Is Created and a completed checkout session, if you want a different starting point."
+    },
+    {
+      "q": "Does it add my past payments?",
+      "a": "No. It starts with the next payment after you build it. For earlier ones, export from Stripe and paste them into the sheet."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Tell Captain what you want, read the steps, and tap Build it."
+    },
+    {
+      "q": "What if a payment is missing from the sheet?",
+      "a": "It adds a row each time a payment succeeds after you build it, so a payment made earlier is not there. Check your column headings in row one and ask Captain to adjust the match if values land in the wrong column."
+    },
+    {
+      "q": "Can I send payments to Airtable or my accounting tool?",
+      "a": "A variation on this page writes to Airtable, and QuickBooks and Xero are in the catalog. Name your tool in your sentence to Captain and ask what it can write."
+    },
+    {
+      "q": "How long does setup take?",
+      "a": "One sentence to Captain, then you connect Stripe and Google Sheets and pick the spreadsheet and tab. It starts with the next successful payment."
+    }
   ],
   "variations": [
-    { "ask": "Set up an automation: every new Stripe payment over $1,000 is added as a row to my Google Sheet with the customer, amount and date", "change": "Only payments over $1,000" },
-    { "ask": "Set up an automation: every new Stripe refund is added as a row to my Google Sheet with the customer, amount and date", "change": "Logs refunds instead of payments" },
-    { "ask": "Set up an automation: every new Stripe payment is added as a record to my Airtable base with the customer, amount and date", "change": "Records go to Airtable, not Sheets" },
-    { "ask": "Set up an automation: every failed Stripe payment is posted in a Slack channel with the customer and amount", "change": "Failed payments go to Slack" }
+    {
+      "ask": "Set up an automation: every new Stripe payment over $1,000 is added as a row to my Google Sheet with the customer, amount and date",
+      "change": "Only payments over $1,000"
+    },
+    {
+      "ask": "Set up an automation: every new Stripe refund is added as a row to my Google Sheet with the customer, amount and date",
+      "change": "Logs refunds instead of payments"
+    },
+    {
+      "ask": "Set up an automation: every new Stripe payment is added as a record to my Airtable base with the customer, amount and date",
+      "change": "Records go to Airtable, not Sheets"
+    },
+    {
+      "ask": "Set up an automation: every failed Stripe payment is posted in a Slack channel with the customer and amount",
+      "change": "Failed payments go to Slack"
+    }
   ],
-  "tags": ["payments", "stripe", "google-sheets", "rows"],
+  "tags": [
+    "payments",
+    "stripe",
+    "google-sheets",
+    "rows"
+  ],
   "updated": "2026-11-19"
 }

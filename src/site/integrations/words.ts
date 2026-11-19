@@ -117,6 +117,12 @@ export function templatePage(app: AppFile): IntegrationPage {
   if (tq) faqs.push(tq);
   if (actions.length) faqs.push({ q: `What can 50agents do in ${N}?`, a: `Its actions: ${list(actions.slice(0, 8).map(e => q(e.n)))}${actions.length > 8 ? ', and the rest listed above' : ''}. Anything that reaches people outside asks you first.` });
   if (partners.length) faqs.push({ q: `Which apps is ${N} most often paired with?`, a: `${list(partners.slice(0, 5).map(p => nameOf(p.slug)))}, in viaSocket’s templates.` });
+  // D260: more questions the page itself doesn't answer, each from this app's catalog data and product-facts.md only.
+  const about = aboutLine(app.description, N);
+  if (about) faqs.push({ q: `What is ${N}?`, a: about });
+  if (recipes.length > 1) faqs.push({ q: `What do people build most with ${N}?`, a: `The most used templates: ${recipes.slice(0, 3).map(r => recipeClause(r, nameOf)).join('; ')}.` });
+  if (tools.length) faqs.push({ q: `Can an AI agent work in ${N}?`, a: `Yes. Connect ${N} and it can use ${list(tools.map(e => q(e.n)))} when its instructions call for it. It runs on a schedule or when you ask in its chat.` });
+  if (actions.length) faqs.push({ q: `Does 50agents change my ${N} data on its own?`, a: `Only through the actions you name, such as ${q(actions[0].n)}. Changes made in ${N} cannot be undone from 50agents, and anything that reaches people outside your business asks you first.` });
 
   const t = triggers.length, a = actions.length;
   const title = `AI agents, automations and apps for ${N}`.length <= 48 ? `AI agents, automations and apps for ${N} | 50agents` : `${N} automations and AI agents | 50agents`;
@@ -135,6 +141,15 @@ export function templatePage(app: AppFile): IntegrationPage {
     faqs,
     updated: catalog().read,
   };
+}
+
+/** The catalog's description of an app as one plain sentence, or nothing when it reads as marketing or runs long. */
+const PUFF = /\b(seamless|effortless|leverag|unlock|unleash|robust|empower|supercharg|streamlin|cutting-edge|revolution|game-chang|elevat|harness|synerg|journey|landscape|realm|leading|best|#1|world'?s|ultimate)/i;
+function aboutLine(desc: string | undefined, N: string): string {
+  const first = (desc ?? '').replace(/\s+/g, ' ').trim().split(/(?<=[.!?])\s+/)[0] ?? '';
+  if (!first || PUFF.test(first) || /!|—|ViaSocket|\b(19|20)\d\d\b|\$\s?\d/.test(first) || !first.includes(N)) return '';
+  const n = first.split(' ').length;
+  return n >= 6 && n <= 40 ? (/[.?]$/.test(first) ? first : `${first}.`) : '';
 }
 
 /** The thing an app holds most, from its event names ("contacts", "orders"), for the app ask. */

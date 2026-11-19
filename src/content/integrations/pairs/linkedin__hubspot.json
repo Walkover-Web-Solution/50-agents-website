@@ -1,8 +1,1 @@
-{
-  "usedFor": "LinkedIn is where your company page gets seen and HubSpot is where follow-up is tracked. “When a new comment is added to a post on a company page” can run “Create Deal”, so engagement turns into a lead.",
-  "bestTemplate": {
-    "name": "“When a new comment is added to a post on a company page” in LinkedIn, then “Create Deal” in HubSpot",
-    "why": "A comment is a real person reacting and it is pushed as it happens, so the deal starts while the conversation is live. The post trigger only records your own publishing."
-  },
-  "watchOut": "“When a new post is published on a company page” is polling and runs on a schedule. “Update Deal” needs the ID of an existing deal."
-}
+{"usedFor":"Comments on a LinkedIn company page post open deals in HubSpot.","bestTemplate":{"name":"“When a new comment is added to a post on a company page” in LinkedIn, then “Create Deal” in HubSpot","why":"A comment is a real person reacting, pushed live, so the deal starts mid-conversation."},"watchOut":"“Update Deal” needs the ID of an existing HubSpot deal, and the post trigger runs on a schedule."}

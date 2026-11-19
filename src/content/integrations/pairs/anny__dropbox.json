@@ -1,8 +1,1 @@
-{
-  "usedFor": "anny produces the invoices and bookings; Dropbox is the folder where you keep the paperwork. A “New Invoice” in anny can run “Upload File to Dropbox” and file a copy away.",
-  "bestTemplate": {
-    "name": "“New Invoice” in anny, then “Upload File to Dropbox” in Dropbox",
-    "why": "Each generated invoice is saved to a chosen folder, with a setting for whether an existing file is added, replaced or updated."
-  },
-  "watchOut": "“Upload File to Dropbox” saves a file from a public web link, so the trigger has to give you a reachable file URL. Decide up front how existing files are handled: add, replace or update."
-}
+{"usedFor":"Each new anny invoice is filed as a copy in Dropbox.","bestTemplate":{"name":"“New Invoice” in anny, then “Upload File to Dropbox” in Dropbox","why":"Each invoice is saved to a chosen folder, with a choice to add, replace or update."},"watchOut":"“Upload File to Dropbox” needs a public file link, so the invoice trigger must supply a reachable URL."}

@@ -65,6 +65,22 @@
     {
       "q": "Is 50agents free?",
       "a": "50agents is free to start."
+    },
+    {
+      "q": "Which has a visual editor?",
+      "a": "Softr has a visual editor beside its AI builder. In 50agents you see every step and change it by asking Captain."
+    },
+    {
+      "q": "Can I move my Softr data over?",
+      "a": "Softr table data downloads as CSV or XLSX. In 50agents, drop a CSV or Excel file into an app and Captain matches the columns."
+    },
+    {
+      "q": "Does 50agents have a built-in database?",
+      "a": "Yes. An app keeps its records in 50agents, and you can import and export CSV. Softr has Softr Databases."
+    },
+    {
+      "q": "Which suits internal tools?",
+      "a": "Softr builds client portals and internal tools. 50agents apps run on lists, boards and tables, with AI agents working the records."
     }
   ],
   "related": [

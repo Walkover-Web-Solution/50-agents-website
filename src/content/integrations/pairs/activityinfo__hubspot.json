@@ -1,8 +1,1 @@
-{
-  "usedFor": "ActivityInfo collects records from forms in the field; HubSpot tracks the relationships behind them. A “New Record” in ActivityInfo can run “Create Deal” so a new form entry opens a deal.",
-  "bestTemplate": {
-    "name": "“New Record” in ActivityInfo, then “Create Deal” in HubSpot",
-    "why": "A new record in a chosen form is one clear event, so each submission becomes a deal your team can follow."
-  },
-  "watchOut": "Both ActivityInfo triggers are polling, so deals appear after the next check. “Updated Record” fires on every change, and “Update Deal” needs a deal ID."
-}
+{"usedFor":"Each new form entry in ActivityInfo opens a deal in HubSpot.","bestTemplate":{"name":"“New Record” in ActivityInfo, then “Create Deal” in HubSpot","why":"Each new record in a chosen form becomes one deal your team can follow."},"watchOut":"“Update Deal” needs a deal ID, and “Updated Record” fires on every change."}

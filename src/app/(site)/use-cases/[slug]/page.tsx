@@ -152,7 +152,7 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
       <section className="wrap sec">
         <div className="final">
           <p className="final-t">{u.h1}</p>
-          <p>Tell Captain &ldquo;{u.ask}&rdquo;. Free to start.</p>
+          <p>One sentence to Captain. Free to start.</p>
           <Cta page={u.slug} place="final" ask={u.ask}>Build it with Captain</Cta>
           <span className="peek l" aria-hidden="true"><Face id={k.face} size={52} /><Face id="keeper" size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="rosa" size={46} /></span>

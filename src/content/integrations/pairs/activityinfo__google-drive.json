@@ -1,8 +1,1 @@
-{
-  "usedFor": "ActivityInfo collects forms and records for programs; Google Drive stores the documents around them. A “New Record” in ActivityInfo can run “Copy a File” in Drive, so each record gets its own copy of a report template.",
-  "bestTemplate": {
-    "name": "“New Record” in ActivityInfo, then “Copy a File” in Google Drive",
-    "why": "Each new record gets a fresh copy in the folder you pick, optionally renamed, so a template turns into a working file per submission."
-  },
-  "watchOut": "“Updated Record” fires on every change, so “Copy a File” could make several copies for one record. Both ActivityInfo triggers are polling, so the copy follows the next check."
-}
+{"usedFor":"Each “New Record” in ActivityInfo gets its own copy of a report template in Google Drive.","bestTemplate":{"name":"“New Record” in ActivityInfo, then “Copy a File” in Google Drive","why":"Each new record gets a fresh copy in your chosen folder, optionally renamed."},"watchOut":"“Updated Record” fires on every change, so “Copy a File” could make several copies per record."}

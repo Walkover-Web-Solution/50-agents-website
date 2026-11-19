@@ -6,7 +6,10 @@
   "title": "Stripe weekly revenue report by email | 50agents",
   "description": "A Stripe weekly revenue report by email: every Monday an AI agent reads last week's payments, totals them, says what changed and emails you the summary.",
   "h1": "Stripe weekly revenue report by email",
-  "h2": { "how": "How the weekly Stripe revenue report works", "compare": "Other ways to get a weekly Stripe revenue report" },
+  "h2": {
+    "how": "How the weekly Stripe revenue report works",
+    "compare": "Other ways to get a weekly Stripe revenue report"
+  },
   "answer": [
     "To get a weekly Stripe revenue email, tell Captain \"Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00\".",
     "It builds an AI agent that emails weekly totals from Gmail once you allow it."
@@ -21,56 +24,196 @@
     "name": "Monday revenue",
     "line": "last week in Stripe, in one email",
     "when": "Every Monday at 9:00",
-    "does": ["Reads last week's payments in Stripe", "Compares them with the week before", "Emails you the totals and what changed"],
-    "apps": ["stripe", "gmail"],
+    "does": [
+      "Reads last week's payments in Stripe",
+      "Compares them with the week before",
+      "Emails you the totals and what changed"
+    ],
+    "apps": [
+      "stripe",
+      "gmail"
+    ],
     "asksFirst": "Sending the email, at first"
   },
   "steps": [
-    { "key": "ask", "title": "You say it in one sentence", "body": "Name the day, the time and what you want in the email. Captain asks which currency you care about and where the email should go." },
-    { "key": "plan", "title": "Captain shows you the plan", "body": "One AI agent that runs on Mondays at 9:00, reads Stripe, writes the summary and sends it with Gmail." },
-    { "key": "connect", "title": "You connect Stripe and Gmail", "body": "Connect both once. Stripe is where it reads payments. Gmail is how the summary reaches you." },
-    { "key": "run", "title": "Monday at 9:00 it reads the week", "body": "It looks up last week's payments and the week before, then writes the totals, what moved, and who paid the most." },
-    { "key": "approve", "title": "You approve the email", "body": "AI agents ask before sending, even to you, until you allow it in Settings. Approve and send, change it, or decline it." }
+    {
+      "key": "ask",
+      "title": "You say it in one sentence",
+      "body": "Name the day, the time and what you want in the email. Captain asks which currency you care about and where the email should go."
+    },
+    {
+      "key": "plan",
+      "title": "Captain shows you the plan",
+      "body": "One AI agent that runs on Mondays at 9:00, reads Stripe, writes the summary and sends it with Gmail."
+    },
+    {
+      "key": "connect",
+      "title": "You connect Stripe and Gmail",
+      "body": "Connect both once. Stripe is where it reads payments. Gmail is how the summary reaches you."
+    },
+    {
+      "key": "run",
+      "title": "Monday at 9:00 it reads the week",
+      "body": "It looks up last week's payments and the week before, then writes the totals, what moved, and who paid the most."
+    },
+    {
+      "key": "approve",
+      "title": "You approve the email",
+      "body": "AI agents ask before sending, even to you, until you allow it in Settings. Approve and send, change it, or decline it."
+    }
   ],
   "run": [
-    { "when": "Monday, 9:00", "did": "Read 61 payments, summary waiting for your OK" },
-    { "when": "Last Monday, 9:00", "did": "Totals up, one large annual plan" },
-    { "when": "Two Mondays ago, 9:00", "did": "Totals flat, no big payers" }
+    {
+      "when": "Monday, 9:00",
+      "did": "Read 61 payments, summary waiting for your OK"
+    },
+    {
+      "when": "Last Monday, 9:00",
+      "did": "Totals up, one large annual plan"
+    },
+    {
+      "when": "Two Mondays ago, 9:00",
+      "did": "Totals flat, no big payers"
+    }
   ],
   "approval": {
     "title": "Email your Monday revenue summary",
     "to": "you@example.com",
-    "lines": ["Last week you took $6420 from 61 payments, up from $5710 the week before.", "What changed: annual plans brought in $1800, three times the usual. Biggest payer: Cobalt Fitness."],
+    "lines": [
+      "Last week you took $6420 from 61 payments, up from $5710 the week before.",
+      "What changed: annual plans brought in $1800, three times the usual. Biggest payer: Cobalt Fitness."
+    ],
     "button": "Approve and send"
   },
   "compare": {
-    "methods": ["Stripe scheduled reports", "Zapier or n8n digest", "The Dashboard by hand"],
+    "methods": [
+      "Stripe scheduled reports",
+      "Zapier or n8n digest",
+      "The Dashboard by hand"
+    ],
     "rows": [
-      { "label": "Set up", "cells": ["A few clicks", "Build each step yourself", "None", "One sentence"] },
-      { "label": "Summary written in the email", "cells": ["No, a download link", "Only with an AI step", "No, you write it", "Yes"] },
-      { "label": "Says what changed since last week", "cells": ["No", "Only with an AI step", "If you compare", "Yes"] },
-      { "label": "Matches your payouts for the books", "cells": ["Yes", "No", "Partly", "No, not for your books"] },
-      { "label": "Waits for your OK before sending", "cells": ["Not applicable", "Only if you build it", "Not applicable", "Yes, at first"] }
+      {
+        "label": "Set up",
+        "cells": [
+          "A few clicks",
+          "Build each step yourself",
+          "None",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "Summary written in the email",
+        "cells": [
+          "No, a download link",
+          "Only with an AI step",
+          "No, you write it",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Says what changed since last week",
+        "cells": [
+          "No",
+          "Only with an AI step",
+          "If you compare",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Matches your payouts for the books",
+        "cells": [
+          "Yes",
+          "No",
+          "Partly",
+          "No, not for your books"
+        ]
+      },
+      {
+        "label": "Waits for your OK before sending",
+        "cells": [
+          "Not applicable",
+          "Only if you build it",
+          "Not applicable",
+          "Yes, at first"
+        ]
+      }
     ],
     "sources": [
-      { "label": "Stripe Sigma scheduled queries", "href": "https://docs.stripe.com/sigma/scheduled-queries" },
-      { "label": "Zapier", "href": "https://zapier.com/templates/details/2df372680a2743376a70ddea0bed3b91f8f1dd5f58c0fec20be2e229d6e5beff" },
-      { "label": "n8n", "href": "https://n8n.io/workflows/15791-generate-a-weekly-business-metrics-report-with-stripe-notion-sheets-claude-sendgrid-and-slack/" }
+      {
+        "label": "Stripe Sigma scheduled queries",
+        "href": "https://docs.stripe.com/sigma/scheduled-queries"
+      },
+      {
+        "label": "Zapier",
+        "href": "https://zapier.com/templates/details/2df372680a2743376a70ddea0bed3b91f8f1dd5f58c0fec20be2e229d6e5beff"
+      },
+      {
+        "label": "n8n",
+        "href": "https://n8n.io/workflows/15791-generate-a-weekly-business-metrics-report-with-stripe-notion-sheets-claude-sendgrid-and-slack/"
+      }
     ]
   },
   "faqs": [
-    { "q": "Will it email me without asking?", "a": "AI agents ask before sending, even to you, until you allow it in Settings. Until then each summary waits in Needs you, where you can approve it, change it or decline it. See [How to make an AI agent ask before it acts](/guides/how-to-make-an-ai-agent-ask-before-it-acts)." },
-    { "q": "Stripe already emails scheduled reports. Why use this?", "a": "Stripe's email is a notice with a link to a file you download. This AI agent writes the summary itself, with the totals and what moved, so you read it in your inbox. [How to automate weekly reports by email](/guides/how-to-automate-weekly-reports-by-email) compares other ways." },
-    { "q": "What happens when a week has payments in two currencies?", "a": "Stripe records each amount in its own currency. Tell Captain to keep each currency apart in the email, so nothing is added across currencies." },
-    { "q": "Will refunds show up in the summary?", "a": "Not by default. The Stripe actions it reads from cover payment intents, invoices and customers, while refunds only come as events. If refunds matter, say so and Captain tells you what it can do." },
-    { "q": "Can I use this for my accounting?", "a": "No. It is a readable summary of the week. For books that reconcile to your payouts, use Stripe's scheduled reports." }
+    {
+      "q": "Will it email me without asking?",
+      "a": "AI agents ask before sending, even to you, until you allow it in Settings. Until then each summary waits in Needs you, where you can approve it, change it or decline it. See [How to make an AI agent ask before it acts](/guides/how-to-make-an-ai-agent-ask-before-it-acts)."
+    },
+    {
+      "q": "Stripe already emails scheduled reports. Why use this?",
+      "a": "Stripe's email is a notice with a link to a file you download. This AI agent writes the summary itself, with the totals and what moved, so you read it in your inbox. [How to automate weekly reports by email](/guides/how-to-automate-weekly-reports-by-email) compares other ways."
+    },
+    {
+      "q": "What happens when a week has payments in two currencies?",
+      "a": "Stripe records each amount in its own currency. Tell Captain to keep each currency apart in the email, so nothing is added across currencies."
+    },
+    {
+      "q": "Will refunds show up in the summary?",
+      "a": "Not by default. The Stripe actions it reads from cover payment intents, invoices and customers, while refunds only come as events. If refunds matter, say so and Captain tells you what it can do."
+    },
+    {
+      "q": "Can I use this for my accounting?",
+      "a": "No. It is a readable summary of the week. For books that reconcile to your payouts, use Stripe's scheduled reports."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Tell Captain what you want, read the plan, and tap Build it."
+    },
+    {
+      "q": "What if the summary gets a number wrong?",
+      "a": "Check it against Stripe, where the payments are, and tell the AI agent's chat what it got wrong. Until you allow sending in Settings, each summary waits in Needs you, so you read it before it reaches your inbox."
+    },
+    {
+      "q": "Can it go to Slack instead of email?",
+      "a": "Yes. A variation on this page posts the totals in Slack, and 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "How do I stop or change it?",
+      "a": "Tell its chat to change the day, the time or what it reports, such as keeping each currency apart. Declining a summary in Needs you stops that email."
+    }
   ],
   "variations": [
-    { "ask": "Set up an AI agent that reads yesterday's payments in Stripe every day at 8:00 and emails me the totals and what changed", "change": "A daily summary, not weekly" },
-    { "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and posts the totals and what changed in Slack", "change": "Posts in Slack instead of email" },
-    { "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals, refunds and my five biggest customers", "change": "Adds refunds and top customers" },
-    { "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals in three short lines", "change": "Three lines, nothing more" }
+    {
+      "ask": "Set up an AI agent that reads yesterday's payments in Stripe every day at 8:00 and emails me the totals and what changed",
+      "change": "A daily summary, not weekly"
+    },
+    {
+      "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and posts the totals and what changed in Slack",
+      "change": "Posts in Slack instead of email"
+    },
+    {
+      "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals, refunds and my five biggest customers",
+      "change": "Adds refunds and top customers"
+    },
+    {
+      "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals in three short lines",
+      "change": "Three lines, nothing more"
+    }
   ],
-  "tags": ["finance", "stripe", "gmail", "reports"],
+  "tags": [
+    "finance",
+    "stripe",
+    "gmail",
+    "reports"
+  ],
   "updated": "2026-11-19"
 }

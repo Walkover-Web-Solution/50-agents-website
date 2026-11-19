@@ -57,7 +57,7 @@ for (const p of pages) {
     if (k.useCase && !useCases.has(k.useCase)) bad.push(`use case ${k.useCase} does not exist`);
     if (k.useCase && row && !row.useCases.includes(k.useCase)) bad.push(`use case ${k.useCase} not in the row`);
   });
-  if (p.faqs.length < 4 || p.faqs.length > 6) bad.push(`faqs ${p.faqs.length}, not 4 to 6`);
+  if (p.faqs.length < 7 || p.faqs.length > 10) bad.push(`faqs ${p.faqs.length}, not 7 to 10 (D260)`);
   p.faqs.forEach(f => { const n = f.a.split(/(?<=[.?])\s+/).length; if (n > 3) bad.push(`faq "${f.q}" is ${n} sentences`); });
   if (!/^\d{4}-\d{2}-\d{2}$/.test(p.updated)) bad.push('updated is not an ISO date');
 
@@ -138,8 +138,9 @@ for (const f of pairFiles) {
     const all = strs.join('\n');
     for (const [k, t] of [['usedFor', d.usedFor], ['bestTemplate.why', d.bestTemplate.why], ['watchOut', d.watchOut]]) {
       const n = t.split(/(?<=[.?])\s+/).length;
-      if (n > 3) bad.push(`${k} is ${n} sentences`);
-      if (words(t) > 60) bad.push(`${k} is ${words(t)} words`);
+      // D260: the lines are three short cards, one fact each
+      if (n > 1) bad.push(`${k} is ${n} sentences, not 1 (D260)`);
+      if (words(t) > 20) bad.push(`${k} is ${words(t)} words, over 20 (D260)`);
     }
     if (!all.includes(A.name) || !all.includes(B.name)) bad.push('does not name both apps');
     if (!d.usedFor.includes(A.name) && !d.usedFor.includes(B.name)) bad.push('usedFor names neither app');

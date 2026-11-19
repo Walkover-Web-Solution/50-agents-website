@@ -1,8 +1,1 @@
-{
-  "usedFor": "AudioPod AI runs audio jobs like transcription and text to speech; Asana plans the work around them. When “New Job Completed” or “New Job Failed” fires in AudioPod AI, “Create Project” in Asana can open a project to handle it.",
-  "bestTemplate": {
-    "name": "“New Job Failed” in AudioPod AI, then “Create Project” in Asana",
-    "why": "A failed job needs someone's attention, so it gets a project with an owner, notes and due dates instead of sitting unseen."
-  },
-  "watchOut": "Both AudioPod AI triggers can be limited to chosen job types, so set that or every job creates a project. “Create Project” also needs a workspace chosen."
-}
+{"usedFor":"A failed or finished AudioPod AI job opens an Asana project to handle it.","bestTemplate":{"name":"“New Job Failed” in AudioPod AI, then “Create Project” in Asana","why":"A failed job needs attention, so it gets an owner, notes and due dates."},"watchOut":"Limit both triggers to chosen job types, or every job creates a project."}

@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify holds the checkout and Freshdesk holds the support desk. “Abandoned Checkout” can run “Create a Contact”, so a shopper who stalled already has a record if they write in.",
-  "bestTemplate": {
-    "name": "“Abandoned Checkout” in Shopify, then “Create a Contact” in Freshdesk",
-    "why": "It fires only when the shopper entered an email or phone and left, so the contact it creates is someone who showed intent."
-  },
-  "watchOut": "“Abandoned Checkout” is polling, so contacts arrive on a schedule. Contacts are made for every abandoner, so the helpdesk list can grow quickly."
-}
+{"usedFor":"A Shopify shopper who abandons checkout already has a Freshdesk contact if they write in.","bestTemplate":{"name":"“Abandoned Checkout” in Shopify, then “Create a Contact” in Freshdesk","why":"It fires only when the shopper entered an email or phone, so the contact showed intent."},"watchOut":"A contact is made for every abandoner, so the Freshdesk list can grow quickly."}

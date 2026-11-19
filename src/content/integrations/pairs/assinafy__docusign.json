@@ -1,8 +1,1 @@
-{
-  "usedFor": "Assinafy is a signature platform with its own workspaces; Docusign has workspaces too. When “New Workspace Created” in Assinafy fires, “Create Workspace” in Docusign can open a matching one so both sides stay organised the same way.",
-  "bestTemplate": {
-    "name": "“New Workspace Created” in Assinafy, then “Create Workspace” in Docusign",
-    "why": "It mirrors each new Assinafy workspace into Docusign automatically. “Update Workspace” is for renames, so it adds less."
-  },
-  "watchOut": "“New Workspace Created” polls within a set interval, so the mirror lags slightly. “Update Workspace” only changes a name or description, so it suits renames, not brand-new workspaces."
-}
+{"usedFor":"Each new Assinafy workspace gets a matching workspace in Docusign.","bestTemplate":{"name":"“New Workspace Created” in Assinafy, then “Create Workspace” in Docusign","why":"It mirrors each new workspace automatically, whereas “Update Workspace” only handles renames."},"watchOut":"“New Workspace Created” polls within a set interval, so the mirror lags slightly."}

@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify is the store and Axiom is where you watch your data. “Order Cancelled” can run “Create Annotation”, marking the moment on your Axiom charts so a spike in cancellations has a visible cause.",
-  "bestTemplate": {
-    "name": "“Order Cancelled” in Shopify, then “Create Annotation” in Axiom",
-    "why": "The action marks an event on the charts of the datasets you choose, so a cancellation lines up with whatever changed in your logs."
-  },
-  "watchOut": "“Create Annotation” targets chosen datasets, so those need to exist first. “Create Dataset” returns the existing one if the name is taken, so it is safe to repeat."
-}
+{"usedFor":"Each cancelled Shopify order is marked on your Axiom charts.","bestTemplate":{"name":"“Order Cancelled” in Shopify, then “Create Annotation” in Axiom","why":"The annotation lines a cancellation up with whatever changed in your logs."},"watchOut":"“Create Annotation” targets chosen datasets, so those must exist before the annotation runs."}

@@ -31,7 +31,7 @@ for (const p of pages) {
   p.steps.forEach(s => words(s.body) > 30 && bad.push(`step "${s.title}" is ${words(s.body)} words`));
   if (p.steps.at(-1).key === 'approve' && !p.approval) bad.push('approve step without approval');
   if (p.steps.at(-1).key === 'result' && !p.result) bad.push('result step without result');
-  if (p.faqs.length < 4 || p.faqs.length > 6) bad.push('faqs not 4 to 6');
+  if (p.faqs.length < 7 || p.faqs.length > 9) bad.push('faqs not 7 to 9');
   // SEO pass 01: the description leads with the query and the answer; the section headings name the page's own job
   if (leadsWithAsk(p.description)) bad.push('description opens with "Tell Captain": lead with the query and the answer');
   if (!p.h2 || !p.h2.how || !p.h2.compare) bad.push('h2.how and h2.compare are required');

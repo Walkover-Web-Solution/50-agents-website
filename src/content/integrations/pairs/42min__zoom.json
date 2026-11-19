@@ -1,8 +1,1 @@
-{
-  "usedFor": "42min takes the bookings, and Zoom runs the webinar. A “New Booking” in 42min can run “Register Attendee for Webinar” in Zoom so a person who picks a time is registered.",
-  "bestTemplate": {
-    "name": "“New Booking” in 42min, then “Register Attendee for Webinar” in Zoom",
-    "why": "It registers the booker as soon as they pick a time, because the trigger is pushed. “Updated Booking Time” can run it too, but a reschedule is not a new registration."
-  },
-  "watchOut": "“Updated Booking Time” also feeds this action, so a reschedule could register the same person twice. Both triggers can be limited to one event type."
-}
+{"usedFor":"A person who books a time in 42min gets registered for the Zoom webinar.","bestTemplate":{"name":"“New Booking” in 42min, then “Register Attendee for Webinar” in Zoom","why":"The trigger is pushed, so the booker is registered the moment they pick a time."},"watchOut":"“Updated Booking Time” also runs this action, so a reschedule could register the same person twice."}

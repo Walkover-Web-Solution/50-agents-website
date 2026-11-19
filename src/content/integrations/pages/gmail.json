@@ -127,6 +127,26 @@
   {
    "q": "Can it sort my email into labels?",
    "a": "Yes. “Modify Email Labels” adds or removes labels on a message or a whole thread. An AI agent can read each new email and decide the label, and an automation can label by sender or subject the same way every time."
+  },
+  {
+   "q": "Is a new email picked up straight away?",
+   "a": "No, on a schedule. “New Email Arrives”, “New Attachment” and “New Email Sent” are checked at intervals, not pushed as mail lands. An AI agent on your inbox also runs on its schedule or when you ask it in its chat."
+  },
+  {
+   "q": "Can it attach files and copy people in?",
+   "a": "Yes. “Send Email” takes recipients, CC and BCC, attachments and labels, and “Reply To Thread” can add attachments too."
+  },
+  {
+   "q": "Can it start from emails I send?",
+   "a": "Yes. “New Email Sent” starts the work when a message appears in your Sent mailbox or in a label you choose, for example to log every quote you send."
+  },
+  {
+   "q": "Can it pick up the files people email me?",
+   "a": "Yes. “New Attachment” finds recent messages that carry files, optionally under one label, and “Get Email Attachment” returns a message’s files with their names and links for the next step."
+  },
+  {
+   "q": "Can an AI agent look things up in my inbox?",
+   "a": "Yes. It can search your messages, open one with “Get Gmail Message by ID” and read a thread with “Get Thread Replies”. Anything it sends to people outside your business still waits for your approval."
   }
  ],
  "updated": "2026-11-19"

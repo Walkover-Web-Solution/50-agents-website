@@ -64,6 +64,22 @@
     {
       "q": "Is 50agents free?",
       "a": "50agents is free to start. Make has a free plan with 1,000 credits a month."
+    },
+    {
+      "q": "How do the prices differ?",
+      "a": "50agents is free to start. Make's paid plans start at $9 a month for 10,000 credits (Core), and its free plan has 1,000 credits a month."
+    },
+    {
+      "q": "Can I move my scenarios over?",
+      "a": "A scenario exports as a blueprint, a .json file you can import elsewhere in Make. 50agents has no import for it, so describe each job to Captain."
+    },
+    {
+      "q": "Which suits building from a plain request?",
+      "a": "In 50agents you tell Captain what you need. Make's Maia builds scenarios from a prompt, as a public beta on paid plans."
+    },
+    {
+      "q": "Can 50agents build apps with screens?",
+      "a": "Yes. 50agents builds apps with lists, boards and tables. Make has data stores but no screens or interfaces."
     }
   ],
   "related": [

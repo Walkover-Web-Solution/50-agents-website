@@ -29,6 +29,14 @@
       "asksFirst": "Every email it would send"
     }
   },
+  "asks": [
+    "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+    "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
+    "Set up an AI agent that reads my Notion project tracker every Friday at 15:00 and writes a weekly status update to a Notion page",
+    "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
+    "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
+    "Set up an AI agent that finds Shopify products without a description every Monday at 10:00 and drafts one for each for me to approve"
+  ],
   "useCases": "Each one is a Playbook: Captain plans it for your business first.",
   "apps": [
     "gmail",
@@ -65,6 +73,18 @@
     {
       "q": "Is there a free AI agent builder?",
       "a": "50agents is free to start. Describe the job to Captain, review its plan, and tap Build it when you are happy with it."
+    },
+    {
+      "q": "Which apps can an AI agent use?",
+      "a": "It works with 2,300+ apps through viaSocket, such as HubSpot, Gmail, Slack, Stripe and Google Sheets. Captain asks which apps you use while it plans, and the AI agent works only in the apps you connect."
+    },
+    {
+      "q": "How does an AI agent know about my business?",
+      "a": "Your workspace remembers facts about the business, such as hours, prices, policies, people and tone, plus the documents, pasted text and links you give it. AI agents answer from these, so a drafted reply sounds like you."
+    },
+    {
+      "q": "What happens when it gets something wrong?",
+      "a": "You correct it, and the lesson stays in its own memory with its instructions and its last runs. You can see, correct or forget any item there. Anything that reaches someone outside the business waits in Needs you, so a mistake is caught before it is sent."
     }
   ],
   "links": [

@@ -1,8 +1,1 @@
-{
- "usedFor": "Google Analytics measures your site, and HubSpot is the CRM. When “Conversion Event Created” fires in Google Analytics, “Create Deal” in HubSpot can open a deal for it.",
- "bestTemplate": {
-  "name": "“Conversion Event Created” in Google Analytics, then “Create Deal” in HubSpot",
-  "why": "A conversion is the moment worth a deal, and “Create Deal” puts it in the pipeline. “Update Company” needs an existing company, so it suits conversions you can already match."
- },
- "watchOut": "“Conversion Event Created” is polling, so deals appear after the next check. “Create Contact” requires an email and “Update Company” requires a company ID, so check the event gives you them."
-}
+{"usedFor":"A conversion in Google Analytics opens a deal in HubSpot.","bestTemplate":{"name":"“Conversion Event Created” in Google Analytics, then “Create Deal” in HubSpot","why":"A conversion is the moment worth a deal, and “Create Deal” puts it in the pipeline."},"watchOut":"“Create Contact” requires an email and “Update Company” a company ID, so check the conversion event provides them."}

@@ -41,7 +41,7 @@ export function IndexView({ ix }: { ix: IndexPage }) {
       <section className="wrap sec">
         <div className="final" style={{ ['--k' as string]: '#FFF4D6' }}>
           <h2>Not sure where to start?</h2>
-          <p>Tell Captain &ldquo;{INDEX_ASK}&rdquo;. Free to start.</p>
+          <p>One sentence to Captain. Free to start.</p>
           <Cta campaign="seo-index" page={page} place="final" ask={INDEX_ASK}>Ask Captain</Cta>
           <span className="peek l" aria-hidden="true"><Face id="writer" size={52} /><Face id="keeper" size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="scout" size={46} /></span>

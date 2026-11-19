@@ -1,8 +1,1 @@
-{
-  "usedFor": "Asyntai AI Chatbot answers visitors on your website; HubSpot is where the people it meets get followed up. A “New Lead Captured” in Asyntai AI Chatbot can run “Create Contact” in HubSpot so chat leads reach your CRM.",
-  "bestTemplate": {
-    "name": "“New Lead Captured” in Asyntai AI Chatbot, then “Create Contact” in HubSpot",
-    "why": "A captured lead is a person who raised their hand in chat, and the action turns that into a HubSpot contact you can assign and follow up."
-  },
-  "watchOut": "“Create Contact” needs an email, so a chat that ends without one cannot become a contact. “Update Company” also needs a company ID, which a chat event does not supply on its own."
-}
+{"usedFor":"Each chat lead captured by Asyntai AI Chatbot becomes a HubSpot contact.","bestTemplate":{"name":"“New Lead Captured” in Asyntai AI Chatbot, then “Create Contact” in HubSpot","why":"A captured lead raised a hand in chat, and is ready to assign and follow up."},"watchOut":"“Create Contact” needs an email, so a chat that ends without one cannot become a contact."}

@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify holds the product catalog; AudioPod AI turns text into voice. A “New Product” in Shopify can run “Generate Speech” to produce an audio read of the listing.",
-  "bestTemplate": {
-    "name": "“New Product” in Shopify, then “Generate Speech” in AudioPod AI",
-    "why": "A new listing becomes an audio clip with a voice, speed, format and language you pick, which fits product videos or accessibility."
-  },
-  "watchOut": "“Separate Stems” needs a link to a song, which none of the Shopify triggers supply. “Abandoned Checkout” is polling, so any audio built from it runs after the next check."
-}
+{"usedFor":"A new Shopify listing becomes an audio read from AudioPod AI.","bestTemplate":{"name":"“New Product” in Shopify, then “Generate Speech” in AudioPod AI","why":"A new listing becomes a clip in the voice, speed, format and language you pick."},"watchOut":"“Separate Stems” needs a link to a song, which no Shopify trigger supplies."}

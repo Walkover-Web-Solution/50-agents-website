@@ -208,6 +208,26 @@
   {
    "q": "How is this different from Stripe’s own AI tools?",
    "a": "Stripe’s pages on AI agents are written for developers: an MCP server, plugins and tools for selling through AI agents. 50agents is for the person who owns the Stripe account, who describes the job while Captain builds it without code. If your developers are building your own AI product on Stripe, Stripe’s tools are the direct route."
+  },
+  {
+   "q": "Do Stripe events start the work as they happen?",
+   "a": "Yes. Almost every Stripe trigger here is a webhook, so it fires as the event happens. “New Event Occurs” is the one checked on a schedule."
+  },
+  {
+   "q": "Can it make a payment link?",
+   "a": "Yes. “Create Payment Link” makes a link customers can use to pay or subscribe, and “Deactivate Payment Link” turns one off. Sending that link to a customer waits for your approval."
+  },
+  {
+   "q": "Can it act when a subscription ends or a payout fails?",
+   "a": "Yes. “Subscription Ends” and “Payout Failed” are triggers, so the team hears about a lost customer or a missing payout as it happens."
+  },
+  {
+   "q": "Can it create and find invoices?",
+   "a": "Yes. “Create Invoice” makes a new Stripe invoice, and “List Invoice” finds invoices by customer email, subscription, status or date. Anything that charges a customer asks you first."
+  },
+  {
+   "q": "Can it find a customer before it acts?",
+   "a": "Yes. “Search Customer” finds a customer by ID or email, so a later step such as “Update Customer” changes the right record."
   }
  ],
  "sources": [

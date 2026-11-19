@@ -1,8 +1,1 @@
-{
-  "usedFor": "Zoho CRM holds accounts and deals for companies that ship mobile apps, and Applyra tracks App Store and Google Play rankings. A “New Account” in Zoho CRM can run “Track App” in Applyra to start watching that customer's app.",
-  "bestTemplate": {
-    "name": "“New Account” in Zoho CRM, then “Track App” in Applyra",
-    "why": "A new account is the natural moment to begin rank tracking for a customer's app. “New Deals” works too, but a deal is not always a customer yet."
-  },
-  "watchOut": "“Track App” needs a store ID, a country and a language, which a CRM record may not carry. Both Zoho CRM triggers are polling, so tracking starts on a schedule."
-}
+{"usedFor":"A new Zoho CRM account starts App Store and Google Play tracking in Applyra.","bestTemplate":{"name":"“New Account” in Zoho CRM, then “Track App” in Applyra","why":"A new account is the natural moment to begin rank tracking for a customer's app."},"watchOut":"“Track App” needs a store ID, country and language, which a CRM record may not carry."}

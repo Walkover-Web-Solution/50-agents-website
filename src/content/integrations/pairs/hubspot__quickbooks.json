@@ -1,8 +1,1 @@
-{
- "usedFor": "HubSpot holds the sales side and QuickBooks holds the money. When “When a deal is created or updated” fires in HubSpot, “Create Payment” in QuickBooks records a payment transaction.",
- "bestTemplate": {
-  "name": "“When a deal is created or updated” in HubSpot, then “Create Payment” in QuickBooks",
-  "why": "Its only action here is “Create Payment”, and a deal change is the nearest HubSpot event to money being agreed. “New Or Updated Contact” carries less about what was bought."
- },
- "watchOut": "Both HubSpot triggers are polling and fire on updates as well as new records, so the same deal can run “Create Payment” more than once. Add a condition so only the stage you want records a payment."
-}
+{"usedFor":"A HubSpot deal change records a payment in QuickBooks.","bestTemplate":{"name":"“When a deal is created or updated” in HubSpot, then “Create Payment” in QuickBooks","why":"A deal change is the nearest HubSpot event to money being agreed."},"watchOut":"“When a deal is created or updated” fires on edits too, so add a condition or payments repeat."}

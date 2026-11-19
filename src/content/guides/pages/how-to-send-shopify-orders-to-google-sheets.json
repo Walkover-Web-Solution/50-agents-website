@@ -6,6 +6,45 @@
   "title": "How to send Shopify orders to Google Sheets | 50agents",
   "description": "Send Shopify orders to Google Sheets with Shopify Flow or an automation: choose one row per order or per item first, then catch cancellations too.",
   "h1": "How to send Shopify orders to Google Sheets",
+  "cover": {
+    "scene": "pipe",
+    "down": true,
+    "from": {
+      "app": "shopify",
+      "label": "Order #1042",
+      "rows": [
+        {
+          "cells": [
+            "2 × Ceramic mug, 1 × Tea tin"
+          ]
+        }
+      ]
+    },
+    "via": "One row per item",
+    "to": {
+      "app": "google-sheets",
+      "label": "Orders",
+      "look": "sheet",
+      "rows": [
+        {
+          "cells": [
+            "#1042",
+            "Mug",
+            "2"
+          ],
+          "on": true
+        },
+        {
+          "cells": [
+            "#1042",
+            "Tea tin",
+            "1"
+          ],
+          "on": true
+        }
+      ]
+    }
+  },
   "answer": [
     "Use Shopify Flow's \"Add row to spreadsheet\" action or an automation that adds a row on each new order.",
     "Decide one row per order or per item first, and catch cancellations, which a new-order trigger never sees."
@@ -17,15 +56,32 @@
       "options": [
         {
           "label": "Once a month is fine",
-          "then": { "answer": "Use Shopify's CSV export", "why": "Orders, Export. Up to 50 orders download at once; bigger exports are emailed to you. Extra line items already sit on their own rows." }
+          "then": {
+            "answer": "Use Shopify's CSV export",
+            "why": "Orders, Export. Up to 50 orders download at once; bigger exports are emailed to you. Extra line items already sit on their own rows."
+          }
         },
         {
           "label": "As each order comes in",
           "then": {
             "q": "What will you do with the sheet?",
             "options": [
-              { "label": "Revenue, order counts, shipping", "then": { "answer": "One row per order", "why": "Order number, date, customer, items joined in one cell, total. SUM the total column. In Flow, one Add row action.", "kind": "auto" } },
-              { "label": "Best sellers, stock, variants", "then": { "answer": "One row per item", "why": "Repeat the order number on each item row. Sum line prices, never the order total. In Flow, wrap Add row in For each.", "kind": "auto" } }
+              {
+                "label": "Revenue, order counts, shipping",
+                "then": {
+                  "answer": "One row per order",
+                  "why": "Order number, date, customer, items joined in one cell, total. SUM the total column. In Flow, one Add row action.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "Best sellers, stock, variants",
+                "then": {
+                  "answer": "One row per item",
+                  "why": "Repeat the order number on each item row. Sum line prices, never the order total. In Flow, wrap Add row in For each.",
+                  "kind": "auto"
+                }
+              }
             ]
           }
         }
@@ -39,11 +95,27 @@
       "body": [
         {
           "table": {
-            "head": ["Way", "Plan", "Watch out for"],
+            "head": [
+              "Way",
+              "Plan",
+              "Watch out for"
+            ],
             "rows": [
-              ["Orders, Export (CSV)", "Every Shopify plan", "By hand, each time"],
-              ["Shopify Flow, Add row to spreadsheet", "Free on Basic, Grow, Advanced, Plus", "Commas in names split the row"],
-              ["An automation tool", "The tool's own plan", "New order and order paid differ"]
+              [
+                "Orders, Export (CSV)",
+                "Every Shopify plan",
+                "By hand, each time"
+              ],
+              [
+                "Shopify Flow, Add row to spreadsheet",
+                "Free on Basic, Grow, Advanced, Plus",
+                "Commas in names split the row"
+              ],
+              [
+                "An automation tool",
+                "The tool's own plan",
+                "New order and order paid differ"
+              ]
             ]
           }
         }
@@ -68,7 +140,11 @@
       {
         "title": "Clean the text",
         "body": "Strip commas and line breaks from product names and notes, or quote them, so columns stay in place. In Flow, Shopify suggests a Liquid replace filter.",
-        "note": { "type": "warn", "text": "Flow writes row contents comma-separated, so one comma in a product name shifts every column after it.", "about": "auto" }
+        "note": {
+          "type": "warn",
+          "text": "Flow writes row contents comma-separated, so one comma in a product name shifts every column after it.",
+          "about": "auto"
+        }
       },
       {
         "title": "Catch cancellations",
@@ -86,16 +162,57 @@
     "useCase": "shopify-orders-to-google-sheets"
   },
   "wrong": [
-    { "title": "Edited orders leave old numbers", "body": "Items and quantities can change after an order is placed, and a new-order trigger never sees it. Add an update step, or reconcile from Shopify monthly.", "about": "auto" },
-    { "title": "Duplicate rows", "body": "Shopify retries webhooks up to 8 times over 4 hours when an endpoint does not answer within 5 seconds. Look the order number up before adding.", "about": "auto" },
-    { "title": "Only paid orders arrived", "body": "You picked \"order paid\" but wanted cash-on-delivery orders too. Switch to new order and keep a Status column.", "about": "auto" },
-    { "title": "The sheet slows down", "body": "Google Sheets holds up to 20 million cells, but a sheet full of formulas slows far sooner. Start a new tab each year.", "about": "app" }
+    {
+      "title": "Edited orders leave old numbers",
+      "body": "Items and quantities can change after an order is placed, and a new-order trigger never sees it. Add an update step, or reconcile from Shopify monthly.",
+      "about": "auto"
+    },
+    {
+      "title": "Duplicate rows",
+      "body": "Shopify retries webhooks up to 8 times over 4 hours when an endpoint does not answer within 5 seconds. Look the order number up before adding.",
+      "about": "auto"
+    },
+    {
+      "title": "Only paid orders arrived",
+      "body": "You picked \"order paid\" but wanted cash-on-delivery orders too. Switch to new order and keep a Status column.",
+      "about": "auto"
+    },
+    {
+      "title": "The sheet slows down",
+      "body": "Google Sheets holds up to 20 million cells, but a sheet full of formulas slows far sooner. Start a new tab each year.",
+      "about": "app"
+    }
   ],
   "faqs": [
-    { "q": "Can Shopify export orders straight to Google Sheets?", "a": "Not live from the Orders page, which exports CSV files. Shopify Flow's \"Add row to spreadsheet\" action can write each order into a Google Sheet as it arrives." },
-    { "q": "Is Shopify Flow free?", "a": "Yes, on Basic, Grow, Advanced and Plus. Its \"Send HTTP request\" action needs Grow or above, but adding sheet rows does not." },
-    { "q": "How do I get one row per product?", "a": "Loop over the order's line items and add a row for each, repeating the order number. In Flow that is the For each step around Add row." }
+    {
+      "q": "Can Shopify export orders straight to Google Sheets?",
+      "a": "Not live from the Orders page, which exports CSV files. Shopify Flow's \"Add row to spreadsheet\" action can write each order into a Google Sheet as it arrives."
+    },
+    {
+      "q": "Is Shopify Flow free?",
+      "a": "Yes, on Basic, Grow, Advanced and Plus. Its \"Send HTTP request\" action needs Grow or above, but adding sheet rows does not."
+    },
+    {
+      "q": "How do I get one row per product?",
+      "a": "Loop over the order's line items and add a row for each, repeating the order number. In Flow that is the For each step around Add row."
+    },
+    {
+      "q": "What happens when an order is edited?",
+      "a": "A new-order trigger saw only the first version, so the sheet keeps the old numbers. Add a step for edited or cancelled orders that finds the order number and updates its row."
+    },
+    {
+      "q": "How do I stop duplicate rows?",
+      "a": "Look up the order number in the sheet before adding. If it is already there, update that row instead of adding a new one."
+    },
+    {
+      "q": "Should I trigger on new orders or paid orders?",
+      "a": "New order catches every order, paid or not; order paid catches only money in. Pick the one your sheet reports on, and say which in the tab name."
+    }
   ],
-  "related": ["how-to-log-stripe-payments-in-google-sheets", "how-to-automate-data-entry-between-two-apps", "webhooks-explained-for-non-developers"],
+  "related": [
+    "how-to-log-stripe-payments-in-google-sheets",
+    "how-to-automate-data-entry-between-two-apps",
+    "webhooks-explained-for-non-developers"
+  ],
   "updated": "2026-11-19"
 }

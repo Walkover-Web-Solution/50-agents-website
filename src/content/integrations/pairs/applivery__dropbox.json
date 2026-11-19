@@ -1,8 +1,1 @@
-{
-  "usedFor": "Applivery distributes mobile app builds, and Dropbox keeps the files. A “New Build Processed” in Applivery can run “Upload File to Dropbox” to save a file from a public link into a chosen folder.",
-  "bestTemplate": {
-    "name": "“New Build Processed” in Applivery, then “Upload File to Dropbox” in Dropbox",
-    "why": "Processed means the build is ready to install, so the file you save is the final one. “New Build Uploaded” fires earlier, before processing is done."
-  },
-  "watchOut": "“Upload File to Dropbox” pulls from a public web link, so the build must be reachable at one. You also choose how an existing file is handled: add, replace or update."
-}
+{"usedFor":"Each processed Applivery build is saved to a Dropbox folder.","bestTemplate":{"name":"“New Build Processed” in Applivery, then “Upload File to Dropbox” in Dropbox","why":"Processed means the build is ready, whereas “New Build Uploaded” fires before processing is done."},"watchOut":"“Upload File to Dropbox” pulls from a public web link, so the build must be reachable at one."}

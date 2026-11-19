@@ -34,7 +34,7 @@ export function HubView({ h }: { h: HubPage }) {
       <section className="wrap uc3-hero">
         <KindBadge kind={h.kind} />
         <h1>{h.h1}</h1>
-        <PromptFilm ask={h.example.ask} button={<Cta campaign="seo-hub" page={page} place="hero" ask={h.example.ask}>Build it</Cta>} />
+        <PromptFilm ask={h.example.ask} asks={h.asks} link={{ page, place: 'hero', campaign: 'seo-hub' }} button={<Cta campaign="seo-hub" page={page} place="hero" ask={h.example.ask}>Build it</Cta>} />
         <p className="uc3-note">{h.answer[1]}</p>
       </section>
 
@@ -88,11 +88,11 @@ export function HubView({ h }: { h: HubPage }) {
         </section>
       )}
 
-      {/* Final: the same ask, one button */}
+      {/* Final: one short line (D260), the same ask behind one button */}
       <section className="wrap sec">
         <div className="final">
           <h2>{h.final}</h2>
-          <p>Tell Captain &ldquo;{h.example.ask}&rdquo;. Free to start.</p>
+          <p>One sentence to Captain. Free to start.</p>
           <Cta campaign="seo-hub" page={page} place="final" ask={h.example.ask}>Build it with Captain</Cta>
           <span className="peek l" aria-hidden="true"><Face id={k.face} size={52} /><Face id="keeper" size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="rosa" size={46} /></span>

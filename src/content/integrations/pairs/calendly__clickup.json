@@ -1,8 +1,1 @@
-{
-  "usedFor": "Calendly takes the bookings; ClickUp tracks the tasks. A booking in Calendly can create a task with “Create Task”, and a new ClickUp task can produce a booking link through “Create Scheduling Link”.",
-  "bestTemplate": {
-    "name": "“New Meeting Book or Invitee Created” in Calendly, then “Create Task” in ClickUp",
-    "why": "Every booking becomes a task with assignees, status, priority and due date, so meeting prep does not depend on someone remembering."
-  },
-  "watchOut": "“Create Task” needs a list to put the task in. The reverse direction, “When a new task is created” into “Create Scheduling Link”, fires for every task, so filter to the ones that need a meeting."
-}
+{"usedFor":"Each Calendly booking becomes a task in ClickUp.","bestTemplate":{"name":"“New Meeting Book or Invitee Created” in Calendly, then “Create Task” in ClickUp","why":"Every booking gets assignees, status, priority and due date, so meeting prep is not forgotten."},"watchOut":"“Create Task” needs a list to put the task in."}

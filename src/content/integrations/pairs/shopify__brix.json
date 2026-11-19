@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify holds the products and Brix shows content on screens. “New Product” can run “Import Media from URL”, so an image goes into your signage library when the product exists.",
-  "bestTemplate": {
-    "name": "“New Product” in Shopify, then “Import Media from URL” in Brix",
-    "why": "The action adds an image, video or file to the media library from a public URL, which fits a product image ready to show in store."
-  },
-  "watchOut": "“Import Media from URL” needs a public URL, so a product image that is not public will not import. It adds to the library; it does not put anything on a screen."
-}
+{"usedFor":"A new Shopify product sends its image into your Brix signage library.","bestTemplate":{"name":"“New Product” in Shopify, then “Import Media from URL” in Brix","why":"The image goes into the media library from a public URL, ready to show in store."},"watchOut":"“Import Media from URL” needs a public URL, and it only adds to the library."}

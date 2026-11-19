@@ -1,8 +1,1 @@
-{
-  "usedFor": "AutoQuote3D is where a print shop's quotes and orders come in; Slack is where the shop floor hears about them. A “New Order” in AutoQuote3D can post to a channel with “Send Message”.",
-  "bestTemplate": {
-    "name": "“New Order” in AutoQuote3D, then “Send Message” in Slack",
-    "why": "A paid order is what the team has to act on, and you can limit the trigger to chosen statuses so only the ones that matter reach the channel."
-  },
-  "watchOut": "“New Order” and “New Quote” both poll, so the post follows a short while after. On 50agents, an automation's post to a Slack channel also waits for your approval today."
-}
+{"usedFor":"Each “New Order” in AutoQuote3D is posted to a Slack channel for the shop floor.","bestTemplate":{"name":"“New Order” in AutoQuote3D, then “Send Message” in Slack","why":"A paid order needs action, and you can limit the trigger to chosen statuses."},"watchOut":"On 50agents, the “Send Message” post to the shop's Slack channel waits for your approval."}

@@ -1,8 +1,1 @@
-{
-  "usedFor": "Airtable holds the records and Google Drive holds the files that belong to them. When a record changes, “Create Folder” can set up a home for it in Google Drive, or “Create a new sheet or doc or slide” can start its paperwork.",
-  "bestTemplate": {
-    "name": "“Record Created Or Updated” in Airtable, then “Create Folder” in Google Drive",
-    "why": "A folder per record keeps each client or project's files in one place from day one, and you can nest it inside a parent folder."
-  },
-  "watchOut": "“Record Created Or Updated” fires on edits as well as new rows, and it polls. The same record can run twice and make a second folder, so build in a check for an existing one."
-}
+{"usedFor":"Each Airtable record gets a Google Drive folder for its files.","bestTemplate":{"name":"“Record Created Or Updated” in Airtable, then “Create Folder” in Google Drive","why":"A folder per record keeps each client or project's files together from day one."},"watchOut":"“Record Created Or Updated” fires on edits, so one record can make a second folder."}

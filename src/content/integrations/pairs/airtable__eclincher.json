@@ -1,8 +1,1 @@
-{
-  "usedFor": "Airtable can be your content calendar; Eclincher publishes to social accounts. A row can become a live post through “Create Post”, or a new client row can set up a workspace with “Create Brand”.",
-  "bestTemplate": {
-    "name": "“Record Created Or Updated” in Airtable, then “Create Post” in Eclincher",
-    "why": "It publishes the row's text to selected brand accounts, with an optional scheduled time, so your calendar and your posting stay in step."
-  },
-  "watchOut": "“Record Created Or Updated” polls and fires on edits, so editing a row after it posted could publish it again. Add a status field and only post when it reads ready."
-}
+{"usedFor":"A row in an Airtable content calendar becomes a post in Eclincher.","bestTemplate":{"name":"“Record Created Or Updated” in Airtable, then “Create Post” in Eclincher","why":"It publishes the row's text to chosen brand accounts, with an optional scheduled time."},"watchOut":"Editing a posted row could publish it again, so post only when a status field says ready."}

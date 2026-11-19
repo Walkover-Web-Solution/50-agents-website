@@ -6,6 +6,18 @@
   "title": "How to automate weekly reports by email | 50agents",
   "description": "Automate a weekly report email: fix the window to last Monday to Sunday in your timezone, compare with the week before, and make empty weeks say so.",
   "h1": "How to automate weekly reports by email",
+  "cover": {
+    "scene": "message",
+    "app": "gmail",
+    "where": "Every Monday",
+    "subject": "Last week vs the week before",
+    "tag": "Sent",
+    "lines": [
+      "Revenue  $12,480  (up 8%)",
+      "Orders  214  (up 3%)",
+      "Refunds  3  (no data gaps)"
+    ]
+  },
   "answer": [
     "Pick three to five numbers, fix the window to last Monday to Sunday in your timezone, and email them every Monday against the week before.",
     "Make the report say when data is missing, never a silent zero."
@@ -17,19 +29,41 @@
       "options": [
         {
           "label": "A Looker Studio dashboard",
-          "then": { "answer": "Use Looker Studio's scheduled delivery", "why": "It sends a PDF and a link to up to 50 recipients a schedule. Reports with errors are not sent, so watch for a missing Monday." }
+          "then": {
+            "answer": "Use Looker Studio's scheduled delivery",
+            "why": "It sends a PDF and a link to up to 50 recipients a schedule. Reports with errors are not sent, so watch for a missing Monday."
+          }
         },
         {
           "label": "A Google Sheet",
-          "then": { "answer": "Use Apps Script, or an automation", "why": "Apps Script needs a little code and a time trigger, with 6 minutes per run. An automation tool can read the sheet and send the email instead.", "kind": "auto" }
+          "then": {
+            "answer": "Use Apps Script, or an automation",
+            "why": "Apps Script needs a little code and a time trigger, with 6 minutes per run. An automation tool can read the sheet and send the email instead.",
+            "kind": "auto"
+          }
         },
         {
           "label": "Apps like Stripe, HubSpot, Shopify",
           "then": {
             "q": "Should the report explain what changed?",
             "options": [
-              { "label": "No, the numbers are enough", "then": { "answer": "Use an automation on a schedule", "why": "Fixed steps read the numbers and send them. Check which timezone the schedule runs in.", "kind": "auto" } },
-              { "label": "Yes, in a line of words", "then": { "answer": "Use an AI agent on a schedule", "why": "It reads, compares and writes why the number moved. It costs more per run than fixed steps; worth it when the why matters.", "kind": "ai", "href": "/use-cases/weekly-stripe-revenue-summary" } }
+              {
+                "label": "No, the numbers are enough",
+                "then": {
+                  "answer": "Use an automation on a schedule",
+                  "why": "Fixed steps read the numbers and send them. Check which timezone the schedule runs in.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "Yes, in a line of words",
+                "then": {
+                  "answer": "Use an AI agent on a schedule",
+                  "why": "It reads, compares and writes why the number moved. It costs more per run than fixed steps; worth it when the why matters.",
+                  "kind": "ai",
+                  "href": "/use-cases/weekly-stripe-revenue-summary"
+                }
+              }
             ]
           }
         }
@@ -43,12 +77,32 @@
       "body": [
         {
           "table": {
-            "head": ["Decide", "Good answer", "Why"],
+            "head": [
+              "Decide",
+              "Good answer",
+              "Why"
+            ],
             "rows": [
-              ["The numbers", "3 to 5 you would act on", "Twenty numbers get skimmed, then ignored"],
-              ["The window", "Monday to Sunday, your timezone", "\"Last 7 days\" shifts with send time"],
-              ["The comparison", "The week before", "A change says more than a number"],
-              ["The words", "One line on what changed", "What an AI step adds"]
+              [
+                "The numbers",
+                "3 to 5 you would act on",
+                "Twenty numbers get skimmed, then ignored"
+              ],
+              [
+                "The window",
+                "Monday to Sunday, your timezone",
+                "\"Last 7 days\" shifts with send time"
+              ],
+              [
+                "The comparison",
+                "The week before",
+                "A change says more than a number"
+              ],
+              [
+                "The words",
+                "One line on what changed",
+                "What an AI step adds"
+              ]
             ]
           }
         }
@@ -65,7 +119,11 @@
       {
         "title": "Fix the window in words",
         "body": "\"Payments from last Monday 00:00 to Sunday 23:59, Europe/London\". Print the window and timezone in the report itself.",
-        "note": { "type": "warn", "text": "A schedule set in UTC moves an hour when daylight saving starts. Set it in your own timezone.", "about": "auto" }
+        "note": {
+          "type": "warn",
+          "text": "A schedule set in UTC moves an hour when daylight saving starts. Set it in your own timezone.",
+          "about": "auto"
+        }
       },
       {
         "title": "Schedule it after the data settles",
@@ -87,16 +145,57 @@
     "useCase": "weekly-stripe-revenue-summary"
   },
   "wrong": [
-    { "title": "The report says $0", "body": "The data was late or the search found nothing. Make the report say what it searched and that it found nothing.", "about": "ai" },
-    { "title": "The window is off by a day", "body": "\"Last 7 days\" counted from the send time. Use calendar weeks in your timezone.", "about": "auto" },
-    { "title": "It failed and nobody noticed", "body": "A connection expired and the report simply stopped. Pick a tool that tells you about failed runs, and notice the Monday it does not arrive.", "about": "auto" },
-    { "title": "The person who built it left", "body": "The schedule ran from their account. Build reports on a shared account, or write down who owns them.", "about": "auto" }
+    {
+      "title": "The report says $0",
+      "body": "The data was late or the search found nothing. Make the report say what it searched and that it found nothing.",
+      "about": "ai"
+    },
+    {
+      "title": "The window is off by a day",
+      "body": "\"Last 7 days\" counted from the send time. Use calendar weeks in your timezone.",
+      "about": "auto"
+    },
+    {
+      "title": "It failed and nobody noticed",
+      "body": "A connection expired and the report simply stopped. Pick a tool that tells you about failed runs, and notice the Monday it does not arrive.",
+      "about": "auto"
+    },
+    {
+      "title": "The person who built it left",
+      "body": "The schedule ran from their account. Build reports on a shared account, or write down who owns them.",
+      "about": "auto"
+    }
   ],
   "faqs": [
-    { "q": "Can Google Sheets email a report on a schedule?", "a": "Not by itself. Apps Script can, with a time trigger and a little code, or an automation tool can read the sheet and send the email." },
-    { "q": "Can Looker Studio email a report weekly?", "a": "Yes. Scheduled delivery sends a PDF and a link to up to 50 recipients; free schedules can run at most daily." },
-    { "q": "What timezone does a scheduled report use?", "a": "It depends on the tool: Looker Studio uses your computer's timezone, Zapier uses the account's. Always check, and print the window in the report." }
+    {
+      "q": "Can Google Sheets email a report on a schedule?",
+      "a": "Not by itself. Apps Script can, with a time trigger and a little code, or an automation tool can read the sheet and send the email."
+    },
+    {
+      "q": "Can Looker Studio email a report weekly?",
+      "a": "Yes. Scheduled delivery sends a PDF and a link to up to 50 recipients; free schedules can run at most daily."
+    },
+    {
+      "q": "What timezone does a scheduled report use?",
+      "a": "It depends on the tool: Looker Studio uses your computer's timezone, Zapier uses the account's. Always check, and print the window in the report."
+    },
+    {
+      "q": "How many numbers should a weekly report have?",
+      "a": "Three to five you would act on, each against the week before. Twenty numbers get skimmed, then ignored. One line on what changed helps more than another chart."
+    },
+    {
+      "q": "What if a data source is down on Monday?",
+      "a": "The report should say so: \"no payments found between X and Y\", not \"$0\". If a step fails, you should hear about it the same morning, not notice a quiet inbox."
+    },
+    {
+      "q": "Who should get the report first?",
+      "a": "You, for two weeks. Check each one against the source by hand, then add the team. A wrong number in front of everyone costs more trust than a late report."
+    }
   ],
-  "related": ["how-to-log-stripe-payments-in-google-sheets", "how-to-get-a-daily-calendar-summary-in-slack", "ai-agents-for-small-business-10-jobs-that-work-today"],
+  "related": [
+    "how-to-log-stripe-payments-in-google-sheets",
+    "how-to-get-a-daily-calendar-summary-in-slack",
+    "ai-agents-for-small-business-10-jobs-that-work-today"
+  ],
   "updated": "2026-11-19"
 }

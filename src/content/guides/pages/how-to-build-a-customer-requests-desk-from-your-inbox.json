@@ -6,6 +6,41 @@
   "title": "Build a customer requests desk from your inbox | 50agents",
   "description": "Turn your inbox into a requests desk: one record per request with status, priority and an answer-by date, a board by status, and replies drafted.",
   "h1": "How to build a customer requests desk from your inbox",
+  "cover": {
+    "scene": "board",
+    "app": "gmail",
+    "label": "Requests",
+    "columns": [
+      {
+        "name": "New",
+        "cards": [
+          {
+            "title": "Refund for order #88",
+            "tag": "Due today"
+          }
+        ]
+      },
+      {
+        "name": "Waiting on us",
+        "cards": [
+          {
+            "title": "Change delivery address"
+          },
+          {
+            "title": "Invoice copy"
+          }
+        ]
+      },
+      {
+        "name": "Done",
+        "cards": [
+          {
+            "title": "Size swap"
+          }
+        ]
+      }
+    ]
+  },
   "answer": [
     "Give every customer email that needs an answer a record with a status, a priority and an answer-by date.",
     "Then work from a board of those records instead of the inbox."
@@ -178,6 +213,18 @@
     {
       "q": "How do I track open customer requests?",
       "a": "Give each one a record with a status and an answer-by date, and work from a view of everything Waiting on us, oldest first."
+    },
+    {
+      "q": "Which emails should become requests?",
+      "a": "A question, a problem, a change or a complaint from a customer. Not newsletters, invoices or sales pitches. Write the rule down so everyone sorts the same way."
+    },
+    {
+      "q": "How quickly should we answer?",
+      "a": "Set an answer-by date on every request: tomorrow if urgent, otherwise two days. Work from Waiting on us, oldest first, urgent at the top."
+    },
+    {
+      "q": "What happens when a customer never replies?",
+      "a": "Mark it Waiting on them. After three days with no reply, send a short check-in, then mark it Solved. A desk full of stale requests hides the live ones."
     }
   ],
   "related": [

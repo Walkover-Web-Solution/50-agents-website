@@ -1,8 +1,1 @@
-{
- "usedFor": "Stripe takes the payments, and Slack is where the team celebrates or reacts. “Customer Subscribes” in Stripe can post through “Send Message” in Slack.",
- "bestTemplate": {
-  "name": "“Customer Subscribes” in Stripe, then “Send Message” in Slack",
-  "why": "A new subscriber is the event teams most want to see, and Stripe pushes it as it happens. “Send Interactive Message” adds buttons if someone has to act."
- },
- "watchOut": "An automation's post to a Slack channel waits for your approval today. “New Customer Created” and “Customer Subscribes” are separate events, so a customer without a subscription will not trigger the post."
-}
+{"usedFor":"A new Stripe subscriber is posted to Slack for the team to see.","bestTemplate":{"name":"“Customer Subscribes” in Stripe, then “Send Message” in Slack","why":"A new subscriber is the event teams most want to see, and Stripe pushes it live."},"watchOut":"A customer without a subscription will not trigger the post, and each Slack post waits for approval."}

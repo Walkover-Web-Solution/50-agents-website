@@ -1,12 +1,12 @@
-// The integration family's pieces, v3 round 4 (D258): the hero lockup, the four kinds as link cards, triggers and actions
-// as two columns that scroll inside themselves, templates in a box that fits its rows up to a cap, pairing cards, questions, the final block, and the
-// directory panel. Visible copy says "templates" (the 50agents app's word); the code keeps the catalog's name, recipe.
+// The integration family's pieces, v3 round 5 (D260): the hero lockup, the four kinds as link cards, triggers and actions
+// as two equal columns that each grow with "Load more", templates that grow with "Load more", a pair's "in practice" cards,
+// pairing cards, questions, the final block, and the directory panel with numbered pages. Nothing scrolls inside itself. Visible copy says "templates" (the 50agents app's word); the code keeps the catalog's name, recipe.
 import { AppLogo, Face, KINDS, MaybeLink } from '@/site/parts';
 import { BuildLink } from './build-link';
 import { CatPick, Directory, EventBoard, ListBox } from './boxes';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { findPair, iconOf, nameOf, pairPath, plainDesc, recipeAsk, recipeClause, type AppFile, type Event, type Recipe } from './data';
-import type { IntegrationPage } from './types';
+import type { IntegrationPage, PairLines } from './types';
 import { plainEvent } from './words';
 
 export const BASE = 'https://50agents.com';
@@ -50,7 +50,8 @@ export function KindCards({ kinds, page, campaign }: { kinds: IntegrationPage['k
   );
 }
 
-// ---- triggers and actions: two columns, each scrolling inside itself (D258); templates in a capped box ----
+// ---- triggers and actions: two equal columns, each with its own "Load more" (D260); templates the same ----
+const EV_PER = 8;
 /** One trigger or action: its name in plain words and one line, the catalog's own description. The whole description is
  *  in the HTML; CSS shows two lines. */
 function evLine(e: Event, app: string) {
@@ -58,24 +59,23 @@ function evLine(e: Event, app: string) {
 }
 function EvCol({ word, events, app }: { word: 'Triggers' | 'Actions'; events: Event[]; app: AppFile }) {
   return (
-    <div className="ig5-col" data-col="">
+    <div className="ig5-col" data-col={word.toLowerCase()} role="region" aria-label={`${app.name} ${word.toLowerCase()}`}>
       <div className="ig5-col-h"><h3>{word}</h3><span className="ig5-count" data-n="">{events.length}</span></div>
-      <div className="ig5-scroll" data-scroll="" tabIndex={0} role="region" aria-label={`${app.name} ${word.toLowerCase()}`}>
-        <ul className="ig5-items">
-          {events.map((e, i) => {
-            const name = plainEvent(e.n, app.name), line = evLine(e, app.name);
-            return <li key={`${i}-${e.n}`} data-q={`${name} ${line} ${app.name}`.toLowerCase()}><b>{name}</b><span>{line}</span></li>;
-          })}
-        </ul>
-        <p className="ig5-none" data-none="" hidden>No {word.toLowerCase()} match.</p>
-      </div>
+      <ul className="ig5-items">
+        {events.map((e, i) => {
+          const name = plainEvent(e.n, app.name), line = evLine(e, app.name);
+          return <li key={`${i}-${e.n}`} data-q={`${name} ${line} ${app.name}`.toLowerCase()} hidden={i >= EV_PER}><b>{name}</b><span>{line}</span></li>;
+        })}
+      </ul>
+      <p className="ig5-none" data-none="" hidden>No {word.toLowerCase()} match.</p>
+      <div className="ig5-more" data-more="" hidden={events.length <= EV_PER}><button type="button" className="btn sm ghost">Load more {word.toLowerCase()}</button></div>
     </div>
   );
 }
-/** One app's two columns: triggers on the left, actions on the right; the longer list gets the wider column. */
+/** One app's two equal columns: triggers on the left, actions on the right. */
 function EvBoard({ app, hidden }: { app: AppFile; hidden?: boolean }) {
   const t = app.events.filter(e => e.t === 'trigger'), a = app.events.filter(e => e.t === 'action');
-  const cls = !t.length || !a.length ? 'ig5-cols one' : t.length > a.length ? 'ig5-cols tl' : 'ig5-cols';
+  const cls = !t.length || !a.length ? 'ig5-cols one' : 'ig5-cols';
   return (
     <div className={cls} data-board={app.slug} hidden={hidden}>
       {t.length > 0 && <EvCol word="Triggers" events={t} app={app} />}
@@ -89,7 +89,7 @@ function EvBoard({ app, hidden }: { app: AppFile; hidden?: boolean }) {
 export function EventsBox({ app }: { app: AppFile }) {
   return (
     <div data-gate="skip">
-      <EventBoard search="Search triggers and actions"><EvBoard app={app} /></EventBoard>
+      <EventBoard search="Search triggers and actions" per={EV_PER}><EvBoard app={app} /></EventBoard>
     </div>
   );
 }
@@ -100,18 +100,19 @@ export function PairEventsBox({ a, b }: { a: AppFile; b: AppFile }) {
   const apps = [a, b].filter(x => x.events.length > 0);
   return (
     <div data-gate="skip">
-      <EventBoard search="Search both apps" apps={apps.map(x => ({ key: x.slug, name: x.name, label: <><Logo slug={x.slug} size={22} /><span>{x.name}</span></> }))}>
+      <EventBoard search="Search both apps" per={EV_PER} apps={apps.map(x => ({ key: x.slug, name: x.name, label: <><Logo slug={x.slug} size={22} /><span>{x.name}</span></> }))}>
         {apps.map((x, i) => <EvBoard key={x.slug} app={x} hidden={i > 0} />)}
       </EventBoard>
     </div>
   );
 }
 
-/** Templates: the two apps, the template in a sentence, one "Build this" that pastes its ask; in the same scrolling box. */
+/** Templates: the two apps, the template in a sentence, one "Build this" that pastes its ask. Six show, then "Load more"
+ *  reveals six more in place (D260). */
 export function TemplatesBox({ recipes, page, campaign, search }: { recipes: Recipe[]; page: string; campaign: Campaign; search?: string }) {
-  const per = 8;
+  const per = 6;
   return (
-    <ListBox tabs={[{ key: 'templates', label: 'Templates' }]} per={per} fixed={recipes.length > per} search={recipes.length > per ? search : undefined} empty="No template matches">
+    <ListBox tabs={[{ key: 'templates', label: 'Templates' }]} per={per} search={recipes.length > per ? search : undefined} empty="No template matches">
       <ul className="ig4-items ig4-tpls" data-panel="templates">
         {recipes.map((r, i) => {
           const line = cap(recipeClause(r, nameOf));
@@ -146,6 +147,31 @@ export function PairCards({ items }: { items: { me: string; other: string; recip
         );
         return f ? <a key={me + o} href={pairPath(f.pair)}>{body}</a> : <MaybeLink key={me + o} href={`/integrations/${o}`}>{body}</MaybeLink>;
       })}
+    </div>
+  );
+}
+
+/** A pair "in practice" (D260): three short cards in one bordered row, each one fact with a small icon. The lines are the
+ *  pair's own (src/content/integrations/pairs), so they stay in the uniqueness gate. */
+const PI = {
+  use: <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0-5a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0-3.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" />,
+  best: <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" />,
+  watch: <path d="M12 4 2.8 19.5h18.4L12 4Zm0 6v4.5m0 2.5v.01" />,
+};
+export function PracticeCards({ lines }: { lines: PairLines }) {
+  const cards: { k: keyof typeof PI; h: string; body: React.ReactNode }[] = [
+    { k: 'use', h: 'Used for', body: lines.usedFor },
+    { k: 'best', h: 'Best template', body: <><b>{lines.bestTemplate.name}.</b> {lines.bestTemplate.why}</> },
+    { k: 'watch', h: 'Watch out', body: lines.watchOut },
+  ];
+  return (
+    <div className="ig6-practice">
+      {cards.map(c => (
+        <div key={c.k} className="ig6-pc">
+          <h3><span className="ig6-pc-i" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{PI[c.k]}</svg></span>{c.h}</h3>
+          <p>{c.body}</p>
+        </div>
+      ))}
     </div>
   );
 }
@@ -206,7 +232,8 @@ export function LdScript({ data }: { data: unknown }) {
 }
 
 /** The directory panel (like viaSocket's own A to Z): the categories down the left (a select on a phone), and the apps as
- *  a hairline grid with one search and "Load more" (D258). Every app is in the HTML; the rest are only hidden. */
+ *  a hairline grid with one search and numbered pages at the bottom of the box (D260). Every app is in the HTML; the
+ *  other pages are only hidden. */
 export const DIR_PER = 48;
 export function DirectoryPanel({ apps, current, head, label }: { apps: { s: string; n: string }[]; current: string; head: React.ReactNode; label: string }) {
   const cats = [{ href: '/integrations', name: 'All apps' }, ...CATEGORIES.map(c => ({ href: `/integrations/category/${c.slug}`, name: c.name }))];
@@ -218,7 +245,7 @@ export function DirectoryPanel({ apps, current, head, label }: { apps: { s: stri
           <ul>{cats.map(c => <li key={c.href}><MaybeLink href={c.href} className={c.href === current ? 'on' : undefined}>{c.name}</MaybeLink></li>)}</ul>
         </nav>
       </aside>
-      <Directory per={DIR_PER} label={label} head={head}>
+      <Directory per={DIR_PER} total={apps.length} label={label} head={head}>
         <ul className="ig4-grid">
           {apps.map((a, i) => (
             <li key={a.s} data-app="" data-q={`${a.n} ${a.s}`.toLowerCase()} hidden={i >= DIR_PER}>

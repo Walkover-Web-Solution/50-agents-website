@@ -6,6 +6,34 @@
   "title": "How to automate form filling on websites | 50agents",
   "description": "Automate web form filling: keep the data in one list with an ID per row, fill each form, check it, submit only on approval, and save proof it went through.",
   "h1": "How to automate form filling on websites",
+  "cover": {
+    "scene": "page",
+    "url": "maker.example/warranty",
+    "title": "Register your machine",
+    "look": "form",
+    "button": "Submit after your OK",
+    "rows": [
+      {
+        "cells": [
+          "Model",
+          "Barista Pro"
+        ]
+      },
+      {
+        "cells": [
+          "Serial",
+          "EM-40192"
+        ],
+        "tag": "Filling"
+      },
+      {
+        "cells": [
+          "Bought",
+          "From row 12"
+        ]
+      }
+    ]
+  },
   "answer": [
     "Keep the data in one list with an ID and a status per row, fill one form at a time, and submit only after you approve.",
     "Save each confirmation back to its row."
@@ -17,19 +45,34 @@
       "options": [
         {
           "label": "My own details, on any site",
-          "then": { "answer": "Use your browser's autofill", "why": "Chrome fills addresses, contact details, passwords and payment methods, and each can be turned off. No automation needed." }
+          "then": {
+            "answer": "Use your browser's autofill",
+            "why": "Chrome fills addresses, contact details, passwords and payment methods, and each can be turned off. No automation needed."
+          }
         },
         {
           "label": "The same snippets in many forms",
-          "then": { "answer": "Use a text expander", "why": "It types your saved snippets on a shortcut. You still check and click submit." }
+          "then": {
+            "answer": "Use a text expander",
+            "why": "It types your saved snippets on a shortcut. You still check and click submit."
+          }
         },
         {
           "label": "One form, many times, from a list",
-          "then": { "answer": "Use a browser agent or browser automation", "why": "It fills one row at a time and asks before each submit. Follow the steps below.", "kind": "browser" }
+          "then": {
+            "answer": "Use a browser agent or browser automation",
+            "why": "It fills one row at a time and asks before each submit. Follow the steps below.",
+            "kind": "browser"
+          }
         },
         {
           "label": "My own form's submissions",
-          "then": { "answer": "Use an automation on the form app", "why": "Typeform, Google Forms and Jotform have triggers in automation catalogs, so no browser is needed.", "kind": "auto", "href": "/guides/webhooks-explained-for-non-developers" }
+          "then": {
+            "answer": "Use an automation on the form app",
+            "why": "Typeform, Google Forms and Jotform have triggers in automation catalogs, so no browser is needed.",
+            "kind": "auto",
+            "href": "/guides/webhooks-explained-for-non-developers"
+          }
         }
       ]
     }
@@ -53,7 +96,11 @@
       {
         "title": "Submit only on approval",
         "body": "A submitted form usually cannot be taken back. Approve each one, at least until a few dozen have gone through clean.",
-        "note": { "type": "tip", "text": "In 50agents, a browser agent alone does not read your Google Sheet. Hold the list in an app, and a browser agent in its crew works through the rows.", "about": "browser" }
+        "note": {
+          "type": "tip",
+          "text": "In 50agents, a browser agent alone does not read your Google Sheet. Hold the list in an app, and a browser agent in its crew works through the rows.",
+          "about": "browser"
+        }
       },
       {
         "title": "Save proof",
@@ -71,17 +118,62 @@
     "ask": "Set up a browser agent that registers each espresso machine I tell it about on the warranty form at maker.example, and asks me before it submits"
   },
   "wrong": [
-    { "title": "Submitted twice", "body": "A retry after a slow page. Check for the confirmation before any retry, and keep the Status column true.", "about": "browser" },
-    { "title": "Fields shifted", "body": "The site added a field and everything moved down one. Map by label, and check a filled form before the first submit after any site change.", "about": "browser" },
-    { "title": "The wrong row", "body": "Two rows share a name. Give each row an ID and show it in the approval.", "about": "app" },
-    { "title": "A form on a look-alike site", "body": "Personal data went to the wrong address. Fill forms only on the exact address in your list.", "about": "browser" },
-    { "title": "A CAPTCHA appears", "body": "The site does not want automated submits. Do not use CAPTCHA bypass; ask the site for a bulk upload or an API instead.", "about": "browser" }
+    {
+      "title": "Submitted twice",
+      "body": "A retry after a slow page. Check for the confirmation before any retry, and keep the Status column true.",
+      "about": "browser"
+    },
+    {
+      "title": "Fields shifted",
+      "body": "The site added a field and everything moved down one. Map by label, and check a filled form before the first submit after any site change.",
+      "about": "browser"
+    },
+    {
+      "title": "The wrong row",
+      "body": "Two rows share a name. Give each row an ID and show it in the approval.",
+      "about": "app"
+    },
+    {
+      "title": "A form on a look-alike site",
+      "body": "Personal data went to the wrong address. Fill forms only on the exact address in your list.",
+      "about": "browser"
+    },
+    {
+      "title": "A CAPTCHA appears",
+      "body": "The site does not want automated submits. Do not use CAPTCHA bypass; ask the site for a bulk upload or an API instead.",
+      "about": "browser"
+    }
   ],
   "faqs": [
-    { "q": "How do I fill the same web form many times automatically?", "a": "Keep the data in a sheet with one row per form, and use a browser automation tool or browser agent to fill one row at a time. Submit only after a check, and save the confirmation to the row." },
-    { "q": "Can I fill a web form from a spreadsheet?", "a": "Yes. That is the most reliable setup: the sheet is the source, the tool fills from it and writes the result back." },
-    { "q": "What about forms with a CAPTCHA?", "a": "Stop there. A CAPTCHA is the site asking for a person. Do those by hand, or ask the site for a bulk option." }
+    {
+      "q": "How do I fill the same web form many times automatically?",
+      "a": "Keep the data in a sheet with one row per form, and use a browser automation tool or browser agent to fill one row at a time. Submit only after a check, and save the confirmation to the row."
+    },
+    {
+      "q": "Can I fill a web form from a spreadsheet?",
+      "a": "Yes. That is the most reliable setup: the sheet is the source, the tool fills from it and writes the result back."
+    },
+    {
+      "q": "What about forms with a CAPTCHA?",
+      "a": "Stop there. A CAPTCHA is the site asking for a person. Do those by hand, or ask the site for a bulk option."
+    },
+    {
+      "q": "What if the form changes?",
+      "a": "Map columns to fields by their label, not their position, because labels change less than layouts. When a field is not found, the run should stop and tell you, not guess."
+    },
+    {
+      "q": "Can it upload files too?",
+      "a": "Many tools can attach a file to an upload field if the file is reachable, for example a link in the row. Test it on one row and check the confirmation before running the rest."
+    },
+    {
+      "q": "How do I avoid submitting twice?",
+      "a": "Give each row an ID and a Status, and save the confirmation number back to the row. If a run fails after submit, look for that confirmation before you try again."
+    }
   ],
-  "related": ["how-to-automate-a-website-that-has-no-api", "browser-automation-without-code", "how-to-make-an-ai-agent-ask-before-it-acts"],
+  "related": [
+    "how-to-automate-a-website-that-has-no-api",
+    "browser-automation-without-code",
+    "how-to-make-an-ai-agent-ask-before-it-acts"
+  ],
   "updated": "2026-11-19"
 }

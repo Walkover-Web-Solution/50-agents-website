@@ -66,3 +66,8 @@ steps, leave it out. 400 to 1,100 words in all.
 - Internal links are written [label](/path) and only to pages that exist (src/site/routes.ts). Link the matching use case and sibling guides in the body text, not only in the sitewide blocks.
 - The "Read next" cards are plain links, not headings: never add a heading that is another page's title.
 - No stats blocks: at most one number used as evidence, as a sentence.
+
+## Round 5 additions (D260)
+- `cover`: the guide's own apps (catalog slugs), its key object and a few words; no two guides may share a cover.
+- 5 to 7 questions, including 2 or 3 the guide's body doesn't answer.
+- The final call to action never repeats the ask: "One sentence to Captain. Free to start."

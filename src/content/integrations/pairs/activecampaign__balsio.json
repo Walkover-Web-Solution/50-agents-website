@@ -1,8 +1,1 @@
-{
-  "usedFor": "ActiveCampaign holds your marketing contacts; Balsio is where your team and outside participants talk in threads. A “New Contact” in ActiveCampaign can bring that person into a conversation, or queue a first message for them.",
-  "bestTemplate": {
-    "name": "“New Contact” in ActiveCampaign, then “Add Users to Thread” in Balsio",
-    "why": "It puts a new contact straight into the right thread by email address, so the conversation exists before anyone has to set it up."
-  },
-  "watchOut": "“Add Users to Thread” works from an email address, so check that the contact arrives with one filled in. “Create Scheduled Message” also needs a thread ID."
-}
+{"usedFor":"A “New Contact” in ActiveCampaign can add that person to a Balsio thread.","bestTemplate":{"name":"“New Contact” in ActiveCampaign, then “Add Users to Thread” in Balsio","why":"It adds the contact to the right thread by email, so the conversation exists already."},"watchOut":"“Add Users to Thread” works from an email address, so each new contact must arrive with one."}

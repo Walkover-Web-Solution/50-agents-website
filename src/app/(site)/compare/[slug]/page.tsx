@@ -118,7 +118,7 @@ export default async function ComparePageView({ params }: { params: Promise<{ sl
       <section className="wrap sec">
         <div className="final">
           <h2>Describe the job instead of building it</h2>
-          <p>Tell Captain &ldquo;{p.ask}&rdquo;. Free to start.</p>
+          <p>One sentence to Captain. Free to start.</p>
           <Cta campaign="seo-compare" page={p.slug} place="final" ask={p.ask}>Build it with Captain</Cta>
           <span className="peek l" aria-hidden="true"><Face id="keeper" size={50} /><Face id="writer" size={44} /></span>
           <span className="peek r" aria-hidden="true"><Face id="scout" size={48} /><Face id="sorter" size={46} /></span>

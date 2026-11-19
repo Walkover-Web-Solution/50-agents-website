@@ -1,8 +1,1 @@
-{
-  "usedFor": "Docusign holds the contract and HubSpot holds the relationship. When “New Envelope Completed” fires in Docusign, “Create Deal” puts the signed work into the HubSpot pipeline, so the sale is visible once it is real.",
-  "bestTemplate": {
-    "name": "“New Envelope Completed” in Docusign, then “Create Deal” in HubSpot",
-    "why": "Completed means everyone has signed, so the deal reflects a real commitment, unlike “New Envelope Created”, which fires before anything is signed."
-  },
-  "watchOut": "“New Envelope Created”, “New Envelope Sent” and “New Envelope Completed” are separate triggers. Wire only one to “Create Deal”, or the same envelope opens a deal at each stage."
-}
+{"usedFor":"A fully signed Docusign envelope opens a deal in HubSpot.","bestTemplate":{"name":"“New Envelope Completed” in Docusign, then “Create Deal” in HubSpot","why":"Completed means everyone has signed, unlike “New Envelope Created”, which fires before anything is signed."},"watchOut":"Wire only one Docusign trigger to “Create Deal”, or one envelope opens a deal at each stage."}

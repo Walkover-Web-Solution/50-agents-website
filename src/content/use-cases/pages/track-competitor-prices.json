@@ -6,7 +6,10 @@
   "title": "Competitor price monitoring with a browser agent | 50agents",
   "description": "To monitor competitor prices automatically, a browser agent reads each pricing page every day at 9:00 and tells you which price changed, from what to what.",
   "h1": "Monitor competitor prices automatically",
-  "h2": { "how": "How the browser agent monitors competitor prices", "compare": "Other ways to monitor competitor prices" },
+  "h2": {
+    "how": "How the browser agent monitors competitor prices",
+    "compare": "Other ways to monitor competitor prices"
+  },
   "answer": [
     "To monitor competitor prices automatically, tell Captain \"Set up a browser agent that checks my competitors' pricing pages every day at 9:00\".",
     "It builds a browser agent that reports price changes; it only reads, so nothing needs approval."
@@ -16,21 +19,54 @@
     "name": "Price watch",
     "line": "competitor pricing pages, read every morning",
     "when": "Every day at 9:00",
-    "does": ["Opens each pricing page you name", "Compares prices with the last run", "Leaves a report of what changed"],
+    "does": [
+      "Opens each pricing page you name",
+      "Compares prices with the last run",
+      "Leaves a report of what changed"
+    ],
     "apps": [],
     "asksFirst": "A sign-in, if a page needs one"
   },
   "steps": [
-    { "key": "ask", "title": "You say it in one sentence", "body": "Tell Captain you want your competitors' pricing watched daily. It asks which sites to watch and which plans or products matter to you." },
-    { "key": "plan", "title": "Captain shows you the plan", "body": "A browser agent with a 9:00 schedule, your list of pricing pages and instructions to report every price that moved." },
-    { "key": "connect", "title": "You paste the web addresses", "body": "There is no app to connect. Give it the address of each competitor's pricing page. If a page needs a login, it asks you first." },
-    { "key": "run", "title": "It reads each page at 9:00", "body": "The browser agent opens every page in its own browser, reads the plans and prices, and checks them against what it saw last time." },
-    { "key": "result", "title": "You read the report", "body": "Each run leaves a report: prices that changed, from what to what, and plans added or dropped. A quiet day is one line." }
+    {
+      "key": "ask",
+      "title": "You say it in one sentence",
+      "body": "Tell Captain you want your competitors' pricing watched daily. It asks which sites to watch and which plans or products matter to you."
+    },
+    {
+      "key": "plan",
+      "title": "Captain shows you the plan",
+      "body": "A browser agent with a 9:00 schedule, your list of pricing pages and instructions to report every price that moved."
+    },
+    {
+      "key": "connect",
+      "title": "You paste the web addresses",
+      "body": "There is no app to connect. Give it the address of each competitor's pricing page. If a page needs a login, it asks you first."
+    },
+    {
+      "key": "run",
+      "title": "It reads each page at 9:00",
+      "body": "The browser agent opens every page in its own browser, reads the plans and prices, and checks them against what it saw last time."
+    },
+    {
+      "key": "result",
+      "title": "You read the report",
+      "body": "Each run leaves a report: prices that changed, from what to what, and plans added or dropped. A quiet day is one line."
+    }
   ],
   "run": [
-    { "when": "Today, 9:00", "did": "Read 3 pricing pages, 1 price changed" },
-    { "when": "Yesterday, 9:00", "did": "Read 3 pricing pages, no change" },
-    { "when": "Monday, 9:00", "did": "Read 3 pricing pages, a new plan on 1 site" }
+    {
+      "when": "Today, 9:00",
+      "did": "Read 3 pricing pages, 1 price changed"
+    },
+    {
+      "when": "Yesterday, 9:00",
+      "did": "Read 3 pricing pages, no change"
+    },
+    {
+      "when": "Monday, 9:00",
+      "did": "Read 3 pricing pages, a new plan on 1 site"
+    }
   ],
   "result": {
     "title": "Price watch: 1 change today",
@@ -41,34 +77,138 @@
     ]
   },
   "compare": {
-    "methods": ["By hand", "Page-watching tools", "Price-tracking platforms"],
+    "methods": [
+      "By hand",
+      "Page-watching tools",
+      "Price-tracking platforms"
+    ],
     "rows": [
-      { "label": "Set up", "cells": ["None", "Paste a URL, pick the area", "Match products to SKUs", "One sentence"] },
-      { "label": "Reads a pricing page like a person", "cells": ["Yes", "Partly", "Mostly for shops", "Yes"] },
-      { "label": "Tells you what changed in words", "cells": ["If you remember", "Highlights the page diff", "Yes, per product", "Yes, from what to what"] },
-      { "label": "Tracks thousands of products", "cells": ["No", "Partly", "Yes", "No, built for a few sites"] },
-      { "label": "Needs an app or API", "cells": ["No", "No", "Often a store connection", "No"] }
+      {
+        "label": "Set up",
+        "cells": [
+          "None",
+          "Paste a URL, pick the area",
+          "Match products to SKUs",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "Reads a pricing page like a person",
+        "cells": [
+          "Yes",
+          "Partly",
+          "Mostly for shops",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Tells you what changed in words",
+        "cells": [
+          "If you remember",
+          "Highlights the page diff",
+          "Yes, per product",
+          "Yes, from what to what"
+        ]
+      },
+      {
+        "label": "Tracks thousands of products",
+        "cells": [
+          "No",
+          "Partly",
+          "Yes",
+          "No, built for a few sites"
+        ]
+      },
+      {
+        "label": "Needs an app or API",
+        "cells": [
+          "No",
+          "No",
+          "Often a store connection",
+          "No"
+        ]
+      }
     ],
     "sources": [
-      { "label": "Visualping", "href": "https://visualping.io/pricing" },
-      { "label": "Distill", "href": "https://distill.io/pricing/" },
-      { "label": "Prisync", "href": "https://prisync.com/competitor-price-monitoring/" },
-      { "label": "Pricefy", "href": "https://www.pricefy.io/features/competitors-monitoring" }
+      {
+        "label": "Visualping",
+        "href": "https://visualping.io/pricing"
+      },
+      {
+        "label": "Distill",
+        "href": "https://distill.io/pricing/"
+      },
+      {
+        "label": "Prisync",
+        "href": "https://prisync.com/competitor-price-monitoring/"
+      },
+      {
+        "label": "Pricefy",
+        "href": "https://www.pricefy.io/features/competitors-monitoring"
+      }
     ]
   },
   "faqs": [
-    { "q": "How often should I check competitor prices?", "a": "Daily suits most software and service pricing, and it is what this ask sets up. If your rivals reprice many times a day, a dedicated price-tracking platform fits better. [How to monitor competitor prices automatically](/guides/how-to-monitor-competitor-prices-automatically) covers the setup in any tool." },
-    { "q": "Do I need to connect an app or an API?", "a": "No. A browser agent works from web addresses alone, in its own browser, the way you would. You only name the pages." },
-    { "q": "What about pages that need a login?", "a": "A browser agent cannot log in for you without your OK. It asks first, so a members-only price list stays under your control." },
-    { "q": "Will it tell me when a price drops as well as rises?", "a": "Yes. The report lists each change with the old and the new price. Ask for only drops, or only certain plans, in one sentence." },
-    { "q": "Where do I see the result?", "a": "On the browser agent's page in 50agents, where each run leaves its report. It runs on a schedule, so the report is there when you start your day." }
+    {
+      "q": "How often should I check competitor prices?",
+      "a": "Daily suits most software and service pricing, and it is what this ask sets up. If your rivals reprice many times a day, a dedicated price-tracking platform fits better. [How to monitor competitor prices automatically](/guides/how-to-monitor-competitor-prices-automatically) covers the setup in any tool."
+    },
+    {
+      "q": "Do I need to connect an app or an API?",
+      "a": "No. A browser agent works from web addresses alone, in its own browser, the way you would. You only name the pages."
+    },
+    {
+      "q": "What about pages that need a login?",
+      "a": "A browser agent cannot log in for you without your OK. It asks first, so a members-only price list stays under your control."
+    },
+    {
+      "q": "Will it tell me when a price drops as well as rises?",
+      "a": "Yes. The report lists each change with the old and the new price. Ask for only drops, or only certain plans, in one sentence."
+    },
+    {
+      "q": "Where do I see the result?",
+      "a": "On the browser agent's page in 50agents, where each run leaves its report. It runs on a schedule, so the report is there when you start your day."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Tell Captain which pages to watch, read the plan, and tap Build it."
+    },
+    {
+      "q": "What if a page changes layout or the price is hard to read?",
+      "a": "The browser agent reads the page the way you would. Tell it which plan or price to watch, and ask it to flag anything it cannot read so you can look yourself."
+    },
+    {
+      "q": "How long does setup take?",
+      "a": "One sentence to Captain and the addresses of the pages you want watched. There is no app to connect, so you can tap Build it right after you read the plan."
+    },
+    {
+      "q": "How do I stop or change it?",
+      "a": "Tell Captain to change the pages, the time or what counts as a change. It only reads, so nothing it does ever waits for approval."
+    }
   ],
   "variations": [
-    { "ask": "Set up a browser agent that checks my competitors' pricing pages every Monday at 9:00 and tells me when a price changes", "change": "Checks once a week" },
-    { "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me only when a price drops by more than 10%", "change": "Only drops over 10%" },
-    { "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price, a plan or a feature changes", "change": "Watches plans and features too" },
-    { "ask": "Set up a browser agent that checks the prices of my competitors' best-selling products every day at 9:00 and tells me when one changes", "change": "Product prices, not pricing pages" }
+    {
+      "ask": "Set up a browser agent that checks my competitors' pricing pages every Monday at 9:00 and tells me when a price changes",
+      "change": "Checks once a week"
+    },
+    {
+      "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me only when a price drops by more than 10%",
+      "change": "Only drops over 10%"
+    },
+    {
+      "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price, a plan or a feature changes",
+      "change": "Watches plans and features too"
+    },
+    {
+      "ask": "Set up a browser agent that checks the prices of my competitors' best-selling products every day at 9:00 and tells me when one changes",
+      "change": "Product prices, not pricing pages"
+    }
   ],
-  "tags": ["pricing", "competitors", "browser", "research"],
+  "tags": [
+    "pricing",
+    "competitors",
+    "browser",
+    "research"
+  ],
   "updated": "2026-11-19"
 }

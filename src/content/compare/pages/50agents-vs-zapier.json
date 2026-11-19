@@ -64,6 +64,22 @@
     {
       "q": "Does 50agents have code steps?",
       "a": "No. Steps are fixed blocks. Zapier has JavaScript and Python steps."
+    },
+    {
+      "q": "How do the prices differ?",
+      "a": "50agents is free to start. Zapier's free plan has 100 tasks a month, and Professional is $19.99 a month billed yearly for 750 tasks."
+    },
+    {
+      "q": "Can I move my data over from Zapier?",
+      "a": "Team and Enterprise accounts can export Zaps as JSON. 50agents has no import for them, so describe each job to Captain. Records go in as a pasted table or a CSV or Excel file."
+    },
+    {
+      "q": "Which suits jobs on websites with no app?",
+      "a": "50agents browser agents read and use websites that have no app to connect. The Zapier Agents Chrome extension works on the page you have open."
+    },
+    {
+      "q": "Does 50agents ask before acting?",
+      "a": "Yes. Anything that reaches people outside your business waits for your yes. Zapier has Human in the Loop on Professional and up."
     }
   ],
   "related": [

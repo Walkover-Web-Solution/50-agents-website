@@ -6,6 +6,37 @@
   "title": "How much automation costs: tasks, credits, runs | 50agents",
   "description": "Automation tools charge in tasks, credits, executions or runs, and the unit decides the bill. Each tool’s unit, its entry price, and one job costed.",
   "h1": "How much automation costs: credits, tasks and runs compared",
+  "cover": {
+    "scene": "panel",
+    "panel": {
+      "label": "One workflow, 600 runs a month",
+      "look": "list",
+      "rows": [
+        {
+          "cells": [
+            "Zapier",
+            "1,200 tasks"
+          ],
+          "bar": 0.67
+        },
+        {
+          "cells": [
+            "Make",
+            "1,800 credits"
+          ],
+          "bar": 1
+        },
+        {
+          "cells": [
+            "n8n",
+            "600 runs"
+          ],
+          "bar": 0.33,
+          "tag": "Fewest"
+        }
+      ]
+    }
+  },
   "answer": [
     "Most tools sell a monthly plan with a number of units: tasks, credits, executions or runs.",
     "What one unit counts differs, so the same workflow can cost several times more in one tool than another."
@@ -15,18 +46,47 @@
     "root": {
       "q": "What do your workflows look like?",
       "options": [
-        { "label": "One or two steps", "then": { "answer": "Any unit; compare the free tiers", "why": "For short workflows tasks, credits and runs cost about the same. A free tier may cover you.", "kind": "auto" } },
+        {
+          "label": "One or two steps",
+          "then": {
+            "answer": "Any unit; compare the free tiers",
+            "why": "For short workflows tasks, credits and runs cost about the same. A free tier may cover you.",
+            "kind": "auto"
+          }
+        },
         {
           "label": "Many steps, or loops over lists",
           "then": {
             "q": "Can someone on the team run a server?",
             "options": [
-              { "label": "Yes", "then": { "answer": "Self-hosted n8n", "why": "Free to use; you pay for the server and someone's time for updates and backups.", "kind": "auto" } },
-              { "label": "No", "then": { "answer": "A tool that charges per whole run", "why": "n8n cloud and Activepieces count the whole workflow once, however many steps it has.", "kind": "auto", "href": "/guides/zapier-vs-make-vs-n8n-for-a-small-team" } }
+              {
+                "label": "Yes",
+                "then": {
+                  "answer": "Self-hosted n8n",
+                  "why": "Free to use; you pay for the server and someone's time for updates and backups.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "No",
+                "then": {
+                  "answer": "A tool that charges per whole run",
+                  "why": "n8n cloud and Activepieces count the whole workflow once, however many steps it has.",
+                  "kind": "auto",
+                  "href": "/guides/zapier-vs-make-vs-n8n-for-a-small-team"
+                }
+              }
             ]
           }
         },
-        { "label": "Mostly AI steps", "then": { "answer": "Test AI credits on real inputs", "why": "AI work is priced by how much it reads and writes. Run it 10 times on real inputs and read the usage log.", "kind": "ai" } }
+        {
+          "label": "Mostly AI steps",
+          "then": {
+            "answer": "Test AI credits on real inputs",
+            "why": "AI work is priced by how much it reads and writes. Run it 10 times on real inputs and read the usage log.",
+            "kind": "ai"
+          }
+        }
       ]
     }
   },
@@ -37,17 +97,43 @@
       "body": [
         {
           "table": {
-            "head": ["Unit", "One unit is", "Used by"],
+            "head": [
+              "Unit",
+              "One unit is",
+              "Used by"
+            ],
             "rows": [
-              ["Task", "One successful action step", "Zapier"],
-              ["Operation credit", "One module on one item", "Make"],
-              ["Execution or run", "The whole workflow, any length", "n8n, Activepieces"],
-              ["AI credit", "A slice of AI work", "Lindy, Gumloop, most AI agent builders"],
-              ["Seat or bot", "A person or robot, with limits", "Microsoft Power Automate"]
+              [
+                "Task",
+                "One successful action step",
+                "Zapier"
+              ],
+              [
+                "Operation credit",
+                "One module on one item",
+                "Make"
+              ],
+              [
+                "Execution or run",
+                "The whole workflow, any length",
+                "n8n, Activepieces"
+              ],
+              [
+                "AI credit",
+                "A slice of AI work",
+                "Lindy, Gumloop, most AI agent builders"
+              ],
+              [
+                "Seat or bot",
+                "A person or robot, with limits",
+                "Microsoft Power Automate"
+              ]
             ]
           }
         },
-        { "p": "Zapier does not count triggers, filters or failed steps. In Make, a step over 10 items is 10 credits." }
+        {
+          "p": "Zapier does not count triggers, filters or failed steps. In Make, a step over 10 items is 10 credits."
+        }
       ]
     },
     {
@@ -56,34 +142,84 @@
       "body": [
         {
           "table": {
-            "head": ["Tool", "Free", "First paid plan"],
+            "head": [
+              "Tool",
+              "Free",
+              "First paid plan"
+            ],
             "rows": [
-              ["Zapier", "100 tasks a month", "$19.99 a month yearly, 750 tasks"],
-              ["n8n cloud", "Trial, 1,000 executions", "€20 a month yearly, 2,500 executions"],
-              ["Activepieces", "1,000 credits", "$20 a month, 10,000 credits"],
-              ["IFTTT", "1,000 credits a month", "$2.09 a month yearly, 5,000 credits"],
-              ["Power Automate", "30-day trial", "$15 per user a month, yearly"],
-              ["Lindy", "$50 of credits for 7 days", "From $29.99 a month per user"],
-              ["Gumloop", "14-day trial", "$37 a month, 20,000 credits"]
+              [
+                "Zapier",
+                "100 tasks a month",
+                "$19.99 a month yearly, 750 tasks"
+              ],
+              [
+                "n8n cloud",
+                "Trial, 1,000 executions",
+                "€20 a month yearly, 2,500 executions"
+              ],
+              [
+                "Activepieces",
+                "1,000 credits",
+                "$20 a month, 10,000 credits"
+              ],
+              [
+                "IFTTT",
+                "1,000 credits a month",
+                "$2.09 a month yearly, 5,000 credits"
+              ],
+              [
+                "Power Automate",
+                "30-day trial",
+                "$15 per user a month, yearly"
+              ],
+              [
+                "Lindy",
+                "$50 of credits for 7 days",
+                "From $29.99 a month per user"
+              ],
+              [
+                "Gumloop",
+                "14-day trial",
+                "$37 a month, 20,000 credits"
+              ]
             ]
           }
         },
-        { "p": "One workflow, a trigger, a lookup and an add-row step, run 600 times a month: Zapier counts 1,200 tasks (past the 750 plan), Make about 1,800 credits (past the free 1,000), n8n 600 executions (inside Starter's 2,500), Activepieces 600 credits (inside its free 1,000)." }
+        {
+          "p": "One workflow, a trigger, a lookup and an add-row step, run 600 times a month: Zapier counts 1,200 tasks (past the 750 plan), Make about 1,800 credits (past the free 1,000), n8n 600 executions (inside Starter's 2,500), Activepieces 600 credits (inside its free 1,000)."
+        }
       ]
     }
   ],
   "method": {
     "h2": "How to estimate what automation will cost you",
     "steps": [
-      { "title": "List each workflow and its runs a month", "body": "Orders a month, emails a day times 22 working days, and so on." },
+      {
+        "title": "List each workflow and its runs a month",
+        "body": "Orders a month, emails a day times 22 working days, and so on."
+      },
       {
         "title": "Count the billable steps per run",
         "body": "Use each tool's rules from the table above.",
-        "note": { "type": "warn", "text": "Loops multiply: a step over 5 line items is 5 units in some tools.", "about": "auto" }
+        "note": {
+          "type": "warn",
+          "text": "Loops multiply: a step over 5 line items is 5 units in some tools.",
+          "about": "auto"
+        }
       },
-      { "title": "Add AI steps separately", "body": "AI work is priced by how much it reads and writes. Run it 10 times and read the usage log." },
-      { "title": "Add 30% for growth and retries", "body": "Busy months and retried runs happen." },
-      { "title": "Check what happens at the limit", "body": "Some tools stop your workflows; some charge more. Know which before it happens." }
+      {
+        "title": "Add AI steps separately",
+        "body": "AI work is priced by how much it reads and writes. Run it 10 times and read the usage log."
+      },
+      {
+        "title": "Add 30% for growth and retries",
+        "body": "Busy months and retried runs happen."
+      },
+      {
+        "title": "Check what happens at the limit",
+        "body": "Some tools stop your workflows; some charge more. Know which before it happens."
+      }
     ]
   },
   "captain": {
@@ -92,17 +228,62 @@
     "useCase": "stripe-payments-to-google-sheets"
   },
   "wrong": [
-    { "title": "Counting steps the wrong way", "body": "A five-step Zap is four tasks, because the trigger is free; a Make step over a list costs one credit per item. Read each tool's rule.", "about": "auto" },
-    { "title": "Polling that costs when nothing happens", "body": "Some tools charge for checks that find nothing. Prefer instant triggers.", "about": "auto" },
-    { "title": "AI steps priced like fixed steps", "body": "An AI step that reads long emails costs far more than one that sorts a subject line. Test with real inputs.", "about": "ai" },
-    { "title": "Unused credits expire", "body": "Make's unused credits expire at the end of the term; Lindy's monthly credits do not roll over. Buy for your usual month, not your best.", "about": "ai" },
-    { "title": "Quotas stop the business", "body": "Running out mid-month stops order logging on your busiest day. Set an alert at 80%.", "about": "auto" }
+    {
+      "title": "Counting steps the wrong way",
+      "body": "A five-step Zap is four tasks, because the trigger is free; a Make step over a list costs one credit per item. Read each tool's rule.",
+      "about": "auto"
+    },
+    {
+      "title": "Polling that costs when nothing happens",
+      "body": "Some tools charge for checks that find nothing. Prefer instant triggers.",
+      "about": "auto"
+    },
+    {
+      "title": "AI steps priced like fixed steps",
+      "body": "An AI step that reads long emails costs far more than one that sorts a subject line. Test with real inputs.",
+      "about": "ai"
+    },
+    {
+      "title": "Unused credits expire",
+      "body": "Make's unused credits expire at the end of the term; Lindy's monthly credits do not roll over. Buy for your usual month, not your best.",
+      "about": "ai"
+    },
+    {
+      "title": "Quotas stop the business",
+      "body": "Running out mid-month stops order logging on your busiest day. Set an alert at 80%.",
+      "about": "auto"
+    }
   ],
   "faqs": [
-    { "q": "How much does Zapier cost per task?", "a": "On Professional billed yearly, $19.99 buys 750 tasks, about 2.7 cents a task. Larger tiers cost less per task." },
-    { "q": "Is a run cheaper than a task?", "a": "For long workflows, yes: one run covers every step, where tasks or operations count each one. For one-step workflows they are about the same." },
-    { "q": "What does an AI agent cost per run?", "a": "It depends on how much it reads and writes. Run your AI agent on real inputs a few times and read the usage log; most builders show it per run." }
+    {
+      "q": "How much does Zapier cost per task?",
+      "a": "On Professional billed yearly, $19.99 buys 750 tasks, about 2.7 cents a task. Larger tiers cost less per task."
+    },
+    {
+      "q": "Is a run cheaper than a task?",
+      "a": "For long workflows, yes: one run covers every step, where tasks or operations count each one. For one-step workflows they are about the same."
+    },
+    {
+      "q": "What does an AI agent cost per run?",
+      "a": "It depends on how much it reads and writes. Run your AI agent on real inputs a few times and read the usage log; most builders show it per run."
+    },
+    {
+      "q": "Do failed runs cost anything?",
+      "a": "It depends on the tool. Zapier does not count failed steps. Other tools bill what ran before the failure, and some browser tools do not count failures against their runtime. Check this before you pick a plan."
+    },
+    {
+      "q": "Do unused credits roll over?",
+      "a": "Usually not. Most plans reset their tasks, credits or executions each month, so a quiet month does not pay for a busy one. Size the plan for a normal month plus about 30% for growth and retries."
+    },
+    {
+      "q": "What happens when I hit the monthly limit?",
+      "a": "Some tools pause your workflows until the next cycle; others charge for the extra. Know which before it happens, because a paused order or payment log stops quietly."
+    }
   ],
-  "related": ["zapier-vs-make-vs-n8n-for-a-small-team", "how-to-choose-an-ai-agent-builder", "what-to-automate-first-in-a-small-business"],
+  "related": [
+    "zapier-vs-make-vs-n8n-for-a-small-team",
+    "how-to-choose-an-ai-agent-builder",
+    "what-to-automate-first-in-a-small-business"
+  ],
   "updated": "2026-11-19"
 }

@@ -6,6 +6,37 @@
   "title": "How to build an invoice tracker (columns, rules) | 50agents",
   "description": "Build an invoice tracker with eight columns, five statuses and two formulas, days late and amount still due, then a Late view and a weekly check.",
   "h1": "How to build an invoice tracker",
+  "cover": {
+    "scene": "panel",
+    "panel": {
+      "label": "Late, oldest first",
+      "look": "sheet",
+      "rows": [
+        {
+          "cells": [
+            "Bright Co",
+            "$860",
+            "31 days"
+          ],
+          "tag": "Late"
+        },
+        {
+          "cells": [
+            "Acme Ltd",
+            "$1,200",
+            "9 days"
+          ]
+        },
+        {
+          "cells": [
+            "Owed",
+            "$2,060",
+            ""
+          ]
+        }
+      ]
+    }
+  },
   "answer": [
     "Keep one row per invoice with eight columns, five statuses, and a Late view of unpaid invoices past due, oldest first.",
     "Mark Paid the day money arrives, and it tells you who owes you and since when."
@@ -145,6 +176,18 @@
     {
       "q": "Should I use my accounting app instead?",
       "a": "If every invoice is raised there, yes: it already tracks payments. A separate tracker earns its place when invoices come from several places or you want reminders drafted for you."
+    },
+    {
+      "q": "What statuses should an invoice have?",
+      "a": "Five cover most cases: Draft, Sent, Reminded, Paid and Written off. Make Status a dropdown so the Late view and the totals stay correct."
+    },
+    {
+      "q": "How do I record a part payment?",
+      "a": "Do not mark it Paid. Add the amount still due and a status for part payments, so the Late view and your reminders show what is really owed."
+    },
+    {
+      "q": "Should bills I pay go in the same tracker?",
+      "a": "No. Keep invoices you send and bills you pay in separate lists. Mixed together, the totals stop meaning anything."
     }
   ],
   "related": [

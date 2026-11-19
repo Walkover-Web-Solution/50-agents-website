@@ -1,8 +1,1 @@
-{
-  "usedFor": "Calendly is where people book time with you; HubSpot keeps the contact record. Each booking or cancellation in Calendly can write to HubSpot through “Create or Update Contact”.",
-  "bestTemplate": {
-    "name": "“New Meeting Book or Invitee Created” in Calendly, then “Create or Update Contact” in HubSpot",
-    "why": "Whoever books gets into the CRM, or is updated if they exist, matched by email, so you never double-enter."
-  },
-  "watchOut": "“Create or Update Contact” matches on email. “Invitee Canceled” also fires it, so a cancel and a booking from the same person both touch the same contact."
-}
+{"usedFor":"Everyone who books on Calendly lands in HubSpot as a new or updated contact.","bestTemplate":{"name":"“New Meeting Book or Invitee Created” in Calendly, then “Create or Update Contact” in HubSpot","why":"It matches on email, so a repeat booker updates the existing contact instead of duplicating it."},"watchOut":"“Invitee Canceled” also fires “Create or Update Contact”, so a cancel and a booking touch the same contact."}

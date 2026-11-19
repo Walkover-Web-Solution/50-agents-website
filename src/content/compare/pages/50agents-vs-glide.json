@@ -66,6 +66,22 @@
     {
       "q": "Which connects to more services?",
       "a": "Glide works with more than 1,000 services. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "How do the prices differ?",
+      "a": "50agents is free to start. Glide's Basic plan is $25 a month and Plus is $50 a month."
+    },
+    {
+      "q": "Can I move my Glide data into 50agents?",
+      "a": "Any table in a Glide project exports to CSV. In 50agents, drop a CSV or Excel file into an app and Captain matches the columns."
+    },
+    {
+      "q": "Which suits an app built from a spreadsheet?",
+      "a": "GlideOS builds internal apps from spreadsheets, prompts or files. In 50agents you tell Captain what you need, and AI agents run the app."
+    },
+    {
+      "q": "Does 50agents have automations?",
+      "a": "Yes. Automations run the same steps on an event or a schedule. Glide has Workflows on paid plans."
     }
   ],
   "related": [

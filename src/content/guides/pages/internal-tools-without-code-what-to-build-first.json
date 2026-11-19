@@ -6,6 +6,38 @@
   "title": "Internal tools without code: what to build first | 50agents",
   "description": "Which internal tool to build first without code: score your sheets and inbox routines by how often, how many people and how costly a miss is.",
   "h1": "Internal tools without code: what to build first",
+  "cover": {
+    "scene": "panel",
+    "panel": {
+      "label": "What to build first",
+      "look": "compare",
+      "head": [
+        "Candidate",
+        "Score"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Requests desk",
+            "11 of 12"
+          ],
+          "tag": "First"
+        },
+        {
+          "cells": [
+            "Stock count",
+            "8 of 12"
+          ]
+        },
+        {
+          "cells": [
+            "Leave tracker",
+            "6 of 12"
+          ]
+        }
+      ]
+    }
+  },
   "answer": [
     "Build first the tool that replaces a daily routine several people share, where a miss costs money.",
     "Keep version one to one list, two or three views and one automatic step, with a named owner."
@@ -179,6 +211,18 @@
     {
       "q": "How do I stop an internal tool from becoming a mess?",
       "a": "One owner, a short list of fields, and a rule that every new view or step replaces something rather than adds to it."
+    },
+    {
+      "q": "Who should own an internal tool?",
+      "a": "One named person who fixes it when it breaks and decides what changes. Tools without an owner rot within a few months."
+    },
+    {
+      "q": "When do we retire the old spreadsheet?",
+      "a": "The day the tool goes live. Archive the sheet or the label, because two systems for one job means the new one loses."
+    },
+    {
+      "q": "How many views does version one need?",
+      "a": "Two or three: the list you work from daily, a board by status, and everything. Not ten."
     }
   ],
   "related": [

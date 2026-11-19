@@ -85,7 +85,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
         </section>
       )}
 
-      <Final h2={`Build on your ${c.short} apps`} p="Tell Captain the job in plain words. Free to start." ask={ask} page={page} campaign={C} />
+      <Final h2={`Build on your ${c.short} apps`} p="One sentence to Captain. Free to start." ask={ask} page={page} campaign={C} />
 
       <StickyBar><span>{c.name} apps</span><BuildLink page={page} place="sticky" campaign={C} ask={ask} className="btn">Build it</BuildLink></StickyBar>
     </div>

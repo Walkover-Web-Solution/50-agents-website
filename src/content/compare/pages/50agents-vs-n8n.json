@@ -64,6 +64,22 @@
     {
       "q": "Does 50agents have code steps?",
       "a": "No. Steps are fixed blocks. n8n has a code node in JavaScript or Python."
+    },
+    {
+      "q": "How do the prices differ?",
+      "a": "50agents is free to start. n8n has no free cloud plan: a trial with 1,000 executions, then Starter at €20 a month billed yearly for 2.5K executions."
+    },
+    {
+      "q": "Can I move my workflows over?",
+      "a": "Each n8n workflow downloads as JSON. 50agents has no import for it, so describe each job to Captain and check the plan it shows."
+    },
+    {
+      "q": "Which suits people who do not code?",
+      "a": "n8n is a workflow builder for technical teams. In 50agents you tell Captain what you need in plain words."
+    },
+    {
+      "q": "Does 50agents have AI agents?",
+      "a": "Yes. An AI agent has instructions, connected apps, a schedule or trigger, and its own chat. n8n has an AI Agent node on all plans."
     }
   ],
   "related": [

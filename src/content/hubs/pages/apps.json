@@ -28,6 +28,14 @@
       "asksFirst": "Every email to a lead"
     }
   },
+  "asks": [
+    "Track my leads and follow up",
+    "Chase my unpaid invoices",
+    "Keep track of customer requests and draft the replies",
+    "Build me an app to track our equipment: what it is, who has it, since when and its condition",
+    "Build me an app for my reading list with title, author and status on a board, and my notes on each book",
+    "Build me an app for the bills I need to pay, with vendor, amount and due date, sorted so the ones due soonest come first"
+  ],
   "useCases": "One per recipe today: leads, customer requests and invoices.",
   "apps": [
     "gmail",
@@ -52,11 +60,27 @@
     },
     {
       "q": "What can't an app do yet?",
-      "a": "It cannot stay linked to a Google Sheet, show charts or a calendar, or be published to people outside your workspace. It does not sync with an accounting or CRM app unless an automation is built for it."
+      "a": "It cannot stay linked to a Google Sheet or show charts or a calendar yet. It does not sync with an accounting or CRM app unless an automation is built for it."
     },
     {
       "q": "Can I change the app after it is built?",
       "a": "Yes, by asking in its chat: add a field, a screen or a duty. Each change is a version with Undo, and removing a field never deletes the records behind it."
+    },
+    {
+      "q": "Is it free to start?",
+      "a": "Yes. 50agents is free to start: describe the app to Captain, check the plan and tap Build it."
+    },
+    {
+      "q": "How do I get my records in?",
+      "a": "Add them by hand, paste a table, or drop a CSV or Excel file and Captain matches the columns to the fields. A file import keeps one record per email address today."
+    },
+    {
+      "q": "What screens does an app have?",
+      "a": "Lists of records with typed fields, shown as a board grouped by a choice field with totals, or as a table you can search and sort. The Overview shows the numbers that matter."
+    },
+    {
+      "q": "When do the AI agents in an app act?",
+      "a": "On a record event: a record added, a field becoming a value, or a date passing by a number of days. A duty that emails someone outside the business waits in Needs you: Approve and send, Change, or Decline."
     }
   ],
   "links": [

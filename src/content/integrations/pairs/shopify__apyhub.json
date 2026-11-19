@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify collects customer emails; ApyHub checks them. A “New Customer” style event, or an “Abandoned Checkout”, can run “Validate Email” so you know the address is real.",
-  "bestTemplate": {
-    "name": "“Abandoned Checkout” in Shopify, then “Validate Email” in ApyHub",
-    "why": "The checkout carries an email, and “Validate Email” checks its format and MX records so recovery messages only go to deliverable addresses."
-  },
-  "watchOut": "“Validate Email” blocks disposable emails unless you turn that off, so real test addresses can fail. “Abandoned Checkout” is polling, so the check follows the next poll."
-}
+{"usedFor":"Shopify checkouts and customers get their email checked by ApyHub.","bestTemplate":{"name":"“Abandoned Checkout” in Shopify, then “Validate Email” in ApyHub","why":"The checkout carries an email, so recovery messages only reach addresses that pass the check."},"watchOut":"“Validate Email” blocks disposable emails unless you turn that off, so real test addresses can fail."}

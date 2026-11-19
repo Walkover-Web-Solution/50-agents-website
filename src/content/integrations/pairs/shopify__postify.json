@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify generates the product news; Postify plans and publishes it to social channels. A “New Product” in Shopify can run “Create Post” so a listing becomes a post.",
-  "bestTemplate": {
-    "name": "“New Product” in Shopify, then “Create Post” in Postify",
-    "why": "A new product turns into a draft, scheduled or live post for the channels you choose, which is the most direct way to announce it."
-  },
-  "watchOut": "“Reschedule Post” moves an existing post, so it needs one already created and cannot start a post from a Shopify event. “Abandoned Checkout” is polling."
-}
+{"usedFor":"Postify turns each new Shopify listing into a social post, planned for the channels you pick.","bestTemplate":{"name":"“New Product” in Shopify, then “Create Post” in Postify","why":"The post can be a draft, scheduled or live, which is the most direct way to announce a product."},"watchOut":"“Reschedule Post” only moves a post Postify already has, so it cannot be what a Shopify event starts."}

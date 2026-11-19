@@ -1,8 +1,1 @@
-{
-  "usedFor": "Stripe is where customers and payments are created; MailChimp is the audience you email. A “New Customer Created” in Stripe can run “Add Tags to Audience Member” so buyers are tagged in your list.",
-  "bestTemplate": {
-    "name": "“New Customer Created” in Stripe, then “Add Tags to Audience Member” in MailChimp",
-    "why": "A tag keyed on the customer's email lets you segment paying customers from everyone else, and “Payment Link Created” can feed the same action."
-  },
-  "watchOut": "“Add Tags to Audience Member” finds the person by email, so the Stripe customer needs an email that already exists in the MailChimp audience. Both triggers here are pushed, not polled."
-}
+{"usedFor":"New Stripe customers are tagged in your MailChimp audience.","bestTemplate":{"name":"“New Customer Created” in Stripe, then “Add Tags to Audience Member” in MailChimp","why":"A tag keyed on the email lets you segment paying customers from everyone else."},"watchOut":"“Add Tags to Audience Member” finds people by email, so the address must already be in MailChimp."}

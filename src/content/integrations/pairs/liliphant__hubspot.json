@@ -1,8 +1,1 @@
-{
-  "usedFor": "Liliphant handles customer conversations and meetings; HubSpot is where you record the outcome. A “New Analyzed Meeting Summary” in Liliphant can run “Add Notes to Contact” so the summary lands on the right person.",
-  "bestTemplate": {
-    "name": "“New Analyzed Meeting Summary” in Liliphant, then “Add Notes to Contact” in HubSpot",
-    "why": "The summary is the content worth keeping, and this action saves it as a note on the contact, found by ID or email, with a date and body."
-  },
-  "watchOut": "“New Analyzed Meeting Summary” is polling, so notes arrive after the next check. “Update Company” needs a company ID, and “Create Contact” needs an email."
-}
+{"usedFor":"Each Liliphant meeting summary is saved as a note on the person in HubSpot.","bestTemplate":{"name":"“New Analyzed Meeting Summary” in Liliphant, then “Add Notes to Contact” in HubSpot","why":"The summary is worth keeping, saved as a dated note found by ID or email."},"watchOut":"“New Analyzed Meeting Summary” polls, so HubSpot notes arrive after the next check."}

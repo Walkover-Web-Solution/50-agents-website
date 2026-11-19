@@ -6,7 +6,10 @@
   "title": "Follow up HubSpot deals with no reply | 50agents",
   "description": "To follow up HubSpot deals with no reply, an AI agent checks every weekday at 9:00, finds the quiet ones and drafts a Gmail follow-up you approve first.",
   "h1": "Follow up HubSpot deals with no reply",
-  "h2": { "how": "How it finds quiet HubSpot deals and drafts the follow-up", "compare": "Other ways to follow up quiet HubSpot deals" },
+  "h2": {
+    "how": "How it finds quiet HubSpot deals and drafts the follow-up",
+    "compare": "Other ways to follow up quiet HubSpot deals"
+  },
   "answer": [
     "To follow up quiet HubSpot deals, tell Captain \"Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00\".",
     "It drafts each follow-up in Gmail and sends nothing until you approve."
@@ -170,13 +173,41 @@
     {
       "q": "Does it run the moment a contact goes quiet?",
       "a": "No. An AI agent runs on a schedule, here every weekday at 9:00, or when you ask it in its chat. It does not react to each email as it arrives."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Tell Captain what you want, read the plan, and tap Build it. The AI agent is not built before that."
+    },
+    {
+      "q": "What if it drafts a follow-up to the wrong person?",
+      "a": "It is only a draft. Each one waits in Needs you with the contact and deal it matched, so you can change it or decline it before anything is sent."
+    },
+    {
+      "q": "Does it work with Pipedrive or Salesforce instead of HubSpot?",
+      "a": "Both are in the catalog, and 50agents works with 2,300+ apps through viaSocket. Name your CRM in your sentence to Captain and ask what it can read."
+    },
+    {
+      "q": "How do I stop or change it?",
+      "a": "Tell its chat what to change, such as the wait or the tone of the follow-up. Its instructions and memory are visible, so you can correct or forget anything it learned."
     }
   ],
   "variations": [
-    { "ask": "Set up an AI agent that finds my HubSpot deals over $5,000 with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve", "change": "Only deals over $5,000" },
-    { "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 10 days every Monday at 9:00 and drafts a follow-up email for me to approve", "change": "Weekly, after 10 quiet days" },
-    { "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a short, no-pressure follow-up for me to approve", "change": "A lighter, shorter follow-up" },
-    { "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up in Microsoft Outlook", "change": "Drafts in Outlook, not Gmail" }
+    {
+      "ask": "Set up an AI agent that finds my HubSpot deals over $5,000 with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+      "change": "Only deals over $5,000"
+    },
+    {
+      "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 10 days every Monday at 9:00 and drafts a follow-up email for me to approve",
+      "change": "Weekly, after 10 quiet days"
+    },
+    {
+      "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a short, no-pressure follow-up for me to approve",
+      "change": "A lighter, shorter follow-up"
+    },
+    {
+      "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up in Microsoft Outlook",
+      "change": "Drafts in Outlook, not Gmail"
+    }
   ],
   "tags": [
     "sales",

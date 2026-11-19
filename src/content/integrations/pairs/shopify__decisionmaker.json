@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify sends the store events and Decision Maker judges them. A “New Customer” or “Order Cancelled” in Shopify can feed “Decision Maker”, which answers a yes/no, choice or score question and returns a confidence value.",
-  "bestTemplate": {
-    "name": "“Order Cancelled” in Shopify, then “Decision Maker” in Decision Maker",
-    "why": "A cancellation is a moment that needs a call. “Decision Maker” turns the order into a decision with a confidence value you can route on, for example sorting refunds from mistakes."
-  },
-  "watchOut": "“Abandoned Checkout” is polling, so it reaches Decision Maker on a schedule. “Decision Maker” only returns a decision and a confidence value; whatever should happen next is a separate step you add."
-}
+{"usedFor":"Cancelled Shopify orders go to Decision Maker for a yes/no, choice or score.","bestTemplate":{"name":"“Order Cancelled” in Shopify, then “Decision Maker” in Decision Maker","why":"A cancellation needs a call, and the confidence value lets you route refunds apart from mistakes."},"watchOut":"“Decision Maker” only returns a decision and confidence value, so any follow-up action is a separate step."}

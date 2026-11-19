@@ -97,7 +97,7 @@ for (const p of pages) {
   else p.strengths.forEach(s => { max(s.title, 5, `strength "${s.title}" title`); max(s.line, 16, `strength "${s.title}" line`); if (!FACES.has(s.face)) bad.push(`strength face ${s.face}`); });
   if (p.move.length < 3 || p.move.length > 4) bad.push('move not 3 or 4 steps');
   p.move.forEach(m => { max(m.title, 5, `move "${m.title}" title`); max(m.body, 16, `move "${m.title}" body`); });
-  if (p.faqs.length < 3 || p.faqs.length > 4) bad.push('faqs not 3 or 4');
+  if (p.faqs.length < 6 || p.faqs.length > 9) bad.push('faqs not 6 to 9 (D260)');
   p.faqs.forEach(f => max(plain(f.a), 40, `faq "${f.q}"`));
   // SEO pass 01: the description leads with the query and the answer; a table heading that carries the query is a short line;
   // links in answers are internal and live
@@ -178,7 +178,7 @@ for (const p of pages) {
     if (j >= 0.5) bad.push(`overlaps ${q.slug} (${j.toFixed(2)})`);
   }
   // length: short pages, but never empty (the table's facts.ts cells are not counted)
-  const [min, cap] = p.type === 'alternatives' ? [200, 520] : [170, 460];
+  const [min, cap] = p.type === 'alternatives' ? [200, 720] : [170, 640];
   if (words(all) < min) bad.push(`only ${words(all)} words of its own (min ${min})`);
   if (words(all) > cap) bad.push(`${words(all)} words: too text-heavy (max ${cap})`);
   if (bad.length) failed++;

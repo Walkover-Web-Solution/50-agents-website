@@ -97,6 +97,22 @@
     {
       "q": "Should I move to Pipedream?",
       "a": "Pipedream says Workflows and String are shutting down, so new workflows there would need moving again."
+    },
+    {
+      "q": "What does Activepieces cost?",
+      "a": "Free has 1,000 credits, unlimited flows and up to 5 users. Plus is $20 a month flat for 10,000 credits and up to 5 users."
+    },
+    {
+      "q": "Which alternative builds from a plain request?",
+      "a": "50agents: tell Captain what you need. n8n has an AI Assistant that helps create and edit workflows, and Make has Maia in public beta."
+    },
+    {
+      "q": "Which alternative lists the most apps?",
+      "a": "Activepieces has 770+ apps. Make lists 3,500+ and n8n 2,829 integrations. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "How do I move Activepieces flows?",
+      "a": "Rebuild each flow in the new tool, starting with the one that runs most often. In 50agents, describe the flow to Captain and check its plan."
     }
   ],
   "related": [

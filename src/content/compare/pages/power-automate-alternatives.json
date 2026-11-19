@@ -105,6 +105,22 @@
     {
       "q": "How many connectors does Power Automate have?",
       "a": "Microsoft lists more than 1,400 prebuilt connectors. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "What does Power Automate cost?",
+      "a": "Premium is $15 per user a month, paid yearly. Process is $150 per bot a month, paid yearly, for unattended RPA."
+    },
+    {
+      "q": "How do I export Power Automate flows?",
+      "a": "Flows export as a package (.zip) or inside a solution. Use the export as your checklist when you rebuild elsewhere."
+    },
+    {
+      "q": "Which alternative suits Microsoft 365?",
+      "a": "Power Automate is built into Microsoft 365, with approvals and process mining."
+    },
+    {
+      "q": "Which alternative suits enterprise RPA?",
+      "a": "UiPath builds enterprise robotic process automation and AI agents. Its Community plan is free forever, and Basic starts at $25 a month."
     }
   ],
   "related": [

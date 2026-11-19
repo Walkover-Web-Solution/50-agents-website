@@ -1,8 +1,1 @@
-{
-  "usedFor": "AutoQuote3D produces orders and quotes for a print shop; Telegram is a chat. A “New Quote” or “New Order” in AutoQuote3D can be answered in a Telegram chat with “Reply To Message”.",
-  "bestTemplate": {
-    "name": "“New Quote” in AutoQuote3D, then “Reply To Message” in Telegram",
-    "why": "It sends the quote details into a Telegram conversation as a reply, which suits a shop that quotes inside chat."
-  },
-  "watchOut": "“Reply To Message” replies to a specific message in a chat, so you need that chat and message ID available. Both AutoQuote3D triggers poll, so the reply lags a bit."
-}
+{"usedFor":"A “New Quote” in AutoQuote3D is answered in a Telegram chat with “Reply To Message”.","bestTemplate":{"name":"“New Quote” in AutoQuote3D, then “Reply To Message” in Telegram","why":"It puts quote details into a Telegram conversation, which suits a shop that quotes in chat."},"watchOut":"Both AutoQuote3D triggers poll, so the Telegram reply lags a bit."}

@@ -6,6 +6,41 @@
   "title": "How to automate invoice reminders (any tool) | 50agents",
   "description": "Automate invoice reminders in four parts: one list of open invoices, a rule for who is due a nudge, a message per stage, and a stop the moment money lands.",
   "h1": "How to automate invoice reminders",
+  "cover": {
+    "scene": "pipe",
+    "from": {
+      "app": "google-sheets",
+      "label": "Open invoices",
+      "rows": [
+        {
+          "cells": [
+            "INV-1042",
+            "$1,200"
+          ],
+          "tag": "Overdue"
+        },
+        {
+          "cells": [
+            "INV-1043",
+            "$480"
+          ]
+        }
+      ]
+    },
+    "via": "Every morning",
+    "to": {
+      "app": "gmail",
+      "label": "Reminder sent",
+      "rows": [
+        {
+          "cells": [
+            "Acme Ltd, INV-1042"
+          ]
+        }
+      ]
+    },
+    "down": true
+  },
   "answer": [
     "Keep one list of open invoices with a due date and status, and email only those sent, unpaid and past due.",
     "If every invoice sits in one accounting app, use its reminders; if not, an automation or AI agent."
@@ -179,6 +214,18 @@
     {
       "q": "Can I automate reminders without an accounting app?",
       "a": "Yes. A spreadsheet with a Status column is enough for an automation or an AI agent to read each day. The cost is that you keep Paid up to date by hand."
+    },
+    {
+      "q": "How many reminders should I send?",
+      "a": "A first nudge a day or two after the due date, then one every week or two, firmer each time, then a final notice. Three or four in all is common; after that, a call works better than another email."
+    },
+    {
+      "q": "What if the client pays part of the invoice?",
+      "a": "Add a Part paid status and an amount still due, and quote that amount in the next reminder. A full-amount reminder after a part payment reads as careless."
+    },
+    {
+      "q": "Should reminders come from my own address?",
+      "a": "Yes. Send from the inbox you read, so replies come back to you. A client who answers with a payment date should reach a person, not a no-reply address."
     }
   ],
   "related": [

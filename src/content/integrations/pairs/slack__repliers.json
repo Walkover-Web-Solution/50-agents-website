@@ -1,8 +1,1 @@
-{
-  "usedFor": "Slack is where a team mentions new buyers in conversation, and Repliers holds the real estate clients. A “New Message Posted in Channel Instant” in Slack can run “Create Client” in Repliers, with contact details and tags.",
-  "bestTemplate": {
-    "name": "“New Message Posted in Channel Instant” in Slack, then “Create Client” in Repliers",
-    "why": "A channel for new buyer requests suits this, because the trigger is pushed as the message lands and “Create Client” takes contact details and tags. “New Mention” is polling and waits for its schedule."
-  },
-  "watchOut": "“New Message Posted in Channel Instant” includes bot messages and skips thread replies and edits. Details added later in a thread never reach “Create Client”, so keep them in the first message."
-}
+{"usedFor":"A new buyer mentioned in a Slack channel becomes a Repliers client with tags.","bestTemplate":{"name":"“New Message Posted in Channel Instant” in Slack, then “Create Client” in Repliers","why":"The trigger is pushed as the message lands, and the action takes contact details and tags."},"watchOut":"Details added later in a thread never reach “Create Client”, so keep them in the first message."}

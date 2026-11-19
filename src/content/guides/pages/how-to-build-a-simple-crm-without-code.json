@@ -6,6 +6,40 @@
   "title": "How to build a simple CRM without code | 50agents",
   "description": "How to build a simple CRM without code: ten fields, five stages, a next follow-up date on every open lead and a daily list of who to contact next.",
   "h1": "How to build a simple CRM without code",
+  "cover": {
+    "scene": "board",
+    "label": "Pipeline",
+    "columns": [
+      {
+        "name": "New",
+        "cards": [
+          {
+            "title": "Bloom Studio"
+          },
+          {
+            "title": "Hart & Co"
+          }
+        ]
+      },
+      {
+        "name": "Contacted",
+        "cards": [
+          {
+            "title": "Nordic Tiles",
+            "tag": "Follow up today"
+          }
+        ]
+      },
+      {
+        "name": "Won",
+        "cards": [
+          {
+            "title": "Oak Dental"
+          }
+        ]
+      }
+    ]
+  },
   "answer": [
     "Make one list of leads with about ten fields, five stages, and a next follow-up date on every open lead.",
     "Sort by that date each morning, and get new leads in from email and forms without typing."
@@ -192,6 +226,18 @@
     {
       "q": "When should I move to a real CRM?",
       "a": "When several people work the same leads, when you need email tracking and sequences, or when follow-ups keep slipping despite the sheet."
+    },
+    {
+      "q": "How many stages should a simple CRM have?",
+      "a": "Five is enough: New, Contacted, Replied, Won, Lost. Make Stage a dropdown so it sorts and counts. More stages mean more arguments about where a lead belongs."
+    },
+    {
+      "q": "How do I stop duplicate leads?",
+      "a": "Use email as the key. Search before adding by hand, and make imports and automations update the existing lead when the email matches."
+    },
+    {
+      "q": "How often should I review the pipeline?",
+      "a": "Sort Follow up by date every morning, and look at the whole pipeline once a week. Move dead leads to Lost so the open ones stay visible."
     }
   ],
   "related": [

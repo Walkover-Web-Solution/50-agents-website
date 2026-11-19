@@ -1,7 +1,7 @@
 // An integration page, v3 round 2 (D253, D254): one template for every app in viaSocket's catalog. The six flagships are
 // filled from the JSON the page pipeline wrote (src/content/integrations/pages, scripts/pages); every other app from its
 // catalog data (words.ts templatePage). Hero with the app's best template typed into Captain (no plan card), the four
-// kinds, triggers and actions as tabs in a box that scrolls inside itself, templates in the same box, pairings,
+// kinds, triggers and actions in two equal columns with "Load more", templates with "Load more" (D260), pairings,
 // questions. No dates and no source lines on the page. Every visual is drawn from the data.
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
@@ -81,7 +81,7 @@ export default async function IntegrationPageView({ params }: { params: Promise<
         <KindCards kinds={p.kinds} page={slug} campaign={C} />
       </section>
 
-      {/* Triggers and actions: two tabs, one search, a box that scrolls inside itself */}
+      {/* Triggers and actions: two equal columns, one search, "Load more" in each (D260) */}
       {app.events.length > 0 && (
         <section className="wrap sec" id="triggers-and-actions">
           <div className="sec-h c"><h2>{N} triggers and actions</h2><p>A trigger starts the work; actions are the steps in {N}.</p></div>
@@ -115,7 +115,7 @@ export default async function IntegrationPageView({ params }: { params: Promise<
         <Questions faqs={p.faqs} />
       </section>
 
-      <Final h2={`Build on ${N}`} p={<>Tell Captain &ldquo;{p.ask}&rdquo;, or the job in your own words. Free to start.</>} ask={p.ask} page={slug} campaign={C} />
+      <Final h2={`Build on ${N}`} p="One sentence to Captain. Free to start." ask={p.ask} page={slug} campaign={C} />
 
       <StickyBar><span>{N} in 50agents</span><BuildLink page={slug} place="sticky" campaign={C} ask={p.ask} className="btn">Build it</BuildLink></StickyBar>
     </div>

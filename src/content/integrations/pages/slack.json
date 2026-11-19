@@ -159,6 +159,26 @@
   {
    "q": "How is this different from Slackbot?",
    "a": "Slack calls Slackbot its built-in AI agent for personal productivity, on its Business+ and Enterprise+ plans. 50agents uses Slack as one of your apps, so the work can start in HubSpot, Stripe or Google Calendar and land in the channel. For finding a decision in old threads, Slackbot works where the messages are and needs nothing set up."
+  },
+  {
+   "q": "Does a new Slack message start the work at once?",
+   "a": "“New Message Posted in Channel Instant” and “New Thread Message Instant” fire as messages arrive in the channels you choose. “New Message in Channels”, “New Mention” and the other message triggers are checked on a schedule."
+  },
+  {
+   "q": "Can it ask the team to approve something in Slack?",
+   "a": "Yes. “Send Interactive Message” posts buttons or a form, so people answer in Slack instead of opening another app."
+  },
+  {
+   "q": "Can it message one person directly?",
+   "a": "Yes. “Send Direct Message” sends a DM, and “Get User Information” finds the person by email or name first."
+  },
+  {
+   "q": "Can it start when someone mentions it?",
+   "a": "Yes. “New Mention” runs when someone mentions your Slack app or user in a channel you belong to. It is checked on a schedule, so the reply is not instant."
+  },
+  {
+   "q": "Can it create channels or canvases?",
+   "a": "Yes. “Create Channel”, “Create Private Channel” and “Create Canvas” make new ones, and “Add Users to Channel” invites people to a channel."
   }
  ],
  "sources": [

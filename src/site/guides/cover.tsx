@@ -1,155 +1,178 @@
-// A guide's cover, v6 (D258, Jii's round 4: "too much blob usage"). One small, calm visual element built from the guide's
-// own data, drawn in ink and hairlines with one soft accent (the kind's tint): a mini flow of the apps it connects, a mini
-// table from its first table, a chat bubble with its ask, an approval card, an inbox row, a browser frame, a chooser fork
-// or its first steps. No crowds of faces: at most a few guides carry one small blob, Captain (the yellow lead), where
-// Captain is the point. Server HTML, sized by container units so a card, the featured guide and a phone all read the same.
-import { Face, KINDS } from '../parts';
-import { findUseCase } from './parts';
-import { plain } from './rich';
-import type { GuidePage } from './types';
+// A guide's cover, v7 (D260, Jii's round 5: "all guide previews and these images should be according to the guide or
+// else they look the same"). Each guide's JSON carries a typed `cover` (./types.ts GuideCover) saying what to draw: its
+// real apps (catalog logos), its key object (an overdue invoice row, a Stripe payment going into a sheet, a Shopify order,
+// a calendar day, a pricing page whose price changed, an inbox with a draft) and its few words. A small set of scene
+// components draws it in ink and hairlines with one soft accent (the kind's tint). Captain's blob only where the cover
+// says so. Server HTML, sized in container units so a card, the featured guide and a phone read the same.
+// Before that, v6 (D258): the scene came from the category, so covers of one category looked alike.
+import { AppLogo, Face, KINDS } from '../parts';
+import { appIcon, appName } from '../usecase/apps-data';
+import type { CoverPanel, CoverRow, GuideCover as Cover, GuidePage } from './types';
 
-type Scene = 'chat' | 'approve' | 'flow' | 'table' | 'list' | 'inbox' | 'browser' | 'fork';
+const Logo = ({ app }: { app: string }) => <span className="cv-lg"><AppLogo app={app} icon={appIcon(app)} size={24} /></span>;
+const Tick = () => <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.4l3 3L14.5 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+const Captain = () => <span className="cv-cap"><Face id="lead" size={40} /></span>;
+const Tag = ({ t }: { t?: string }) => (t ? <span className="cv-tag">{t}</span> : null);
+const Arrow = ({ down }: { down?: boolean }) => (
+  <svg className="cv-arr" viewBox={down ? '0 0 12 28' : '0 0 28 12'} aria-hidden="true">
+    {down ? <path d="M6 1v25M1.5 21.5 6 26l4.5-4.5" /> : <path d="M1 6h25M21.5 1.5 26 6l-4.5 4.5" />}
+  </svg>
+);
+const Mark = ({ m }: { m?: 'yes' | 'no' }) => (m ? <span className={`cv-mk ${m}`}>{m === 'yes' ? <Tick /> : <i />}</span> : null);
 
-// The guide picks its scene from its category; a few pick another one that shows their own data better.
-const PICK: Record<string, Scene> = {
-  'ai-agent-vs-automation-which-one-you-need': 'fork',
-  'how-to-make-an-ai-agent-ask-before-it-acts': 'approve',
-  'how-to-draft-email-replies-with-ai-and-still-check-them': 'approve',
-  'how-to-give-an-ai-agent-access-to-your-apps-safely': 'list',
-  'how-to-automate-invoice-reminders': 'inbox',
-  'how-to-automate-lead-follow-up-from-gmail': 'list',
-  'how-to-build-a-customer-requests-desk-from-your-inbox': 'inbox',
-  'internal-tools-without-code-what-to-build-first': 'fork',
-  'how-to-choose-an-ai-agent-builder': 'list',
-  'how-much-automation-costs-credits-tasks-and-runs-compared': 'table',
-  'zapier-vs-make-vs-n8n-for-a-small-team': 'table',
-};
-// Where Captain is the point: the only covers with a blob.
-const CAPTAIN = new Set(['how-to-build-an-ai-agent-without-code', 'how-to-write-instructions-for-an-ai-agent', 'how-to-make-an-ai-agent-ask-before-it-acts']);
-
-const APP: Record<string, string> = { gmail: 'Gmail', 'google-sheets': 'Google Sheets', hubspot: 'HubSpot', slack: 'Slack', stripe: 'Stripe', shopify: 'Shopify', 'google-calendar': 'Google Calendar' };
-const appName = (s: string) => APP[s] ?? s.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-
-const firstTable = (g: GuidePage) => g.sections.flatMap(s => s.body).find((b): b is { table: { head: string[]; rows: string[][] } } => 'table' in b)?.table;
-
-function sceneOf(g: GuidePage): Scene {
-  if (PICK[g.slug]) return PICK[g.slug];
-  const apps = findUseCase(g.captain.useCase)?.build.apps ?? [];
-  switch (g.group) {
-    case 'AI agents': return 'chat';
-    case 'Automations': return apps.length > 1 ? 'flow' : firstTable(g) ? 'table' : 'list';
-    case 'Browser agents': return 'browser';
-    case 'Apps': return firstTable(g) ? 'table' : 'list';
-    case 'Email and calendar': return apps.length > 1 ? 'flow' : 'inbox';
-    case 'Choosing tools': return g.chooser ? 'fork' : firstTable(g) ? 'table' : 'list';
-  }
+function Row({ r, look }: { r: CoverRow; look: NonNullable<CoverPanel['look']> }) {
+  if (look === 'doc') return <div className={r.tag || r.on ? 'on' : undefined}><span className="l">{r.cells[0]}</span><span className="v">{r.cells[1]}</span><Tag t={r.tag} /></div>;
+  return (
+    <div className={r.tag || r.on ? 'on' : undefined}>
+      {r.app && <Logo app={r.app} />}
+      {r.cells.map((c, i) => <span key={i} className={i === 0 ? 'c f' : 'c'}>{c}</span>)}
+      {r.bar !== undefined && <span className="cv-bar"><i style={{ width: `${Math.round(r.bar * 100)}%` }} /></span>}
+      <Mark m={r.mark} />
+      <Tag t={r.tag} />
+    </div>
+  );
 }
 
-const Tick = () => <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.4l3 3L14.5 7" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>;
-const Bars = ({ n = 3 }: { n?: number }) => <span className="cv-bars">{Array.from({ length: n }, (_, i) => <i key={i} />)}</span>;
-const Captain = () => <span className="cv-cap"><Face id="lead" size={40} /></span>;
+/** The shared panel: an app's logo and a label over its rows. */
+function Panel({ p, small }: { p: CoverPanel; small?: boolean }) {
+  const look = p.look ?? 'list';
+  const cols = Math.max(...p.rows.map(r => r.cells.length), p.head?.length ?? 0);
+  return (
+    <div className={`cv-card cv-pnl cv-${look}${small ? ' sm' : ''}`} style={{ ['--cols' as string]: cols }}>
+      <div className="cv-hd">{p.app && <Logo app={p.app} />}<b>{p.label}</b></div>
+      {look === 'sheet' && <div className="cl">{Array.from({ length: cols }, (_, i) => <span key={i}>{String.fromCharCode(65 + i)}</span>)}</div>}
+      {look === 'compare' && p.head && <div className="th">{p.head.map((h, i) => <span key={i}>{h}</span>)}</div>}
+      <div className="rs">{p.rows.map((r, i) => <Row key={i} r={r} look={look} />)}</div>
+    </div>
+  );
+}
 
-function Chat({ g }: { g: GuidePage }) {
-  const ask = findUseCase(g.captain.useCase)?.ask ?? g.captain.ask ?? g.h1;
+function Pipe({ c }: { c: Extract<Cover, { scene: 'pipe' }> }) {
+  return (
+    <div className={`cv-pipe${c.down ? ' down' : ''}`}>
+      <Panel p={c.from} small />
+      <span className="mid"><Arrow down={c.down} />{c.via && <em>{c.via}</em>}</span>
+      <Panel p={c.to} small />
+    </div>
+  );
+}
+
+function Message({ c }: { c: Extract<Cover, { scene: 'message' }> }) {
+  return (
+    <div className="cv-card cv-msg">
+      <div className="cv-hd"><Logo app={c.app} /><span>{c.where}</span><Tag t={c.tag} /></div>
+      <b>{c.subject}</b>
+      <div className="ls">{c.lines.map(l => <p key={l}>{l}</p>)}</div>
+      {c.buttons && <span className="cv-btns"><span className="on">{c.buttons[0]}</span><span>{c.buttons[1]}</span></span>}
+      {c.captain && <Captain />}
+    </div>
+  );
+}
+
+function Calendar({ c }: { c: Extract<Cover, { scene: 'calendar' }> }) {
+  return (
+    <div className="cv-cal">
+      <div className="cv-card day">
+        <div className="cv-hd"><Logo app={c.app} /><b>{c.day}</b></div>
+        <ol>{c.events.map(e => <li key={e.time}><span className="t">{e.time}</span><span className="e">{e.title}</span></li>)}</ol>
+      </div>
+      <Arrow />
+      <div className="cv-card post">
+        <div className="cv-hd"><Logo app={c.to.app} /><b>{appName(c.to.app)}</b></div>
+        <p>{c.to.text}</p>
+      </div>
+    </div>
+  );
+}
+
+function Page({ c }: { c: Extract<Cover, { scene: 'page' }> }) {
+  return (
+    <div className={`cv-card cv-page ${c.look}`}>
+      <div className="bar"><i /><i /><i /><span>{c.url}</span></div>
+      <div className="bd">
+        <b className="ti">{c.title}</b>
+        {c.look === 'price' ? (
+          <div className="pr"><s>{c.was}</s><span className="now">{c.now}</span><Tag t={c.tag} /></div>
+        ) : c.look === 'form' ? (
+          <div className="fm">{c.rows.map((r, i) => <span key={i} className={r.tag || r.on ? 'on' : undefined}><em>{r.cells[0]}</em><span>{r.cells[1]}</span></span>)}</div>
+        ) : (
+          <div className="ls">{c.rows.map((r, i) => <Row key={i} r={r} look="list" />)}</div>
+        )}
+        {c.button && <span className="go">{c.button}</span>}
+      </div>
+      {c.look !== 'list' && <svg className="ptr" viewBox="0 0 16 22" aria-hidden="true"><path d="M1 1v17l4.5-4.5 3.5 7 3-1.5-3.5-7H15z" /></svg>}
+    </div>
+  );
+}
+
+function Chat({ c }: { c: Extract<Cover, { scene: 'chat' }> }) {
   return (
     <div className="cv-chat">
-      <p className="cv-me"><span>{ask}</span></p>
-      <div className="cv-ai">{CAPTAIN.has(g.slug) && <Captain />}<span className="cv-reply"><Bars /></span></div>
+      <p className="cv-me"><span>{c.ask}</span></p>
+      <div className="cv-ai">
+        <Captain />
+        <div className="cv-reply"><span className="aps">{c.apps.map(a => <Logo key={a} app={a} />)}</span><span>{c.reply}</span></div>
+      </div>
     </div>
   );
 }
 
-function Approve({ g }: { g: GuidePage }) {
-  const a = findUseCase(g.captain.useCase)?.approval;
+function Fork({ c }: { c: Extract<Cover, { scene: 'fork' }> }) {
   return (
-    <div className="cv-card cv-approve">
-      <span className="cv-k">Waiting for your OK</span>
-      <b>{a?.title ?? 'Send the draft reply'}</b>
-      {a?.lines[0] ? <p>{a.lines[0]}</p> : <Bars n={2} />}
-      <span className="cv-btns"><span className="on">{a?.button ?? 'Approve'}</span><span>Edit</span></span>
-      {CAPTAIN.has(g.slug) && <Captain />}
+    <div className="cv-fork">
+      <p className="q">{c.q}</p>
+      <ul>{c.options.map((o, i) => <li key={o} className={i === c.pick ? 'on' : undefined}>{i === c.pick && <Tick />}<span className="t">{o}</span></li>)}</ul>
     </div>
   );
 }
 
-function Flow({ g }: { g: GuidePage }) {
-  const uc = findUseCase(g.captain.useCase);
-  const apps = (uc?.build.apps ?? []).slice(0, 3);
+function Access({ c }: { c: Extract<Cover, { scene: 'access' }> }) {
   return (
-    <div className="cv-flow">
-      {uc && <span className="cv-k">{uc.build.when}</span>}
-      <ol>{apps.map((a, i) => <li key={a} className={i === apps.length - 1 ? 'on' : undefined}>{appName(a)}</li>)}</ol>
-    </div>
-  );
-}
-
-function Table({ g }: { g: GuidePage }) {
-  const t = firstTable(g)!;
-  const cols = Math.min(3, t.head.length);
-  return (
-    <div className="cv-card cv-table" style={{ ['--cols' as string]: cols }}>
-      <div className="h">{t.head.slice(0, cols).map((h, i) => <span key={i}>{h}</span>)}</div>
-      {t.rows.slice(0, 3).map((r, j) => <div key={j} className={j === 0 ? 'on' : undefined}>{r.slice(0, cols).map((c, i) => <span key={i}>{plain(c)}</span>)}</div>)}
-    </div>
-  );
-}
-
-function List({ g }: { g: GuidePage }) {
-  return (
-    <ol className="cv-card cv-list">
-      {g.method.steps.slice(0, 3).map((s, i) => <li key={s.title} className={i === 0 ? 'on' : undefined}><span className="n">{i === 0 ? <Tick /> : i + 1}</span><span className="t">{s.title}</span></li>)}
-    </ol>
-  );
-}
-
-function Inbox({ g }: { g: GuidePage }) {
-  const label = findUseCase(g.captain.useCase)?.build.name ?? 'Needs a reply';
-  return (
-    <div className="cv-card cv-inbox">
-      {[0, 1, 2].map(i => (
-        <div key={i} className={i === 1 ? 'on' : undefined}>
-          <i className="dot" /><Bars n={2} />{i === 1 && <span className="cv-tag">{label}</span>}
+    <div className="cv-card cv-acc">
+      <div className="cv-hd"><b>{c.label}</b></div>
+      {c.apps.map(a => (
+        <div key={a.app} className={a.on ? 'on' : undefined}>
+          <Logo app={a.app} /><span className="n">{appName(a.app)}</span><span className="a">{a.access}</span><i className="sw" />
         </div>
       ))}
     </div>
   );
 }
 
-function Browser({ g }: { g: GuidePage }) {
-  const form = /form/.test(g.slug);
+function Board({ c }: { c: Extract<Cover, { scene: 'board' }> }) {
   return (
-    <div className="cv-card cv-browser">
-      <div className="bar"><i /><i /><i /><span /></div>
-      {form ? (
-        <div className="form">{[0, 1, 2].map(i => <span key={i} className={i === 1 ? 'on' : undefined}><b /><em /></span>)}</div>
-      ) : (
-        <div className="tiles">{[0, 1, 2].map(i => <span key={i} className={i === 1 ? 'on' : undefined}><b /><Bars n={2} /></span>)}</div>
-      )}
-      <svg className="ptr" viewBox="0 0 16 22" aria-hidden="true"><path d="M1 1v17l4.5-4.5 3.5 7 3-1.5-3.5-7H15z" /></svg>
+    <div className="cv-board">
+      <div className="cv-hd">{c.app && <Logo app={c.app} />}<b>{c.label}</b></div>
+      <div className="cs" style={{ ['--cols' as string]: c.columns.length }}>
+        {c.columns.map(col => (
+          <div key={col.name} className="col">
+            <span className="nm">{col.name}</span>
+            {col.cards.map(k => <span key={k.title} className={`cd${k.tag ? ' on' : ''}`}><span>{k.title}</span><Tag t={k.tag} /></span>)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-function Fork({ g }: { g: GuidePage }) {
-  const c = g.chooser!.root;
-  const opts = c.options.slice(0, 3);
-  return (
-    <div className="cv-fork">
-      <p className="q">{c.q}</p>
-      <ul>{opts.map((o, i) => <li key={o.label} className={i === opts.length - 1 ? 'on' : undefined}>{i === opts.length - 1 && <Tick />}<span className="t">{o.label}</span></li>)}</ul>
-    </div>
-  );
+function Scene({ c }: { c: Cover }) {
+  switch (c.scene) {
+    case 'panel': return <Panel p={c.panel} />;
+    case 'pipe': return <Pipe c={c} />;
+    case 'message': return <Message c={c} />;
+    case 'calendar': return <Calendar c={c} />;
+    case 'page': return <Page c={c} />;
+    case 'chat': return <Chat c={c} />;
+    case 'fork': return <Fork c={c} />;
+    case 'access': return <Access c={c} />;
+    case 'board': return <Board c={c} />;
+  }
 }
-
-const DRAW: Record<Scene, (p: { g: GuidePage }) => React.ReactNode> = { chat: Chat, approve: Approve, flow: Flow, table: Table, list: List, inbox: Inbox, browser: Browser, fork: Fork };
 
 export function GuideCover({ g, size = 'card' }: { g: GuidePage; size?: 'card' | 'feature' }) {
-  let s = sceneOf(g);
-  if ((s === 'fork' && !g.chooser) || (s === 'table' && !firstTable(g))) s = 'list';
-  const Draw = DRAW[s];
   return (
-    <div className={`gcv gcv-${size} cv-${s}-s`} style={{ ['--k' as string]: KINDS[g.kind].tint }} aria-hidden="true">
-      <div className="gcv-in"><Draw g={g} /></div>
+    <div className={`gcv gcv-${size} cv-${g.cover.scene}-s`} style={{ ['--k' as string]: KINDS[g.kind].tint }} aria-hidden="true">
+      <div className="gcv-in"><Scene c={g.cover} /></div>
     </div>
   );
 }

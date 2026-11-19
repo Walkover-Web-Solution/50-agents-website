@@ -1,6 +1,6 @@
 // The directory of integrations, v3 round 2 (D254): laid out like viaSocket's own /integrations, in 50agents' look. A
 // centred head, then one panel: the categories down the left (a select on a phone) and every app in viaSocket's catalog
-// as a hairline grid, most used first, with one search and numbered pages. Every app is in the HTML; the pages only
+// as a hairline grid, most used first, with one search and numbered pages at the bottom of the box (D260). Every app is in the HTML; the pages only
 // hide the rest, so the page never grows.
 import type { Metadata } from 'next';
 import { Crumbs } from '@/site/parts';
@@ -36,14 +36,13 @@ export default function IntegrationsIndex() {
       <section className="wrap uc3-hero ig3-hero ig3-dir-hero">
         <h1>{TITLE}</h1>
         <p className="answer">50agents works with 2,300+ apps through viaSocket. Find yours to see its triggers, actions and templates for Captain.</p>
-        <div className="hero-cta ig3-dir-cta"><BuildLink page="integrations" place="hero" campaign="seo-index" ask={ASK} className="btn ghost">Not sure? Ask Captain</BuildLink></div>
       </section>
 
       <section className="wrap sec" aria-label="All apps">
         <DirectoryPanel apps={apps} current="/integrations" head={<h2>All apps</h2>} label="Search apps, such as HubSpot or Notion" />
       </section>
 
-      <Final h2="Not sure where to start?" p="Tell Captain which apps you use, and it says what it would build first. Free to start." ask={ASK} page="integrations" campaign="seo-index" button="Ask Captain" />
+      <Final h2="Not sure where to start?" p="One sentence to Captain. Free to start." ask={ASK} page="integrations" campaign="seo-index" button="Ask Captain" />
 
       <StickyBar><span>Every app 50agents works with</span><BuildLink page="integrations" place="sticky" campaign="seo-index" ask={ASK} className="btn">Ask Captain</BuildLink></StickyBar>
     </div>

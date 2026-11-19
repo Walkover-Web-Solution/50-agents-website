@@ -6,7 +6,10 @@
   "title": "Shopify orders to Google Sheets | 50agents",
   "description": "To send Shopify orders to Google Sheets, add a row per new order with its items and total, or one row per item. Captain sets it up from one sentence.",
   "h1": "Shopify orders to Google Sheets",
-  "h2": { "how": "How to send Shopify orders to Google Sheets", "compare": "Other ways to send Shopify orders to Google Sheets" },
+  "h2": {
+    "how": "How to send Shopify orders to Google Sheets",
+    "compare": "Other ways to send Shopify orders to Google Sheets"
+  },
   "answer": [
     "To send Shopify orders to Google Sheets, tell Captain \"Set up an automation: every new Shopify order is added as a row to my Google Sheet\".",
     "It builds an automation that writes only to your sheet, so nothing needs approval."
@@ -21,55 +24,199 @@
     "name": "Orders sheet",
     "line": "every Shopify order, rows you choose",
     "when": "When a new order is placed in Shopify",
-    "does": ["Lists each item, variant and quantity", "Adds one row per order or item", "Writes the order total"],
-    "apps": ["shopify", "google-sheets"],
+    "does": [
+      "Lists each item, variant and quantity",
+      "Adds one row per order or item",
+      "Writes the order total"
+    ],
+    "apps": [
+      "shopify",
+      "google-sheets"
+    ],
     "asksFirst": "Nothing outside your own sheet"
   },
   "steps": [
-    { "key": "ask", "title": "You say it, and pick the row shape", "body": "Tell Captain if you want one row per order or one per item. It asks which sheet to use." },
-    { "key": "plan", "title": "Captain shows you the plan", "body": "New Order starts it, the line items are listed, and Add New Row or Add Multiple Rows writes them. Cancellations can be a second automation." },
-    { "key": "connect", "title": "You connect Shopify and Google Sheets", "body": "Connect both once and pick the spreadsheet and tab. Put your column headings in row one so each value lands in its column." },
-    { "key": "run", "title": "An order comes in, rows appear", "body": "Per order, you get one row with the items joined in a cell. Per item, each line gets its own row with the order number repeated." },
-    { "key": "result", "title": "Your sheet keeps up with the shop", "body": "Filter by item, total a day's sales, or hand the sheet to whoever packs the orders." }
+    {
+      "key": "ask",
+      "title": "You say it, and pick the row shape",
+      "body": "Tell Captain if you want one row per order or one per item. It asks which sheet to use."
+    },
+    {
+      "key": "plan",
+      "title": "Captain shows you the plan",
+      "body": "New Order starts it, the line items are listed, and Add New Row or Add Multiple Rows writes them. Cancellations can be a second automation."
+    },
+    {
+      "key": "connect",
+      "title": "You connect Shopify and Google Sheets",
+      "body": "Connect both once and pick the spreadsheet and tab. Put your column headings in row one so each value lands in its column."
+    },
+    {
+      "key": "run",
+      "title": "An order comes in, rows appear",
+      "body": "Per order, you get one row with the items joined in a cell. Per item, each line gets its own row with the order number repeated."
+    },
+    {
+      "key": "result",
+      "title": "Your sheet keeps up with the shop",
+      "body": "Filter by item, total a day's sales, or hand the sheet to whoever packs the orders."
+    }
   ],
   "run": [
-    { "when": "Today, 12:18", "did": "Added 2 item rows for order 1047" },
-    { "when": "Today, 11:02", "did": "Added 1 item row for order 1046" },
-    { "when": "Yesterday, 20:15", "did": "Added 3 item rows for order 1044" }
+    {
+      "when": "Today, 12:18",
+      "did": "Added 2 item rows for order 1047"
+    },
+    {
+      "when": "Today, 11:02",
+      "did": "Added 1 item row for order 1046"
+    },
+    {
+      "when": "Yesterday, 20:15",
+      "did": "Added 3 item rows for order 1044"
+    }
   ],
   "result": {
     "title": "Rows added to Orders",
-    "lines": ["1047 | Grace Liu | Linen tote, Natural | 2 | 86.00", "1047 | Grace Liu | Enamel mug, Blue | 1 | 86.00", "1046 | Ben Ortiz | Wool socks, Medium | 1 | 24.00"]
+    "lines": [
+      "1047 | Grace Liu | Linen tote, Natural | 2 | 86.00",
+      "1047 | Grace Liu | Enamel mug, Blue | 1 | 86.00",
+      "1046 | Ben Ortiz | Wool socks, Medium | 1 | 24.00"
+    ]
   },
   "compare": {
-    "methods": ["Shopify's CSV export", "Zapier or Make", "A sheet sync app"],
+    "methods": [
+      "Shopify's CSV export",
+      "Zapier or Make",
+      "A sheet sync app"
+    ],
     "rows": [
-      { "label": "Set up", "cells": ["None", "A trigger and a row step", "Install and authorize", "One sentence"] },
-      { "label": "New orders arrive on their own", "cells": ["No, you export", "Yes", "Yes", "Yes, as each is placed"] },
-      { "label": "One row per item, or per order", "cells": ["Per item lines", "You build either", "Depends on the app", "You choose in the ask"] },
-      { "label": "Cancelled orders marked", "cells": ["Export again", "A separate scenario", "Depends on the app", "A second automation"] },
-      { "label": "Pulls in past orders", "cells": ["Yes", "No, new ones only", "Often yes", "No, new ones only"] }
+      {
+        "label": "Set up",
+        "cells": [
+          "None",
+          "A trigger and a row step",
+          "Install and authorize",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "New orders arrive on their own",
+        "cells": [
+          "No, you export",
+          "Yes",
+          "Yes",
+          "Yes, as each is placed"
+        ]
+      },
+      {
+        "label": "One row per item, or per order",
+        "cells": [
+          "Per item lines",
+          "You build either",
+          "Depends on the app",
+          "You choose in the ask"
+        ]
+      },
+      {
+        "label": "Cancelled orders marked",
+        "cells": [
+          "Export again",
+          "A separate scenario",
+          "Depends on the app",
+          "A second automation"
+        ]
+      },
+      {
+        "label": "Pulls in past orders",
+        "cells": [
+          "Yes",
+          "No, new ones only",
+          "Often yes",
+          "No, new ones only"
+        ]
+      }
     ],
     "sources": [
-      { "label": "Shopify Help Center", "href": "https://help.shopify.com/en/manual/fulfillment/managing-orders/exporting-orders" },
-      { "label": "Zapier", "href": "https://zapier.com/apps/google-sheets/integrations/shopify/255712444/copy-new-shopify-orders-to-google-sheets-ranges-with-each-new-order" },
-      { "label": "MESA", "href": "https://www.getmesa.com/templates/send-shopify-orders-to-google-sheets" },
-      { "label": "CodeWords", "href": "https://www.codewords.ai/blog/automate-shopify-order-to-google-sheets" }
+      {
+        "label": "Shopify Help Center",
+        "href": "https://help.shopify.com/en/manual/fulfillment/managing-orders/exporting-orders"
+      },
+      {
+        "label": "Zapier",
+        "href": "https://zapier.com/apps/google-sheets/integrations/shopify/255712444/copy-new-shopify-orders-to-google-sheets-ranges-with-each-new-order"
+      },
+      {
+        "label": "MESA",
+        "href": "https://www.getmesa.com/templates/send-shopify-orders-to-google-sheets"
+      },
+      {
+        "label": "CodeWords",
+        "href": "https://www.codewords.ai/blog/automate-shopify-order-to-google-sheets"
+      }
     ]
   },
   "faqs": [
-    { "q": "Should I use one row per order or one row per item?", "a": "One row per order suits daily totals. One row per item suits stock counts and best sellers, since you can filter by product or variant. Say which you want in your ask." },
-    { "q": "What happens when an order is cancelled?", "a": "Shopify has an Order Cancelled event. Build a second automation on it that finds the order's rows and marks them cancelled, so the totals stay honest." },
-    { "q": "What if the customer edits the items after ordering?", "a": "Shopify has an Order Line Items Are Edited event. A second automation on it can update the rows for that order. Without it, the sheet keeps the items from the moment the order was placed." },
-    { "q": "Can it only add paid orders?", "a": "Yes. New Order fires when an order is created, and Order Paid fires when it is paid. Tell Captain you want paid orders only." },
-    { "q": "Does it add my past orders?", "a": "No. It starts with the next order after you build it. For earlier ones, use Shopify's own export and paste the file into your sheet." }
+    {
+      "q": "Should I use one row per order or one row per item?",
+      "a": "One row per order suits daily totals. One row per item suits stock counts and best sellers, since you can filter by product or variant. Say which you want in your ask."
+    },
+    {
+      "q": "What happens when an order is cancelled?",
+      "a": "Shopify has an Order Cancelled event. Build a second automation on it that finds the order's rows and marks them cancelled, so the totals stay honest."
+    },
+    {
+      "q": "What if the customer edits the items after ordering?",
+      "a": "Shopify has an Order Line Items Are Edited event. A second automation on it can update the rows for that order. Without it, the sheet keeps the items from the moment the order was placed."
+    },
+    {
+      "q": "Can it only add paid orders?",
+      "a": "Yes. New Order fires when an order is created, and Order Paid fires when it is paid. Tell Captain you want paid orders only."
+    },
+    {
+      "q": "Does it add my past orders?",
+      "a": "No. It starts with the next order after you build it. For earlier ones, use Shopify's own export and paste the file into your sheet."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Tell Captain what you want, read the steps, and tap Build it."
+    },
+    {
+      "q": "What if a row is wrong or an order is missing?",
+      "a": "The automation writes only to your own sheet, so you can fix any row by hand. Check that your headings sit in row one, and ask Captain to adjust the columns if a value lands in the wrong place."
+    },
+    {
+      "q": "Can I send orders to Airtable or WooCommerce instead?",
+      "a": "A variation on this page writes to Airtable, and both Airtable and WooCommerce are in the catalog. Name your tools in your sentence to Captain."
+    },
+    {
+      "q": "How do I stop or change it?",
+      "a": "Tell Captain what to change, such as paid orders only or a new column. Because it writes only to your sheet, a change never asks for approval."
+    }
   ],
   "variations": [
-    { "ask": "Set up an automation: every new Shopify order over $100 is added as a row to my Google Sheet with its items and total", "change": "Only orders over $100" },
-    { "ask": "Set up an automation: every paid Shopify order is added as a row to my Google Sheet with its items and total", "change": "Adds orders once they are paid" },
-    { "ask": "Set up an automation: every new Shopify order is added as a record to my Airtable base with its items and total", "change": "Records go to Airtable, not Sheets" },
-    { "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet and posted in a Slack channel", "change": "Each order in Slack too, after your OK" }
+    {
+      "ask": "Set up an automation: every new Shopify order over $100 is added as a row to my Google Sheet with its items and total",
+      "change": "Only orders over $100"
+    },
+    {
+      "ask": "Set up an automation: every paid Shopify order is added as a row to my Google Sheet with its items and total",
+      "change": "Adds orders once they are paid"
+    },
+    {
+      "ask": "Set up an automation: every new Shopify order is added as a record to my Airtable base with its items and total",
+      "change": "Records go to Airtable, not Sheets"
+    },
+    {
+      "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet and posted in a Slack channel",
+      "change": "Each order in Slack too, after your OK"
+    }
   ],
-  "tags": ["ecommerce", "shopify", "google-sheets", "orders"],
+  "tags": [
+    "ecommerce",
+    "shopify",
+    "google-sheets",
+    "orders"
+  ],
   "updated": "2026-11-19"
 }

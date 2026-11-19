@@ -1,8 +1,1 @@
-{
- "usedFor": "Retime takes the bookings, and HubSpot holds the deals. When “New Event Booked” fires in Retime, “Create Deal” in HubSpot can start a deal for the guest who booked.",
- "bestTemplate": {
-  "name": "“New Event Booked” in Retime, then “Create Deal” in HubSpot",
-  "why": "A booked meeting is a real sign of interest, and “Create Deal” puts it in the pipeline. “Update Deal” needs a deal that already exists, which a first booking will not have."
- },
- "watchOut": "“New Event Booked” is polling and looks at events in the next 30 days, so a booking made for a date further out is not picked up until it falls inside that window."
-}
+{"usedFor":"Each guest who books through Retime gets a deal in HubSpot.","bestTemplate":{"name":"“New Event Booked” in Retime, then “Create Deal” in HubSpot","why":"A booked meeting signals real interest, and “Create Deal” puts it in the pipeline."},"watchOut":"“New Event Booked” only sees events in the next 30 days, so later bookings wait."}

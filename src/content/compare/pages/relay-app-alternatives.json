@@ -102,6 +102,22 @@
     {
       "q": "Which alternative is closest to Relay.app?",
       "a": "Look for approval steps. Zapier has Human in the Loop on Professional and up, and 50agents asks before any email reaches a client."
+    },
+    {
+      "q": "Which alternative is free to start?",
+      "a": "50agents is free to start. Activepieces has a Free plan with 1,000 credits and unlimited flows, and Make has 1,000 credits a month."
+    },
+    {
+      "q": "Can I rebuild my workflows in 50agents?",
+      "a": "Yes, by description. Tell Captain what each workflow did, and it shows a plan before it builds."
+    },
+    {
+      "q": "Which alternative can I self-host?",
+      "a": "n8n and Activepieces both run on your own servers."
+    },
+    {
+      "q": "How many apps do the alternatives connect?",
+      "a": "Zapier connects 10,541+ apps and Make 3,500+. n8n lists 2,829 integrations, and Activepieces has 770+. 50agents works with 2,300+ apps."
     }
   ],
   "related": [

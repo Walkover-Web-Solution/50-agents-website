@@ -1,8 +1,1 @@
-{
- "usedFor": "Google Ads is where your lead forms get filled in, and HubSpot is where the sales pipeline lives. “New Lead Form Submitted” in Google Ads can open a “Create Deal” in HubSpot.",
- "bestTemplate": {
-  "name": "“New Lead Form Submitted” in Google Ads, then “Create Deal” in HubSpot",
-  "why": "Google Ads pushes the form submission as it happens, and “Create Deal” puts that lead into the pipeline. The other actions edit records that already exist, which a brand new lead does not have yet."
- },
- "watchOut": "“Update Deal” and “Update Company” need the ID of an existing record, and “Add Notes to Contact” needs a contact ID or email. A fresh ad lead has none of these, so start with “Create Deal”."
-}
+{"usedFor":"Each Google Ads lead form submission opens a deal in HubSpot.","bestTemplate":{"name":"“New Lead Form Submitted” in Google Ads, then “Create Deal” in HubSpot","why":"Google Ads pushes the submission as it happens, and “Create Deal” puts it in the pipeline."},"watchOut":"A fresh ad lead has no ID for “Update Deal” or “Update Company”, so start with “Create Deal”."}

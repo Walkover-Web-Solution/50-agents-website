@@ -1,8 +1,1 @@
-{
-  "usedFor": "ClickUp and Trello both organise work. A “New/Updated Board” in Trello can create a matching list in ClickUp with “Create List”, and a new ClickUp task can be tagged in Trello with “Add Label To Card”.",
-  "bestTemplate": {
-    "name": "“New/Updated Board” in Trello, then “Create List” in ClickUp",
-    "why": "It gives every new Trello board a list in ClickUp, so teams moving between the two do not rebuild structure by hand."
-  },
-  "watchOut": "“New/Updated Board” polls and fires on updates, so one board can run twice and create a duplicate list. “Add Label To Card” attaches an existing label only."
-}
+{"usedFor":"A new Trello board gets a matching list in ClickUp.","bestTemplate":{"name":"“New/Updated Board” in Trello, then “Create List” in ClickUp","why":"It gives every new Trello board a ClickUp list, so nobody rebuilds structure by hand."},"watchOut":"“New/Updated Board” fires on updates too, so one Trello board can create a duplicate ClickUp list."}

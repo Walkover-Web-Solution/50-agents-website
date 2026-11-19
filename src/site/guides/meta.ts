@@ -17,3 +17,15 @@ export function guideWords(g: GuidePage) {
 export const readMinutes = (g: GuidePage) => Math.max(2, Math.round(guideWords(g) / 200));
 export const metaLine = (g: GuidePage) => `${readMinutes(g)} min read`;
 export const groupSlug = (group: string) => group.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+/** The guide hero's soft colour, from its category (D260, Jii's round 5: "a nice colour based on the guide, soft and
+ *  not too overwhelming"): very pale tints behind ink text, never orange. `tint` fills the short-answer box, `label`
+ *  the category label above the H1. */
+export const GROUP_TINT: Record<GuidePage['group'], { tint: string; label: string }> = {
+  'AI agents': { tint: '#EFF0FB', label: '#E0E3F7' },
+  Automations: { tint: '#FAF6E6', label: '#F2EAC8' },
+  'Browser agents': { tint: '#F3EFFB', label: '#E6DFF6' },
+  Apps: { tint: '#ECF4EF', label: '#D9EADF' },
+  'Email and calendar': { tint: '#EBF3F8', label: '#D8E8F2' },
+  'Choosing tools': { tint: '#F6EFF2', label: '#ECDDE3' },
+};

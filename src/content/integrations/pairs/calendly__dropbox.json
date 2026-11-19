@@ -1,8 +1,1 @@
-{
-  "usedFor": "Calendly records the meetings and Dropbox stores the files that belong with them. “When a meeting recap is created” in Calendly can run “Upload File to Dropbox”, saving a document once the call is over.",
-  "bestTemplate": {
-    "name": "“When a meeting recap is created” in Calendly, then “Upload File to Dropbox”",
-    "why": "A recap is created after the meeting, when notes or deliverables are ready to file, and the action lets you choose whether an existing file is added, replaced or updated."
-  },
-  "watchOut": "“Upload File to Dropbox” saves a file from a public web link, so the trigger has to supply one. “When a contact is deleted” also reaches it, which is rarely what you want."
-}
+{"usedFor":"“When a meeting recap is created” in Calendly files a document in Dropbox.","bestTemplate":{"name":"“When a meeting recap is created” in Calendly, then “Upload File to Dropbox”","why":"A recap exists after the meeting, when notes or deliverables are ready to file."},"watchOut":"“When a contact is deleted” also reaches “Upload File to Dropbox”, which is rarely what you want."}

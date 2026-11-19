@@ -1,8 +1,1 @@
-{
-  "usedFor": "Roma keeps lists, tasks and notes, and HubSpot keeps the sales pipeline. A “New Item” added to a Roma list can open a record with “Create Deal”, handy when prospects first get written down as list items.",
-  "bestTemplate": {
-    "name": "“New Item” in Roma, then “Create Deal” in HubSpot",
-    "why": "Roma pushes “New Item” as soon as someone adds one, so a prospect noted in a list reaches the HubSpot pipeline without being retyped."
-  },
-  "watchOut": "“Updated Item” and “Deleted Item” can run the same “Create Deal”, so a template built on those would create deals from edits and deletions. Pick “New Item” only."
-}
+{"usedFor":"Prospects noted as Roma list items become deals in HubSpot.","bestTemplate":{"name":"“New Item” in Roma, then “Create Deal” in HubSpot","why":"Roma pushes “New Item” when one is added, so the prospect reaches HubSpot without retyping."},"watchOut":"“Updated Item” and “Deleted Item” can run “Create Deal” too, so edits or deletions would create deals."}

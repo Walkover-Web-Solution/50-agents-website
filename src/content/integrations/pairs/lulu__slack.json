@@ -1,8 +1,1 @@
-{
-  "usedFor": "Lulu runs print-on-demand book orders, and Slack is where the team follows them. An “Updated Print Job Status” in Lulu can run “Send Direct Message” in Slack, so one person hears when a job moves.",
-  "bestTemplate": {
-    "name": "“Updated Print Job Status” in Lulu, then “Send Direct Message” in Slack",
-    "why": "The trigger is pushed when a print job changes status, so the person who ordered is told as it happens. The other direction, “Create and Submit Print Order”, ships real books, so test it first."
-  },
-  "watchOut": "“Create and Submit Print Order” started from a “New Message Posted in Channel Instant” ships to a customer, so a casual message can place an order. Keep that channel narrow. The trigger also includes bot messages."
-}
+{"usedFor":"When a Lulu print job changes status, one person gets a Slack direct message.","bestTemplate":{"name":"“Updated Print Job Status” in Lulu, then “Send Direct Message” in Slack","why":"The trigger is pushed on each Lulu status change, so the orderer hears at once."},"watchOut":"“Create and Submit Print Order” ships real books, so a casual Slack channel message could place one."}

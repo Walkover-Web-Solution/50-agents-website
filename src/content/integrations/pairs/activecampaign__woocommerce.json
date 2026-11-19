@@ -1,8 +1,1 @@
-{
-  "usedFor": "ActiveCampaign holds your marketing contacts, and WooCommerce runs the store. A “New Contact” in ActiveCampaign can run “Create Coupon” in WooCommerce to make a coupon for the person who just joined.",
-  "bestTemplate": {
-    "name": "“New Contact” in ActiveCampaign, then “Create Coupon” in WooCommerce",
-    "why": "A welcome offer is a common first touch, and the trigger is pushed when the contact is added. The coupon exists in the store before anyone is told about it."
-  },
-  "watchOut": "“Create Coupon” makes a new coupon on every run, so the store collects one per contact. If you want one shared code, create it once by hand."
-}
+{"usedFor":"A new ActiveCampaign contact gets their own coupon in WooCommerce.","bestTemplate":{"name":"“New Contact” in ActiveCampaign, then “Create Coupon” in WooCommerce","why":"The trigger is pushed, so the coupon exists in the store before anyone is told."},"watchOut":"“Create Coupon” makes a new coupon on every run, so for one shared code, create it by hand."}

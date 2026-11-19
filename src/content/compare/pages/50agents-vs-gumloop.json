@@ -64,6 +64,22 @@
     {
       "q": "Which connects to more tools?",
       "a": "Gumloop lists 100+ MCP integrations. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "How do the prices differ?",
+      "a": "50agents is free to start. Gumloop has a 14-day Pro trial that needs a card, then Pro is $37 a month for 20,000 credits."
+    },
+    {
+      "q": "Which suits a job on a logged-in website?",
+      "a": "Gumloop's AI agent browser has a credential vault with saved logins. 50agents browser agents run on a schedule, leave a report, and need your OK to log in."
+    },
+    {
+      "q": "Can I move my Gumloop AI agents over?",
+      "a": "There is no import. Note what each one does, then describe it to Captain, which shows a plan before it builds."
+    },
+    {
+      "q": "Does 50agents have code steps?",
+      "a": "No. Steps are fixed blocks. Gumloop has a code sandbox."
     }
   ],
   "related": [

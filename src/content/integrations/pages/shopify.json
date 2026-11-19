@@ -179,6 +179,26 @@
   {
    "q": "How is this different from Shopify’s Sidekick?",
    "a": "Sidekick is Shopify’s AI assistant in every plan; it works with your store data and takes actions in your Shopify admin. 50agents starts from a Shopify event and acts in the other apps you run the business on, such as Google Sheets, Gmail or Slack. For changes inside the store itself, Sidekick is already in your admin."
+  },
+  {
+   "q": "Does a new order reach 50agents straight away?",
+   "a": "Yes. “New Order”, “Order Paid” and most other Shopify triggers are webhooks, so they fire as the event happens. “Abandoned Checkout” and “New Blog Article” are checked on a schedule."
+  },
+  {
+   "q": "Can it fulfil orders or change stock?",
+   "a": "Yes. “Create Fulfillment” fulfils chosen items on an order, and “Adjust Inventory Quantity” sets or adjusts a variant’s count at one location, with a reason."
+  },
+  {
+   "q": "Can it act when an order is delivered or cancelled?",
+   "a": "Yes. “When an order is marked as delivered” and “Order Cancelled” are triggers. A message to the customer after either one waits for your approval."
+  },
+  {
+   "q": "Can it tag orders and customers?",
+   "a": "Yes. “Add Tag to an Order” adds tags to an order, and “Update Customer” changes a customer’s tags, contact details and addresses."
+  },
+  {
+   "q": "Can it create draft orders with a discount?",
+   "a": "Yes. “Create Draft Order” builds an order for a customer with products, quantities and optional discounts, and “Add Discount Code to Draft Order” adds a code to one."
   }
  ],
  "sources": [

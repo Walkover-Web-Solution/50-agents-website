@@ -1,8 +1,1 @@
-{
-  "usedFor": "Deals in ActiveCampaign can file paperwork in Dropbox. When “New Deal Added or Updated” fires, “Upload File to Dropbox” saves a document into a folder, so ActiveCampaign keeps the sales side and Dropbox keeps the files.",
-  "bestTemplate": {
-    "name": "“New Deal Added or Updated” in ActiveCampaign, then “Upload File to Dropbox”",
-    "why": "A deal change is when a proposal or contract copy usually needs filing, and the action saves a file from a public web link, with a choice to add, replace or update."
-  },
-  "watchOut": "“New Deal Added or Updated” fires on edits as well as new deals, so the same deal can upload twice. Set “Upload File to Dropbox” to replace or update an existing file."
-}
+{"usedFor":"Proposals and contract copies for ActiveCampaign deals are saved into a Dropbox folder whenever a deal is added or changes.","bestTemplate":{"name":"“New Deal Added or Updated” in ActiveCampaign, then “Upload File to Dropbox”","why":"It saves a file from a public web link on each deal change, with add, replace or update."},"watchOut":"Edits fire “New Deal Added or Updated” again, so set “Upload File to Dropbox” to replace or update, not add."}

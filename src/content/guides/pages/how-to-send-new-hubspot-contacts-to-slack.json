@@ -6,6 +6,46 @@
   "title": "How to send new HubSpot contacts to Slack | 50agents",
   "description": "Send new HubSpot contacts to Slack with a workflow (Professional plans) or an automation tool: trigger on new contacts only, filter, pick the fields.",
   "h1": "How to send new HubSpot contacts to Slack",
+  "cover": {
+    "scene": "pipe",
+    "from": {
+      "app": "hubspot",
+      "label": "New contact",
+      "look": "doc",
+      "rows": [
+        {
+          "cells": [
+            "Name",
+            "Priya Shah"
+          ]
+        },
+        {
+          "cells": [
+            "Stage",
+            "Lead"
+          ]
+        }
+      ]
+    },
+    "via": "Qualified only",
+    "to": {
+      "app": "slack",
+      "label": "#new-leads",
+      "rows": [
+        {
+          "cells": [
+            "Priya Shah"
+          ],
+          "tag": "New"
+        },
+        {
+          "cells": [
+            "Owner: @sam"
+          ]
+        }
+      ]
+    }
+  },
   "answer": [
     "HubSpot's free Slack app does not post new contacts, so use a Professional workflow or an automation tool.",
     "Either way, post only the contacts someone should act on, and name the owner, or the channel becomes noise."
@@ -17,15 +57,33 @@
       "options": [
         {
           "label": "Professional or Enterprise",
-          "then": { "answer": "Use a HubSpot workflow", "why": "The \"Send a Slack notification\" action posts with properties, @mentions of the owner and buttons, and HubSpot decides who is new.", "kind": "auto" }
+          "then": {
+            "answer": "Use a HubSpot workflow",
+            "why": "The \"Send a Slack notification\" action posts with properties, @mentions of the owner and buttons, and HubSpot decides who is new.",
+            "kind": "auto"
+          }
         },
         {
           "label": "Free or Starter",
           "then": {
             "q": "Do you only want to hear about form fills?",
             "options": [
-              { "label": "Yes, just form submissions", "then": { "answer": "Switch on the free Slack notifications", "why": "Form submissions are on the free list, and they need no workflow at all.", "kind": "app" } },
-              { "label": "No, every qualifying new contact", "then": { "answer": "Use an automation tool", "why": "It watches HubSpot for new contacts and posts to a channel. Follow the steps below.", "kind": "auto" } }
+              {
+                "label": "Yes, just form submissions",
+                "then": {
+                  "answer": "Switch on the free Slack notifications",
+                  "why": "Form submissions are on the free list, and they need no workflow at all.",
+                  "kind": "app"
+                }
+              },
+              {
+                "label": "No, every qualifying new contact",
+                "then": {
+                  "answer": "Use an automation tool",
+                  "why": "It watches HubSpot for new contacts and posts to a channel. Follow the steps below.",
+                  "kind": "auto"
+                }
+              }
             ]
           }
         }
@@ -39,11 +97,27 @@
       "body": [
         {
           "table": {
-            "head": ["Option", "Needs", "Posts new contacts?"],
+            "head": [
+              "Option",
+              "Needs",
+              "Posts new contacts?"
+            ],
             "rows": [
-              ["HubSpot's Slack app, notifications only", "Any HubSpot plan", "No, only mentions, forms, tasks, chats"],
-              ["HubSpot workflow, Slack notification action", "Professional or Enterprise", "Yes, with owner @mentions"],
-              ["An automation tool", "HubSpot and Slack connections", "Yes, from a new-contact trigger"]
+              [
+                "HubSpot's Slack app, notifications only",
+                "Any HubSpot plan",
+                "No, only mentions, forms, tasks, chats"
+              ],
+              [
+                "HubSpot workflow, Slack notification action",
+                "Professional or Enterprise",
+                "Yes, with owner @mentions"
+              ],
+              [
+                "An automation tool",
+                "HubSpot and Slack connections",
+                "Yes, from a new-contact trigger"
+              ]
             ]
           }
         }
@@ -60,12 +134,20 @@
       {
         "title": "Create the channel and add the app",
         "body": "A channel such as #new-leads keeps alerts out of chat. For a private channel, add the HubSpot or automation app to it first.",
-        "note": { "type": "warn", "text": "If the app is not in a private channel, posts fail without a sound.", "about": "app" }
+        "note": {
+          "type": "warn",
+          "text": "If the app is not in a private channel, posts fail without a sound.",
+          "about": "app"
+        }
       },
       {
         "title": "Set the trigger and the filter",
         "body": "Trigger on new contacts. If your tool only has new or updated, keep contacts created since the last run with a filter on create date. Then add your rule from step 1.",
-        "note": { "type": "tip", "text": "\"New or updated\" fires on every property change, so one contact can post five times a day. The create-date filter stops it.", "about": "auto" }
+        "note": {
+          "type": "tip",
+          "text": "\"New or updated\" fires on every property change, so one contact can post five times a day. The create-date filter stops it.",
+          "about": "auto"
+        }
       },
       {
         "title": "Write the message",
@@ -87,16 +169,57 @@
     "useCase": "hubspot-contacts-to-google-sheets-and-slack"
   },
   "wrong": [
-    { "title": "A CSV import floods the channel", "body": "Importing 400 contacts creates 400 new contacts. Pause the automation before a big import, or filter out the import source.", "about": "auto" },
-    { "title": "One contact posts again and again", "body": "The trigger fires on updates. Filter on create date, or switch to a new-only trigger if your tool has one.", "about": "auto" },
-    { "title": "Nobody is tagged", "body": "New contacts often have no owner yet, so the @mention is empty. Post to the channel and let the owner read \"unassigned\" until routing runs.", "about": "app" },
-    { "title": "Personal data in a busy channel", "body": "Phone numbers and notes in a 60-person channel are more exposure than the job needs. Post the name, company and a link; keep the rest in HubSpot.", "about": "app" }
+    {
+      "title": "A CSV import floods the channel",
+      "body": "Importing 400 contacts creates 400 new contacts. Pause the automation before a big import, or filter out the import source.",
+      "about": "auto"
+    },
+    {
+      "title": "One contact posts again and again",
+      "body": "The trigger fires on updates. Filter on create date, or switch to a new-only trigger if your tool has one.",
+      "about": "auto"
+    },
+    {
+      "title": "Nobody is tagged",
+      "body": "New contacts often have no owner yet, so the @mention is empty. Post to the channel and let the owner read \"unassigned\" until routing runs.",
+      "about": "app"
+    },
+    {
+      "title": "Personal data in a busy channel",
+      "body": "Phone numbers and notes in a 60-person channel are more exposure than the job needs. Post the name, company and a link; keep the rest in HubSpot.",
+      "about": "app"
+    }
   ],
   "faqs": [
-    { "q": "Can HubSpot notify Slack about new contacts without Zapier?", "a": "Yes, with a workflow and the \"Send a Slack notification\" action, on a Professional or Enterprise plan. The free Slack notifications cover form submissions and mentions, not every new contact." },
-    { "q": "Can I post only qualified leads?", "a": "Yes. In a HubSpot workflow, set the enrolment rule on lifecycle stage or lead status. In an automation tool, add a filter step after the trigger." },
-    { "q": "Can I tag the contact owner in the message?", "a": "HubSpot's own workflow action can @mention the record owner, for users who have mapped their email. In other tools, look up the owner's Slack user from their email, or post their name as text." }
+    {
+      "q": "Can HubSpot notify Slack about new contacts without Zapier?",
+      "a": "Yes, with a workflow and the \"Send a Slack notification\" action, on a Professional or Enterprise plan. The free Slack notifications cover form submissions and mentions, not every new contact."
+    },
+    {
+      "q": "Can I post only qualified leads?",
+      "a": "Yes. In a HubSpot workflow, set the enrolment rule on lifecycle stage or lead status. In an automation tool, add a filter step after the trigger."
+    },
+    {
+      "q": "Can I tag the contact owner in the message?",
+      "a": "HubSpot's own workflow action can @mention the record owner, for users who have mapped their email. In other tools, look up the owner's Slack user from their email, or post their name as text."
+    },
+    {
+      "q": "Will an import flood the channel?",
+      "a": "It can. A CSV import creates hundreds of contacts at once. Filter on the source, or pause the workflow during imports."
+    },
+    {
+      "q": "What should the Slack message include?",
+      "a": "Name, company, email, source and owner, with a link to the contact last. Four or five fields read at a glance; fifteen do not."
+    },
+    {
+      "q": "Is it safe to post contact details in Slack?",
+      "a": "Keep it to a private channel of the people who act on leads. Post the least personal data that still lets someone act, and link to HubSpot for the rest."
+    }
   ],
-  "related": ["how-to-automate-data-entry-between-two-apps", "ai-agent-vs-automation-which-one-you-need", "how-to-automate-lead-follow-up-from-gmail"],
+  "related": [
+    "how-to-automate-data-entry-between-two-apps",
+    "ai-agent-vs-automation-which-one-you-need",
+    "how-to-automate-lead-follow-up-from-gmail"
+  ],
   "updated": "2026-11-19"
 }

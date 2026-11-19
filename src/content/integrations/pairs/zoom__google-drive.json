@@ -1,8 +1,1 @@
-{
-  "usedFor": "Zoom runs the meetings and Google Drive holds the files. When “When a meeting summary is completed” fires, “Share File With Anyone” can give attendees a link to a Drive file, such as the notes.",
-  "bestTemplate": {
-    "name": "“When a meeting summary is completed” in Zoom, then “Share File With Anyone” in Google Drive",
-    "why": "A summary appears once the meeting is over, which is when a shared file is useful, and the action sets Viewer, Commenter or Editor access on a shareable link."
-  },
-  "watchOut": "“Share File With Anyone” makes the file reachable by link, so anyone holding the link can open it. Choose Viewer unless people must edit."
-}
+{"usedFor":"A completed Zoom meeting summary shares a Google Drive file with attendees as a link.","bestTemplate":{"name":"“When a meeting summary is completed” in Zoom, then “Share File With Anyone” in Google Drive","why":"A summary appears once the meeting ends, which is when a shared file is useful."},"watchOut":"“Share File With Anyone” makes the file reachable by link, so choose Viewer unless people must edit."}

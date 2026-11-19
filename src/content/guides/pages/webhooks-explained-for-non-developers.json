@@ -6,6 +6,48 @@
   "title": "Webhooks explained for non-developers | 50agents",
   "description": "A webhook is a message one app sends to a web address the moment something happens. What is inside one, why it arrives twice, and how to use it.",
   "h1": "Webhooks explained for non-developers",
+  "cover": {
+    "scene": "pipe",
+    "from": {
+      "label": "Website form",
+      "look": "doc",
+      "rows": [
+        {
+          "cells": [
+            "Name",
+            "Leo Brandt"
+          ]
+        },
+        {
+          "cells": [
+            "Need",
+            "A quote"
+          ]
+        }
+      ]
+    },
+    "via": "POST to your address",
+    "to": {
+      "app": "google-sheets",
+      "label": "Enquiries",
+      "look": "sheet",
+      "rows": [
+        {
+          "cells": [
+            "Mia",
+            "Help"
+          ]
+        },
+        {
+          "cells": [
+            "Leo",
+            "Quote"
+          ],
+          "on": true
+        }
+      ]
+    }
+  },
   "answer": [
     "A webhook is a message one app sends to a web address the moment something happens, such as a payment succeeding.",
     "Automation tools give you the address and run your steps on each message; expect repeats and gaps."
@@ -17,15 +59,33 @@
       "options": [
         {
           "label": "Yes, a built-in trigger",
-          "then": { "answer": "Use the built-in trigger", "why": "The tool sets up the webhook with the app for you, and checks its signature. You never see the address.", "kind": "auto" }
+          "then": {
+            "answer": "Use the built-in trigger",
+            "why": "The tool sets up the webhook with the app for you, and checks its signature. You never see the address.",
+            "kind": "auto"
+          }
         },
         {
           "label": "No, or it is my own form",
           "then": {
             "q": "Can the app send messages to a web address?",
             "options": [
-              { "label": "Yes, it has a webhooks setting", "then": { "answer": "Use an automation that starts when called", "why": "It gives you an address. Paste it into the app, and each message's fields become your steps' data. Follow the steps below.", "kind": "auto" } },
-              { "label": "No, it has no webhooks", "then": { "answer": "Check on a schedule instead", "why": "Polling asks for new records every few minutes. It is slower, and some tools count every check, even empty ones.", "kind": "auto" } }
+              {
+                "label": "Yes, it has a webhooks setting",
+                "then": {
+                  "answer": "Use an automation that starts when called",
+                  "why": "It gives you an address. Paste it into the app, and each message's fields become your steps' data. Follow the steps below.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "No, it has no webhooks",
+                "then": {
+                  "answer": "Check on a schedule instead",
+                  "why": "Polling asks for new records every few minutes. It is slower, and some tools count every check, even empty ones.",
+                  "kind": "auto"
+                }
+              }
             ]
           }
         }
@@ -37,18 +97,38 @@
       "id": "plain",
       "h2": "Webhooks in plain words",
       "body": [
-        { "p": "An app can learn what happened in another in two ways. It can keep asking \"anything new?\" on a timer, which is polling. Or the other app tells it the moment something happens, by posting a message to an address. That message is a webhook." },
+        {
+          "p": "An app can learn what happened in another in two ways. It can keep asking \"anything new?\" on a timer, which is polling. Or the other app tells it the moment something happens, by posting a message to an address. That message is a webhook."
+        },
         {
           "table": {
-            "head": ["", "Polling", "Webhook"],
+            "head": [
+              "",
+              "Polling",
+              "Webhook"
+            ],
             "rows": [
-              ["Who starts it", "Your tool, on a timer", "The other app, on an event"],
-              ["Speed", "Often 1 to 15 minutes", "Seconds"],
-              ["Empty checks", "Some tools count them", "None"]
+              [
+                "Who starts it",
+                "Your tool, on a timer",
+                "The other app, on an event"
+              ],
+              [
+                "Speed",
+                "Often 1 to 15 minutes",
+                "Seconds"
+              ],
+              [
+                "Empty checks",
+                "Some tools count them",
+                "None"
+              ]
             ]
           }
         },
-        { "p": "Inside is a small block of text, usually JSON: the event type, an event ID, the time, and the record. Your automation tool shows the fields as a list, so you never read the JSON." }
+        {
+          "p": "Inside is a small block of text, usually JSON: the event type, an event ID, the time, and the record. Your automation tool shows the fields as a list, so you never read the JSON."
+        }
       ]
     }
   ],
@@ -74,7 +154,11 @@
       {
         "title": "Skip repeats by ID",
         "body": "Senders retry when your address does not answer fast enough: Stripe for up to 3 days, Shopify up to 8 times over 4 hours. Keep the event ID and skip ones you have done.",
-        "note": { "type": "warn", "text": "Events can arrive out of order too: \"refunded\" before \"paid\". Look the record up when the order matters.", "about": "auto" }
+        "note": {
+          "type": "warn",
+          "text": "Events can arrive out of order too: \"refunded\" before \"paid\". Look the record up when the order matters.",
+          "about": "auto"
+        }
       },
       {
         "title": "Check it is still firing",
@@ -88,16 +172,57 @@
     "ask": "Set up an automation that starts when my website form posts to it, and adds each submission as a row to my Enquiries sheet"
   },
   "wrong": [
-    { "title": "Duplicate rows or emails", "body": "A retry ran your steps twice. Skip IDs you have already handled.", "about": "auto" },
-    { "title": "A slow step causes retries", "body": "Your address took too long to answer, so the sender tried again. Tools built for webhooks answer at once and do the work after.", "about": "auto" },
-    { "title": "A fake message", "body": "An address on the internet can receive anything. Real senders sign each message, and good tools check the signature on built-in triggers.", "about": "auto" },
-    { "title": "Test events mixed with real ones", "body": "Test mode and live mode send to the same address if you let them. Use separate addresses or check the mode field.", "about": "app" }
+    {
+      "title": "Duplicate rows or emails",
+      "body": "A retry ran your steps twice. Skip IDs you have already handled.",
+      "about": "auto"
+    },
+    {
+      "title": "A slow step causes retries",
+      "body": "Your address took too long to answer, so the sender tried again. Tools built for webhooks answer at once and do the work after.",
+      "about": "auto"
+    },
+    {
+      "title": "A fake message",
+      "body": "An address on the internet can receive anything. Real senders sign each message, and good tools check the signature on built-in triggers.",
+      "about": "auto"
+    },
+    {
+      "title": "Test events mixed with real ones",
+      "body": "Test mode and live mode send to the same address if you let them. Use separate addresses or check the mode field.",
+      "about": "app"
+    }
   ],
   "faqs": [
-    { "q": "What is the difference between a webhook and an API?", "a": "With an API, your tool asks the app for data. With a webhook, the app sends data to your tool when something happens. Most integrations use both." },
-    { "q": "Are webhooks secure?", "a": "They can be: the sender signs each message, and the receiver checks the signature. A webhook address with no signature check will accept anything, so keep it private." },
-    { "q": "Do I need a developer to use webhooks?", "a": "Not with automation tools: they create and check the address for you. You need one if you are building your own endpoint." }
+    {
+      "q": "What is the difference between a webhook and an API?",
+      "a": "With an API, your tool asks the app for data. With a webhook, the app sends data to your tool when something happens. Most integrations use both."
+    },
+    {
+      "q": "Are webhooks secure?",
+      "a": "They can be: the sender signs each message, and the receiver checks the signature. A webhook address with no signature check will accept anything, so keep it private."
+    },
+    {
+      "q": "Do I need a developer to use webhooks?",
+      "a": "Not with automation tools: they create and check the address for you. You need one if you are building your own endpoint."
+    },
+    {
+      "q": "Why did I get the same event twice?",
+      "a": "Senders retry when your address does not answer fast enough: Stripe for up to 3 days, Shopify up to 8 times over 4 hours. Keep the event ID and skip ones you have done."
+    },
+    {
+      "q": "How do I know a webhook stopped firing?",
+      "a": "Check it is still firing: look at the sender's delivery log, or set an alert when no event arrives for a day you expect one. After repeated failures, Shopify removes the webhook."
+    },
+    {
+      "q": "Is a webhook faster than polling?",
+      "a": "Yes. A webhook arrives within seconds of the event. Polling asks on a timer, often every 1 to 15 minutes, and some tools count the empty checks."
+    }
   ],
-  "related": ["how-to-automate-data-entry-between-two-apps", "how-to-log-stripe-payments-in-google-sheets", "how-to-automate-a-website-that-has-no-api"],
+  "related": [
+    "how-to-automate-data-entry-between-two-apps",
+    "how-to-log-stripe-payments-in-google-sheets",
+    "how-to-automate-a-website-that-has-no-api"
+  ],
   "updated": "2026-11-19"
 }

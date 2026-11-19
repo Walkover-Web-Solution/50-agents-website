@@ -6,6 +6,29 @@
   "title": "How to get a daily calendar summary in Slack | 50agents",
   "description": "Get a daily calendar summary in Slack: the Google Calendar app on paid Slack plans, an automation, or an AI agent that sends tomorrow’s meetings.",
   "h1": "How to get a daily calendar summary in Slack",
+  "cover": {
+    "scene": "calendar",
+    "app": "google-calendar",
+    "day": "Tomorrow",
+    "events": [
+      {
+        "time": "9:30",
+        "title": "Standup"
+      },
+      {
+        "time": "11:00",
+        "title": "Bloom call"
+      },
+      {
+        "time": "15:00",
+        "title": "Review"
+      }
+    ],
+    "to": {
+      "app": "slack",
+      "text": "Tomorrow: 3 meetings, first at 9:30."
+    }
+  },
   "answer": [
     "On a paid Slack plan, turn on the Google Calendar app's daily schedule in its Home tab, under Settings.",
     "On free Slack, or for tomorrow's meetings the evening before, use an automation or an AI agent."
@@ -140,6 +163,14 @@
     {
       "q": "Should the summary go to a channel or a direct message?",
       "a": "A direct message for your own calendar, so private titles stay private. A channel only for a shared team calendar, with titles everyone may see."
+    },
+    {
+      "q": "What should each line of the summary show?",
+      "a": "Time, title, who, and where: a room or a video link. Skip descriptions; they are long and often private."
+    },
+    {
+      "q": "Why are my meeting times an hour off?",
+      "a": "The tool is reading the calendar in a different timezone, or a daylight saving change happened. Set the timezone in the tool and test a day when you travel."
     }
   ],
   "related": [

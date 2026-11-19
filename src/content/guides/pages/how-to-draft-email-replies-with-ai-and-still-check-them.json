@@ -6,6 +6,21 @@
   "title": "Draft email replies with AI and still check them | 50agents",
   "description": "Let AI draft your email replies and check each in under a minute: a five-point review of facts, promises, prices, dates and recipients before you send.",
   "h1": "How to draft email replies with AI and still check them",
+  "cover": {
+    "scene": "message",
+    "app": "gmail",
+    "where": "Draft, not sent",
+    "subject": "Re: Where is my order?",
+    "tag": "Check facts",
+    "lines": [
+      "Hi Sam, your order shipped this morning.",
+      "Tracking: the link in your receipt."
+    ],
+    "buttons": [
+      "Send",
+      "Edit"
+    ]
+  },
   "answer": [
     "Let the AI write drafts, never send, and check each in a minute for facts, promises, numbers, recipients and tone.",
     "Give it your facts and sample replies, and correct it in words when it errs."
@@ -135,6 +150,18 @@
     {
       "q": "Should I tell people a reply was drafted by AI?",
       "a": "If you read and approve it, it is your reply. If something goes out unreviewed, say so, or better, do not let it."
+    },
+    {
+      "q": "How long should checking a draft take?",
+      "a": "About a minute. Read for facts, promises, prices and dates, recipients, then tone, in that order. The first three are where the expensive mistakes hide."
+    },
+    {
+      "q": "What should the AI never offer in a reply?",
+      "a": "Refunds by email, discounts and legal opinions are the usual list. Write the reason beside each rule, so it applies them sensibly to cases you did not foresee."
+    },
+    {
+      "q": "When can I let it send on its own?",
+      "a": "Count drafts sent unchanged, edited and thrown away for two weeks. Even then, keep anything with a promise, a price or a refund behind your approval."
     }
   ],
   "related": [

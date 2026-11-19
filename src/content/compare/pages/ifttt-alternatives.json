@@ -93,6 +93,22 @@
     {
       "q": "How much does IFTTT cost?",
       "a": "IFTTT Free has 1,000 credits a month with hourly checks. Starter is $2.09 a month, billed $25.08 a year."
+    },
+    {
+      "q": "What does IFTTT's free plan include?",
+      "a": "Free has 1,000 credits a month and unlimited Applets, and checks for new events every hour."
+    },
+    {
+      "q": "Which alternative suits phone automations?",
+      "a": "Apple Shortcuts runs on your iPhone or iPad and starts from the time of day, arriving somewhere or opening an app. IFTTT has phone apps for iOS and Android."
+    },
+    {
+      "q": "How many apps do the alternatives connect?",
+      "a": "IFTTT lists 1,000+ services. Home Assistant lists 1600+ integrations, Make 3,500+ apps and Zapier 10,541+. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "Do I need my own hardware for Home Assistant?",
+      "a": "Yes. You run it yourself on a device at home, so setup and updates are yours."
     }
   ],
   "related": [

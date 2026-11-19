@@ -1,8 +1,1 @@
-{
-  "usedFor": "Notion is where the team writes things down and Slack is where they hear about it. “New Page Is Created” in Notion can run “Send Message”, so a new doc or brief reaches the channel.",
-  "bestTemplate": {
-    "name": "“New Page Is Created” in Notion, then “Send Message” in Slack",
-    "why": "A new page is a clear thing to announce, and “Send Message” can post to a channel, user or thread, so the page lands where the team reads."
-  },
-  "watchOut": "An automation's post to a Slack channel waits for approval today. “Send Interactive Message” adds buttons, which only helps if someone is there to answer."
-}
+{"usedFor":"Every new Notion page is announced to a Slack channel.","bestTemplate":{"name":"“New Page Is Created” in Notion, then “Send Message” in Slack","why":"A new page is worth announcing, and “Send Message” posts to a channel, user or thread."},"watchOut":"Each Notion page post waits for your approval before it reaches the Slack channel."}

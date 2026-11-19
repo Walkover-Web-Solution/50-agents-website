@@ -6,6 +6,33 @@
   "title": "Browser automation without code: tools and limits | 50agents",
   "description": "No-code browser automation comes in three kinds: recorders, scrapers and AI browser agents. What each is good at, where each breaks, and how to start.",
   "h1": "Browser automation without code",
+  "cover": {
+    "scene": "page",
+    "url": "rentals.example/riverside",
+    "title": "New listings, Riverside",
+    "look": "list",
+    "rows": [
+      {
+        "cells": [
+          "2 bed, Elm Street",
+          "$1,850"
+        ],
+        "tag": "Under $2,000"
+      },
+      {
+        "cells": [
+          "Studio, Oak Avenue",
+          "$2,300"
+        ]
+      },
+      {
+        "cells": [
+          "1 bed, Mill Lane",
+          "$2,150"
+        ]
+      }
+    ]
+  },
   "answer": [
     "There are three kinds: recorders that replay your clicks, scrapers that pull data from pages, and AI browser agents that read a page and decide.",
     "Pick by the job: many similar pages, stable clicks, or pages that change."
@@ -214,6 +241,18 @@
     {
       "q": "What is the difference between a browser agent and a scraper?",
       "a": "A scraper pulls the same fields from pages you trained it on. A browser agent reads the page and decides what to do from your description, so it handles pages it has not seen, and can also misjudge them."
+    },
+    {
+      "q": "Do I need to keep my computer on?",
+      "a": "Only with desktop tools. A recorder that runs as a browser extension stops when your laptop sleeps. If the job must run at 6:00 every morning, pick a tool with cloud runs."
+    },
+    {
+      "q": "Can browser automation log in to sites?",
+      "a": "Yes, with a kept session: you sign in once in the tool's browser and it reuses that. Avoid tools that want your password typed into a text field, and expect to sign in again when the site logs you out."
+    },
+    {
+      "q": "How do I know a run worked?",
+      "a": "End each run with a check you can see: a count of rows, a confirmation number, a downloaded file. In the first week, look at every run, because quietly wrong data is the failure nobody notices."
     }
   ],
   "related": [

@@ -97,6 +97,22 @@
     {
       "q": "How many integrations does Relevance AI have?",
       "a": "Relevance AI states 2,000+ integrations. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "What does Relevance AI cost?",
+      "a": "Pro is $19 a month billed yearly for 2,500 actions. Team is $234 a month billed yearly. Extra actions cost $80 per 1,000."
+    },
+    {
+      "q": "Can I move my Relevance AI agents over?",
+      "a": "There is no import. Note what each AI agent does, then describe it to Captain, which shows a plan before it builds."
+    },
+    {
+      "q": "Which alternative suits inbox work?",
+      "a": "Lindy works in your inbox, calendar and tools, and waits for your OK on anything with outside impact."
+    },
+    {
+      "q": "Which alternative has a browser agent?",
+      "a": "Gumloop has a cloud browser with saved logins, and Lindy drives a browser on Pro and up. 50agents has browser agents too."
     }
   ],
   "related": [

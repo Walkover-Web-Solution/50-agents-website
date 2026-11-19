@@ -1,8 +1,1 @@
-{
-  "usedFor": "Shopify is where products appear; Eclincher publishes your social posts. A “New Product” in Shopify can run “Create Post” in Eclincher so a launch is announced on your brand accounts.",
-  "bestTemplate": {
-    "name": "“New Product” in Shopify, then “Create Post” in Eclincher",
-    "why": "A new product is the clearest thing worth announcing, and “Create Post” publishes it to selected brand accounts with text and an optional scheduled time."
-  },
-  "watchOut": "A post that publishes straight away goes public, so review the text or use the optional scheduled time. “Abandoned Checkout” is polling and makes a poor post trigger."
-}
+{"usedFor":"A new Shopify product is announced on your brand accounts through Eclincher.","bestTemplate":{"name":"“New Product” in Shopify, then “Create Post” in Eclincher","why":"A new product is the clearest thing worth announcing, with optional scheduled time."},"watchOut":"A post that publishes straight away goes public, so review the text or set a scheduled time."}

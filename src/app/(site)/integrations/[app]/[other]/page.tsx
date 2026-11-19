@@ -1,5 +1,6 @@
 // A pair page, v3 round 3 (D253 to D255): the app template, short. Every real template (the catalog's recipes) between two
-// apps from the catalog snapshot, in a box that scrolls inside itself; every trigger and action of both apps, as tabs.
+// apps from the catalog snapshot, six at a time with "Load more"; every trigger and action of both apps, in two columns;
+// the pair's own lines as three short cards (D260).
 // One canonical order per pair (the trigger app first; alphabetical when recipes run both ways). The other order is
 // generated too and answers with a permanent redirect to it (permanentRedirect: 308 from the server, which search
 // engines treat as a 301). Indexable only with 3 or more recipes.
@@ -11,7 +12,7 @@ import { PromptFilm } from '@/site/usecase/film';
 import { BuildLink } from '@/site/integrations/build-link';
 import { findPair, loadApp, nameOf, pairIndexable, pairLines, pairPath, pairRecipes, pairs, recipeAsk } from '@/site/integrations/data';
 import { canon } from '@/content/integrations/slugs';
-import { BASE, crumbsLd, Final, LdScript, Lockup, PairEventsBox, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
+import { BASE, crumbsLd, Final, LdScript, Lockup, PairEventsBox, PracticeCards, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
 import { pairWords } from '@/site/integrations/words';
 import { catalog } from '@/site/integrations/data';
 import '@/site/css/usecase.css';
@@ -85,11 +86,7 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
       {lines && (
         <section className="wrap sec" id="in-practice">
           <div className="sec-h c"><h2>{a.name} and {b.name} in practice</h2></div>
-          <div className="ig3-practice">
-            <div><h3>What it is used for</h3><p>{lines.usedFor}</p></div>
-            <div><h3>The most useful template</h3><p><strong>{lines.bestTemplate.name}.</strong> {lines.bestTemplate.why}</p></div>
-            <div><h3>What to watch out for</h3><p>{lines.watchOut}</p></div>
-          </div>
+          <PracticeCards lines={lines} />
         </section>
       )}
 

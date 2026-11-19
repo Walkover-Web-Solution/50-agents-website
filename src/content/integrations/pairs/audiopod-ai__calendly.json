@@ -1,8 +1,1 @@
-{
-  "usedFor": "AudioPod AI processes audio, such as transcription with speaker labels; Calendly handles scheduling. A finished or failed job in AudioPod AI could prompt a “Create One-Time Meeting” in Calendly, for example a review call about the result.",
-  "bestTemplate": {
-    "name": "“New Job Failed” in AudioPod AI, then “Create One-Time Meeting” in Calendly",
-    "why": "A failure is the case that most needs a conversation, so it offers a one-off slot to sort it out. Completed jobs rarely need a meeting."
-  },
-  "watchOut": "This pair suits low-volume work. Every job that matches “New Job Failed” or “New Job Completed” would make a meeting, so filter the trigger by job type first."
-}
+{"usedFor":"A failed AudioPod AI job can book a review call through Calendly.","bestTemplate":{"name":"“New Job Failed” in AudioPod AI, then “Create One-Time Meeting” in Calendly","why":"A failure most needs a conversation, and completed jobs rarely do."},"watchOut":"Every job matching “New Job Failed” would make a meeting, so filter by job type first."}

@@ -6,7 +6,10 @@
   "title": "AI to draft replies to customer emails | 50agents",
   "description": "To draft replies to customer emails with AI, an AI agent reads new support mail in Gmail, writes each answer from what you told it and waits for your OK.",
   "h1": "AI to draft replies to customer emails",
-  "h2": { "how": "How the AI drafts replies to customer emails", "compare": "Other ways to draft replies to customer emails" },
+  "h2": {
+    "how": "How the AI drafts replies to customer emails",
+    "compare": "Other ways to draft replies to customer emails"
+  },
   "answer": [
     "To draft replies to customer emails with AI, tell Captain \"Set up an AI agent that reads new support emails\".",
     "It builds an AI agent that drafts a reply in each customer's thread and asks before sending."
@@ -169,13 +172,41 @@
     {
       "q": "How do I keep the replies sounding like me?",
       "a": "Tell Captain your tone and add a few of your own past replies as examples. You can also change any draft before approving it. [How to draft email replies with AI and still check them](/guides/how-to-draft-email-replies-with-ai-and-still-check-them) covers the one-minute review."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Describe the job to Captain, check the plan it shows, and tap Build it when you are happy."
+    },
+    {
+      "q": "What if it gets an answer wrong?",
+      "a": "The reply is only a draft until you approve it, so a wrong answer stops in Needs you. Change the wording or decline it, then add the right answer to the AI agent's instructions so the next run uses it."
+    },
+    {
+      "q": "How do I change what it knows or stop it?",
+      "a": "Tell Captain your hours, prices and policies, and update them in plain words when they change. The AI agent keeps its own memory of instructions and lessons, and you can see, correct or forget any item."
+    },
+    {
+      "q": "Can it handle refunds or angry customers?",
+      "a": "It drafts a reply from what the business knows, and you read every one before it goes. Anything it cannot answer is listed for you, so a refund request or a complaint reaches you rather than being guessed."
     }
   ],
   "variations": [
-    { "ask": "Set up an AI agent that reads new support emails every weekday at 9:00, drafts a reply from what you know about my business, and asks me before sending", "change": "Runs once each weekday morning" },
-    { "ask": "Set up an AI agent that reads new support emails, drafts short, friendly replies signed with my first name, and asks me before sending", "change": "Shorter replies, signed by you" },
-    { "ask": "Set up an AI agent that reads new support emails in Microsoft Outlook, drafts a reply from what you know about my business, and asks me before sending", "change": "Works in Outlook instead of Gmail" },
-    { "ask": "Set up an AI agent that reads new support emails, drafts replies, and posts in Slack the ones it cannot answer", "change": "Open questions land in Slack" }
+    {
+      "ask": "Set up an AI agent that reads new support emails every weekday at 9:00, drafts a reply from what you know about my business, and asks me before sending",
+      "change": "Runs once each weekday morning"
+    },
+    {
+      "ask": "Set up an AI agent that reads new support emails, drafts short, friendly replies signed with my first name, and asks me before sending",
+      "change": "Shorter replies, signed by you"
+    },
+    {
+      "ask": "Set up an AI agent that reads new support emails in Microsoft Outlook, drafts a reply from what you know about my business, and asks me before sending",
+      "change": "Works in Outlook instead of Gmail"
+    },
+    {
+      "ask": "Set up an AI agent that reads new support emails, drafts replies, and posts in Slack the ones it cannot answer",
+      "change": "Open questions land in Slack"
+    }
   ],
   "tags": [
     "support",

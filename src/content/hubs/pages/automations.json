@@ -29,6 +29,14 @@
       "asksFirst": "Nothing outside your own sheet"
     }
   },
+  "asks": [
+    "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
+    "Set up an automation: every new Calendly booking creates or updates the contact in HubSpot",
+    "Set up an automation: every new Shopify customer is added as a profile in Klaviyo",
+    "Set up an automation: when someone mentions me in Slack, create an Asana task with the message",
+    "Set up an automation: every new Gmail attachment is saved to a folder in my Google Drive",
+    "Set up an automation: when a Pipedrive deal moves to the Won stage, post it in my sales Slack channel"
+  ],
   "useCases": "The same data from one app to another, every time.",
   "apps": [
     "google-sheets",
@@ -61,6 +69,22 @@
     {
       "q": "How is this different from Zapier, Make or n8n?",
       "a": "In those you build each step yourself, on a list or a canvas; in 50agents Captain builds it from your sentence and tests it on your data. Zapier has a larger app directory, Make has a visual canvas, and n8n can run on your own server, which 50agents cannot. [Zapier vs Make vs n8n for a small team](/guides/zapier-vs-make-vs-n8n-for-a-small-team) compares those three."
+    },
+    {
+      "q": "Is it free to start?",
+      "a": "Yes. 50agents is free to start: describe the job to Captain, review its plan and tap Build it when you are happy with it."
+    },
+    {
+      "q": "Which apps can an automation connect?",
+      "a": "It works with 2,300+ apps through viaSocket, such as Stripe, Shopify, HubSpot, Google Sheets and Slack. Captain names the apps in its plan, and you connect each one it needs."
+    },
+    {
+      "q": "What can start an automation?",
+      "a": "An event in one of your apps, such as a new contact, a new payment or a new order, or a schedule, such as every Friday morning. The same steps then run each time."
+    },
+    {
+      "q": "Can I see what an automation has done?",
+      "a": "Yes. Each automation has its own memory: its instructions, what it learned, lessons from your corrections and its last runs. You can see, correct or forget any item."
     }
   ],
   "links": [

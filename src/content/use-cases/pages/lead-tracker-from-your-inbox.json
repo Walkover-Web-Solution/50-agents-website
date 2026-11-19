@@ -6,7 +6,10 @@
   "title": "Track leads from email: a simple lead tracker | 50agents",
   "description": "To track leads from email, tell Captain \"Track my leads and follow up\": a pipeline fills from your Gmail, with follow-ups drafted for you to approve.",
   "h1": "Track leads from your email",
-  "h2": { "how": "How it tracks leads from your email", "compare": "Other ways to track leads from email" },
+  "h2": {
+    "how": "How it tracks leads from your email",
+    "compare": "Other ways to track leads from email"
+  },
   "answer": [
     "To track leads from your email, tell Captain \"Track my leads and follow up\".",
     "It builds a leads desk where Closer, an AI agent, adds leads from Gmail and drafts follow-ups, asking before any email goes out."
@@ -173,13 +176,37 @@
     {
       "q": "Can Gmail work as a CRM?",
       "a": "Not on its own. Gmail has no field for a lead's stage, deal size or next follow-up date, which a tracker keeps on one row per lead. Closer reads your Gmail each weekday at 9:00 and adds the new leads there."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Tell Captain you want to track leads, read the plan, and tap Build it."
+    },
+    {
+      "q": "What if it adds someone who is not a lead?",
+      "a": "Open the record and change it or remove it. Closer learns from your corrections, so it gets better at spotting who is asking to buy."
+    },
+    {
+      "q": "How do I stop it emailing a lead?",
+      "a": "Every email to a lead waits in Needs you, so declining a draft stops it. Tell Captain to change the quiet period if 3 days is too soon."
     }
   ],
   "variations": [
-    { "ask": "Track my leads from emails that ask about price or a quote, and follow up", "change": "Only emails asking about price" },
-    { "ask": "Track my leads and follow up after 7 quiet days", "change": "Waits a week before a follow-up" },
-    { "ask": "Track my leads and follow up with short, friendly emails signed with my first name", "change": "Shorter follow-ups, signed by you" },
-    { "ask": "Track my leads with a deal value on each, and follow up", "change": "The board totals value by stage" }
+    {
+      "ask": "Track my leads from emails that ask about price or a quote, and follow up",
+      "change": "Only emails asking about price"
+    },
+    {
+      "ask": "Track my leads and follow up after 7 quiet days",
+      "change": "Waits a week before a follow-up"
+    },
+    {
+      "ask": "Track my leads and follow up with short, friendly emails signed with my first name",
+      "change": "Shorter follow-ups, signed by you"
+    },
+    {
+      "ask": "Track my leads with a deal value on each, and follow up",
+      "change": "The board totals value by stage"
+    }
   ],
   "tags": [
     "sales",

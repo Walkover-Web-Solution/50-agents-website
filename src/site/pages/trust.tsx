@@ -21,7 +21,7 @@ function Final({ page, h2 }: { page: string; h2: string }) {
     <section className="wrap sec">
       <div className="final">
         <h2>{h2}</h2>
-        <p>Tell Captain &ldquo;{INDEX_ASK}&rdquo;. Free to start.</p>
+        <p>One sentence to Captain. Free to start.</p>
         <Cta campaign="seo-page" page={page} place="final" ask={INDEX_ASK}>Ask Captain</Cta>
         <span className="peek l" aria-hidden="true"><Face id="writer" size={50} /><Face id="keeper" size={44} /></span>
         <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="scout" size={46} /></span>

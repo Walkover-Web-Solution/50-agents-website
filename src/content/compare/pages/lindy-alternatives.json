@@ -102,6 +102,22 @@
     {
       "q": "Which works with the most apps?",
       "a": "Zapier connects 10,541+ apps. Lindy lists 2,733 plus MCP servers, and 50agents works with 2,300+ through viaSocket."
+    },
+    {
+      "q": "What does Lindy cost?",
+      "a": "Team starts at $29.99 a month for 3,000 credits, billed for every active user. Free credits are $50 and last 7 days."
+    },
+    {
+      "q": "Which alternative suits a browser job?",
+      "a": "Gumloop has a cloud browser with a credential vault. 50agents browser agents read websites on a schedule and leave a report."
+    },
+    {
+      "q": "Can I move my Lindy setup over?",
+      "a": "There is no import. Note what each one does, then describe it to Captain, which shows a plan before it builds."
+    },
+    {
+      "q": "Which alternative suits sales teams?",
+      "a": "Relevance AI builds sales AI agent teams wired into Salesforce, HubSpot and Gong."
     }
   ],
   "related": [

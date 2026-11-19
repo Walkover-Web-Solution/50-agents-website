@@ -1,8 +1,1 @@
-{
-  "usedFor": "Facebook Lead Ads captures leads from your campaigns, and Zoho CRM is where sales works them. A “New Lead Submitted” in Facebook Lead Ads can run “Create a Note” in Zoho CRM to write the submission into the selected module.",
-  "bestTemplate": {
-    "name": "“New Lead Submitted” in Facebook Lead Ads, then “Create a Note” in Zoho CRM",
-    "why": "It puts what the lead submitted into a note in the module you pick, so the person who calls has the context in front of them."
-  },
-  "watchOut": "“Create a Note” only writes a note; it does not create the lead. Make sure the record exists in Zoho CRM before the note is added."
-}
+{"usedFor":"A Facebook Lead Ads submission is written into Zoho CRM as a note.","bestTemplate":{"name":"“New Lead Submitted” in Facebook Lead Ads, then “Create a Note” in Zoho CRM","why":"It puts the submission in a note in the chosen module, so the caller has context."},"watchOut":"“Create a Note” does not create the lead, so the Zoho CRM record must exist first."}

@@ -1,8 +1,1 @@
-{
-  "usedFor": "Airtable is your table of records; Slack is where the team looks all day. When “New Records Appear” in Airtable, “Send Message” in Slack can tell a channel, or “Send Interactive Message” can ask someone to approve it.",
-  "bestTemplate": {
-    "name": "“New Records Appear” in Airtable, then “Send Interactive Message” in Slack",
-    "why": "Buttons or a form let the person who sees the new row respond right there, which beats a plain notice for requests and approvals."
-  },
-  "watchOut": "“New Records Appear” is polling, so a row can sit for a short while before Slack hears about it. On 50agents, an automation's post to a Slack channel also waits for your approval today."
-}
+{"usedFor":"New Airtable records can be posted to a Slack channel or sent as an approval request.","bestTemplate":{"name":"“New Records Appear” in Airtable, then “Send Interactive Message” in Slack","why":"Buttons or a form let people respond in Slack, which beats a plain notice for approvals."},"watchOut":"“New Records Appear” polls, and on 50agents a Slack channel post waits for your approval."}

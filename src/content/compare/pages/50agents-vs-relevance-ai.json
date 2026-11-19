@@ -64,6 +64,22 @@
     {
       "q": "Can both wait for approval before emailing a prospect?",
       "a": "Yes. Relevance AI has approval steps you can answer from Slack or Teams. 50agents holds every outside email in Needs you."
+    },
+    {
+      "q": "How do the prices differ?",
+      "a": "50agents is free to start. Relevance AI's Pro is $19 a month billed yearly for 2,500 actions, and extra actions cost $80 per 1,000."
+    },
+    {
+      "q": "Which suits sales teams?",
+      "a": "Relevance AI builds teams of AI agents for sales and go-to-market, wired into Salesforce, HubSpot and Gong. 50agents builds from plain words for any job."
+    },
+    {
+      "q": "Does 50agents have a browser agent?",
+      "a": "Yes. Browser agents work websites with no app to connect. Relevance AI reaches browsers through third-party integrations only."
+    },
+    {
+      "q": "Can I move my Relevance AI agents over?",
+      "a": "There is no import. Note what each AI agent does, then describe it to Captain, which shows a plan before it builds."
     }
   ],
   "related": [

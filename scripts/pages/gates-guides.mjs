@@ -2,7 +2,7 @@
 // point, no sources, no dates, short subheaders, a 40-word answer, interactions that earn their place), style, facts
 // against the catalog and the use case pages, uniqueness and length. Writes report-guides.md.
 // Run: node scripts/pages/gates-guides.mjs
-import { pagesIn, read, words, style, namesPrices, shingles, overlap, report, USE_CASES, PLANNED_USE_CASES, leadsWithAsk, namesJob } from './gates-lib.mjs';
+import { pagesIn, read, words, style, CATALOG, namesPrices, shingles, overlap, report, USE_CASES, PLANNED_USE_CASES, leadsWithAsk, namesJob } from './gates-lib.mjs';
 import { PATHS } from './checks.mjs';
 
 const pages = pagesIn('src/content/guides/pages');
@@ -11,7 +11,25 @@ const slugs = new Set(pages.map(p => p.slug));
 const ucAsks = Object.fromEntries(Object.values(USE_CASES).map(u => [u.ask, u.slug]));
 const GROUPS = ['AI agents', 'Automations', 'Browser agents', 'Apps', 'Email and calendar', 'Choosing tools'];
 const KINDS = ['app', 'auto', 'ai', 'browser'];
-const KEYS = new Set(['slug', 'group', 'kind', 'query', 'title', 'description', 'h1', 'answer', 'chooser', 'sections', 'method', 'captain', 'wrong', 'faqs', 'related', 'updated']);
+const KEYS = new Set(['slug', 'group', 'kind', 'query', 'title', 'description', 'h1', 'cover', 'answer', 'chooser', 'sections', 'method', 'captain', 'wrong', 'faqs', 'related', 'updated']);
+
+// The cover (D260, Jii's round 5): its own apps (catalog slugs), its key object and a few words; no two covers alike.
+const SCENES = ['panel', 'pipe', 'message', 'calendar', 'page', 'chat', 'fork', 'access', 'board'];
+const coverApps = c => [c.app, c.panel?.app, c.from?.app, c.to?.app, ...(c.apps ?? []).map(a => (typeof a === 'string' ? a : a.app)),
+  ...[c.panel, c.from, c.to].flatMap(p => p?.rows ?? []).map(r => r.app)].filter(Boolean);
+const coverTexts = c => JSON.stringify(c).match(/"(?:label|q|ask|reply|subject|where|day|title|text|url|access|name|tag|via|was|now|button|cells|lines|options|head|events)":(?:"[^"]*"|\[[^\]]*\])/g)?.join(' ') ?? '';
+const coverKey = c => JSON.stringify(c);
+const coverSeen = new Map();
+function coverBad(p) {
+  const c = p.cover, bad = [];
+  if (!c) return ['no cover (D260: every cover draws its own guide)'];
+  if (!SCENES.includes(c.scene)) bad.push(`cover scene ${c.scene}`);
+  coverApps(c).forEach(a => !CATALOG.has(a) && bad.push(`cover app ${a} is not in the catalog`));
+  const t = coverTexts(c);
+  bad.push(...style(t).map(b => `cover: ${b}`));
+  if (coverSeen.has(coverKey(c))) bad.push(`cover is the same as ${coverSeen.get(coverKey(c))}`); else coverSeen.set(coverKey(c), p.slug);
+  return bad;
+}
 
 // The chooser's texts and its problems: 2 to 4 options a question, an answer within 3 taps, short words.
 function walk(c, depth, out, bad) {
@@ -45,6 +63,7 @@ const results = pages.map(p => {
   // shape
   if (!row) bad.push('no row in rows-guides.json');
   Object.keys(p).forEach(k => !KEYS.has(k) && bad.push(`field "${k}" is not in GuidePage v4 (no sources, no example, no pricesChecked)`));
+  bad.push(...coverBad(p));
   if (!GROUPS.includes(p.group)) bad.push(`group ${p.group}`);
   if (!KINDS.includes(p.kind)) bad.push(`kind ${p.kind}`);
   if (p.title.length > 60 || !p.title.endsWith(' | 50agents')) bad.push(`title "${p.title}" (${p.title.length} chars, ends " | 50agents")`);
@@ -101,7 +120,8 @@ const results = pages.map(p => {
   // what can go wrong, questions
   if (p.wrong.length < 3 || p.wrong.length > 5) bad.push(`${p.wrong.length} things that can go wrong (3 to 5)`);
   p.wrong.forEach(w => { if (!KINDS.includes(w.about)) bad.push(`"${w.title}" about ${w.about}`); if (words(w.body) > 40) bad.push(`"${w.title}" is ${words(w.body)} words (40 at most)`); });
-  if (p.faqs.length < 3 || p.faqs.length > 4) bad.push(`${p.faqs.length} questions (3 or 4)`);
+  if (p.faqs.length < 5 || p.faqs.length > 7) bad.push(`${p.faqs.length} questions (5 to 7; D260: more questions)`);
+  if (new Set(p.faqs.map(f => f.q.toLowerCase())).size !== p.faqs.length) bad.push('a question asked twice');
   p.faqs.forEach(f => words(f.a) > 60 && bad.push(`answer to "${f.q}" over 60 words`));
   p.related.forEach(r => !slugs.has(r) && bad.push(`related ${r} is not a guide`));
   // links: internal only, to pages that exist; no sources, no dates on the page
@@ -118,7 +138,7 @@ const results = pages.map(p => {
   if (uc) { const o = overlap(sh[p.slug], shingles(JSON.stringify(uc))); if (o >= 0.2) bad.push(`repeats use case ${uc.slug} (${o.toFixed(2)})`); }
   // length: to the point
   const n = words(all);
-  if (n < 400 || n > 850) bad.push(`${n} words (400 to 850; D258: concise and to the point)`);
+  if (n < 400 || n > 1000) bad.push(`${n} words (400 to 1,000; D258 concise, D260 two or three more questions)`);
   return { slug: p.slug, words: n, bad };
 });
 for (const r of Object.keys(rows)) if (!slugs.has(r)) results.push({ slug: r, words: 0, bad: ['a row with no page'] });

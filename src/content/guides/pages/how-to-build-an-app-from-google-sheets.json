@@ -6,6 +6,45 @@
   "title": "How to build an app from Google Sheets | 50agents",
   "description": "Build an app from Google Sheets: tidy the sheet into one table per tab with an ID column, then pick AppSheet, Glide, Softr or an AI builder by its limits.",
   "h1": "How to build an app from Google Sheets",
+  "cover": {
+    "scene": "pipe",
+    "from": {
+      "app": "google-sheets",
+      "label": "Tickets",
+      "look": "sheet",
+      "rows": [
+        {
+          "cells": [
+            "T-14",
+            "Open"
+          ]
+        },
+        {
+          "cells": [
+            "T-15",
+            "Done"
+          ]
+        }
+      ]
+    },
+    "via": "Live sheet",
+    "to": {
+      "label": "Ticket desk",
+      "rows": [
+        {
+          "cells": [
+            "T-14 Login fails"
+          ],
+          "tag": "Open"
+        },
+        {
+          "cells": [
+            "T-15 Refund"
+          ]
+        }
+      ]
+    }
+  },
   "answer": [
     "Tidy the sheet first: one table per tab, one header row, one row per record, an ID column.",
     "Then pick a builder that works on the live sheet, or one that imports a copy and replaces it."
@@ -142,6 +181,18 @@
     {
       "q": "What is the row limit for an app on Google Sheets?",
       "a": "Google Sheets holds up to 20 million cells. Builders set their own limits; Glide, for example, caps spreadsheet sources at 25,000 rows."
+    },
+    {
+      "q": "Will editing the sheet break the app?",
+      "a": "It can. Renaming a header, deleting the ID column or adding a totals row are the usual causes. Lock the header row and the ID column, and change the structure only in the builder."
+    },
+    {
+      "q": "Should the app use the live sheet or a copy?",
+      "a": "A live connection keeps one source of truth, which suits AppSheet, Glide or Softr. Builders that import a copy replace the sheet, so stop editing the old one the day you switch."
+    },
+    {
+      "q": "Who can see the data in my app?",
+      "a": "Only who you add, if you set it up. Add users by email and limit who can edit before anyone else opens it. A shared link is not access control."
     }
   ],
   "related": [

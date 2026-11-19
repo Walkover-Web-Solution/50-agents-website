@@ -24,7 +24,7 @@ type Base = {
   lede: string; // the one line under the table's heading: 14 words at most
   strengths: Strength[]; // where 50agents is good and what it gives: 3 or 4
   move: { title: string; body: string }[]; // how to move over: 3 or 4 steps, title 5 words, body 16 words at most
-  faqs: { q: string; a: string }[]; // 3 or 4, each answer 40 words at most; an answer may carry [label](/path) links (guides/rich.tsx)
+  faqs: { q: string; a: string }[]; // 6 to 9 (D260), each answer 40 words at most; an answer may carry [label](/path) links (guides/rich.tsx)
   related: { href: string; title: string; line: string }[]; // 3 other comparison pages, line 8 words at most
   updated: string; // ISO date: JSON-LD dateModified and the sitemap only, never shown
 };

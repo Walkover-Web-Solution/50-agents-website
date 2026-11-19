@@ -1,8 +1,1 @@
-{
- "usedFor": "Microsoft Outlook receives the mail, and Slack is where the team reacts. “When a new email is received” in Outlook can post through “Send Interactive Message” in Slack, with buttons for the reply.",
- "bestTemplate": {
-  "name": "“When a new email is received” in Microsoft Outlook, then “Send Interactive Message” in Slack",
-  "why": "An email often needs a decision, and the buttons or form collect it inside Slack. Plain “Send Message” only informs."
- },
- "watchOut": "“When a new email is received” is polling and covers the whole account, so every email will post unless you filter. An automation's post to a Slack channel also waits for your approval today."
-}
+{"usedFor":"New Microsoft Outlook emails post to Slack with buttons so the team can reply.","bestTemplate":{"name":"“When a new email is received” in Microsoft Outlook, then “Send Interactive Message” in Slack","why":"Email often needs a decision, and the buttons or form collect it inside Slack."},"watchOut":"“When a new email is received” covers the whole Microsoft Outlook account, so filter it."}

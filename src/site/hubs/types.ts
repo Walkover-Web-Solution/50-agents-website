@@ -14,6 +14,7 @@ export type HubPage = {
   line: string; // one line for link cards on other pages, under 12 words
   answer: [string, string]; // the kind in two sentences, 40 words at most in total (D254)
   example: { ask: string; build: UseCasePage['build'] }; // a real starting ask of this kind (app templates/list.ts); `build` is kept as a fact, not drawn
+  asks: string[]; // the hero film's asks (D260): 5 or 6, the first is example.ask, each one of this kind's gallery asks
   useCases: string; // the line under the use case cards' heading, 14 words at most
   apps: string[]; // the apps it is most used with (catalog slugs): the first three are named in "Works with ...", all lead the marquee
   faqs: { q: string; a: string }[]; // 5 to 7, each answer 2 or 3 sentences; an answer may carry [label](/path) links (guides/rich.tsx)
