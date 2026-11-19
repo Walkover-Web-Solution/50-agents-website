@@ -10,7 +10,7 @@ const OURS_FREE = 'Free to start';
 
 // The 50agents wordmark, small, for the table headers (D255: our logo, not a kind face), as on the use case page.
 export function Logo50() {
-  return <span className="logo50" aria-label="50agents"><span aria-hidden="true">5<Face id="keeper" size={17} />agents</span></span>;
+  return <span className="logo50"><span className="logo50-d" aria-hidden="true"><Face id="keeper" size={17} /></span><span className="sr">50agents</span></span>;
 }
 
 const MARK_WORD: Record<Mark, string> = { yes: 'Yes', no: 'No', partly: 'Partly' };

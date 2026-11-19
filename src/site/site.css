@@ -432,3 +432,9 @@ a.rel:hover{box-shadow:inset 0 0 0 1px var(--ink)}
   .foot-cols{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:32px}
 }
 @media (max-width:760px){.foot-cols{grid-template-columns:1fr 1fr}}
+
+/* The small 50agents wordmark in tables: "5" and "agents" drawn by CSS so the page text reads "50agents" (Search re-audit). */
+.logo50-d{display:inline-flex;align-items:center}
+.logo50-d::before{content:"5"}
+.logo50-d::after{content:"agents"}
+.logo50 .sr,.site .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

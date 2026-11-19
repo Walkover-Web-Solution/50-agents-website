@@ -44,7 +44,7 @@ function related(u: UseCasePage) {
 
 // The 50agents wordmark, small, for table headers (D255: our logo, not a kind face)
 function Logo50() {
-  return <span className="logo50" aria-label="50agents"><span aria-hidden="true">5<Face id="keeper" size={17} />agents</span></span>;
+  return <span className="logo50"><span className="logo50-d" aria-hidden="true"><Face id="keeper" size={17} /></span><span className="sr">50agents</span></span>;
 }
 
 function Mark({ v }: { v: string }) {
