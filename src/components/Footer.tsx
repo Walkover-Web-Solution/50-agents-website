@@ -33,7 +33,9 @@ const Footer = () => (
       <nav className="grid grid-cols-2 sm:grid-cols-3 gap-8" aria-label="Footer">
         {COLS.map((c) => (
           <div key={c.title} className="flex flex-col gap-3">
-            <b style={{ fontSize: 14, color: 'var(--ink)' }}>{c.title}</b>
+            <h2 className="h2" style={{ fontSize: 14, margin: 0, color: 'var(--ink)' }}>
+              {c.title}
+            </h2>
             {c.links.map((l: any) => (
               <a key={l.label} href={l.href} {...(l.out ? { target: '_blank', rel: 'noopener' } : {})} className="no-underline hover:underline" style={{ fontSize: 14.5, color: 'var(--mute)' }}>{l.label}</a>
             ))}

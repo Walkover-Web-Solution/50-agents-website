@@ -22,6 +22,7 @@ export default function HeroWorkManagement() {
                         <h1 className="h1 mb-6 leading-tight">
                             Work Management: AI-Powered Execution for Modern Teams
                         </h1>
+                        <h2 className="h2 mb-4">One home for plans, tasks and AI execution</h2>
 
                         <p className="sub__h1 max-w-3xl mx-auto mb-8">
                             Plan, track, and finish projects using smart categories, custom views, and AI that handles the "busywork" for you, all in one easy-to-use home for your team.
