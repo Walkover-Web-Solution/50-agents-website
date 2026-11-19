@@ -10,7 +10,7 @@ const fmt = (n: number) => n.toLocaleString('en-US');
 
 export const metadata: Metadata = {
   title: '50agents pricing: free to start, plans from $19',
-  description: 'Every workspace gets 2,000 free credits a month. Plans: Starter $19 for 20,000, Pro $49 for 55,000, Business $99 for 110,000. Top up at $1 per 1,000.',
+  description: 'Every workspace gets 2,000 free credits a month. Plans: Starter $19 for 20,000, Pro $49 for 55,000, Business $99 for 120,000. Top up at $1 per 1,000.',
   alternates: { canonical: url },
   robots: { index: true, follow: true },
   openGraph: { title: '50agents pricing', description: 'Free to start with 2,000 credits a month. Plans from $19.', url, siteName: '50agents', type: 'website' },
