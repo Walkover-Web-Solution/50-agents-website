@@ -1,0 +1,1 @@
+{"usedFor":"Each new Pipedrive person gets a row in a Notion data source.","bestTemplate":{"name":"“New Person Created” in Pipedrive, then “Create_Data_Source_Item” in Notion","why":"It gives the team a Notion row per new contact to hang notes and tasks on."},"watchOut":"“New Person Created” polls, so new Pipedrive people reach Notion after the next check, not instantly."}

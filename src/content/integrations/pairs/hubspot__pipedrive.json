@@ -1,0 +1,1 @@
+{"usedFor":"New Pipedrive deals are copied into HubSpot as deals.","bestTemplate":{"name":"“New Deal” in Pipedrive, then “Create Deal” in HubSpot","why":"It mirrors each Pipedrive deal into HubSpot, and the push trigger means no wait."},"watchOut":"In reverse, “When a deal is created or updated” fires on edits, so “Create Person” can run twice."}

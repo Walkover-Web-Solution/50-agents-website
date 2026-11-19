@@ -1,0 +1,89 @@
+{
+ "pair": "microsoft-outlook/slack",
+ "apps": {
+  "microsoft-outlook": {
+   "name": "Microsoft Outlook",
+   "labels": [
+    "Email",
+    "Event Management"
+   ],
+   "about": "Microsoft Outlook is an email service developed by Microsoft, primarily used for managing emails, calendars, tasks, and contacts. It integrates seamlessly with "
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "microsoft-outlook:When a new email is received"
+   ]
+  },
+  {
+   "action": "slack:Send Interactive Message",
+   "triggers": [
+    "microsoft-outlook:When a new email is received"
+   ]
+  },
+  {
+   "action": "microsoft-outlook:Create Contact",
+   "triggers": [
+    "slack:New Message Posted in Channel Instant"
+   ]
+  },
+  {
+   "action": "microsoft-outlook:Create Draft Email",
+   "triggers": [
+    "slack:New Message Posted in Channel Instant"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "microsoft-outlook:When a new email is received",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs the workflow automatically whenever a new email is received in the account."
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "slack:Send Interactive Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a message with buttons or a form to collect approvals or responses."
+  },
+  {
+   "key": "slack:New Message Posted in Channel Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+  },
+  {
+   "key": "microsoft-outlook:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Fix folder dropdown pagination/search globals, tighten email validation, remove whereClause, update help text"
+  },
+  {
+   "key": "microsoft-outlook:Create Draft Email",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a draft email with subject, body, and recipients (To, CC, BCC); auto-detect HTML or plain-text body and accept comma- or semicolon-separated recipient lists."
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "pair": "shopify/woocommerce",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "woocommerce": {
+   "name": "WooCommerce",
+   "labels": [
+    "E-commerce",
+    "Website Management",
+    "Online Store"
+   ],
+   "about": "WooCommerce is a customizable, open-source eCommerce platform built on WordPress. It is designed to help businesses of all sizes create and manage an online sto"
+  }
+ },
+ "templates": [
+  {
+   "action": "shopify:Abandoned Checkout",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "shopify:New Blog Article",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "woocommerce:Create Coupon",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Blog Article"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "woocommerce:New Order Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new order is created."
+  },
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "shopify:New Blog Article",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new blog article is published."
+  },
+  {
+   "key": "woocommerce:Create Coupon",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new coupon in your WooCommerce store."
+  }
+ ]
+}

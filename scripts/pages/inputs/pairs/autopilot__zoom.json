@@ -1,0 +1,91 @@
+{
+ "pair": "autopilot/zoom",
+ "apps": {
+  "autopilot": {
+   "name": "Autopilot",
+   "labels": [
+    "CRM (Customer Relationship Management)",
+    "Field Service Management"
+   ],
+   "about": "Autopilot is a CRM and field service management app for home service businesses: clients, jobs, scheduling, estimates, invoices and payments."
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "autopilot:Updated Estimate",
+    "autopilot:New Estimate",
+    "autopilot:Updated Invoice",
+    "autopilot:New Invoice",
+    "autopilot:Updated Job",
+    "autopilot:New Job",
+    "autopilot:Updated Client",
+    "autopilot:New Client"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "autopilot:Updated Estimate",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an estimate changes. Optionally only when it has a chosen status."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "autopilot:New Estimate",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new estimate is created. Sends events to a configured webhook URL."
+  },
+  {
+   "key": "autopilot:Updated Invoice",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an invoice or its payments are updated. Optionally only for a chosen status."
+  },
+  {
+   "key": "autopilot:New Invoice",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new invoice is created."
+  },
+  {
+   "key": "autopilot:Updated Job",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a job is updated, optionally only for a chosen status."
+  },
+  {
+   "key": "autopilot:New Job",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new job is created."
+  },
+  {
+   "key": "autopilot:Updated Client",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a client changes, including addresses and tags."
+  },
+  {
+   "key": "autopilot:New Client",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new client or lead is added. Optionally only clients or only leads."
+  }
+ ]
+}

@@ -1,0 +1,238 @@
+{
+  "slug": "how-to-log-stripe-payments-in-google-sheets",
+  "group": "Automations",
+  "kind": "auto",
+  "query": "how to log stripe payments in google sheets",
+  "title": "How to log Stripe payments in Google Sheets | 50agents",
+  "description": "Log Stripe payments in Google Sheets on each successful payment: one row per payment ID, amounts divided by 100, refunds as their own rows, fees looked up.",
+  "h1": "How to log Stripe payments in Google Sheets",
+  "cover": {
+    "scene": "pipe",
+    "from": {
+      "app": "stripe",
+      "label": "Payment",
+      "look": "doc",
+      "rows": [
+        {
+          "cells": [
+            "Amount",
+            "24900"
+          ]
+        },
+        {
+          "cells": [
+            "Status",
+            "Succeeded"
+          ]
+        }
+      ]
+    },
+    "via": "Divide by 100",
+    "to": {
+      "app": "google-sheets",
+      "label": "Payments",
+      "look": "sheet",
+      "rows": [
+        {
+          "cells": [
+            "pi_3Nw2",
+            "80.00"
+          ]
+        },
+        {
+          "cells": [
+            "pi_3Nx8",
+            "249.00"
+          ],
+          "on": true
+        }
+      ]
+    }
+  },
+  "answer": [
+    "On each successful Stripe payment, add one row with its ID, date, customer, amount divided by 100, and currency.",
+    "Log refunds as their own rows, and skip any payment ID already in the sheet so retries never duplicate."
+  ],
+  "sections": [
+    {
+      "id": "four-facts",
+      "h2": "Four Stripe facts that decide your columns",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Stripe fact",
+              "What it means for the sheet"
+            ],
+            "rows": [
+              [
+                "Amounts come in cents",
+                "Divide by 100; JPY is already whole"
+              ],
+              [
+                "A refund leaves the payment unchanged",
+                "Log refunds as their own negative rows"
+              ],
+              [
+                "Fees are not on the payment",
+                "Look them up, or reconcile from payouts"
+              ],
+              [
+                "Events can arrive twice, out of order",
+                "Keep the ID; skip IDs you have"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "Stripe retries failed deliveries for up to 3 days and does not promise order, which is why the ID check matters."
+        }
+      ]
+    },
+    {
+      "id": "columns",
+      "h2": "The columns to keep",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Column",
+              "From Stripe",
+              "Note"
+            ],
+            "rows": [
+              [
+                "Payment ID",
+                "Payment intent or charge ID",
+                "Your duplicate check"
+              ],
+              [
+                "Date",
+                "Created time",
+                "Sent in UTC; convert or say so"
+              ],
+              [
+                "Customer",
+                "Name or email",
+                "Guest checkouts may have only email"
+              ],
+              [
+                "Amount",
+                "Amount divided by 100",
+                "Format as currency"
+              ],
+              [
+                "Currency",
+                "Currency code",
+                "Never sum USD with EUR"
+              ],
+              [
+                "Description",
+                "Description or product",
+                "Often empty; use the invoice number"
+              ],
+              [
+                "Type",
+                "Payment or Refund",
+                "One SUMIF gives net of refunds"
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to log Stripe payments in Google Sheets",
+    "steps": [
+      {
+        "title": "Make the sheet first",
+        "body": "Create the tab with the header row above, ID first, and freeze it. Tools map fields to the headers they find, so name them before you connect anything."
+      },
+      {
+        "title": "Trigger on successful payments only",
+        "body": "Use the \"payment succeeded\" event, not \"payment intent created\", which fires before the money moves. In viaSocket's catalog the Stripe trigger is \"When a payment succeeds\"."
+      },
+      {
+        "title": "Check the ID before adding",
+        "body": "Look the payment ID up in the sheet. If it is there, stop. This one step removes every duplicate from retries."
+      },
+      {
+        "title": "Convert, then add the row",
+        "body": "Divide the amount by 100 (unless the currency has no decimals), convert the time, and add the row.",
+        "note": {
+          "type": "warn",
+          "text": "Check the first row against the Stripe Dashboard. An amount 100 times too big means the division step was skipped.",
+          "about": "auto"
+        }
+      },
+      {
+        "title": "Add a second automation for refunds",
+        "body": "Trigger on refunds and add a row with Type Refund and a negative amount, so totals stay true without editing old rows."
+      },
+      {
+        "title": "Backfill the past once",
+        "body": "Export earlier payments from the Stripe Dashboard as CSV, paste them under the same headers, and let the automation carry on from the day it goes live."
+      }
+    ]
+  },
+  "captain": {
+    "at": 1,
+    "line": "Captain reads one real payment from your Stripe account to plan the fields, tests the steps on it, and adds rows to your own sheet without waiting for approval.",
+    "useCase": "stripe-payments-to-google-sheets"
+  },
+  "wrong": [
+    {
+      "title": "The same payment twice",
+      "body": "A retried event added a second row. Look the ID up before adding, every time.",
+      "about": "auto"
+    },
+    {
+      "title": "Refunds missing from the totals",
+      "body": "Only payments were logged. Add the refund automation, and total with a SUMIF on Type, or sum the signed amounts.",
+      "about": "auto"
+    },
+    {
+      "title": "Test payments mixed with real ones",
+      "body": "The automation was connected to test mode while you set it up. Delete those rows, and check the connection is the live account.",
+      "about": "auto"
+    },
+    {
+      "title": "The sheet stops accepting rows",
+      "body": "Google's API allows 300 writes a minute per project and 60 per user, and a busy sale can hit that. Spread a backfill out, and keep one tab per year.",
+      "about": "app"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Why is my Stripe amount 100 times too large in Google Sheets?",
+      "a": "Stripe sends amounts in the smallest currency unit, so $25.00 arrives as 2500. Divide by 100, except for zero-decimal currencies such as JPY."
+    },
+    {
+      "q": "How do I include Stripe fees?",
+      "a": "Fees are on the balance transaction, not the payment. Either add a step that fetches it, or reconcile fees monthly from your payout report, which is simpler and matches your bank."
+    },
+    {
+      "q": "Can I log old payments too?",
+      "a": "Yes, once: export them from the Stripe Dashboard as CSV and paste them under the same headers. The automation only sees payments from the moment it goes live."
+    },
+    {
+      "q": "How do I keep test payments out of the sheet?",
+      "a": "Connect the live Stripe account for the real sheet, and use a separate test sheet while you build. Test payments mixed into totals are hard to find later."
+    },
+    {
+      "q": "Can I log payments in more than one currency?",
+      "a": "Yes. Keep a Currency column and never sum USD with EUR. Total each currency on its own, or convert in a separate column with the rate you used."
+    },
+    {
+      "q": "What if the sheet gets too big?",
+      "a": "Google Sheets holds up to 20 million cells. Long before that it gets slow, so move each year's rows to an archive tab and keep the live tab short."
+    }
+  ],
+  "related": [
+    "how-to-send-shopify-orders-to-google-sheets",
+    "webhooks-explained-for-non-developers",
+    "how-to-automate-weekly-reports-by-email"
+  ],
+  "updated": "2026-11-19"
+}

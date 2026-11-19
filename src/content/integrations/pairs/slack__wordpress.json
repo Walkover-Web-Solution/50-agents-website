@@ -1,0 +1,1 @@
+{"usedFor":"Each new WordPress post is announced to the team through Slack.","bestTemplate":{"name":"“New Post Created” in Wordpress, then “Send Message” in Slack","why":"It tells the team the moment a post exists, in a channel you name."},"watchOut":"Posts from an automation to a Slack channel wait for your approval before they appear."}

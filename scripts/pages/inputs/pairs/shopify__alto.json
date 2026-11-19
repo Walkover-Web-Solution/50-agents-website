@@ -1,0 +1,77 @@
+{
+ "pair": "shopify/alto",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "alto": {
+   "name": "Alto",
+   "labels": [
+    "Video & Audio"
+   ],
+   "about": "Alto hosts finished demo videos, gives each recipient a tracked link, and shows who watched and which moments landed."
+  }
+ },
+ "templates": [
+  {
+   "action": "alto:Create Recipient Link",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled",
+    "shopify:New Blog Article"
+   ]
+  },
+  {
+   "action": "alto:Update Recipient Link",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled",
+    "shopify:New Blog Article"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "alto:Create Recipient Link",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a tracked link to one video for one person and return that link (id, shareUrl and the full link object). If an email is given and Reuse Existing Link is not No, it first returns that person's active link for the…"
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "alto:Update Recipient Link",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Change a recipient link's person details, note, expiry, or turn it on or off."
+  },
+  {
+   "key": "shopify:New Blog Article",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new blog article is published."
+  }
+ ]
+}

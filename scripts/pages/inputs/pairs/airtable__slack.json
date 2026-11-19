@@ -1,0 +1,64 @@
+{
+ "pair": "airtable/slack",
+ "apps": {
+  "airtable": {
+   "name": "Airtable",
+   "labels": [
+    "Databases",
+    "Task Management",
+    "Project Management",
+    "App Builder",
+    "Productivity",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Airtable is a flexible no-code platform for building collaborative databases, workflows, apps, and AI-powered team operations, helping organizations organize da"
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "airtable:New Records Appear"
+   ]
+  },
+  {
+   "action": "slack:Send Interactive Message",
+   "triggers": [
+    "airtable:New Records Appear"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "airtable:New Records Appear",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new records appear"
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "slack:Send Interactive Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a message with buttons or a form to collect approvals or responses."
+  }
+ ]
+}

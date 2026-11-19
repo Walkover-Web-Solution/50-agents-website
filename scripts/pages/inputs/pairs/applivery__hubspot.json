@@ -1,0 +1,89 @@
+{
+ "pair": "applivery/hubspot",
+ "apps": {
+  "applivery": {
+   "name": "Applivery",
+   "labels": [
+    "Developer Tools",
+    "IT Operations",
+    "Devices"
+   ],
+   "about": "Applivery helps teams manage, distribute, and update mobile apps across devices, with tools for app testing, deployment, and mobile device management."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "applivery:New Feedback Report",
+    "applivery:New Build Processed",
+    "applivery:New Build Uploaded"
+   ]
+  },
+  {
+   "action": "applivery:Update Build",
+   "triggers": [
+    "hubspot:When a deal is created or updated"
+   ]
+  },
+  {
+   "action": "applivery:Delete Build",
+   "triggers": [
+    "hubspot:When a deal is created or updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "applivery:New Feedback Report",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new feedback or bug report is received for a chosen app or any app."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "applivery:New Build Processed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a build finishes processing and is ready to install in a chosen app or any app."
+  },
+  {
+   "key": "applivery:New Build Uploaded",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new build is uploaded to an app or to any app in the workspace."
+  },
+  {
+   "key": "hubspot:When a deal is created or updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update HubSpot deal created/updated trigger sample response to include example associated contact details (first name, last name, email, phone) in the fallback sample."
+  },
+  {
+   "key": "applivery:Update Build",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update the version name, changelog, tags, metadata or status of a build."
+  },
+  {
+   "key": "applivery:Delete Build",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Permanently delete a build from an app."
+  }
+ ]
+}

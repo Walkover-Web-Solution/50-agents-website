@@ -1,0 +1,1 @@
+{"usedFor":"Each “New Order” in AutoQuote3D saves its file into a Dropbox folder.","bestTemplate":{"name":"“New Order” in AutoQuote3D, then “Upload File to Dropbox” in Dropbox","why":"Each placed order gets its file saved to a chosen folder, ready for production."},"watchOut":"“Upload File to Dropbox” takes files only from a public web link, so the order must supply one."}

@@ -1,0 +1,34 @@
+// Written by scripts/pages/write-index-family.mjs guides: every page JSON of the family. Don't edit by hand.
+import type { GuidePage } from '@/site/guides/types';
+import p_how_to_build_an_ai_agent_without_code from './how-to-build-an-ai-agent-without-code.json';
+import p_ai_agent_vs_automation_which_one_you_need from './ai-agent-vs-automation-which-one-you-need.json';
+import p_how_to_give_an_ai_agent_access_to_your_apps_safely from './how-to-give-an-ai-agent-access-to-your-apps-safely.json';
+import p_how_to_write_instructions_for_an_ai_agent from './how-to-write-instructions-for-an-ai-agent.json';
+import p_how_to_make_an_ai_agent_ask_before_it_acts from './how-to-make-an-ai-agent-ask-before-it-acts.json';
+import p_ai_agents_for_small_business_10_jobs_that_work_today from './ai-agents-for-small-business-10-jobs-that-work-today.json';
+import p_how_to_automate_invoice_reminders from './how-to-automate-invoice-reminders.json';
+import p_how_to_send_new_hubspot_contacts_to_slack from './how-to-send-new-hubspot-contacts-to-slack.json';
+import p_how_to_log_stripe_payments_in_google_sheets from './how-to-log-stripe-payments-in-google-sheets.json';
+import p_how_to_send_shopify_orders_to_google_sheets from './how-to-send-shopify-orders-to-google-sheets.json';
+import p_how_to_automate_lead_follow_up_from_gmail from './how-to-automate-lead-follow-up-from-gmail.json';
+import p_how_to_automate_weekly_reports_by_email from './how-to-automate-weekly-reports-by-email.json';
+import p_how_to_automate_data_entry_between_two_apps from './how-to-automate-data-entry-between-two-apps.json';
+import p_webhooks_explained_for_non_developers from './webhooks-explained-for-non-developers.json';
+import p_how_to_monitor_competitor_prices_automatically from './how-to-monitor-competitor-prices-automatically.json';
+import p_how_to_automate_a_website_that_has_no_api from './how-to-automate-a-website-that-has-no-api.json';
+import p_how_to_automate_form_filling_on_websites from './how-to-automate-form-filling-on-websites.json';
+import p_browser_automation_without_code from './browser-automation-without-code.json';
+import p_how_to_build_an_app_from_google_sheets from './how-to-build-an-app-from-google-sheets.json';
+import p_how_to_build_a_simple_crm_without_code from './how-to-build-a-simple-crm-without-code.json';
+import p_how_to_build_an_invoice_tracker from './how-to-build-an-invoice-tracker.json';
+import p_how_to_build_a_customer_requests_desk_from_your_inbox from './how-to-build-a-customer-requests-desk-from-your-inbox.json';
+import p_internal_tools_without_code_what_to_build_first from './internal-tools-without-code-what-to-build-first.json';
+import p_how_to_triage_your_inbox_with_ai from './how-to-triage-your-inbox-with-ai.json';
+import p_how_to_draft_email_replies_with_ai_and_still_check_them from './how-to-draft-email-replies-with-ai-and-still-check-them.json';
+import p_how_to_get_a_daily_calendar_summary_in_slack from './how-to-get-a-daily-calendar-summary-in-slack.json';
+import p_zapier_vs_make_vs_n8n_for_a_small_team from './zapier-vs-make-vs-n8n-for-a-small-team.json';
+import p_how_to_choose_an_ai_agent_builder from './how-to-choose-an-ai-agent-builder.json';
+import p_what_to_automate_first_in_a_small_business from './what-to-automate-first-in-a-small-business.json';
+import p_how_much_automation_costs_credits_tasks_and_runs_compared from './how-much-automation-costs-credits-tasks-and-runs-compared.json';
+
+export const GUIDES = [p_how_to_build_an_ai_agent_without_code, p_ai_agent_vs_automation_which_one_you_need, p_how_to_give_an_ai_agent_access_to_your_apps_safely, p_how_to_write_instructions_for_an_ai_agent, p_how_to_make_an_ai_agent_ask_before_it_acts, p_ai_agents_for_small_business_10_jobs_that_work_today, p_how_to_automate_invoice_reminders, p_how_to_send_new_hubspot_contacts_to_slack, p_how_to_log_stripe_payments_in_google_sheets, p_how_to_send_shopify_orders_to_google_sheets, p_how_to_automate_lead_follow_up_from_gmail, p_how_to_automate_weekly_reports_by_email, p_how_to_automate_data_entry_between_two_apps, p_webhooks_explained_for_non_developers, p_how_to_monitor_competitor_prices_automatically, p_how_to_automate_a_website_that_has_no_api, p_how_to_automate_form_filling_on_websites, p_browser_automation_without_code, p_how_to_build_an_app_from_google_sheets, p_how_to_build_a_simple_crm_without_code, p_how_to_build_an_invoice_tracker, p_how_to_build_a_customer_requests_desk_from_your_inbox, p_internal_tools_without_code_what_to_build_first, p_how_to_triage_your_inbox_with_ai, p_how_to_draft_email_replies_with_ai_and_still_check_them, p_how_to_get_a_daily_calendar_summary_in_slack, p_zapier_vs_make_vs_n8n_for_a_small_team, p_how_to_choose_an_ai_agent_builder, p_what_to_automate_first_in_a_small_business, p_how_much_automation_costs_credits_tasks_and_runs_compared] as GuidePage[];

@@ -1,0 +1,1 @@
+{"usedFor":"A left-behind Shopify cart queues a follow-up reminder in a Balsio team thread.","bestTemplate":{"name":"“Abandoned Checkout” in Shopify, then “Create Scheduled Message” in Balsio","why":"It turns a left-behind cart into a reminder at a time you set."},"watchOut":"“Create Scheduled Message” needs a thread ID and a date and time."}

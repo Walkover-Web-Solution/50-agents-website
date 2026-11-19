@@ -1,0 +1,1 @@
+{"usedFor":"Each Google Ads lead form submission opens a deal in HubSpot.","bestTemplate":{"name":"“New Lead Form Submitted” in Google Ads, then “Create Deal” in HubSpot","why":"Google Ads pushes the submission as it happens, and “Create Deal” puts it in the pipeline."},"watchOut":"A fresh ad lead has no ID for “Update Deal” or “Update Company”, so start with “Create Deal”."}

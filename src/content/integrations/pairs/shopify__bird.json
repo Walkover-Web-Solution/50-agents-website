@@ -1,0 +1,1 @@
+{"usedFor":"A shopper who abandons a Shopify checkout gets a text sent through Bird.","bestTemplate":{"name":"“Abandoned Checkout” in Shopify, then “Send SMS” in Bird","why":"It is the only Shopify trigger here that carries a phone number to text."},"watchOut":"The text goes out after a scheduled check, and 50agents holds outside messages for approval."}

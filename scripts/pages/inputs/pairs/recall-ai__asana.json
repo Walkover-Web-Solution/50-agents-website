@@ -1,0 +1,61 @@
+{
+ "pair": "recall-ai/asana",
+ "apps": {
+  "recall-ai": {
+   "name": "Recall.ai",
+   "labels": [
+    "Transcription",
+    "Video Conferencing",
+    "Developer Tools"
+   ],
+   "about": "Recall.ai provides developer APIs for recording, transcribing, and analyzing meetings across Zoom, Google Meet, Microsoft Teams, Webex and more. Send meeting bo"
+  },
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  }
+ },
+ "templates": [
+  {
+   "action": "asana:Create Task or Subtask",
+   "triggers": [
+    "recall-ai:New Webhook Event",
+    "recall-ai:New Transcript Completed",
+    "recall-ai:New Recording Becomes Ready"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "recall-ai:New Webhook Event",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Recall.ai sends a bot, recording or transcript status event to your webhook."
+  },
+  {
+   "key": "asana:Create Task or Subtask",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a task or subtask with custom fields, assignee, tags, dates, and description."
+  },
+  {
+   "key": "recall-ai:New Transcript Completed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a transcript finishes processing."
+  },
+  {
+   "key": "recall-ai:New Recording Becomes Ready",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a recording becomes ready and its media is available; you can set the lookback window (minutes)."
+  }
+ ]
+}

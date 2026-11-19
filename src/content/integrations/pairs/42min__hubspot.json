@@ -1,0 +1,1 @@
+{"usedFor":"Every booked 42min meeting starts as a deal in HubSpot.","bestTemplate":{"name":"“New Booking” in 42min, then “Create Deal” in HubSpot","why":"A booking can be limited to one event type, so only sales calls become deals."},"watchOut":"Use “Updated Booking Time” with an existing deal, not “Create Deal”, or a reschedule adds a second deal."}

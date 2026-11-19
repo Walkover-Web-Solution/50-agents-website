@@ -1,0 +1,55 @@
+{
+ "pair": "godaddy_payments/hubspot",
+ "apps": {
+  "godaddy_payments": {
+   "name": "GoDaddy Payments",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "GoDaddy Payments is GoDaddy's payment processing service. The provided input does not describe its specific capabilities."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "godaddy_payments:New Transaction Completed"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "godaddy_payments:New Transaction Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "godaddy_payments:New Transaction Completed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a transaction in your GoDaddy store is completed. You can filter by completed status and transaction type."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  }
+ ]
+}

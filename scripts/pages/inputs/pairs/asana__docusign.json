@@ -1,0 +1,59 @@
+{
+ "pair": "asana/docusign",
+ "apps": {
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  },
+  "docusign": {
+   "name": "Docusign",
+   "labels": [
+    "Document Management",
+    "E-Signature",
+    "Workflow Automation"
+   ],
+   "about": "DocuSign1 allows you to streamline your document signing process by integrating with DocuSign. Easily send, sign, and manage documents electronically, ensuring "
+  }
+ },
+ "templates": [
+  {
+   "action": "docusign:Create Workspace",
+   "triggers": [
+    "asana:New Story Added to Task or Goal"
+   ]
+  },
+  {
+   "action": "docusign:Update Workspace",
+   "triggers": [
+    "asana:New Story Added to Task or Goal"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "asana:New Story Added to Task or Goal",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Polls one Asana task or goal and fires once for each new story (a comment or system activity such as added to a project or completed) created since the last check. Reads up to 100 stories per page, oldest first, and…"
+  },
+  {
+   "key": "docusign:Create Workspace",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new workspace."
+  },
+  {
+   "key": "docusign:Update Workspace",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Updates a Workspace name or desctcription."
+  }
+ ]
+}

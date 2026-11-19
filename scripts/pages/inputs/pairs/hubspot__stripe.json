@@ -1,0 +1,99 @@
+{
+ "pair": "hubspot/stripe",
+ "apps": {
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  },
+  "stripe": {
+   "name": "Stripe",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "Stripe is a financial technology company that provides a set of tools and APIs (Application Programming Interfaces) for online businesses to handle payments, su"
+  }
+ },
+ "templates": [
+  {
+   "action": "stripe:Cancel Subscription",
+   "triggers": [
+    "hubspot:Delete Contact"
+   ]
+  },
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "stripe:New Charge Is Created"
+   ]
+  },
+  {
+   "action": "hubspot:Add Notes to Contact",
+   "triggers": [
+    "stripe:New Customer Created",
+    "stripe:Payment Link Created"
+   ]
+  },
+  {
+   "action": "hubspot:Update Company",
+   "triggers": [
+    "stripe:New Customer Created",
+    "stripe:Payment Link Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "hubspot:Delete Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Get notified if any contact is deleted in your account."
+  },
+  {
+   "key": "stripe:Cancel Subscription",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Cancel an active subscription."
+  },
+  {
+   "key": "stripe:New Charge Is Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when charge is created"
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "stripe:New Customer Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when customer is created"
+  },
+  {
+   "key": "hubspot:Add Notes to Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create one or more notes for a contact by ID or email, specifying note date and body."
+  },
+  {
+   "key": "hubspot:Update Company",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update selected HubSpot company properties for a given company ID."
+  },
+  {
+   "key": "stripe:Payment Link Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when payment link created"
+  }
+ ]
+}

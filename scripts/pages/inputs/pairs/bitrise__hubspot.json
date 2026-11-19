@@ -1,0 +1,56 @@
+{
+ "pair": "bitrise/hubspot",
+ "apps": {
+  "bitrise": {
+   "name": "Bitrise",
+   "labels": [
+    "Developer Tools",
+    "Engineering"
+   ],
+   "about": "Bitrise is a continuous integration and delivery platform for building, testing, and deploying mobile apps. Automate your development workflows and connect app "
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "bitrise:New Build"
+   ]
+  },
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "bitrise:New Build"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "bitrise:New Build",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new build starts or finishes on a chosen app."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  }
+ ]
+}

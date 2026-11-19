@@ -1,0 +1,1 @@
+{"slug":"jj-testing","name":"JJ_TESTING","description":"A simple tool for organizing tasks and notes.","icon":"https://stuff.thingsofbrand.com/domain.com/images/img2_domain.png","domain":"domain.com","rank":330,"labels":["Productivity"],"categories":[],"eventsRead":true,"events":[{"n":"Get Input Data","d":"Returns input provided to the app","t":"action","k":"hook"}],"recipes":[]}

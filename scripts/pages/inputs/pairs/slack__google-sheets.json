@@ -1,0 +1,75 @@
+{
+ "pair": "slack/google-sheets",
+ "apps": {
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  },
+  "google-sheets": {
+   "name": "Google Sheets",
+   "labels": [
+    "Productivity",
+    "Top Free Apps",
+    "Spreadsheets",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Google Sheets is a cloud-based spreadsheet application that lets users create, edit, share, and collaborate on spreadsheets in real time."
+  }
+ },
+ "templates": [
+  {
+   "action": "google-sheets:Update Spreadsheet Row",
+   "triggers": [
+    "slack:New Thread Message Instant",
+    "slack:New Thread Message"
+   ]
+  },
+  {
+   "action": "google-sheets:Add New Row to Sheet",
+   "triggers": [
+    "slack:New Message in Channels"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "slack:New Thread Message Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new reply is posted in a chosen channel's thread, optionally for a specific parent message."
+  },
+  {
+   "key": "google-sheets:Update Spreadsheet Row",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update columns in sheet row"
+  },
+  {
+   "key": "slack:New Message in Channels",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new message is received in a specific Slack channel. You can select which channel to monitor."
+  },
+  {
+   "key": "google-sheets:Add New Row to Sheet",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+  },
+  {
+   "key": "slack:New Thread Message",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new thread message."
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "pair": "notion/pipedrive",
+ "apps": {
+  "notion": {
+   "name": "Notion",
+   "labels": [
+    "Project Management",
+    "Productivity",
+    "Team Collaboration",
+    "Databases",
+    "Top Free Apps",
+    "App Builder",
+    "Product Management",
+    "Notes",
+    "AI Tools",
+    "Documents"
+   ],
+   "about": "Notion is an AI workspace for teams to create and organize docs, wikis, projects, databases, and custom agents, helping users collaborate, automate work, and ma"
+  },
+  "pipedrive": {
+   "name": "Pipedrive",
+   "labels": [
+    "CRM",
+    "Product Management",
+    "Team Collaboration"
+   ],
+   "about": "Pipedrive is a CRM software designed to streamline sales processes. It helps businesses manage sales pipelines, track deals, organize contacts, schedule activit"
+  }
+ },
+ "templates": [
+  {
+   "action": "notion:Create_Data_Source_Item",
+   "triggers": [
+    "pipedrive:New Person Created"
+   ]
+  },
+  {
+   "action": "pipedrive:Create Person",
+   "triggers": [
+    "notion:New Page Is Created"
+   ]
+  },
+  {
+   "action": "notion:New Page Is Created",
+   "triggers": [
+    "pipedrive:New Deal"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "pipedrive:New Person Created",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Fix Pipedrive New Person Created polling trigger: correct cursor/paginationData handling and use errorComponent"
+  },
+  {
+   "key": "notion:Create_Data_Source_Item",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Surgical update: unified all Notion API calls in Create Data Source Item action to use Notion-Version 2026-03-11, validated data_sources/templates endpoints, removed console logging, and kept input field keys for…"
+  },
+  {
+   "key": "notion:New Page Is Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new page is created"
+  },
+  {
+   "key": "pipedrive:Create Person",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a person and set owner, organization, emails, phones, visibility, labels, address, IMs, notes, and custom fields."
+  },
+  {
+   "key": "pipedrive:New Deal",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new deal is created."
+  }
+ ]
+}

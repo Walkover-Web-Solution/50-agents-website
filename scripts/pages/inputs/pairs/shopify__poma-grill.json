@@ -1,0 +1,55 @@
+{
+ "pair": "shopify/poma-grill",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "poma-grill": {
+   "name": "POMA Grill",
+   "labels": [
+    "AI Tools"
+   ],
+   "about": "POMA Grill (index4.ai) by POMA AI is a managed RAG service that ingests documents and returns prompt-ready context for AI search."
+  }
+ },
+ "templates": [
+  {
+   "action": "poma-grill:Ingest Document",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "poma-grill:Ingest Document",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Add a file to your project from a public URL so it becomes searchable."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "pair": "shopify/notion",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "notion": {
+   "name": "Notion",
+   "labels": [
+    "Project Management",
+    "Productivity",
+    "Team Collaboration",
+    "Databases",
+    "Top Free Apps",
+    "App Builder",
+    "Product Management",
+    "Notes",
+    "AI Tools",
+    "Documents"
+   ],
+   "about": "Notion is an AI workspace for teams to create and organize docs, wikis, projects, databases, and custom agents, helping users collaborate, automate work, and ma"
+  }
+ },
+ "templates": [
+  {
+   "action": "notion:Create_Data_Source_Item",
+   "triggers": [
+    "shopify:Order Paid",
+    "shopify:Order Line Items Are Edited",
+    "shopify:New Product",
+    "shopify:New Customer"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Order Paid",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is paid in Shopify account."
+  },
+  {
+   "key": "notion:Create_Data_Source_Item",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Surgical update: unified all Notion API calls in Create Data Source Item action to use Notion-Version 2026-03-11, validated data_sources/templates endpoints, removed console logging, and kept input field keys for…"
+  },
+  {
+   "key": "shopify:Order Line Items Are Edited",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when items on an order are edited."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:New Customer",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new customer is created to Shopify account"
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+{"usedFor":"A failed or finished AudioPod AI job opens an Asana project to handle it.","bestTemplate":{"name":"“New Job Failed” in AudioPod AI, then “Create Project” in Asana","why":"A failed job needs attention, so it gets an owner, notes and due dates."},"watchOut":"Limit both triggers to chosen job types, or every job creates a project."}

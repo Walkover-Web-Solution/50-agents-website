@@ -1,0 +1,132 @@
+{
+  "slug": "ifttt-alternatives",
+  "type": "alternatives",
+  "tool": "ifttt",
+  "query": "ifttt alternatives",
+  "title": "IFTTT alternatives for phones, homes and work | 50agents",
+  "description": "IFTTT alternatives: Apple Shortcuts on your iPhone, Home Assistant for a local smart home, Zapier or Make for work apps, and 50agents for email chores.",
+  "h1": "IFTTT alternatives",
+  "answer": [
+    "For your phone, Apple Shortcuts; for a local smart home, Home Assistant.",
+    "For work apps, Zapier or Make. For email chores like drafting replies, 50agents builds an AI agent from one sentence."
+  ],
+  "line": "For email chores like drafting replies, an AI agent from one sentence.",
+  "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
+  "lede": "Alternatives for phones, smart homes and work apps.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Email chores and replies",
+      "price": "Free to start",
+      "diff": "AI agents draft for you",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "shortcuts",
+      "best": "Automations on your iPhone",
+      "price": "No price listed",
+      "diff": "Runs on your device",
+      "src": "https://support.apple.com/guide/shortcuts/intro-to-automation-shortcuts-apd690170742/ios"
+    },
+    {
+      "tool": "homeassistant",
+      "best": "A local smart home",
+      "price": "No price listed",
+      "diff": "Keeps your data local",
+      "src": "https://www.home-assistant.io/"
+    },
+    {
+      "tool": "zapier",
+      "best": "Connecting 10,541+ apps",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Bills each action step",
+      "src": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "make",
+      "best": "Visual, branching scenarios",
+      "price": "Free plan; Core $9 a month",
+      "diff": "Most actions use one credit",
+      "src": "https://www.make.com/en/pricing"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    },
+    {
+      "title": "You approve what goes out",
+      "line": "Emails to clients wait in Needs you until you say yes.",
+      "face": "lead"
+    },
+    {
+      "title": "It knows your business",
+      "line": "Hours, prices, policies and tone, remembered once and used in every reply.",
+      "face": "writer"
+    }
+  ],
+  "move": [
+    {
+      "title": "Sort your Applets",
+      "body": "Phone and home Applets go to Shortcuts or Home Assistant; work ones come here."
+    },
+    {
+      "title": "Describe the email chore",
+      "body": "For example: go through unread email every weekday and draft replies."
+    },
+    {
+      "title": "Review the drafts",
+      "body": "Drafts wait for you; nothing is sent without your yes."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is there a free alternative to IFTTT?",
+      "a": "Make has a free plan with 1,000 credits a month, and 50agents is free to start. Home Assistant is open source and runs on your own device."
+    },
+    {
+      "q": "Which IFTTT alternative suits a smart home?",
+      "a": "Home Assistant. It is open source, keeps your data local and lists 1600+ integrations."
+    },
+    {
+      "q": "How much does IFTTT cost?",
+      "a": "IFTTT Free has 1,000 credits a month with hourly checks. Starter is $2.09 a month, billed $25.08 a year."
+    },
+    {
+      "q": "What does IFTTT's free plan include?",
+      "a": "Free has 1,000 credits a month and unlimited Applets, and checks for new events every hour."
+    },
+    {
+      "q": "Which alternative suits phone automations?",
+      "a": "Apple Shortcuts runs on your iPhone or iPad and starts from the time of day, arriving somewhere or opening an app. IFTTT has phone apps for iOS and Android."
+    },
+    {
+      "q": "How many apps do the alternatives connect?",
+      "a": "IFTTT lists 1,000+ services. Home Assistant lists 1600+ integrations, Make 3,500+ apps and Zapier 10,541+. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "Do I need my own hardware for Home Assistant?",
+      "a": "Yes. You run it yourself on a device at home, so setup and updates are yours."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/zapier-alternatives",
+      "title": "Zapier alternatives",
+      "line": "Make, n8n, Power Automate and more"
+    },
+    {
+      "href": "/compare/power-automate-alternatives",
+      "title": "Power Automate alternatives",
+      "line": "For Microsoft 365 teams"
+    },
+    {
+      "href": "/compare/make-alternatives",
+      "title": "Make alternatives",
+      "line": "Visual scenario builders"
+    }
+  ],
+  "updated": "2026-11-19"
+}

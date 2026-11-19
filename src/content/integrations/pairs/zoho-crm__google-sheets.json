@@ -1,0 +1,1 @@
+{"usedFor":"A new Zoho CRM deal updates a row your team already tracks in Google Sheets.","bestTemplate":{"name":"“New Deals” in Zoho CRM, then “Update Spreadsheet Row” in Google Sheets","why":"A new deal updates a row you already track, instead of adding a second one."},"watchOut":"“Update Spreadsheet Row” edits an existing row, so point it at one that already exists."}

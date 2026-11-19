@@ -1,0 +1,58 @@
+{
+ "pair": "liliphant/zoho-crm",
+ "apps": {
+  "liliphant": {
+   "name": "Liliphant",
+   "labels": [
+    "Scheduling and Booking"
+   ],
+   "about": "Liliphant by Walkover helps businesses manage customer conversations and communication through WhatsApp."
+  },
+  "zoho-crm": {
+   "name": "Zoho CRM",
+   "labels": [
+    "CRM",
+    "Top Free Apps",
+    "Contact Management",
+    "Marketing Automation",
+    "Business Intelligence",
+    "Analytics"
+   ],
+   "about": "Zoho CRM is an AI-powered customer relationship management platform that helps businesses manage leads, contacts, deals, customer interactions, sales automation"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoho-crm:New Account",
+   "triggers": [
+    "liliphant:New Analyzed Meeting Summary"
+   ]
+  },
+  {
+   "action": "zoho-crm:Create a lead",
+   "triggers": [
+    "liliphant:New Analyzed Meeting Summary"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "liliphant:New Analyzed Meeting Summary",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new analyzed meeting summary is generated for a chosen company."
+  },
+  {
+   "key": "zoho-crm:New Account",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update perform and sample endpoints to Zoho CRM v8, adding required sample fields and safe response access."
+  },
+  {
+   "key": "zoho-crm:Create a lead",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Updated Zoho CRM Create a lead action with dynamic dropdowns for Layout, Wizard, and Assignment Rule, plus reviewer-suggested custom field date/datetime handling and wizard connection path validation."
+  }
+ ]
+}

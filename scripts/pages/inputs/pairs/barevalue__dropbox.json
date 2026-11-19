@@ -1,0 +1,48 @@
+{
+ "pair": "barevalue/dropbox",
+ "apps": {
+  "barevalue": {
+   "name": "Barevalue",
+   "labels": [
+    "Content & Files"
+   ],
+   "about": "Barevalue edits podcast audio with AI: submit an episode by link, track the order and get the edited audio, transcript and show notes."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "barevalue:New Failed Order",
+    "barevalue:New Completed Order"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "barevalue:New Failed Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an order fails its checks or processing."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "barevalue:New Completed Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an order finishes editing and its files are ready."
+  }
+ ]
+}

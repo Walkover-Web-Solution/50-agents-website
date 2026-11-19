@@ -1,0 +1,1 @@
+{"usedFor":"A cancelled Shopify order updates the pass in the customer's wallet through AddToWallet.","bestTemplate":{"name":"“Order Cancelled” in Shopify, then “Update Pass” in AddToWallet","why":"A cancelled order is a clear moment to change a pass, so it shows nothing stale."},"watchOut":"“Update Pass” needs a pass already made earlier by “Create Pass” in AddToWallet."}

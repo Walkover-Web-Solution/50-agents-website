@@ -1,0 +1,1 @@
+{"usedFor":"New Stripe customers are tagged in your MailChimp audience.","bestTemplate":{"name":"“New Customer Created” in Stripe, then “Add Tags to Audience Member” in MailChimp","why":"A tag keyed on the email lets you segment paying customers from everyone else."},"watchOut":"“Add Tags to Audience Member” finds people by email, so the address must already be in MailChimp."}

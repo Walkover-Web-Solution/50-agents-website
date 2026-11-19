@@ -1,0 +1,58 @@
+{
+ "pair": "activecampaign/woocommerce",
+ "apps": {
+  "activecampaign": {
+   "name": "ActiveCampaign",
+   "labels": [
+    "Marketing",
+    "Email Newsletters",
+    "Marketing Automation",
+    "CRM"
+   ],
+   "about": "ActiveCampaign combines various aspects of small business marketing into an integrated and user-friendly platform. It helps businesses grow by maintaining meani"
+  },
+  "woocommerce": {
+   "name": "WooCommerce",
+   "labels": [
+    "E-commerce",
+    "Website Management",
+    "Online Store"
+   ],
+   "about": "WooCommerce is a customizable, open-source eCommerce platform built on WordPress. It is designed to help businesses of all sizes create and manage an online sto"
+  }
+ },
+ "templates": [
+  {
+   "action": "activecampaign:New Contact",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "woocommerce:Create Coupon",
+   "triggers": [
+    "activecampaign:New Contact"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "woocommerce:New Order Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new order is created."
+  },
+  {
+   "key": "activecampaign:New Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when new contact is added."
+  },
+  {
+   "key": "woocommerce:Create Coupon",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new coupon in your WooCommerce store."
+  }
+ ]
+}

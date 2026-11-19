@@ -1,0 +1,141 @@
+{
+  "slug": "relay-app-alternatives",
+  "type": "alternatives",
+  "tool": "relay",
+  "query": "relay.app alternatives",
+  "title": "Relay.app alternatives with approval steps | 50agents",
+  "description": "Relay.app has shut down. Alternatives that keep a person in the loop: Zapier, Make, n8n, Activepieces and 50agents, with who each suits and its price.",
+  "h1": "Relay.app alternatives",
+  "answer": [
+    "Relay.app has shut down, so its workflows need a new home.",
+    "Zapier, Make and n8n all have approval steps; 50agents asks before anything reaches people outside, by default."
+  ],
+  "line": "Anything that reaches people outside waits for your yes, by default.",
+  "ask": "Chase my unpaid invoices",
+  "lede": "Tools with a human-in-the-loop step, side by side.",
+  "notice": {
+    "h": "Relay.app has shut down",
+    "body": "Relay.app's homepage says it has shut down and that all accounts, workflows and run history have been permanently deleted."
+  },
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Approval on by default",
+      "price": "Free to start",
+      "diff": "Outside actions wait for you",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "zapier",
+      "best": "Connecting 10,541+ apps",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Human in the Loop step",
+      "src": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "make",
+      "best": "Visual, branching scenarios",
+      "price": "Free plan; Core $9 a month",
+      "diff": "Approvals in AI agents",
+      "src": "https://www.make.com/en/pricing"
+    },
+    {
+      "tool": "n8n",
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Approval for tool calls",
+      "src": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "activepieces",
+      "best": "Open source, flat pricing",
+      "price": "Free plan; Plus $20 a month",
+      "diff": "Self-host, MIT-licensed core",
+      "src": "https://www.activepieces.com/"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "You approve what goes out",
+      "line": "Emails to clients wait in Needs you until you say yes.",
+      "face": "lead"
+    },
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    },
+    {
+      "title": "Apps with your own records",
+      "line": "Lists, boards and tables, run by a crew of AI agents.",
+      "face": "sorter"
+    }
+  ],
+  "move": [
+    {
+      "title": "Write down each workflow",
+      "body": "From memory or old notes: what started it, and who approved what."
+    },
+    {
+      "title": "Start with invoice chasing",
+      "body": "Tell Captain \"chase my unpaid invoices\" and answer its questions."
+    },
+    {
+      "title": "Approve the first reminders",
+      "body": "Each email to a client waits in Needs you until you approve it."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Has Relay.app shut down?",
+      "a": "Yes. Relay.app's homepage says it has shut down and that all accounts, workflows and run history were permanently deleted."
+    },
+    {
+      "q": "Can I get my Relay workflows back?",
+      "a": "No. The data has been deleted, so each workflow has to be rebuilt from your notes."
+    },
+    {
+      "q": "Which alternative is closest to Relay.app?",
+      "a": "Look for approval steps. Zapier has Human in the Loop on Professional and up, and 50agents asks before any email reaches a client."
+    },
+    {
+      "q": "Which alternative is free to start?",
+      "a": "50agents is free to start. Activepieces has a Free plan with 1,000 credits and unlimited flows, and Make has 1,000 credits a month."
+    },
+    {
+      "q": "Can I rebuild my workflows in 50agents?",
+      "a": "Yes, by description. Tell Captain what each workflow did, and it shows a plan before it builds."
+    },
+    {
+      "q": "Which alternative can I self-host?",
+      "a": "n8n and Activepieces both run on your own servers."
+    },
+    {
+      "q": "How many apps do the alternatives connect?",
+      "a": "Zapier connects 10,541+ apps and Make 3,500+. n8n lists 2,829 integrations, and Activepieces has 770+. 50agents works with 2,300+ apps."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/zapier-alternatives",
+      "title": "Zapier alternatives",
+      "line": "Make, n8n, Power Automate and more"
+    },
+    {
+      "href": "/compare/gumloop-alternatives",
+      "title": "Gumloop alternatives",
+      "line": "AI agent builders compared"
+    },
+    {
+      "href": "/compare/50agents-vs-zapier",
+      "title": "50agents vs Zapier",
+      "line": "Row by row, with marks"
+    }
+  ],
+  "updated": "2026-11-19"
+}

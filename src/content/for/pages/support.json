@@ -1,0 +1,102 @@
+{
+  "slug": "support",
+  "role": "support teams",
+  "label": "Support",
+  "kind": "app",
+  "query": "ai agents and automations for support teams",
+  "title": "AI agents and automations for support teams | 50agents",
+  "description": "What support teams hand to AI first: replies drafted from your own answers, a requests desk, email sorted, urgent tickets flagged, a weekly summary.",
+  "h1": "AI agents and automations for support teams",
+  "answer": [
+    "Support teams hand off the first draft: an AI agent writes each reply from what your business knows, and a desk tracks every request.",
+    "Every reply waits for a person to approve, change or decline it."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
+    "build": {
+      "name": "Support replies",
+      "line": "new support mail, a reply drafted for each",
+      "when": "On a schedule you choose, or when you ask",
+      "does": [
+        "Reads new support emails",
+        "Drafts a reply in the thread",
+        "Lists what it cannot answer"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every reply to a customer"
+    },
+    "useCase": "ai-replies-to-support-email"
+  },
+  "jobs": [
+    {
+      "title": "Draft replies to support email",
+      "body": "An AI agent reads new support email, answers from your policies and facts in its memory, and says what it is missing instead of guessing.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
+      "useCase": "ai-replies-to-support-email"
+    },
+    {
+      "title": "Track every request on one desk",
+      "body": "A requests app: New, Waiting on us, Waiting on them, Solved. Its AI agent sorts each request by kind and priority and sets an answer-by date.",
+      "kind": "app",
+      "ask": "Keep track of customer requests and draft the replies",
+      "useCase": "customer-requests-desk"
+    },
+    {
+      "title": "Sort email as it arrives",
+      "body": "An automation with one AI step labels each new email to support@ as billing, bug or question and logs it in a sheet.",
+      "kind": "auto",
+      "ask": "When a support email arrives, sort it into billing, bug or question and add it to my Support sheet"
+    },
+    {
+      "title": "Flag urgent tickets",
+      "body": "When a Freshdesk ticket mentions an outage or a double charge, post it to your team. Posts to a channel ask you first today.",
+      "kind": "auto",
+      "ask": "Set up an automation: when a new Freshdesk ticket mentions an outage or a double charge, post it in #support-urgent"
+    },
+    {
+      "title": "Send a weekly support summary",
+      "body": "Every Friday, an AI agent reads the week’s requests and writes what came in, what is still open and the three most common questions.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that every Friday at 16:00 reads this week’s support emails and sends me the most common questions and what is still open"
+    }
+  ],
+  "category": "customer-support",
+  "apps": [
+    "gmail",
+    "zendesk-support",
+    "freshdesk",
+    "intercom",
+    "slack",
+    "google-sheets",
+    "shopify",
+    "typeform"
+  ],
+  "faqs": [
+    {
+      "q": "Will the AI make up answers?",
+      "a": "Its instructions say to answer only from what it knows and to tell you when it cannot. You still read every draft before it goes."
+    },
+    {
+      "q": "Do I need a help desk for this?",
+      "a": "No. A requests desk app in 50agents works straight from your Gmail. If you already use Zendesk or Freshdesk, the AI agent can work with their tickets."
+    },
+    {
+      "q": "Can it reply on its own for simple questions?",
+      "a": "By default every reply asks first. You can give an AI agent more freedom later in its settings, one kind of action at a time."
+    },
+    {
+      "q": "What does it not do yet?",
+      "a": "No live chat or phone: it works on email, and on tickets in apps like Zendesk and Freshdesk through their actions. It does not issue refunds or credits; anything that moves money asks you, and the reply only says what you have decided. A post to a Slack channel waits for your approval today, so urgent alerts are not instant."
+    }
+  ],
+  "guides": [
+    "how-to-draft-email-replies-with-ai-and-still-check-them",
+    "how-to-build-a-customer-requests-desk-from-your-inbox",
+    "how-to-triage-your-inbox-with-ai"
+  ],
+  "updated": "2026-11-19"
+}

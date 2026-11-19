@@ -1,0 +1,66 @@
+{
+  "slug": "browser-agent",
+  "term": "Browser agent",
+  "query": "what is a browser agent",
+  "group": "AI that acts",
+  "title": "What is a browser agent? Definition and example | 50agents",
+  "description": "A browser agent is an AI agent that works in a web browser: it opens pages, reads, clicks and fills in forms on sites with no app to connect.",
+  "h1": "What is a browser agent?",
+  "definition": [
+    "A browser agent is an AI agent that works in a web browser: it opens pages, reads them, clicks and fills in forms.",
+    "It suits websites with no app or API to connect, like a supplier's portal."
+  ],
+  "example": {
+    "kind": "browser",
+    "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
+    "why": "Pricing pages have no app to connect, so it reads them in a browser.",
+    "build": {
+      "name": "Price watch",
+      "line": "competitor pricing pages, read every morning",
+      "when": "Every day at 9:00",
+      "does": [
+        "Opens each pricing page you name",
+        "Compares prices with the last run",
+        "Leaves a report of what changed"
+      ],
+      "apps": [],
+      "asksFirst": "A sign-in, if a page needs one"
+    }
+  },
+  "vs": {
+    "term": "RPA",
+    "href": "/learn/rpa",
+    "rows": [
+      {
+        "label": "How it knows what to do",
+        "a": "Told the goal, works out the clicks",
+        "b": "Replays clicks someone recorded"
+      },
+      {
+        "label": "When a page is redesigned",
+        "a": "Finds the facts where they now sit",
+        "b": "Reads the wrong box or stops"
+      },
+      {
+        "label": "Best for",
+        "a": "Changing public websites, jobs that need reading",
+        "b": "A fixed, high-volume task on one system"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "Browser agents",
+      "href": "/browser-agents"
+    },
+    {
+      "label": "How to automate a website that has no API",
+      "href": "/guides/how-to-automate-a-website-that-has-no-api"
+    },
+    {
+      "label": "API",
+      "href": "/learn/api"
+    }
+  ],
+  "updated": "2026-11-19"
+}

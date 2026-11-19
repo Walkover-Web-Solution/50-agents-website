@@ -1,0 +1,81 @@
+{
+ "pair": "linkedin/shopify",
+ "apps": {
+  "linkedin": {
+   "name": "LinkedIn",
+   "labels": [
+    "Social Media",
+    "Professional Networking",
+    "Job Search"
+   ],
+   "about": "LinkedIn is a professional networking platform that allows users to connect with colleagues, discover job opportunities, and share industry insights."
+  },
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  }
+ },
+ "templates": [
+  {
+   "action": "linkedin:Create Image Post",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "shopify:Abandoned Checkout",
+   "triggers": [
+    "linkedin:When a new post is published on a company page"
+   ]
+  },
+  {
+   "action": "shopify:New Product",
+   "triggers": [
+    "linkedin:When a new post is published on a company page"
+   ]
+  },
+  {
+   "action": "shopify:Order Cancelled",
+   "triggers": [
+    "linkedin:When a new post is published on a company page"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "linkedin:Create Image Post",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Publish a post with text and an image to your profile."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "linkedin:When a new post is published on a company page",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs the workflow automatically when a new post is published on a company page you follow."
+  }
+ ]
+}

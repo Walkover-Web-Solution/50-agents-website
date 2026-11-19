@@ -1,0 +1,79 @@
+{
+  "slug": "mcp",
+  "term": "MCP",
+  "query": "what is MCP model context protocol",
+  "group": "Building blocks",
+  "title": "What is MCP (Model Context Protocol)? | 50agents",
+  "description": "MCP is an open standard for connecting AI apps to outside tools and data. What it is, how it differs from an API, and whether you need it at all.",
+  "h1": "What is MCP (Model Context Protocol)?",
+  "definition": [
+    "MCP, the Model Context Protocol, is an open standard that lets AI applications call outside tools and data through servers.",
+    "One MCP server works with any MCP client, without custom code."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
+    "why": "This needs no MCP: 50agents reaches Calendar and Slack through viaSocket.",
+    "build": {
+      "name": "Tomorrow",
+      "line": "tomorrow's meetings, in one Slack message",
+      "when": "Every day at 18:00",
+      "does": [
+        "Lists tomorrow's events in order",
+        "Flags clashes between meetings",
+        "Posts one message in Slack"
+      ],
+      "apps": [
+        "google-calendar",
+        "slack"
+      ],
+      "asksFirst": "Posting the message, until you allow it"
+    }
+  },
+  "vs": {
+    "term": "API",
+    "href": "/learn/api",
+    "rows": [
+      {
+        "label": "Made for",
+        "a": "AI apps discovering and calling tools",
+        "b": "Any software making requests"
+      },
+      {
+        "label": "Shape",
+        "a": "One common shape for every server",
+        "b": "Each app's own shape"
+      },
+      {
+        "label": "Underneath",
+        "a": "Often calls an API",
+        "b": "The app itself"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "Anthropic: Introducing the Model Context Protocol",
+      "href": "https://www.anthropic.com/news/model-context-protocol"
+    },
+    {
+      "label": "MCP specification",
+      "href": "https://modelcontextprotocol.io/specification/versioning"
+    }
+  ],
+  "links": [
+    {
+      "label": "AI agents",
+      "href": "/ai-agents"
+    },
+    {
+      "label": "How to give an AI agent access to your apps safely",
+      "href": "/guides/how-to-give-an-ai-agent-access-to-your-apps-safely"
+    },
+    {
+      "label": "API",
+      "href": "/learn/api"
+    }
+  ],
+  "updated": "2026-11-19"
+}

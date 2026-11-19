@@ -1,0 +1,1 @@
+{"usedFor":"Each finished Barevalue episode is saved to Dropbox when “New Completed Order” fires.","bestTemplate":{"name":"“New Completed Order” in Barevalue, then “Upload File to Dropbox” in Dropbox","why":"The trigger fires when files are ready, so no manual download is needed."},"watchOut":"“New Failed Order” carries no finished file, so skip it for uploads."}

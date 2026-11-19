@@ -1,0 +1,50 @@
+{
+ "pair": "shopify/sellermate-ai",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "sellermate-ai": {
+   "name": "SellerMate.AI",
+   "labels": [
+    "Ads & Conversion",
+    "eCommerce",
+    "Analytics"
+   ],
+   "about": "SellerMate.AI is an AI-powered Amazon advertising and retail analytics platform. Manage Amazon Ads campaigns, ad groups, products and negative keywords, pull ca"
+  }
+ },
+ "templates": [
+  {
+   "action": "sellermate-ai:Create Campaign",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Blog Article"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "sellermate-ai:Create Campaign",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a Sponsored Products campaign with one ad group and its products. It previews first and then confirms automatically unless Preview Only is Yes. Creation is asynchronous, so use Get Campaign Creation Status with…"
+  },
+  {
+   "key": "shopify:New Blog Article",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new blog article is published."
+  }
+ ]
+}

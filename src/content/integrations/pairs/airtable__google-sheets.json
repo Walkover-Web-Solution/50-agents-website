@@ -1,0 +1,1 @@
+{"usedFor":"Each new Airtable record is added as a row in Google Sheets.","bestTemplate":{"name":"“New Records Appear” in Airtable, then “Add New Row to Sheet” in Google Sheets","why":"It adds one row per new record and nothing more."},"watchOut":"Send edits to “Update Spreadsheet Row”, since “Record Created Or Updated” would add a second row."}

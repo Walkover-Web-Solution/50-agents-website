@@ -1,0 +1,103 @@
+{
+  "slug": "50agents-vs-n8n",
+  "type": "versus",
+  "tool": "n8n",
+  "query": "50agents vs n8n",
+  "title": "50agents vs n8n: self-hosted or built for you | 50agents",
+  "description": "50agents vs n8n: n8n is a self-hostable workflow builder with code nodes, priced per run; 50agents builds automations, AI agents and apps from plain words.",
+  "h1": "50agents vs n8n",
+  "answer": [
+    "Pick n8n to self-host, write code nodes and pay one price per run.",
+    "Pick 50agents when nobody on the team wants to build: describe the job and Captain does it."
+  ],
+  "line": "Describe the job and Captain builds it, so nobody on the team has to.",
+  "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
+  "lede": "Self-hosted builder against built-for-you, row by row.",
+  "rows": [
+    "prompt",
+    "fixed",
+    "aiAgent",
+    "appBuilder",
+    "approval",
+    "export"
+  ],
+  "strengths": [
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "Automations on events",
+      "line": "The same steps on a new order, payment or contact, or on a timer.",
+      "face": "keeper"
+    },
+    {
+      "title": "You approve what goes out",
+      "line": "Emails to clients wait in Needs you until you say yes.",
+      "face": "lead"
+    }
+  ],
+  "move": [
+    {
+      "title": "Download the workflow",
+      "body": "n8n workflows download as JSON. Keep it as your checklist."
+    },
+    {
+      "title": "Describe it in a sentence",
+      "body": "For example: every new Stripe payment becomes a row in my Google Sheet."
+    },
+    {
+      "title": "Compare, then deactivate n8n",
+      "body": "Run both on a few payments, then switch the n8n workflow off."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I self-host 50agents?",
+      "a": "No. 50agents runs in the cloud. n8n can run on your own servers."
+    },
+    {
+      "q": "Which has more integrations?",
+      "a": "n8n's directory lists 2,829 integrations. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "Does 50agents have code steps?",
+      "a": "No. Steps are fixed blocks. n8n has a code node in JavaScript or Python."
+    },
+    {
+      "q": "How do the prices differ?",
+      "a": "50agents is free to start. n8n has no free cloud plan: a trial with 1,000 executions, then Starter at €20 a month billed yearly for 2.5K executions."
+    },
+    {
+      "q": "Can I move my workflows over?",
+      "a": "Each n8n workflow downloads as JSON. 50agents has no import for it, so describe each job to Captain and check the plan it shows."
+    },
+    {
+      "q": "Which suits people who do not code?",
+      "a": "n8n is a workflow builder for technical teams. In 50agents you tell Captain what you need in plain words."
+    },
+    {
+      "q": "Does 50agents have AI agents?",
+      "a": "Yes. An AI agent has instructions, connected apps, a schedule or trigger, and its own chat. n8n has an AI Agent node on all plans."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/n8n-alternatives",
+      "title": "n8n alternatives",
+      "line": "Hosted and self-hosted options"
+    },
+    {
+      "href": "/compare/50agents-vs-make",
+      "title": "50agents vs Make",
+      "line": "The canvas, or plain words"
+    },
+    {
+      "href": "/compare/activepieces-alternatives",
+      "title": "Activepieces alternatives",
+      "line": "The other open-source option"
+    }
+  ],
+  "updated": "2026-11-19"
+}

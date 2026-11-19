@@ -1,0 +1,1 @@
+{"usedFor":"Anyone who messages Ricky gets a deal in HubSpot.","bestTemplate":{"name":"“New Contact Created” in Ricky, then “Create Deal” in HubSpot","why":"A contact appears with a first message or through the API, the first sign of interest."},"watchOut":"“Updated Contact” fires on every save, so it would make a second HubSpot deal for the same person."}

@@ -1,0 +1,69 @@
+{
+ "pair": "roma/zoom",
+ "apps": {
+  "roma": {
+   "name": "Roma",
+   "labels": [
+    "Productivity"
+   ],
+   "about": "Roma is an AI task app for keeping lists, tasks, notes and automations, with an operator that helps do the work."
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "roma:New Automation Run Completed",
+    "roma:Deleted Item",
+    "roma:Updated Task Status",
+    "roma:Updated Item",
+    "roma:New Item"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "roma:New Automation Run Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when one of your Roma automations finishes a run, with its summary."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "roma:Deleted Item",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an item on your Roma lists goes into the trash, optionally only on chosen lists."
+  },
+  {
+   "key": "roma:Updated Task Status",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a task's status changes, optionally only when it moves to a chosen status."
+  },
+  {
+   "key": "roma:Updated Item",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an item's title, due date, property or archived flag changes, optionally narrowed by field."
+  },
+  {
+   "key": "roma:New Item",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an item (task, note or row) is created on your Roma lists, optionally only on chosen lists."
+  }
+ ]
+}

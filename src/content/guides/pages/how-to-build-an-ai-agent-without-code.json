@@ -1,0 +1,190 @@
+{
+  "slug": "how-to-build-an-ai-agent-without-code",
+  "group": "AI agents",
+  "kind": "ai",
+  "query": "how to build an ai agent without code",
+  "title": "How to build an AI agent without code in 7 steps | 50agents",
+  "description": "How to build an AI agent without code: pick one job, write its instructions, connect only the apps it needs, test it on real cases, and approve every send.",
+  "h1": "How to build an AI agent without code",
+  "cover": {
+    "scene": "chat",
+    "ask": "Find my HubSpot deals with no reply in 5 days and draft a follow-up",
+    "apps": [
+      "hubspot",
+      "gmail"
+    ],
+    "reply": "Drafts only, you approve each send"
+  },
+  "answer": [
+    "Pick one job that needs judgement, write it as a job card, and test it on 10 to 20 real cases.",
+    "Start it read-only, and let it draft rather than send until its drafts need no edits."
+  ],
+  "sections": [
+    {
+      "id": "what",
+      "h2": "What is an AI agent?",
+      "body": [
+        {
+          "p": "An AI agent is three parts: a model, the tools it can use, and its instructions. A no-code builder picks the model and turns the other two into forms. Your work is the instructions and the limits."
+        },
+        {
+          "p": "Check you need one first. If your job is \"when X happens, do Y\", fixed steps will do it cheaper and the same way every time: read [AI agent vs automation](/guides/ai-agent-vs-automation-which-one-you-need)."
+        }
+      ]
+    },
+    {
+      "id": "job-card",
+      "h2": "Write the job card before you open any tool",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Line",
+              "Example: follow up quiet deals"
+            ],
+            "rows": [
+              [
+                "The job",
+                "Draft follow-ups for deals gone quiet"
+              ],
+              [
+                "When it runs",
+                "Every weekday at 9:00"
+              ],
+              [
+                "What it reads",
+                "HubSpot deals, my sent email"
+              ],
+              [
+                "What counts as a case",
+                "Open, no reply in 5 days"
+              ],
+              [
+                "What it may do alone",
+                "Read HubSpot and Gmail"
+              ],
+              [
+                "What it must ask first",
+                "Sending email, changing any deal"
+              ],
+              [
+                "When it is unsure",
+                "Skip it and say why"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "The last line is the one people forget. With no instruction for the unclear case, an AI agent guesses, and a confident guess is the most common failure."
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to build an AI agent in 7 steps",
+    "steps": [
+      {
+        "title": "Choose one job, not a role",
+        "body": "\"Follow up quiet deals\" is a job. \"Be my sales assistant\" is a role, and it will do a little of everything badly. Add a second AI agent later."
+      },
+      {
+        "title": "Collect 10 to 20 real examples",
+        "body": "Real emails, deals or tickets, including two or three awkward ones. They are your test set; without them you are judging the AI agent on a demo."
+      },
+      {
+        "title": "Connect only the apps it needs",
+        "body": "Give it read access first, on the narrowest account or folder the builder allows. See [how to give an AI agent access safely](/guides/how-to-give-an-ai-agent-access-to-your-apps-safely).",
+        "note": {
+          "type": "warn",
+          "text": "An AI agent connected to your admin account can do anything you can. Use a narrower account where the app has one.",
+          "about": "ai"
+        }
+      },
+      {
+        "title": "Paste in the job card as instructions",
+        "body": "Plain sentences: the case it handles, the output you want, and what to do when unsure. [How to write instructions for an AI agent](/guides/how-to-write-instructions-for-an-ai-agent) has a template."
+      },
+      {
+        "title": "Run it on your examples by hand",
+        "body": "Read every result, fix the instructions where it went wrong, and run the set again. Stop when two runs in a row need no edits on most cases."
+      },
+      {
+        "title": "Put sends behind an approval",
+        "body": "Anything that emails a customer, spends money or changes a record waits for your yes. Loosen this one action at a time, once you trust it."
+      },
+      {
+        "title": "Schedule it and read its first week",
+        "body": "Turn on the schedule, then read each run's report for a week. Most problems show up in the first five runs.",
+        "note": {
+          "type": "tip",
+          "text": "Add every case it got wrong to your test set, and rerun the set each time you change the instructions.",
+          "about": "ai"
+        }
+      }
+    ]
+  },
+  "captain": {
+    "at": 3,
+    "line": "Tell Captain the job in one sentence: it writes the plan from your words, checks the apps are connected, and shows you the plan before it builds.",
+    "useCase": "follow-up-quiet-hubspot-deals"
+  },
+  "wrong": [
+    {
+      "title": "It does a bit of everything",
+      "body": "The job was a role. Split it into one AI agent per job, each with its own schedule and apps.",
+      "about": "ai"
+    },
+    {
+      "title": "Confident wrong answers",
+      "body": "It filled a gap with a guess. Tell it what to do when unsure (\"skip it and tell me why\"), and give it the facts it lacks.",
+      "about": "ai"
+    },
+    {
+      "title": "It works in the demo, not on Monday",
+      "body": "You tested on clean examples. Add your awkward cases to the test set and run them after every change.",
+      "about": "ai"
+    },
+    {
+      "title": "Costs climb",
+      "body": "Each run reads more than it needs: whole inboxes, every deal. Narrow the search to the last 24 hours or open deals only.",
+      "about": "ai"
+    },
+    {
+      "title": "An app silently stops working",
+      "body": "A connection expired or a permission changed. Pick a builder that tells you when a run fails, and read failures the same day.",
+      "about": "app"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I build an AI agent for free?",
+      "a": "Most builders have a free tier that covers testing, and 50agents is free to start. Run your AI agent on a few real cases before you schedule it daily."
+    },
+    {
+      "q": "How long does it take to build one?",
+      "a": "Building takes minutes once the job card is written. Getting it right takes one or two rounds of testing on real examples, usually an afternoon."
+    },
+    {
+      "q": "What is the difference between an AI agent and a chatbot?",
+      "a": "A chatbot answers when you write to it. An AI agent has a job, a schedule or a trigger, and access to your apps, so it works while you are elsewhere and reports back."
+    },
+    {
+      "q": "What should my first AI agent do?",
+      "a": "One job you do every week that needs judgement, such as drafting follow-ups for deals gone quiet. A job, not a role: \"be my sales assistant\" does a little of everything badly."
+    },
+    {
+      "q": "How do I test an AI agent before it runs on its own?",
+      "a": "Collect 10 to 20 real cases, including two or three awkward ones, and run them by hand. Fix the instructions where it went wrong and rerun. Stop when two runs in a row need no edits on most cases."
+    },
+    {
+      "q": "What should it do when it is unsure?",
+      "a": "Say so in its instructions: \"skip it and tell me why\" is a good default. Without that line, an AI agent guesses, and a confident guess is the most common failure."
+    }
+  ],
+  "related": [
+    "how-to-write-instructions-for-an-ai-agent",
+    "ai-agent-vs-automation-which-one-you-need",
+    "how-to-choose-an-ai-agent-builder"
+  ],
+  "updated": "2026-11-19"
+}

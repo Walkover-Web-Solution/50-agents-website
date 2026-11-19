@@ -1,0 +1,148 @@
+{
+  "slug": "zapier-alternatives",
+  "type": "alternatives",
+  "tool": "zapier",
+  "query": "zapier alternatives",
+  "title": "Best Zapier alternatives: who each one suits | 50agents",
+  "description": "Zapier alternatives side by side: Make, n8n, Power Automate, Activepieces, Lindy and 50agents, with what each is best for and where its pricing starts.",
+  "h1": "Zapier alternatives",
+  "tableH2": "The best Zapier alternatives, side by side",
+  "answer": [
+    "Make bills per credit and n8n bills per run, where Zapier counts each action step.",
+    "Power Automate fits Microsoft 365; 50agents builds the job from plain words."
+  ],
+  "line": "Describe the automation in plain words and Captain builds it.",
+  "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
+  "lede": "Six tools, what each is best for, and where pricing starts.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Describing jobs in plain words",
+      "price": "Free to start",
+      "diff": "Captain builds it for you",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "make",
+      "best": "Visual, branching scenarios",
+      "price": "Free plan; Core $9 a month",
+      "diff": "Most actions use one credit",
+      "src": "https://www.make.com/en/pricing"
+    },
+    {
+      "tool": "n8n",
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Bills per run, not step",
+      "src": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "powerautomate",
+      "best": "Microsoft 365 teams",
+      "price": "Free licence; Premium $15 per user",
+      "diff": "Desktop RPA for Windows apps",
+      "src": "https://www.microsoft.com/en-us/power-platform/products/power-automate"
+    },
+    {
+      "tool": "activepieces",
+      "best": "Open source, flat pricing",
+      "price": "Free plan; Plus $20 a month",
+      "diff": "Self-host, MIT-licensed core",
+      "src": "https://www.activepieces.com/"
+    },
+    {
+      "tool": "lindy",
+      "best": "Inbox and calendar work",
+      "price": "$29.99 a month per user",
+      "diff": "Works in Slack, iMessage, email",
+      "src": "https://www.lindy.ai/"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    },
+    {
+      "title": "You approve what goes out",
+      "line": "Emails to clients wait in Needs you until you say yes.",
+      "face": "lead"
+    }
+  ],
+  "move": [
+    {
+      "title": "List the Zaps that run",
+      "body": "Sort your Zaps by last run and note each trigger and step."
+    },
+    {
+      "title": "Export if your plan allows",
+      "body": "Team and Enterprise accounts can export Zaps as JSON to keep as a checklist."
+    },
+    {
+      "title": "Describe one to Captain",
+      "body": "Start with your busiest Zap and check the plan Captain shows against your notes."
+    },
+    {
+      "title": "Run both, then switch",
+      "body": "Keep the Zap on for a week, compare the results, then turn it off."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is there a free Zapier alternative?",
+      "a": "Yes. Make has a free plan with 1,000 credits a month, Activepieces is free for up to 5 users, and 50agents is free to start."
+    },
+    {
+      "q": "Which Zapier alternative connects the most apps?",
+      "a": "Make lists 3,500+ apps and n8n lists 2,829 integrations. 50agents works with 2,300+ apps through viaSocket. Zapier itself connects 10,541+."
+    },
+    {
+      "q": "Can I import my Zaps into another tool?",
+      "a": "Not directly. Plan to rebuild each Zap in the new tool, starting with the one that runs most often."
+    },
+    {
+      "q": "Where can I compare these tools more closely?",
+      "a": "For a three-way read, see [Zapier vs Make vs n8n for a small team](/guides/zapier-vs-make-vs-n8n-for-a-small-team). For single tools, see [50agents vs Make](/compare/50agents-vs-make), [Activepieces alternatives](/compare/activepieces-alternatives) and [Power Automate alternatives](/compare/power-automate-alternatives)."
+    },
+    {
+      "q": "What does Zapier cost?",
+      "a": "Free has 100 tasks a month and two-step Zaps only. Professional is $19.99 a month billed yearly for 750 tasks a month."
+    },
+    {
+      "q": "How does billing differ?",
+      "a": "Zapier counts every action step as a task, so a five-step Zap uses up to five tasks a run. n8n counts one execution per run, however many steps."
+    },
+    {
+      "q": "Which alternative has AI agents?",
+      "a": "Make has AI Agents and n8n has an AI Agent node on all plans. 50agents builds AI agents from plain words."
+    },
+    {
+      "q": "Which alternative has code steps?",
+      "a": "Make has JavaScript or Python steps, and so does n8n. 50agents has no code step."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/50agents-vs-zapier",
+      "title": "50agents vs Zapier",
+      "line": "Row by row, with marks"
+    },
+    {
+      "href": "/compare/make-alternatives",
+      "title": "Make alternatives",
+      "line": "If Make is on your list too"
+    },
+    {
+      "href": "/compare/n8n-alternatives",
+      "title": "n8n alternatives",
+      "line": "For technical teams choosing a workflow tool"
+    }
+  ],
+  "updated": "2026-11-19"
+}

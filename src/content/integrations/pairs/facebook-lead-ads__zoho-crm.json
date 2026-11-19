@@ -1,0 +1,1 @@
+{"usedFor":"A Facebook Lead Ads submission is written into Zoho CRM as a note.","bestTemplate":{"name":"“New Lead Submitted” in Facebook Lead Ads, then “Create a Note” in Zoho CRM","why":"It puts the submission in a note in the chosen module, so the caller has context."},"watchOut":"“Create a Note” does not create the lead, so the Zoho CRM record must exist first."}

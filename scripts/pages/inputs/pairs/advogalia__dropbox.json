@@ -1,0 +1,56 @@
+{
+ "pair": "advogalia/dropbox",
+ "apps": {
+  "advogalia": {
+   "name": "Advogalia",
+   "labels": [
+    "Productivity",
+    "CRM (Customer Relationship Management)"
+   ],
+   "about": "Advogalia is a Brazilian legal practice platform for law offices to manage cases, CRM clients, deadlines, hearings and court notices (intimações)."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "advogalia:New Deadline",
+    "advogalia:New Client",
+    "advogalia:New Case"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "advogalia:New Deadline",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new deadline, hearing or task is created, optionally for a chosen type or case."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "advogalia:New Client",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new client is added to the CRM, optionally of a chosen relationship type."
+  },
+  {
+   "key": "advogalia:New Case",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new case is created in your Advogalia office."
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "pair": "wordpress/zoom",
+ "apps": {
+  "wordpress": {
+   "name": "Wordpress",
+   "labels": [
+    "Website and App Building"
+   ],
+   "about": "WordPress is a free and open-source content management system (CMS) based on PHP & MySQL. Features include a plugin architecture and a template system, referred"
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "wordpress:User Deleted",
+    "wordpress:User Updates Profile",
+    "wordpress:New User Created",
+    "wordpress:Post Trash",
+    "wordpress:Post Deleted",
+    "wordpress:Post Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "wordpress:User Deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified user deleted."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "wordpress:User Updates Profile",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a user updated his profile."
+  },
+  {
+   "key": "wordpress:New User Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a new user created."
+  },
+  {
+   "key": "wordpress:Post Trash",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified post is trashed."
+  },
+  {
+   "key": "wordpress:Post Deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a post is deleted."
+  },
+  {
+   "key": "wordpress:Post Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified post updated."
+  }
+ ]
+}

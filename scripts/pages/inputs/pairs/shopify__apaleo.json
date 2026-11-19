@@ -1,0 +1,56 @@
+{
+ "pair": "shopify/apaleo",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "apaleo": {
+   "name": "Apaleo",
+   "labels": [
+    "Scheduling & Booking",
+    "Business Intelligence"
+   ],
+   "about": "Apaleo is a cloud property management system (PMS) for hotels and serviced apartments, managing reservations, rates, inventory and guest stays through open APIs"
+  }
+ },
+ "templates": [
+  {
+   "action": "apaleo:Update Reservation",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "apaleo:Update Reservation",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update guest details, comments, travel purpose and other editable fields of a reservation."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

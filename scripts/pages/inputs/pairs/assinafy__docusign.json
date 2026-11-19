@@ -1,0 +1,57 @@
+{
+ "pair": "assinafy/docusign",
+ "apps": {
+  "assinafy": {
+   "name": "Assinafy",
+   "labels": [
+    "Documents",
+    "Developer Tools",
+    "Security and Identity Tools"
+   ],
+   "about": "Assinafy is a Brazilian electronic signature platform that enables businesses to send, sign, and manage legally valid digital documents online, with a free API "
+  },
+  "docusign": {
+   "name": "Docusign",
+   "labels": [
+    "Document Management",
+    "E-Signature",
+    "Workflow Automation"
+   ],
+   "about": "DocuSign1 allows you to streamline your document signing process by integrating with DocuSign. Easily send, sign, and manage documents electronically, ensuring "
+  }
+ },
+ "templates": [
+  {
+   "action": "docusign:Create Workspace",
+   "triggers": [
+    "assinafy:New Workspace Created"
+   ]
+  },
+  {
+   "action": "docusign:Update Workspace",
+   "triggers": [
+    "assinafy:New Workspace Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "assinafy:New Workspace Created",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new workspace is created within the configured polling interval."
+  },
+  {
+   "key": "docusign:Create Workspace",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new workspace."
+  },
+  {
+   "key": "docusign:Update Workspace",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Updates a Workspace name or desctcription."
+  }
+ ]
+}

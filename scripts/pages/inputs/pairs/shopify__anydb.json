@@ -1,0 +1,55 @@
+{
+ "pair": "shopify/anydb",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "anydb": {
+   "name": "AnyDB",
+   "labels": [
+    "Databases"
+   ],
+   "about": "AnyDB is an AI-native workspace that combines documents, spreadsheets and databases, letting teams store, organize and link structured records."
+  }
+ },
+ "templates": [
+  {
+   "action": "anydb:Create Record",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "anydb:Create Record",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a record in a chosen database, optionally from a template and with cell values."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

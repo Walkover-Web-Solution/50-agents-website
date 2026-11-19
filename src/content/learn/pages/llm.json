@@ -1,0 +1,69 @@
+{
+  "slug": "llm",
+  "term": "LLM",
+  "query": "what is an LLM large language model",
+  "group": "AI that acts",
+  "title": "What is an LLM (large language model)? | 50agents",
+  "description": "An LLM is an AI model trained on huge amounts of text to predict the next word. On its own it only writes; it acts only when a product gives it tools.",
+  "h1": "What is an LLM (large language model)?",
+  "definition": [
+    "An LLM, a large language model, is an AI model trained on huge amounts of text to write, summarise, sort and answer.",
+    "Alone it only produces text; it acts only through tools a product gives it."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
+    "why": "The LLM writes what changed; reading Stripe and sending email are its tools.",
+    "build": {
+      "name": "Monday revenue",
+      "line": "last week in Stripe, in one email",
+      "when": "Every Monday at 9:00",
+      "does": [
+        "Reads last week's payments in Stripe",
+        "Compares them with the week before",
+        "Emails you the totals and what changed"
+      ],
+      "apps": [
+        "stripe",
+        "gmail"
+      ],
+      "asksFirst": "Sending the email, at first"
+    }
+  },
+  "vs": {
+    "term": "AI assistant",
+    "href": "/learn/ai-assistant",
+    "rows": [
+      {
+        "label": "What it is",
+        "a": "The engine",
+        "b": "The product built around it"
+      },
+      {
+        "label": "Has a chat, memory, tools",
+        "a": "No",
+        "b": "Yes"
+      },
+      {
+        "label": "Two on the same model",
+        "a": "The same",
+        "b": "Can behave very differently"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "AI agents",
+      "href": "/ai-agents"
+    },
+    {
+      "label": "Prompt",
+      "href": "/learn/prompt"
+    },
+    {
+      "label": "Agentic AI",
+      "href": "/learn/agentic-ai"
+    }
+  ],
+  "updated": "2026-11-19"
+}

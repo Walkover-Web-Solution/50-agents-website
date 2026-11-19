@@ -1,0 +1,206 @@
+{
+  "slug": "how-to-make-an-ai-agent-ask-before-it-acts",
+  "group": "AI agents",
+  "kind": "ai",
+  "query": "how to make an ai agent ask before it acts",
+  "title": "How to make an AI agent ask before it acts | 50agents",
+  "description": "Make an AI agent ask before it acts: sort actions by risk, hold risky ones in an approval the software enforces, show the full action, plan for silence.",
+  "h1": "How to make an AI agent ask before it acts",
+  "cover": {
+    "scene": "message",
+    "app": "hubspot",
+    "where": "Waiting for your OK",
+    "subject": "Send a follow-up to Dana Lee?",
+    "captain": true,
+    "lines": [
+      "Deal: Kitchen refit, quiet 5 days",
+      "Why: she asked for a date last week"
+    ],
+    "buttons": [
+      "Approve",
+      "Edit"
+    ]
+  },
+  "answer": [
+    "Sort its actions into \"does alone\" and \"asks first\", and use a tool that holds sends, payments, deletions and access changes until you approve.",
+    "Each approval should show exactly what will happen and wait for an answer."
+  ],
+  "chooser": {
+    "h2": "Should this action ask first?",
+    "root": {
+      "q": "Does the action change anything, or only read?",
+      "options": [
+        {
+          "label": "It only reads",
+          "then": {
+            "answer": "Let it run alone",
+            "why": "Reading email, searching a CRM or a web page breaks nothing. It shows up in the log.",
+            "kind": "ai"
+          }
+        },
+        {
+          "label": "It changes or sends something",
+          "then": {
+            "q": "Does it move money, delete, or change access?",
+            "options": [
+              {
+                "label": "Yes",
+                "then": {
+                  "answer": "Always ask, whatever else you loosen",
+                  "why": "Payments, refunds, deletions, shared files and new people are hard to undo. They wait for a yes, every time.",
+                  "kind": "ai"
+                }
+              },
+              {
+                "label": "No",
+                "then": {
+                  "q": "Does it reach anyone outside your business?",
+                  "options": [
+                    {
+                      "label": "Yes, a customer or contact",
+                      "then": {
+                        "answer": "Ask first, with the full text shown",
+                        "why": "A sent email cannot be unsent. Approve it until you approve that kind unchanged for weeks.",
+                        "kind": "ai"
+                      }
+                    },
+                    {
+                      "label": "No, only my own tools",
+                      "then": {
+                        "answer": "Ask first at the start, then loosen",
+                        "why": "Changing a record in your own apps can be undone. Once you approve it unchanged for weeks, let it run alone.",
+                        "kind": "ai"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "why-prompt-is-not-enough",
+      "h2": "Why \"ask me first\" in the prompt is not enough",
+      "body": [
+        {
+          "p": "Tell a model to check with you before anything risky and it usually will. But prompt text guides the model and enforces nothing. For anything that moves money, a person should approve each call in the software."
+        },
+        {
+          "p": "The test: if the AI agent skipped the question, would the action still go through? If yes, you have a polite request, not an approval."
+        }
+      ]
+    },
+    {
+      "id": "good-approval",
+      "h2": "What a good approval shows",
+      "body": [
+        {
+          "ul": [
+            "**Who is asking:** which AI agent, on which run.",
+            "**Exactly what will happen:** the recipient and full text, the record and new value, or the amount and who gets it.",
+            "**Why:** one line of its reasoning, so you can spot a wrong premise.",
+            "**A way to change it,** not only yes or no.",
+            "**It stays open:** an unanswered approval waits; it never expires into \"yes\"."
+          ]
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to make an AI agent ask before it acts",
+    "steps": [
+      {
+        "title": "List every action it can take",
+        "body": "From its apps: read, create, update, send, delete, share. You will be surprised how many it has."
+      },
+      {
+        "title": "Put each one in a group",
+        "body": "Does alone, asks first, or always asks. Use the chooser above. When in doubt, put it in asks first; you can move it later."
+      },
+      {
+        "title": "Remove what it never needs",
+        "body": "An action it never uses should not be there at all. Fewer actions means fewer approvals and less to go wrong."
+      },
+      {
+        "title": "Pick one place for approvals",
+        "body": "One place you check a few times a day, on your phone too. Approvals scattered across email, chat and dashboards get missed.",
+        "note": {
+          "type": "warn",
+          "text": "Fifty approvals a day and you stop reading them. Trim what asks, and group low-risk items into one daily report.",
+          "about": "ai"
+        }
+      },
+      {
+        "title": "Watch the approve-without-edits rate",
+        "body": "If you approve one kind of action unchanged for a few weeks, consider letting it run alone. If you edit most, fix the instructions."
+      },
+      {
+        "title": "Plan for retries",
+        "body": "An approved action can run twice if the tool crashes in between. Ask your tool how it makes approved actions safe to repeat."
+      }
+    ]
+  },
+  "captain": {
+    "at": 3,
+    "line": "50agents puts every approval in one place, Needs you. Anything that spends money, reaches people outside your workspace or changes access asks first, and stays open until you answer.",
+    "useCase": "follow-up-quiet-hubspot-deals"
+  },
+  "wrong": [
+    {
+      "title": "Approving without context",
+      "body": "The card says \"Send email?\" without the text. Never approve what you cannot see in full.",
+      "about": "ai"
+    },
+    {
+      "title": "Nobody answers",
+      "body": "The approval sits for a week and the moment passes. Check at fixed times, and give the AI agent a rule for stale items.",
+      "about": "ai"
+    },
+    {
+      "title": "The AI agent decides when to ask",
+      "body": "If asking is up to the AI, one day it will not ask. Put the rule in the tool's settings, not only in the prompt.",
+      "about": "ai"
+    },
+    {
+      "title": "Approved twice",
+      "body": "A retry after a crash sends the same email again. Prefer tools that record each approved action once.",
+      "about": "ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is human in the loop for AI agents?",
+      "a": "A person approves certain actions before they happen. It differs from reviewing a report after the fact, which some call human on the loop."
+    },
+    {
+      "q": "Can I approve from my phone?",
+      "a": "Pick a tool where you can. Approvals that wait for a desk slow the AI agent down to your desk hours."
+    },
+    {
+      "q": "When can I let it act without asking?",
+      "a": "When you have approved that kind of action unchanged many times, and a mistake would be cheap and easy to undo. Never for payments, deletions or access."
+    },
+    {
+      "q": "What if nobody answers an approval?",
+      "a": "It should wait. An unanswered approval never expires into a yes. Pick one place to check a few times a day, and let someone else answer when you are away."
+    },
+    {
+      "q": "Which actions should always ask?",
+      "a": "Anything that sends outside the business, moves money, deletes or changes who has access. Reading and drafting can run alone."
+    },
+    {
+      "q": "Can the AI agent decide when to ask?",
+      "a": "It should not. If asking is written only in its instructions, it can skip the question. The approval must be a step the software enforces."
+    }
+  ],
+  "related": [
+    "how-to-give-an-ai-agent-access-to-your-apps-safely",
+    "how-to-draft-email-replies-with-ai-and-still-check-them",
+    "how-to-write-instructions-for-an-ai-agent"
+  ],
+  "updated": "2026-11-19"
+}

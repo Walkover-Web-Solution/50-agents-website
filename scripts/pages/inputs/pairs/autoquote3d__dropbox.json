@@ -1,0 +1,49 @@
+{
+ "pair": "autoquote3d/dropbox",
+ "apps": {
+  "autoquote3d": {
+   "name": "AutoQuote3D",
+   "labels": [
+    "Productivity",
+    "Engineering"
+   ],
+   "about": "Instant quoting and order management software for 3D print shops: automate quotes, paid orders, fulfillment tracking and analytics."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "autoquote3d:New Order",
+    "autoquote3d:New Quote"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "autoquote3d:New Order",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new order is placed, optionally only for chosen statuses."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "autoquote3d:New Quote",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new quote is created in your Business."
+  }
+ ]
+}

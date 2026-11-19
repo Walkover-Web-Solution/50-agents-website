@@ -1,0 +1,146 @@
+{
+  "slug": "n8n-alternatives",
+  "type": "alternatives",
+  "tool": "n8n",
+  "query": "n8n alternatives",
+  "title": "Best n8n alternatives, hosted and self-hosted | 50agents",
+  "description": "n8n alternatives compared: Activepieces to keep self-hosting, Make for a visual canvas, Zapier for 10,541+ apps, Gumloop for AI agents, and 50agents.",
+  "h1": "n8n alternatives",
+  "tableH2": "The best n8n alternatives, side by side",
+  "answer": [
+    "Activepieces is open source and self-hostable like n8n.",
+    "Make offers a visual canvas, Zapier connects 10,541+ apps, Gumloop builds AI agents, and 50agents builds the job from plain words."
+  ],
+  "line": "Say the job in plain words; Captain builds it and runs it.",
+  "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
+  "lede": "Self-hosted, hosted and plain-language options, side by side.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Teams with no builder",
+      "price": "Free to start",
+      "diff": "No nodes to wire",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "activepieces",
+      "best": "Open source, flat pricing",
+      "price": "Free plan; Plus $20 a month",
+      "diff": "Self-host, MIT-licensed core",
+      "src": "https://www.activepieces.com/"
+    },
+    {
+      "tool": "make",
+      "best": "Visual, branching scenarios",
+      "price": "Free plan; Core $9 a month",
+      "diff": "Most actions use one credit",
+      "src": "https://www.make.com/en/pricing"
+    },
+    {
+      "tool": "zapier",
+      "best": "Connecting 10,541+ apps",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Bills each action step",
+      "src": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "gumloop",
+      "best": "Team AI agents, IT controls",
+      "price": "$37 a month (Pro)",
+      "diff": "Cloud browser with saved logins",
+      "src": "https://docs.gumloop.com/core-concepts/agent_browser.md"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "You see every step",
+      "line": "Captain shows the plan before it builds, and every step after.",
+      "face": "lead"
+    },
+    {
+      "title": "Automations on events",
+      "line": "The same steps on a new order, payment or contact, or on a timer.",
+      "face": "keeper"
+    },
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    }
+  ],
+  "move": [
+    {
+      "title": "Download your workflows",
+      "body": "Each n8n workflow downloads as JSON. Keep them as your checklist."
+    },
+    {
+      "title": "Pick one weekly job",
+      "body": "Choose a workflow that runs on a schedule and write what it does in a sentence."
+    },
+    {
+      "title": "Give the sentence to Captain",
+      "body": "Captain asks what it cannot know, shows the plan, then builds it."
+    },
+    {
+      "title": "Switch off the old one",
+      "body": "Run both for a week, compare, then deactivate the n8n workflow."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Which open-source tool is closest to n8n?",
+      "a": "Activepieces. Its core is MIT-licensed and it self-hosts with Docker Compose or Kubernetes, including air-gapped installs."
+    },
+    {
+      "q": "Is n8n free?",
+      "a": "n8n has no free cloud plan; its cloud trial includes 1,000 executions. A self-hosted version is available on GitHub."
+    },
+    {
+      "q": "Is there an n8n alternative for non-developers?",
+      "a": "In 50agents you describe the job in plain words and Captain builds it, with no nodes to wire. Make offers a visual canvas instead of code."
+    },
+    {
+      "q": "Can I import n8n workflows into another tool?",
+      "a": "n8n workflows download as JSON for n8n. In another tool you rebuild them, so start with the ones that run most. To choose the tool, read [Zapier vs Make vs n8n for a small team](/guides/zapier-vs-make-vs-n8n-for-a-small-team)."
+    },
+    {
+      "q": "What does n8n cost?",
+      "a": "Starter is €20 a month billed yearly for 2.5K executions. Pro is €50 a month billed yearly for 10K."
+    },
+    {
+      "q": "Which alternative has code steps?",
+      "a": "Make has JavaScript or Python steps, and so does Zapier. 50agents has no code step."
+    },
+    {
+      "q": "Which alternative has a flat team price?",
+      "a": "Activepieces Plus is $20 a month flat for 10,000 credits and up to 5 users."
+    },
+    {
+      "q": "How many apps do the alternatives list?",
+      "a": "Zapier connects 10,541+ apps and Make 3,500+. Activepieces has 770+. 50agents works with 2,300+ apps through viaSocket."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/50agents-vs-n8n",
+      "title": "50agents vs n8n",
+      "line": "Nodes and self-hosting, or plain words"
+    },
+    {
+      "href": "/compare/activepieces-alternatives",
+      "title": "Activepieces alternatives",
+      "line": "The other open-source option"
+    },
+    {
+      "href": "/compare/pipedream-alternatives",
+      "title": "Pipedream alternatives",
+      "line": "Where Pipedream workflows can go"
+    }
+  ],
+  "updated": "2026-11-19"
+}

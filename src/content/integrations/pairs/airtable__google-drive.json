@@ -1,0 +1,1 @@
+{"usedFor":"Each Airtable record gets a Google Drive folder for its files.","bestTemplate":{"name":"“Record Created Or Updated” in Airtable, then “Create Folder” in Google Drive","why":"A folder per record keeps each client or project's files together from day one."},"watchOut":"“Record Created Or Updated” fires on edits, so one record can make a second folder."}

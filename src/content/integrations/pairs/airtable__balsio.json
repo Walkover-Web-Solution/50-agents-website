@@ -1,0 +1,1 @@
+{"usedFor":"An Airtable row becomes a message in a Balsio thread at a set date and time.","bestTemplate":{"name":"“Record Created Or Updated” in Airtable, then “Create Scheduled Message” in Balsio","why":"Its idempotency key guards against duplicate runs from repeated edits."},"watchOut":"“Create Scheduled Message” needs a thread ID, so store it on the Airtable record."}

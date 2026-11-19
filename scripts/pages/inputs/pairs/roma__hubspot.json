@@ -1,0 +1,71 @@
+{
+ "pair": "roma/hubspot",
+ "apps": {
+  "roma": {
+   "name": "Roma",
+   "labels": [
+    "Productivity"
+   ],
+   "about": "Roma is an AI task app for keeping lists, tasks, notes and automations, with an operator that helps do the work."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "roma:New Automation Run Completed",
+    "roma:Deleted Item",
+    "roma:Updated Task Status",
+    "roma:Updated Item",
+    "roma:New Item"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "roma:New Automation Run Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when one of your Roma automations finishes a run, with its summary."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "roma:Deleted Item",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an item on your Roma lists goes into the trash, optionally only on chosen lists."
+  },
+  {
+   "key": "roma:Updated Task Status",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a task's status changes, optionally only when it moves to a chosen status."
+  },
+  {
+   "key": "roma:Updated Item",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an item's title, due date, property or archived flag changes, optionally narrowed by field."
+  },
+  {
+   "key": "roma:New Item",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an item (task, note or row) is created on your Roma lists, optionally only on chosen lists."
+  }
+ ]
+}

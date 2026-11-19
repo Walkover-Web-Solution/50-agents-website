@@ -1,0 +1,1 @@
+{"usedFor":"A new Trello board gets a matching list in ClickUp.","bestTemplate":{"name":"“New/Updated Board” in Trello, then “Create List” in ClickUp","why":"It gives every new Trello board a ClickUp list, so nobody rebuilds structure by hand."},"watchOut":"“New/Updated Board” fires on updates too, so one Trello board can create a duplicate ClickUp list."}

@@ -1,0 +1,514 @@
+{
+ "row": {
+  "slug": "hubspot",
+  "query": "HubSpot integrations; HubSpot automation; AI agent for HubSpot",
+  "ask": "Set up an automation: when a deal is created or updated in HubSpot, post it in a Slack channel",
+  "recipe": {
+   "ta": "hubspot",
+   "te": "When a deal is created or updated",
+   "aa": "slack",
+   "ae": "Send Message"
+  },
+  "useCases": [
+   "follow-up-quiet-hubspot-deals",
+   "hubspot-contacts-to-google-sheets-and-slack",
+   "lead-tracker-from-your-inbox"
+  ],
+  "native": [
+   "https://www.hubspot.com/products/artificial-intelligence",
+   "https://www.hubspot.com/products/artificial-intelligence/breeze-ai-agents"
+  ],
+  "own": "CRM deals and contacts; Breeze is the native AI to be fair about"
+ },
+ "app": {
+  "slug": "hubspot",
+  "name": "HubSpot",
+  "domain": "hubspot.com",
+  "events": [
+   {
+    "name": "Create Contact",
+    "type": "action",
+    "about": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+   },
+   {
+    "name": "Update Company",
+    "type": "action",
+    "about": "Update selected HubSpot company properties for a given company ID."
+   },
+   {
+    "name": "Search Company",
+    "type": "action",
+    "about": "Locate a company by name in HubSpot and return the selected company properties. Returns a message if no company is found."
+   },
+   {
+    "name": "Delete Company",
+    "type": "trigger",
+    "about": "Get notified if any company is deleted in your account."
+   },
+   {
+    "name": "Delete Contact",
+    "type": "trigger",
+    "about": "Get notified if any contact is deleted in your account."
+   },
+   {
+    "name": "Update Contact's Lifecycle Stage",
+    "type": "trigger",
+    "about": "Get notified if lifecycle stage changed for any contact in your account."
+   },
+   {
+    "name": "Ticket Created or Updated",
+    "type": "trigger",
+    "about": "Runs when ticket is created or updated"
+   },
+   {
+    "name": "Delete Ticket",
+    "type": "trigger",
+    "about": "Get notified if any ticket is deleted in your account."
+   },
+   {
+    "name": "Deal Deleted",
+    "type": "trigger",
+    "about": "Get notified if any deal is deleted in your account."
+   },
+   {
+    "name": "New Product Created",
+    "type": "trigger",
+    "about": "Runs when new product is created"
+   },
+   {
+    "name": "Delete Product",
+    "type": "trigger",
+    "about": "Get notified if any product is deleted in your account."
+   },
+   {
+    "name": "Merge Contacts",
+    "type": "trigger",
+    "about": "Get notified if a contact is merged with another."
+   },
+   {
+    "name": "Update Contact's Lead Status",
+    "type": "trigger",
+    "about": "Get notified if lead status changed for any contact in your account."
+   },
+   {
+    "name": "Merge Companies",
+    "type": "trigger",
+    "about": "Get notified if a company is merged with another."
+   },
+   {
+    "name": "Merge Deals",
+    "type": "trigger",
+    "about": "Get notified if a deal is merged with another."
+   },
+   {
+    "name": "Merge Tickets",
+    "type": "trigger",
+    "about": "Get notified if a ticket is merged with another."
+   },
+   {
+    "name": "Get Owner by Email or by ID",
+    "type": "action",
+    "about": "Gets an existing owner by email or by id."
+   },
+   {
+    "name": "Create Company",
+    "type": "action",
+    "about": "Create a new company record in HubSpot using the provided company properties."
+   },
+   {
+    "name": "Create or Update Contact",
+    "type": "action",
+    "about": "Creates new contact or update an existing contact by its email."
+   },
+   {
+    "name": "Create Deal",
+    "type": "action",
+    "about": "Creates a Deal."
+   },
+   {
+    "name": "New Invoice Created",
+    "type": "trigger",
+    "about": "Triggers when new invoice is created"
+   },
+   {
+    "name": "Get Invoice Line Items",
+    "type": "action",
+    "about": "Retrieve line items associated with a specified invoice number."
+   },
+   {
+    "name": "Create Email Engagement",
+    "type": "action",
+    "about": "Create an email engagement in HubSpot and associate it with specified contacts, companies, deals, or tickets."
+   },
+   {
+    "name": "Create Meeting Engagement",
+    "type": "action",
+    "about": "Creates new meeting engagement."
+   },
+   {
+    "name": "Update Contact",
+    "type": "action",
+    "about": "Update an existing contact by its email."
+   },
+   {
+    "name": "List All Line Items",
+    "type": "action",
+    "about": "List all the line items."
+   },
+   {
+    "name": "Find Contact",
+    "type": "action",
+    "about": "Find contacts by ID, query, or properties and return selected fields; set limit, sort, and properties."
+   },
+   {
+    "name": "Search a Product",
+    "type": "action",
+    "about": "Fetch product details by product name."
+   },
+   {
+    "name": "Search a Ticket",
+    "type": "action",
+    "about": "Search for tickets by filtering on properties"
+   },
+   {
+    "name": "Search a Deal",
+    "type": "action",
+    "about": "Retrieve Deal details based on dealname."
+   },
+   {
+    "name": "Search Invoices",
+    "type": "action",
+    "about": "Retrieves a list of invoices based on a specified date."
+   },
+   {
+    "name": "Update Deal",
+    "type": "action",
+    "about": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+   },
+   {
+    "name": "Create Engagement",
+    "type": "action",
+    "about": "Create an engagement (note, task, meeting, call, or email) in HubSpot and link it to contacts, companies, deals, or tickets."
+   },
+   {
+    "name": "Send Message",
+    "type": "action",
+    "about": "Send a text message into a HubSpot conversation thread using a chosen sender, channel, and recipient."
+   },
+   {
+    "name": "When a deal is created or updated",
+    "type": "trigger",
+    "about": "Update HubSpot deal created/updated trigger sample response to include example associated contact details (first name, last name, email, phone) in the fallback sample."
+   },
+   {
+    "name": "New Or Updated Contact",
+    "type": "trigger",
+    "about": "Runs when contact is created or updated. Choose properties and trigger type."
+   },
+   {
+    "name": "When a company is created or updated",
+    "type": "trigger",
+    "about": "Runs the workflow automatically whenever a company is created or updated in the account."
+   },
+   {
+    "name": "Get Note",
+    "type": "action",
+    "about": "Retrieve a HubSpot note by its ID and return selected note properties."
+   },
+   {
+    "name": "Get Deal Notes",
+    "type": "action",
+    "about": "Retrieve a deal and its associated notes by specifying the deal ID."
+   },
+   {
+    "name": "New Task Due",
+    "type": "trigger",
+    "about": "Runs when a HubSpot task becomes due, including task details and selected response properties."
+   },
+   {
+    "name": "Add Notes to Contact",
+    "type": "action",
+    "about": "Create one or more notes for a contact by ID or email, specifying note date and body."
+   }
+  ]
+ },
+ "recipes": [
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a deal is created or updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "Update Spreadsheet Row"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a deal is created or updated"
+   },
+   "action": {
+    "app": "Google Sheets",
+    "event": "List Rows in Sheet"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a company is created or updated"
+   },
+   "action": {
+    "app": "Slack",
+    "event": "Send Message"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a deal is created or updated"
+   },
+   "action": {
+    "app": "Slack",
+    "event": "Send Message"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a company is created or updated"
+   },
+   "action": {
+    "app": "Slack",
+    "event": "Send Interactive Message"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a deal is created or updated"
+   },
+   "action": {
+    "app": "Slack",
+    "event": "Send Interactive Message"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "Update Contact's Lead Status"
+   },
+   "action": {
+    "app": "Google Calendar",
+    "event": "Create Calendar"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "Update Contact's Lead Status"
+   },
+   "action": {
+    "app": "Google Calendar",
+    "event": "Update Event"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Google Calendar",
+    "event": "New or Updated Event"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Create Deal"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Google Calendar",
+    "event": "New or Updated Event"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Search Company"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Google Calendar",
+    "event": "New Event"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Create Deal"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Google Calendar",
+    "event": "New Event"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Search Company"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Google Calendar",
+    "event": "New or Updated Event"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Create Contact"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Google Calendar",
+    "event": "New Event"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Create Contact"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Salesforce",
+    "event": "New Task"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Search Company"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a deal is created or updated"
+   },
+   "action": {
+    "app": "Microsoft Teams",
+    "event": "Send Channel Message"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "When a deal is created or updated"
+   },
+   "action": {
+    "app": "Microsoft Teams",
+    "event": "Create Channel"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Airtable",
+    "event": "New Records Appear"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Search Company"
+   }
+  },
+  {
+   "trigger": {
+    "app": "Airtable",
+    "event": "New Records Appear"
+   },
+   "action": {
+    "app": "HubSpot",
+    "event": "Create Deal"
+   }
+  },
+  {
+   "trigger": {
+    "app": "HubSpot",
+    "event": "Delete Contact"
+   },
+   "action": {
+    "app": "Stripe",
+    "event": "Cancel Subscription"
+   }
+  }
+ ],
+ "partners": [
+  {
+   "slug": "google-sheets",
+   "name": "Google Sheets"
+  },
+  {
+   "slug": "slack",
+   "name": "Slack"
+  },
+  {
+   "slug": "google-calendar",
+   "name": "Google Calendar"
+  },
+  {
+   "slug": "salesforce",
+   "name": "Salesforce"
+  },
+  {
+   "slug": "microsftteams",
+   "name": "Microsoft Teams"
+  },
+  {
+   "slug": "airtable",
+   "name": "Airtable"
+  },
+  {
+   "slug": "stripe",
+   "name": "Stripe"
+  },
+  {
+   "slug": "github",
+   "name": "GitHub"
+  },
+  {
+   "slug": "google-forms",
+   "name": "Google Forms"
+  },
+  {
+   "slug": "zoom",
+   "name": "Zoom"
+  },
+  {
+   "slug": "asana",
+   "name": "Asana"
+  },
+  {
+   "slug": "wordpress",
+   "name": "Wordpress"
+  }
+ ],
+ "useCases": [
+  {
+   "slug": "follow-up-quiet-hubspot-deals",
+   "h1": "Follow up HubSpot deals with no reply",
+   "apps": [
+    "HubSpot",
+    "Gmail"
+   ]
+  },
+  {
+   "slug": "hubspot-contacts-to-google-sheets-and-slack",
+   "h1": "Send new HubSpot contacts to Google Sheets and Slack",
+   "apps": [
+    "HubSpot",
+    "Google Sheets",
+    "Slack"
+   ]
+  },
+  {
+   "slug": "lead-tracker-from-your-inbox",
+   "h1": "Track leads from your email",
+   "apps": [
+    "Gmail"
+   ]
+  }
+ ],
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Memory\n- The workspace remembers facts about the business (hours, prices, policies, people, tone) and documents, pasted text and links you give it; AI agents answer from these.\n- Each AI agent, app and automation has its own memory: instructions, what it learned, lessons from your corrections, its last runs. You can see, correct or forget any item.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

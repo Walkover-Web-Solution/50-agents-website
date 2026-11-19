@@ -1,0 +1,1 @@
+{"usedFor":"Each “New Client” in AgencyAnalytics opens a deal in HubSpot.","bestTemplate":{"name":"“New Client” in AgencyAnalytics, then “Create Deal” in HubSpot","why":"A client added to reporting is a confirmed account worth a deal."},"watchOut":"“New User” can fire many times for one client, and “Update Deal” needs the deal ID."}

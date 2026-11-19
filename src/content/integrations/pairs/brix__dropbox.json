@@ -1,0 +1,1 @@
+{"usedFor":"New media in the Brix library is copied to a Dropbox folder.","bestTemplate":{"name":"“New Media” in Brix, then “Upload File to Dropbox” in Dropbox","why":"Only “New Media” brings a file along, so it gives the action something to save."},"watchOut":"Check that the Brix file is reachable by public web link, since “Upload File to Dropbox” needs one."}

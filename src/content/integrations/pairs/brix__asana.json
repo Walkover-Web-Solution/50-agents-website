@@ -1,0 +1,1 @@
+{"usedFor":"Each “New Screen” in Brix opens a rollout project in Asana.","bestTemplate":{"name":"“New Screen” in Brix, then “Create Project” in Asana","why":"A new screen means setup work, and “New Screen” can be limited to one location."},"watchOut":"“Create Project” runs every time, so narrow the trigger to a location if you track only some sites."}

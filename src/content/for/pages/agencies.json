@@ -1,0 +1,103 @@
+{
+  "slug": "agencies",
+  "role": "agencies",
+  "label": "Agencies",
+  "kind": "app",
+  "query": "ai agents and automations for agencies",
+  "title": "AI agents and automations for agencies | 50agents",
+  "description": "What agencies hand off first: client requests on one desk, invoices chased, new-business leads tracked, weekly client updates drafted, competitors watched.",
+  "h1": "AI agents and automations for agencies",
+  "answer": [
+    "Agencies hand off the client admin first: every client request on one desk, and late invoices chased without the awkward email.",
+    "Captain builds each from a sentence, and anything sent to a client waits for your approval."
+  ],
+  "example": {
+    "kind": "app",
+    "ask": "Keep track of customer requests and draft the replies",
+    "build": {
+      "name": "Requests desk",
+      "line": "every request, the urgent ones first",
+      "when": "When a request is added to the desk",
+      "does": [
+        "Sorts each request by kind and urgency",
+        "Drafts a reply to each question",
+        "Sets Waiting on them once you approve"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every reply to a customer"
+    },
+    "useCase": "customer-requests-desk"
+  },
+  "jobs": [
+    {
+      "title": "Client requests on one desk",
+      "body": "Every client ask from email becomes a request with a status and an answer-by date; urgent ones first, replies drafted.",
+      "kind": "app",
+      "ask": "Keep track of customer requests and draft the replies",
+      "useCase": "customer-requests-desk"
+    },
+    {
+      "title": "Chase late invoices",
+      "body": "An invoices desk by client, late first, with polite reminders drafted for each.",
+      "kind": "app",
+      "ask": "Chase my unpaid invoices",
+      "useCase": "chase-unpaid-invoices"
+    },
+    {
+      "title": "Track new-business leads",
+      "body": "Enquiries pulled from your inbox into a pipeline, with follow-ups drafted when a prospect goes quiet.",
+      "kind": "app",
+      "ask": "Track my leads and follow up",
+      "useCase": "lead-tracker-from-your-inbox"
+    },
+    {
+      "title": "A weekly client update",
+      "body": "Every Friday, an AI agent reads the week’s completed tasks in Asana for a client and drafts the update email for you to check.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that every Friday at 15:00 reads this week’s completed tasks in my Asana project for Northwind and drafts a client update email for me to approve"
+    },
+    {
+      "title": "Watch a client’s competitors",
+      "body": "A browser agent checks the competitors’ pricing and offer pages each morning and tells you what changed, for the next client call.",
+      "kind": "browser",
+      "ask": "Set up a browser agent that checks these competitors’ pricing pages every day at 9:00 and tells me when an offer or price changes"
+    }
+  ],
+  "category": "project-management",
+  "apps": [
+    "gmail",
+    "asana",
+    "clickup",
+    "trello",
+    "google-sheets",
+    "hubspot",
+    "calendly",
+    "slack"
+  ],
+  "faqs": [
+    {
+      "q": "Can I keep clients separate?",
+      "a": "Inside one app, add a Client field and a view per client. People you invite to the workspace see what the workspace holds, so plan who you invite."
+    },
+    {
+      "q": "Can it write client reports?",
+      "a": "An AI agent can read the week’s tasks or a sheet of numbers and draft the update email. You review and send."
+    },
+    {
+      "q": "Does it work with our project tool?",
+      "a": "Asana, ClickUp, Trello, Notion and monday.com are in viaSocket’s catalog. Name yours in the sentence to Captain."
+    },
+    {
+      "q": "What does it not do yet?",
+      "a": "One workspace holds your apps and records; it is not a client portal your clients log in to. It does not run ad accounts or post on social media for clients. Client emails always wait for your approval."
+    }
+  ],
+  "guides": [
+    "how-to-build-a-customer-requests-desk-from-your-inbox",
+    "how-to-automate-invoice-reminders",
+    "internal-tools-without-code-what-to-build-first"
+  ],
+  "updated": "2026-11-19"
+}

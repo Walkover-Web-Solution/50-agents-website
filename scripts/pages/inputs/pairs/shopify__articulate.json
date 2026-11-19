@@ -1,0 +1,70 @@
+{
+ "pair": "shopify/articulate",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "articulate": {
+   "name": "Articulate",
+   "labels": [
+    "Education",
+    "Online Courses"
+   ],
+   "about": "Articulate Reach 360 is a training platform to deliver Rise and Storyline courses, enroll learners and track completions."
+  }
+ },
+ "templates": [
+  {
+   "action": "articulate:Enroll User in Course",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  },
+  {
+   "action": "articulate:Enroll Group in Course",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "articulate:Enroll User in Course",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Enroll a single user in a selected course."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "articulate:Enroll Group in Course",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Enroll all members of a selected group into a chosen course."
+  }
+ ]
+}

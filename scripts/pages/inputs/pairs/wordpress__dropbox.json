@@ -1,0 +1,76 @@
+{
+ "pair": "wordpress/dropbox",
+ "apps": {
+  "wordpress": {
+   "name": "Wordpress",
+   "labels": [
+    "Website and App Building"
+   ],
+   "about": "WordPress is a free and open-source content management system (CMS) based on PHP & MySQL. Features include a plugin architecture and a template system, referred"
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "wordpress:User Deleted",
+    "wordpress:User Updates Profile",
+    "wordpress:New User Created",
+    "wordpress:Post Trash",
+    "wordpress:Post Deleted",
+    "wordpress:Post Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "wordpress:User Deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified user deleted."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "wordpress:User Updates Profile",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a user updated his profile."
+  },
+  {
+   "key": "wordpress:New User Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a new user created."
+  },
+  {
+   "key": "wordpress:Post Trash",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified post is trashed."
+  },
+  {
+   "key": "wordpress:Post Deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a post is deleted."
+  },
+  {
+   "key": "wordpress:Post Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when a specified post updated."
+  }
+ ]
+}

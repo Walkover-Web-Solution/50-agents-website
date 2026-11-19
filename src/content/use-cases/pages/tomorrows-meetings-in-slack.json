@@ -1,0 +1,214 @@
+{
+  "slug": "tomorrows-meetings-in-slack",
+  "kind": "ai",
+  "query": "daily calendar summary in Slack",
+  "category": "scheduling",
+  "title": "Daily Google Calendar summary in Slack | 50agents",
+  "description": "A daily calendar summary in Slack: every day at 18:00 an AI agent reads tomorrow's Google Calendar and sends you all your meetings in one Slack message.",
+  "h1": "Daily calendar summary in Slack",
+  "h2": {
+    "how": "How to get tomorrow's meetings in Slack every evening",
+    "compare": "Other ways to get tomorrow's meetings in Slack"
+  },
+  "answer": [
+    "To get a daily calendar summary in Slack, tell Captain \"Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack\".",
+    "It builds an AI agent that posts tomorrow's meetings at 18:00, after you approve."
+  ],
+  "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
+  "build": {
+    "name": "Tomorrow",
+    "line": "tomorrow's meetings, in one Slack message",
+    "when": "Every day at 18:00",
+    "does": [
+      "Lists tomorrow's events in order",
+      "Flags clashes between meetings",
+      "Posts one message in Slack"
+    ],
+    "apps": [
+      "google-calendar",
+      "slack"
+    ],
+    "asksFirst": "Posting the message, until you allow it"
+  },
+  "steps": [
+    {
+      "key": "ask",
+      "title": "You say it in one sentence",
+      "body": "Tell Captain you want tomorrow's meetings in Slack each evening. It asks which calendars to read and where the message should go."
+    },
+    {
+      "key": "plan",
+      "title": "Captain shows you the plan",
+      "body": "An AI agent with Google Calendar and Slack, an 18:00 schedule, and instructions to write one tidy message in time order."
+    },
+    {
+      "key": "connect",
+      "title": "You connect two apps",
+      "body": "Connect Google Calendar and Slack once. The AI agent only reads your events and sends the message; it changes nothing on your calendar."
+    },
+    {
+      "key": "run",
+      "title": "It reads tomorrow at 18:00",
+      "body": "Each evening it lists tomorrow's events, puts all-day items apart, notes meetings that overlap, and writes the Slack message."
+    },
+    {
+      "key": "approve",
+      "title": "You approve the post",
+      "body": "The message waits in Needs you. Approve and post, change it, or decline it. Allow it in Settings when you trust it."
+    }
+  ],
+  "run": [
+    {
+      "when": "Today, 18:00",
+      "did": "Read 7 events, wrote tomorrow's brief"
+    },
+    {
+      "when": "Yesterday, 18:00",
+      "did": "Read 3 events, wrote tomorrow's brief"
+    },
+    {
+      "when": "Monday, 18:00",
+      "did": "Nothing on tomorrow's calendar"
+    }
+  ],
+  "approval": {
+    "title": "Message to you in Slack",
+    "to": "Direct message",
+    "lines": [
+      "Thursday: 5 meetings, first at 9:30. All day: Lena out of office.",
+      "11:00 Lumen Dental proposal review clashes with 11:30 Dentist."
+    ],
+    "button": "Approve and post"
+  },
+  "compare": {
+    "methods": [
+      "Slack's Google Calendar app",
+      "Google Calendar's own agenda",
+      "Zapier, Make or n8n"
+    ],
+    "rows": [
+      {
+        "label": "Set up",
+        "cells": [
+          "Install and pick a time",
+          "A calendar setting",
+          "Build each step yourself",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "Sent the evening before",
+        "cells": [
+          "Yes",
+          "Mornings only",
+          "Yes, on a schedule",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Flags clashes and unanswered invites",
+        "cells": [
+          "No",
+          "No",
+          "Only with an AI step",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Waits for your OK before posting",
+        "cells": [
+          "No",
+          "Not applicable",
+          "Only if you build it",
+          "Yes, until you allow it"
+        ]
+      },
+      {
+        "label": "Stays free of any AI step",
+        "cells": [
+          "Yes",
+          "Yes",
+          "Yes",
+          "No, an AI agent writes it"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Slack Marketplace",
+        "href": "https://slack.com/marketplace-pages/google-calendar"
+      },
+      {
+        "label": "Google Calendar help",
+        "href": "https://support.google.com/a/users/answer/11387073"
+      },
+      {
+        "label": "Zapier template",
+        "href": "https://zapier.com/templates/details/5ac3281e313f1d5b99143140a41d83cb58d4440ea754d71e4c986eefd77d6c2b"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Can Slack post my calendar every day?",
+      "a": "Yes. Slack's own Google Calendar app can send a daily rundown, in the morning or the night before. This AI agent does that and also names clashes and anything you ask it to add. [How to get a daily calendar summary in Slack](/guides/how-to-get-a-daily-calendar-summary-in-slack) compares the ways to set it up."
+    },
+    {
+      "q": "Why send it the evening before?",
+      "a": "So an early meeting is not news at breakfast. At 18:00 you can still move something or prepare. Change the time in one sentence if you prefer mornings."
+    },
+    {
+      "q": "Can it post to a channel instead of a direct message?",
+      "a": "Yes, name the channel. A post others will see waits for your approval, like every message this AI agent sends until you allow it in Settings. See [How to make an AI agent ask before it acts](/guides/how-to-make-an-ai-agent-ask-before-it-acts)."
+    },
+    {
+      "q": "Does it change my calendar?",
+      "a": "No. It reads your events to write the message. The catalog has actions that edit events, but this AI agent is only asked to list tomorrow's meetings."
+    },
+    {
+      "q": "Can it cover more than one calendar?",
+      "a": "Yes. Name each calendar in its instructions, for example work and family, and it reads them together."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Tell Captain what you want, read the plan, and tap Build it."
+    },
+    {
+      "q": "What if it misses a meeting or gets a time wrong?",
+      "a": "It reads your events from Google Calendar, so check the event there first. Tell its chat what was wrong, such as all-day items or a second calendar, and its memory keeps the lesson."
+    },
+    {
+      "q": "How do I stop or change it?",
+      "a": "Tell its chat to change the time, the channel or what it lists. Each post waits for your approval until you allow it in Settings, so declining one stops it."
+    },
+    {
+      "q": "Can it use Discord or email instead of Slack?",
+      "a": "Yes. Variations on this page post in Discord or email you with Gmail, and 50agents works with 2,300+ apps through viaSocket."
+    }
+  ],
+  "variations": [
+    {
+      "ask": "Set up an AI agent that sends me today's meetings from Google Calendar in Slack every weekday at 7:30",
+      "change": "Mornings, weekdays only"
+    },
+    {
+      "ask": "Set up an AI agent that sends me tomorrow's meetings with people outside my company from Google Calendar in Slack every day at 18:00",
+      "change": "Only meetings with outside people"
+    },
+    {
+      "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Discord every day at 18:00",
+      "change": "Arrives in Discord, not Slack"
+    },
+    {
+      "ask": "Set up an AI agent that emails me tomorrow's meetings from Google Calendar with Gmail every day at 18:00",
+      "change": "Arrives by email instead"
+    }
+  ],
+  "tags": [
+    "calendar",
+    "slack",
+    "meetings",
+    "daily"
+  ],
+  "updated": "2026-11-19"
+}

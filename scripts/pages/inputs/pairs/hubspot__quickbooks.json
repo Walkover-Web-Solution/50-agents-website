@@ -1,0 +1,70 @@
+{
+ "pair": "hubspot/quickbooks",
+ "apps": {
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  },
+  "quickbooks": {
+   "name": "QuickBooks",
+   "labels": [
+    "Accounting",
+    "Finance",
+    "Business Management"
+   ],
+   "about": "QuickBooks is a comprehensive accounting software designed to manage sales, expenses, and keep track of daily business transactions. It offers features like inv"
+  }
+ },
+ "templates": [
+  {
+   "action": "quickbooks:Create Payment",
+   "triggers": [
+    "hubspot:When a deal is created or updated",
+    "hubspot:New Or Updated Contact"
+   ]
+  },
+  {
+   "action": "hubspot:When a deal is created or updated",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  },
+  {
+   "action": "hubspot:New Or Updated Contact",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "hubspot:When a deal is created or updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update HubSpot deal created/updated trigger sample response to include example associated contact details (first name, last name, email, phone) in the fallback sample."
+  },
+  {
+   "key": "quickbooks:Create Payment",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Records a new payment transaction."
+  },
+  {
+   "key": "quickbooks:New Invoice",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new invoice is created."
+  },
+  {
+   "key": "hubspot:New Or Updated Contact",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when contact is created or updated. Choose properties and trigger type."
+  }
+ ]
+}

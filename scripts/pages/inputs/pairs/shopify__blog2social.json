@@ -1,0 +1,55 @@
+{
+ "pair": "shopify/blog2social",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "blog2social": {
+   "name": "Blog2Social",
+   "labels": [
+    "Social Media Marketing"
+   ],
+   "about": "Blog2Social helps bloggers, businesses, and agencies schedule, publish, and manage content across social media networks."
+  }
+ },
+ "templates": [
+  {
+   "action": "blog2social:Create Post",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "blog2social:Create Post",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Publish a link, image or video post to a connected social media account."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+{"usedFor":"A failed Barevalue podcast order opens a project in Asana.","bestTemplate":{"name":"“New Failed Order” in Barevalue, then “Create Project” in Asana","why":"A failed check or processing error needs a person, so it gets an owner."},"watchOut":"“Create Project” needs a workspace and name, and “New Completed Order” would make a project per episode."}

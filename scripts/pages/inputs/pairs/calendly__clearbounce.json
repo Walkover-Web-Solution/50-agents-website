@@ -1,0 +1,62 @@
+{
+ "pair": "calendly/clearbounce",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "clearbounce": {
+   "name": "ClearBounce",
+   "labels": [
+    "Email",
+    "Marketing"
+   ],
+   "about": "ClearBounce helps businesses verify email addresses, reduce bounce rates, and maintain cleaner contact lists for more effective email campaigns."
+  }
+ },
+ "templates": [
+  {
+   "action": "clearbounce:Verify Email Address",
+   "triggers": [
+    "calendly:New Meeting Book or Invitee Created"
+   ]
+  },
+  {
+   "action": "clearbounce:Create Bulk Job",
+   "triggers": [
+    "calendly:New Meeting Book or Invitee Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:New Meeting Book or Invitee Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when someone books a meeting for any event type."
+  },
+  {
+   "key": "clearbounce:Verify Email Address",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Checks whether a single email address is valid and deliverable."
+  },
+  {
+   "key": "clearbounce:Create Bulk Job",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Starts a bulk verification job for a list of up to 10,000 email addresses and returns its job ID. Uses 1 credit per unique address."
+  }
+ ]
+}

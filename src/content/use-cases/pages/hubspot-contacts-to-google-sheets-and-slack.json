@@ -1,0 +1,219 @@
+{
+  "slug": "hubspot-contacts-to-google-sheets-and-slack",
+  "kind": "auto",
+  "query": "HubSpot new contact to Google Sheets; HubSpot Slack notification",
+  "category": "crm",
+  "title": "HubSpot contacts to Google Sheets and Slack | 50agents",
+  "description": "To send new HubSpot contacts to Google Sheets and Slack, an automation adds each as a sheet row and posts a Slack notification once you approve it.",
+  "h1": "Send new HubSpot contacts to Google Sheets and Slack",
+  "h2": {
+    "how": "How to send HubSpot contacts to Google Sheets and Slack",
+    "compare": "Other ways to send HubSpot contacts to Sheets and Slack"
+  },
+  "answer": [
+    "To send new HubSpot contacts to Google Sheets and Slack, tell Captain \"Set up an automation: every new HubSpot contact is added as a row to my Google Sheet\".",
+    "It builds an automation and asks before each Slack post."
+  ],
+  "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
+  "stat": {
+    "text": "Zapier checks for new HubSpot contacts every 15 minutes on its Free plan.",
+    "source": "Zapier, HubSpot and Google Sheets integration page",
+    "href": "https://zapier.com/apps/google-sheets/integrations/hubspot/4667/create-google-sheets-rows-for-new-hubspot-contacts"
+  },
+  "build": {
+    "name": "Contacts to Sheet and Slack",
+    "line": "each new contact, logged and shared",
+    "when": "When a contact is created in HubSpot",
+    "does": [
+      "Reads the new contact's fields",
+      "Adds a row to your sheet",
+      "Posts it in your Slack channel"
+    ],
+    "apps": [
+      "hubspot",
+      "google-sheets",
+      "slack"
+    ],
+    "asksFirst": "Each Slack post"
+  },
+  "steps": [
+    {
+      "key": "ask",
+      "title": "You say what goes where",
+      "body": "Paste the ask. Captain asks which spreadsheet and tab, which Slack channel, and which contact fields you want as columns."
+    },
+    {
+      "key": "plan",
+      "title": "Captain lays out the three steps",
+      "body": "A new contact in HubSpot, a row in Google Sheets, a post in Slack. You see each step and its settings before anything is built."
+    },
+    {
+      "key": "connect",
+      "title": "You connect the three apps",
+      "body": "Connect HubSpot, Google Sheets and Slack. Captain reads your sheet's header row and matches each column to a contact field."
+    },
+    {
+      "key": "run",
+      "title": "Each new contact starts a run",
+      "body": "A contact is created, the automation adds one row under your headers, and the Slack message is prepared with the same details."
+    },
+    {
+      "key": "approve",
+      "title": "You approve the Slack post",
+      "body": "The post waits in Needs you with the channel and the text. Approve and post, change it, or decline it."
+    }
+  ],
+  "run": [
+    {
+      "when": "Today, 10:41",
+      "did": "Added Dana Whitfield as row 48, Slack post waiting"
+    },
+    {
+      "when": "Today, 9:12",
+      "did": "Added Marcus Lee as row 47, post approved"
+    },
+    {
+      "when": "Yesterday, 16:05",
+      "did": "Added Ana Ruiz as row 46, post approved"
+    }
+  ],
+  "approval": {
+    "title": "Post in Slack, #new-leads",
+    "lines": [
+      "New contact: Dana Whitfield (Brightline Physio), dana@brightline.example.",
+      "Lifecycle stage: Lead. Owner: Sam Patel."
+    ],
+    "button": "Approve and post"
+  },
+  "compare": {
+    "methods": [
+      "HubSpot workflows",
+      "Zapier",
+      "Make"
+    ],
+    "rows": [
+      {
+        "label": "Set up",
+        "cells": [
+          "One workflow, two actions",
+          "Pick a template",
+          "Template plus a Slack module",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "Works on a free HubSpot plan",
+        "cells": [
+          "No, Professional or above",
+          "Yes",
+          "Yes",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Posts to Slack on its own",
+        "cells": [
+          "Yes",
+          "Yes",
+          "Yes",
+          "No, waits for your OK"
+        ]
+      },
+      {
+        "label": "New contact picked up within",
+        "cells": [
+          "Seconds",
+          "15 minutes on Free",
+          "Depends on schedule",
+          "On the contact event"
+        ]
+      },
+      {
+        "label": "Adds a row for every field you want",
+        "cells": [
+          "Up to 20 cells",
+          "Yes",
+          "Yes",
+          "Yes, you pick them"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "HubSpot Sheets in workflows",
+        "href": "https://knowledge.hubspot.com/workflows/add-data-to-google-sheets-with-workflows"
+      },
+      {
+        "label": "Zapier",
+        "href": "https://zapier.com/templates/details/f8ae2990910fb913df836f477a2b994ba852565a1cf2efc9c76dcb230dbd27bb"
+      },
+      {
+        "label": "Make",
+        "href": "https://www.make.com/en/templates/12706-add-new-hubspot-contacts-to-google-sheets-as-rows"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Can HubSpot send new contacts to Google Sheets without Zapier?",
+      "a": "Yes, with a workflow on a Professional or Enterprise plan. On a free or Starter plan you need a tool outside HubSpot, such as this automation."
+    },
+    {
+      "q": "Will it post in Slack without asking me?",
+      "a": "No. An automation's post to a Slack channel waits in Needs you until you approve it. The row in your own sheet goes in on its own."
+    },
+    {
+      "q": "Does it add contacts that already exist in HubSpot?",
+      "a": "No. It starts on each new contact from the moment it is live, so older contacts are not added. Export them from HubSpot and paste or drop the file in a sheet if you need them."
+    },
+    {
+      "q": "What if I want the row to update when a contact changes?",
+      "a": "This automation adds a row when a contact is created. For changes, ask Captain for a second automation that updates the row, using Google Sheets' lookup and update actions."
+    },
+    {
+      "q": "Can it post to a private Slack channel?",
+      "a": "Yes, once you invite the Slack app to that channel. Slack only lists private channels the app belongs to."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Describe the automation to Captain, check each step and its settings, and tap Build it."
+    },
+    {
+      "q": "What if a row lands in the wrong column?",
+      "a": "Captain matches columns by reading your sheet's header row. Rename a heading in row one and ask Captain to rebuild the match, and new contacts follow it."
+    },
+    {
+      "q": "Can it send contacts to Airtable or another tool?",
+      "a": "Yes. A variation on this page writes to an Airtable base, and 50agents works with 2,300+ apps through viaSocket. Name the app you use in your sentence to Captain."
+    },
+    {
+      "q": "How long does setup take?",
+      "a": "One sentence to Captain, then you connect HubSpot, Google Sheets and Slack and pick the sheet. The automation runs from the next new contact once it is built."
+    }
+  ],
+  "variations": [
+    {
+      "ask": "Set up an automation: every new HubSpot contact in the United States is added as a row to my Google Sheet and posted in a Slack channel",
+      "change": "Only contacts in the United States"
+    },
+    {
+      "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Discord channel",
+      "change": "Posts in Discord, not Slack"
+    },
+    {
+      "ask": "Set up an automation: every new HubSpot contact is added as a record to my Airtable base and posted in a Slack channel",
+      "change": "Records go to Airtable, not Sheets"
+    },
+    {
+      "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet",
+      "change": "Sheet only, nothing to approve"
+    }
+  ],
+  "tags": [
+    "crm",
+    "hubspot",
+    "sheets",
+    "slack"
+  ],
+  "updated": "2026-11-19"
+}

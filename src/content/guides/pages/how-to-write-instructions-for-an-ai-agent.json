@@ -1,0 +1,220 @@
+{
+  "slug": "how-to-write-instructions-for-an-ai-agent",
+  "group": "AI agents",
+  "kind": "ai",
+  "query": "how to write instructions for an ai agent",
+  "title": "How to write instructions for an AI agent | 50agents",
+  "description": "Write AI agent instructions like a job description: the job, the cases, the steps, the output, the reason behind each rule, and what to do when unsure.",
+  "h1": "How to write instructions for an AI agent",
+  "cover": {
+    "scene": "panel",
+    "panel": {
+      "label": "Job card",
+      "look": "doc",
+      "rows": [
+        {
+          "cells": [
+            "Job",
+            "Answer support email"
+          ]
+        },
+        {
+          "cells": [
+            "Cases",
+            "Refund, bug, question"
+          ]
+        },
+        {
+          "cells": [
+            "Output",
+            "A draft in the thread"
+          ]
+        },
+        {
+          "cells": [
+            "Unsure",
+            "Ask me"
+          ],
+          "tag": "Why"
+        }
+      ]
+    }
+  },
+  "answer": [
+    "Write them like a job description for a careful new hire: the job, its cases, the steps, the output, and what to do when unsure.",
+    "Give the reason behind each rule, and retest on real cases after every change."
+  ],
+  "sections": [
+    {
+      "id": "template",
+      "h2": "A template that works",
+      "body": [
+        {
+          "p": "Seven short parts, in this order. Most AI agents need 100 to 250 words; if yours runs past a page, it is probably two jobs."
+        },
+        {
+          "table": {
+            "head": [
+              "Part",
+              "What to write",
+              "Example (support replies)"
+            ],
+            "rows": [
+              [
+                "Job",
+                "One sentence",
+                "Reply to questions sent to support@"
+              ],
+              [
+                "Cases",
+                "What it handles, what it leaves",
+                "Orders and returns; leave complaints to me"
+              ],
+              [
+                "Steps",
+                "Numbered, one action each",
+                "Read, look up the order, draft"
+              ],
+              [
+                "Facts",
+                "Where the answers live",
+                "Returns policy and delivery times in memory"
+              ],
+              [
+                "Output",
+                "The exact shape",
+                "Under 120 words, first-name greeting"
+              ],
+              [
+                "When unsure",
+                "The fallback",
+                "Don't draft; say what is missing"
+              ],
+              [
+                "Why",
+                "The reason behind each rule",
+                "A wrong promise costs more than delay"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "before-after",
+      "h2": "Before and after",
+      "body": [
+        {
+          "ul": [
+            "**Before:** \"Be helpful and answer customer emails.\" **After:** \"Reply to order, delivery and returns questions sent to support@. Leave complaints and refunds for me.\"",
+            "**Before:** \"NEVER make anything up.\" **After:** \"Answer only from the returns policy in memory. If the answer is not there, tell me what is missing.\"",
+            "**Before:** \"Keep it short.\" **After:** \"Under 120 words. First name in the greeting. No bullet points.\"",
+            "**Before:** \"Handle edge cases.\" **After:** \"If there is no order number, ask for it in one line.\""
+          ]
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to write instructions for an AI agent",
+    "steps": [
+      {
+        "title": "Start from what you already tell people",
+        "body": "Your returns policy, the email you send new staff, your canned replies. Paste them in as facts; do not rewrite them from memory."
+      },
+      {
+        "title": "Write the job and the cases first",
+        "body": "One sentence for the job, then what it handles and what it leaves. Most bad AI agents fail here, not in the details."
+      },
+      {
+        "title": "Number the steps",
+        "body": "One action per step, each tied to a clear output. If a step says \"and\", it is probably two.",
+        "note": {
+          "type": "tip",
+          "text": "Models take requests literally. \"Suggest changes\" may get you suggestions and no changes. Say whether it should act or only propose.",
+          "about": "ai"
+        }
+      },
+      {
+        "title": "Describe the output exactly",
+        "body": "Length, tone, greeting, sign-off, format. Paste one good example if you have it."
+      },
+      {
+        "title": "Give the reason, drop the capitals",
+        "body": "\"A voice engine cannot read ellipses\" works better than \"never use ellipses\". Newer models follow closely, so \"CRITICAL: you MUST\" makes them overdo it.",
+        "note": {
+          "type": "warn",
+          "text": "A bare rule with no reason gets applied too literally, in cases where it was never meant to apply.",
+          "about": "ai"
+        }
+      },
+      {
+        "title": "Write the unsure line",
+        "body": "What it does when facts are missing, the case is unclear, or a search finds nothing. \"Skip it and tell me why\" is a good default."
+      },
+      {
+        "title": "Test on 10 real cases",
+        "body": "Include the awkward ones. Change one thing at a time and rerun the same cases, so you know which change helped."
+      }
+    ]
+  },
+  "captain": {
+    "at": 1,
+    "line": "Captain writes the first version of the instructions from your sentence and shows them on the plan. Later you change them by telling the AI agent in its chat.",
+    "useCase": "ai-replies-to-support-email"
+  },
+  "wrong": [
+    {
+      "title": "It does more than you meant",
+      "body": "The instructions said what to do but not what to leave. Add the cases it should not touch.",
+      "about": "ai"
+    },
+    {
+      "title": "The important rule gets lost",
+      "body": "The instructions grew to two pages. Cut what the AI agent never uses, and move reference facts into memory.",
+      "about": "ai"
+    },
+    {
+      "title": "\"Nothing found\" when there was something",
+      "body": "It searched the wrong way, such as for the word \"unread\" instead of the unread label. Tell it what to search, and to say what it searched when it finds nothing.",
+      "about": "ai"
+    },
+    {
+      "title": "Changes break what worked",
+      "body": "You fixed one case and broke another. Keep your 10 test cases and run all of them after each change.",
+      "about": "ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How long should AI agent instructions be?",
+      "a": "As short as covers the job, the cases, the steps, the output and the unsure case. For most small-business AI agents that is 100 to 250 words, plus reference facts kept separately."
+    },
+    {
+      "q": "Should I include examples?",
+      "a": "One good example of the output helps a lot, especially for tone. Examples of inputs belong in your test set, not in the instructions."
+    },
+    {
+      "q": "What goes in instructions and what goes in memory?",
+      "a": "Instructions say how to do the job. Memory holds facts that change: prices, policies, opening hours. Keeping them apart means you update a price without touching the job."
+    },
+    {
+      "q": "Should I write rules in capitals?",
+      "a": "No. Newer models follow closely, so \"CRITICAL: you MUST\" makes them overdo it. Give the reason behind the rule instead, and it will apply it sensibly."
+    },
+    {
+      "q": "How do I know a change helped?",
+      "a": "Change one thing at a time and rerun the same real cases. If you change three things at once, you will not know which one fixed or broke it."
+    },
+    {
+      "q": "What should the instructions say about unclear cases?",
+      "a": "What to do when facts are missing, the case is unclear, or a search finds nothing. \"Skip it and tell me why\" is a good default."
+    }
+  ],
+  "related": [
+    "how-to-build-an-ai-agent-without-code",
+    "how-to-make-an-ai-agent-ask-before-it-acts",
+    "how-to-draft-email-replies-with-ai-and-still-check-them"
+  ],
+  "updated": "2026-11-19"
+}

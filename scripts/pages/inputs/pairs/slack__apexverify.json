@@ -1,0 +1,67 @@
+{
+ "pair": "slack/apexverify",
+ "apps": {
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  },
+  "apexverify": {
+   "name": "ApexVerify",
+   "labels": [
+    "Email Verification",
+    "Data Enrichment"
+   ],
+   "about": "ApexVerify verifies email addresses and phone numbers in real time or in bulk batches to keep contact lists clean and deliverable."
+  }
+ },
+ "templates": [
+  {
+   "action": "apexverify:Create Verification Batch",
+   "triggers": [
+    "slack:New Thread Message",
+    "slack:New Message Posted in Channel Instant"
+   ]
+  },
+  {
+   "action": "apexverify:Verify Email or Phone",
+   "triggers": [
+    "slack:New Thread Message",
+    "slack:New Message Posted in Channel Instant"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "slack:New Thread Message",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new thread message."
+  },
+  {
+   "key": "apexverify:Create Verification Batch",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Upload a list of emails or phone numbers as a new batch and prepare it for verification."
+  },
+  {
+   "key": "apexverify:Verify Email or Phone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Verify an email address or phone number and get its quality result; choose verification type and target country."
+  },
+  {
+   "key": "slack:New Message Posted in Channel Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+  }
+ ]
+}

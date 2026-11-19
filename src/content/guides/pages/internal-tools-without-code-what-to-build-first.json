@@ -1,0 +1,234 @@
+{
+  "slug": "internal-tools-without-code-what-to-build-first",
+  "group": "Apps",
+  "kind": "app",
+  "query": "internal tools without code what to build first",
+  "title": "Internal tools without code: what to build first | 50agents",
+  "description": "Which internal tool to build first without code: score your sheets and inbox routines by how often, how many people and how costly a miss is.",
+  "h1": "Internal tools without code: what to build first",
+  "cover": {
+    "scene": "panel",
+    "panel": {
+      "label": "What to build first",
+      "look": "compare",
+      "head": [
+        "Candidate",
+        "Score"
+      ],
+      "rows": [
+        {
+          "cells": [
+            "Requests desk",
+            "11 of 12"
+          ],
+          "tag": "First"
+        },
+        {
+          "cells": [
+            "Stock count",
+            "8 of 12"
+          ]
+        },
+        {
+          "cells": [
+            "Leave tracker",
+            "6 of 12"
+          ]
+        }
+      ]
+    }
+  },
+  "answer": [
+    "Build first the tool that replaces a daily routine several people share, where a miss costs money.",
+    "Keep version one to one list, two or three views and one automatic step, with a named owner."
+  ],
+  "chooser": {
+    "h2": "Which tool should you build first?",
+    "root": {
+      "q": "Where does work get missed most?",
+      "options": [
+        {
+          "label": "Customer emails",
+          "then": {
+            "answer": "A customer requests desk",
+            "why": "It replaces a shared inbox and a \"who's got this?\" chat. The step that earns it: each new email sorted by kind and priority.",
+            "kind": "app",
+            "href": "/guides/how-to-build-a-customer-requests-desk-from-your-inbox"
+          }
+        },
+        {
+          "label": "Getting paid",
+          "then": {
+            "answer": "An invoice tracker",
+            "why": "It replaces a sheet of coloured cells. The step that earns it: a reminder drafted when an invoice goes late.",
+            "kind": "app",
+            "href": "/guides/how-to-build-an-invoice-tracker"
+          }
+        },
+        {
+          "label": "New leads",
+          "then": {
+            "answer": "A lead list",
+            "why": "It replaces leads buried in email threads and notes. The step that earns it: new enquiries added from email each morning.",
+            "kind": "app",
+            "href": "/guides/how-to-build-a-simple-crm-without-code"
+          }
+        },
+        {
+          "label": "Requests between colleagues",
+          "then": {
+            "q": "What kind of request?",
+            "options": [
+              {
+                "label": "Spend, leave or discounts",
+                "then": {
+                  "answer": "An approvals list",
+                  "why": "It replaces requests by message and a reply \"ok\". The approver gets one list; the asker gets a status.",
+                  "kind": "app"
+                }
+              },
+              {
+                "label": "Setting up a client or hire",
+                "then": {
+                  "answer": "An onboarding checklist",
+                  "why": "It replaces a document copied for each new client or hire. Tasks are created and assigned on day one.",
+                  "kind": "app"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "score",
+      "h2": "Not sure? Score your candidates",
+      "body": [
+        {
+          "p": "List every spreadsheet, shared inbox or \"send me a message when\" routine your team runs. Score each 1 to 3 on four questions and build the highest total first."
+        },
+        {
+          "table": {
+            "head": [
+              "Question",
+              "Scores 1",
+              "Scores 3"
+            ],
+            "rows": [
+              [
+                "How often is it touched?",
+                "Monthly",
+                "Several times a day"
+              ],
+              [
+                "How many people touch it?",
+                "Just you",
+                "The whole team"
+              ],
+              [
+                "What does a miss cost?",
+                "An annoyance",
+                "Money or a customer"
+              ],
+              [
+                "How messy is it now?",
+                "A tidy sheet",
+                "Five tabs and \"ask Sam\""
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to build your first internal tool without code",
+    "steps": [
+      {
+        "title": "Define the record before the screens",
+        "body": "What is one item (a request, an invoice, a lead) and which fields does it need?",
+        "note": {
+          "type": "warn",
+          "text": "Screens built before the fields are settled get rebuilt every time a field changes.",
+          "about": "app"
+        }
+      },
+      {
+        "title": "Pick two or three views",
+        "body": "The view you work from daily, a board by status, and everything. Not ten."
+      },
+      {
+        "title": "Add one automatic step",
+        "body": "The one that removes the most typing or the most forgetting. Add a second only after a week of use."
+      },
+      {
+        "title": "Set access properly",
+        "body": "A shared link is not access control. Add people by account and decide who can edit before you invite anyone."
+      },
+      {
+        "title": "Name an owner",
+        "body": "One person who fixes it when it breaks and decides what changes. Tools without an owner rot by month three."
+      },
+      {
+        "title": "Retire the old way",
+        "body": "Archive the sheet or the label the day the tool goes live. Two systems for one job means the new one loses."
+      }
+    ]
+  },
+  "captain": {
+    "at": 2,
+    "line": "Captain builds the list, views and numbers, plus up to three AI agents or browser agents. Each change is a version you can undo, and any list exports as CSV.",
+    "useCase": "customer-requests-desk"
+  },
+  "wrong": [
+    {
+      "title": "Version one does everything",
+      "body": "Ten views and five automations, and nobody uses it. Ship one list, two views and one automatic step.",
+      "about": "app"
+    },
+    {
+      "title": "Everyone sees everything",
+      "body": "Salaries or customer details are open to the whole team. Set roles before you invite.",
+      "about": "app"
+    },
+    {
+      "title": "The automatic step runs unchecked",
+      "body": "An AI agent sorts or drafts wrongly for weeks before anyone looks. Read its work daily for the first week, then weekly.",
+      "about": "ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What internal tools should a small team build first?",
+      "a": "The one replacing a daily, shared routine where a miss costs money: usually a requests desk, an invoice tracker or a lead list."
+    },
+    {
+      "q": "No-code or low-code for internal tools?",
+      "a": "No-code when the tool is lists, views and simple automatic steps. Low-code when you need custom logic or many integrations a developer will maintain."
+    },
+    {
+      "q": "How do I stop an internal tool from becoming a mess?",
+      "a": "One owner, a short list of fields, and a rule that every new view or step replaces something rather than adds to it."
+    },
+    {
+      "q": "Who should own an internal tool?",
+      "a": "One named person who fixes it when it breaks and decides what changes. Tools without an owner rot within a few months."
+    },
+    {
+      "q": "When do we retire the old spreadsheet?",
+      "a": "The day the tool goes live. Archive the sheet or the label, because two systems for one job means the new one loses."
+    },
+    {
+      "q": "How many views does version one need?",
+      "a": "Two or three: the list you work from daily, a board by status, and everything. Not ten."
+    }
+  ],
+  "related": [
+    "how-to-build-an-app-from-google-sheets",
+    "how-to-build-a-customer-requests-desk-from-your-inbox",
+    "what-to-automate-first-in-a-small-business"
+  ],
+  "updated": "2026-11-19"
+}

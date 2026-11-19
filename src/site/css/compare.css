@@ -1,0 +1,98 @@
+/* Comparison pages, v5 (D255; v4 was D254): the use case system (usecase.css, site.css). One table as the visual centre, in the use
+   case table's pattern (short cells, drawn marks, 50agents raised on its tint), strengths cards and a connected stepper.
+   On a phone the hero is left-aligned, the tables reflow so nothing scrolls sideways, and the stepper stacks. */
+
+/* hero: the use case hero (.uc3-hero, D255), with the closing notice under its line, on grey (no orange) */
+.cmp3-notice{margin:22px auto 0!important;max-width:720px;padding:16px 20px;border-radius:16px;background:var(--wash);font-size:16px;line-height:1.55;text-align:left}
+.cmp3-notice b{font-weight:600}
+.cmp3 .final{margin-top:0}
+
+/* the tables: the use case pattern, full container width */
+.cmp4-tbl{padding:12px 0 4px}
+.cmp4-tbl table{width:100%;border-collapse:separate;border-spacing:0;font-size:16px;table-layout:fixed}
+.cmp4-tbl th,.cmp4-tbl td{text-align:left;padding:18px 20px;vertical-align:middle;line-height:1.35;border-bottom:1px solid var(--line)}
+.cmp4-tbl thead th{font-size:14px;font-weight:600;color:var(--mute);padding-top:20px;padding-bottom:14px}
+.cmp4-tbl tbody th{font-weight:500;color:var(--ink)}
+.cmp4-tbl td{color:var(--ink)}
+.cmp4-tbl tbody tr:last-child th,.cmp4-tbl tbody tr:last-child td{border-bottom:0}
+
+/* versus: the 50agents column raised on the tint */
+.cmp4-tbl.vs tbody th{width:34%}
+.cmp4-tbl.vs .us{background:var(--k);border-bottom-color:rgba(17,18,20,.07)}
+.cmp4-tbl.vs thead .us{border-radius:20px 20px 0 0;color:var(--ink);font-size:15px}
+.cmp4-tbl.vs tbody tr:last-child .us{border-radius:0 0 20px 20px}
+.cmp4-tbl.vs td.us{font-weight:600}
+
+/* alternatives (D258): platforms are columns, 50agents first and raised on the neutral tint; rows are the attributes */
+.cmp4-tbl.alt{overflow-x:auto}
+.cmp4-tbl.alt table{min-width:0}
+.cmp4-tbl.alt thead th{font-size:16px;color:var(--ink);font-weight:600;vertical-align:bottom}
+.cmp4-tbl.alt tbody th{width:150px;color:var(--mute);font-size:14px;font-weight:600}
+.cmp4-tbl.alt .us{background:var(--k);border-bottom-color:rgba(17,18,20,.07)}
+.cmp4-tbl.alt td.us{font-weight:600}
+.cmp4-tbl.alt thead .us{border-radius:20px 20px 0 0}
+.cmp4-tbl.alt tbody tr:last-child .us{border-radius:0 0 20px 20px}
+
+/* where 50agents is good: 3 or 4 cards, a crew blob each */
+.cmp4-str{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cmp4-str.n4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cmp4-str li{padding:32px 28px;border-radius:24px;background:var(--k)}
+.cmp4-str li:nth-child(even){background:var(--wash)}
+.cmp4-str h3{margin-top:20px;font-size:21px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
+.cmp4-str p{margin-top:10px!important;font-size:16px;line-height:1.5;color:var(--mute)}
+
+/* how to move over (D258): equal columns across the page, everything centred under its circle; a line runs from
+   each circle's centre to the next one's, behind the circles */
+.cmp5-steps{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));column-gap:32px;justify-items:center;text-align:center}
+.cmp5-steps li{position:relative;min-width:0;width:100%;display:flex;flex-direction:column;align-items:center}
+.cmp5-steps li:not(:last-child)::before{content:"";position:absolute;top:21px;left:50%;width:calc(100% + 32px);height:2px;background:var(--line)}
+.cmp5-dot{position:relative;z-index:1;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;font-size:16px;font-weight:600}
+.cmp5-steps h3{margin-top:24px;font-size:20px;font-weight:500;letter-spacing:-.015em;line-height:1.25;max-width:260px}
+.cmp5-steps p{margin-top:8px!important;font-size:16px;line-height:1.5;color:var(--mute);max-width:260px}
+
+/* even gaps: every section is a .sec with nothing of its own above or below */
+.cmp3 .sec{padding-top:128px;padding-bottom:0;margin-left:auto;margin-right:auto}
+
+@media (max-width:1020px){
+  .cmp4-str.n4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .cmp3-notice{margin-left:0!important}
+
+  /* versus: the row's label on its own line, the two cells side by side under it */
+  .cmp4-tbl{padding:0}
+  .cmp4-tbl table{font-size:15px}
+  .cmp4-tbl.vs thead tr,.cmp4-tbl.vs tbody tr{display:grid;grid-template-columns:1fr 1fr}
+  .cmp4-tbl.vs thead th:first-child{display:none}
+  .cmp4-tbl.vs tbody th{grid-column:1/-1;width:auto;padding:16px 0 6px;border-bottom:0;font-size:14px;color:var(--mute)}
+  .cmp4-tbl.vs td{padding:12px;border-bottom:1px solid var(--line)}
+  .cmp4-tbl.vs thead th{padding:14px 12px 10px}
+  .cmp4-tbl.vs .us,.cmp4-tbl.vs tbody tr:last-child .us{border-radius:12px}
+  .cmp4-tbl.vs thead .us{border-radius:12px}
+  .cmp4-tbl.vs td:not(.us){border-bottom:0}
+  .cmp4-tbl.vs .cell{gap:8px;align-items:flex-start}
+  .cmp4-tbl.vs .mk{margin-top:-1px}
+
+  /* alternatives: the table scrolls sideways inside its own box, the attribute column sticky */
+  .cmp4-tbl.alt{-webkit-overflow-scrolling:touch;border-radius:16px;box-shadow:inset 0 0 0 1px var(--line)}
+  .cmp4-tbl.alt table{width:max-content;min-width:100%}
+  .cmp4-tbl.alt th,.cmp4-tbl.alt td{width:160px;min-width:160px;padding:14px 14px;font-size:15px}
+  .cmp4-tbl.alt thead th:first-child,.cmp4-tbl.alt tbody th{position:sticky;left:0;z-index:2;width:104px;min-width:104px;background:#fff;font-size:13px}
+  .cmp4-tbl.alt thead .us{border-radius:0}
+  .cmp4-tbl.alt tbody tr:last-child .us{border-radius:0}
+
+  .cmp4-str,.cmp4-str.n4{grid-template-columns:1fr;gap:12px}
+  .cmp4-str li{padding:24px 22px;display:grid;grid-template-columns:auto 1fr;column-gap:16px;align-items:start}
+  .cmp4-str li .face{grid-row:span 2}
+  .cmp4-str h3{margin-top:0;font-size:19px}
+  .cmp4-str p{margin-top:4px!important}
+
+  /* the stepper stacks: circles down the left, the line running down from centre to centre */
+  .cmp5-steps{grid-template-columns:1fr;justify-items:stretch;text-align:left}
+  .cmp5-steps li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:18px;padding-bottom:32px;align-items:start}
+  .cmp5-steps li:last-child{padding-bottom:0}
+  .cmp5-steps li:not(:last-child)::before{top:22px;bottom:-22px;left:21px;width:2px;height:auto}
+  .cmp5-dot{grid-row:span 2}
+  .cmp5-steps h3{grid-column:2;margin-top:10px;font-size:19px;max-width:none}
+  .cmp5-steps p{grid-column:2;margin-top:4px!important;max-width:none}
+}

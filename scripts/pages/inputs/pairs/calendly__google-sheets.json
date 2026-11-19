@@ -1,0 +1,78 @@
+{
+ "pair": "calendly/google-sheets",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "google-sheets": {
+   "name": "Google Sheets",
+   "labels": [
+    "Productivity",
+    "Top Free Apps",
+    "Spreadsheets",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Google Sheets is a cloud-based spreadsheet application that lets users create, edit, share, and collaborate on spreadsheets in real time."
+  }
+ },
+ "templates": [
+  {
+   "action": "google-sheets:Add New Row to Sheet",
+   "triggers": [
+    "calendly:When a meeting is scheduled, rescheduled, or canceled",
+    "calendly:New Meeting Book or Invitee Created"
+   ]
+  },
+  {
+   "action": "google-sheets:Delete Rows",
+   "triggers": [
+    "calendly:Invitee Canceled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:When a meeting is scheduled, rescheduled, or canceled",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update polling logic to reduce duplicate trigger hits."
+  },
+  {
+   "key": "google-sheets:Add New Row to Sheet",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+  },
+  {
+   "key": "calendly:New Meeting Book or Invitee Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when someone books a meeting for any event type."
+  },
+  {
+   "key": "calendly:Invitee Canceled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when an invitee cancels a scheduled event"
+  },
+  {
+   "key": "google-sheets:Delete Rows",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Delete one or more rows from a specific sheet in a Google Spreadsheet using a row range or row numbers."
+  }
+ ]
+}

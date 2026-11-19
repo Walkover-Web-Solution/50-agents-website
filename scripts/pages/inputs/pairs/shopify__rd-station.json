@@ -1,0 +1,55 @@
+{
+ "pair": "shopify/rd-station",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "rd-station": {
+   "name": "RD Station",
+   "labels": [
+    "Marketing"
+   ],
+   "about": "RD Station Marketing is Brazil's leading marketing automation platform. Manage contacts, run automation workflows, track conversions, and send targeted campaign"
+  }
+ },
+ "templates": [
+  {
+   "action": "rd-station:Create or Update Contact",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "rd-station:Create or Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create or update a contact using email; set name, phone, tags, and legal bases."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

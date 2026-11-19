@@ -1,0 +1,1 @@
+{"usedFor":"Each chat lead captured by Asyntai AI Chatbot becomes a HubSpot contact.","bestTemplate":{"name":"“New Lead Captured” in Asyntai AI Chatbot, then “Create Contact” in HubSpot","why":"A captured lead raised a hand in chat, and is ready to assign and follow up."},"watchOut":"“Create Contact” needs an email, so a chat that ends without one cannot become a contact."}

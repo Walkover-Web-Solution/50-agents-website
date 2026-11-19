@@ -1,0 +1,72 @@
+{
+ "pair": "facebook-lead-ads/google-drive",
+ "apps": {
+  "facebook-lead-ads": {
+   "name": "Facebook Lead Ads",
+   "labels": [
+    "Marketing",
+    "Lead Generation",
+    "Social Media"
+   ],
+   "about": "Automate the process of capturing and managing leads from Facebook. Seamlessly integrate your Facebook lead generation campaigns with your CRM or email marketin"
+  },
+  "google-drive": {
+   "name": "Google Drive",
+   "labels": [
+    "File Management and Storage Google",
+    "Top Free Apps",
+    "Team Collaboration",
+    "Product Management",
+    "Documents",
+    "Spreadsheets"
+   ],
+   "about": "Google Drive is a secure cloud storage and file collaboration platform that lets users store, share, organize, sync, and collaborate on files from anywhere, inc"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-drive:Create a new sheet or doc or slide",
+   "triggers": [
+    "facebook-lead-ads:New Lead Submitted"
+   ]
+  },
+  {
+   "action": "google-drive:Create Folder",
+   "triggers": [
+    "facebook-lead-ads:New Lead Submitted"
+   ]
+  },
+  {
+   "action": "google-drive:Share File With Anyone",
+   "triggers": [
+    "facebook-lead-ads:New Lead Submitted"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "facebook-lead-ads:New Lead Submitted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when New Lead Submitted"
+  },
+  {
+   "key": "google-drive:Create a new sheet or doc or slide",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new Google Docs document, Sheet, or Slide in Google Drive and optionally save it to a chosen folder."
+  },
+  {
+   "key": "google-drive:Create Folder",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new folder in Google Drive. Optionally specify a parent folder to place it inside."
+  },
+  {
+   "key": "google-drive:Share File With Anyone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a file accessible via a shareable link and set access level (Viewer, Commenter, Editor)."
+  }
+ ]
+}

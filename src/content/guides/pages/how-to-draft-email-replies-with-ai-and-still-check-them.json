@@ -1,0 +1,173 @@
+{
+  "slug": "how-to-draft-email-replies-with-ai-and-still-check-them",
+  "group": "Email and calendar",
+  "kind": "ai",
+  "query": "how to draft email replies with ai and still check them",
+  "title": "Draft email replies with AI and still check them | 50agents",
+  "description": "Let AI draft your email replies and check each in under a minute: a five-point review of facts, promises, prices, dates and recipients before you send.",
+  "h1": "How to draft email replies with AI and still check them",
+  "cover": {
+    "scene": "message",
+    "app": "gmail",
+    "where": "Draft, not sent",
+    "subject": "Re: Where is my order?",
+    "tag": "Check facts",
+    "lines": [
+      "Hi Sam, your order shipped this morning.",
+      "Tracking: the link in your receipt."
+    ],
+    "buttons": [
+      "Send",
+      "Edit"
+    ]
+  },
+  "answer": [
+    "Let the AI write drafts, never send, and check each in a minute for facts, promises, numbers, recipients and tone.",
+    "Give it your facts and sample replies, and correct it in words when it errs."
+  ],
+  "sections": [
+    {
+      "id": "review",
+      "h2": "The one-minute review",
+      "body": [
+        {
+          "p": "Read every draft for these five, in this order. The first three are where the expensive mistakes hide. Every vendor warns its AI may suggest inaccurate information, so the review is not optional."
+        },
+        {
+          "table": {
+            "head": [
+              "Check",
+              "Look for",
+              "Why"
+            ],
+            "rows": [
+              [
+                "Facts",
+                "Order numbers, names, what happened",
+                "Gaps get filled with plausible guesses"
+              ],
+              [
+                "Promises",
+                "\"We will refund\", \"by Friday\"",
+                "You are bound by what you send"
+              ],
+              [
+                "Prices and dates",
+                "Every number",
+                "Old prices, wrong year or timezone"
+              ],
+              [
+                "Recipients",
+                "To, Cc, reply-all",
+                "A supplier on the thread"
+              ],
+              [
+                "Tone",
+                "Too stiff, cheerful or long",
+                "Matters least, easiest to fix"
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to draft email replies with AI, step by step",
+    "steps": [
+      {
+        "title": "Choose which emails get drafts",
+        "body": "Questions from customers to support@, or all mail from people (not newsletters) to you. Narrow is better."
+      },
+      {
+        "title": "Drafts only, never auto-send",
+        "body": "Drafts in the thread, or a card to approve.",
+        "note": {
+          "type": "warn",
+          "text": "Turn off any auto-send setting before the first run, and check it again after every update to the tool.",
+          "about": "ai"
+        }
+      },
+      {
+        "title": "Load your facts and examples",
+        "body": "Three real replies you liked, your exact greeting and sign-off, and the facts it will be asked about: prices, hours, policies, links. Update facts the day they change."
+      },
+      {
+        "title": "Say what it must never offer",
+        "body": "Refunds by email, discounts, legal opinions. Give the reason, so it applies the rule sensibly."
+      },
+      {
+        "title": "Tell it what to do when unsure",
+        "body": "\"If the answer is not in what you know, do not draft. Tell me what is missing.\" A gap you see beats a guess you send."
+      },
+      {
+        "title": "Review for two weeks, then decide",
+        "body": "Count drafts sent unchanged, edited and thrown away. Fix the facts behind the thrown-away ones.",
+        "note": {
+          "type": "tip",
+          "text": "When you change a draft, tell the tool why in words, such as \"we never offer refunds by email, offer a call\".",
+          "about": "ai"
+        }
+      }
+    ]
+  },
+  "captain": {
+    "at": 2,
+    "line": "Captain builds an AI agent that drafts replies from your business's memory, which you can read and correct. Every reply waits for you to approve, change or decline.",
+    "useCase": "ai-replies-to-support-email"
+  },
+  "wrong": [
+    {
+      "title": "A promise you did not make",
+      "body": "The draft offered a refund or a deadline. Keep policies in the AI's facts and list what it may never offer.",
+      "about": "ai"
+    },
+    {
+      "title": "Stale prices",
+      "body": "Last year's price sits in its memory. Update facts the day they change.",
+      "about": "ai"
+    },
+    {
+      "title": "Reply-all to the wrong people",
+      "body": "A thread with a supplier on Cc. Check recipients every time; it takes a second.",
+      "about": "ai"
+    },
+    {
+      "title": "Everything sounds the same",
+      "body": "Generic drafts come from having no examples. Paste in three of your own replies.",
+      "about": "ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can AI reply to my emails for me?",
+      "a": "It can draft them well. Sending should stay with you, at least for anything that reaches a customer."
+    },
+    {
+      "q": "How do I make AI emails sound like me?",
+      "a": "Give it three replies you wrote and liked, your exact greeting and sign-off, and correct it in words when it misses."
+    },
+    {
+      "q": "Should I tell people a reply was drafted by AI?",
+      "a": "If you read and approve it, it is your reply. If something goes out unreviewed, say so, or better, do not let it."
+    },
+    {
+      "q": "How long should checking a draft take?",
+      "a": "About a minute. Read for facts, promises, prices and dates, recipients, then tone, in that order. The first three are where the expensive mistakes hide."
+    },
+    {
+      "q": "What should the AI never offer in a reply?",
+      "a": "Refunds by email, discounts and legal opinions are the usual list. Write the reason beside each rule, so it applies them sensibly to cases you did not foresee."
+    },
+    {
+      "q": "When can I let it send on its own?",
+      "a": "Count drafts sent unchanged, edited and thrown away for two weeks. Even then, keep anything with a promise, a price or a refund behind your approval."
+    }
+  ],
+  "related": [
+    "how-to-triage-your-inbox-with-ai",
+    "how-to-make-an-ai-agent-ask-before-it-acts",
+    "how-to-write-instructions-for-an-ai-agent"
+  ],
+  "updated": "2026-11-19"
+}

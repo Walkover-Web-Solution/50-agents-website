@@ -1,0 +1,57 @@
+{
+ "pair": "activecampaign/balsio",
+ "apps": {
+  "activecampaign": {
+   "name": "ActiveCampaign",
+   "labels": [
+    "Marketing",
+    "Email Newsletters",
+    "Marketing Automation",
+    "CRM"
+   ],
+   "about": "ActiveCampaign combines various aspects of small business marketing into an integrated and user-friendly platform. It helps businesses grow by maintaining meani"
+  },
+  "balsio": {
+   "name": "Balsio",
+   "labels": [
+    "Team Collaboration",
+    "Communication"
+   ],
+   "about": "Balsio is a team messaging platform for threads, channels and conversations with teammates and external participants."
+  }
+ },
+ "templates": [
+  {
+   "action": "balsio:Add Users to Thread",
+   "triggers": [
+    "activecampaign:New Contact"
+   ]
+  },
+  {
+   "action": "balsio:Create Scheduled Message",
+   "triggers": [
+    "activecampaign:New Contact"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activecampaign:New Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when new contact is added."
+  },
+  {
+   "key": "balsio:Add Users to Thread",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Add people to a Balsio thread by email address."
+  },
+  {
+   "key": "balsio:Create Scheduled Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Schedules one message to be posted to a Balsio thread by thread ID at a given date and time, optionally as a reply to another message, with attachments, custom attributes and an idempotency key against duplicate runs…"
+  }
+ ]
+}

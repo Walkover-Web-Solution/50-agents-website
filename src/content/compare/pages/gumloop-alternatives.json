@@ -1,0 +1,136 @@
+{
+  "slug": "gumloop-alternatives",
+  "type": "alternatives",
+  "tool": "gumloop",
+  "query": "gumloop alternatives",
+  "title": "Gumloop alternatives: AI agent builders | 50agents",
+  "description": "Gumloop alternatives: Lindy for an AI assistant, Relevance AI for sales, n8n and Activepieces to self-host, and 50agents for browser agents, free to start.",
+  "h1": "Gumloop alternatives",
+  "answer": [
+    "Lindy works in your inbox and calendar; Relevance AI focuses on sales.",
+    "n8n and Activepieces self-host. 50agents builds browser agents and AI agents from plain words, free to start."
+  ],
+  "line": "Browser agents and AI agents from plain words, free to start.",
+  "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
+  "lede": "Other AI agent builders, and where each one starts.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Browser agents from one sentence",
+      "price": "Free to start",
+      "diff": "Leaves a report each run",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "lindy",
+      "best": "Inbox and calendar work",
+      "price": "$29.99 a month per user",
+      "diff": "Works in Slack, iMessage, email",
+      "src": "https://www.lindy.ai/"
+    },
+    {
+      "tool": "relevance",
+      "best": "Sales AI agent teams",
+      "price": "$19 a month, billed yearly",
+      "diff": "Wired into Salesforce, HubSpot, Gong",
+      "src": "https://relevanceai.com/"
+    },
+    {
+      "tool": "n8n",
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Bills per run, not step",
+      "src": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "activepieces",
+      "best": "Open source, flat pricing",
+      "price": "Free plan; Plus $20 a month",
+      "diff": "Self-host, MIT-licensed core",
+      "src": "https://www.activepieces.com/"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Websites with no app",
+      "line": "A browser agent reads sites on a schedule and leaves you a report.",
+      "face": "scout"
+    },
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    }
+  ],
+  "move": [
+    {
+      "title": "List your Gumloop AI agents",
+      "body": "Note what each one does, what it reads and when it runs."
+    },
+    {
+      "title": "Start with a browser job",
+      "body": "Tell Captain the sites to check and what to look for."
+    },
+    {
+      "title": "Check the first report",
+      "body": "The browser agent runs on its schedule and leaves you a report."
+    },
+    {
+      "title": "Move the rest",
+      "body": "Move each remaining AI agent the same way, then cancel your plan."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does Gumloop have a free plan?",
+      "a": "No. Gumloop offers a 14-day Pro trial that needs a card. Pro is $37 a month for 20,000 credits."
+    },
+    {
+      "q": "Which Gumloop alternative has a browser agent?",
+      "a": "Lindy can drive a browser on Pro and up. 50agents has browser agents that read and use websites with no app to connect."
+    },
+    {
+      "q": "Can I self-host a Gumloop alternative?",
+      "a": "Yes. n8n and Activepieces both run on your own servers."
+    },
+    {
+      "q": "How do the prices compare?",
+      "a": "Lindy's Team plan starts at $29.99 a month for 3,000 credits. Relevance AI's Pro is $19 a month billed yearly. n8n Starter is €20 a month billed yearly. 50agents is free to start."
+    },
+    {
+      "q": "Can I move my Gumloop AI agents over?",
+      "a": "There is no import. Note what each one does, then describe it to Captain, which shows a plan before it builds."
+    },
+    {
+      "q": "Which alternative suits sales teams?",
+      "a": "Relevance AI builds sales AI agent teams wired into Salesforce, HubSpot and Gong."
+    },
+    {
+      "q": "Which alternatives wait for approval first?",
+      "a": "Lindy waits for your OK on outside actions. 50agents holds anything that reaches people outside your business until you say yes."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/50agents-vs-gumloop",
+      "title": "50agents vs Gumloop",
+      "line": "Row by row, with marks"
+    },
+    {
+      "href": "/compare/lindy-alternatives",
+      "title": "Lindy alternatives",
+      "line": "AI assistants for your inbox"
+    },
+    {
+      "href": "/compare/relevance-ai-alternatives",
+      "title": "Relevance AI alternatives",
+      "line": "AI agents for sales teams"
+    }
+  ],
+  "updated": "2026-11-19"
+}

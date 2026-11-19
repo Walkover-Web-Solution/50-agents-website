@@ -1,0 +1,67 @@
+{
+ "pair": "asyntai/asana",
+ "apps": {
+  "asyntai": {
+   "name": "Asyntai AI Chatbot",
+   "labels": [
+    "AI Tools",
+    "Customer Support"
+   ],
+   "about": "Asyntai is an AI chatbot for your website. It answers visitor questions from your own content, captures leads and opens support tickets. Connect it to start flo"
+  },
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  }
+ },
+ "templates": [
+  {
+   "action": "asana:Create Task or Subtask",
+   "triggers": [
+    "asyntai:New Human Help Request",
+    "asyntai:New Ticket Created",
+    "asyntai:New Conversation Started",
+    "asyntai:New Lead Captured"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "asyntai:New Human Help Request",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when new human help request is received on a selected website."
+  },
+  {
+   "key": "asana:Create Task or Subtask",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a task or subtask with custom fields, assignee, tags, dates, and description."
+  },
+  {
+   "key": "asyntai:New Ticket Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when AI agent creates a new support ticket on a chosen website."
+  },
+  {
+   "key": "asyntai:New Conversation Started",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a visitor sends the first message in a new chat conversation on a chosen website."
+  },
+  {
+   "key": "asyntai:New Lead Captured",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new lead is captured via chat; optionally for a selected website."
+  }
+ ]
+}

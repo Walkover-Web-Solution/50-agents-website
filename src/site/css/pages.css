@@ -1,0 +1,100 @@
+/* Index pages (B9), about and contact (B11), v3 (D253): a centred hero (left on a phone), link cards under centred heads. */
+.ix3-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:48px}
+.ix3-hero h1{font-size:clamp(40px,5.4vw,68px);line-height:1.02;letter-spacing:-.04em;max-width:900px}
+.ix3-hero p{margin:24px auto 0!important;font-size:20px;line-height:1.55;max-width:700px;color:var(--mute)}
+.sec.ix3-first{padding-top:96px}
+.cards3.ix3-two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px;margin:0 auto}
+.ix3-text{max-width:720px;margin:0 auto;display:grid;gap:16px;font-size:18px;line-height:1.6}
+.ix3-text ul{margin:0;padding-left:22px;display:grid;gap:10px;color:var(--mute)}
+.ix3-text a{text-underline-offset:3px}
+.ix3-dl{margin:0;display:grid;border-top:1px solid var(--line)}
+.ix3-dl div{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.ix3-dl dt{font-weight:600}.ix3-dl dd{margin:0;color:var(--mute)}
+/* /use-cases: every card in the HTML under kind chips; a chip hides the other kinds' cards (D254) */
+.sec.ixf{padding-top:56px}
+.ixf-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px}
+.ixf-chips button{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border:0;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:inherit;font-size:15.5px;font-weight:500;color:var(--ink);cursor:pointer;transition:background .2s,box-shadow .2s,color .2s}
+.ixf-chips button:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.ixf-chips button.on{background:var(--ink);color:#fff;box-shadow:none}
+.ixf-chips button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ixf-grid[data-show=ai]>a:not([data-kind=ai]),.ixf-grid[data-show=auto]>a:not([data-kind=auto]),
+.ixf-grid[data-show=app]>a:not([data-kind=app]),.ixf-grid[data-show=browser]>a:not([data-kind=browser]){display:none}
+@media (max-width:760px){
+  .sec.ixf{padding-top:40px}
+  .ixf-chips{justify-content:flex-start;margin-bottom:28px}
+  .ixf-chips button{height:40px;padding:0 14px;font-size:14.5px}
+  .ix3-hero{align-items:flex-start;text-align:left;padding-top:28px}
+  .ix3-hero p{margin-left:0!important;font-size:17.5px}
+  .ix3-hero h1{font-size:40px}
+  .sec.ix3-first{padding-top:64px}
+  .cards3.ix3-two{grid-template-columns:1fr}
+  .ix3-text{font-size:16.5px}
+  .ix3-dl div{grid-template-columns:1fr;gap:2px}
+}
+
+/* Trust pages, round 3 (D255): /about, /contact, /support. Every section a .sec; nothing adds its own outer margins. */
+/* channel cards (contact, support, about's "Reach the team"): a link card with a heading, a line and where it goes */
+.chs{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.chs>*{flex:0 1 calc((100% - 32px) / 3)}
+.ch{display:flex;flex-direction:column;gap:8px;padding:28px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);text-decoration:none;min-width:0;transition:box-shadow .2s,transform .2s}
+a.ch:hover{box-shadow:inset 0 0 0 1px var(--ink);transform:translateY(-2px)}
+a.ch:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.ch b{font-size:21px;font-weight:500;letter-spacing:-.015em;line-height:1.25}
+.ch>span{font-size:16px;line-height:1.5;color:var(--mute)}
+.ch .ch-go{margin-top:auto;padding-top:12px;color:var(--ink);font-weight:600;font-size:15.5px;overflow-wrap:anywhere}
+.ch-ph{background:repeating-linear-gradient(-45deg,#fff 0 10px,#FAFAF9 10px 20px);box-shadow:inset 0 0 0 1.5px #C9CBD0}
+.ch-ph .ch-tag{align-self:flex-start;padding:3px 10px;border-radius:999px;background:var(--ink);color:#fff!important;font-size:12.5px;font-weight:600}
+.ch-ph .ch-was{margin-top:auto;padding-top:10px;font-size:14px!important}
+
+/* about: an eyebrow and a statement heading over the crew */
+.ab-hero{padding-top:40px}
+.ab-crew{align-self:stretch;display:flex;justify-content:center;align-items:flex-end;gap:6px;margin-bottom:22px}
+.ab-eye{font-size:15px;font-weight:600;color:var(--mute);margin-bottom:12px}
+.ab-hero h1{max-width:860px}
+/* how it works: three numbered lines */
+.ab-how{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;max-width:1040px}
+.ab-how li{display:grid;align-content:start;gap:8px;padding-top:24px;border-top:1px solid var(--ink)}
+.ab-n{font-size:15px;font-weight:600;color:var(--mute);font-variant-numeric:tabular-nums}
+.ab-how h3{font-size:24px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
+.ab-how p{font-size:17px;line-height:1.5;color:var(--mute)}
+/* the four kinds: a short strip, each tile on its kind's tint (cards about one kind, D255) */
+.ab-kinds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ab-kinds>*{display:grid;justify-items:start;align-content:start;gap:6px;padding:22px;border-radius:18px;background:var(--kc);color:var(--ink);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.ab-kinds>a:hover{transform:translateY(-2px);box-shadow:inset 0 0 0 1px var(--ink)}
+.ab-kinds>a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.ab-kinds .face{margin-bottom:8px}
+.ab-kinds b{font-size:19px;font-weight:600;letter-spacing:-.01em}
+.ab-kinds span:last-child{font-size:15.5px;line-height:1.45;color:var(--mute)}
+/* what it does today: four facts in a grid, then what it does not do yet */
+.ab-today{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 64px;max-width:1040px;margin:0 auto}
+.ab-today h3{font-size:24px;font-weight:500;letter-spacing:-.02em;line-height:1.2}
+.ab-today p{margin-top:10px!important;font-size:17px;line-height:1.6;color:var(--mute)}
+.ab-not{max-width:1040px;margin:48px auto 0!important;padding-top:24px;border-top:1px solid var(--line);font-size:16px;color:var(--mute)}
+/* who makes it: the homepage's company cards */
+.ab-cos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1040px;margin:0 auto}
+.ab-co{display:flex;flex-direction:column;gap:12px;padding:32px;border-radius:22px;background:#F2F1ED;color:var(--ink);text-decoration:none;transition:transform .2s}
+.ab-co:hover{transform:translateY(-2px)}
+.ab-co:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.ab-co b{font-size:32px;font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.ab-co span{font-size:17px;line-height:1.55;color:var(--mute)}
+.ab-co em{margin-top:auto;padding-top:8px;font-style:normal;font-size:15px;font-weight:600}
+.ab-co.dark{background:#111214;color:#fff}
+.ab-co.dark span{color:rgba(255,255,255,.78)}
+
+@media (max-width:1020px){
+  .chs>*{flex-basis:calc((100% - 16px) / 2)}
+  .ab-kinds{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .chs>*{flex-basis:100%}
+  .ch{padding:22px}
+  .ab-hero{padding-top:28px}
+  .ab-crew{justify-content:flex-start}.ab-crew>.face:first-child,.ab-crew>.face:last-child{display:none}
+  .ab-how{grid-template-columns:1fr;gap:28px}
+  .ab-how h3,.ab-today h3{font-size:21px}
+  .ab-today{grid-template-columns:1fr;gap:32px}
+  .ab-not{margin-top:32px!important}
+  .ab-cos{grid-template-columns:1fr}
+  .ab-co{padding:24px}
+  .ab-co b{font-size:26px}
+}

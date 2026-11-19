@@ -1,0 +1,266 @@
+{
+  "slug": "zapier-vs-make-vs-n8n-for-a-small-team",
+  "group": "Choosing tools",
+  "kind": "auto",
+  "query": "zapier vs make vs n8n for a small team",
+  "title": "Zapier vs Make vs n8n for a small team | 50agents",
+  "description": "Zapier vs Make vs n8n for a small team: Zapier is quickest to learn, Make shows branching on a canvas, and n8n charges per run and can be self-hosted.",
+  "h1": "Zapier vs Make vs n8n for a small team",
+  "cover": {
+    "scene": "fork",
+    "q": "Who will fix it on Monday morning?",
+    "options": [
+      "Nobody technical: Zapier",
+      "Someone who likes diagrams: Make",
+      "A developer: n8n"
+    ],
+    "pick": 0
+  },
+  "answer": [
+    "Pick Zapier for the quickest start and most apps, Make for branching flows you see as a diagram, n8n if someone is technical.",
+    "How each counts usage matters more to your bill than the headline price."
+  ],
+  "chooser": {
+    "h2": "Which one fits your team?",
+    "root": {
+      "q": "Is anyone on the team comfortable with JSON and a little code?",
+      "options": [
+        {
+          "label": "Yes",
+          "then": {
+            "q": "Must your data stay on your own server, or do workflows run long?",
+            "options": [
+              {
+                "label": "Yes, one or both",
+                "then": {
+                  "answer": "n8n",
+                  "why": "It is the only one of the three you can host yourself, and it charges per whole run, so long workflows cost far less.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "No",
+                "then": {
+                  "answer": "Make",
+                  "why": "The most control for visual builders: branches, loops over lists and error handling, all visible as one diagram.",
+                  "kind": "auto"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "No",
+          "then": {
+            "q": "Do your workflows branch and loop over lists?",
+            "options": [
+              {
+                "label": "Yes",
+                "then": {
+                  "answer": "Make",
+                  "why": "Seeing the whole flow as a diagram makes branches and loops easier to follow than a list of steps.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "No, simple steps",
+                "then": {
+                  "answer": "Zapier",
+                  "why": "The gentlest start and the most apps, with help docs for everything. App makers usually build their Zapier integration first.",
+                  "kind": "auto"
+                }
+              },
+              {
+                "label": "I'd rather describe the job",
+                "then": {
+                  "answer": "Tell Captain the job instead",
+                  "why": "In 50agents you describe the job and check the plan, rather than building steps yourself.",
+                  "kind": "auto",
+                  "href": "/use-cases/stripe-payments-to-google-sheets"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "table",
+      "h2": "The three side by side",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "",
+              "Zapier",
+              "Make",
+              "n8n (cloud)"
+            ],
+            "rows": [
+              [
+                "You pay for",
+                "Tasks: each successful action step",
+                "Credits: each module operation, per item",
+                "Executions: each whole run"
+              ],
+              [
+                "Free",
+                "100 tasks a month, two-step Zaps",
+                "1,000 credits a month",
+                "A trial with 1,000 executions"
+              ],
+              [
+                "Not counted",
+                "Triggers, filters, paths, delays",
+                "Routers and error handlers",
+                "Steps inside a run"
+              ],
+              [
+                "Self-host",
+                "No",
+                "No",
+                "Yes, you run the server"
+              ],
+              [
+                "Feels like",
+                "A list of steps",
+                "A diagram of modules",
+                "A diagram, closer to code"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "cost",
+      "h2": "One workflow, three bills",
+      "body": [
+        {
+          "p": "A workflow that runs 600 times a month: a trigger, a lookup and an add-row step. For each plan's price, see [how much automation costs](/guides/how-much-automation-costs-credits-tasks-and-runs-compared)."
+        },
+        {
+          "table": {
+            "head": [
+              "Tool",
+              "How it counts this",
+              "A month",
+              "Fits in"
+            ],
+            "rows": [
+              [
+                "Zapier",
+                "2 action steps a run",
+                "1,200 tasks",
+                "Past Professional's 750; bigger tier"
+              ],
+              [
+                "Make",
+                "About 3 operations a run",
+                "About 1,800 credits",
+                "Past the free 1,000; paid plan"
+              ],
+              [
+                "n8n",
+                "1 execution a run",
+                "600 executions",
+                "Starter's 2,500"
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to choose between Zapier, Make and n8n",
+    "steps": [
+      {
+        "title": "Write your three likeliest workflows",
+        "body": "The apps, the trigger, the steps, and how often each runs a month."
+      },
+      {
+        "title": "Check every app is supported",
+        "body": "Search each tool's app directory for each app, and for the exact trigger and action you need, not just the app name."
+      },
+      {
+        "title": "Work out the monthly units",
+        "body": "Tasks, credits or executions, using the rules above. This usually decides it.",
+        "note": {
+          "type": "warn",
+          "text": "A trigger that checks every few minutes can spend credits on empty checks in some tools. Use instant triggers where offered.",
+          "about": "auto"
+        }
+      },
+      {
+        "title": "Build the hardest one on each free tier",
+        "body": "Branching, a loop over line items, an error case. An hour each is enough to feel the difference."
+      },
+      {
+        "title": "Ask who will fix it on Monday morning",
+        "body": "Pick the tool that person can read."
+      }
+    ]
+  },
+  "captain": {
+    "at": 3,
+    "line": "50agents is a different shape: you tell Captain the job, it plans the automation through viaSocket's 2,300+ apps, and you approve what reaches customers.",
+    "useCase": "stripe-payments-to-google-sheets"
+  },
+  "wrong": [
+    {
+      "title": "The bill is not the headline price",
+      "body": "Usage beyond the plan is where costs grow. Count your units before choosing.",
+      "about": "auto"
+    },
+    {
+      "title": "Self-hosting is not free",
+      "body": "n8n on your own server costs the server and someone's time for updates and backups.",
+      "about": "auto"
+    },
+    {
+      "title": "Nobody can read the flow",
+      "body": "The builder leaves and the diagram is a mystery. Name steps in plain words and keep a one-line note per workflow.",
+      "about": "auto"
+    },
+    {
+      "title": "Quotas stop your workflows",
+      "body": "When credits or tasks run out, workflows stop. Set alerts before the limit.",
+      "about": "auto"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is n8n free?",
+      "a": "Self-hosted n8n is free to use; you pay for the server and the upkeep. n8n cloud is paid, with a trial."
+    },
+    {
+      "q": "Which is cheapest for a small team?",
+      "a": "It depends on workflow length. For long workflows n8n's per-run pricing is usually cheapest; for short two-step jobs the free tiers of Zapier or Make may cover you."
+    },
+    {
+      "q": "Which is easiest?",
+      "a": "Zapier, for most non-technical people. Make is a step up in control; n8n another step."
+    },
+    {
+      "q": "Can I self-host Zapier or Make?",
+      "a": "No. Of the three, only n8n can run on your own server. Self-hosting is not free: you pay for the server and someone's time to keep it updated."
+    },
+    {
+      "q": "Do all three connect to the same apps?",
+      "a": "No. Search each tool's app directory for each app, and for the exact trigger and action you need, not just the app name."
+    },
+    {
+      "q": "Which one is easiest to hand over?",
+      "a": "The one the person who fixes it on Monday morning can read. For most non-technical teams that is a list of steps; for a developer, a diagram closer to code."
+    }
+  ],
+  "related": [
+    "how-much-automation-costs-credits-tasks-and-runs-compared",
+    "how-to-choose-an-ai-agent-builder",
+    "ai-agent-vs-automation-which-one-you-need"
+  ],
+  "updated": "2026-11-19"
+}

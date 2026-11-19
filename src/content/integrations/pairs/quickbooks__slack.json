@@ -1,0 +1,1 @@
+{"usedFor":"New QuickBooks invoices are posted to Slack for the finance or sales team.","bestTemplate":{"name":"“New Invoice” in QuickBooks, then “Send Message” in Slack","why":"One channel post shows every new invoice to the team; “Send Message” takes a channel ID."},"watchOut":"“New Invoice” and “New Bill” poll, so the Slack post lands after the next check and needs approval."}

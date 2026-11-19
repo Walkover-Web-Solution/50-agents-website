@@ -1,0 +1,1 @@
+{"usedFor":"Every WooCommerce order becomes an invoice in QuickBooks.","bestTemplate":{"name":"“New Order Created” in WooCommerce, then “Create Invoice” in QuickBooks","why":"Each order becomes an invoice on placement, the entry a bookkeeper would otherwise key by hand."},"watchOut":"Cancelled or test WooCommerce orders also reach “Create Invoice” unless you filter them first."}

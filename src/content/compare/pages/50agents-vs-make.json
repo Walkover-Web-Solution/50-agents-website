@@ -1,0 +1,103 @@
+{
+  "slug": "50agents-vs-make",
+  "type": "versus",
+  "tool": "make",
+  "query": "50agents vs make",
+  "title": "50agents vs Make: canvas or plain words | 50agents",
+  "description": "50agents vs Make: Make gives you a visual canvas, 3,500+ apps and blueprints; 50agents builds the automation, AI agent or app from plain words.",
+  "h1": "50agents vs Make",
+  "answer": [
+    "Pick Make to lay out branching scenarios on a canvas and edit them module by module.",
+    "Pick 50agents to say what you need and let Captain build it."
+  ],
+  "line": "Say what you need and Captain builds the scenario for you.",
+  "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
+  "lede": "Canvas against plain words, row by row.",
+  "rows": [
+    "prompt",
+    "fixed",
+    "aiAgent",
+    "appBuilder",
+    "approval",
+    "export"
+  ],
+  "strengths": [
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "Apps with your own records",
+      "line": "Lists, boards and tables, run by a crew of AI agents.",
+      "face": "sorter"
+    },
+    {
+      "title": "You see every step",
+      "line": "Captain shows the plan before it builds, and every step after.",
+      "face": "lead"
+    }
+  ],
+  "move": [
+    {
+      "title": "Export the scenario",
+      "body": "Download its blueprint (.json) to keep as a record."
+    },
+    {
+      "title": "Describe it to Captain",
+      "body": "Say what starts it and what lands where, like a new Shopify order to a sheet."
+    },
+    {
+      "title": "Compare, then switch off",
+      "body": "Run both on a few orders, then turn the Make scenario off."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does 50agents have a visual editor like Make?",
+      "a": "No. You see every step, but changes go through chat with Captain."
+    },
+    {
+      "q": "Which has more apps?",
+      "a": "Make connects 3,500+ apps. 50agents works with 2,300+ through viaSocket."
+    },
+    {
+      "q": "Is 50agents free?",
+      "a": "50agents is free to start. Make has a free plan with 1,000 credits a month."
+    },
+    {
+      "q": "How do the prices differ?",
+      "a": "50agents is free to start. Make's paid plans start at $9 a month for 10,000 credits (Core), and its free plan has 1,000 credits a month."
+    },
+    {
+      "q": "Can I move my scenarios over?",
+      "a": "A scenario exports as a blueprint, a .json file you can import elsewhere in Make. 50agents has no import for it, so describe each job to Captain."
+    },
+    {
+      "q": "Which suits building from a plain request?",
+      "a": "In 50agents you tell Captain what you need. Make's Maia builds scenarios from a prompt, as a public beta on paid plans."
+    },
+    {
+      "q": "Can 50agents build apps with screens?",
+      "a": "Yes. 50agents builds apps with lists, boards and tables. Make has data stores but no screens or interfaces."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/make-alternatives",
+      "title": "Make alternatives",
+      "line": "n8n, Zapier, Activepieces and more"
+    },
+    {
+      "href": "/compare/50agents-vs-zapier",
+      "title": "50agents vs Zapier",
+      "line": "Row by row, with marks"
+    },
+    {
+      "href": "/compare/50agents-vs-n8n",
+      "title": "50agents vs n8n",
+      "line": "Nodes and self-hosting, or plain words"
+    }
+  ],
+  "updated": "2026-11-19"
+}

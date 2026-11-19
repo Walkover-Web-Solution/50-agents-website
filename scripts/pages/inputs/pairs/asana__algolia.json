@@ -1,0 +1,52 @@
+{
+ "pair": "asana/algolia",
+ "apps": {
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  },
+  "algolia": {
+   "name": "Algolia",
+   "labels": [
+    "Developer Tools"
+   ],
+   "about": "Algolia is a hosted search and discovery platform that helps businesses add fast, relevant search and personalized discovery experiences to websites and applica"
+  }
+ },
+ "templates": [
+  {
+   "action": "algolia:Update Record Attributes",
+   "triggers": [
+    "asana:When a new comment is added to a task",
+    "asana:New Task Created in Selected Project"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "asana:When a new comment is added to a task",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new comment is added to a task. Each run returns the comments written within the polling interval, one item per comment; system activity such as assignments or status changes is ignored. Pick a project to…"
+  },
+  {
+   "key": "algolia:Update Record Attributes",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Add or update selected attributes of a record without replacing the rest."
+  },
+  {
+   "key": "asana:New Task Created in Selected Project",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Polls the selected Asana project and fires once for each task created since the previous check, oldest first. Each item is one task (gid, name, completed, created_at, assignee, created_by, custom_fields, tags…"
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+{
+  "slug": "hr",
+  "role": "HR teams",
+  "label": "HR",
+  "kind": "auto",
+  "query": "ai agents and automations for hr teams",
+  "title": "AI agents and automations for HR teams | 50agents",
+  "description": "What HR teams hand off first: leave on the team calendar, new hires announced, daily applicant summaries, interview briefs, policy questions drafted.",
+  "h1": "AI agents and automations for HR teams",
+  "answer": [
+    "HR teams hand off the copying first: approved leave onto the team calendar, new hires announced, a daily applicant summary.",
+    "Captain builds these on Keka, Personio, Greenhouse and more; decisions about people stay with people."
+  ],
+  "example": {
+    "kind": "auto",
+    "ask": "Set up an automation: when an absence period is created in Personio, add an all-day event for it to our Team calendar in Google Calendar",
+    "build": {
+      "name": "Leave on the calendar",
+      "line": "Each absence as an all-day event",
+      "when": "On each new absence in Personio",
+      "does": [
+        "Reads who is off and when",
+        "Adds an all-day event to the Team calendar"
+      ],
+      "apps": [
+        "personio",
+        "google-calendar"
+      ],
+      "asksFirst": "Nothing: it writes to your own calendar"
+    }
+  },
+  "jobs": [
+    {
+      "title": "Put leave on the team calendar",
+      "body": "When an absence is created in Personio, add an all-day event to the team’s Google Calendar with the person and the dates.",
+      "kind": "auto",
+      "ask": "Set up an automation: when an absence period is created in Personio, add an all-day event for it to our Team calendar in Google Calendar"
+    },
+    {
+      "title": "Announce new hires",
+      "body": "When a candidate is marked hired in Greenhouse, add them to the onboarding sheet and post a welcome in your team channel (the post asks you first).",
+      "kind": "auto",
+      "ask": "Set up an automation: when a candidate is hired in Greenhouse, add them as a row to my Onboarding sheet and post a welcome in #team"
+    },
+    {
+      "title": "A daily applicant summary",
+      "body": "Each morning, an AI agent reads yesterday’s new applications in Greenhouse or Recruitee and sends you a short list by role, with what stands out in each.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that every weekday at 9:00 reads yesterday’s new applications in Greenhouse and sends me a short summary by job"
+    },
+    {
+      "title": "Brief interviewers",
+      "body": "When an interview is scheduled in Greenhouse, send the interviewer the candidate’s name, role and time. Each email waits for your yes today.",
+      "kind": "auto",
+      "ask": "Set up an automation: when a new interview is scheduled in Greenhouse, email the interviewer the candidate, the job and the time"
+    },
+    {
+      "title": "Answer staff policy questions",
+      "body": "An AI agent reads questions sent to hr@ and drafts answers from your handbook in its memory; it leaves anything personal or sensitive for you.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that reads new emails to hr@, drafts answers to policy questions from our handbook, and leaves anything personal for me"
+    }
+  ],
+  "category": "hr",
+  "apps": [
+    "keka",
+    "personio",
+    "greenhouse",
+    "recruitee",
+    "breezy-hr",
+    "teamtailor",
+    "calamari",
+    "rotacloud"
+  ],
+  "faqs": [
+    {
+      "q": "Which HR apps does it work with?",
+      "a": "Those in viaSocket’s catalog, including Keka, Personio, Greenhouse, Recruitee, Breezy HR, Teamtailor, Calamari and RotaCloud. What you can build depends on each app’s triggers and actions."
+    },
+    {
+      "q": "Is employee data safe?",
+      "a": "Connect only the apps a job needs and keep personal details out of shared channels. Say in the job what may be shared; the AI agents ask before sending anything to people."
+    },
+    {
+      "q": "Can AI screen candidates?",
+      "a": "It can summarise applications for you. Decisions about people should stay with people, and in many places the law says so."
+    },
+    {
+      "q": "What does it not do yet?",
+      "a": "BambooHR is not in viaSocket’s catalog today, so it cannot be connected. It does not run payroll, and it never decides on hiring, pay or leave; those stay with people. Some HR apps have few triggers (Keka has one), so jobs on them run on a schedule rather than the moment something changes. Posting to a team Slack channel waits for your approval today."
+    }
+  ],
+  "guides": [
+    "how-to-automate-data-entry-between-two-apps",
+    "how-to-draft-email-replies-with-ai-and-still-check-them",
+    "how-to-give-an-ai-agent-access-to-your-apps-safely"
+  ],
+  "updated": "2026-11-19"
+}

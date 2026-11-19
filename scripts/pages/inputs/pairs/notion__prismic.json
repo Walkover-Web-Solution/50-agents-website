@@ -1,0 +1,58 @@
+{
+ "pair": "notion/prismic",
+ "apps": {
+  "notion": {
+   "name": "Notion",
+   "labels": [
+    "Project Management",
+    "Productivity",
+    "Team Collaboration",
+    "Databases",
+    "Top Free Apps",
+    "App Builder",
+    "Product Management",
+    "Notes",
+    "AI Tools",
+    "Documents"
+   ],
+   "about": "Notion is an AI workspace for teams to create and organize docs, wikis, projects, databases, and custom agents, helping users collaborate, automate work, and ma"
+  },
+  "prismic": {
+   "name": "Prismic",
+   "labels": [
+    "Content & Files",
+    "Website Builders"
+   ],
+   "about": "Prismic is a headless CMS and page builder that helps teams create, manage, and publish website content."
+  }
+ },
+ "templates": [
+  {
+   "action": "prismic:Update Page",
+   "triggers": [
+    "notion:Updated Content in Page",
+    "notion:New Page Is Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "notion:Updated Content in Page",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when the content in a page is updated."
+  },
+  {
+   "key": "prismic:Update Page",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update the content, UID, title or tags of an existing page as a draft."
+  },
+  {
+   "key": "notion:New Page Is Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new page is created"
+  }
+ ]
+}

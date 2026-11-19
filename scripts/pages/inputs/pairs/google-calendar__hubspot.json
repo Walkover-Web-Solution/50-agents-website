@@ -1,0 +1,98 @@
+{
+ "pair": "google-calendar/hubspot",
+ "apps": {
+  "google-calendar": {
+   "name": "Google Calendar",
+   "labels": [
+    "Productivity",
+    "Time Management",
+    "Top Free Apps",
+    "Calendar",
+    "Team Collaboration",
+    "Scheduling and Booking"
+   ],
+   "about": "Google Calendar is a scheduling and calendar management service that helps individuals and teams create events, manage availability, coordinate meetings, and or"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-calendar:Create Calendar",
+   "triggers": [
+    "hubspot:Update Contact's Lead Status"
+   ]
+  },
+  {
+   "action": "google-calendar:Update Event",
+   "triggers": [
+    "hubspot:Update Contact's Lead Status"
+   ]
+  },
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "google-calendar:New or Updated Event",
+    "google-calendar:New Event"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "google-calendar:New or Updated Event",
+    "google-calendar:New Event"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "hubspot:Update Contact's Lead Status",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Get notified if lead status changed for any contact in your account."
+  },
+  {
+   "key": "google-calendar:Create Calendar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a calendar with name and description; optionally include location and time zone."
+  },
+  {
+   "key": "google-calendar:Update Event",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an event in a chosen calendar, changing time, attendees, details, and guest notifications."
+  },
+  {
+   "key": "google-calendar:New or Updated Event",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when an event is created or updated, or a recurring occurrence starts in a chosen calendar."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "google-calendar:New Event",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Trigger when an new event is created."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  }
+ ]
+}

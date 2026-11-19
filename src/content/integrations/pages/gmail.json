@@ -1,0 +1,153 @@
+{
+ "slug": "gmail",
+ "query": "Gmail integrations; Gmail automation; AI agent for Gmail",
+ "title": "Gmail AI agents and automations | 50agents",
+ "description": "Connect Gmail and tell Captain the job: an email sent on each new form response, an AI agent that drafts replies to unread mail, or a desk for requests.",
+ "h1": "AI agents and automations for Gmail",
+ "answer": [
+  "Connect Gmail and tell Captain the job, such as “when a new Google Forms response comes in, send an email from my Gmail”.",
+  "Captain reads, labels, drafts and sends through your Gmail, and emails to outsiders wait for your OK."
+ ],
+ "ask": "Set up an automation: when a new Google Forms response comes in, send an email from my Gmail",
+ "recipe": {
+  "ta": "google-forms",
+  "te": "New Form Response",
+  "aa": "gmail",
+  "ae": "Send Email"
+ },
+ "build": {
+  "name": "Form replies",
+  "line": "An email for every new response",
+  "when": "When a new response comes in on Google Forms",
+  "does": [
+   "Writes the email from the response",
+   "Sends it from your Gmail"
+  ],
+  "apps": [
+   "google-forms",
+   "gmail"
+  ],
+  "asksFirst": "Every email before it goes"
+ },
+ "kinds": [
+  {
+   "kind": "auto",
+   "title": "An email for every new response",
+   "body": "Fixed steps on each event: a form response becomes an email from your Gmail, a new attachment becomes a row in your sheet. AI can be one step, such as sorting the email into a category.",
+   "ask": "Set up an automation: when a new Google Forms response comes in, send an email from my Gmail",
+   "uses": [
+    "Send Email",
+    "New Attachment"
+   ]
+  },
+  {
+   "kind": "ai",
+   "title": "Unread email, replies drafted",
+   "body": "Reads each unread thread, decides which need you and which can wait, and saves a reply as a Gmail draft in your voice. You check the drafts and send.",
+   "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
+   "uses": [
+    "Search_Email_Messages",
+    "Get Thread Replies",
+    "Create Email Draft",
+    "Modify Email Labels"
+   ],
+   "useCase": "ai-email-triage-every-morning"
+  },
+  {
+   "kind": "browser",
+   "title": "The pages an email points to",
+   "body": "Gmail connects through its API, so a browser agent is for what an email links to: a supplier’s order page, a tracking link or a portal with no app to connect.",
+   "ask": "Set up a browser agent that checks my competitors’ pricing pages every day at 9:00 and tells me when a price changes",
+   "uses": [],
+   "useCase": "track-competitor-prices"
+  },
+  {
+   "kind": "app",
+   "title": "An inbox turned into a desk",
+   "body": "Customer requests, leads or unpaid invoices as records with a status, and a crew of AI agents that files new email and drafts the replies.",
+   "ask": "Keep track of customer requests and draft the replies",
+   "uses": [
+    "New Email Arrives",
+    "Reply To Thread"
+   ],
+   "useCase": "customer-requests-desk"
+  }
+ ],
+ "groups": [
+  {
+   "label": "New mail",
+   "line": "Start when an email arrives (filtered by label, sender or subject), when you send one, or when one carries an attachment.",
+   "events": [
+    "New Email Arrives",
+    "New Email Sent",
+    "New Attachment"
+   ]
+  },
+  {
+   "label": "Read and search",
+   "line": "Search your mail, list it by label, open one message, read a whole thread or pull an attachment.",
+   "events": [
+    "Search_Email_Messages",
+    "List_all_Mails",
+    "Get Gmail Message by ID",
+    "Get Thread Replies",
+    "Get Email Attachment"
+   ]
+  },
+  {
+   "label": "Write and send",
+   "line": "Save a draft, reply in a thread, or send a new email with attachments, CC and BCC.",
+   "events": [
+    "Create Email Draft",
+    "Reply To Thread",
+    "Send Email"
+   ]
+  },
+  {
+   "label": "Organise",
+   "line": "Add or remove labels on a message or thread.",
+   "events": [
+    "Modify Email Labels"
+   ]
+  }
+ ],
+ "faqs": [
+  {
+   "q": "Will an AI agent send email from my Gmail without asking?",
+   "a": "Not by default. Anything sent to people outside your business becomes a Needs you item, and it goes from your Gmail only after you approve it. Drafts saved with “Create Email Draft” sit in your Gmail drafts until you send them."
+  },
+  {
+   "q": "Can it reply inside the same thread?",
+   "a": "Yes. “Reply To Thread” answers an existing thread and lets you pick the recipients, the sender, everyone or specific people, so the reply stays with the conversation."
+  },
+  {
+   "q": "Can a new email start the work?",
+   "a": "Yes. “New Email Arrives” starts an automation or an AI agent, filtered by label, sender or subject, and “New Attachment” starts it when a message carries a file."
+  },
+  {
+   "q": "Can it sort my email into labels?",
+   "a": "Yes. “Modify Email Labels” adds or removes labels on a message or a whole thread. An AI agent can read each new email and decide the label, and an automation can label by sender or subject the same way every time."
+  },
+  {
+   "q": "Is a new email picked up straight away?",
+   "a": "No, on a schedule. “New Email Arrives”, “New Attachment” and “New Email Sent” are checked at intervals, not pushed as mail lands. An AI agent on your inbox also runs on its schedule or when you ask it in its chat."
+  },
+  {
+   "q": "Can it attach files and copy people in?",
+   "a": "Yes. “Send Email” takes recipients, CC and BCC, attachments and labels, and “Reply To Thread” can add attachments too."
+  },
+  {
+   "q": "Can it start from emails I send?",
+   "a": "Yes. “New Email Sent” starts the work when a message appears in your Sent mailbox or in a label you choose, for example to log every quote you send."
+  },
+  {
+   "q": "Can it pick up the files people email me?",
+   "a": "Yes. “New Attachment” finds recent messages that carry files, optionally under one label, and “Get Email Attachment” returns a message’s files with their names and links for the next step."
+  },
+  {
+   "q": "Can an AI agent look things up in my inbox?",
+   "a": "Yes. It can search your messages, open one with “Get Gmail Message by ID” and read a thread with “Get Thread Replies”. Anything it sends to people outside your business still waits for your approval."
+  }
+ ],
+ "updated": "2026-11-19"
+}

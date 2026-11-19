@@ -1,0 +1,144 @@
+{
+  "slug": "power-automate-alternatives",
+  "type": "alternatives",
+  "tool": "powerautomate",
+  "query": "power automate alternatives",
+  "title": "Power Automate alternatives: options and prices | 50agents",
+  "description": "Power Automate alternatives: UiPath for desktop RPA, Zapier and Make for other apps, n8n and Activepieces to self-host, and 50agents from plain words.",
+  "h1": "Power Automate alternatives",
+  "answer": [
+    "UiPath covers enterprise RPA; Zapier and Make connect many non-Microsoft apps.",
+    "n8n and Activepieces self-host, and 50agents builds the job from one sentence."
+  ],
+  "line": "Any job, built from one sentence, across 2,300+ apps.",
+  "ask": "Keep track of customer requests and draft the replies",
+  "lede": "RPA, hosted and self-hosted options beside Power Automate.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Request desks and replies",
+      "price": "Free to start",
+      "diff": "Apps with AI agents inside",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "uipath",
+      "best": "Enterprise RPA",
+      "price": "Free Community; Basic $25 a month",
+      "diff": "Robots at enterprise scale",
+      "src": "https://www.uipath.com/pricing"
+    },
+    {
+      "tool": "zapier",
+      "best": "Connecting 10,541+ apps",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Bills each action step",
+      "src": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "make",
+      "best": "Visual, branching scenarios",
+      "price": "Free plan; Core $9 a month",
+      "diff": "Most actions use one credit",
+      "src": "https://www.make.com/en/pricing"
+    },
+    {
+      "tool": "n8n",
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Bills per run, not step",
+      "src": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "activepieces",
+      "best": "Open source, flat pricing",
+      "price": "Free plan; Plus $20 a month",
+      "diff": "Self-host, MIT-licensed core",
+      "src": "https://www.activepieces.com/"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Apps with your own records",
+      "line": "Lists, boards and tables, run by a crew of AI agents.",
+      "face": "sorter"
+    },
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "You approve what goes out",
+      "line": "Emails to clients wait in Needs you until you say yes.",
+      "face": "lead"
+    },
+    {
+      "title": "2,300+ apps through viaSocket",
+      "line": "Connect the apps your work already runs on.",
+      "face": "keeper"
+    }
+  ],
+  "move": [
+    {
+      "title": "Export your flows",
+      "body": "Flows export as a package (.zip) or inside a solution."
+    },
+    {
+      "title": "Describe the job to Captain",
+      "body": "For example: keep track of customer requests and draft the replies."
+    },
+    {
+      "title": "Check the app Captain builds",
+      "body": "A requests list, a board and drafts waiting for your approval."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is Power Automate free?",
+      "a": "A free licence for work or school accounts covers cloud flows with standard connectors. Premium is $15.00 per user a month, paid yearly."
+    },
+    {
+      "q": "What is an alternative to Power Automate Desktop?",
+      "a": "UiPath, for enterprise RPA. Its Community plan is free and Basic starts at $25 a month."
+    },
+    {
+      "q": "How many connectors does Power Automate have?",
+      "a": "Microsoft lists more than 1,400 prebuilt connectors. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "What does Power Automate cost?",
+      "a": "Premium is $15 per user a month, paid yearly. Process is $150 per bot a month, paid yearly, for unattended RPA."
+    },
+    {
+      "q": "How do I export Power Automate flows?",
+      "a": "Flows export as a package (.zip) or inside a solution. Use the export as your checklist when you rebuild elsewhere."
+    },
+    {
+      "q": "Which alternative suits Microsoft 365?",
+      "a": "Power Automate is built into Microsoft 365, with approvals and process mining."
+    },
+    {
+      "q": "Which alternative suits enterprise RPA?",
+      "a": "UiPath builds enterprise robotic process automation and AI agents. Its Community plan is free forever, and Basic starts at $25 a month."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/zapier-alternatives",
+      "title": "Zapier alternatives",
+      "line": "Make, n8n, Activepieces and more"
+    },
+    {
+      "href": "/compare/make-alternatives",
+      "title": "Make alternatives",
+      "line": "Visual scenario builders"
+    },
+    {
+      "href": "/compare/50agents-vs-zapier",
+      "title": "50agents vs Zapier",
+      "line": "Row by row, with marks"
+    }
+  ],
+  "updated": "2026-11-19"
+}

@@ -1,0 +1,56 @@
+{
+ "pair": "postsider/hubspot",
+ "apps": {
+  "postsider": {
+   "name": "PostSider",
+   "labels": [
+    "Social Media Marketing",
+    "Marketing"
+   ],
+   "about": "PostSider helps you plan, schedule, and publish social media posts across many channels from one place."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "postsider:New Failed Post"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "postsider:New Failed Post"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "postsider:New Failed Post",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a post fails to publish on a selected or any channel."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  }
+ ]
+}

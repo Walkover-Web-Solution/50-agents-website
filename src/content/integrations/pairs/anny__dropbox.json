@@ -1,0 +1,1 @@
+{"usedFor":"Each new anny invoice is filed as a copy in Dropbox.","bestTemplate":{"name":"“New Invoice” in anny, then “Upload File to Dropbox” in Dropbox","why":"Each invoice is saved to a chosen folder, with a choice to add, replace or update."},"watchOut":"“Upload File to Dropbox” needs a public file link, so the invoice trigger must supply a reachable URL."}

@@ -1,0 +1,1 @@
+{"usedFor":"Each cancelled Shopify order is marked on your Axiom charts.","bestTemplate":{"name":"“Order Cancelled” in Shopify, then “Create Annotation” in Axiom","why":"The annotation lines a cancellation up with whatever changed in your logs."},"watchOut":"“Create Annotation” targets chosen datasets, so those must exist before the annotation runs."}

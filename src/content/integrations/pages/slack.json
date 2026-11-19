@@ -1,0 +1,191 @@
+{
+ "slug": "slack",
+ "query": "Slack integrations; Slack automation; AI agent for Slack",
+ "title": "Slack AI agents and automations | 50agents",
+ "description": "Connect Slack and tell Captain the job: channel messages logged in a sheet, tomorrow’s meetings posted each evening, or an AI agent that replies.",
+ "h1": "AI agents and automations for Slack",
+ "answer": [
+  "Connect Slack and tell Captain the job, such as “when a new message is posted in a Slack channel, add it as a row to my Google Sheet”.",
+  "Captain builds an automation or an AI agent that reads threads."
+ ],
+ "ask": "Set up an automation: when a new message is posted in a Slack channel, add it as a row to my Google Sheet",
+ "recipe": {
+  "ta": "slack",
+  "te": "New Message in Channels",
+  "aa": "google-sheets",
+  "ae": "Add New Row to Sheet"
+ },
+ "build": {
+  "name": "Slack to Sheets",
+  "line": "Every channel message as a row",
+  "when": "When a new message is posted in the channels you pick",
+  "does": [
+   "Reads the message, its author and channel",
+   "Adds it as a row to your sheet"
+  ],
+  "apps": [
+   "slack",
+   "google-sheets"
+  ],
+  "asksFirst": "Nothing: it only writes your sheet"
+ },
+ "kinds": [
+  {
+   "kind": "auto",
+   "title": "Messages in, rows out",
+   "body": "The same steps every time: a channel message becomes a row in Google Sheets, or a new HubSpot deal or Stripe subscriber becomes a post in the channel you pick.",
+   "ask": "Set up an automation: when a new message is posted in a Slack channel, add it as a row to my Google Sheet",
+   "uses": [
+    "New Message in Channels",
+    "Send Message"
+   ],
+   "useCase": "hubspot-contacts-to-google-sheets-and-slack"
+  },
+  {
+   "kind": "ai",
+   "title": "Tomorrow’s meetings, every evening",
+   "body": "Reads what it needs, writes the message, and decides who should see it: tomorrow’s meetings as one note, a reply in a thread when it is mentioned, or a question with buttons when it needs your call.",
+   "ask": "Set up an AI agent that sends me tomorrow’s meetings from Google Calendar in Slack every day at 18:00",
+   "uses": [
+    "Send Direct Message",
+    "New Mention",
+    "Send Message as Thread",
+    "Send Interactive Message"
+   ],
+   "useCase": "tomorrows-meetings-in-slack"
+  },
+  {
+   "kind": "browser",
+   "title": "Website changes, reported in Slack",
+   "body": "Checks websites that have no app, and reports what changed. Slack is where you read the result; the browser agent does the looking.",
+   "ask": "Set up a browser agent that checks my competitors’ pricing pages every day at 9:00 and tells me when a price changes",
+   "uses": [],
+   "useCase": "track-competitor-prices"
+  },
+  {
+   "kind": "app",
+   "title": "Records in an app, the summary in Slack",
+   "body": "An app keeps the records and Slack gets the summary. Apps in 50agents have an add-on that posts their weekly numbers in Slack.",
+   "ask": "Track my leads and follow up",
+   "uses": []
+  }
+ ],
+ "groups": [
+  {
+   "label": "Messages coming in",
+   "line": "Start on a new message in chosen channels, anywhere in Slack, in a thread, or when someone mentions you or your app.",
+   "events": [
+    "New Message Posted in Channel Instant",
+    "New Message in Channels",
+    "New Message on Slack",
+    "New Thread Message Instant",
+    "New Thread Message",
+    "New Mention"
+   ]
+  },
+  {
+   "label": "Sending",
+   "line": "Post or schedule a message to a channel, a person or a thread; send Block Kit layouts, buttons and forms; edit what was sent; add a reaction.",
+   "events": [
+    "Send Message",
+    "Send Direct Message",
+    "Send Message as Thread",
+    "Message Private Channel",
+    "Send Block Kit Message",
+    "Send Interactive Message",
+    "Send Block/buttons/Intractive message using AI",
+    "Edit Channel Message",
+    "Chat_update slack block or message using messageTs",
+    "View_open BlockKit Modal using JSON",
+    "Add Reaction to a Message"
+   ]
+  },
+  {
+   "label": "Reading",
+   "line": "Pull messages from a channel or thread for a time range, and read thread replies.",
+   "events": [
+    "Get Messages from Slack",
+    "Get Thread Replies"
+   ]
+  },
+  {
+   "label": "Channels",
+   "line": "Create public or private channels, set a topic, add people, and list or find channels.",
+   "events": [
+    "Create Channel",
+    "Create Private Channel",
+    "Set Channel Topic",
+    "Add Users to Channel",
+    "Find Public channel",
+    "List all Public Channels",
+    "List all Private Channels",
+    "Get all Channel Members"
+   ]
+  },
+  {
+   "label": "People",
+   "line": "Start when someone joins the workspace or a channel; look up a person and their full profile.",
+   "events": [
+    "New User Joined or Updated in Your Org",
+    "New member join/leave or updated in channel",
+    "Get User Information",
+    "Get User Complete Profile Details by ID"
+   ]
+  },
+  {
+   "label": "Canvases and files",
+   "line": "Create and edit canvases, find their sections, and make a file public.",
+   "events": [
+    "Create Canvas",
+    "Update Canvas",
+    "Lookup Canvas Sections",
+    "Make Slack File Public"
+   ]
+  }
+ ],
+ "faqs": [
+  {
+   "q": "Can it post into a private channel?",
+   "a": "Yes, with “Message Private Channel”. Slack only lets an app see private channels it has been invited to, so add the app to the channel in Slack first."
+  },
+  {
+   "q": "Does a post to a channel wait for my approval?",
+   "a": "Today it does: an automation’s post to a Slack channel waits in Needs you until you approve it. An AI agent asks before sending, even to you, until you allow it in Settings."
+  },
+  {
+   "q": "Will it reply in threads or in the channel?",
+   "a": "Either. “Send Message as Thread” replies under a message, and “Send Message” posts to the channel or a person. Tell Captain which you want in the ask."
+  },
+  {
+   "q": "How is this different from Slackbot?",
+   "a": "Slack calls Slackbot its built-in AI agent for personal productivity, on its Business+ and Enterprise+ plans. 50agents uses Slack as one of your apps, so the work can start in HubSpot, Stripe or Google Calendar and land in the channel. For finding a decision in old threads, Slackbot works where the messages are and needs nothing set up."
+  },
+  {
+   "q": "Does a new Slack message start the work at once?",
+   "a": "“New Message Posted in Channel Instant” and “New Thread Message Instant” fire as messages arrive in the channels you choose. “New Message in Channels”, “New Mention” and the other message triggers are checked on a schedule."
+  },
+  {
+   "q": "Can it ask the team to approve something in Slack?",
+   "a": "Yes. “Send Interactive Message” posts buttons or a form, so people answer in Slack instead of opening another app."
+  },
+  {
+   "q": "Can it message one person directly?",
+   "a": "Yes. “Send Direct Message” sends a DM, and “Get User Information” finds the person by email or name first."
+  },
+  {
+   "q": "Can it start when someone mentions it?",
+   "a": "Yes. “New Mention” runs when someone mentions your Slack app or user in a channel you belong to. It is checked on a schedule, so the reply is not instant."
+  },
+  {
+   "q": "Can it create channels or canvases?",
+   "a": "Yes. “Create Channel”, “Create Private Channel” and “Create Canvas” make new ones, and “Add Users to Channel” invites people to a channel."
+  }
+ ],
+ "sources": [
+  {
+   "label": "Slack: What is Slackbot",
+   "href": "https://slack.com/intl/en-in/resources/using-slack/what-is-slackbot"
+  }
+ ],
+ "updated": "2026-11-19"
+}

@@ -1,0 +1,73 @@
+{
+ "pair": "docusign/hubspot",
+ "apps": {
+  "docusign": {
+   "name": "Docusign",
+   "labels": [
+    "Document Management",
+    "E-Signature",
+    "Workflow Automation"
+   ],
+   "about": "DocuSign1 allows you to streamline your document signing process by integrating with DocuSign. Easily send, sign, and manage documents electronically, ensuring "
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "docusign:New Envelope Created",
+    "docusign:New Envelope Sent",
+    "docusign:New Envelope Completed"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "docusign:New Envelope Created",
+    "docusign:New Envelope Sent",
+    "docusign:New Envelope Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "docusign:New Envelope Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new envelope is created as a draft and not yet sent."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "docusign:New Envelope Sent",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an envelope is sent to recipients for signature."
+  },
+  {
+   "key": "docusign:New Envelope Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an envelope is completed after all recipients have signed."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  }
+ ]
+}

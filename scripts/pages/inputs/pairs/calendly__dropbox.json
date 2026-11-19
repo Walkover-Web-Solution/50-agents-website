@@ -1,0 +1,116 @@
+{
+ "pair": "calendly/dropbox",
+ "apps": {
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "calendly:When a contact is updated",
+    "calendly:When a contact is deleted",
+    "calendly:When a new contact is created",
+    "calendly:Meeting Created Rescheduled Or Canceled",
+    "calendly:When a meeting recap is created",
+    "calendly:New Routing Form Submission",
+    "calendly:Invitee No Show Created",
+    "calendly:Invitee Canceled"
+   ]
+  },
+  {
+   "action": "calendly:Create One-Time Meeting",
+   "triggers": [
+    "dropbox:New or Updated File"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "calendly:When a contact is updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever any contact is updated in your Calendly account."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "calendly:When a contact is deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever any contact is deleted. Requires a paid Calendly plan."
+  },
+  {
+   "key": "calendly:When a new contact is created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically when a new contact is created in your Calendly account. Requires a paid Calendly plan."
+  },
+  {
+   "key": "calendly:Meeting Created Rescheduled Or Canceled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when meeting changes"
+  },
+  {
+   "key": "calendly:When a meeting recap is created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically when a meeting recap is created in the account. Requires a paid Calendly plan."
+  },
+  {
+   "key": "calendly:New Routing Form Submission",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new routing form submission is created."
+  },
+  {
+   "key": "calendly:Invitee No Show Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when an invitee is marked as no-show."
+  },
+  {
+   "key": "calendly:Invitee Canceled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Trigger when an invitee cancels a scheduled event"
+  },
+  {
+   "key": "dropbox:New or Updated File",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new file is added or updated in a folder. Make sure the number of files/folders in the watched folder does not exceed 6000."
+  },
+  {
+   "key": "calendly:Create One-Time Meeting",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a one-time meeting"
+  }
+ ]
+}

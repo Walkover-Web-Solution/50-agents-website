@@ -1,0 +1,69 @@
+{
+ "pair": "woocommerce/hubspot",
+ "apps": {
+  "woocommerce": {
+   "name": "WooCommerce",
+   "labels": [
+    "E-commerce",
+    "Website Management",
+    "Online Store"
+   ],
+   "about": "WooCommerce is a customizable, open-source eCommerce platform built on WordPress. It is designed to help businesses of all sizes create and manage an online sto"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create or Update Contact",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "woocommerce:New Order Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new order is created."
+  },
+  {
+   "key": "hubspot:Create or Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates new contact or update an existing contact by its email."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  }
+ ]
+}

@@ -1,0 +1,249 @@
+{
+  "slug": "how-to-build-a-simple-crm-without-code",
+  "group": "Apps",
+  "kind": "app",
+  "query": "how to build a simple crm without code",
+  "title": "How to build a simple CRM without code | 50agents",
+  "description": "How to build a simple CRM without code: ten fields, five stages, a next follow-up date on every open lead and a daily list of who to contact next.",
+  "h1": "How to build a simple CRM without code",
+  "cover": {
+    "scene": "board",
+    "label": "Pipeline",
+    "columns": [
+      {
+        "name": "New",
+        "cards": [
+          {
+            "title": "Bloom Studio"
+          },
+          {
+            "title": "Hart & Co"
+          }
+        ]
+      },
+      {
+        "name": "Contacted",
+        "cards": [
+          {
+            "title": "Nordic Tiles",
+            "tag": "Follow up today"
+          }
+        ]
+      },
+      {
+        "name": "Won",
+        "cards": [
+          {
+            "title": "Oak Dental"
+          }
+        ]
+      }
+    ]
+  },
+  "answer": [
+    "Make one list of leads with about ten fields, five stages, and a next follow-up date on every open lead.",
+    "Sort by that date each morning, and get new leads in from email and forms without typing."
+  ],
+  "chooser": {
+    "h2": "Sheet, app or full CRM?",
+    "root": {
+      "q": "How many people work the same leads?",
+      "options": [
+        {
+          "label": "Just me",
+          "then": {
+            "q": "Do leads arrive faster than you can type them in?",
+            "options": [
+              {
+                "label": "No, a few a week",
+                "then": {
+                  "answer": "A sheet is enough",
+                  "why": "Add the fields below, dropdowns for Stage and Source, and a Follow up view sorted by date."
+                }
+              },
+              {
+                "label": "Yes, or follow-ups slip",
+                "then": {
+                  "answer": "A no-code app that captures and reminds",
+                  "why": "It adds leads from your inbox and puts today's follow-ups in front of you, so nothing depends on your memory.",
+                  "kind": "app",
+                  "href": "/use-cases/lead-tracker-from-your-inbox"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Two to five people",
+          "then": {
+            "answer": "A no-code app with records",
+            "why": "Two people in one sheet overwrite each other with no history. An app gives each lead one record and a change log.",
+            "kind": "app"
+          }
+        },
+        {
+          "label": "A sales team",
+          "then": {
+            "answer": "A full CRM",
+            "why": "Email tracking, sequences and reporting across reps are what full CRMs are built for."
+          }
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "fields",
+      "h2": "The fields and stages",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Field",
+              "Type",
+              "Used for"
+            ],
+            "rows": [
+              [
+                "Name, email, phone, company",
+                "Text",
+                "Reaching them; email stops duplicates"
+              ],
+              [
+                "Source",
+                "Choice",
+                "Which channel brings buyers"
+              ],
+              [
+                "Stage",
+                "New, Contacted, Replied, Won, Lost",
+                "The pipeline board"
+              ],
+              [
+                "Deal size",
+                "Money",
+                "Sorting and the open total"
+              ],
+              [
+                "Last contact",
+                "Date",
+                "Spotting leads that went quiet"
+              ],
+              [
+                "Next follow-up",
+                "Date",
+                "Today's list"
+              ],
+              [
+                "Notes",
+                "Long text",
+                "One line per conversation"
+              ]
+            ]
+          }
+        },
+        {
+          "p": "Make Stage and Source dropdowns, not free text, so they sort and count. You need three views: Follow up (open leads, soonest date first, every morning), Pipeline (a board by stage, weekly) and All leads (searchable, when someone calls)."
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to build a simple CRM, step by step",
+    "steps": [
+      {
+        "title": "Make the list with these fields",
+        "body": "In a sheet, one tab with one row per lead. In a no-code app, one table."
+      },
+      {
+        "title": "Add the three views",
+        "body": "A sorted tab or filter view for Follow up; a board for Pipeline if your tool has one."
+      },
+      {
+        "title": "Bring in what you have",
+        "body": "Paste last quarter's leads from email and your notes. Fill Stage and Next follow-up for every open one."
+      },
+      {
+        "title": "Decide how new leads get in",
+        "body": "Form entries, enquiry emails, referrals: each needs a route into the list.",
+        "note": {
+          "type": "warn",
+          "text": "Without a route in, the CRM goes stale within a month. Automate capture, or set ten minutes a day to add leads.",
+          "about": "app"
+        }
+      },
+      {
+        "title": "Set the follow-up rule",
+        "body": "Each time you contact a lead, set Last contact to today and Next follow-up to a date. No open lead without a date.",
+        "note": {
+          "type": "tip",
+          "text": "Make Next follow-up required for every open stage. Leads with no date never show up in Follow up.",
+          "about": "app"
+        }
+      },
+      {
+        "title": "Review the pipeline weekly",
+        "body": "Move dead leads to Lost. A pipeline full of ghosts hides the real ones."
+      }
+    ]
+  },
+  "captain": {
+    "at": 3,
+    "line": "Captain builds this CRM with an AI agent that reads your email each weekday, adds new people asking to buy, and drafts follow-ups for your approval.",
+    "useCase": "lead-tracker-from-your-inbox"
+  },
+  "wrong": [
+    {
+      "title": "Duplicate leads",
+      "body": "The same person arrives from a form and an email. Use email as the key and search before adding.",
+      "about": "app"
+    },
+    {
+      "title": "Stages nobody agrees on",
+      "body": "\"Qualified\" means three things to three people. Keep five plain stages and write one line on what each means.",
+      "about": "app"
+    },
+    {
+      "title": "Two people, one sheet",
+      "body": "Edits overwrite each other and there is no history. Move to an app with records and a change log.",
+      "about": "app"
+    },
+    {
+      "title": "A drafted follow-up misreads the lead",
+      "body": "An AI agent can mistake a supplier for a buyer. Approve each draft before it goes, and correct the stage when it is wrong.",
+      "about": "ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can Google Sheets be a CRM?",
+      "a": "Yes, for one person or a small team with a few dozen open leads. Add the fields above, dropdowns for stage and source, and a Follow up view sorted by date."
+    },
+    {
+      "q": "What columns should a simple CRM have?",
+      "a": "Name, email, phone, company, source, stage, deal size, last contact, next follow-up and notes. Add more only when you make a decision with them."
+    },
+    {
+      "q": "When should I move to a real CRM?",
+      "a": "When several people work the same leads, when you need email tracking and sequences, or when follow-ups keep slipping despite the sheet."
+    },
+    {
+      "q": "How many stages should a simple CRM have?",
+      "a": "Five is enough: New, Contacted, Replied, Won, Lost. Make Stage a dropdown so it sorts and counts. More stages mean more arguments about where a lead belongs."
+    },
+    {
+      "q": "How do I stop duplicate leads?",
+      "a": "Use email as the key. Search before adding by hand, and make imports and automations update the existing lead when the email matches."
+    },
+    {
+      "q": "How often should I review the pipeline?",
+      "a": "Sort Follow up by date every morning, and look at the whole pipeline once a week. Move dead leads to Lost so the open ones stay visible."
+    }
+  ],
+  "related": [
+    "how-to-automate-lead-follow-up-from-gmail",
+    "how-to-build-an-app-from-google-sheets",
+    "internal-tools-without-code-what-to-build-first"
+  ],
+  "updated": "2026-11-19"
+}

@@ -1,0 +1,1 @@
+{"usedFor":"A changed WooCommerce order updates the matching Google Calendar event.","bestTemplate":{"name":"“Order Updated” in WooCommerce, then “Update Event” in Google Calendar","why":"If an order stands for a booked slot, the event should follow when the order changes."},"watchOut":"“Order Updated” fires on every update, so one order can run the template more than once."}

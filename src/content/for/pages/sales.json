@@ -1,0 +1,104 @@
+{
+  "slug": "sales",
+  "role": "sales teams",
+  "label": "Sales",
+  "kind": "ai",
+  "query": "ai agents and automations for sales teams",
+  "title": "AI agents and automations for sales teams | 50agents",
+  "description": "What sales teams hand to AI agents first: quiet deals followed up, leads pulled from email, new contacts logged and posted, new leads researched.",
+  "h1": "AI agents and automations for sales teams",
+  "answer": [
+    "Sales teams hand off follow-up first: drafted emails for deals quiet five days, and a lead list filled from the inbox.",
+    "Captain builds each job from a sentence in HubSpot, Gmail and 2,300+ apps; every email waits for your yes."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+    "build": {
+      "name": "Deal follow-ups",
+      "line": "quiet deals, a follow-up drafted for each",
+      "when": "Every weekday at 9:00",
+      "does": [
+        "Finds deals quiet for 5 days",
+        "Reads your last Gmail thread",
+        "Drafts a follow-up to approve"
+      ],
+      "apps": [
+        "hubspot",
+        "gmail"
+      ],
+      "asksFirst": "Every email it would send"
+    },
+    "useCase": "follow-up-quiet-hubspot-deals"
+  },
+  "jobs": [
+    {
+      "title": "Follow up quiet deals",
+      "body": "Each weekday morning, an AI agent finds HubSpot deals with no reply in 5 days, reads the last thread and drafts a follow-up in it for you to approve.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+      "useCase": "follow-up-quiet-hubspot-deals"
+    },
+    {
+      "title": "Track leads from your inbox",
+      "body": "A leads app with a pipeline board and a Follow up list. Its AI agent adds people asking to buy from yesterday’s email and marks leads Replied.",
+      "kind": "app",
+      "ask": "Track my leads and follow up",
+      "useCase": "lead-tracker-from-your-inbox"
+    },
+    {
+      "title": "Log and announce every new contact",
+      "body": "Each new HubSpot contact becomes a row in your Google Sheet and a post in a Slack channel, the same way every time.",
+      "kind": "auto",
+      "ask": "Set up an automation: every new HubSpot contact is added as a row to my Google Sheet and posted in a Slack channel",
+      "useCase": "hubspot-contacts-to-google-sheets-and-slack"
+    },
+    {
+      "title": "Research each new lead before the call",
+      "body": "In the leads app, Scout, a browser agent, reads each new lead’s company website and adds a note: what they do, roughly how big, one thing worth knowing.",
+      "kind": "browser",
+      "ask": "Track my leads and research each new lead’s company website before I call"
+    },
+    {
+      "title": "Send the pipeline to the team on Monday",
+      "body": "An AI agent reads open deals in HubSpot every Monday and sends you what moved, what stalled and what closes this month.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that reads my open HubSpot deals every Monday at 9:00 and sends me what moved, what stalled and what closes this month"
+    }
+  ],
+  "category": "crm",
+  "apps": [
+    "hubspot",
+    "gmail",
+    "pipedrive",
+    "slack",
+    "google-sheets",
+    "calendly",
+    "facebook-lead-ads",
+    "salesforce"
+  ],
+  "faqs": [
+    {
+      "q": "Can an AI agent send follow-ups on its own?",
+      "a": "Not by default. Each email it drafts waits in Needs you; you can give an AI agent more freedom once its drafts need no edits."
+    },
+    {
+      "q": "Does it work with Pipedrive or Salesforce instead of HubSpot?",
+      "a": "Both are in viaSocket’s catalog. Name your CRM in the sentence to Captain and it plans with that app."
+    },
+    {
+      "q": "Will it update deals in HubSpot?",
+      "a": "It can when the job needs it, and any change in your apps asks you first."
+    },
+    {
+      "q": "What does it not do yet?",
+      "a": "It does not make calls or send SMS; follow-ups go by email from Gmail. It drafts, it does not negotiate: discounts and terms stay with you. It does not send sequences to cold lists; it follows up people already in your pipeline."
+    }
+  ],
+  "guides": [
+    "how-to-automate-lead-follow-up-from-gmail",
+    "how-to-build-a-simple-crm-without-code",
+    "how-to-send-new-hubspot-contacts-to-slack"
+  ],
+  "updated": "2026-11-19"
+}

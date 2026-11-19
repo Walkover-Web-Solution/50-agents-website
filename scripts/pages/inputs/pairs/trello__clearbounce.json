@@ -1,0 +1,62 @@
+{
+ "pair": "trello/clearbounce",
+ "apps": {
+  "trello": {
+   "name": "Trello",
+   "labels": [
+    "Project Management"
+   ],
+   "about": "Track progress of tasks in one convenient place with a visual layout that adds 'ta-da' to your to-do's"
+  },
+  "clearbounce": {
+   "name": "ClearBounce",
+   "labels": [
+    "Email",
+    "Marketing"
+   ],
+   "about": "ClearBounce helps businesses verify email addresses, reduce bounce rates, and maintain cleaner contact lists for more effective email campaigns."
+  }
+ },
+ "templates": [
+  {
+   "action": "clearbounce:Verify Email Address",
+   "triggers": [
+    "trello:New Card Created",
+    "trello:Add Label to Card"
+   ]
+  },
+  {
+   "action": "clearbounce:Create Bulk Job",
+   "triggers": [
+    "trello:New Card Created",
+    "trello:Add Label to Card"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "trello:New Card Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when new card is created"
+  },
+  {
+   "key": "clearbounce:Verify Email Address",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Checks whether a single email address is valid and deliverable."
+  },
+  {
+   "key": "trello:Add Label to Card",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a label is added to card in trello"
+  },
+  {
+   "key": "clearbounce:Create Bulk Job",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Starts a bulk verification job for a list of up to 10,000 email addresses and returns its job ID. Uses 1 credit per unique address."
+  }
+ ]
+}

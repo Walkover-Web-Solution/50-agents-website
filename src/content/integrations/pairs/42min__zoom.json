@@ -1,0 +1,1 @@
+{"usedFor":"A person who books a time in 42min gets registered for the Zoom webinar.","bestTemplate":{"name":"“New Booking” in 42min, then “Register Attendee for Webinar” in Zoom","why":"The trigger is pushed, so the booker is registered the moment they pick a time."},"watchOut":"“Updated Booking Time” also runs this action, so a reschedule could register the same person twice."}

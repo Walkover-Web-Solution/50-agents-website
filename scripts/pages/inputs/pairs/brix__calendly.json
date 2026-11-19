@@ -1,0 +1,70 @@
+{
+ "pair": "brix/calendly",
+ "apps": {
+  "brix": {
+   "name": "Brix",
+   "labels": [
+    "Marketing"
+   ],
+   "about": "Brix is digital signage software for TVs and players. Post messages, cast content, run emergency takeovers, manage media and playlists, and react to recalled co"
+  },
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  }
+ },
+ "templates": [
+  {
+   "action": "calendly:Create One-Time Meeting",
+   "triggers": [
+    "brix:New Media",
+    "brix:New Screen",
+    "brix:New Restored Content",
+    "brix:New Recalled Content"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "brix:New Media",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new file is added to the media library, optionally of chosen types."
+  },
+  {
+   "key": "calendly:Create One-Time Meeting",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a one-time meeting"
+  },
+  {
+   "key": "brix:New Screen",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new screen is added, optionally within a chosen location."
+  },
+  {
+   "key": "brix:New Restored Content",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when recalled content is restored to screens."
+  },
+  {
+   "key": "brix:New Recalled Content",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a file, design, playlist or schedule is recalled from all screens."
+  }
+ ]
+}

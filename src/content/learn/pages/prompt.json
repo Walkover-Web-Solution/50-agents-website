@@ -1,0 +1,67 @@
+{
+  "slug": "prompt",
+  "term": "Prompt",
+  "query": "what is a prompt in AI",
+  "group": "AI that acts",
+  "title": "What is a prompt in AI? Plain answer | 50agents",
+  "description": "A prompt is the text that tells an AI model what to do: the task, the context and the limits. How a prompt in a chat differs from one that runs daily.",
+  "h1": "What is a prompt in AI?",
+  "definition": [
+    "A prompt is the text you give an AI model to tell it what to do: the task, the context it needs and any limits.",
+    "In a chat it changes each time; inside an AI agent it repeats."
+  ],
+  "example": {
+    "kind": "app",
+    "ask": "Chase my unpaid invoices",
+    "why": "Four words are a whole prompt; Captain asks only what it cannot guess.",
+    "build": {
+      "name": "Invoices desk",
+      "line": "what is owed to you, the late ones first",
+      "when": "A day after each invoice is due",
+      "does": [
+        "Lists late invoices, oldest first",
+        "Drafts a polite reminder for each",
+        "Marks it Reminded"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every email to a client"
+    }
+  },
+  "vs": {
+    "term": "instructions (system prompt)",
+    "rows": [
+      {
+        "label": "What it is",
+        "a": "One request",
+        "b": "The standing prompt behind every request"
+      },
+      {
+        "label": "Says",
+        "a": "What to do now",
+        "b": "Who it works for, what to ask about"
+      },
+      {
+        "label": "Most surprises come from",
+        "a": "Rarely here",
+        "b": "Here"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "How to write instructions for an AI agent",
+      "href": "/guides/how-to-write-instructions-for-an-ai-agent"
+    },
+    {
+      "label": "LLM",
+      "href": "/learn/llm"
+    },
+    {
+      "label": "AI agent",
+      "href": "/learn/ai-agent"
+    }
+  ],
+  "updated": "2026-11-19"
+}

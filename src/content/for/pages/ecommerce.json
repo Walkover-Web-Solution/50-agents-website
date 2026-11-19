@@ -1,0 +1,107 @@
+{
+  "slug": "ecommerce",
+  "role": "ecommerce teams",
+  "label": "E-commerce",
+  "kind": "auto",
+  "query": "ai agents and automations for ecommerce stores",
+  "title": "AI agents and automations for ecommerce stores | 50agents",
+  "description": "What online stores hand off first: orders and cancellations logged, \"where is my order\" replies drafted from Shopify, prices watched, a weekly sales note.",
+  "h1": "AI agents and automations for ecommerce stores",
+  "answer": [
+    "Online stores hand off order admin first: every order logged, and \"where is my order\" replies drafted with the real status.",
+    "Captain builds it on Shopify, WooCommerce or Stripe; every email to a customer waits for your approval."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that reads new customer emails every 3 hours, looks up their order in Shopify, and drafts a reply with the order status for me to approve",
+    "build": {
+      "name": "Order questions",
+      "line": "Replies with each order’s real status",
+      "when": "Every 3 hours",
+      "does": [
+        "Reads new customer email",
+        "Finds each order in Shopify",
+        "Drafts a reply with its status"
+      ],
+      "apps": [
+        "gmail",
+        "shopify"
+      ],
+      "asksFirst": "Every reply to a customer"
+    }
+  },
+  "jobs": [
+    {
+      "title": "Log every order in a sheet",
+      "body": "Each new Shopify order becomes a row with its items and total.",
+      "kind": "auto",
+      "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
+      "useCase": "shopify-orders-to-google-sheets"
+    },
+    {
+      "title": "Mark cancelled orders",
+      "body": "When an order is cancelled in Shopify, find its row and set Status to Cancelled, so the sheet’s totals stay true.",
+      "kind": "auto",
+      "ask": "When a Shopify order is cancelled, find its row in my Orders sheet and set Status to Cancelled"
+    },
+    {
+      "title": "Answer \"where is my order\"",
+      "body": "An AI agent reads new customer emails, looks the order up in Shopify, and drafts a reply with its real status for you to approve.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that reads new customer emails every 3 hours, looks up their order in Shopify, and drafts a reply with the order status for me to approve"
+    },
+    {
+      "title": "Watch competitor prices",
+      "body": "A browser agent checks rival product pages each morning and tells you what changed.",
+      "kind": "browser",
+      "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
+      "useCase": "track-competitor-prices"
+    },
+    {
+      "title": "A weekly sales note",
+      "body": "Every Monday, last week’s payments, totals and what changed, in your inbox.",
+      "kind": "ai",
+      "ask": "Set up an AI agent that reads last week's payments in Stripe every Monday at 9:00 and emails me the totals and what changed",
+      "useCase": "weekly-stripe-revenue-summary"
+    }
+  ],
+  "category": "ecommerce",
+  "apps": [
+    "shopify",
+    "woocommerce",
+    "stripe",
+    "razorpay",
+    "google-sheets",
+    "gmail",
+    "facebook-lead-ads",
+    "slack"
+  ],
+  "faqs": [
+    {
+      "q": "Does it work with WooCommerce?",
+      "a": "Yes, WooCommerce is in viaSocket’s catalog with order, product and customer triggers. Name it in the sentence to Captain."
+    },
+    {
+      "q": "Can it send tracking emails automatically?",
+      "a": "It drafts them and you approve. Shopify’s own shipping notifications are the right tool for automatic tracking emails."
+    },
+    {
+      "q": "Will it slow down my store?",
+      "a": "No. It reads orders through Shopify’s app connection, not your storefront."
+    },
+    {
+      "q": "Can it tell a customer their refund is on the way?",
+      "a": "It drafts the reply from what Shopify shows for that order, and you approve it before it goes. The refund itself stays with you: any change in Shopify asks you first."
+    },
+    {
+      "q": "What does it not do yet?",
+      "a": "It does not cancel, refund or edit orders on its own; any change in Shopify asks you first. Customer replies go by email; it does not answer Instagram or WhatsApp messages today. A browser agent will not get past bot checks on competitor sites."
+    }
+  ],
+  "guides": [
+    "how-to-send-shopify-orders-to-google-sheets",
+    "how-to-monitor-competitor-prices-automatically",
+    "how-to-draft-email-replies-with-ai-and-still-check-them"
+  ],
+  "updated": "2026-11-19"
+}

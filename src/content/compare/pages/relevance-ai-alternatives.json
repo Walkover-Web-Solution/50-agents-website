@@ -1,0 +1,136 @@
+{
+  "slug": "relevance-ai-alternatives",
+  "type": "alternatives",
+  "tool": "relevance",
+  "query": "relevance ai alternatives",
+  "title": "Relevance AI alternatives for sales teams | 50agents",
+  "description": "Relevance AI alternatives: Lindy for a rep's inbox, Gumloop for team AI agents, n8n to self-host, Zapier Agents, and 50agents for follow-up drafts.",
+  "h1": "Relevance AI alternatives",
+  "answer": [
+    "Lindy works in a rep's inbox and calendar; Gumloop builds shared team AI agents.",
+    "n8n self-hosts, Zapier adds AI agents to workflows, and 50agents drafts follow-ups for your approval, free to start."
+  ],
+  "line": "Follow-ups drafted by an AI agent, sent only after you approve.",
+  "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+  "lede": "Options for sales teams, with what each is best for.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Small sales teams",
+      "price": "Free to start",
+      "diff": "Follow-ups wait for approval",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "lindy",
+      "best": "Inbox and calendar work",
+      "price": "$29.99 a month per user",
+      "diff": "Works in Slack, iMessage, email",
+      "src": "https://www.lindy.ai/"
+    },
+    {
+      "tool": "gumloop",
+      "best": "Team AI agents, IT controls",
+      "price": "$37 a month (Pro)",
+      "diff": "Cloud browser with saved logins",
+      "src": "https://docs.gumloop.com/core-concepts/agent_browser.md"
+    },
+    {
+      "tool": "n8n",
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Bills per run, not step",
+      "src": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "zapier",
+      "best": "AI agents beside workflows",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Zapier Agents, 10,541+ apps",
+      "src": "https://zapier.com/pricing"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    },
+    {
+      "title": "You approve what goes out",
+      "line": "Emails to clients wait in Needs you until you say yes.",
+      "face": "lead"
+    },
+    {
+      "title": "It knows your business",
+      "line": "Hours, prices, policies and tone, remembered once and used in every reply.",
+      "face": "writer"
+    }
+  ],
+  "move": [
+    {
+      "title": "Pick one sales task",
+      "body": "For example: follow up on HubSpot deals with no reply in 5 days."
+    },
+    {
+      "title": "Describe it to Captain",
+      "body": "Captain connects HubSpot, shows the plan and builds it."
+    },
+    {
+      "title": "Approve each draft",
+      "body": "Follow-ups wait in Needs you. Approve, change or decline each one."
+    },
+    {
+      "title": "Add the next task",
+      "body": "Move one task at a time until the old setup has nothing left to do."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does Relevance AI have a free plan?",
+      "a": "No. Relevance AI retired its free plan. Pro is $19 a month billed yearly, or $29 billed monthly, for 2,500 actions."
+    },
+    {
+      "q": "Which alternative suits a small sales team?",
+      "a": "If replies need a human check, 50agents drafts follow-ups and waits for your yes. Lindy suits one rep's inbox and calendar."
+    },
+    {
+      "q": "How many integrations does Relevance AI have?",
+      "a": "Relevance AI states 2,000+ integrations. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "What does Relevance AI cost?",
+      "a": "Pro is $19 a month billed yearly for 2,500 actions. Team is $234 a month billed yearly. Extra actions cost $80 per 1,000."
+    },
+    {
+      "q": "Can I move my Relevance AI agents over?",
+      "a": "There is no import. Note what each AI agent does, then describe it to Captain, which shows a plan before it builds."
+    },
+    {
+      "q": "Which alternative suits inbox work?",
+      "a": "Lindy works in your inbox, calendar and tools, and waits for your OK on anything with outside impact."
+    },
+    {
+      "q": "Which alternative has a browser agent?",
+      "a": "Gumloop has a cloud browser with saved logins, and Lindy drives a browser on Pro and up. 50agents has browser agents too."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/50agents-vs-relevance-ai",
+      "title": "50agents vs Relevance AI",
+      "line": "Row by row, with marks"
+    },
+    {
+      "href": "/compare/lindy-alternatives",
+      "title": "Lindy alternatives",
+      "line": "AI assistants for your inbox"
+    },
+    {
+      "href": "/compare/gumloop-alternatives",
+      "title": "Gumloop alternatives",
+      "line": "Other team AI agent builders"
+    }
+  ],
+  "updated": "2026-11-19"
+}

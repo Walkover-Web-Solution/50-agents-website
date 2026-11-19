@@ -1,0 +1,54 @@
+{
+ "pair": "slack/repliers",
+ "apps": {
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  },
+  "repliers": {
+   "name": "Repliers",
+   "labels": [
+    "Real Estate",
+    "Developer Tools"
+   ],
+   "about": "Real estate MLS data API. Search listings, manage clients and agents, save searches and get new listing matches."
+  }
+ },
+ "templates": [
+  {
+   "action": "repliers:Create Client",
+   "triggers": [
+    "slack:New Message Posted in Channel Instant",
+    "slack:New Mention"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "slack:New Message Posted in Channel Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+  },
+  {
+   "key": "repliers:Create Client",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a client assigned to an agent, with contact details and tags."
+  },
+  {
+   "key": "slack:New Mention",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when someone mentions your Slack app or user in a channel you belong to."
+  }
+ ]
+}

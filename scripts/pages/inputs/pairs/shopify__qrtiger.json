@@ -1,0 +1,56 @@
+{
+ "pair": "shopify/qrtiger",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "qrtiger": {
+   "name": "QRtiger",
+   "labels": [
+    "Marketing",
+    "Images & Design"
+   ],
+   "about": "QR TIGER helps businesses create and customize static and dynamic QR codes, manage campaigns, and track scan analytics."
+  }
+ },
+ "templates": [
+  {
+   "action": "qrtiger:Create Static QR Code",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "qrtiger:Create Static QR Code",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Generate a static QR code image for a URL or text with optional colors, frame and logo."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

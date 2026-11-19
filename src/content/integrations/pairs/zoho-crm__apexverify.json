@@ -1,0 +1,1 @@
+{"usedFor":"Each new Zoho CRM account gets its contact checked by ApexVerify.","bestTemplate":{"name":"“New Account” in Zoho CRM, then “Verify Email or Phone” in ApexVerify","why":"Checking one contact as the account appears catches bad details before anyone writes to it."},"watchOut":"“Verify Email or Phone” needs a verification type and a target country chosen up front."}

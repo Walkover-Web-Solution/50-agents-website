@@ -1,0 +1,1 @@
+{"usedFor":"Each paying Shopify customer gets a contact in Sendly for SMS.","bestTemplate":{"name":"“Order Paid” in Shopify, then “Create or Update Contact” in Sendly","why":"The action works from the phone number, so repeat buyers update instead of duplicating."},"watchOut":"“Create or Update Contact” is keyed on a phone number, so an order without one creates nothing."}

@@ -1,0 +1,60 @@
+{
+ "pair": "clickup/trello",
+ "apps": {
+  "clickup": {
+   "name": "ClickUp",
+   "labels": [
+    "Productivity",
+    "Top Free Apps"
+   ],
+   "about": "Plan, track, and manage any type of work with project management that flexes to your team's needs."
+  },
+  "trello": {
+   "name": "Trello",
+   "labels": [
+    "Project Management"
+   ],
+   "about": "Track progress of tasks in one convenient place with a visual layout that adds 'ta-da' to your to-do's"
+  }
+ },
+ "templates": [
+  {
+   "action": "clickup:Create List",
+   "triggers": [
+    "trello:New/Updated Board"
+   ]
+  },
+  {
+   "action": "trello:Add Label To Card",
+   "triggers": [
+    "clickup:When a new task is created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "trello:New/Updated Board",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new board is added or updated"
+  },
+  {
+   "key": "clickup:Create List",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a list in a space or folder."
+  },
+  {
+   "key": "clickup:When a new task is created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a new task is created."
+  },
+  {
+   "key": "trello:Add Label To Card",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Attach existing label to card"
+  }
+ ]
+}

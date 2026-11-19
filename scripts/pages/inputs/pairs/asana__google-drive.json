@@ -1,0 +1,87 @@
+{
+ "pair": "asana/google-drive",
+ "apps": {
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  },
+  "google-drive": {
+   "name": "Google Drive",
+   "labels": [
+    "File Management and Storage Google",
+    "Top Free Apps",
+    "Team Collaboration",
+    "Product Management",
+    "Documents",
+    "Spreadsheets"
+   ],
+   "about": "Google Drive is a secure cloud storage and file collaboration platform that lets users store, share, organize, sync, and collaborate on files from anywhere, inc"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-drive:Create a new sheet or doc or slide",
+   "triggers": [
+    "asana:New Story Added to Task or Goal"
+   ]
+  },
+  {
+   "action": "google-drive:Create Folder",
+   "triggers": [
+    "asana:New Story Added to Task or Goal"
+   ]
+  },
+  {
+   "action": "google-drive:Copy a File",
+   "triggers": [
+    "asana:Updated Task Marked Incomplete",
+    "asana:New Tag Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "asana:New Story Added to Task or Goal",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Polls one Asana task or goal and fires once for each new story (a comment or system activity such as added to a project or completed) created since the last check. Reads up to 100 stories per page, oldest first, and…"
+  },
+  {
+   "key": "google-drive:Create a new sheet or doc or slide",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new Google Docs document, Sheet, or Slide in Google Drive and optionally save it to a chosen folder."
+  },
+  {
+   "key": "google-drive:Create Folder",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new folder in Google Drive. Optionally specify a parent folder to place it inside."
+  },
+  {
+   "key": "asana:Updated Task Marked Incomplete",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when task is marked incomplete (reopened) in a chosen project."
+  },
+  {
+   "key": "google-drive:Copy a File",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a copy of a Google Drive file into a selected folder, optionally giving it a new name."
+  },
+  {
+   "key": "asana:New Tag Created",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Fires for each new tag created in the selected Asana workspace, checking tags created since the last poll (oldest first, up to 100 per page). Each item has gid, name, color, created_at and workspace."
+  }
+ ]
+}

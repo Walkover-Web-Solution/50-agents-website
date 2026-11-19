@@ -1,0 +1,1 @@
+{"usedFor":"Each new ActivityInfo record gets a Calendly booking link for the follow-up call.","bestTemplate":{"name":"“New Record” in ActivityInfo, then “Create Scheduling Link” in Calendly","why":"A new record is when a follow-up is due; “Updated Record” would link every edit."},"watchOut":"Both triggers poll, so a new record's booking link can lag; pick one form to watch."}

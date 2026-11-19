@@ -1,0 +1,53 @@
+{
+ "pair": "zoho-crm/postspread",
+ "apps": {
+  "zoho-crm": {
+   "name": "Zoho CRM",
+   "labels": [
+    "CRM",
+    "Top Free Apps",
+    "Contact Management",
+    "Marketing Automation",
+    "Business Intelligence",
+    "Analytics"
+   ],
+   "about": "Zoho CRM is an AI-powered customer relationship management platform that helps businesses manage leads, contacts, deals, customer interactions, sales automation"
+  },
+  "postspread": {
+   "name": "PostSpread",
+   "labels": [
+    "Social Media Marketing"
+   ],
+   "about": "PostSpread is a social media scheduler to write a post once and publish or schedule it to 13 platforms, with analytics."
+  }
+ },
+ "templates": [
+  {
+   "action": "postspread:Create Post",
+   "triggers": [
+    "zoho-crm:New Account",
+    "zoho-crm:New Lead"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "zoho-crm:New Account",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update perform and sample endpoints to Zoho CRM v8, adding required sample fields and safe response access."
+  },
+  {
+   "key": "postspread:Create Post",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Publish now, schedule or save a draft post to your chosen social accounts."
+  },
+  {
+   "key": "zoho-crm:New Lead",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Apply the approved sample-code-only update. Preserve the existing action description, all other code blocks, input fields, scopes, metadata, and component mappings."
+  }
+ ]
+}

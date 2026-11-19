@@ -1,0 +1,49 @@
+{
+ "pair": "activityinfo/dropbox",
+ "apps": {
+  "activityinfo": {
+   "name": "ActivityInfo",
+   "labels": [
+    "Databases",
+    "Analytics"
+   ],
+   "about": "ActivityInfo is a data management platform for humanitarian and development organizations to collect, manage, analyze, and report on program data."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "activityinfo:New Record",
+    "activityinfo:Updated Record"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "activityinfo:New Record",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new record is added to a chosen form."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "activityinfo:Updated Record",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when an existing record is changed in a chosen form."
+  }
+ ]
+}

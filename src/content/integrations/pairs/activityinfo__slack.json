@@ -1,0 +1,1 @@
+{"usedFor":"A changed ActivityInfo record gets discussed in a Slack thread through “Send Message as Thread”.","bestTemplate":{"name":"“Updated Record” in ActivityInfo, then “Send Message as Thread” in Slack","why":"Edits are what a team talks about, and a thread keeps them in one place."},"watchOut":"“Send Message as Thread” needs an existing thread to reply to."}

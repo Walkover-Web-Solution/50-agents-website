@@ -1,0 +1,83 @@
+{
+ "pair": "stripe/slack",
+ "apps": {
+  "stripe": {
+   "name": "Stripe",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "Stripe is a financial technology company that provides a set of tools and APIs (Application Programming Interfaces) for online businesses to handle payments, su"
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "stripe:Customer Subscribes"
+   ]
+  },
+  {
+   "action": "slack:Send Interactive Message",
+   "triggers": [
+    "stripe:Customer Subscribes"
+   ]
+  },
+  {
+   "action": "slack:New Message Posted in Channel Instant",
+   "triggers": [
+    "stripe:New Customer Created",
+    "stripe:Payment Link Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "stripe:Customer Subscribes",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when customer subscribes"
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "slack:Send Interactive Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a message with buttons or a form to collect approvals or responses."
+  },
+  {
+   "key": "stripe:New Customer Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when customer is created"
+  },
+  {
+   "key": "slack:New Message Posted in Channel Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+  },
+  {
+   "key": "stripe:Payment Link Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when payment link created"
+  }
+ ]
+}

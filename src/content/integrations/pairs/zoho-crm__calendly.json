@@ -1,0 +1,1 @@
+{"usedFor":"A new Zoho CRM lead gets a Calendly booking link.","bestTemplate":{"name":"“New Lead” in Zoho CRM, then “Create Scheduling Link” in Calendly","why":"A fresh lead is when a booking link helps most, and the action returns the link."},"watchOut":"“New or Updated Lead” also fires on edits, so one lead could get a second link."}

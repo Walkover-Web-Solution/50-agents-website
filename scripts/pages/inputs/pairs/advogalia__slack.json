@@ -1,0 +1,61 @@
+{
+ "pair": "advogalia/slack",
+ "apps": {
+  "advogalia": {
+   "name": "Advogalia",
+   "labels": [
+    "Productivity",
+    "CRM (Customer Relationship Management)"
+   ],
+   "about": "Advogalia is a Brazilian legal practice platform for law offices to manage cases, CRM clients, deadlines, hearings and court notices (intimações)."
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "advogalia:New Deadline",
+    "advogalia:New Client",
+    "advogalia:New Case"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "advogalia:New Deadline",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new deadline, hearing or task is created, optionally for a chosen type or case."
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "advogalia:New Client",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new client is added to the CRM, optionally of a chosen relationship type."
+  },
+  {
+   "key": "advogalia:New Case",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new case is created in your Advogalia office."
+  }
+ ]
+}

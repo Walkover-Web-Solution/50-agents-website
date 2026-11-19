@@ -1,0 +1,67 @@
+{
+  "slug": "human-in-the-loop",
+  "term": "Human in the loop",
+  "query": "what is human in the loop AI",
+  "group": "AI that acts",
+  "title": "What is human in the loop? AI that asks first | 50agents",
+  "description": "Human in the loop means a person approves or decides at set points while AI does the rest. Which steps should wait for you, with a real example.",
+  "h1": "What is human in the loop?",
+  "definition": [
+    "Human in the loop means a person approves, corrects or decides at set points while AI or automation does the rest.",
+    "It keeps people on the costly decisions, not on every step."
+  ],
+  "example": {
+    "kind": "ai",
+    "ask": "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
+    "why": "Each drafted reply waits in Needs you until you approve, change or decline it.",
+    "build": {
+      "name": "Support replies",
+      "line": "new support mail, a reply drafted for each",
+      "when": "On a schedule you choose, or when you ask",
+      "does": [
+        "Reads new support emails",
+        "Drafts a reply in the thread",
+        "Lists what it cannot answer"
+      ],
+      "apps": [
+        "gmail"
+      ],
+      "asksFirst": "Every reply to a customer"
+    }
+  },
+  "vs": {
+    "term": "human on the loop",
+    "rows": [
+      {
+        "label": "The work",
+        "a": "Stops until a person says yes",
+        "b": "Goes ahead while a person watches"
+      },
+      {
+        "label": "Fits",
+        "a": "Emails to clients, anything costly",
+        "b": "Rows in your own sheet"
+      },
+      {
+        "label": "In 50agents",
+        "a": "Needs you",
+        "b": "Activity, the record of everything done"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "How to make an AI agent ask before it acts",
+      "href": "/guides/how-to-make-an-ai-agent-ask-before-it-acts"
+    },
+    {
+      "label": "AI agents",
+      "href": "/ai-agents"
+    },
+    {
+      "label": "Agentic AI",
+      "href": "/learn/agentic-ai"
+    }
+  ],
+  "updated": "2026-11-19"
+}

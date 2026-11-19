@@ -1,0 +1,57 @@
+{
+ "pair": "shopify/assinafy",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "assinafy": {
+   "name": "Assinafy",
+   "labels": [
+    "Documents",
+    "Developer Tools",
+    "Security and Identity Tools"
+   ],
+   "about": "Assinafy is a Brazilian electronic signature platform that enables businesses to send, sign, and manage legally valid digital documents online, with a free API "
+  }
+ },
+ "templates": [
+  {
+   "action": "assinafy:Create Workspace",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "assinafy:Create Workspace",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new workspace for the authenticated user and set its name and notification sender type."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

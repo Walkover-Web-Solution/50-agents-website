@@ -1,0 +1,1 @@
+{"usedFor":"Each new Assinafy workspace gets a matching workspace in Docusign.","bestTemplate":{"name":"“New Workspace Created” in Assinafy, then “Create Workspace” in Docusign","why":"It mirrors each new workspace automatically, whereas “Update Workspace” only handles renames."},"watchOut":"“New Workspace Created” polls within a set interval, so the mirror lags slightly."}

@@ -1,0 +1,211 @@
+{
+ "slug": "shopify",
+ "query": "Shopify integrations; Shopify automation; AI agent for Shopify",
+ "title": "Shopify AI agents and automations | 50agents",
+ "description": "Connect Shopify and tell Captain the job: each new order posted in Slack, an AI agent that follows up abandoned checkouts, or a desk for order questions.",
+ "h1": "AI agents and automations for Shopify",
+ "answer": [
+  "Connect your Shopify store and tell Captain the job, such as “when a new order comes in on Shopify, post it in a Slack channel”.",
+  "Fixed steps become an automation; judgement calls, like which checkout to chase, an AI agent."
+ ],
+ "ask": "Set up an automation: when a new order comes in on Shopify, post it in a Slack channel",
+ "recipe": {
+  "ta": "shopify",
+  "te": "New Order",
+  "aa": "slack",
+  "ae": "Send Message"
+ },
+ "build": {
+  "name": "Orders to Slack",
+  "line": "Each new order, posted for your team",
+  "when": "When a new order comes in on Shopify",
+  "does": [
+   "Picks up the order from your store",
+   "Posts it in the Slack channel you pick"
+  ],
+  "apps": [
+   "shopify",
+   "slack"
+  ],
+  "asksFirst": "Each post to your Slack channel"
+ },
+ "kinds": [
+  {
+   "kind": "auto",
+   "title": "Every order, where your team looks",
+   "body": "The same steps on every order event: a new order posted in Slack, a paid order added to a sheet, a cancelled order sent to your accounting app.",
+   "ask": "Set up an automation: when a new order comes in on Shopify, post it in a Slack channel",
+   "uses": [
+    "New Order",
+    "Order Paid",
+    "Order Cancelled"
+   ],
+   "useCase": "shopify-orders-to-google-sheets"
+  },
+  {
+   "kind": "ai",
+   "title": "Follow up abandoned checkouts",
+   "body": "Looks at each abandoned checkout, checks the customer’s past orders, decides whether to reach out and what to say, and drafts the email for your approval.",
+   "ask": "Set up an AI agent that looks at each abandoned checkout in Shopify, checks the customer’s past orders, and drafts a short follow-up email for me to approve",
+   "uses": [
+    "Abandoned Checkout",
+    "Find Customers",
+    "Find Orders"
+   ]
+  },
+  {
+   "kind": "browser",
+   "title": "Watch competitors’ product pages",
+   "body": "Shopify connects through its API. A browser agent watches the websites around your store, such as competitors’ product and pricing pages.",
+   "ask": "Set up a browser agent that checks my competitors’ pricing pages every day at 9:00 and tells me when a price changes",
+   "uses": [],
+   "useCase": "track-competitor-prices"
+  },
+  {
+   "kind": "app",
+   "title": "A desk for order questions",
+   "body": "Screens Shopify does not give you: customer requests about orders as a desk with status and urgency, and replies drafted for you to approve.",
+   "ask": "Keep track of customer requests and draft the replies",
+   "uses": [
+    "Get Order Status"
+   ],
+   "useCase": "customer-requests-desk"
+  }
+ ],
+ "groups": [
+  {
+   "label": "Orders",
+   "line": "Start when an order is created, paid, edited, cancelled, deleted or delivered; create, find, update, tag, fulfil or cancel orders.",
+   "events": [
+    "New Order",
+    "Order Paid",
+    "Order Line Items Are Edited",
+    "Order Cancelled",
+    "Order Deleted",
+    "When an order is marked as delivered",
+    "Create Order",
+    "Find Orders",
+    "Get Order Status",
+    "Update Order",
+    "Add Tag to an Order",
+    "Create Fulfillment",
+    "Cancel Order"
+   ]
+  },
+  {
+   "label": "Checkouts and draft orders",
+   "line": "Start when a checkout is abandoned; create and find draft orders and add or remove their discount codes.",
+   "events": [
+    "Abandoned Checkout",
+    "Create Draft Order",
+    "Find Draft Orders",
+    "Add Discount Code to Draft Order",
+    "Remove Discount Code",
+    "Get all Discount Coupon Codes"
+   ]
+  },
+  {
+   "label": "Customers",
+   "line": "Start when a customer is created or updated; create, find and update customers.",
+   "events": [
+    "New Customer",
+    "Customer Updated",
+    "Create Customer",
+    "Find Customers",
+    "Update Customer"
+   ]
+  },
+  {
+   "label": "Products and stock",
+   "line": "Start on new or changed products; create, find, update and delete products, and set stock at a location.",
+   "events": [
+    "New Product",
+    "Product Updated",
+    "Watch Product",
+    "Create Product",
+    "Find Products",
+    "Update Product",
+    "Delete Product",
+    "Adjust Inventory Quantity"
+   ]
+  },
+  {
+   "label": "Collections, segments and markets",
+   "line": "Start on new or updated collections and customer segments; list markets and their currencies.",
+   "events": [
+    "New Collection",
+    "Collection Updated",
+    "New Segment",
+    "Segment Updated",
+    "List Markets and Currencies"
+   ]
+  },
+  {
+   "label": "Store content",
+   "line": "Start when a blog article is published; write articles, find blogs, build navigation menus. Shopify Forms submissions forwarded through Shopify Flow can start work too.",
+   "events": [
+    "New Blog Article",
+    "Create Blog Article",
+    "Find Blogs",
+    "Create Navigation Menu",
+    "New Form Submission"
+   ]
+  },
+  {
+   "label": "Companies and locations",
+   "line": "Start when a B2B company or a store location is created, updated or deactivated.",
+   "events": [
+    "New Company",
+    "Company Updated",
+    "New Location",
+    "Location Updated",
+    "Location Deactivated"
+   ]
+  }
+ ],
+ "faqs": [
+  {
+   "q": "Can it follow up abandoned checkouts?",
+   "a": "Yes. “Abandoned Checkout” starts the work when a customer leaves checkout. An AI agent can draft the follow-up, and it waits for your approval before it goes out."
+  },
+  {
+   "q": "Can it log each line item, not just the order?",
+   "a": "Say so in the ask: one row per item. Captain plans the automation that way, and Google Sheets’ “Add Multiple Rows” writes several rows in one step. Check the plan before you approve it."
+  },
+  {
+   "q": "Can it cancel or refund orders?",
+   "a": "The catalog has “Cancel Order”, which can refund through the original payment or store credit and restock items. Anything that moves money asks you first in 50agents."
+  },
+  {
+   "q": "How is this different from Shopify’s Sidekick?",
+   "a": "Sidekick is Shopify’s AI assistant in every plan; it works with your store data and takes actions in your Shopify admin. 50agents starts from a Shopify event and acts in the other apps you run the business on, such as Google Sheets, Gmail or Slack. For changes inside the store itself, Sidekick is already in your admin."
+  },
+  {
+   "q": "Does a new order reach 50agents straight away?",
+   "a": "Yes. “New Order”, “Order Paid” and most other Shopify triggers are webhooks, so they fire as the event happens. “Abandoned Checkout” and “New Blog Article” are checked on a schedule."
+  },
+  {
+   "q": "Can it fulfil orders or change stock?",
+   "a": "Yes. “Create Fulfillment” fulfils chosen items on an order, and “Adjust Inventory Quantity” sets or adjusts a variant’s count at one location, with a reason."
+  },
+  {
+   "q": "Can it act when an order is delivered or cancelled?",
+   "a": "Yes. “When an order is marked as delivered” and “Order Cancelled” are triggers. A message to the customer after either one waits for your approval."
+  },
+  {
+   "q": "Can it tag orders and customers?",
+   "a": "Yes. “Add Tag to an Order” adds tags to an order, and “Update Customer” changes a customer’s tags, contact details and addresses."
+  },
+  {
+   "q": "Can it create draft orders with a discount?",
+   "a": "Yes. “Create Draft Order” builds an order for a customer with products, quantities and optional discounts, and “Add Discount Code to Draft Order” adds a code to one."
+  }
+ ],
+ "sources": [
+  {
+   "label": "Shopify: Sidekick",
+   "href": "https://www.shopify.com/sidekick"
+  }
+ ],
+ "updated": "2026-11-19"
+}

@@ -1,0 +1,1 @@
+{"usedFor":"A cancelled Shopify order cancels the matching booking in anny.","bestTemplate":{"name":"“Order Cancelled” in Shopify, then “Update Booking Status” in anny","why":"It frees the slot by accepting, rejecting or cancelling the booking to match."},"watchOut":"“Update Booking Status” needs a specific anny booking, so keep a booking reference with the Shopify order."}

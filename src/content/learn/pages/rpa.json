@@ -1,0 +1,72 @@
+{
+  "slug": "rpa",
+  "term": "RPA",
+  "query": "what is RPA robotic process automation",
+  "group": "Automation",
+  "title": "What is RPA (robotic process automation)? | 50agents",
+  "description": "RPA is software that replays a person's recorded clicks in an app's screens. How it differs from a browser agent, with a real example from 50agents.",
+  "h1": "What is RPA (robotic process automation)?",
+  "definition": [
+    "RPA, robotic process automation, is software that replays the clicks and keystrokes a person recorded in an application's screens.",
+    "It follows that path exactly, so it breaks when a screen changes."
+  ],
+  "example": {
+    "kind": "browser",
+    "ask": "Set up a browser agent that checks my competitors' pricing pages every day at 9:00 and tells me when a price changes",
+    "why": "Recorded clicks break on a redesign; the browser agent looks for the prices.",
+    "build": {
+      "name": "Price watch",
+      "line": "competitor pricing pages, read every morning",
+      "when": "Every day at 9:00",
+      "does": [
+        "Opens each pricing page you name",
+        "Compares prices with the last run",
+        "Leaves a report of what changed"
+      ],
+      "apps": [],
+      "asksFirst": "A sign-in, if a page needs one"
+    }
+  },
+  "vs": {
+    "term": "browser agent",
+    "href": "/learn/browser-agent",
+    "rows": [
+      {
+        "label": "How it works",
+        "a": "Repeats recorded steps",
+        "b": "Decides each step from the goal"
+      },
+      {
+        "label": "Best for",
+        "a": "A fixed, high-volume task on one system",
+        "b": "Changing public websites"
+      },
+      {
+        "label": "Before either",
+        "a": "Check for an app to connect",
+        "b": "Check for an app to connect"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "label": "IBM: What is robotic process automation?",
+      "href": "https://www.ibm.com/think/topics/rpa"
+    }
+  ],
+  "links": [
+    {
+      "label": "Browser agents",
+      "href": "/browser-agents"
+    },
+    {
+      "label": "Browser automation without code",
+      "href": "/guides/browser-automation-without-code"
+    },
+    {
+      "label": "Automation",
+      "href": "/learn/automation"
+    }
+  ],
+  "updated": "2026-11-19"
+}

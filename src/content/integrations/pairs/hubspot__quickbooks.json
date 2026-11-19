@@ -1,0 +1,1 @@
+{"usedFor":"A HubSpot deal change records a payment in QuickBooks.","bestTemplate":{"name":"“When a deal is created or updated” in HubSpot, then “Create Payment” in QuickBooks","why":"A deal change is the nearest HubSpot event to money being agreed."},"watchOut":"“When a deal is created or updated” fires on edits too, so add a condition or payments repeat."}

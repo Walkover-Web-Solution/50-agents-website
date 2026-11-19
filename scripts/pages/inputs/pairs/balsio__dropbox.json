@@ -1,0 +1,49 @@
+{
+ "pair": "balsio/dropbox",
+ "apps": {
+  "balsio": {
+   "name": "Balsio",
+   "labels": [
+    "Team Collaboration",
+    "Communication"
+   ],
+   "about": "Balsio is a team messaging platform for threads, channels and conversations with teammates and external participants."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Delete File or Folder",
+   "triggers": [
+    "balsio:New Thread",
+    "balsio:New Message"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "balsio:New Thread",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new thread is created in Balsio."
+  },
+  {
+   "key": "dropbox:Delete File or Folder",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Deletes a file or folder from Dropbox by its location; removing a folder deletes everything inside it."
+  },
+  {
+   "key": "balsio:New Message",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new message is posted in Balsio, optionally in a chosen thread."
+  }
+ ]
+}

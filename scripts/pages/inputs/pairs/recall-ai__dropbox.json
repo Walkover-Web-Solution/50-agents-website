@@ -1,0 +1,57 @@
+{
+ "pair": "recall-ai/dropbox",
+ "apps": {
+  "recall-ai": {
+   "name": "Recall.ai",
+   "labels": [
+    "Transcription",
+    "Video Conferencing",
+    "Developer Tools"
+   ],
+   "about": "Recall.ai provides developer APIs for recording, transcribing, and analyzing meetings across Zoom, Google Meet, Microsoft Teams, Webex and more. Send meeting bo"
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "recall-ai:New Webhook Event",
+    "recall-ai:New Transcript Completed",
+    "recall-ai:New Recording Becomes Ready"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "recall-ai:New Webhook Event",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Recall.ai sends a bot, recording or transcript status event to your webhook."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "recall-ai:New Transcript Completed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a transcript finishes processing."
+  },
+  {
+   "key": "recall-ai:New Recording Becomes Ready",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a recording becomes ready and its media is available; you can set the lookback window (minutes)."
+  }
+ ]
+}

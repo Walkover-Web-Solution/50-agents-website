@@ -1,0 +1,104 @@
+{
+  "slug": "50agents-vs-softr",
+  "type": "versus",
+  "tool": "softr",
+  "query": "50agents vs softr",
+  "title": "50agents vs Softr: apps for your team or clients | 50agents",
+  "description": "50agents vs Softr: both build apps for your team or people outside it, on your own domain. Softr adds a visual editor; 50agents has AI agents run the app.",
+  "h1": "50agents vs Softr",
+  "answer": [
+    "Pick Softr for portals and internal tools you shape in a visual editor.",
+    "Pick 50agents for apps from plain words, for your team or clients on your own domain, with AI agents inside."
+  ],
+  "line": "Apps from plain words, for your team or clients on your own domain.",
+  "ask": "Keep track of customer requests and draft the replies",
+  "lede": "Two app builders, for your team or your clients, row by row.",
+  "rows": [
+    "prompt",
+    "appBuilder",
+    "database",
+    "publicApps",
+    "aiAgent",
+    "fixed",
+    "export"
+  ],
+  "strengths": [
+    {
+      "title": "Apps with your own records",
+      "line": "Lists, boards and tables, run by a crew of AI agents.",
+      "face": "sorter"
+    },
+    {
+      "title": "AI agents that decide",
+      "line": "Each run, an AI agent works from your instructions and connected apps.",
+      "face": "writer"
+    },
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    }
+  ],
+  "move": [
+    {
+      "title": "Download your table",
+      "body": "Softr table data downloads as CSV or XLSX."
+    },
+    {
+      "title": "Ask Captain for the app",
+      "body": "Say \"keep track of customer requests and draft the replies\"."
+    },
+    {
+      "title": "Drop in the file",
+      "body": "Captain matches the columns and fills your new list."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I build a client portal with 50agents?",
+      "a": "Yes. A 50agents app can serve people outside your team, such as clients, on your own domain. Softr builds portals on a custom domain too."
+    },
+    {
+      "q": "Do both build apps from a prompt?",
+      "a": "Yes. Softr has the AI Co-Builder, and in 50agents you tell Captain what you need."
+    },
+    {
+      "q": "Is 50agents free?",
+      "a": "50agents is free to start."
+    },
+    {
+      "q": "Which has a visual editor?",
+      "a": "Softr has a visual editor beside its AI builder. In 50agents you see every step and change it by asking Captain."
+    },
+    {
+      "q": "Can I move my Softr data over?",
+      "a": "Softr table data downloads as CSV or XLSX. In 50agents, drop a CSV or Excel file into an app and Captain matches the columns."
+    },
+    {
+      "q": "Does 50agents have a built-in database?",
+      "a": "Yes. An app keeps its records in 50agents, and you can import and export CSV. Softr has Softr Databases."
+    },
+    {
+      "q": "Which suits internal tools?",
+      "a": "Softr builds client portals and internal tools. 50agents apps run on lists, boards and tables, with AI agents working the records."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/50agents-vs-glide",
+      "title": "50agents vs Glide",
+      "line": "Another app builder, compared"
+    },
+    {
+      "href": "/compare/50agents-vs-lindy",
+      "title": "50agents vs Lindy",
+      "line": "Row by row, with marks"
+    },
+    {
+      "href": "/compare/50agents-vs-zapier",
+      "title": "50agents vs Zapier",
+      "line": "Row by row, with marks"
+    }
+  ],
+  "updated": "2026-11-19"
+}

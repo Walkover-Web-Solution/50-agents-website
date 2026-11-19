@@ -1,0 +1,54 @@
+{
+ "pair": "zoho-crm/applyra",
+ "apps": {
+  "zoho-crm": {
+   "name": "Zoho CRM",
+   "labels": [
+    "CRM",
+    "Top Free Apps",
+    "Contact Management",
+    "Marketing Automation",
+    "Business Intelligence",
+    "Analytics"
+   ],
+   "about": "Zoho CRM is an AI-powered customer relationship management platform that helps businesses manage leads, contacts, deals, customer interactions, sales automation"
+  },
+  "applyra": {
+   "name": "Applyra",
+   "labels": [
+    "Marketing",
+    "Analytics"
+   ],
+   "about": "Applyra is an App Store Optimization (ASO) platform for App Store and Google Play: keyword rank tracking, competitor intelligence, ASO Health audits and top cha"
+  }
+ },
+ "templates": [
+  {
+   "action": "applyra:Track App",
+   "triggers": [
+    "zoho-crm:New Account",
+    "zoho-crm:New Deals"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "zoho-crm:New Account",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update perform and sample endpoints to Zoho CRM v8, adding required sample fields and safe response access."
+  },
+  {
+   "key": "applyra:Track App",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Start tracking an App Store or Google Play app for a selected country and language using its store ID."
+  },
+  {
+   "key": "zoho-crm:New Deals",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Apply confirmed v8 polling, latest sample, and safe historical transfer updates to the existing New Deals trigger."
+  }
+ ]
+}

@@ -1,0 +1,160 @@
+{
+ "slug": "google-sheets",
+ "query": "Google Sheets integrations; Google Sheets automation; AI agent for Google Sheets",
+ "title": "Google Sheets AI agents and automations | 50agents",
+ "description": "Connect Google Sheets and tell Captain the job: every Shopify order as a row, work that starts when a row changes, or an app built from your sheet.",
+ "h1": "AI agents and automations for Google Sheets",
+ "answer": [
+  "Connect Google Sheets and tell Captain what lands in it, such as “when a new order comes in on Shopify, add it as a row to my Google Sheet”.",
+  "Captain builds the automation, AI agent or app."
+ ],
+ "ask": "Set up an automation: when a new order comes in on Shopify, add it as a row to my Google Sheet",
+ "recipe": {
+  "ta": "shopify",
+  "te": "New Order",
+  "aa": "google-sheets",
+  "ae": "Add New Row to Sheet"
+ },
+ "build": {
+  "name": "Orders to Sheets",
+  "line": "Every order as a row",
+  "when": "When a new order comes in on Shopify",
+  "does": [
+   "Maps the order to your columns",
+   "Adds it as a row to your sheet"
+  ],
+  "apps": [
+   "shopify",
+   "google-sheets"
+  ],
+  "asksFirst": "Nothing: it only writes your sheet"
+ },
+ "kinds": [
+  {
+   "kind": "auto",
+   "title": "A row for every event",
+   "body": "Each Shopify order, Stripe customer or HubSpot deal, mapped to your columns. Or start work in another app when a row is added or changed.",
+   "ask": "Set up an automation: when a new order comes in on Shopify, add it as a row to my Google Sheet",
+   "uses": [
+    "Add New Row to Sheet",
+    "Row Added Or Updated"
+   ],
+   "useCase": "shopify-orders-to-google-sheets"
+  },
+  {
+   "kind": "ai",
+   "title": "Act on what the rows say",
+   "body": "Reads the rows and decides what to do with each, such as which leads in a list to follow up, then writes the outcome back into the row so the sheet stays the record.",
+   "ask": "Set up an AI agent that reads my leads sheet every weekday at 9:00, picks the ones nobody has contacted in a week, and drafts a follow-up email for me to approve",
+   "uses": [
+    "List Rows in Sheet",
+    "Lookup Spreadsheet Rows",
+    "Update Spreadsheet Row"
+   ]
+  },
+  {
+   "kind": "browser",
+   "title": "Rows from websites",
+   "body": "Fills a sheet from websites that have no app to connect, such as competitors’ pricing pages, one row per check.",
+   "ask": "Set up a browser agent that checks my competitors’ pricing pages every day at 9:00 and tells me when a price changes",
+   "uses": [],
+   "useCase": "track-competitor-prices"
+  },
+  {
+   "kind": "app",
+   "title": "When a sheet has outgrown itself",
+   "body": "Bring its rows into an app with typed fields, a board, a table and numbers, and AI agents that keep it up to date. Paste the table or drop in a CSV or Excel file.",
+   "ask": "Track my leads and follow up",
+   "uses": []
+  }
+ ],
+ "groups": [
+  {
+   "label": "Rows",
+   "line": "Start when a row is added or updated; add one row or many, update, look up, read, clear, format or delete rows.",
+   "events": [
+    "Row Added Or Updated",
+    "Add New Row to Sheet",
+    "Add Multiple Rows",
+    "Update Spreadsheet Row",
+    "Update Multiple Rows",
+    "Lookup Spreadsheet Rows",
+    "List Rows in Sheet",
+    "Get Rows From Range",
+    "Get Row Details",
+    "Clear Spreadsheet Row",
+    "Format Spreadsheet Row",
+    "Delete Rows"
+   ]
+  },
+  {
+   "label": "Cells and columns",
+   "line": "Update many cells at once, add a column, or colour cells by their values.",
+   "events": [
+    "Batch Update Cell Values",
+    "Create Sheet Column",
+    "Add Conditional Formatting Rule"
+   ]
+  },
+  {
+   "label": "Tabs",
+   "line": "Add, find, list, rename or copy the tabs inside a spreadsheet.",
+   "events": [
+    "Create Subsheet",
+    "Find Subsheet",
+    "List Spreadsheet Tabs",
+    "Update Sheet Name",
+    "Copy Sheet To Spreadsheet"
+   ]
+  },
+  {
+   "label": "Spreadsheets",
+   "line": "Create a spreadsheet, start one from a template, list them, or delete one for good.",
+   "events": [
+    "Create a Spreadsheet",
+    "Create Spreadsheet From Template",
+    "List Spreadsheets",
+    "Permanently Delete Spreadsheet"
+   ]
+  }
+ ],
+ "faqs": [
+  {
+   "q": "Can it update a row instead of adding a new one each time?",
+   "a": "Yes. “Lookup Spreadsheet Rows” finds the row that matches a value, such as an order number, and “Update Spreadsheet Row” changes its columns, so the same record is not added twice."
+  },
+  {
+   "q": "Can a change in my sheet start something?",
+   "a": "Yes. “Row Added Or Updated” starts an automation or an AI agent when someone adds or edits a row, for example to post the new row in Slack or email the person named in it."
+  },
+  {
+   "q": "Can I turn my spreadsheet into an app?",
+   "a": "Yes. Ask Captain for the app you need, then bring your rows in by pasting the table or dropping in a CSV or Excel export. Captain matches the columns to the app’s fields before anything is added."
+  },
+  {
+   "q": "Can it write several rows in one go?",
+   "a": "Yes. “Add Multiple Rows” writes many rows in one step, which suits one row per order item. Say so in the ask and check Captain’s plan before you approve it."
+  },
+  {
+   "q": "Does a new row start the work straight away?",
+   "a": "Yes. “Row Added Or Updated” is a webhook, so it fires as a row is added or edited. It fires on edits too, so plan for a row that changes twice."
+  },
+  {
+   "q": "Can it make a new sheet for each month or client?",
+   "a": "Yes. “Create a Spreadsheet”, “Create Spreadsheet From Template” and “Create Subsheet” make a new file or tab, and “Copy Sheet To Spreadsheet” copies a tab into another file."
+  },
+  {
+   "q": "Can an AI agent read my sheet and answer questions?",
+   "a": "Yes. It reads rows with “List Rows in Sheet”, “Get Rows From Range” or “Lookup Spreadsheet Rows”, and answers in its chat or on its schedule. Writing back is an action you name, such as “Update Spreadsheet Row”."
+  },
+  {
+   "q": "Can it delete rows or whole spreadsheets?",
+   "a": "The catalog has “Delete Rows”, “Clear Spreadsheet Row” and “Permanently Delete Spreadsheet”. Changes made in Google Sheets cannot be undone from 50agents, so name a delete in the ask only when you mean it."
+  },
+  {
+   "q": "Can it format rows or highlight values?",
+   "a": "Yes. “Format Spreadsheet Row” sets a row’s font and background, and “Add Conditional Formatting Rule” colours cells by their values."
+  }
+ ],
+ "updated": "2026-11-19"
+}

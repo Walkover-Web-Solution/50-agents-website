@@ -1,0 +1,59 @@
+{
+ "pair": "airtable/alto",
+ "apps": {
+  "airtable": {
+   "name": "Airtable",
+   "labels": [
+    "Databases",
+    "Task Management",
+    "Project Management",
+    "App Builder",
+    "Productivity",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Airtable is a flexible no-code platform for building collaborative databases, workflows, apps, and AI-powered team operations, helping organizations organize da"
+  },
+  "alto": {
+   "name": "Alto",
+   "labels": [
+    "Video & Audio"
+   ],
+   "about": "Alto hosts finished demo videos, gives each recipient a tracked link, and shows who watched and which moments landed."
+  }
+ },
+ "templates": [
+  {
+   "action": "alto:Create Recipient Link",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  },
+  {
+   "action": "alto:Update Recipient Link",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "airtable:Record Created Or Updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when record changes"
+  },
+  {
+   "key": "alto:Create Recipient Link",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a tracked link to one video for one person and return that link (id, shareUrl and the full link object). If an email is given and Reuse Existing Link is not No, it first returns that person's active link for the…"
+  },
+  {
+   "key": "alto:Update Recipient Link",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Change a recipient link's person details, note, expiry, or turn it on or off."
+  }
+ ]
+}

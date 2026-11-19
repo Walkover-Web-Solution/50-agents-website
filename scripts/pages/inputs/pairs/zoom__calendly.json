@@ -1,0 +1,98 @@
+{
+ "pair": "zoom/calendly",
+ "apps": {
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  },
+  "calendly": {
+   "name": "Calendly",
+   "labels": [
+    "Scheduling and Booking",
+    "Top Free Apps",
+    "Notifications",
+    "Productivity",
+    "Marketing",
+    "Project Management",
+    "Marketing Automation",
+    "Payment Processing",
+    "Communication"
+   ],
+   "about": "Calendly is an online scheduling platform that helps people and teams book meetings, automate reminders and follow-ups, collect payments, and integrate calendar"
+  }
+ },
+ "templates": [
+  {
+   "action": "calendly:Create Scheduling Link",
+   "triggers": [
+    "zoom:When a meeting summary is completed",
+    "zoom:When a meeting ends",
+    "zoom:When a participant joins a meeting",
+    "zoom:When a new webinar is created",
+    "zoom:When a participant joins a webinar",
+    "zoom:When someone registers for the meeting",
+    "zoom:When someone registers for the selected webinar",
+    "zoom:Meeting Is Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "zoom:When a meeting summary is completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever any meeting summary is completed."
+  },
+  {
+   "key": "calendly:Create Scheduling Link",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a booking link"
+  },
+  {
+   "key": "zoom:When a meeting ends",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever any meeting in the account ends."
+  },
+  {
+   "key": "zoom:When a participant joins a meeting",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a participant joins a meeting. If a specific meeting ID is provided, runs only when a participant joins that meeting."
+  },
+  {
+   "key": "zoom:When a new webinar is created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a new webinar is created in the account."
+  },
+  {
+   "key": "zoom:When a participant joins a webinar",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a participant joins a webinar. If a specific webinar ID is provided, runs only when a participant joins that webinar."
+  },
+  {
+   "key": "zoom:When someone registers for the meeting",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever someone registers for the selected meeting."
+  },
+  {
+   "key": "zoom:When someone registers for the selected webinar",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever someone registers for the selected webinar."
+  },
+  {
+   "key": "zoom:Meeting Is Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when meeting is created"
+  }
+ ]
+}

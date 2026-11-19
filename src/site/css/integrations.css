@@ -1,0 +1,199 @@
+/* The integration family, v3 round 2 (D253, D254): app pages, pair pages, the directory and its categories. Builds on
+   site.css (the system: .sec, .qa, .cards3, .final) and usecase.css (the centred hero, the prompt film). Heads are centred
+   over full-width content; no list scrolls inside itself or holds the wheel (D260): lists grow with "Load more" and the
+   directory pages; nothing small floats. */
+.ig3 [hidden]{display:none!important}
+.ig-nologo{display:inline-grid;place-items:center;border-radius:6px;background:var(--wash);font-weight:600;font-size:13px;color:var(--mute);flex:none}
+
+/* hero: the app's logo, or two joined (no wordmark, D255 round 3) */
+.ig3-lock{display:flex;align-items:center;justify-content:center;gap:14px}
+.ig3-lock-logo{display:inline-flex;align-items:center;gap:14px}
+.ig3-lock-logo img,.ig3-lock-logo .ig-nologo{box-shadow:0 0 0 1px var(--line);border-radius:11px!important;background:#fff;padding:4px;width:52px!important;height:52px!important}
+.ig3-lock-and{width:18px;height:1.5px;background:var(--line)}
+.ig3-hero h1{font-size:clamp(40px,5.2vw,64px);max-width:860px}
+.film-box .hero-cta{display:flex;margin:0;flex:none}
+
+/* the four kinds: link cards, two by two */
+.ig3-kinds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ig3-kinds.one{grid-template-columns:minmax(0,1fr);max-width:620px;margin:0 auto}
+.ig3-kind{display:flex;flex-direction:column;gap:12px;padding:32px;border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);background:#fff}
+.ig3-kind-k{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--mute)}
+.ig3-kind-face{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:var(--k)}
+.ig3-kind h3{margin-top:6px;font-size:23px;font-weight:500;letter-spacing:-.02em;line-height:1.25}
+.ig3-kind p{flex:1;font-size:16.5px;line-height:1.6;color:var(--mute)}
+.ig3-kind-go{display:flex;align-items:center;gap:20px;margin-top:10px}
+.ig3-kind-more{font-size:15px;font-weight:500;text-underline-offset:3px}
+span.ig3-kind-more{display:none}
+
+/* pairing cards (cards3) */
+.ig3-pair-logos{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.ig3-pair-logos i{width:16px;height:1.5px;background:var(--line)}
+.ig3-pairs span:last-child{font-size:15.5px}
+
+@media (max-width:760px){
+  .ig3-lock{justify-content:flex-start;gap:10px}
+  .ig3-lock-logo img,.ig3-lock-logo .ig-nologo{width:44px!important;height:44px!important}
+  .ig3-hero h1{font-size:38px}
+  .ig3-kinds{grid-template-columns:minmax(0,1fr)}
+  .ig3-kind{padding:24px}
+  .ig3-kind h3{font-size:20px}
+}
+
+/* ---- round 2 (D254) ---- */
+.ig3-dir-hero{padding-bottom:0}
+.sec.ig3-dir{padding-top:72px}
+@media (max-width:760px){.sec.ig3-dir{padding-top:48px}}
+
+/* the list box (templates): a search on one bar, then rows that grow in place with "Load more" (D260) */
+.ig4-lb{border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);background:#fff;overflow:hidden}
+.ig4-lb-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 14px 14px 18px;border-bottom:1px solid var(--line)}
+.ig4-tabs{display:flex;gap:4px}
+.ig4-tabs button{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border:0;border-radius:11px;background:none;font:inherit;font-size:16px;font-weight:500;color:var(--mute);cursor:pointer}
+.ig4-tabs button:hover{color:var(--ink)}
+.ig4-tabs button[aria-selected=true]{background:var(--wash);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.ig4-tabs button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ig4-tabs button img,.ig4-tabs button .ig-nologo{flex:none}
+.ig4-tabs button{white-space:nowrap}
+.ig4-tab-app{margin-right:-3px;max-width:150px;overflow:hidden;text-overflow:ellipsis}
+/* a pair's four tabs and the search share the bar; when they do not fit, the search takes its own row */
+.ig4-lb-bar:has(.ig4-tab-app){flex-wrap:wrap;row-gap:12px}
+.ig4-tabs:has(.ig4-tab-app){flex-wrap:wrap}
+.ig4-tabs:has(.ig4-tab-app) button{padding:0 14px}
+.ig4-lb-bar:has(.ig4-tab-app) .ig4-find{flex:1 1 220px;max-width:none}
+.ig4-tab-w{display:inline-block}
+.ig4-tab-n{font-size:13px;font-weight:600;color:var(--mute)}
+.ig4-find{display:flex;align-items:center;gap:10px;width:100%;max-width:360px;height:46px;padding:0 16px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--line);color:var(--mute);background:#fff}
+.ig4-find:focus-within{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.ig4-find input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:16px;color:var(--ink)}
+.ig4-items{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.ig4-items>li{display:flex;align-items:flex-start;gap:14px;min-width:0;padding:18px 24px;border-bottom:1px solid var(--line)}
+.ig4-items>li:nth-child(odd){box-shadow:inset -1px 0 0 var(--line)}
+.ig4-items>li>span:not(.ig4-tpl-logos){display:grid;gap:3px;min-width:0}
+.ig4-items b{font-size:16.5px;font-weight:500;letter-spacing:-.01em;line-height:1.35}
+.ig4-items>li>span>span{font-size:14.5px;line-height:1.45;color:var(--mute);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ig4-items .ig-nologo,.ig4-items img{margin-top:1px}
+.ig4-tpls>li{align-items:center}
+.ig4-tpl-logos{display:flex;gap:6px;flex:none}
+.ig4-tpls p{flex:1;min-width:0;font-size:16px;line-height:1.45}
+.ig4-tpls .btn{flex:none}
+.ig4-none{padding:28px 24px;text-align:center;font-size:15.5px;color:var(--mute)}
+.ig4-none button{border:0;background:none;padding:0;font:inherit;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.ig4-more{display:flex;justify-content:center;padding:20px}
+
+/* the directory: like viaSocket's own, in our look; categories down the left, a hairline grid, numbered pages (D260) */
+.ig4-dir{display:grid;grid-template-columns:232px minmax(0,1fr);border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);scroll-margin-top:96px}
+.ig4-side{border-right:1px solid var(--line);padding:16px 10px}
+.ig4-side nav{position:sticky;top:92px}
+.ig4-side ul{list-style:none;margin:0;padding:0;display:grid;gap:1px}
+.ig4-side a,.ig4-side span{display:block;padding:8px 12px;border-radius:10px;font-size:15px;line-height:1.35;color:var(--mute);text-decoration:none}
+.ig4-side a:hover{color:var(--ink);background:var(--wash)}
+.ig4-side .on{color:var(--ink);background:var(--wash);font-weight:600}
+.ig4-catpick{display:none}
+.ig4-dir-main{min-width:0;display:flex;flex-direction:column}
+.ig4-dir-bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 18px 18px 26px;border-bottom:1px solid var(--line)}
+.ig4-dir-bar h2{font-size:22px;font-weight:500;letter-spacing:-.02em}
+.ig4-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.ig4-grid li{min-width:0;box-shadow:inset -1px -1px 0 var(--line)}
+.ig4-grid a{display:flex;align-items:center;gap:12px;height:64px;padding:0 18px;text-decoration:none;transition:background .15s}
+.ig4-grid a:hover{background:var(--wash)}
+.ig4-grid b{font-size:15px;font-weight:500;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ig4-pager{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 18px;border-top:1px solid var(--line)}
+.ig4-pager ol{list-style:none;margin:0;padding:0;display:flex;align-items:center;gap:4px}
+.ig4-pager button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:40px;height:40px;padding:0 10px;border:0;border-radius:10px;background:none;font:inherit;font-size:15px;font-weight:500;color:var(--mute);cursor:pointer;font-variant-numeric:tabular-nums}
+.ig4-pager button:hover:not(:disabled){color:var(--ink);background:var(--wash)}
+.ig4-pager button[aria-current=page]{color:var(--ink);background:var(--wash);box-shadow:inset 0 0 0 1px var(--line);font-weight:600}
+.ig4-pager button:disabled{opacity:.35;cursor:default}
+.ig4-pager button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ig4-pg-step{padding:0 14px!important}
+.ig4-pg-gap{min-width:24px;text-align:center;color:var(--mute)}
+
+@media (max-width:1020px){
+  .ig4-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ig4-dir{grid-template-columns:200px minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .ig4-lb{border-radius:20px}
+  .ig4-lb-bar{flex-direction:column;align-items:stretch;gap:12px;padding:12px}
+  .ig4-tabs button{flex:1;justify-content:center}
+  .ig4-tabs{width:100%}
+  /* a pair's four tabs: two by two, the logo stands for the app's name */
+  .ig4-tabs:has(.ig4-tab-app){display:grid;grid-template-columns:1fr 1fr}
+  .ig4-tab-app{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .ig4-tab-w::first-letter{text-transform:uppercase}
+  .ig4-lb-bar:has(.ig4-tab-app) .ig4-find{flex:none}
+  .ig4-find{max-width:none}
+  .ig4-items{grid-template-columns:minmax(0,1fr)}
+  .ig4-items>li{padding:16px 18px;box-shadow:none!important}
+  .ig4-items>li>span>span{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .ig4-tpls>li{flex-wrap:wrap;gap:12px;align-items:flex-start}
+  .ig4-tpls p{flex-basis:calc(100% - 70px)}
+  .ig4-tpls .btn{margin-left:66px}
+  .ig4-dir{grid-template-columns:minmax(0,1fr);border-radius:20px}
+  .ig4-side{border-right:0;border-bottom:1px solid var(--line);padding:12px}
+  .ig4-side nav{display:none}
+  .ig4-catpick{display:block}
+  .ig4-catpick select{width:100%;height:46px;padding:0 14px;border-radius:12px;border:0;box-shadow:inset 0 0 0 1px var(--line);background:#fff;font:inherit;font-size:16px;color:var(--ink)}
+  .ig4-dir-bar{flex-direction:column;align-items:stretch;gap:12px;padding:16px 12px}
+  .ig4-dir-bar h2{font-size:20px;padding-left:4px}
+  .ig4-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ig4-grid a{height:58px;padding:0 12px;gap:10px}
+  .ig4-grid b{font-size:14px}
+  .ig4-pager{padding:10px 8px;gap:4px}
+  .ig4-pager ol{gap:2px}
+  .ig4-pager button{min-width:34px;height:38px;padding:0 6px;font-size:14px}
+  .ig4-pg-step{padding:0 8px!important}
+  .ig4-pg-step span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+}
+@media (max-width:760px){.ig4-dir-bar h2{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.ig4-dir-bar{padding-top:12px}}
+/* a pair "in practice" (D260): three short cards in one bordered row, a small icon on each */
+.ig6-practice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);background:#fff}
+.ig6-pc{padding:28px 28px 30px;min-width:0}
+.ig6-pc+.ig6-pc{box-shadow:inset 1px 0 0 var(--line)}
+.ig6-pc h3{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;letter-spacing:-.005em;margin-bottom:14px}
+.ig6-pc-i{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--wash);color:var(--ink);flex:none}
+.ig6-pc p{font-size:16px;line-height:1.55;color:var(--mute)}
+.ig6-pc b{color:var(--ink);font-weight:500}
+@media(max-width:760px){
+  .ig6-practice{grid-template-columns:minmax(0,1fr);border-radius:20px}
+  .ig6-pc{padding:22px 20px 24px}
+  .ig6-pc+.ig6-pc{box-shadow:inset 0 1px 0 var(--line)}
+}
+
+/* ---- round 5 (D260): triggers and actions as two equal columns ----
+   Triggers on the left, actions on the right, each with its own head, count and "Load more" that grows it in place.
+   Nothing scrolls inside itself, so the wheel always scrolls the page. On a phone the columns stack. */
+.ig5-ev{border-radius:24px;box-shadow:inset 0 0 0 1px var(--line);background:#fff;overflow:hidden}
+.ig5-bar{display:flex;align-items:center;justify-content:flex-end;gap:16px;padding:14px;border-bottom:1px solid var(--line)}
+.ig5-bar:has(.ig5-switch){justify-content:space-between}
+.ig5-switch{display:flex;gap:4px;min-width:0}
+.ig5-switch button{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 16px;border:0;border-radius:11px;background:none;font:inherit;font-size:16px;font-weight:500;color:var(--mute);cursor:pointer;white-space:nowrap;min-width:0}
+.ig5-switch button>span:not(.ig5-n){overflow:hidden;text-overflow:ellipsis}
+.ig5-switch button:hover{color:var(--ink)}
+.ig5-switch button[aria-pressed=true]{background:var(--wash);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.ig5-switch button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ig5-switch .ig-nologo,.ig5-switch img{flex:none}
+.ig5-n{font-size:13px;font-weight:600;color:var(--mute)}
+.ig5-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.ig5-cols.one{grid-template-columns:minmax(0,1fr)}
+.ig5-col{display:flex;flex-direction:column;min-width:0}
+.ig5-col+.ig5-col{box-shadow:inset 1px 0 0 var(--line)}
+.ig5-col-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:18px 24px 14px;border-bottom:1px solid var(--line)}
+.ig5-col-h h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
+.ig5-count{font-size:14px;font-weight:500;color:var(--mute);font-variant-numeric:tabular-nums}
+.ig5-items{list-style:none;margin:0;padding:0}
+.ig5-items>li{display:grid;gap:3px;padding:16px 24px;border-bottom:1px solid var(--line)}
+.ig5-items b{font-size:16px;font-weight:500;letter-spacing:-.01em;line-height:1.35}
+.ig5-items span{font-size:14.5px;line-height:1.45;color:var(--mute);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ig5-none{padding:24px;font-size:15px;color:var(--mute)}
+.ig5-items{flex:1}
+.ig5-more{display:flex;justify-content:center;padding:18px}
+@media (max-width:760px){
+  .ig5-ev{border-radius:20px}
+  .ig5-bar{flex-direction:column;align-items:stretch;gap:12px;padding:12px}
+  .ig5-switch{display:grid;grid-template-columns:1fr 1fr}
+  .ig5-switch button{justify-content:center;padding:0 10px}
+  .ig5-cols{grid-template-columns:minmax(0,1fr)}
+  .ig5-col+.ig5-col{box-shadow:inset 0 1px 0 var(--line)}
+  .ig5-col-h{padding:16px 18px 12px}
+  .ig5-items>li{padding:14px 18px}
+}

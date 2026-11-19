@@ -1,0 +1,205 @@
+{
+ "slug": "hubspot",
+ "query": "HubSpot integrations; HubSpot automation; AI agent for HubSpot",
+ "title": "HubSpot AI agents and automations | 50agents",
+ "description": "Connect HubSpot and tell Captain the job: deal changes posted in Slack, an AI agent that drafts follow-ups for quiet deals, or your own lead app.",
+ "h1": "AI agents and automations for HubSpot",
+ "answer": [
+  "Connect HubSpot and tell Captain the job, such as “when a deal is created or updated in HubSpot, post it in a Slack channel”.",
+  "Captain builds an automation for fixed steps, or an AI agent for deals that need judgement."
+ ],
+ "ask": "Set up an automation: when a deal is created or updated in HubSpot, post it in a Slack channel",
+ "recipe": {
+  "ta": "hubspot",
+  "te": "When a deal is created or updated",
+  "aa": "slack",
+  "ae": "Send Message"
+ },
+ "build": {
+  "name": "Deals to Slack",
+  "line": "Each deal change, posted for your team",
+  "when": "When a deal is created or updated in HubSpot",
+  "does": [
+   "Picks up the deal from HubSpot",
+   "Posts it in the Slack channel you pick"
+  ],
+  "apps": [
+   "hubspot",
+   "slack"
+  ],
+  "asksFirst": "Each post to your Slack channel"
+ },
+ "kinds": [
+  {
+   "kind": "auto",
+   "title": "Deal changes in your sales channel",
+   "body": "The same steps on every new or changed deal, with no AI deciding anything. The deal is posted in Slack, or added as a row to your Google Sheet, each time HubSpot reports it.",
+   "ask": "Set up an automation: when a deal is created or updated in HubSpot, post it in a Slack channel",
+   "uses": [
+    "When a deal is created or updated"
+   ],
+   "useCase": "hubspot-contacts-to-google-sheets-and-slack"
+  },
+  {
+   "kind": "ai",
+   "title": "Follow up deals that went quiet",
+   "body": "Reads your deals and their notes each morning, decides which ones have gone quiet and what to say, and drafts the follow-up in Gmail for you to approve.",
+   "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+   "uses": [
+    "Search a Deal",
+    "Get Deal Notes",
+    "Add Notes to Contact"
+   ],
+   "useCase": "follow-up-quiet-hubspot-deals"
+  },
+  {
+   "kind": "browser",
+   "title": "Read a prospect’s website first",
+   "body": "HubSpot connects through its API, so you rarely need a browser agent for HubSpot itself. Use one for the websites around your deals, such as a prospect’s own site before a call.",
+   "ask": "Set up a browser agent that opens the website of each company I give it and tells me what they sell and who they sell to",
+   "uses": []
+  },
+  {
+   "kind": "app",
+   "title": "A lead tracker beside the CRM",
+   "body": "Your own screens next to HubSpot: a pipeline board, a follow-up list and the numbers you check, with a crew of AI agents keeping it filled.",
+   "ask": "Track my leads and follow up",
+   "uses": [],
+   "useCase": "lead-tracker-from-your-inbox"
+  }
+ ],
+ "groups": [
+  {
+   "label": "Contacts",
+   "line": "Start when a contact is added or changes stage, then create, update, find or add notes to contacts.",
+   "events": [
+    "New Or Updated Contact",
+    "Update Contact's Lifecycle Stage",
+    "Update Contact's Lead Status",
+    "Merge Contacts",
+    "Delete Contact",
+    "Create Contact",
+    "Create or Update Contact",
+    "Update Contact",
+    "Find Contact",
+    "Add Notes to Contact"
+   ]
+  },
+  {
+   "label": "Deals",
+   "line": "Start when a deal is created, updated, merged or deleted; create, search and update deals and read their notes.",
+   "events": [
+    "When a deal is created or updated",
+    "Merge Deals",
+    "Deal Deleted",
+    "Create Deal",
+    "Search a Deal",
+    "Update Deal",
+    "Get Deal Notes"
+   ]
+  },
+  {
+   "label": "Companies",
+   "line": "Start on new or changed companies; create, search and update them.",
+   "events": [
+    "When a company is created or updated",
+    "Merge Companies",
+    "Delete Company",
+    "Create Company",
+    "Search Company",
+    "Update Company"
+   ]
+  },
+  {
+   "label": "Tickets",
+   "line": "Start when a support ticket is created, updated, merged or deleted, and search tickets.",
+   "events": [
+    "Ticket Created or Updated",
+    "Merge Tickets",
+    "Delete Ticket",
+    "Search a Ticket"
+   ]
+  },
+  {
+   "label": "Tasks, notes and activity",
+   "line": "Start when a task falls due; log emails, meetings and notes against records, and send a message into a conversation thread.",
+   "events": [
+    "New Task Due",
+    "Create Engagement",
+    "Create Email Engagement",
+    "Create Meeting Engagement",
+    "Get Note",
+    "Send Message"
+   ]
+  },
+  {
+   "label": "Invoices and products",
+   "line": "Start on new invoices and products; search invoices and read their line items.",
+   "events": [
+    "New Invoice Created",
+    "Search Invoices",
+    "Get Invoice Line Items",
+    "List All Line Items",
+    "New Product Created",
+    "Delete Product",
+    "Search a Product"
+   ]
+  },
+  {
+   "label": "Owners",
+   "line": "Look up the HubSpot user who owns a record, by email or ID.",
+   "events": [
+    "Get Owner by Email or by ID"
+   ]
+  }
+ ],
+ "faqs": [
+  {
+   "q": "Can an AI agent follow up HubSpot deals for me?",
+   "a": "Yes, with a draft you approve. The AI agent runs “Search a Deal” and “Get Deal Notes”, then writes a follow-up in Gmail, and nothing reaches the customer until you press approve in Needs you."
+  },
+  {
+   "q": "Is this the same as HubSpot workflows?",
+   "a": "No. HubSpot workflows run inside HubSpot. A 50agents automation starts from a HubSpot trigger and can act in any of the 2,300+ apps viaSocket connects, such as adding a row to Google Sheets or posting in Slack."
+  },
+  {
+   "q": "How is this different from HubSpot’s own AI, Breeze?",
+   "a": "HubSpot’s AI lives in Breeze and Agent Hub: ready-made AI agents for prospecting, customer questions and CRM data, plus an Agent Builder, in HubSpot’s paid editions. 50agents sits beside it, with one Captain for HubSpot and your other apps, so the work can reach Gmail, Sheets or Slack. If the job only touches HubSpot records and your team lives in HubSpot, Breeze is closer to the data."
+  },
+  {
+   "q": "Does 50agents change my HubSpot data on its own?",
+   "a": "Only through the actions you asked for, such as “Create Contact” or “Update Deal”, and each run is listed in Activity. Changes made in HubSpot cannot be undone from 50agents, so anything that reaches customers asks you first."
+  },
+  {
+   "q": "Which HubSpot changes start the work as they happen?",
+   "a": "Deletes, merges and changes to a contact’s lifecycle stage or lead status are webhooks, so they fire at once. “When a deal is created or updated”, “New Or Updated Contact” and “Ticket Created or Updated” are checked on a schedule."
+  },
+  {
+   "q": "Can it add a contact without making a duplicate?",
+   "a": "Yes. “Create or Update Contact” matches on email, so a contact that already exists is updated instead of added twice. “Create Contact” always needs an email."
+  },
+  {
+   "q": "Can it log calls, meetings and notes?",
+   "a": "Yes. “Create Engagement” adds a note, task, meeting, call or email and links it to contacts, companies, deals or tickets. “Add Notes to Contact” adds notes by contact ID or email."
+  },
+  {
+   "q": "Can it act when a task comes due?",
+   "a": "Yes. “New Task Due” starts the work when a HubSpot task becomes due, for example to post a reminder in Slack or have an AI agent draft the follow-up for your approval."
+  },
+  {
+   "q": "Can it update a deal by its name?",
+   "a": "“Update Deal” needs the deal ID. A step with “Search a Deal” finds it by deal name first, then the update changes the fields you name."
+  }
+ ],
+ "sources": [
+  {
+   "label": "HubSpot: AI and Agent Hub",
+   "href": "https://www.hubspot.com/products/artificial-intelligence"
+  },
+  {
+   "label": "HubSpot: Breeze AI agents",
+   "href": "https://www.hubspot.com/products/artificial-intelligence/breeze-ai-agents"
+  }
+ ],
+ "updated": "2026-11-19"
+}

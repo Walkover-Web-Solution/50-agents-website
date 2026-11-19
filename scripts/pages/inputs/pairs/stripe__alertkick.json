@@ -1,0 +1,70 @@
+{
+ "pair": "stripe/alertkick",
+ "apps": {
+  "stripe": {
+   "name": "Stripe",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "Stripe is a financial technology company that provides a set of tools and APIs (Application Programming Interfaces) for online businesses to handle payments, su"
+  },
+  "alertkick": {
+   "name": "AlertKick",
+   "labels": [
+    "IT Operations",
+    "Notifications"
+   ],
+   "about": "AlertKick is a server and uptime monitoring platform with heartbeats for cron jobs, on-call escalation and AI-assisted alert triage."
+  }
+ },
+ "templates": [
+  {
+   "action": "alertkick:Resume Monitor",
+   "triggers": [
+    "stripe:Invoice Is Finalized",
+    "stripe:When a checkout session is completed",
+    "stripe:When a payment succeeds"
+   ]
+  },
+  {
+   "action": "alertkick:Pause Monitor",
+   "triggers": [
+    "stripe:Invoice Is Finalized",
+    "stripe:When a checkout session is completed",
+    "stripe:When a payment succeeds"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "stripe:Invoice Is Finalized",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when invoice is finalized"
+  },
+  {
+   "key": "alertkick:Resume Monitor",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Resume a paused monitor so its checks and alerts start again."
+  },
+  {
+   "key": "stripe:When a checkout session is completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a checkout session is completed."
+  },
+  {
+   "key": "stripe:When a payment succeeds",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a payment succeeds."
+  },
+  {
+   "key": "alertkick:Pause Monitor",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Pause a monitor so its checks stop and no alerts fire until it is resumed."
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "pair": "brix/asana",
+ "apps": {
+  "brix": {
+   "name": "Brix",
+   "labels": [
+    "Marketing"
+   ],
+   "about": "Brix is digital signage software for TVs and players. Post messages, cast content, run emergency takeovers, manage media and playlists, and react to recalled co"
+  },
+  "asana": {
+   "name": "Asana",
+   "labels": [
+    "Project Management",
+    "Databases",
+    "Documents",
+    "Task Management",
+    "Top Free Apps"
+   ],
+   "about": "Organize your work and boost your team's productivity with Asana. This easy-to-use app helps you manage tasks, projects, and deadlines all in one place."
+  }
+ },
+ "templates": [
+  {
+   "action": "asana:Create Project",
+   "triggers": [
+    "brix:New Media",
+    "brix:New Screen",
+    "brix:New Restored Content",
+    "brix:New Recalled Content"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "brix:New Media",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new file is added to the media library, optionally of chosen types."
+  },
+  {
+   "key": "asana:Create Project",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new project in a workspace and set name, notes, start/due dates, owner, privacy, color, and default view."
+  },
+  {
+   "key": "brix:New Screen",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new screen is added, optionally within a chosen location."
+  },
+  {
+   "key": "brix:New Restored Content",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when recalled content is restored to screens."
+  },
+  {
+   "key": "brix:New Recalled Content",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a file, design, playlist or schedule is recalled from all screens."
+  }
+ ]
+}

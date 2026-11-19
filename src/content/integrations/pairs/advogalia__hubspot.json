@@ -1,0 +1,1 @@
+{"usedFor":"A “New Client” in Advogalia updates that person's contact record in HubSpot.","bestTemplate":{"name":"“New Client” in Advogalia, then “Update Contact” in HubSpot","why":"The action finds the contact by email, so no duplicate record is created."},"watchOut":"“Update Contact” matches on email, so the person must already exist in HubSpot with that address."}

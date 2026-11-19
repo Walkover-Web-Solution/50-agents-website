@@ -1,0 +1,1 @@
+{"usedFor":"Edits to a Notion page update the matching page in Prismic.","bestTemplate":{"name":"“Updated Content in Page” in Notion, then “Update Page” in Prismic","why":"Notion edits are the likeliest sign a Prismic page needs to change."},"watchOut":"“Update Page” saves a Prismic draft that still needs publishing, and it cannot create a new page."}

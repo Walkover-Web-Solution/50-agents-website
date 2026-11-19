@@ -1,0 +1,1 @@
+{"usedFor":"Each message in a Slack channel adds a log row in Google Sheets.","bestTemplate":{"name":"“New Message in Channels” in Slack, then “Add New Row to Sheet” in Google Sheets","why":"It turns a channel into a running log with one row per message."},"watchOut":"“New Message in Channels” is polling, so rows appear after the next check."}

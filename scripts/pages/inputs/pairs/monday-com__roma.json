@@ -1,0 +1,49 @@
+{
+ "pair": "monday-com/roma",
+ "apps": {
+  "monday-com": {
+   "name": "monday.com",
+   "labels": [
+    "Project Management",
+    "Top Free Apps"
+   ],
+   "about": "monday.com is a work operating system that powers teams to run projects and workflows with confidence. It's a simple but intuitive tool that enables people to m"
+  },
+  "roma": {
+   "name": "Roma",
+   "labels": [
+    "Productivity"
+   ],
+   "about": "Roma is an AI task app for keeping lists, tasks, notes and automations, with an operator that helps do the work."
+  }
+ },
+ "templates": [
+  {
+   "action": "roma:Create Item",
+   "triggers": [
+    "monday-com:Item Column Value Changes",
+    "monday-com:New User Joins"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "monday-com:Item Column Value Changes",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a column value on a board is updated."
+  },
+  {
+   "key": "roma:Create Item",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a task, note or row on a chosen Roma list."
+  },
+  {
+   "key": "monday-com:New User Joins",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new user joins"
+  }
+ ]
+}

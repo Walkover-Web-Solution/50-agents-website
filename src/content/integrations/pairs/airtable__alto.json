@@ -1,0 +1,1 @@
+{"usedFor":"Each Airtable row gets its own tracked demo link in Alto.","bestTemplate":{"name":"“Record Created Or Updated” in Airtable, then “Create Recipient Link” in Alto","why":"Each person gets a tracked link, and a given email reuses their active one."},"watchOut":"Leave Reuse Existing Link alone, and “Record Created Or Updated” also fires on edits."}

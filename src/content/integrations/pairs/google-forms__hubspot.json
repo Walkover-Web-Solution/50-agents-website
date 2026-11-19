@@ -1,0 +1,1 @@
+{"usedFor":"Each Google Forms respondent is filed in HubSpot as a contact.","bestTemplate":{"name":"“New Form Response” in Google Forms, then “Create or Update Contact” in HubSpot","why":"It updates the contact with the same email, so someone who submits twice stays one record."},"watchOut":"HubSpot matches contacts by email, so the Google Forms form needs an email question."}

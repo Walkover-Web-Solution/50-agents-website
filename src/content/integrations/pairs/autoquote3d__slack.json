@@ -1,0 +1,1 @@
+{"usedFor":"Each “New Order” in AutoQuote3D is posted to a Slack channel for the shop floor.","bestTemplate":{"name":"“New Order” in AutoQuote3D, then “Send Message” in Slack","why":"A paid order needs action, and you can limit the trigger to chosen statuses."},"watchOut":"On 50agents, the “Send Message” post to the shop's Slack channel waits for your approval."}

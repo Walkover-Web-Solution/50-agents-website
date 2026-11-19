@@ -1,0 +1,1 @@
+{"usedFor":"Each paid Shopify order becomes an entry the team can sort and comment on in Notion.","bestTemplate":{"name":"“Order Paid” in Shopify, then “Create_Data_Source_Item” in Notion","why":"Paid is the order that counts, a better log than “New Customer” or “New Product”."},"watchOut":"“Order Line Items Are Edited” can run the same action and add a second item."}

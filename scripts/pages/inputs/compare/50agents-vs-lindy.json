@@ -1,0 +1,261 @@
+{
+ "row": {
+  "slug": "50agents-vs-lindy",
+  "type": "versus",
+  "tool": "lindy",
+  "query": "50agents vs lindy",
+  "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
+  "rows": [
+   "apps",
+   "prompt",
+   "aiAgent",
+   "fixed",
+   "browser",
+   "appBuilder",
+   "approval"
+  ],
+  "own": "50agents is wider than one assistant."
+ },
+ "tools": {
+  "fifty": {
+   "id": "fifty",
+   "name": "50agents",
+   "site": "https://50agents.com",
+   "what": {
+    "fact": "You tell Captain what you need in plain words, and it builds an app, an automation, an AI agent or a browser agent that does the work in your real apps.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "Every workspace starts free with 2,000 credits.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "$1 buys 1,000 credits; you pay for the AI and app work you use.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "2,300+ apps through viaSocket.",
+    "url": "https://50agents.com",
+    "read": "19 Nov 2026"
+   },
+   "cells": {
+    "free": {
+     "v": "yes",
+     "note": "Every workspace starts free with 2,000 credits",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "price": {
+     "v": "text",
+     "note": "$1 buys 1,000 credits",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "apps": {
+     "v": "text",
+     "note": "2,300+ apps through viaSocket",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "prompt": {
+     "v": "yes",
+     "note": "Captain builds it from what you say in plain words",
+     "url": "https://50agents.com",
+     "read": "19 Nov 2026"
+    },
+    "aiAgent": {
+     "v": "yes",
+     "note": "Instructions, connected apps, a schedule or trigger, its own chat",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "browser": {
+     "v": "yes",
+     "note": "Browser agents read and use websites that have no app to connect",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "appBuilder": {
+     "v": "yes",
+     "note": "Lists, boards, tables and numbers, run by a crew of AI agents",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "database": {
+     "v": "yes",
+     "note": "An app keeps its records in 50agents; import and export CSV",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "publicApps": {
+     "v": "no",
+     "note": "Apps are for the people in your workspace",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "fixed": {
+     "v": "yes",
+     "note": "Automations run the same steps every time, on an event or a schedule",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "approval": {
+     "v": "yes",
+     "note": "Anything that reaches people outside, spends money or changes access waits for your yes",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "handEdit": {
+     "v": "no",
+     "note": "You see every step, but changes go through chat",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "code": {
+     "v": "no",
+     "note": "Steps are fixed blocks; there is no code step",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    "export": {
+     "v": "partly",
+     "note": "App records export as CSV; automations and AI agents do not export",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    }
+   },
+   "limits": [
+    {
+     "fact": "It is new, so it has far fewer finished examples and much less community help than older tools.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "There is no drag-and-drop editor. You see each step, and you change it by asking Captain.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "There are no code steps.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Apps are for your own workspace; there are no customer portals or custom domains.",
+     "url": "https://50agents-app.embarko.app",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": []
+  },
+  "lindy": {
+   "id": "lindy",
+   "name": "Lindy",
+   "site": "https://www.lindy.ai",
+   "what": {
+    "fact": "An AI assistant sold as an AI employee: it works in your inbox, calendar and tools and waits for your OK on anything with outside impact.",
+    "url": "https://www.lindy.ai/",
+    "read": "19 Nov 2026"
+   },
+   "free": {
+    "fact": "$50 in free credits that last 7 days.",
+    "url": "https://www.lindy.ai/pricing",
+    "read": "19 Nov 2026"
+   },
+   "price": {
+    "fact": "Team: from $29.99 a month for 3,000 credits, billed for every active user.",
+    "url": "https://www.lindy.ai/pricing",
+    "read": "19 Nov 2026"
+   },
+   "apps": {
+    "fact": "\"connects to 2,733 apps listed below, plus any MCP server.\"",
+    "url": "https://www.lindy.ai/integrations",
+    "read": "19 Nov 2026"
+   },
+   "cells": {
+    "free": {
+     "v": "partly",
+     "note": "$50 in credits for 7 days",
+     "url": "https://www.lindy.ai/pricing",
+     "read": "19 Nov 2026"
+    },
+    "price": {
+     "v": "text",
+     "note": "From $29.99 a month per active user (3,000 credits)",
+     "url": "https://www.lindy.ai/pricing",
+     "read": "19 Nov 2026"
+    },
+    "apps": {
+     "v": "text",
+     "note": "2,733 apps plus MCP servers",
+     "url": "https://www.lindy.ai/integrations",
+     "read": "19 Nov 2026"
+    },
+    "prompt": {
+     "v": "yes",
+     "note": "Describe it and Lindy builds it",
+     "url": "https://docs.lindy.ai/teammate/apps.md",
+     "read": "19 Nov 2026"
+    },
+    "aiAgent": {
+     "v": "yes",
+     "note": "Lindy is the AI agent",
+     "url": "https://www.lindy.ai/",
+     "read": "19 Nov 2026"
+    },
+    "browser": {
+     "v": "yes",
+     "note": "Drives a browser, Pro and up",
+     "url": "https://www.lindy.ai/",
+     "read": "19 Nov 2026"
+    },
+    "appBuilder": {
+     "v": "yes",
+     "note": "Simple internal tools and Artifacts",
+     "url": "https://docs.lindy.ai/teammate/artifacts.md",
+     "read": "19 Nov 2026"
+    },
+    "fixed": {
+     "v": "partly",
+     "note": "Routines run on a schedule or event",
+     "url": "https://docs.lindy.ai/teammate/routines.md",
+     "read": "19 Nov 2026"
+    },
+    "approval": {
+     "v": "yes",
+     "note": "Outside actions wait for your OK",
+     "url": "https://www.lindy.ai/",
+     "read": "19 Nov 2026"
+    }
+   },
+   "limits": [
+    {
+     "fact": "When the credit pool runs low, Lindy pauses credit-using actions until the next cycle, and monthly credits do not roll over.",
+     "url": "https://www.lindy.ai/pricing",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "Every active user in the workspace is billed.",
+     "url": "https://www.lindy.ai/pricing",
+     "read": "19 Nov 2026"
+    }
+   ],
+   "better": [
+    {
+     "fact": "It works where you already talk: Slack, iMessage and email.",
+     "url": "https://www.lindy.ai/",
+     "read": "19 Nov 2026"
+    },
+    {
+     "fact": "It can learn a task by watching you do it once (Watch and Learn).",
+     "url": "https://www.lindy.ai/",
+     "read": "19 Nov 2026"
+    }
+   ]
+  }
+ },
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Memory\n- The workspace remembers facts about the business (hours, prices, policies, people, tone) and documents, pasted text and links you give it; AI agents answer from these.\n- Each AI agent, app and automation has its own memory: instructions, what it learned, lessons from your corrections, its last runs. You can see, correct or forget any item.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

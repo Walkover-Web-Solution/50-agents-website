@@ -1,0 +1,218 @@
+{
+  "slug": "ai-replies-to-support-email",
+  "kind": "ai",
+  "query": "AI to draft replies to customer emails",
+  "category": "customer-support",
+  "title": "AI to draft replies to customer emails | 50agents",
+  "description": "To draft replies to customer emails with AI, an AI agent reads new support mail in Gmail, writes each answer from what you told it and waits for your OK.",
+  "h1": "AI to draft replies to customer emails",
+  "h2": {
+    "how": "How the AI drafts replies to customer emails",
+    "compare": "Other ways to draft replies to customer emails"
+  },
+  "answer": [
+    "To draft replies to customer emails with AI, tell Captain \"Set up an AI agent that reads new support emails\".",
+    "It builds an AI agent that drafts a reply in each customer's thread and asks before sending."
+  ],
+  "ask": "Set up an AI agent that reads new support emails, drafts a reply from what you know about my business, and asks me before sending",
+  "stat": {
+    "text": "Help Scout's AI Drafts is available on its Plus and Pro plans, with a free trial of 100 conversations on user-based plans.",
+    "source": "Help Scout docs",
+    "href": "https://docs.helpscout.com/article/1570-ai-drafts"
+  },
+  "build": {
+    "name": "Support replies",
+    "line": "new support mail, a reply drafted for each",
+    "when": "On a schedule you choose, or when you ask",
+    "does": [
+      "Reads new support emails",
+      "Drafts a reply in the thread",
+      "Lists what it cannot answer"
+    ],
+    "apps": [
+      "gmail"
+    ],
+    "asksFirst": "Every reply to a customer"
+  },
+  "steps": [
+    {
+      "key": "ask",
+      "title": "You describe the job",
+      "body": "Paste the ask. Captain asks which inbox or label holds support mail, when to run, and what the AI agent should know."
+    },
+    {
+      "key": "plan",
+      "title": "Captain shows the AI agent's plan",
+      "body": "Its job, its instructions, Gmail as its app, its schedule, and what asks you first. Nothing is built until you tap Build it."
+    },
+    {
+      "key": "connect",
+      "title": "You connect Gmail and give it answers",
+      "body": "Connect Gmail once. Tell Captain your hours, prices, policies and tone, so replies come from your answers and not guesses."
+    },
+    {
+      "key": "run",
+      "title": "It reads new support mail",
+      "body": "Each run it drafts replies for the emails it can answer and lists the rest for you, with what it needs to know."
+    },
+    {
+      "key": "approve",
+      "title": "You approve each reply",
+      "body": "Every reply waits in Needs you with the customer, subject and full text. Approve and send, change it, or decline it."
+    }
+  ],
+  "run": [
+    {
+      "when": "Today, 8:00",
+      "did": "Read 9 emails, drafted 5 replies, listed 2 questions for you"
+    },
+    {
+      "when": "Yesterday, 8:00",
+      "did": "Read 4 emails, drafted 4 replies"
+    },
+    {
+      "when": "Monday, 8:00",
+      "did": "No new support mail"
+    }
+  ],
+  "approval": {
+    "title": "Reply to Grace Liu",
+    "to": "grace.liu@mail.example",
+    "lines": [
+      "Yes, you can move your delivery to Thursday. Orders placed before noon on Tuesday still arrive that week.",
+      "Tell me if Thursday does not work and I will find another day."
+    ],
+    "button": "Approve and send"
+  },
+  "compare": {
+    "methods": [
+      "Gmail's own AI",
+      "A help desk with AI drafts",
+      "Zapier"
+    ],
+    "rows": [
+      {
+        "label": "Set up",
+        "cells": [
+          "None",
+          "Move support into the tool",
+          "Build each step yourself",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "Answers from your policies",
+        "cells": [
+          "No",
+          "Yes, from past replies",
+          "If you add the text",
+          "From what you tell it"
+        ]
+      },
+      {
+        "label": "Runs without you opening each email",
+        "cells": [
+          "No",
+          "Yes",
+          "Yes",
+          "Yes, on a schedule"
+        ]
+      },
+      {
+        "label": "Waits for your OK before sending",
+        "cells": [
+          "Yes",
+          "Yes",
+          "Saves a draft",
+          "Yes, always"
+        ]
+      },
+      {
+        "label": "Shared queue for a support team",
+        "cells": [
+          "No",
+          "Yes",
+          "Partly",
+          "No"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "Google",
+        "href": "https://support.google.com/mail/answer/15464729"
+      },
+      {
+        "label": "Help Scout",
+        "href": "https://docs.helpscout.com/article/1570-ai-drafts"
+      },
+      {
+        "label": "Zapier",
+        "href": "https://zapier.com/automations/customer-service-success/conversational-support/ai-customer-support/draft-replies-for-customer-emails-and-route-unsure"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "Will it reply to customers without asking me?",
+      "a": "No. Every reply waits in Needs you until you approve it, change it or decline it. AI agents ask before sending, even to you, until you allow otherwise in Settings. See [How to make an AI agent ask before it acts](/guides/how-to-make-an-ai-agent-ask-before-it-acts)."
+    },
+    {
+      "q": "What does it do when it does not know the answer?",
+      "a": "It drafts nothing for that email and lists it in its summary with what it needs to know. Add the answer to its instructions and the next run covers it."
+    },
+    {
+      "q": "Does it answer the moment an email arrives?",
+      "a": "No. An AI agent runs on a schedule or when you ask it in its chat. For a reply drafted on each new email, ask Captain for an automation that starts on the Gmail new-email event."
+    },
+    {
+      "q": "Does it work with Zendesk, Help Scout or Intercom?",
+      "a": "This one works with Gmail. If several people share a support queue, a help desk is the better tool for assignment and reporting."
+    },
+    {
+      "q": "How do I keep the replies sounding like me?",
+      "a": "Tell Captain your tone and add a few of your own past replies as examples. You can also change any draft before approving it. [How to draft email replies with AI and still check them](/guides/how-to-draft-email-replies-with-ai-and-still-check-them) covers the one-minute review."
+    },
+    {
+      "q": "What does it cost to start?",
+      "a": "50agents is free to start. Describe the job to Captain, check the plan it shows, and tap Build it when you are happy."
+    },
+    {
+      "q": "What if it gets an answer wrong?",
+      "a": "The reply is only a draft until you approve it, so a wrong answer stops in Needs you. Change the wording or decline it, then add the right answer to the AI agent's instructions so the next run uses it."
+    },
+    {
+      "q": "How do I change what it knows or stop it?",
+      "a": "Tell Captain your hours, prices and policies, and update them in plain words when they change. The AI agent keeps its own memory of instructions and lessons, and you can see, correct or forget any item."
+    },
+    {
+      "q": "Can it handle refunds or angry customers?",
+      "a": "It drafts a reply from what the business knows, and you read every one before it goes. Anything it cannot answer is listed for you, so a refund request or a complaint reaches you rather than being guessed."
+    }
+  ],
+  "variations": [
+    {
+      "ask": "Set up an AI agent that reads new support emails every weekday at 9:00, drafts a reply from what you know about my business, and asks me before sending",
+      "change": "Runs once each weekday morning"
+    },
+    {
+      "ask": "Set up an AI agent that reads new support emails, drafts short, friendly replies signed with my first name, and asks me before sending",
+      "change": "Shorter replies, signed by you"
+    },
+    {
+      "ask": "Set up an AI agent that reads new support emails in Microsoft Outlook, drafts a reply from what you know about my business, and asks me before sending",
+      "change": "Works in Outlook instead of Gmail"
+    },
+    {
+      "ask": "Set up an AI agent that reads new support emails, drafts replies, and posts in Slack the ones it cannot answer",
+      "change": "Open questions land in Slack"
+    }
+  ],
+  "tags": [
+    "support",
+    "gmail",
+    "email",
+    "replies"
+  ],
+  "updated": "2026-11-19"
+}

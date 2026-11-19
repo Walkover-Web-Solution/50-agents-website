@@ -1,0 +1,204 @@
+{
+ "pair": "intercom/dropbox",
+ "apps": {
+  "intercom": {
+   "name": "Intercom",
+   "labels": [
+    "Customer Support",
+    "Communication",
+    "Marketing Automation"
+   ],
+   "about": "Intercom is a customer messaging platform that helps businesses connect with their customers through live chat, bots, and personalized messaging. It enables com"
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Delete File or Folder",
+   "triggers": [
+    "intercom:Teammate Replies",
+    "intercom:Teammate Replies to Ticket",
+    "intercom:Ticket State Changes",
+    "intercom:User Unsubscribes From Message Subscription Type",
+    "intercom:Admin Away Mode Is Updated",
+    "intercom:User Subscribes to Message Type",
+    "intercom:Ticket Contact Detached",
+    "intercom:Note Added to Ticket",
+    "intercom:User Untagged",
+    "intercom:Open Conversation Assigned To Teammate",
+    "intercom:Admin Initiates Message to User",
+    "intercom:Company Attached To Contact",
+    "intercom:Note Is Added to Conversation",
+    "intercom:Team Assigned to Ticket",
+    "intercom:Contact Is Deleted",
+    "intercom:Tag Removed From Lead",
+    "intercom:Admin Is Assigned to Ticket",
+    "intercom:Contact Added to Conversation",
+    "intercom:Conversation Priority Updated",
+    "intercom:Lead Adds Email Address",
+    "intercom:Conversation Is Closed",
+    "intercom:Contact Archived",
+    "intercom:Conversation Opened by Admin",
+    "intercom:Conversation Snoozed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "intercom:Teammate Replies",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Teammate Replies"
+  },
+  {
+   "key": "dropbox:Delete File or Folder",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Deletes a file or folder from Dropbox by its location; removing a folder deletes everything inside it."
+  },
+  {
+   "key": "intercom:Teammate Replies to Ticket",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when teammate replies to ticket"
+  },
+  {
+   "key": "intercom:Ticket State Changes",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when ticket state changes"
+  },
+  {
+   "key": "intercom:User Unsubscribes From Message Subscription Type",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when user unsubscribes from message subscription type."
+  },
+  {
+   "key": "intercom:Admin Away Mode Is Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when admin away mode is updated"
+  },
+  {
+   "key": "intercom:User Subscribes to Message Type",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when user subscribes to message type"
+  },
+  {
+   "key": "intercom:Ticket Contact Detached",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when ticket contact detached"
+  },
+  {
+   "key": "intercom:Note Added to Ticket",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a note is added to a ticket"
+  },
+  {
+   "key": "intercom:User Untagged",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when user is untagged"
+  },
+  {
+   "key": "intercom:Open Conversation Assigned To Teammate",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Open Conversation Assigned To Teammate"
+  },
+  {
+   "key": "intercom:Admin Initiates Message to User",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Admin Initiates Message to User"
+  },
+  {
+   "key": "intercom:Company Attached To Contact",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a company is attached to a contact."
+  },
+  {
+   "key": "intercom:Note Is Added to Conversation",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when note is added to conversation"
+  },
+  {
+   "key": "intercom:Team Assigned to Ticket",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Team Assigned to Ticket"
+  },
+  {
+   "key": "intercom:Contact Is Deleted",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when contact is deleted"
+  },
+  {
+   "key": "intercom:Tag Removed From Lead",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when tag removed from lead"
+  },
+  {
+   "key": "intercom:Admin Is Assigned to Ticket",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an admin is assigned to a ticket"
+  },
+  {
+   "key": "intercom:Contact Added to Conversation",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Contact Added to Conversation"
+  },
+  {
+   "key": "intercom:Conversation Priority Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when conversation priority is updated"
+  },
+  {
+   "key": "intercom:Lead Adds Email Address",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Lead Adds Email Address"
+  },
+  {
+   "key": "intercom:Conversation Is Closed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when conversation is closed"
+  },
+  {
+   "key": "intercom:Contact Archived",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a contact is archived."
+  },
+  {
+   "key": "intercom:Conversation Opened by Admin",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when Conversation Opened by Admin"
+  },
+  {
+   "key": "intercom:Conversation Snoozed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when conversation snoozed"
+  }
+ ]
+}

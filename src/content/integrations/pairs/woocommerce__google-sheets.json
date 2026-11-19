@@ -1,0 +1,1 @@
+{"usedFor":"Each new WooCommerce order becomes a row in Google Sheets.","bestTemplate":{"name":"“New Order Created” in WooCommerce, then “Add New Row to Sheet” in Google Sheets","why":"It gives you one row per order as it is created."},"watchOut":"Pointing “Delete Rows” at “New Order Created” would wipe orders from the sheet."}

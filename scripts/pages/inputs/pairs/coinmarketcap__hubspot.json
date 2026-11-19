@@ -1,0 +1,51 @@
+{
+ "pair": "coinmarketcap/hubspot",
+ "apps": {
+  "coinmarketcap": {
+   "name": "CoinMarketCap",
+   "labels": [
+    "Finance",
+    "Analytics"
+   ],
+   "about": "CoinMarketCap provides real-time and historical cryptocurrency prices, market cap, volume, rankings, coin metadata, global market metrics and the Fear and Greed"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "coinmarketcap:New Fear and Greed Index Update",
+    "coinmarketcap:New Cryptocurrency Listed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "coinmarketcap:New Fear and Greed Index Update",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when the CoinMarketCap Crypto Fear and Greed Index publishes a new value."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "coinmarketcap:New Cryptocurrency Listed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new cryptocurrency is added to CoinMarketCap, optionally filtered by type and tag."
+  }
+ ]
+}

@@ -1,0 +1,1 @@
+{"usedFor":"Each new WordPress user opens a project in Asana.","bestTemplate":{"name":"“New User Created” in Wordpress, then “Create Project” in Asana","why":"One project per new member, with name, notes, dates, owner and privacy set at once."},"watchOut":"“User Updates Profile” also fires, so keep the trigger on “New User Created” to avoid duplicate projects."}

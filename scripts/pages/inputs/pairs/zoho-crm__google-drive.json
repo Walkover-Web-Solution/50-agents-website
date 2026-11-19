@@ -1,0 +1,86 @@
+{
+ "pair": "zoho-crm/google-drive",
+ "apps": {
+  "zoho-crm": {
+   "name": "Zoho CRM",
+   "labels": [
+    "CRM",
+    "Top Free Apps",
+    "Contact Management",
+    "Marketing Automation",
+    "Business Intelligence",
+    "Analytics"
+   ],
+   "about": "Zoho CRM is an AI-powered customer relationship management platform that helps businesses manage leads, contacts, deals, customer interactions, sales automation"
+  },
+  "google-drive": {
+   "name": "Google Drive",
+   "labels": [
+    "File Management and Storage Google",
+    "Top Free Apps",
+    "Team Collaboration",
+    "Product Management",
+    "Documents",
+    "Spreadsheets"
+   ],
+   "about": "Google Drive is a secure cloud storage and file collaboration platform that lets users store, share, organize, sync, and collaborate on files from anywhere, inc"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-drive:Share File With Anyone",
+   "triggers": [
+    "zoho-crm:New Task",
+    "zoho-crm:New Contact",
+    "zoho-crm:New Deals",
+    "zoho-crm:New Lead",
+    "zoho-crm:New or Updated Lead",
+    "zoho-crm:New Account"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "zoho-crm:New Task",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update perform and sample code to Zoho CRM v8 with required fields and creation-time sorting."
+  },
+  {
+   "key": "google-drive:Share File With Anyone",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Make a file accessible via a shareable link and set access level (Viewer, Commenter, Editor)."
+  },
+  {
+   "key": "zoho-crm:New Contact",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update approved perform, sample, and transfer blocks to Zoho CRM v8 with required fields and safe response reads; preserve inputs, scopes, metadata, fallback sample, and existing error mappings."
+  },
+  {
+   "key": "zoho-crm:New Deals",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Apply confirmed v8 polling, latest sample, and safe historical transfer updates to the existing New Deals trigger."
+  },
+  {
+   "key": "zoho-crm:New Lead",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Apply the approved sample-code-only update. Preserve the existing action description, all other code blocks, input fields, scopes, metadata, and component mappings."
+  },
+  {
+   "key": "zoho-crm:New or Updated Lead",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update perform, sample, and transfer code to use the Zoho CRM v8 Leads endpoint and required fields."
+  },
+  {
+   "key": "zoho-crm:New Account",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Update perform and sample endpoints to Zoho CRM v8, adding required sample fields and safe response access."
+  }
+ ]
+}

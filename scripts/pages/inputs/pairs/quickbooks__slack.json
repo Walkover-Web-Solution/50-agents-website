@@ -1,0 +1,67 @@
+{
+ "pair": "quickbooks/slack",
+ "apps": {
+  "quickbooks": {
+   "name": "QuickBooks",
+   "labels": [
+    "Accounting",
+    "Finance",
+    "Business Management"
+   ],
+   "about": "QuickBooks is a comprehensive accounting software designed to manage sales, expenses, and keep track of daily business transactions. It offers features like inv"
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "quickbooks:New Invoice",
+    "quickbooks:New Bill"
+   ]
+  },
+  {
+   "action": "slack:Send Direct Message",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "quickbooks:New Invoice",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new invoice is created."
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "quickbooks:New Bill",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new bill is created."
+  },
+  {
+   "key": "slack:Send Direct Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a Slack DM to a user"
+  }
+ ]
+}

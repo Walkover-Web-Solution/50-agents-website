@@ -1,0 +1,1 @@
+{"usedFor":"A cancelled Shopify order sends a push notification through ActivitySmith.","bestTemplate":{"name":"“Order Cancelled” in Shopify, then “Send Push Notification” in ActivitySmith","why":"A cancellation is worth hearing about fast, and it is pushed as Shopify reports it."},"watchOut":"“Abandoned Checkout” polls, so an ActivitySmith push from it can arrive late."}

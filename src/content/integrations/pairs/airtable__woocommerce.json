@@ -1,0 +1,1 @@
+{"usedFor":"An Airtable row becomes a live discount code in WooCommerce.","bestTemplate":{"name":"“Record Created Or Updated” in Airtable, then “Create Coupon” in WooCommerce","why":"You manage promotions in a table and publish each one to the store."},"watchOut":"“Record Created Or Updated” fires on edits, so one record can try to create the same coupon twice."}

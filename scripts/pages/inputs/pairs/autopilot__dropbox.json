@@ -1,0 +1,91 @@
+{
+ "pair": "autopilot/dropbox",
+ "apps": {
+  "autopilot": {
+   "name": "Autopilot",
+   "labels": [
+    "CRM (Customer Relationship Management)",
+    "Field Service Management"
+   ],
+   "about": "Autopilot is a CRM and field service management app for home service businesses: clients, jobs, scheduling, estimates, invoices and payments."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "autopilot:Updated Estimate",
+    "autopilot:New Estimate",
+    "autopilot:Updated Invoice",
+    "autopilot:New Invoice",
+    "autopilot:Updated Job",
+    "autopilot:New Job",
+    "autopilot:Updated Client",
+    "autopilot:New Client"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "autopilot:Updated Estimate",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an estimate changes. Optionally only when it has a chosen status."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "autopilot:New Estimate",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new estimate is created. Sends events to a configured webhook URL."
+  },
+  {
+   "key": "autopilot:Updated Invoice",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an invoice or its payments are updated. Optionally only for a chosen status."
+  },
+  {
+   "key": "autopilot:New Invoice",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new invoice is created."
+  },
+  {
+   "key": "autopilot:Updated Job",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a job is updated, optionally only for a chosen status."
+  },
+  {
+   "key": "autopilot:New Job",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new job is created."
+  },
+  {
+   "key": "autopilot:Updated Client",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a client changes, including addresses and tags."
+  },
+  {
+   "key": "autopilot:New Client",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new client or lead is added. Optionally only clients or only leads."
+  }
+ ]
+}

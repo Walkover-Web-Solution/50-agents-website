@@ -1,0 +1,143 @@
+{
+  "slug": "make-alternatives",
+  "type": "alternatives",
+  "tool": "make",
+  "query": "make.com alternatives",
+  "title": "Make.com alternatives and their starting prices | 50agents",
+  "description": "Make.com alternatives: n8n with per-run pricing, Zapier for the most apps, Activepieces with flat plans, Power Automate, Gumloop, and 50agents.",
+  "h1": "Make.com alternatives",
+  "answer": [
+    "n8n bills per run instead of per credit, and Activepieces has flat plans.",
+    "Zapier connects the most apps; 50agents builds the scenario for you from one sentence."
+  ],
+  "line": "Captain builds the scenario for you from one sentence.",
+  "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
+  "lede": "How each alternative to Make works and where its pricing starts.",
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Skipping the canvas entirely",
+      "price": "Free to start",
+      "diff": "Built from one sentence",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "n8n",
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Bills per run, not step",
+      "src": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "zapier",
+      "best": "Connecting 10,541+ apps",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Bills each action step",
+      "src": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "activepieces",
+      "best": "Open source, flat pricing",
+      "price": "Free plan; Plus $20 a month",
+      "diff": "Self-host, MIT-licensed core",
+      "src": "https://www.activepieces.com/"
+    },
+    {
+      "tool": "powerautomate",
+      "best": "Microsoft 365 teams",
+      "price": "Free licence; Premium $15 per user",
+      "diff": "Desktop RPA for Windows apps",
+      "src": "https://www.microsoft.com/en-us/power-platform/products/power-automate"
+    },
+    {
+      "tool": "gumloop",
+      "best": "Team AI agents, IT controls",
+      "price": "$37 a month (Pro)",
+      "diff": "Cloud browser with saved logins",
+      "src": "https://docs.gumloop.com/core-concepts/agent_browser.md"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "Automations on events",
+      "line": "The same steps on a new order, payment or contact, or on a timer.",
+      "face": "keeper"
+    },
+    {
+      "title": "Apps with your own records",
+      "line": "Lists, boards and tables, run by a crew of AI agents.",
+      "face": "sorter"
+    }
+  ],
+  "move": [
+    {
+      "title": "Export each blueprint",
+      "body": "A Make scenario exports as a blueprint, a .json file. Keep it as a record."
+    },
+    {
+      "title": "Write it as a sentence",
+      "body": "Say what starts it and what should happen, in your own words."
+    },
+    {
+      "title": "Let Captain build it",
+      "body": "Captain shows the plan and waits for your go before it builds."
+    },
+    {
+      "title": "Turn off the scenario",
+      "body": "Run both for a few days, compare the rows, then switch Make off."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does Make have a free plan?",
+      "a": "Yes. Make Free includes 1,000 credits a month. Paid plans start at $9 a month for 10,000 credits on Core."
+    },
+    {
+      "q": "Which Make alternative bills per run?",
+      "a": "n8n. One execution is one run of the whole workflow, however many steps it has. Starter is €20 a month billed yearly. See [50agents vs n8n](/compare/50agents-vs-n8n)."
+    },
+    {
+      "q": "Can I move Make scenarios to another tool automatically?",
+      "a": "No. A blueprint is a .json file you can import elsewhere in Make. In another tool you rebuild, starting with the busiest scenario. To choose the tool, read [Zapier vs Make vs n8n for a small team](/guides/zapier-vs-make-vs-n8n-for-a-small-team)."
+    },
+    {
+      "q": "What does Make cost?",
+      "a": "Free has 1,000 credits a month. Paid plans start at $9 a month for 10,000 credits (Core)."
+    },
+    {
+      "q": "Which alternative builds from a plain request?",
+      "a": "50agents builds from a sentence to Captain. n8n has an AI Assistant that helps create and edit workflows, and Gumloop lets you describe work in plain language."
+    },
+    {
+      "q": "Which alternative lists more apps?",
+      "a": "Zapier connects 10,541+ apps. n8n lists 2,829 integrations. 50agents works with 2,300+ apps through viaSocket, and Activepieces has 770+."
+    },
+    {
+      "q": "Which alternative has a visual editor?",
+      "a": "n8n has a visual builder. In 50agents you see every step and change it by asking Captain."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/50agents-vs-make",
+      "title": "50agents vs Make",
+      "line": "The canvas, or plain words"
+    },
+    {
+      "href": "/compare/zapier-alternatives",
+      "title": "Zapier alternatives",
+      "line": "The other big hosted option"
+    },
+    {
+      "href": "/compare/n8n-alternatives",
+      "title": "n8n alternatives",
+      "line": "If n8n is on your list"
+    }
+  ],
+  "updated": "2026-11-19"
+}

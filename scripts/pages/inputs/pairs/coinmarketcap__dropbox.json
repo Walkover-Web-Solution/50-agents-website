@@ -1,0 +1,49 @@
+{
+ "pair": "coinmarketcap/dropbox",
+ "apps": {
+  "coinmarketcap": {
+   "name": "CoinMarketCap",
+   "labels": [
+    "Finance",
+    "Analytics"
+   ],
+   "about": "CoinMarketCap provides real-time and historical cryptocurrency prices, market cap, volume, rankings, coin metadata, global market metrics and the Fear and Greed"
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "coinmarketcap:New Fear and Greed Index Update",
+    "coinmarketcap:New Cryptocurrency Listed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "coinmarketcap:New Fear and Greed Index Update",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when the CoinMarketCap Crypto Fear and Greed Index publishes a new value."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "coinmarketcap:New Cryptocurrency Listed",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new cryptocurrency is added to CoinMarketCap, optionally filtered by type and tag."
+  }
+ ]
+}

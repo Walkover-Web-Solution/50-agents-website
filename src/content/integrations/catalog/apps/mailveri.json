@@ -1,0 +1,1 @@
+{"slug":"mailveri","name":"MailVeri","description":"A service to verify email addresses.","icon":"https://stuff.thingsofbrand.com/mailveri.com/images/imge_mailveri.png","domain":"mailveri.com","rank":318,"labels":["Email"],"categories":["email"],"eventsRead":true,"events":[{"n":"Verify Email","d":"Check if email is deliverable","t":"action","k":"hook"}],"recipes":[]}

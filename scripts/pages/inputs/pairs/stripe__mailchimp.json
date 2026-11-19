@@ -1,0 +1,61 @@
+{
+ "pair": "stripe/mailchimp",
+ "apps": {
+  "stripe": {
+   "name": "Stripe",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "Stripe is a financial technology company that provides a set of tools and APIs (Application Programming Interfaces) for online businesses to handle payments, su"
+  },
+  "mailchimp": {
+   "name": "MailChimp",
+   "labels": [
+    "Marketing",
+    "Top Free Apps"
+   ],
+   "about": "Mailchimp is an all-in-one marketing platform that helps businesses manage and talk to their clients, customers, and other interested parties."
+  }
+ },
+ "templates": [
+  {
+   "action": "mailchimp:Update Subscriber",
+   "triggers": [
+    "stripe:New Customer Created"
+   ]
+  },
+  {
+   "action": "mailchimp:Add Tags to Audience Member",
+   "triggers": [
+    "stripe:New Customer Created",
+    "stripe:Payment Link Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "stripe:New Customer Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when customer is created"
+  },
+  {
+   "key": "mailchimp:Update Subscriber",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an audience subscriber's email address, subscription status, or profile (merge) fields."
+  },
+  {
+   "key": "mailchimp:Add Tags to Audience Member",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Add one or more tags to an audience member identified by their email."
+  },
+  {
+   "key": "stripe:Payment Link Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when payment link created"
+  }
+ ]
+}

@@ -3,6 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
     // PostHog's endpoints end in a slash (/ingest/e/); Next must not redirect them away (posthog.com/docs/libraries/next-js)
     skipTrailingSlashRedirect: true,
+    // The catalog snapshot (21 MB) and the pages' JSON are read at build time only (every page that reads them is
+    // pre-rendered), so no server function carries them. Traced in, they bloat every function's config, and next-on-pages
+    // fails converting 2,000+ pre-rendered pages ("Invalid string length").
+    outputFileTracingExcludes: {
+        '*': ['src/content/**/*.json'],
+    },
     images: {
         remotePatterns: [
             {
@@ -43,11 +49,7 @@ const nextConfig: NextConfig = {
     },
     async redirects() {
         return [
-            {
-                source: '/services/:path*',
-                destination: '/ai-agents/:path*',
-                permanent: true,
-            },
+            // /services/* and old app pages are redirected by src/middleware.ts (one hop to /integrations when the app is in the catalog)
         ];
     },
     async headers() {

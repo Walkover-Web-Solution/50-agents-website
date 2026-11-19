@@ -1,0 +1,1 @@
+{"usedFor":"An incoming Twilio call opens a deal in HubSpot while the caller is still fresh.","bestTemplate":{"name":"“New Incoming Call” in Twilio, then “Create Deal” in HubSpot","why":"It is pushed as a call arrives, and an inbound call is a clear buying signal."},"watchOut":"“Update Deal” needs the ID of an existing deal, so it cannot start from a new call."}

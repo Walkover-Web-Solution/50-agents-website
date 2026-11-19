@@ -1,0 +1,1 @@
+{"usedFor":"An email address put into a new Asana task gets a Qualisend verdict.","bestTemplate":{"name":"“New Task Created in Selected Project” in Asana, then “Verify Email” in Qualisend","why":"If each new contact gets a task, the address is checked as it comes in."},"watchOut":"“Verify Email List” needs a list or CSV, so a single task gives it little."}

@@ -1,0 +1,1 @@
+{"usedFor":"Each “New Tag Created” in Asana copies a template file into a Google Drive folder.","bestTemplate":{"name":"“New Tag Created” in Asana, then “Copy a File” in Google Drive","why":"A new tag marks a new client or topic, so work starts from a ready template."},"watchOut":"“New Tag Created” polls on a schedule, so the copy can appear a little after the tag."}

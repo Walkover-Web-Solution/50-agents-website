@@ -1,0 +1,236 @@
+{
+  "slug": "how-to-build-a-customer-requests-desk-from-your-inbox",
+  "group": "Apps",
+  "kind": "app",
+  "query": "how to build a customer requests desk from your inbox",
+  "title": "Build a customer requests desk from your inbox | 50agents",
+  "description": "Turn your inbox into a requests desk: one record per request with status, priority and an answer-by date, a board by status, and replies drafted.",
+  "h1": "How to build a customer requests desk from your inbox",
+  "cover": {
+    "scene": "board",
+    "app": "gmail",
+    "label": "Requests",
+    "columns": [
+      {
+        "name": "New",
+        "cards": [
+          {
+            "title": "Refund for order #88",
+            "tag": "Due today"
+          }
+        ]
+      },
+      {
+        "name": "Waiting on us",
+        "cards": [
+          {
+            "title": "Change delivery address"
+          },
+          {
+            "title": "Invoice copy"
+          }
+        ]
+      },
+      {
+        "name": "Done",
+        "cards": [
+          {
+            "title": "Size swap"
+          }
+        ]
+      }
+    ]
+  },
+  "answer": [
+    "Give every customer email that needs an answer a record with a status, a priority and an answer-by date.",
+    "Then work from a board of those records instead of the inbox."
+  ],
+  "chooser": {
+    "h2": "Which setup fits your volume?",
+    "root": {
+      "q": "How many people answer customer email?",
+      "options": [
+        {
+          "label": "Just me, a few a day",
+          "then": {
+            "answer": "Gmail labels and stars",
+            "why": "Free and nothing new to learn. You get no answer-by dates and no view of what is late, so check the label daily."
+          }
+        },
+        {
+          "label": "A small team",
+          "then": {
+            "q": "Do you want replies drafted for you?",
+            "options": [
+              {
+                "label": "No, just shared and assigned",
+                "then": {
+                  "answer": "A shared inbox",
+                  "why": "Google Groups Collaborative Inbox, Front or Hiver let you assign each email to one person and filter what is unresolved."
+                }
+              },
+              {
+                "label": "Yes, and sorted on arrival",
+                "then": {
+                  "answer": "A requests desk app",
+                  "why": "It turns each email into a record, sorts it by kind and priority, and drafts a reply that waits for your yes.",
+                  "kind": "app",
+                  "href": "/use-cases/customer-requests-desk"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "Ten or more, many channels",
+          "then": {
+            "answer": "A help desk such as Zendesk or Freshdesk",
+            "why": "Tickets, service-level targets, macros and reports across email, chat and phone. Heavy for a small team."
+          }
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "record",
+      "h2": "What each request record holds",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Field",
+              "Values",
+              "Why"
+            ],
+            "rows": [
+              [
+                "Subject, customer, email",
+                "From the email",
+                "Who and what"
+              ],
+              [
+                "Status",
+                "New, Waiting on us, Waiting on them, Solved",
+                "Who owes the next reply"
+              ],
+              [
+                "Priority",
+                "Low, Normal, Urgent",
+                "What to answer first"
+              ],
+              [
+                "Kind",
+                "Question, Problem, Request, Complaint",
+                "What to fix in product or policy"
+              ],
+              [
+                "Answer by",
+                "A date",
+                "Tomorrow if urgent, else two days"
+              ],
+              [
+                "Details",
+                "Long text",
+                "The ask, plus what was done"
+              ]
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to build a customer requests desk, step by step",
+    "steps": [
+      {
+        "title": "Pick one address for requests",
+        "body": "support@ or help@. Requests sent to personal inboxes get lost when someone is away."
+      },
+      {
+        "title": "Decide what becomes a request",
+        "body": "A question, a problem, a change, a complaint. Not newsletters, invoices or sales pitches."
+      },
+      {
+        "title": "Create a record per request",
+        "body": "By hand from a label, or automatically from new email. Keep the thread link on the record."
+      },
+      {
+        "title": "Sort each one as it arrives",
+        "body": "Set kind, priority and answer-by date. Rules first, then judgement for the unclear ones.",
+        "note": {
+          "type": "tip",
+          "text": "Write the rule for Urgent in one sentence: something is broken, money is at stake, or the customer is upset. Otherwise everything drifts to urgent.",
+          "about": "ai"
+        }
+      },
+      {
+        "title": "Work from the board",
+        "body": "Waiting on us, oldest first, urgent at the top. The inbox becomes where replies go out, not where work is tracked."
+      },
+      {
+        "title": "Close the loop",
+        "body": "Waiting on them for three days with no reply: send a short check-in, then mark it Solved."
+      }
+    ]
+  },
+  "captain": {
+    "at": 3,
+    "line": "Captain builds the desk with an AI agent that sorts each new request, drafts a reply from what your business knows, and waits for your yes.",
+    "useCase": "customer-requests-desk"
+  },
+  "wrong": [
+    {
+      "title": "Two people answer the same email",
+      "body": "Nobody could see who had it. Assign each request to one person, or have one person own the desk.",
+      "about": "app"
+    },
+    {
+      "title": "A thread splits",
+      "body": "The customer replies with a new subject and it becomes a new request. Match on the customer's email and merge.",
+      "about": "app"
+    },
+    {
+      "title": "Forwarded requests lose the customer",
+      "body": "A colleague forwards an email and the record shows the colleague as the customer. Read the original sender from the forwarded text.",
+      "about": "ai"
+    },
+    {
+      "title": "Drafts that promise too much",
+      "body": "An AI-drafted reply offers a refund you would not give. Keep your policies in its memory, and review every draft before it goes.",
+      "about": "ai"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Shared inbox or help desk?",
+      "a": "A shared inbox for a small team with modest volume; a help desk once you have many support staff, several channels or service-level targets to report on."
+    },
+    {
+      "q": "How do I stop two people replying to the same email?",
+      "a": "Assign each conversation to one person. Google Groups' Collaborative Inbox lets members take a conversation; a desk app shows each request's owner and status."
+    },
+    {
+      "q": "How do I track open customer requests?",
+      "a": "Give each one a record with a status and an answer-by date, and work from a view of everything Waiting on us, oldest first."
+    },
+    {
+      "q": "Which emails should become requests?",
+      "a": "A question, a problem, a change or a complaint from a customer. Not newsletters, invoices or sales pitches. Write the rule down so everyone sorts the same way."
+    },
+    {
+      "q": "How quickly should we answer?",
+      "a": "Set an answer-by date on every request: tomorrow if urgent, otherwise two days. Work from Waiting on us, oldest first, urgent at the top."
+    },
+    {
+      "q": "What happens when a customer never replies?",
+      "a": "Mark it Waiting on them. After three days with no reply, send a short check-in, then mark it Solved. A desk full of stale requests hides the live ones."
+    }
+  ],
+  "related": [
+    "how-to-draft-email-replies-with-ai-and-still-check-them",
+    "how-to-triage-your-inbox-with-ai",
+    "internal-tools-without-code-what-to-build-first"
+  ],
+  "updated": "2026-11-19"
+}

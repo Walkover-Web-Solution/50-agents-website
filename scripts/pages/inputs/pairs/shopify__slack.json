@@ -1,0 +1,103 @@
+{
+ "pair": "shopify/slack",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "slack": {
+   "name": "Slack",
+   "labels": [
+    "communication and collaboration tools.",
+    "Notifications",
+    "Contact Management",
+    "Team Chat",
+    "Communication",
+    "Team Collaboration"
+   ],
+   "about": "Slack is an AI-powered work platform for team communication, collaboration, project coordination, and workflow automation. It helps organizations centralize con"
+  }
+ },
+ "templates": [
+  {
+   "action": "slack:Send Message",
+   "triggers": [
+    "shopify:Order Cancelled",
+    "shopify:New Order",
+    "shopify:Product Updated"
+   ]
+  },
+  {
+   "action": "slack:Send Interactive Message",
+   "triggers": [
+    "shopify:Order Cancelled",
+    "shopify:Product Updated"
+   ]
+  },
+  {
+   "action": "slack:Message Private Channel",
+   "triggers": [
+    "shopify:New Order"
+   ]
+  },
+  {
+   "action": "shopify:Create Customer",
+   "triggers": [
+    "slack:New Message Posted in Channel Instant"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  },
+  {
+   "key": "slack:Send Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+  },
+  {
+   "key": "slack:Send Interactive Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a message with buttons or a form to collect approvals or responses."
+  },
+  {
+   "key": "shopify:New Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new order is created."
+  },
+  {
+   "key": "slack:Message Private Channel",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Message a private channel"
+  },
+  {
+   "key": "shopify:Product Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a product is updated in Shopify account."
+  },
+  {
+   "key": "slack:New Message Posted in Channel Instant",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+  },
+  {
+   "key": "shopify:Create Customer",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new Shopify customer with contact info, optional addresses, tax settings, tags, and marketing consents."
+  }
+ ]
+}

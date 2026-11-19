@@ -1,0 +1,83 @@
+{
+ "pair": "woocommerce/google-sheets",
+ "apps": {
+  "woocommerce": {
+   "name": "WooCommerce",
+   "labels": [
+    "E-commerce",
+    "Website Management",
+    "Online Store"
+   ],
+   "about": "WooCommerce is a customizable, open-source eCommerce platform built on WordPress. It is designed to help businesses of all sizes create and manage an online sto"
+  },
+  "google-sheets": {
+   "name": "Google Sheets",
+   "labels": [
+    "Productivity",
+    "Top Free Apps",
+    "Spreadsheets",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Google Sheets is a cloud-based spreadsheet application that lets users create, edit, share, and collaborate on spreadsheets in real time."
+  }
+ },
+ "templates": [
+  {
+   "action": "google-sheets:Add New Row to Sheet",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "google-sheets:Update Spreadsheet Row",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "google-sheets:Delete Rows",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "google-sheets:Add Multiple Rows",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "woocommerce:New Order Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new order is created."
+  },
+  {
+   "key": "google-sheets:Add New Row to Sheet",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+  },
+  {
+   "key": "google-sheets:Update Spreadsheet Row",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update columns in sheet row"
+  },
+  {
+   "key": "google-sheets:Delete Rows",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Delete one or more rows from a specific sheet in a Google Spreadsheet using a row range or row numbers."
+  },
+  {
+   "key": "google-sheets:Add Multiple Rows",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Add one or more rows to a specific sheet in a Google Spreadsheet. Provide data column-by-column or paste a JSON array for bulk inserts. If the sheet has no headers, they will be auto-created from your JSON keys."
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "pair": "autoquote3d/hubspot",
+ "apps": {
+  "autoquote3d": {
+   "name": "AutoQuote3D",
+   "labels": [
+    "Productivity",
+    "Engineering"
+   ],
+   "about": "Instant quoting and order management software for 3D print shops: automate quotes, paid orders, fulfillment tracking and analytics."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "autoquote3d:New Order",
+    "autoquote3d:New Quote"
+   ]
+  },
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "autoquote3d:New Order",
+    "autoquote3d:New Quote"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "autoquote3d:New Order",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new order is placed, optionally only for chosen statuses."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "autoquote3d:New Quote",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new quote is created in your Business."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  }
+ ]
+}

@@ -1,0 +1,144 @@
+{
+  "slug": "pipedream-alternatives",
+  "type": "alternatives",
+  "tool": "pipedream",
+  "query": "pipedream alternatives",
+  "title": "Pipedream alternatives as Workflows close | 50agents",
+  "description": "Pipedream Workflows are closing. Move code-heavy workflows to n8n or Activepieces, simpler ones to Zapier, Make or 50agents. What each suits and its price.",
+  "h1": "Pipedream alternatives",
+  "answer": [
+    "Code-heavy workflows fit n8n or Activepieces, which both self-host.",
+    "Simpler ones fit Zapier or Make, and 50agents rebuilds a workflow from one sentence, such as Stripe payments into a Google Sheet."
+  ],
+  "line": "Rebuild a workflow from one sentence, such as Stripe payments into a Google Sheet.",
+  "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
+  "lede": "Where Pipedream workflows can go, side by side.",
+  "notice": {
+    "h": "Pipedream Workflows are closing",
+    "body": "Pipedream says Workflows and String are shutting down on March 31, 2027. Pipedream now sells Connect, an integration layer for developers."
+  },
+  "entries": [
+    {
+      "tool": "fifty",
+      "best": "Simple app-to-sheet workflows",
+      "price": "Free to start",
+      "diff": "Rebuilt from one sentence",
+      "src": "https://50agents.com"
+    },
+    {
+      "tool": "n8n",
+      "best": "Technical teams, self-hosting",
+      "price": "€20 a month, billed yearly",
+      "diff": "Code node, JavaScript or Python",
+      "src": "https://n8n.io/pricing/"
+    },
+    {
+      "tool": "activepieces",
+      "best": "Open source, flat pricing",
+      "price": "Free plan; Plus $20 a month",
+      "diff": "Self-host, MIT-licensed core",
+      "src": "https://www.activepieces.com/"
+    },
+    {
+      "tool": "zapier",
+      "best": "Connecting 10,541+ apps",
+      "price": "Free plan; $19.99 a month",
+      "diff": "Bills each action step",
+      "src": "https://zapier.com/pricing"
+    },
+    {
+      "tool": "make",
+      "best": "Visual, branching scenarios",
+      "price": "Free plan; Core $9 a month",
+      "diff": "Most actions use one credit",
+      "src": "https://www.make.com/en/pricing"
+    }
+  ],
+  "strengths": [
+    {
+      "title": "Automations on events",
+      "line": "The same steps on a new order, payment or contact, or on a timer.",
+      "face": "keeper"
+    },
+    {
+      "title": "Describe it in plain words",
+      "line": "Captain asks a few questions, shows a plan, then builds it.",
+      "face": "lead"
+    },
+    {
+      "title": "You see every step",
+      "line": "Captain shows the plan before it builds, and every step after.",
+      "face": "lead"
+    }
+  ],
+  "move": [
+    {
+      "title": "Export each project",
+      "body": "Projects export as a ZIP of workflow JSON files, with credentials removed."
+    },
+    {
+      "title": "Sort code from simple",
+      "body": "Workflows full of code go to n8n; simple app-to-app ones can come here."
+    },
+    {
+      "title": "Rebuild a simple one",
+      "body": "Tell Captain what it does in one sentence, like Stripe payments into a sheet."
+    },
+    {
+      "title": "Reconnect your accounts",
+      "body": "Credentials are not exported, so connect each app again."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is Pipedream shutting down?",
+      "a": "Pipedream says Workflows and String are shutting down. Pipedream continues as Connect, an integration layer for developers."
+    },
+    {
+      "q": "What is the closest alternative to Pipedream?",
+      "a": "For code steps, n8n: it has a code node in JavaScript or Python and can run on your own servers."
+    },
+    {
+      "q": "Can I import Pipedream workflows into another tool?",
+      "a": "Not directly. The export is a ZIP of JSON files without credentials. Use it as your checklist and rebuild."
+    },
+    {
+      "q": "When do Pipedream Workflows close?",
+      "a": "Pipedream says Workflows and String are shutting down, and workflow data is deleted shortly after. Export your workflows early."
+    },
+    {
+      "q": "Can I export my Pipedream workflows?",
+      "a": "Yes. Each project exports as a ZIP of workflow JSON files, up to 500 workflows or 256 MB per export, with credentials removed."
+    },
+    {
+      "q": "What does Pipedream cost?",
+      "a": "A $0 plan has credits for development only. Startup is $99 a month billed yearly for 10,000 credits."
+    },
+    {
+      "q": "Which alternative can I self-host?",
+      "a": "n8n and Activepieces both run on your own servers."
+    },
+    {
+      "q": "What is Pipedream Connect?",
+      "a": "Connect is the integration layer for AI agents: app connections developers put inside their own products. 50agents does not offer that."
+    }
+  ],
+  "related": [
+    {
+      "href": "/compare/n8n-alternatives",
+      "title": "n8n alternatives",
+      "line": "If n8n is on your list"
+    },
+    {
+      "href": "/compare/activepieces-alternatives",
+      "title": "Activepieces alternatives",
+      "line": "The other self-hosted option"
+    },
+    {
+      "href": "/compare/50agents-vs-n8n",
+      "title": "50agents vs n8n",
+      "line": "Row by row, with marks"
+    }
+  ],
+  "updated": "2026-11-19"
+}

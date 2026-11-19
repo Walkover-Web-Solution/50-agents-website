@@ -1,0 +1,211 @@
+{
+  "slug": "how-to-monitor-competitor-prices-automatically",
+  "group": "Browser agents",
+  "kind": "browser",
+  "query": "how to monitor competitor prices automatically",
+  "title": "How to monitor competitor prices automatically | 50agents",
+  "description": "Monitor competitor prices: list the exact pages, check daily, store the last price, alert on a change, and treat a failed check as a failure.",
+  "h1": "How to monitor competitor prices automatically",
+  "cover": {
+    "scene": "page",
+    "url": "rival.example/pricing",
+    "title": "Pro plan, monthly",
+    "look": "price",
+    "was": "$49",
+    "now": "$59",
+    "tag": "Changed",
+    "rows": []
+  },
+  "answer": [
+    "List the exact pages and prices you care about, check them once a day, and get told only when a price changes.",
+    "Make a page that failed to load its own alert, or a broken check reads as \"no change\"."
+  ],
+  "chooser": {
+    "h2": "Which way fits what you track?",
+    "root": {
+      "q": "How many prices do you track?",
+      "options": [
+        {
+          "label": "A retail catalogue, many SKUs",
+          "then": {
+            "answer": "Use a price-tracking tool",
+            "why": "Matching thousands of products across shops is their job. Pricefy has a free plan for up to 50 SKUs and 5 competitors; Prisync's plans go by product count."
+          }
+        },
+        {
+          "label": "A handful of pricing pages",
+          "then": {
+            "q": "Is a weekly look enough?",
+            "options": [
+              {
+                "label": "Yes, under 5 pages",
+                "then": {
+                  "answer": "Check by hand, weekly",
+                  "why": "Put the pages in a sheet with last week's price, and spend ten minutes on Monday. No setup to break."
+                }
+              },
+              {
+                "label": "No, I want to hear daily",
+                "then": {
+                  "answer": "Use a browser agent",
+                  "why": "It opens the pages the way a person does, so a changed layout does not break it the way a scraper breaks.",
+                  "kind": "browser",
+                  "href": "/use-cases/track-competitor-prices"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "setup",
+      "h2": "What to write down first",
+      "body": [
+        {
+          "table": {
+            "head": [
+              "Write down",
+              "Example",
+              "Why"
+            ],
+            "rows": [
+              [
+                "The exact page",
+                "acme.example/pricing",
+                "Pricing pages change only with prices"
+              ],
+              [
+                "Which price",
+                "Team plan, billed monthly",
+                "Pages show several prices and toggles"
+              ],
+              [
+                "Your matching product",
+                "Our Pro plan",
+                "An alert needs your price beside it"
+              ],
+              [
+                "How often",
+                "Daily at 9:00",
+                "Weekly changes at most, usually"
+              ],
+              [
+                "What counts as a change",
+                "The number, or a plan added",
+                "Rounding and currency cause noise"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "rules",
+      "h2": "Stay on the right side of the sites",
+      "body": [
+        {
+          "p": "Reading a public pricing page once a day is what any customer does. Stay on public pages, check no more than you need, and respect robots.txt. If a page needs a login or shows a CAPTCHA, take that as a no."
+        },
+        {
+          "p": "In the US, hiQ v. LinkedIn treated scraping public data as likely lawful, with a line at data behind a login. Site terms still apply, and laws differ by country."
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to monitor competitor prices automatically, step by step",
+    "steps": [
+      {
+        "title": "List the pages and prices",
+        "body": "One row per price: competitor, page, plan, and the price now. That first price is your baseline."
+      },
+      {
+        "title": "Pick a time of day and keep it",
+        "body": "Same time each day, so a change shows on the day it happened."
+      },
+      {
+        "title": "Store the last price seen",
+        "body": "Each check compares with the last price, then replaces it. Without this, you get the same alert every day."
+      },
+      {
+        "title": "Alert only on change, with both numbers",
+        "body": "\"Acme Team plan: $29 to $35\" is useful; a daily \"all checked\" is noise. Name the billing period, so monthly and yearly never get mixed up."
+      },
+      {
+        "title": "Alert on failures separately",
+        "body": "Page did not load, price not found, layout changed: each says so in its own alert.",
+        "note": {
+          "type": "warn",
+          "text": "A silent failure looks exactly like \"no change\". If nothing has changed for a month, open one page yourself.",
+          "about": "browser"
+        }
+      },
+      {
+        "title": "Review the list monthly",
+        "body": "Competitors rename plans and move pages. Update the list when they do."
+      }
+    ]
+  },
+  "captain": {
+    "at": 1,
+    "line": "Captain sets up a browser agent that opens your list each morning in its own browser, reads the prices, and tells you what changed or what it could not read.",
+    "useCase": "track-competitor-prices"
+  },
+  "wrong": [
+    {
+      "title": "The same alert every day",
+      "body": "The stored price was never replaced after the first alert. Store the new price each time.",
+      "about": "browser"
+    },
+    {
+      "title": "Noise from promotions",
+      "body": "A weekend sale triggers two alerts. Say whether you care about sale prices, and label them as such.",
+      "about": "browser"
+    },
+    {
+      "title": "Blocked or challenged",
+      "body": "You checked too often, or the site does not want bots. Check less, and drop any page that shows a bot check.",
+      "about": "browser"
+    },
+    {
+      "title": "A plan renamed",
+      "body": "The competitor renamed Team to Business, and the price reads as gone. Treat \"plan not found\" as a prompt to update the list.",
+      "about": "browser"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is it legal to monitor competitor prices?",
+      "a": "Reading public pricing pages is common and, in the US, was treated as likely lawful in hiQ v. LinkedIn. Respect site terms, avoid anything behind a login or a CAPTCHA, and check the law where you operate."
+    },
+    {
+      "q": "How often should I check competitor prices?",
+      "a": "Daily is enough for most businesses. Retail catalogues with frequent repricing may need more, which is what dedicated price trackers are built for."
+    },
+    {
+      "q": "Is there a free way to do it?",
+      "a": "For a few pages, a weekly check by hand. Pricefy's free plan covers up to 50 SKUs and 5 competitors with one update a day."
+    },
+    {
+      "q": "What should a price alert say?",
+      "a": "Both numbers and the billing period: \"Acme Team plan, monthly: $29 to $35\". A daily \"all checked\" message is noise."
+    },
+    {
+      "q": "How do I avoid alerts for promotions?",
+      "a": "Write down what counts as a change: the regular price, not a banner discount. Ignore rounding and currency switches, and check the same plan and billing period each time."
+    },
+    {
+      "q": "What if a competitor renames a plan?",
+      "a": "The check will fail to find the price, and that should be its own alert. Review the list monthly and update pages and plan names when they move."
+    }
+  ],
+  "related": [
+    "how-to-automate-a-website-that-has-no-api",
+    "browser-automation-without-code",
+    "how-to-automate-form-filling-on-websites"
+  ],
+  "updated": "2026-11-19"
+}

@@ -1,0 +1,64 @@
+{
+ "pair": "prefect/hubspot",
+ "apps": {
+  "prefect": {
+   "name": "Prefect",
+   "labels": [
+    "Developer Tools",
+    "IT Operations"
+   ],
+   "about": "Prefect is a workflow orchestration platform for building, running, and monitoring data pipelines and automations."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create or Update Contact",
+   "triggers": [
+    "prefect:New Flow Run Finished",
+    "prefect:New Flow Run Started"
+   ]
+  },
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "prefect:New Flow Run Finished",
+    "prefect:New Flow Run Started"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "prefect:New Flow Run Finished",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a flow run finishes as completed, failed, crashed or cancelled, for chosen deployments."
+  },
+  {
+   "key": "hubspot:Create or Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates new contact or update an existing contact by its email."
+  },
+  {
+   "key": "prefect:New Flow Run Started",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a flow run starts, optionally only for chosen deployments."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "pair": "antwork/hubspot",
+ "apps": {
+  "antwork": {
+   "name": "Antwork",
+   "labels": [
+    "Social Media Marketing",
+    "Social Media Accounts",
+    "AI Tools"
+   ],
+   "about": "Antwork is an AI social media manager that drafts, schedules and publishes posts to LinkedIn, Instagram, X, TikTok, YouTube, Threads, Facebook, Bluesky, Pintere"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "antwork:New Post Published"
+   ]
+  },
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "antwork:New Post Published"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "antwork:New Post Published",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new post is published to a selected workspace or account."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "pair": "brix/hubspot",
+ "apps": {
+  "brix": {
+   "name": "Brix",
+   "labels": [
+    "Marketing"
+   ],
+   "about": "Brix is digital signage software for TVs and players. Post messages, cast content, run emergency takeovers, manage media and playlists, and react to recalled co"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "brix:New Media",
+    "brix:New Screen",
+    "brix:New Restored Content",
+    "brix:New Recalled Content"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "brix:New Media",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new file is added to the media library, optionally of chosen types."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "brix:New Screen",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new screen is added, optionally within a chosen location."
+  },
+  {
+   "key": "brix:New Restored Content",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when recalled content is restored to screens."
+  },
+  {
+   "key": "brix:New Recalled Content",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a file, design, playlist or schedule is recalled from all screens."
+  }
+ ]
+}

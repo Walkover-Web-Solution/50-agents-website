@@ -1,0 +1,95 @@
+{
+ "pair": "asyntai/hubspot",
+ "apps": {
+  "asyntai": {
+   "name": "Asyntai AI Chatbot",
+   "labels": [
+    "AI Tools",
+    "Customer Support"
+   ],
+   "about": "Asyntai is an AI chatbot for your website. It answers visitor questions from your own content, captures leads and opens support tickets. Connect it to start flo"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "asyntai:New Ticket Created",
+    "asyntai:New Conversation Started",
+    "asyntai:New Lead Captured",
+    "asyntai:New Human Help Request"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "asyntai:New Human Help Request",
+    "asyntai:New Conversation Started",
+    "asyntai:New Lead Captured",
+    "asyntai:New Ticket Created"
+   ]
+  },
+  {
+   "action": "hubspot:Update Company",
+   "triggers": [
+    "asyntai:New Ticket Created",
+    "asyntai:New Conversation Started",
+    "asyntai:New Lead Captured",
+    "asyntai:New Human Help Request"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "asyntai:New Ticket Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when AI agent creates a new support ticket on a chosen website."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "asyntai:New Conversation Started",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a visitor sends the first message in a new chat conversation on a chosen website."
+  },
+  {
+   "key": "asyntai:New Lead Captured",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new lead is captured via chat; optionally for a selected website."
+  },
+  {
+   "key": "asyntai:New Human Help Request",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when new human help request is received on a selected website."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  },
+  {
+   "key": "hubspot:Update Company",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update selected HubSpot company properties for a given company ID."
+  }
+ ]
+}

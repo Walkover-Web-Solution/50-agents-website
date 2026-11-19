@@ -1,0 +1,294 @@
+{
+ "row": {
+  "slug": "tomorrows-meetings-in-slack",
+  "query": "daily calendar summary in Slack",
+  "kind": "ai",
+  "apps": [
+   "google-calendar",
+   "slack"
+  ],
+  "category": "scheduling",
+  "ask": "Set up an AI agent that sends me tomorrow's meetings from Google Calendar in Slack every day at 18:00",
+  "own": "Evening brief in Slack"
+ },
+ "catalog": [
+  {
+   "slug": "google-calendar",
+   "name": "Google Calendar",
+   "events": [
+    {
+     "name": "Create Calendar",
+     "type": "action",
+     "about": "Create a calendar with name and description; optionally include location and time zone."
+    },
+    {
+     "name": "Update Event",
+     "type": "action",
+     "about": "Update an event in a chosen calendar, changing time, attendees, details, and guest notifications."
+    },
+    {
+     "name": "List Calendars",
+     "type": "action",
+     "about": "Retrieve calendars for the connected account; configure max results, paging, sync, visibility, or access role."
+    },
+    {
+     "name": "List all Events",
+     "type": "action",
+     "about": "Retrieve events from a specific calendar using date range, search, visibility, and result limits."
+    },
+    {
+     "name": "Get Event by ID",
+     "type": "action",
+     "about": "Retrieve a calendar event by selecting a calendar and providing its event ID."
+    },
+    {
+     "name": "Delete Event",
+     "type": "action",
+     "about": "Remove event from calendar"
+    },
+    {
+     "name": "Create Calendar Event",
+     "type": "action",
+     "about": "Add an event to a calendar, including time, duration, attendees, and meeting details."
+    },
+    {
+     "name": "Update Event Attendees",
+     "type": "action",
+     "about": "Update attendees for an existing Google Calendar event. You can add or modify attendees and control whether they should be notified about the changes."
+    },
+    {
+     "name": "New or Updated Event",
+     "type": "trigger",
+     "about": "Runs when an event is created or updated, or a recurring occurrence starts in a chosen calendar."
+    },
+    {
+     "name": "Get Free/Busy Information",
+     "type": "action",
+     "about": "Get a calendar's free/busy times for a chosen date, time zone, and calendar ID."
+    },
+    {
+     "name": "Add Calendar Access Rule",
+     "type": "action",
+     "about": "Add an access rule to a chosen calendar; set role, scope (type/value), and send notifications."
+    },
+    {
+     "name": "Get Access Control Rule",
+     "type": "action",
+     "about": "Gets an access control rule by rule ID from a selected calendar (default: primary)."
+    },
+    {
+     "name": "List Calendar Access Rules",
+     "type": "action",
+     "about": "List access rules for a selected Google Calendar, with optional filtering and pagination parameters."
+    },
+    {
+     "name": "Remove Calendar Access Rule",
+     "type": "action",
+     "about": "Remove a calendar access rule."
+    },
+    {
+     "name": "Update Calendar",
+     "type": "action",
+     "about": "Update a calendar’s name, description, location, or time zone."
+    },
+    {
+     "name": "Delete Calendar",
+     "type": "action",
+     "about": "Delete a calendar by its ID."
+    },
+    {
+     "name": "Clear Calendar",
+     "type": "action",
+     "about": "Clears a primary calendar. This operation deletes all events associated with the primary calendar of an account"
+    },
+    {
+     "name": "New Event",
+     "type": "trigger",
+     "about": "Trigger when an new event is created."
+    }
+   ]
+  },
+  {
+   "slug": "slack",
+   "name": "Slack",
+   "events": [
+    {
+     "name": "Send Message",
+     "type": "action",
+     "about": "Send or schedule a message to a channel, user, or thread; supports channel names and IDs."
+    },
+    {
+     "name": "Send Interactive Message",
+     "type": "action",
+     "about": "Send a message with buttons or a form to collect approvals or responses."
+    },
+    {
+     "name": "Send Block/buttons/Intractive message using AI",
+     "type": "action",
+     "about": "Send Block, buttons, or slack form using AI"
+    },
+    {
+     "name": "View_open BlockKit Modal using JSON",
+     "type": "action",
+     "about": "Open Model as a response or any BlockKit action"
+    },
+    {
+     "name": "Chat_update slack block or message using messageTs",
+     "type": "action",
+     "about": "Update your open or any other chat message using messageTs"
+    },
+    {
+     "name": "Send Message as Thread",
+     "type": "action",
+     "about": "Post a reply to an existing Slack thread. Supports immediate or scheduled delivery,"
+    },
+    {
+     "name": "Create Channel",
+     "type": "action",
+     "about": "Create a new channel"
+    },
+    {
+     "name": "Set Channel Topic",
+     "type": "action",
+     "about": "Set or update channel topic"
+    },
+    {
+     "name": "Message Private Channel",
+     "type": "action",
+     "about": "Message a private channel"
+    },
+    {
+     "name": "Create Private Channel",
+     "type": "action",
+     "about": "Create a new private channel"
+    },
+    {
+     "name": "Get Thread Replies",
+     "type": "action",
+     "about": "List replies in a Slack thread"
+    },
+    {
+     "name": "Edit Channel Message",
+     "type": "action",
+     "about": "Edit a channel message"
+    },
+    {
+     "name": "List all Private Channels",
+     "type": "action",
+     "about": "To fetch all private channels, you must first manually invite the bot to that channel in Slack. Example: Open the private channel → type /invite @your-bot-name → then retry the action."
+    },
+    {
+     "name": "Find Public channel",
+     "type": "action",
+     "about": "Find public channel in slack using either the channel's ID or name"
+    },
+    {
+     "name": "Get Messages from Slack",
+     "type": "action",
+     "about": "Retrieve messages from a Slack thread or channel within a selected time range."
+    },
+    {
+     "name": "New Message in Channels",
+     "type": "trigger",
+     "about": "Runs when a new message is received in a specific Slack channel. You can select which channel to monitor."
+    },
+    {
+     "name": "New User Joined or Updated in Your Org",
+     "type": "trigger",
+     "about": "Triggers when a new user join workspace."
+    },
+    {
+     "name": "New Message on Slack",
+     "type": "trigger",
+     "about": "Runs when a new message is posted anywhere in Slack ,  across all channels and direct messages. No channel filter applied."
+    },
+    {
+     "name": "Add Users to Channel",
+     "type": "action",
+     "about": "Invite users to a channel"
+    },
+    {
+     "name": "Send Direct Message",
+     "type": "action",
+     "about": "Send a Slack DM to a user"
+    },
+    {
+     "name": "New Thread Message",
+     "type": "trigger",
+     "about": "Runs when new thread message."
+    },
+    {
+     "name": "Get all Channel Members",
+     "type": "action",
+     "about": "List all the member in a channel."
+    },
+    {
+     "name": "Get User Information",
+     "type": "action",
+     "about": "Look up a Slack user by email or name and return selected profile fields."
+    },
+    {
+     "name": "New member join/leave or updated in channel",
+     "type": "trigger",
+     "about": "Triggers when a user joins, leaves, or updates their profile in the selected Slack channel."
+    },
+    {
+     "name": "Make Slack File Public",
+     "type": "action",
+     "about": "Make a Slack file public and return a shareable link."
+    },
+    {
+     "name": "Get User Complete Profile Details by ID",
+     "type": "action",
+     "about": "Get a user's full profile, including custom fields, by ID."
+    },
+    {
+     "name": "Create Canvas",
+     "type": "action",
+     "about": "Create a new Slack canvas."
+    },
+    {
+     "name": "New Mention",
+     "type": "trigger",
+     "about": "Runs when someone mentions your Slack app or user in a channel you belong to."
+    },
+    {
+     "name": "List all Public Channels",
+     "type": "action",
+     "about": "Show all public channels"
+    },
+    {
+     "name": "Send Block Kit Message",
+     "type": "action",
+     "about": "Send or schedule a Block Kit message to channels or users; supports mentions, threads, attachments, and bot options."
+    },
+    {
+     "name": "Update Canvas",
+     "type": "action",
+     "about": "Edit canvas content & sections."
+    },
+    {
+     "name": "Lookup Canvas Sections",
+     "type": "action",
+     "about": "Find sections within a canvas"
+    },
+    {
+     "name": "New Thread Message Instant",
+     "type": "trigger",
+     "about": "Runs when a new reply is posted in a chosen channel's thread, optionally for a specific parent message."
+    },
+    {
+     "name": "New Message Posted in Channel Instant",
+     "type": "trigger",
+     "about": "Runs when a new message is posted in selected channels. Includes bot messages; excludes thread replies and edits."
+    },
+    {
+     "name": "Add Reaction to a Message",
+     "type": "action",
+     "about": "Add an emoji reaction to a message in a Slack channel."
+    }
+   ]
+  }
+ ],
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

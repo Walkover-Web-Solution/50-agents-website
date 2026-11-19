@@ -1,0 +1,1 @@
+{"usedFor":"A new Stripe subscriber is posted to Slack for the team to see.","bestTemplate":{"name":"“Customer Subscribes” in Stripe, then “Send Message” in Slack","why":"A new subscriber is the event teams most want to see, and Stripe pushes it live."},"watchOut":"A customer without a subscription will not trigger the post, and each Slack post waits for approval."}

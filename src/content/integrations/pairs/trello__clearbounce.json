@@ -1,0 +1,1 @@
+{"usedFor":"Each new Trello card gets its email address checked by ClearBounce.","bestTemplate":{"name":"“New Card Created” in Trello, then “Verify Email Address” in ClearBounce","why":"Each new card has its address checked once, as the card appears."},"watchOut":"Labeling an existing card also sends its address through “Verify Email Address” again."}

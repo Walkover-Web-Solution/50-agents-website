@@ -1,0 +1,22 @@
+/* Glossary pages, v3 (D253): the definition in large type, one prompt film, a small two-column comparison. */
+.lg3-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:48px}
+.lg3-hero h1{font-size:clamp(40px,5vw,64px);line-height:1.02;letter-spacing:-.04em;max-width:880px}
+.lg3-def{margin:28px auto 0!important;max-width:860px;font-size:clamp(24px,2.6vw,32px);line-height:1.35;letter-spacing:-.02em;font-weight:500;text-wrap:pretty}
+.lg3-def2{margin:20px auto 0!important;max-width:680px;font-size:19px;line-height:1.55;color:var(--mute)}
+.lg3-film{width:100%;display:flex;justify-content:center}
+.lg3-film .film{max-width:940px}
+.lg3-film .film{margin-top:0}
+
+/* the comparison: the use case table (uc3-cmp) with two columns, this term's column raised on its tint (D254) */
+.lg3-vs{max-width:880px;margin:0 auto}
+.lg3-vs table{min-width:0}
+.lg3-vs tbody th{width:30%}
+@media (max-width:760px){
+  .lg3-hero{align-items:flex-start;text-align:left;padding-top:28px}
+  .lg3-def,.lg3-def2{margin-left:0!important}
+  .lg3-hero h1{font-size:38px}
+  .lg3-def{font-size:23px}.lg3-def2{font-size:17px}
+  .lg3-vs table{font-size:15px}
+  .lg3-vs th,.lg3-vs td{padding:14px 12px}
+  .lg3-vs tbody th{width:32%}
+}

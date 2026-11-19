@@ -1,0 +1,55 @@
+{
+ "pair": "pipedrive/shopify",
+ "apps": {
+  "pipedrive": {
+   "name": "Pipedrive",
+   "labels": [
+    "CRM",
+    "Product Management",
+    "Team Collaboration"
+   ],
+   "about": "Pipedrive is a CRM software designed to streamline sales processes. It helps businesses manage sales pipelines, track deals, organize contacts, schedule activit"
+  },
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  }
+ },
+ "templates": [
+  {
+   "action": "pipedrive:Create Person",
+   "triggers": [
+    "shopify:Product Updated"
+   ]
+  },
+  {
+   "action": "shopify:Product Updated",
+   "triggers": [
+    "pipedrive:New Deal"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Product Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a product is updated in Shopify account."
+  },
+  {
+   "key": "pipedrive:Create Person",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a person and set owner, organization, emails, phones, visibility, labels, address, IMs, notes, and custom fields."
+  },
+  {
+   "key": "pipedrive:New Deal",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new deal is created."
+  }
+ ]
+}

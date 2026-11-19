@@ -1,0 +1,70 @@
+{
+ "pair": "google-analytics/hubspot",
+ "apps": {
+  "google-analytics": {
+   "name": "Google Analytics",
+   "labels": [
+    "Analytics",
+    "Marketing",
+    "Data Analysis",
+    "Top Free Apps"
+   ],
+   "about": "Google Analytics is a powerful web analytics service offered by Google that tracks and reports website traffic, providing insights into user behavior, traffic s"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "google-analytics:Conversion Event Created"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "google-analytics:Conversion Event Created"
+   ]
+  },
+  {
+   "action": "hubspot:Update Company",
+   "triggers": [
+    "google-analytics:Conversion Event Created"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "google-analytics:Conversion Event Created",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when conversion created"
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  },
+  {
+   "key": "hubspot:Update Company",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update selected HubSpot company properties for a given company ID."
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+/* Role pages, v3 (D253, D254): the use case page's centred hero, film, two-row apps marquee and questions (usecase.css),
+   with the 5 jobs as link cards (two large, three small). */
+.rl3-film{width:100%;max-width:940px;margin-top:40px;display:flex;justify-content:center}
+.rl3-film .film{margin-top:0}
+
+.rl3-jobs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.rl3-jobs>a{grid-column:span 2;display:grid;align-content:start;gap:10px;padding:28px;border-radius:20px;box-shadow:inset 0 0 0 1px var(--line);text-decoration:none;color:var(--ink)!important;background:#fff;font-weight:400;transition:box-shadow .2s,transform .2s}
+.rl3-jobs>a.big{grid-column:span 3;background:var(--k);box-shadow:none;padding:32px}
+.rl3-jobs>a:hover{box-shadow:inset 0 0 0 1px var(--ink);transform:translateY(-2px)}
+.rl3-jobs .k{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--mute)}
+.rl3-jobs .big .k{color:color-mix(in srgb,var(--ink) 70%,var(--k))}
+.rl3-jobs b{font-size:21px;font-weight:500;letter-spacing:-.015em;line-height:1.25}
+.rl3-jobs .big b{font-size:24px}
+.rl3-jobs>a>span:last-child{font-size:16px;color:var(--mute);line-height:1.5}
+.rl3-jobs .big>span:last-child{color:color-mix(in srgb,var(--ink) 75%,var(--k))}
+
+.rl3-others{text-align:center;margin-top:32px!important;font-size:16px;color:var(--mute)}
+.rl3-others a{color:var(--ink);text-underline-offset:3px}
+
+@media (max-width:1020px){
+  .rl3-jobs{grid-template-columns:1fr 1fr}
+  .rl3-jobs>a,.rl3-jobs>a.big{grid-column:auto}
+  .rl3-jobs>a:last-child{grid-column:1/-1}
+}
+@media (max-width:760px){
+  .rl3-film{margin-top:32px}
+  .rl3-jobs{grid-template-columns:1fr}
+  .rl3-jobs>a,.rl3-jobs>a.big{padding:24px}
+  .rl3-jobs .big b{font-size:21px}
+}

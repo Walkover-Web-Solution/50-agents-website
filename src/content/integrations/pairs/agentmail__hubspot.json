@@ -1,0 +1,1 @@
+{"usedFor":"A “New Email Received” in AgentMail can open or update a deal in HubSpot.","bestTemplate":{"name":"“New Email Received” in AgentMail, then “Create Deal” in HubSpot","why":"An inbound message signals new interest, and the deal gives someone ownership of the reply."},"watchOut":"“Update Deal” needs a deal ID and field values that an email event does not give you."}

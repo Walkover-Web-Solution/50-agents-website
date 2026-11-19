@@ -1,0 +1,80 @@
+{
+ "pair": "twilio/hubspot",
+ "apps": {
+  "twilio": {
+   "name": "Twilio",
+   "labels": [
+    "Communication",
+    "Phone and SMS"
+   ],
+   "about": "Twilio provides a cloud API for voice, text, chat, video, and email communication that enables developers to add communication capabilities to their application"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "twilio:New Incoming Call",
+    "twilio:New Alert Appears",
+    "twilio:New Phone Number Is Added",
+    "twilio:New Message"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "twilio:New Incoming Call",
+    "twilio:New Alert Appears",
+    "twilio:New Phone Number Is Added",
+    "twilio:New Message"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "twilio:New Incoming Call",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new incoming call reaches your Twilio number; choose a TwiML response to answer or forward it."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "twilio:New Alert Appears",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new alert appears"
+  },
+  {
+   "key": "twilio:New Phone Number Is Added",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new phone number is added"
+  },
+  {
+   "key": "twilio:New Message",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when new message arrives"
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  }
+ ]
+}

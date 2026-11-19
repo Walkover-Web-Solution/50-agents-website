@@ -1,0 +1,67 @@
+{
+ "pair": "brandfetch/hubspot",
+ "apps": {
+  "brandfetch": {
+   "name": "Brandfetch",
+   "labels": [
+    "Images & Design"
+   ],
+   "about": "Brandfetch provides company logos, colors, fonts, firmographics and AI-ready brand context, so you can enrich records with brand data automatically."
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "brandfetch:Updated Brand"
+   ]
+  },
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "brandfetch:Updated Brand"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "brandfetch:Updated Brand"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "brandfetch:Updated Brand",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a watched brand is updated, rebranded, verified, claimed or deleted; choose events and domains."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  }
+ ]
+}

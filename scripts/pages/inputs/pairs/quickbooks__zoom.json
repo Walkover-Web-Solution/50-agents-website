@@ -1,0 +1,67 @@
+{
+ "pair": "quickbooks/zoom",
+ "apps": {
+  "quickbooks": {
+   "name": "QuickBooks",
+   "labels": [
+    "Accounting",
+    "Finance",
+    "Business Management"
+   ],
+   "about": "QuickBooks is a comprehensive accounting software designed to manage sales, expenses, and keep track of daily business transactions. It offers features like inv"
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  },
+  {
+   "action": "quickbooks:Create Payment",
+   "triggers": [
+    "zoom:Meeting Is Created"
+   ]
+  },
+  {
+   "action": "zoom:Meeting Is Created",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "quickbooks:New Invoice",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new invoice is created."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "zoom:Meeting Is Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when meeting is created"
+  },
+  {
+   "key": "quickbooks:Create Payment",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Records a new payment transaction."
+  }
+ ]
+}

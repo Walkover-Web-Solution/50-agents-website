@@ -1,0 +1,1 @@
+{"usedFor":"Every Shopify order becomes an invoice in QuickBooks without re-keying.","bestTemplate":{"name":"“New Order” in Shopify, then “Create Invoice” in QuickBooks","why":"“New Order” is pushed as the sale happens, and “Create Invoice” records it for bookkeeping."},"watchOut":"“Create Payment” has no matching Shopify payment trigger, so check what you map into it."}

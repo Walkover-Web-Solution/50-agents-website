@@ -1,0 +1,1 @@
+{"usedFor":"Every new Notion page is announced to a Slack channel.","bestTemplate":{"name":"“New Page Is Created” in Notion, then “Send Message” in Slack","why":"A new page is worth announcing, and “Send Message” posts to a channel, user or thread."},"watchOut":"Each Notion page post waits for your approval before it reaches the Slack channel."}

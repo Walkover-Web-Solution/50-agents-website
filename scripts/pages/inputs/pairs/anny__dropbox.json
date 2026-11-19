@@ -1,0 +1,91 @@
+{
+ "pair": "anny/dropbox",
+ "apps": {
+  "anny": {
+   "name": "anny",
+   "labels": [
+    "Scheduling & Booking",
+    "Productivity"
+   ],
+   "about": "anny is a booking and resource scheduling platform for desks, rooms, services, courses and appointments, with customers, orders and invoices."
+  },
+  "dropbox": {
+   "name": "Dropbox",
+   "labels": [
+    "File Management and Storage"
+   ],
+   "about": "Dropbox is a file hosting service that offers cloud storage, file synchronization, personal cloud, and client software. It enables users to create a special fol"
+  }
+ },
+ "templates": [
+  {
+   "action": "dropbox:Upload File to Dropbox",
+   "triggers": [
+    "anny:New Invoice",
+    "anny:New Customer",
+    "anny:New Order",
+    "anny:New Booking Check-In",
+    "anny:Updated Booking",
+    "anny:New Canceled Booking",
+    "anny:New Confirmed Booking",
+    "anny:New Booking"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "anny:New Invoice",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new invoice is generated."
+  },
+  {
+   "key": "dropbox:Upload File to Dropbox",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Save a file from a public web link to a chosen Dropbox folder and choose how to handle existing files (add, replace, or update)."
+  },
+  {
+   "key": "anny:New Customer",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new customer record is created."
+  },
+  {
+   "key": "anny:New Order",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a checkout is completed and a new order is placed."
+  },
+  {
+   "key": "anny:New Booking Check-In",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a customer checks in to a booking."
+  },
+  {
+   "key": "anny:Updated Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a booking changes, such as its status, dates or resource."
+  },
+  {
+   "key": "anny:New Canceled Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a booking is canceled."
+  },
+  {
+   "key": "anny:New Confirmed Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a requested booking is accepted."
+  },
+  {
+   "key": "anny:New Booking",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new booking is created in your anny organization."
+  }
+ ]
+}

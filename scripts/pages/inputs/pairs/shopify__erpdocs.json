@@ -1,0 +1,57 @@
+{
+ "pair": "shopify/erpdocs",
+ "apps": {
+  "shopify": {
+   "name": "Shopify",
+   "labels": [
+    "eCommerce"
+   ],
+   "about": "Shopify is a leading e-commerce platform that allows anyone to set up an online store and sell their products. Merchants can also sell their products in person "
+  },
+  "erpdocs": {
+   "name": "ERP Docs",
+   "labels": [
+    "Documents",
+    "Signatures",
+    "AI Tools"
+   ],
+   "about": "ERPDocs is an AI-native document platform for securely preparing, sending, signing, tracking, and managing business agreements. It provides reusable templates, "
+  }
+ },
+ "templates": [
+  {
+   "action": "erpdocs:Create Document from Template",
+   "triggers": [
+    "shopify:Abandoned Checkout",
+    "shopify:New Product",
+    "shopify:Order Cancelled"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "shopify:Abandoned Checkout",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+  },
+  {
+   "key": "erpdocs:Create Document from Template",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create an unsent document draft from a template, setting sender, recipients, prefill, title, expiry days, and brand."
+  },
+  {
+   "key": "shopify:New Product",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a new product is created to Shopify account."
+  },
+  {
+   "key": "shopify:Order Cancelled",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is cancelled in Shopify account."
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "pair": "woocommerce/google-calendar",
+ "apps": {
+  "woocommerce": {
+   "name": "WooCommerce",
+   "labels": [
+    "E-commerce",
+    "Website Management",
+    "Online Store"
+   ],
+   "about": "WooCommerce is a customizable, open-source eCommerce platform built on WordPress. It is designed to help businesses of all sizes create and manage an online sto"
+  },
+  "google-calendar": {
+   "name": "Google Calendar",
+   "labels": [
+    "Productivity",
+    "Time Management",
+    "Top Free Apps",
+    "Calendar",
+    "Team Collaboration",
+    "Scheduling and Booking"
+   ],
+   "about": "Google Calendar is a scheduling and calendar management service that helps individuals and teams create events, manage availability, coordinate meetings, and or"
+  }
+ },
+ "templates": [
+  {
+   "action": "google-calendar:Create Calendar",
+   "triggers": [
+    "woocommerce:Order Updated"
+   ]
+  },
+  {
+   "action": "google-calendar:Update Event",
+   "triggers": [
+    "woocommerce:Order Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "woocommerce:Order Updated",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Triggers when a order is updated."
+  },
+  {
+   "key": "google-calendar:Create Calendar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a calendar with name and description; optionally include location and time zone."
+  },
+  {
+   "key": "google-calendar:Update Event",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an event in a chosen calendar, changing time, attendees, details, and guest notifications."
+  }
+ ]
+}

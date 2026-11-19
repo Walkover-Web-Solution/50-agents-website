@@ -1,0 +1,60 @@
+{
+ "pair": "airtable/clearfeed",
+ "apps": {
+  "airtable": {
+   "name": "Airtable",
+   "labels": [
+    "Databases",
+    "Task Management",
+    "Project Management",
+    "App Builder",
+    "Productivity",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Airtable is a flexible no-code platform for building collaborative databases, workflows, apps, and AI-powered team operations, helping organizations organize da"
+  },
+  "clearfeed": {
+   "name": "ClearFeed",
+   "labels": [
+    "Customer Support",
+    "Team Chat"
+   ],
+   "about": "ClearFeed is a customer support platform that helps teams manage and respond to customer requests from Slack, including shared inboxes, ticket routing, and supp"
+  }
+ },
+ "templates": [
+  {
+   "action": "clearfeed:Update Custom Field",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  },
+  {
+   "action": "clearfeed:Delete Custom Field",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "airtable:Record Created Or Updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when record changes"
+  },
+  {
+   "key": "clearfeed:Update Custom Field",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update the name or configuration (select/multi-select options or text length) of an existing ClearFeed custom field by ID."
+  },
+  {
+   "key": "clearfeed:Delete Custom Field",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Delete a selected ClearFeed custom field."
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+  "slug": "workflow",
+  "term": "Workflow",
+  "query": "what is a workflow",
+  "group": "Automation",
+  "title": "What is a workflow? With a worked example | 50agents",
+  "description": "A workflow is the order of steps a piece of work goes through, start to finish. It exists by hand or in software; automating it hands the steps to software.",
+  "h1": "What is a workflow?",
+  "definition": [
+    "A workflow is the order of steps a piece of work goes through from start to finish, by hand or in software.",
+    "Automating one means software walks some or all of its steps."
+  ],
+  "example": {
+    "kind": "auto",
+    "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
+    "why": "Copying each order into the sheet is the workflow; software now walks it.",
+    "build": {
+      "name": "Orders sheet",
+      "line": "every Shopify order, rows you choose",
+      "when": "When a new order is placed in Shopify",
+      "does": [
+        "Lists each item, variant and quantity",
+        "Adds one row per order or item",
+        "Writes the order total"
+      ],
+      "apps": [
+        "shopify",
+        "google-sheets"
+      ],
+      "asksFirst": "Nothing outside your own sheet"
+    }
+  },
+  "vs": {
+    "term": "automation",
+    "href": "/learn/automation",
+    "rows": [
+      {
+        "label": "What it is",
+        "a": "The map of the work",
+        "b": "Software walking that map"
+      },
+      {
+        "label": "Exists without software",
+        "a": "Yes",
+        "b": "No"
+      },
+      {
+        "label": "Write it down first",
+        "a": "Each step, its app, the fields that move",
+        "b": "Then build it from that list"
+      }
+    ]
+  },
+  "links": [
+    {
+      "label": "Automations",
+      "href": "/automations"
+    },
+    {
+      "label": "How to automate data entry between two apps",
+      "href": "/guides/how-to-automate-data-entry-between-two-apps"
+    },
+    {
+      "label": "AI workflow",
+      "href": "/learn/ai-workflow"
+    }
+  ],
+  "updated": "2026-11-19"
+}

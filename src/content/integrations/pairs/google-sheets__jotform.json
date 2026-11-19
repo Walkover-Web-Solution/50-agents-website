@@ -1,0 +1,1 @@
+{"usedFor":"Each Jotform submission fills a new row in Google Sheets.","bestTemplate":{"name":"“New Submission” in Jotform, then “Add New Row to Sheet” in Google Sheets","why":"Jotform pushes each submission as it arrives, and “Add New Row to Sheet” writes it."},"watchOut":"If you rename Jotform fields or reorder sheet columns, recheck the header or column-letter mapping."}

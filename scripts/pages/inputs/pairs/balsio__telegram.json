@@ -1,0 +1,49 @@
+{
+ "pair": "balsio/telegram",
+ "apps": {
+  "balsio": {
+   "name": "Balsio",
+   "labels": [
+    "Team Collaboration",
+    "Communication"
+   ],
+   "about": "Balsio is a team messaging platform for threads, channels and conversations with teammates and external participants."
+  },
+  "telegram": {
+   "name": "Telegram",
+   "labels": [
+    "Communication"
+   ],
+   "about": "Bots on Telegram are small applications that run entirely within the platform and can be designed to support any kind of task or service."
+  }
+ },
+ "templates": [
+  {
+   "action": "telegram:Reply To Message",
+   "triggers": [
+    "balsio:New Thread",
+    "balsio:New Message"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "balsio:New Thread",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new thread is created in Balsio."
+  },
+  {
+   "key": "telegram:Reply To Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Send a reply to a specific message in a Telegram chat."
+  },
+  {
+   "key": "balsio:New Message",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new message is posted in Balsio, optionally in a chosen thread."
+  }
+ ]
+}

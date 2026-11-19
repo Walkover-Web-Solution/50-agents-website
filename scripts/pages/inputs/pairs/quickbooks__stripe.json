@@ -1,0 +1,99 @@
+{
+ "pair": "quickbooks/stripe",
+ "apps": {
+  "quickbooks": {
+   "name": "QuickBooks",
+   "labels": [
+    "Accounting",
+    "Finance",
+    "Business Management"
+   ],
+   "about": "QuickBooks is a comprehensive accounting software designed to manage sales, expenses, and keep track of daily business transactions. It offers features like inv"
+  },
+  "stripe": {
+   "name": "Stripe",
+   "labels": [
+    "Payment Processing"
+   ],
+   "about": "Stripe is a financial technology company that provides a set of tools and APIs (Application Programming Interfaces) for online businesses to handle payments, su"
+  }
+ },
+ "templates": [
+  {
+   "action": "quickbooks:Create Invoice",
+   "triggers": [
+    "stripe:New Charge Is Created"
+   ]
+  },
+  {
+   "action": "quickbooks:Create Payment",
+   "triggers": [
+    "stripe:Invoice Is Finalized",
+    "stripe:When a checkout session is completed",
+    "stripe:When a payment succeeds"
+   ]
+  },
+  {
+   "action": "stripe:Invoice Is Finalized",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  },
+  {
+   "action": "stripe:When a checkout session is completed",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  },
+  {
+   "action": "stripe:When a payment succeeds",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "stripe:New Charge Is Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when charge is created"
+  },
+  {
+   "key": "quickbooks:Create Invoice",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new invoice."
+  },
+  {
+   "key": "stripe:Invoice Is Finalized",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when invoice is finalized"
+  },
+  {
+   "key": "quickbooks:Create Payment",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Records a new payment transaction."
+  },
+  {
+   "key": "stripe:When a checkout session is completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a checkout session is completed."
+  },
+  {
+   "key": "stripe:When a payment succeeds",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs the workflow automatically whenever a payment succeeds."
+  },
+  {
+   "key": "quickbooks:New Invoice",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new invoice is created."
+  }
+ ]
+}

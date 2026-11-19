@@ -1,0 +1,60 @@
+{
+ "pair": "airtable/balsio",
+ "apps": {
+  "airtable": {
+   "name": "Airtable",
+   "labels": [
+    "Databases",
+    "Task Management",
+    "Project Management",
+    "App Builder",
+    "Productivity",
+    "Team Collaboration",
+    "Business Intelligence"
+   ],
+   "about": "Airtable is a flexible no-code platform for building collaborative databases, workflows, apps, and AI-powered team operations, helping organizations organize da"
+  },
+  "balsio": {
+   "name": "Balsio",
+   "labels": [
+    "Team Collaboration",
+    "Communication"
+   ],
+   "about": "Balsio is a team messaging platform for threads, channels and conversations with teammates and external participants."
+  }
+ },
+ "templates": [
+  {
+   "action": "balsio:Add Users to Thread",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  },
+  {
+   "action": "balsio:Create Scheduled Message",
+   "triggers": [
+    "airtable:Record Created Or Updated"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "airtable:Record Created Or Updated",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when record changes"
+  },
+  {
+   "key": "balsio:Add Users to Thread",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Add people to a Balsio thread by email address."
+  },
+  {
+   "key": "balsio:Create Scheduled Message",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Schedules one message to be posted to a Balsio thread by thread ID at a given date and time, optionally as a reply to another message, with attachments, custom attributes and an idempotency key against duplicate runs…"
+  }
+ ]
+}

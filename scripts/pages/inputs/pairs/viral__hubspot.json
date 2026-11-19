@@ -1,0 +1,92 @@
+{
+ "pair": "viral/hubspot",
+ "apps": {
+  "viral": {
+   "name": "Viral",
+   "labels": [
+    "Marketing",
+    "Social Media Marketing"
+   ],
+   "about": "viral.app is a short-form video analytics platform for TikTok, Instagram, YouTube, Facebook, and Snapchat, track accounts and videos, run analytics, manage proj"
+  },
+  "hubspot": {
+   "name": "HubSpot",
+   "labels": [
+    "Sales and CRM",
+    "CRM",
+    "Marketing Automation"
+   ],
+   "about": "HubSpot is a leading platform that provides a comprehensive suite of tools for marketing, sales, and customer service. It helps businesses attract visitors, con"
+  }
+ },
+ "templates": [
+  {
+   "action": "hubspot:Create Deal",
+   "triggers": [
+    "viral:New Campaign"
+   ]
+  },
+  {
+   "action": "hubspot:Create Contact",
+   "triggers": [
+    "viral:New Campaign"
+   ]
+  },
+  {
+   "action": "hubspot:Update Company",
+   "triggers": [
+    "viral:New Campaign"
+   ]
+  },
+  {
+   "action": "hubspot:Update Contact",
+   "triggers": [
+    "viral:New Campaign"
+   ]
+  },
+  {
+   "action": "hubspot:Update Deal",
+   "triggers": [
+    "viral:New Campaign"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "viral:New Campaign",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Runs when a new campaign is created in Viral; polls using a configurable time window."
+  },
+  {
+   "key": "hubspot:Create Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a Deal."
+  },
+  {
+   "key": "hubspot:Create Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Create a new HubSpot contact using the provided contact properties (email is required). Returns the created contact record."
+  },
+  {
+   "key": "hubspot:Update Company",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update selected HubSpot company properties for a given company ID."
+  },
+  {
+   "key": "hubspot:Update Contact",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update an existing contact by its email."
+  },
+  {
+   "key": "hubspot:Update Deal",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Update specified properties of an existing HubSpot deal by providing the deal ID and new field values."
+  }
+ ]
+}

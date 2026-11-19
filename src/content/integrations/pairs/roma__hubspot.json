@@ -1,0 +1,1 @@
+{"usedFor":"Prospects noted as Roma list items become deals in HubSpot.","bestTemplate":{"name":"“New Item” in Roma, then “Create Deal” in HubSpot","why":"Roma pushes “New Item” when one is added, so the prospect reaches HubSpot without retyping."},"watchOut":"“Updated Item” and “Deleted Item” can run “Create Deal” too, so edits or deletions would create deals."}

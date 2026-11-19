@@ -1,0 +1,69 @@
+{
+ "pair": "quickbooks/woocommerce",
+ "apps": {
+  "quickbooks": {
+   "name": "QuickBooks",
+   "labels": [
+    "Accounting",
+    "Finance",
+    "Business Management"
+   ],
+   "about": "QuickBooks is a comprehensive accounting software designed to manage sales, expenses, and keep track of daily business transactions. It offers features like inv"
+  },
+  "woocommerce": {
+   "name": "WooCommerce",
+   "labels": [
+    "E-commerce",
+    "Website Management",
+    "Online Store"
+   ],
+   "about": "WooCommerce is a customizable, open-source eCommerce platform built on WordPress. It is designed to help businesses of all sizes create and manage an online sto"
+  }
+ },
+ "templates": [
+  {
+   "action": "quickbooks:Create Invoice",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "quickbooks:Create Payment",
+   "triggers": [
+    "woocommerce:New Order Created"
+   ]
+  },
+  {
+   "action": "woocommerce:New Order Created",
+   "triggers": [
+    "quickbooks:New Invoice"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "woocommerce:New Order Created",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when a new order is created."
+  },
+  {
+   "key": "quickbooks:Create Invoice",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Creates a new invoice."
+  },
+  {
+   "key": "quickbooks:Create Payment",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Records a new payment transaction."
+  },
+  {
+   "key": "quickbooks:New Invoice",
+   "kind": "trigger",
+   "delivery": "polling",
+   "description": "Triggers when a new invoice is created."
+  }
+ ]
+}

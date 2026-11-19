@@ -1,0 +1,49 @@
+{
+ "pair": "audiopod-ai/zoom",
+ "apps": {
+  "audiopod-ai": {
+   "name": "AudioPod AI",
+   "labels": [
+    "AI Tools",
+    "Video & Audio"
+   ],
+   "about": "AudioPod AI is an AI audio platform for text to speech, transcription with speaker labels, stem separation, noise removal, voice cloning and music generation."
+  },
+  "zoom": {
+   "name": "Zoom",
+   "labels": [
+    "Video Conferencing"
+   ],
+   "about": "Zoom is a cloud-based video conferencing service you can use to virtually meet with others - either by video or audio-only or both, all while conducting live ch"
+  }
+ },
+ "templates": [
+  {
+   "action": "zoom:Register Attendee for Webinar",
+   "triggers": [
+    "audiopod-ai:New Job Failed",
+    "audiopod-ai:New Job Completed"
+   ]
+  }
+ ],
+ "details": [
+  {
+   "key": "audiopod-ai:New Job Failed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job fails, optionally only for chosen job types."
+  },
+  {
+   "key": "zoom:Register Attendee for Webinar",
+   "kind": "action",
+   "delivery": "hook",
+   "description": "Register an attendee for a webinar."
+  },
+  {
+   "key": "audiopod-ai:New Job Completed",
+   "kind": "trigger",
+   "delivery": "hook",
+   "description": "Runs when an AudioPod job finishes successfully, optionally only for chosen job types."
+  }
+ ]
+}
