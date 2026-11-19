@@ -32,7 +32,9 @@ export async function generateMetadata({ params }: { params: Promise<{ cat: stri
   if (!d) return {};
   const { c, members } = d;
   const title = `${c.name} integrations for AI agents and automations`;
-  const description = `${c.name} apps 50agents works with through viaSocket, such as ${list(members.slice(0, 3).map(m => m.n))}, each with real triggers, actions and recipes for Captain.`;
+  // 155 characters at most: name three example apps, or fewer when their names run long
+  const describe = (n: number) => `${c.name} apps 50agents works with through viaSocket, such as ${list(members.slice(0, n).map(m => m.n))}, each with real triggers, actions and recipes for Captain.`;
+  const description = [3, 2, 1].map(describe).find(d => d.length <= 155) ?? describe(1).slice(0, 155);
   const url = `${BASE}/integrations/category/${c.slug}`;
   return {
     title: { absolute: title.length <= 48 ? `${title} | 50agents` : `${c.name} integrations | 50agents` },

@@ -1,7 +1,4 @@
 import type { NextConfig } from "next";
-// Old /ai-agents/<app> pages with search history whose app is in viaSocket's catalog: 301 to the integration page
-// (Jii, 19 Nov, S21: "Yes, redirect them"). The other old pages stay as they are, noindex (reversible).
-import OLD from "./src/content/integrations/old-redirects.json";
 
 const nextConfig: NextConfig = {
     // PostHog's endpoints end in a slash (/ingest/e/); Next must not redirect them away (posthog.com/docs/libraries/next-js)
@@ -46,15 +43,7 @@ const nextConfig: NextConfig = {
     },
     async redirects() {
         return [
-            ...OLD.flatMap((r: { from: string; to: string }) => [
-                { source: `/ai-agents/${r.from}`, destination: `/integrations/${r.to}`, permanent: true },
-                { source: `/services/${r.from}`, destination: `/integrations/${r.to}`, permanent: true },
-            ]),
-            {
-                source: '/services/:path*',
-                destination: '/ai-agents/:path*',
-                permanent: true,
-            },
+            // /services/* and old app pages are redirected by src/middleware.ts (one hop to /integrations when the app is in the catalog)
         ];
     },
     async headers() {
