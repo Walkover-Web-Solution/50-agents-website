@@ -25,6 +25,7 @@ const TalkToUs = () => {
         href="https://cal.id/pushpendra"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Talk to us: book a call with the 50agents team"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         whileHover={{
