@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import PricingPlansSummary from './components/PricingPlansSummary';
 import PricingSection from './components/PricingSection';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { headers } from 'next/headers';
@@ -34,6 +35,7 @@ function PricingPage() {
     >
       <Header />
       <div className="flex-1 pt-20">
+        <PricingPlansSummary />
         <PricingSection />
       </div>
       <Footer />

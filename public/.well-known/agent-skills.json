@@ -1,0 +1,11 @@
+{
+  "name": "50agents-public-site",
+  "description": "Skills for AI agents interacting with the 50agents marketing site (read-only).",
+  "skills": [
+    {
+      "name": "discover-agent-templates",
+      "description": "List public AI agent templates from the marketing site using MCP list_agent_templates or GET /api/plugins.",
+      "instructions_url": "https://50agents.com/llms-full.txt"
+    }
+  ]
+}
