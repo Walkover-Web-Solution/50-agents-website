@@ -36,6 +36,12 @@
       "displayName": "Public site agent skills",
       "type": "application/agent-skills+json",
       "url": "https://50agents.com/.well-known/agent-skills.json"
+    },
+    {
+      "identifier": "urn:air:50agents.com:poppy:discovery",
+      "displayName": "Personal Agent Protocol (Poppy) 1.0",
+      "type": "application/json",
+      "url": "https://50agents.com/.well-known/poppy.json"
     }
   ]
 }
