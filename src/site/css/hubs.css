@@ -84,7 +84,7 @@ a.kb-card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .gal-card:hover{box-shadow:inset 0 0 0 1px var(--ink)}
 .gal-card:focus-within{box-shadow:inset 0 0 0 1.5px var(--ink)}
 .gal-apps{display:flex;align-items:center;gap:8px;min-height:26px}
-.gal-none{font-size:14px;font-weight:500;color:var(--mute)}
+.gal-kind{display:grid;place-items:center;width:26px;height:26px;border-radius:8px}
 .gal-card h3{margin:0;padding-right:8px;font-size:17.5px;font-weight:500;letter-spacing:-.01em;line-height:1.35;text-wrap:pretty}
 .gal-go{color:var(--ink);text-decoration:none}
 .gal-go::after{content:"";position:absolute;inset:0;border-radius:16px}

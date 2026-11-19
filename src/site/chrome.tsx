@@ -33,7 +33,7 @@ export function Header() {
         <nav className="nv" aria-label="Main">
           <a className="nv-a" href="/use-cases">Use cases</a>
           <div className="nv-menu">
-            <a className="nv-a" href="/ai-agents" aria-haspopup="true">Build <Caret /></a>
+            <button type="button" className="nv-a nv-btn" aria-haspopup="true">Build <Caret /></button>
             <div className="nv-panel nv-build">
               {BUILD.map(b => (
                 <a key={b.href} href={b.href} className="nv-kind">

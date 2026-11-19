@@ -38,7 +38,7 @@ export default function IntegrationsIndex() {
         <p className="answer">50agents works with 2,300+ apps through viaSocket. Find yours to see its triggers, actions and templates for Captain.</p>
       </section>
 
-      <section className="wrap sec" aria-label="All apps">
+      <section className="wrap sec ig3-dir" aria-label="All apps">
         <DirectoryPanel apps={apps} current="/integrations" head={<h2>All apps</h2>} label="Search apps, such as HubSpot or Notion" />
       </section>
 

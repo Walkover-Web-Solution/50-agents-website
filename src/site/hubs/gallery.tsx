@@ -3,7 +3,7 @@
 // ask, and a small round arrow at its corner says so. Four rows show, "Load more" adds four; every card is in the HTML.
 import type { Kind } from '../types';
 import { GALLERY, GALLERY_HEAD, GALLERY_LINE, TEAMS } from '@/content/hubs/gallery';
-import { AppLogo } from '../parts';
+import { AppLogo, Face, KINDS } from '../parts';
 import { BuildLink } from '../integrations/build-link';
 import { appIcon, appName } from '../usecase/apps-data';
 import { GalleryFilter } from './gallery-filter';
@@ -20,7 +20,7 @@ export function Gallery({ kind, page, label }: { kind: Kind; page: string; label
             <div className="gal-apps">
               {c.apps.length
                 ? c.apps.map(a => <span key={a} title={appName(a)}><AppLogo app={a} icon={appIcon(a)} size={26} /><span className="sr">{appName(a)}</span></span>)
-                : <span className="gal-none">{kind === 'browser' ? 'Any website' : 'No app needed'}</span>}
+                : <span className="gal-kind" style={{ background: KINDS[kind].tint }} aria-hidden="true"><Face id={KINDS[kind].face} size={18} /></span>}
             </div>
             <h3><BuildLink className="gal-go" page={page} place="gallery" campaign="seo-hub" ask={c.ask}>{c.job}<span className="sr"> (opens Captain)</span></BuildLink></h3>
             <span className="gal-arrow" aria-hidden="true">
