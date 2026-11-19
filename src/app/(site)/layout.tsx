@@ -1,9 +1,10 @@
 // The search pages' layout (pages-brief D1): server-rendered, the homepage's look, no Redux, MUI or old styles.
-import { Schibsted_Grotesk } from 'next/font/google';
+import localFont from 'next/font/local';
 import { Footer, Header } from '@/site/chrome';
 import '@/site/site.css';
 
-const font = Schibsted_Grotesk({ subsets: ['latin'], weight: ['400', '500', '600', '800'], display: 'swap', variable: '--font' });
+// Schibsted Grotesk, committed (src/site/fonts, OFL) so the build fetches nothing: Google's latin subset of the variable font.
+const font = localFont({ src: '../../site/fonts/schibsted-grotesk-latin.woff2', weight: '400 800', style: 'normal', display: 'swap', variable: '--font' });
 
 const ORG = {
   '@context': 'https://schema.org',
