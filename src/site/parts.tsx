@@ -18,6 +18,15 @@ export function MaybeLink({ href, className, children }: { href: string; classNa
   return LIVE.has(href) ? <a href={href} className={className}>{children}</a> : <span className={className} data-soon={href}>{children}</span>;
 }
 
+// A kind's face: one crew member, and for apps a small crew (Jii, round 6: "blob crew for apps"), since an app is a
+// team of AI agents and automations around your records.
+export const APP_CREW = ['sorter', 'closer', 'writer'];
+export function KindFace({ kind, size = 24 }: { kind: Kind; size?: number }) {
+  if (kind !== 'app') return <Face id={KINDS[kind].face} size={size} />;
+  const s = Math.round(size * 0.78);
+  return <span className="kind-crew" aria-hidden="true">{APP_CREW.map(id => <Face key={id} id={id} size={s} />)}</span>;
+}
+
 export function Face({ id, size = 24, className = '' }: { id: string; size?: number; className?: string }) {
   return <span className={`face ${className}`} style={{ height: size }} aria-hidden="true" dangerouslySetInnerHTML={{ __html: FACES[id] ?? FACES.keeper }} />;
 }
@@ -41,7 +50,7 @@ export function KindBadge({ kind }: { kind: Kind }) {
   const k = KINDS[kind];
   return (
     <a className="kind" href={LIVE.has(k.hub) ? k.hub : undefined} style={{ ['--k' as string]: k.tint }}>
-      <Face id={k.face} size={22} />
+      <KindFace kind={kind} size={22} />
       {k.label}
     </a>
   );

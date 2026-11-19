@@ -1,7 +1,7 @@
 // Pieces the guide and role pages share: the month line, a plan card from a page's own `build`, and the link card to a
 // use case page (a guide that overlaps one links to it and never repeats it).
 import { PAGES } from '@/content/use-cases/pages';
-import { Face, KINDS } from '../parts';
+import { Face, KINDS, KindFace } from '../parts';
 import { PlanCard } from '../usecase/plan-card';
 import type { Kind } from '../types';
 import type { UseCasePage } from '../usecase/types';
@@ -19,7 +19,7 @@ export function UseCaseCard({ u, lead = 'The ready-made version' }: { u: UseCase
   const k = KINDS[u.kind];
   return (
     <a className="ucard" href={`/use-cases/${u.slug}`} style={{ ['--k' as string]: k.tint }}>
-      <span className="ucard-face" aria-hidden="true"><Face id={k.face} size={34} /></span>
+      <span className="ucard-face" aria-hidden="true"><KindFace kind={u.kind} size={34} /></span>
       <span className="ucard-t">
         <span className="ucard-k">{lead} · {k.label}</span>
         <b>{u.h1}</b>

@@ -3,7 +3,7 @@
 // `updated` goes to JSON-LD only. Children not built yet are left out, never shown as dead cards.
 import type { IndexPage } from '@/content/pages/indexes';
 import { INDEX_ASK } from '@/content/pages/indexes';
-import { Crumbs, Cta, Face, KINDS, LIVE } from '../parts';
+import { Crumbs, Cta, Face, KINDS, LIVE, KindFace } from '../parts';
 import { crumbsLd, Ld } from '../hubs/meta';
 import { KindFilter } from './kind-filter';
 import type { Card } from '@/content/pages/indexes';
@@ -54,7 +54,7 @@ export function IndexView({ ix }: { ix: IndexPage }) {
 function CardLink({ c }: { c: Card }) {
   return (
     <a href={c.href} data-kind={c.kind}>
-      {c.kind && <span className="k"><Face id={KINDS[c.kind].face} size={20} />{KINDS[c.kind].label}</span>}
+      {c.kind && <span className="k"><KindFace kind={c.kind} size={20} />{KINDS[c.kind].label}</span>}
       <b>{c.title}</b>
       {c.line && <span>{c.line}</span>}
     </a>

@@ -5,7 +5,7 @@
 import { KIND_CARDS, KIND_ORDER } from '@/content/hubs/kinds';
 import { INDEX_ASK } from '@/content/pages/indexes';
 import { CONTACT_EMAIL, LINKS, SUPPORT, type Channel } from '@/content/pages/support';
-import { Crumbs, Cta, Face, KINDS, LIVE, MaybeLink } from '../parts';
+import { Crumbs, Cta, Face, KINDS, LIVE, MaybeLink, KindFace } from '../parts';
 import { BASE, crumbsLd, Ld } from '../hubs/meta';
 import '../css/usecase.css';
 import '../css/hubs.css';
@@ -120,7 +120,7 @@ export function AboutPage() {
         <div className="ab-kinds">
           {KIND_ORDER.map(kind => {
             const k = KINDS[kind];
-            const inner = (<><Face id={k.face} size={40} /><b>{k.label}</b><span>{KIND_CARDS[kind].short}</span></>);
+            const inner = (<><KindFace kind={kind} size={40} /><b>{k.label}</b><span>{KIND_CARDS[kind].short}</span></>);
             return LIVE.has(k.hub)
               ? <a key={kind} href={k.hub} style={{ ['--kc' as string]: k.tint }}>{inner}</a>
               : <div key={kind} style={{ ['--kc' as string]: k.tint }}>{inner}</div>;

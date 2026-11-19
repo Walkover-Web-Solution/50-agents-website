@@ -107,3 +107,9 @@ a.kb-card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
   .gal-chips button{height:38px;padding:0 14px;font-size:14.5px}
   .gal-card{padding:18px}
 }
+
+/* round 6 (Jii): bigger card text, and a very soft tint of the card's lead app (set as --app by gallery.tsx) */
+.gal-card{background:color-mix(in srgb,var(--app,#fff) 6%,#fff);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--app,#E7E8EB) 16%,#ECEDF0)}
+.gal-card h3{font-size:20px;line-height:1.3;letter-spacing:-.015em}
+.gal-arrow{background:#fff}
+@media (max-width:760px){.gal-card h3{font-size:18px}}

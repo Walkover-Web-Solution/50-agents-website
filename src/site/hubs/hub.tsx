@@ -4,7 +4,7 @@
 // marquee rows, questions, more to read. No date on the page: `updated` goes to JSON-LD only.
 import type { HubPage } from './types';
 import { PAGES } from '@/content/use-cases/pages';
-import { Crumbs, Cta, Face, KindBadge, KINDS } from '../parts';
+import { Crumbs, Cta, Face, KindBadge, KINDS, KindFace } from '../parts';
 import { StickyBar } from '../sticky';
 import { rich } from '../guides/rich';
 import { PromptFilm } from '../usecase/film';
@@ -54,7 +54,7 @@ export function HubView({ h }: { h: HubPage }) {
           <div className={`cards3 hub3-n${Math.min(ucs.length, 3)}`}>
             {ucs.map(u => (
               <a key={u.slug} href={`/use-cases/${u.slug}`}>
-                <span className="k"><Face id={k.face} size={20} />{k.label}</span>
+                <span className="k"><KindFace kind={h.kind} size={20} />{k.label}</span>
                 <b>{u.h1}</b>
                 <span>{u.build.name}: {u.build.line}</span>
               </a>

@@ -1,6 +1,6 @@
 // Captain's plan for a use case, as the app shows it before you tap Build it: what it makes, when it runs, what it uses,
 // what asks you first. Drawn from the page's `build`, so every use case gets one without design work.
-import { AppLogo, Face, KINDS } from '../parts';
+import { AppLogo, Face, KINDS, KindFace } from '../parts';
 import type { UseCasePage } from './types';
 import { appIcon, appName } from './apps-data';
 
@@ -9,7 +9,7 @@ export function PlanCard({ u, compact = false }: { u: UseCasePage; compact?: boo
   return (
     <div className={compact ? 'plan compact' : 'plan'}>
       <div className="plan-h">
-        <span className="plan-face" style={{ background: k.tint }}><Face id={k.face} size={26} /></span>
+        <span className="plan-face" style={{ background: k.tint }}><KindFace kind={u.kind} size={26} /></span>
         <div><b>{u.build.name}</b><span>{k.label} · {u.build.line}</span></div>
       </div>
       <dl>

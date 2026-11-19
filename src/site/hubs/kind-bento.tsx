@@ -2,7 +2,7 @@
 // hub its own kind leads (full width, text beside its picture); the other three sit under it and link to their hubs.
 // The kind tints live only inside these cards. Each picture is a small drawing of what that kind does, in the server HTML.
 import { KIND_CARDS, KIND_ORDER } from '@/content/hubs/kinds';
-import { AppLogo, Face, KINDS, LIVE } from '../parts';
+import { AppLogo, Face, KINDS, LIVE, KindFace } from '../parts';
 import type { Kind } from '../types';
 
 function Picture({ kind }: { kind: Kind }) {
@@ -51,7 +51,7 @@ function Card({ kind, lead }: { kind: Kind; lead: boolean }) {
   const inner = (
     <>
       <div className="kb-text">
-        <span className="kb-kind"><Face id={k.face} size={20} />{k.label}</span>
+        <span className="kb-kind"><KindFace kind={kind} size={20} />{k.label}</span>
         <h3>{c.title}</h3>
         <p>{c.body}</p>
       </div>

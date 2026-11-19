@@ -1,7 +1,7 @@
 // The header and footer of every page (D257, Search's launch spec): real links in the server HTML so every page passes
 // authority to the families. Menus are CSS only (hover and keyboard focus), so their links are in the HTML when closed.
 // The homepage (static, public/landing) carries the same header and footer, built from agentic-apps/landing.
-import { Face, KINDS, Wordmark } from './parts';
+import { Face, KINDS, Wordmark, KindFace } from './parts';
 import { HeaderCta } from './header-cta';
 import type { Kind } from './types';
 
@@ -37,7 +37,7 @@ export function Header() {
             <div className="nv-panel nv-build">
               {BUILD.map(b => (
                 <a key={b.href} href={b.href} className="nv-kind">
-                  <span className="nv-face" style={{ background: KINDS[b.kind].tint }}><Face id={KINDS[b.kind].face} size={24} /></span>
+                  <span className="nv-face" style={{ background: KINDS[b.kind].tint }}><KindFace kind={b.kind} size={24} /></span>
                   <span><b>{KIND_NAME[b.kind]}</b><span>{b.line}</span></span>
                 </a>
               ))}
