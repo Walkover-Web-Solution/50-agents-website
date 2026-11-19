@@ -11,7 +11,10 @@
 // 4. drop the traced file list (filePathMap) from Node functions' .vc-config.json. Only Vercel deploys those files;
 //    on Cloudflare a Node function is only the container of its pre-rendered pages. next-on-pages copies the config into
 //    every pre-rendered route's entry of its build log, and 2,182 copies of a 250 KB list overflow a string;
-// 5. next-on-pages --skip-build converts the rest into .vercel/output/static.
+// 5. take out the pre-rendered route handlers (sitemaps, index.md: a .prerender-fallback.body, not .html), which
+//    next-on-pages silently drops (they 404), and write each body as a static file at its path, so the conversion
+//    lists it among the static assets the worker serves;
+// 6. next-on-pages --skip-build converts the rest into .vercel/output/static.
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
@@ -57,5 +60,27 @@ let slimmed = 0;
   }
 })(FUNCS);
 console.log(`build-pages: dropped the traced file list from ${slimmed} Node functions`);
+
+const bodies = [];
+(function collect(dir) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory() && !e.isSymbolicLink() && !e.name.endsWith('.func')) { collect(p); continue; }
+    const m = e.name.match(/^(.*)\.prerender-config\.json$/);
+    if (!m) continue;
+    const c = JSON.parse(fs.readFileSync(p, 'utf8'));
+    if (!c.fallback?.fsPath?.endsWith('.prerender-fallback.body')) continue;
+    const route = path.relative(FUNCS, path.join(dir, m[1]));
+    const out = path.join(VERCEL, 'output', 'static', route);
+    if (fs.existsSync(out)) throw new Error(`build-pages: ${route} already exists in the static output`);
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.copyFileSync(path.join(dir, c.fallback.fsPath), out);
+    bodies.push(route);
+    for (const x of [`${m[1]}.func`, `${m[1]}.rsc.func`, e.name, c.fallback.fsPath]) fs.rmSync(path.join(dir, x), { recursive: true, force: true });
+  }
+})(FUNCS);
+
+
+console.log(`build-pages: wrote ${bodies.length} pre-rendered route handlers as static files: ${bodies.map(b => '/' + b).join(', ')}`);
 
 run('pnpm exec next-on-pages --skip-build');

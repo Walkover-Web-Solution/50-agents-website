@@ -34,10 +34,14 @@ function gone() {
 }
 
 export function middleware(request: NextRequest) {
-  const response = route(request);
-  if ((request.headers.get('host') ?? '').split(':')[0].toLowerCase().endsWith('.pages.dev')) {
-    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  const preview = (request.headers.get('host') ?? '').split(':')[0].toLowerCase().endsWith('.pages.dev');
+  let response = route(request);
+  // On Cloudflare the home page is next.config's rewrite to a static file, whose response drops middleware headers;
+  // a preview rewrites it here instead, so the noindex holds there too (markdown requests keep next.config's rewrite).
+  if (preview && request.nextUrl.pathname === '/' && !/text\/(x-)?markdown/.test(request.headers.get('accept') ?? '')) {
+    response = NextResponse.rewrite(new URL('/landing/index.html', request.url));
   }
+  if (preview) response.headers.set('X-Robots-Tag', 'noindex, nofollow');
   return response;
 }
 
