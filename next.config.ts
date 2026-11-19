@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+    // PostHog's endpoints end in a slash (/ingest/e/); Next must not redirect them away (posthog.com/docs/libraries/next-js)
+    skipTrailingSlashRedirect: true,
     images: {
         remotePatterns: [
             {
