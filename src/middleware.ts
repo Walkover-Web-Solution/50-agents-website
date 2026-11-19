@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OLD from './content/integrations/old-map.json';
+import LIVE_PAIRS from './content/integrations/live-pairs.json';
+import { canon } from './content/integrations/slugs';
 
 // 1. The home page advertises Vary: Accept (markdown negotiation is handled by next.config rewrites).
 // 2. Old app pages: /ai-agents/<slug> and /services/<slug> whose app is in viaSocket's catalog go to /integrations/<slug>
@@ -7,8 +9,13 @@ import OLD from './content/integrations/old-map.json';
 // 3. The old site is removed (Jii, 19 Nov, S25, D257; gtm/seo/handoff/launch-cleanup.md section 1):
 //    the old product pages and old app pages not in the catalog answer 410 Gone; old pages with a new home get a 301.
 //    /ai-agents itself is the new AI agents hub and is not touched here.
+// 4. Pair pages (Search S26): only the indexable pairs exist, in one canonical order (live-pairs.json, a few KB, so no
+//    catalog in this bundle). The reversed order, or a mixed-case or duplicate slug, 308s to the canonical page.
+// 5. A Cloudflare preview (*.pages.dev) answers X-Robots-Tag: noindex, nofollow on every page (deploy plan step 3);
+//    production is unchanged. Cloudflare's _headers file doesn't apply to the worker's responses, so it is set here.
 const MAP = OLD as Record<string, string>;
 const APP = 'https://50agents-app.embarko.app';
+const PAIRS = new Set<string>(LIVE_PAIRS.pairs);
 const GONE = new Set(['/ai-note-taker', '/work-management', '/ai-agents/50agents']);
 
 const GONE_HTML = `<!doctype html>
@@ -26,6 +33,14 @@ function gone() {
 }
 
 export function middleware(request: NextRequest) {
+  const response = route(request);
+  if ((request.headers.get('host') ?? '').split(':')[0].toLowerCase().endsWith('.pages.dev')) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+  return response;
+}
+
+function route(request: NextRequest): NextResponse {
   const { pathname, search } = request.nextUrl;
   if (pathname === '/') {
     const response = NextResponse.next();
@@ -49,18 +64,20 @@ export function middleware(request: NextRequest) {
     return gone();
   }
   if (/^\/services(\/|$)/.test(pathname)) return gone();
+
+  const pair = path.match(/^\/integrations\/([^/]+)\/([^/]+)$/);
+  if (pair) {
+    let x: string, y: string;
+    try { x = decodeURIComponent(pair[1]); y = decodeURIComponent(pair[2]); } catch { return NextResponse.next(); }
+    const a = canon(x), b = canon(y);
+    const to = PAIRS.has(`${a}/${b}`) ? `${a}/${b}` : PAIRS.has(`${b}/${a}`) ? `${b}/${a}` : null;
+    if (to && `/integrations/${to}` !== path) { url.pathname = `/integrations/${to}`; return NextResponse.redirect(url, 308); }
+  }
   return NextResponse.next();
 }
 
+// Every page path (the preview's noindex needs them all); not Next's static files, PostHog's /ingest proxy, or any path
+// with a file extension (images, fonts, robots.txt, sitemaps, llms.txt).
 export const config = {
-  matcher: [
-    '/',
-    '/ai-note-taker/:path*',
-    '/work-management/:path*',
-    '/templates/:path*',
-    '/login/:path*',
-    '/org/:path*',
-    '/ai-agents/:slug',
-    '/services/:path*',
-  ],
+  matcher: ['/((?!_next/|ingest|.*\\.[a-zA-Z0-9]+$).*)'],
 };

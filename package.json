@@ -6,6 +6,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/validate-mcp-tools.mjs && node scripts/sync-landing-sections.mjs && node scripts/generate-llms-full.mjs",
     "build": "next build",
+    "pages:live-pairs": "node scripts/pages/write-live-pairs.mjs",
     "validate:mcp-tools": "node scripts/validate-mcp-tools.mjs",
     "build:dev": "dotenv -e .env.dev next build",
     "build:prod": "dotenv -e .env.prod next build",

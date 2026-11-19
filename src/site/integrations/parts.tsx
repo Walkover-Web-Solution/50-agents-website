@@ -5,7 +5,7 @@ import { AppLogo, Face, KINDS, MaybeLink } from '@/site/parts';
 import { BuildLink } from './build-link';
 import { CatPick, Directory, EventBoard, ListBox } from './boxes';
 import { CATEGORIES } from '@/content/integrations/categories';
-import { findPair, iconOf, nameOf, pairPath, plainDesc, recipeAsk, recipeClause, type AppFile, type Event, type Recipe } from './data';
+import { findPair, iconOf, nameOf, pairIndexable, pairPath, plainDesc, recipeAsk, recipeClause, type AppFile, type Event, type Recipe } from './data';
 import type { IntegrationPage, PairLines } from './types';
 import { plainEvent } from './words';
 
@@ -132,7 +132,8 @@ export function TemplatesBox({ recipes, page, campaign, search }: { recipes: Rec
 /** The first recipe between two apps, for a pairing card's line. */
 export const firstRecipe = (recipes: Recipe[], me: string, o: string) => recipes.find(x => (x.ta === me && x.aa === o) || (x.ta === o && x.aa === me));
 
-/** Pairing cards: the two logos, the pair's name and its first recipe, linked to the pair page. */
+/** Pairing cards: the two logos, the pair's name and its first recipe, linked to the pair page when it exists (indexable,
+ *  Search S26), otherwise to the other app's page. */
 export function PairCards({ items }: { items: { me: string; other: string; recipe?: Recipe }[] }) {
   return (
     <div className="cards3 ig3-pairs">
@@ -145,7 +146,7 @@ export function PairCards({ items }: { items: { me: string; other: string; recip
             <span>{r ? `${cap(recipeClause(r, nameOf))}.` : `Templates for ${nameOf(me)} and ${nameOf(o)}.`}</span>
           </>
         );
-        return f ? <a key={me + o} href={pairPath(f.pair)}>{body}</a> : <MaybeLink key={me + o} href={`/integrations/${o}`}>{body}</MaybeLink>;
+        return f && pairIndexable(f.pair) ? <MaybeLink key={me + o} href={pairPath(f.pair)}>{body}</MaybeLink> : <MaybeLink key={me + o} href={`/integrations/${o}`}>{body}</MaybeLink>;
       })}
     </div>
   );

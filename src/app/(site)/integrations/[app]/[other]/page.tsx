@@ -1,17 +1,17 @@
 // A pair page, v3 round 3 (D253 to D255): the app template, short. Every real template (the catalog's recipes) between two
 // apps from the catalog snapshot, six at a time with "Load more"; every trigger and action of both apps, in two columns;
 // the pair's own lines as three short cards (D260).
-// One canonical order per pair (the trigger app first; alphabetical when recipes run both ways). The other order is
-// generated too and answers with a permanent redirect to it (permanentRedirect: 308 from the server, which search
-// engines treat as a 301). Indexable only with 3 or more recipes.
+// Only the indexable pairs exist (Search S26, deploy plan decision 1): the core and test tiers, each in its one canonical
+// order (the trigger app first; alphabetical when recipes run both ways), listed in live-pairs.json. Every other pair is a
+// 404 (dynamicParams = false). The reversed order and mixed-case slugs 308 to the canonical page in src/middleware.ts.
 import type { Metadata } from 'next';
-import { notFound, permanentRedirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { Crumbs, MaybeLink } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { BuildLink } from '@/site/integrations/build-link';
-import { findPair, loadApp, nameOf, pairIndexable, pairLines, pairPath, pairRecipes, pairs, recipeAsk } from '@/site/integrations/data';
-import { canon } from '@/content/integrations/slugs';
+import { findPair, loadApp, nameOf, pairIndexable, pairLines, pairPath, pairRecipes, pairs, pairTier, recipeAsk } from '@/site/integrations/data';
+import LIVE_PAIRS from '@/content/integrations/live-pairs.json';
 import { BASE, crumbsLd, Final, LdScript, Lockup, PairEventsBox, PracticeCards, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
 import { pairWords } from '@/site/integrations/words';
 import { catalog } from '@/site/integrations/data';
@@ -20,25 +20,25 @@ import '@/site/css/integrations.css';
 
 export const dynamicParams = false;
 export function generateStaticParams() {
-  // Both orders of every canonical pair, plus the raw mixed-case or duplicate slugs, which redirect to the canonical pair.
-  const raw = pairs().raw.filter(p => p.a !== canon(p.a) || p.b !== canon(p.b)).flatMap(p => [{ app: p.a, other: p.b }, { app: p.b, other: p.a }]);
-  return [...pairs().list.flatMap(p => [{ app: p.a, other: p.b }, { app: p.b, other: p.a }]), ...raw];
+  // The list middleware and LIVE read must be the tiers' list: a stale live-pairs.json fails the build.
+  const tiers = pairs().list.filter(p => pairTier(p) !== 'none').map(p => `${p.a}/${p.b}`).sort();
+  const live = [...LIVE_PAIRS.pairs].sort();
+  if (tiers.join() !== live.join()) throw new Error('src/content/integrations/live-pairs.json is stale: run pnpm pages:live-pairs');
+  return live.map(k => { const [app, other] = k.split('/'); return { app, other }; });
 }
 
 function load(x: string, y: string) {
-  const f = findPair(canon(x), canon(y));
-  if (!f) return null;
+  const f = findPair(x, y);
+  if (!f || f.reversed || !pairIndexable(f.pair)) return null;
   const a = loadApp(f.pair.a), b = loadApp(f.pair.b);
   if (!a || !b) return null;
-  // Not canonical when reversed, or asked with a mixed-case or duplicate slug: the page redirects.
-  const moved = f.reversed || x !== canon(x) || y !== canon(y);
-  return { ...f, moved, a, b, recipes: pairRecipes(a.slug, b.slug) };
+  return { ...f, a, b, recipes: pairRecipes(a.slug, b.slug) };
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ app: string; other: string }> }): Promise<Metadata> {
   const { app, other } = await params;
   const d = load(app, other);
-  if (!d || d.moved || !d.recipes.length) return {};
+  if (!d || !d.recipes.length) return {};
   const { a, b, pair } = d;
   const url = `${BASE}${pairPath(pair)}`;
   const title = `${a.name} and ${b.name} automations`;
@@ -57,7 +57,6 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
   const { app, other } = await params;
   const d = load(app, other);
   if (!d) notFound();
-  if (d.moved) permanentRedirect(pairPath(d.pair));
   if (!d.recipes.length) notFound();
   const { a, b, recipes, pair } = d;
   const read = catalog().read;
