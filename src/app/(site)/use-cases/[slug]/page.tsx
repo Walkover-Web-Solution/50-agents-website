@@ -1,23 +1,29 @@
-// A use case page (pages-brief B1): static HTML from its content file, answer first, the product shown working.
+// A use case page, v3 (D253): one template, filled from the page's JSON (src/content/use-cases/pages), written by the
+// page pipeline (scripts/pages). Hero with the ask typed into Captain, a scroll stepper, the apps, a comparison,
+// questions, more use cases. Every visual is drawn from the data, so a new page needs no design work.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { USE_CASES } from '@/content/use-cases';
+import { PAGES } from '@/content/use-cases/pages';
 import { AppLogo, Crumbs, Cta, Face, KindBadge, KINDS, MaybeLink } from '@/site/parts';
-import { CopyAsk } from '@/site/copy';
 import { StickyBar } from '@/site/sticky';
-import { CaptainBuild } from '@/site/product/captain';
-import { ProductView } from '@/site/product/view';
-import '@/site/css/use-cases.css';
+import { PromptFilm } from '@/site/usecase/film';
+import { PlanCard } from '@/site/usecase/plan-card';
+import { ScrollStepper } from '@/site/usecase/stepper';
+import { stepPicture } from '@/site/usecase/pictures';
+import { appIcon, appName, appsIn } from '@/site/usecase/apps-data';
+import { CATEGORIES } from '@/content/integrations/categories';
+import type { UseCasePage } from '@/site/usecase/types';
+import '@/site/css/usecase.css';
 
 const BASE = 'https://50agents.com';
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return USE_CASES.map(u => ({ slug: u.slug }));
+  return PAGES.map(u => ({ slug: u.slug }));
 }
+const find = async (params: Promise<{ slug: string }>) => { const { slug } = await params; return PAGES.find(x => x.slug === slug); };
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const u = USE_CASES.find(x => x.slug === slug);
+  const u = await find(params);
   if (!u) return {};
   const url = `${BASE}/use-cases/${u.slug}`;
   return {
@@ -30,163 +36,104 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-const longDate = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+const month = (iso: string) => new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
-export default async function UseCasePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const u = USE_CASES.find(x => x.slug === slug);
+// More use cases: the same kind first, then shared tags, then the rest; six, linked statically.
+function related(u: UseCasePage) {
+  const score = (x: UseCasePage) => (x.kind === u.kind ? 2 : 0) + x.tags.filter(t => u.tags.includes(t)).length;
+  return PAGES.filter(x => x.slug !== u.slug).sort((a, b) => score(b) - score(a)).slice(0, 6);
+}
+
+function Cell({ v, us }: { v: string; us?: boolean }) {
+  const t = v.toLowerCase();
+  const mark = t.startsWith('yes') ? 'y' : t.startsWith('no') ? 'n' : t.startsWith('partly') || t.startsWith('only') || t.startsWith('if ') || t.startsWith('some') ? 'p' : '';
+  return <td className={us ? 'us' : undefined}>{mark && <i className={`mk ${mark}`} aria-hidden="true" />}{v}</td>;
+}
+
+export default async function UseCasePageView({ params }: { params: Promise<{ slug: string }> }) {
+  const u = await find(params);
   if (!u) notFound();
   const k = KINDS[u.kind];
   const url = `${BASE}/use-cases/${u.slug}`;
+  const cat = CATEGORIES.find(c => c.slug === u.category);
+  const wall = appsIn(u.category, 30, u.build.apps);
+  const more = related(u);
   const ld = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
-        { '@type': 'ListItem', position: 2, name: 'Use cases', item: `${BASE}/use-cases` },
-        { '@type': 'ListItem', position: 3, name: u.h1, item: url },
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'SoftwareApplication',
-      name: `50agents: ${u.h1}`,
-      applicationCategory: 'BusinessApplication',
-      operatingSystem: 'Web',
-      url,
-      description: u.answer.join(' '),
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Every workspace starts free with 2,000 credits.' },
-      publisher: { '@type': 'Organization', name: '50agents', url: BASE },
-      dateModified: u.updated,
-    },
+    { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE },
+      { '@type': 'ListItem', position: 2, name: 'Use cases', item: `${BASE}/use-cases` },
+      { '@type': 'ListItem', position: 3, name: u.h1, item: url },
+    ] },
+    { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: `50agents: ${u.h1}`, applicationCategory: 'BusinessApplication', operatingSystem: 'Web', url,
+      description: u.answer.join(' '), offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free to start.' },
+      publisher: { '@type': 'Organization', name: '50agents', url: BASE }, dateModified: u.updated },
   ];
 
   return (
-    <div className="page" style={{ ['--k' as string]: k.tint }}>
+    <div className="page uc3" style={{ ['--k' as string]: k.tint }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
-      <div className="wrap">
-        <Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Use cases', href: '/use-cases' }, { label: u.h1 }]} />
-      </div>
+      <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Use cases', href: '/use-cases' }, { label: u.h1 }]} /></div>
 
-      {/* Hero: the job, the answer in two sentences, one button. Captain building it beside. */}
-      <section className="wrap hero2">
-        <div>
-          <KindBadge kind={u.kind} />
-          <h1>{u.h1}</h1>
-          <p className="answer">{u.answer[0]} {u.answer[1]}</p>
-          <div className="hero-cta">
-            <Cta page={u.slug} place="hero" ask={u.ask} />
-            <span className="hero-note">Free to start with 2,000 credits</span>
-          </div>
-        </div>
-        <div className="hero-side">
-          <CaptainBuild ask={u.ask} plan={u.plan} />
-        </div>
+      {/* Hero: the job, the answer, and the ask typed into Captain with Captain's plan under it */}
+      <section className="wrap uc3-hero">
+        <KindBadge kind={u.kind} />
+        <h1>{u.h1}</h1>
+        <p className="answer">{u.answer[0]} {u.answer[1]}</p>
+        <PromptFilm ask={u.ask} button={<Cta page={u.slug} place="hero" ask={u.ask}>Build it</Cta>}>
+          <PlanCard u={u} />
+        </PromptFilm>
+        <p className="uc3-note">Free to start. Nothing reaches anyone outside your business without your OK.</p>
       </section>
 
-      {/* The real thing, large, on the kind's tint; the sourced facts as plain sentences under it */}
-      <section className="wrap sec" id="see-it">
-        <div className="sec-h">
-          <h2>{u.seeIt.h2}</h2>
-          <p>{u.seeIt.intro}</p>
+      {/* How it works: a stepper that moves with the scroll */}
+      <section className="wrap sec" id="how">
+        <div className="sec-h c"><h2>How it works</h2><p>From one sentence to {u.build.name.toLowerCase()} running for you.</p></div>
+        <ScrollStepper steps={u.steps} pictures={u.steps.map(s => <div key={s.key}>{stepPicture(s.key, u)}</div>)} />
+      </section>
+
+      {/* The apps: this job's apps large, then the category from the catalog, and 2,300+ */}
+      <section className="wrap sec" id="apps">
+        <div className="sec-h c">
+          <h2>{u.build.apps.length ? <>Works with {u.build.apps.map(appName).join(' and ')}, and 2,300+ more apps</> : <>No app needed. And 2,300+ apps when you want them</>}</h2>
+          <p>Through viaSocket&rsquo;s catalog. Swap in the {cat?.short ?? 'other'} apps you already use.</p>
         </div>
-        <div className="stage">
-          <ProductView view={u.view} />
-          {u.facts.length > 0 && (
-            <div className="stage-cap" aria-label={u.factsLabel}>
-              {u.facts.map(f => (
-                <p key={f.figure}><b>{f.figure}</b> {f.text}<a href={f.href} target="_blank" rel="noopener">{f.source}, read {f.read}</a></p>
+        <div className="uc3-apps">
+          {u.build.apps.map(a => (
+            <MaybeLink key={a} href={`/integrations/${a}`} className="uc3-app"><AppLogo app={a} icon={appIcon(a)} size={44} /><b>{appName(a)}</b></MaybeLink>
+          ))}
+        </div>
+        {wall.length > 0 && (
+          <div className="uc3-wall" aria-label={`${cat?.name ?? 'More'} apps in the catalog`}>
+            <div className="uc3-wall-row">
+              {[...wall, ...wall].map((a, i) => (
+                <span key={a.s + i} className="uc3-tile" title={a.n} aria-hidden={i >= wall.length ? 'true' : undefined}><AppLogo app={a.s} icon={a.i} size={34} /><span className="sr">{a.n}</span></span>
               ))}
             </div>
-          )}
-        </div>
-      </section>
-
-      {/* How it works: the run, step by step */}
-      <section className="wrap sec split" id="how">
-        <div className="split-h">
-          <h2>{u.howH2}</h2>
-          <p>{u.promises.join('. ')}.</p>
-        </div>
-        <ol className="rows">
-          {u.steps.map((st, n) => (
-            <li key={st.title}><span className="n">{n + 1}</span><div><h3>{st.title}</h3><p>{st.body}</p></div></li>
-          ))}
-        </ol>
-      </section>
-
-      {/* What it works with, and what asks you first */}
-      <section className="wrap sec split" id="uses">
-        <div className="split-h">
-          <h2>What it works with</h2>
-          <p>{u.usesNote}</p>
-        </div>
-        <ul className="rows">
-          {u.uses.map(x => (
-            <li key={x.name}>
-              <span className="logo-cell"><AppLogo app={x.app} icon={x.icon} size={24} /></span>
-              <div><h3>{x.name}</h3><p>{x.why}</p>{x.chips.length > 0 && <p className="meta">{x.chips.join(' · ')}</p>}</div>
-            </li>
-          ))}
-          <li className="hl"><span className="n" aria-hidden="true"><Face id="lead" size={26} /></span><div><h3>What asks you first</h3><p>{u.asksFirst}</p></div></li>
-        </ul>
-      </section>
-
-      {/* The schedule or table people ask about, sourced */}
-      {u.table && (
-        <section className="wrap sec split" id="schedule">
-          <div className="split-h">
-            <h2>{u.table.h2}</h2>
-            <p>{u.table.intro}</p>
           </div>
-          <div>
-          <div className="tbl2" role="table" aria-label={u.table.label}>
-            {u.table.rows.map(r => (
-              <div key={r.when} className={r.ask ? '' : 'on'} role="row">
-                <b role="cell">{r.when}</b>
-                <span role="cell">{r.tone}<em>{r.ask ? <>Ask: &ldquo;{r.ask}&rdquo;</> : (u.table!.done ?? 'Built in')}</em></span>
-              </div>
-            ))}
-          </div>
-          <p className="sec-src">{u.table.note} Sources: {u.table.sources.map((x, i) => <span key={x.href}>{i ? ', ' : ''}<a href={x.href} target="_blank" rel="noopener">{x.label}</a></span>)}, read 19 Nov 2026.</p>
-          </div>
-        </section>
-      )}
-
-      {/* Make it yours: asks to copy */}
-      <section className="wrap sec split" id="yours">
-        <div className="split-h">
-          <h2>Make it yours</h2>
-          <p>{u.yoursIntro}</p>
-          <Cta page={u.slug} place="inline" ask={u.ask} />
-        </div>
-        <div className="asks-rows">
-          {u.variations.map(v => <CopyAsk key={v} text={v} />)}
-        </div>
+        )}
+        <p className="uc3-more-apps"><MaybeLink href={cat ? `/integrations/category/${cat.slug}` : '/integrations'}>See all {cat?.short ?? ''} apps</MaybeLink></p>
       </section>
 
-      {/* Other ways, honestly, and what it doesn't do yet */}
-      <section className="wrap sec split" id="other-ways">
-        <div className="split-h">
-          <h2>{u.otherWaysH2}</h2>
+      {/* Compared: the other ways to do this job, honestly, against 50agents */}
+      <section className="wrap sec" id="compare">
+        <div className="sec-h c"><h2>Other ways to do it, compared</h2>{u.stat && <p>{u.stat.text} <a href={u.stat.href} target="_blank" rel="noopener">{u.stat.source}</a></p>}</div>
+        <div className="uc3-cmp">
+          <table>
+            <thead><tr><th scope="col"><span className="sr">What matters</span></th>{u.compare.methods.map(m => <th key={m} scope="col">{m}</th>)}<th scope="col" className="us"><span className="uc3-us"><Face id={k.face} size={20} />50agents</span></th></tr></thead>
+            <tbody>
+              {u.compare.rows.map(r => (
+                <tr key={r.label}><th scope="row">{r.label}</th>{r.cells.map((c, i) => <Cell key={i} v={c} us={i === r.cells.length - 1} />)}</tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div>
-          <ul className="rows plain">
-            {u.otherWays.map(w => (
-              <li key={w.title}><div><h3>{w.title}</h3><p>{w.body}</p>{w.sources && <p className="sec-src">{w.sources.map((x, i) => <span key={x.href}>{i ? ' · ' : ''}<a href={x.href} target="_blank" rel="noopener">{x.label}</a></span>)} · read 19 Nov 2026</p>}</div></li>
-            ))}
-            <li className="hl grey"><div><h3>What it doesn&rsquo;t do yet</h3>{u.limits.map(l => <p key={l}>{l}</p>)}</div></li>
-          </ul>
-        </div>
+        {u.compare.sources && <p className="uc3-src">From each tool&rsquo;s own pages: {u.compare.sources.map((x, i) => <span key={x.href}>{i ? ', ' : ''}<a href={x.href} target="_blank" rel="noopener">{x.label}</a></span>)}.</p>}
       </section>
 
       {/* Questions */}
-      <section className="wrap sec split" id="questions">
-        <div className="split-h">
-          <h2>Questions people ask</h2>
-        </div>
-        <div className="qa">
+      <section className="wrap sec" id="questions">
+        <div className="sec-h c"><h2>Questions people ask</h2></div>
+        <div className="qa uc3-qa">
           {u.faqs.map((f, n) => (
             <details key={f.q} open={n === 0}>
               <summary><h3>{f.q}</h3><i aria-hidden="true" /></summary>
@@ -196,31 +143,31 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* Related: across to siblings, up to the hub */}
-      <section className="wrap sec" id="related">
-        <div className="sec-h"><h2>Related</h2></div>
+      {/* More use cases, and the way to all of them */}
+      <section className="wrap sec" id="more">
+        <div className="sec-h c"><h2>More things Captain can build</h2></div>
         <div className="cards3">
-          {u.related.map(r => (
-            <MaybeLink key={r.href} href={r.href}>
+          {more.map(r => (
+            <a key={r.slug} href={`/use-cases/${r.slug}`}>
               <span className="k"><Face id={KINDS[r.kind].face} size={20} />{KINDS[r.kind].label}</span>
-              <b>{r.title}</b>
-              <span>{r.line}</span>
-            </MaybeLink>
+              <b>{r.h1}</b>
+              <span>{r.build.name}: {r.build.line}</span>
+            </a>
           ))}
         </div>
-        <p className="also">Also: {u.up.map((l, i) => <span key={l.href}>{i ? ' · ' : ''}<MaybeLink href={l.href}>{l.label}</MaybeLink></span>)}</p>
+        <div className="uc3-all"><a className="btn ghost" href="/use-cases">See all use cases</a></div>
       </section>
 
-      {/* Final CTA, with the crew peeking */}
+      {/* Final: the same ask, one button */}
       <section className="wrap sec">
         <div className="final">
-          <h2>{u.finalH2}</h2>
-          <p>Tell Captain &ldquo;{u.ask}&rdquo;. Every workspace starts free with 2,000 credits.</p>
-          <Cta page={u.slug} place="final" ask={u.ask} />
-          <span className="peek l" aria-hidden="true"><Face id="closer" size={52} /><Face id="keeper" size={44} /></span>
-          <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="sorter" size={46} /></span>
+          <h2>{u.h1}</h2>
+          <p>Tell Captain &ldquo;{u.ask}&rdquo;. Free to start.</p>
+          <Cta page={u.slug} place="final" ask={u.ask}>Build it with Captain</Cta>
+          <span className="peek l" aria-hidden="true"><Face id={k.face} size={52} /><Face id="keeper" size={44} /></span>
+          <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="rosa" size={46} /></span>
         </div>
-        <p className="byline">By the 50agents team · Last updated {longDate(u.updated)} · {u.byline}</p>
+        <p className="byline">By the 50agents team · Updated {month(u.updated)}</p>
       </section>
 
       <StickyBar><span>{u.h1}</span><Cta page={u.slug} place="sticky" ask={u.ask}>Build it</Cta></StickyBar>

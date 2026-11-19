@@ -1,6 +1,6 @@
 // The sitemap index and one sitemap per family (pages-brief D2): only indexable pages, each with the date its content
 // last changed (the content file's date, or the catalog snapshot's), never today's date stamped on everything.
-import { USE_CASES } from '@/content/use-cases';
+import { PAGES as USE_CASES } from '@/content/use-cases/pages';
 import { PATHS as HUBS } from '@/content/hubs/paths';
 import { PATHS as COMPARE } from '@/content/compare/paths';
 import { PATHS as GUIDES } from '@/content/guides/paths';

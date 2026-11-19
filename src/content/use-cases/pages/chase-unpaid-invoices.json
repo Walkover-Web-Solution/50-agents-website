@@ -1,0 +1,69 @@
+{
+  "slug": "chase-unpaid-invoices",
+  "kind": "app",
+  "query": "chase unpaid invoices automatically",
+  "category": "accounting",
+  "title": "Chase unpaid invoices automatically | 50agents",
+  "description": "Tell Captain \"Chase my unpaid invoices\" to get an invoices desk: late invoices first, a polite reminder drafted for each, sent from Gmail when you OK it.",
+  "h1": "Chase unpaid invoices automatically",
+  "answer": [
+    "To chase unpaid invoices automatically, tell Captain \"Chase my unpaid invoices\" in 50agents.",
+    "It builds you an invoices desk that lists what is late, oldest first, with an AI agent that drafts a polite reminder for each one and sends it from your Gmail only after you approve it."
+  ],
+  "ask": "Chase my unpaid invoices",
+  "stat": {
+    "text": "59% of US small businesses have invoices more than 30 days overdue.",
+    "source": "QuickBooks Small Business Late Payments Report 2026",
+    "href": "https://quickbooks.intuit.com/r/small-business-data/small-business-late-payments-report-2026/"
+  },
+  "build": {
+    "name": "Invoices desk",
+    "line": "what is owed to you, the late ones first",
+    "when": "A day after each invoice is due",
+    "does": ["Lists late invoices, oldest first", "Drafts a polite reminder for each", "Marks it Reminded"],
+    "apps": ["gmail"],
+    "asksFirst": "Every email to a client"
+  },
+  "steps": [
+    { "key": "ask", "title": "You say it in one sentence", "body": "\"Chase my unpaid invoices.\" Captain asks where your invoices are, the currency, and whether reminders go from your email." },
+    { "key": "plan", "title": "Captain shows you the plan", "body": "An invoices desk with To collect, Late and All invoices, and Collector, an AI agent that writes the reminders." },
+    { "key": "connect", "title": "You connect Gmail and add invoices", "body": "Connect Gmail once. Add invoices by hand, paste a table, or drop in a CSV or Excel file." },
+    { "key": "run", "title": "Collector watches the due dates", "body": "A day after an invoice is due, it writes a short reminder: the invoice, the amount, the due date and how to pay." },
+    { "key": "approve", "title": "You approve, it sends", "body": "Each reminder waits for your yes. Approve and send, change it, or decline it." }
+  ],
+  "run": [
+    { "when": "Today, 9:00", "did": "Drafted 3 reminders" },
+    { "when": "Yesterday, 9:00", "did": "Drafted 1 reminder" },
+    { "when": "Monday, 9:00", "did": "Nothing late" }
+  ],
+  "approval": {
+    "title": "Email Maple & Co. Bakery",
+    "to": "accounts@maple.example",
+    "lines": ["A quick reminder that invoice INV-1046 for $860 was due on 31 October and is still open.", "Could you let me know when we can expect payment?"],
+    "button": "Approve and send"
+  },
+  "compare": {
+    "methods": ["By hand", "Your accounting app's reminders", "Zapier, Make or n8n"],
+    "rows": [
+      { "label": "Set up", "cells": ["None", "A few settings", "Build each step yourself", "One sentence"] },
+      { "label": "Writes each reminder for that client", "cells": ["Yes, slowly", "No, one template", "Only with an AI step you add", "Yes"] },
+      { "label": "Waits for your OK before sending", "cells": ["Yes", "No", "Only if you build it", "Yes, always"] },
+      { "label": "Knows what is already paid", "cells": ["If you check", "Yes", "If connected to your books", "When you mark it Paid"] },
+      { "label": "Sends on WhatsApp or SMS", "cells": ["Yes", "Some apps", "Yes", "No, email only"] }
+    ],
+    "sources": [
+      { "label": "Zapier", "href": "https://zapier.com/automation/use-case/send-reminders-and-notifications-for-unpaid-invoices" },
+      { "label": "Make", "href": "https://www.make.com/workflows/recover-overdue-invoices-with-escalating-reminders" },
+      { "label": "n8n", "href": "https://n8n.io/workflows/5391-smart-invoice-collection-system-with-gpt-41-gmail-and-google-sheets/" }
+    ]
+  },
+  "faqs": [
+    { "q": "Will it email my clients without asking me?", "a": "No. Every reminder waits in Needs you until you approve it, change it or decline it. The app will not build a step that emails someone outside your business without asking first." },
+    { "q": "How long should I wait before chasing an unpaid invoice?", "a": "Send the first reminder within a day or two of the due date, while it is still an easy fix for the client. Then chase every week or two, firmer each time." },
+    { "q": "What if the client has already paid, or disputes the invoice?", "a": "Collector only chases invoices marked Sent. Mark one Paid and decline any reminder already waiting for it, and it is never chased again. For a dispute, move it out of Sent." },
+    { "q": "Does it work with QuickBooks or Xero?", "a": "Not directly: it does not sync with them. Export your open invoices as a CSV and drop the file into the desk, and Captain matches the columns." },
+    { "q": "What should a payment reminder email say?", "a": "The invoice number, the amount, the due date and how to pay, in a few friendly lines, with a question about when to expect payment. Collector writes exactly that." }
+  ],
+  "tags": ["finance", "gmail", "invoices"],
+  "updated": "2026-11-19"
+}

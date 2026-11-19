@@ -1,0 +1,479 @@
+{
+ "row": {
+  "slug": "stripe-payments-to-google-sheets",
+  "query": "Stripe payments to Google Sheets",
+  "kind": "auto",
+  "apps": [
+   "stripe",
+   "google-sheets"
+  ],
+  "category": "payments",
+  "ask": "Set up an automation: every new Stripe payment is added as a row to my Google Sheet with the customer, amount and date",
+  "own": "Stripe-specific: refunds, currencies, fees, customer fields"
+ },
+ "catalog": [
+  {
+   "slug": "stripe",
+   "name": "Stripe",
+   "events": [
+    {
+     "name": "New Customer Created",
+     "type": "trigger",
+     "about": "Runs when customer is created"
+    },
+    {
+     "name": "Payment Link Created",
+     "type": "trigger",
+     "about": "Runs when payment link created"
+    },
+    {
+     "name": "Subscription Ends",
+     "type": "trigger",
+     "about": "Runs when subscription ends"
+    },
+    {
+     "name": "New Charge Is Created",
+     "type": "trigger",
+     "about": "Runs when charge is created"
+    },
+    {
+     "name": "Find a Subscription",
+     "type": "action",
+     "about": "Retrieves subscriptions from your Stripe account with flexible filtering options."
+    },
+    {
+     "name": "List Invoice",
+     "type": "action",
+     "about": "Search and retrieve Stripe invoices using smart filters like customer email, subscription, status, and date."
+    },
+    {
+     "name": "Find Payment Intents",
+     "type": "action",
+     "about": "Locate payment intents"
+    },
+    {
+     "name": "Find Customer",
+     "type": "action",
+     "about": "Find customer by ID/email/date"
+    },
+    {
+     "name": "Create Invoice",
+     "type": "action",
+     "about": "Create a new Stripe invoice"
+    },
+    {
+     "name": "Delete Customer",
+     "type": "action",
+     "about": "Permanently remove a customer."
+    },
+    {
+     "name": "New Event Occurs",
+     "type": "trigger",
+     "about": "Runs when new event occurs"
+    },
+    {
+     "name": "Update Customer",
+     "type": "action",
+     "about": "Update Stripe customer details"
+    },
+    {
+     "name": "Deactivate Payment Link",
+     "type": "action",
+     "about": "Deactivate a payment link"
+    },
+    {
+     "name": "Create Product",
+     "type": "action",
+     "about": "Create a new product."
+    },
+    {
+     "name": "Create Customer",
+     "type": "action",
+     "about": "Create or update a customer."
+    },
+    {
+     "name": "Cancel Subscription",
+     "type": "action",
+     "about": "Cancel an active subscription."
+    },
+    {
+     "name": "Create Price",
+     "type": "action",
+     "about": "Create a product price."
+    },
+    {
+     "name": "Collect Payment",
+     "type": "action",
+     "about": "Create a payment request in Stripe to collect money from a customer."
+    },
+    {
+     "name": "Create Payment Link",
+     "type": "action",
+     "about": "Create a payment link customers can use to pay or subscribe."
+    },
+    {
+     "name": "New Refund Created",
+     "type": "trigger",
+     "about": "Runs when a new refund is created."
+    },
+    {
+     "name": "List Coupons",
+     "type": "action",
+     "about": "Retrieve coupons from Stripe with optional date filters, pagination, limit, and expand fields."
+    },
+    {
+     "name": "List All Plans",
+     "type": "action",
+     "about": "Retrieve Stripe plans and optionally filter by product, active status, creation dates, limit, or pagination."
+    },
+    {
+     "name": "List Billing Meters",
+     "type": "action",
+     "about": "Retrieve billing meters with status filter, cursor pagination, limit, and expand options."
+    },
+    {
+     "name": "List Transfers",
+     "type": "action",
+     "about": "List transfers to connected accounts, filtered by destination, transfer group, created date, limit, or pagination."
+    },
+    {
+     "name": "Get Accounts",
+     "type": "action",
+     "about": "Retrieve a single account by ID or list accounts with date-range filters, pagination, and limit."
+    },
+    {
+     "name": "Charge Refunded",
+     "type": "trigger",
+     "about": "Runs when charge is refunded"
+    },
+    {
+     "name": "When a charge succeeds",
+     "type": "trigger",
+     "about": "Runs the workflow automatically whenever a charge succeeds."
+    },
+    {
+     "name": "When a checkout session is completed",
+     "type": "trigger",
+     "about": "Runs the workflow automatically whenever a checkout session is completed."
+    },
+    {
+     "name": "Coupon Created",
+     "type": "trigger",
+     "about": "Runs when coupon is created"
+    },
+    {
+     "name": "Customer Subscribes",
+     "type": "trigger",
+     "about": "Runs when customer subscribes"
+    },
+    {
+     "name": "Customer Updated",
+     "type": "trigger",
+     "about": "Triggers whenever any property of a customer changes."
+    },
+    {
+     "name": "Invoice Is Finalized",
+     "type": "trigger",
+     "about": "Runs when invoice is finalized"
+    },
+    {
+     "name": "When an invoice is paid",
+     "type": "trigger",
+     "about": "Runs the workflow automatically whenever an invoice is paid."
+    },
+    {
+     "name": "Invoice Item Created",
+     "type": "trigger",
+     "about": "Runs when invoice item created"
+    },
+    {
+     "name": "When a new payment intent is created",
+     "type": "trigger",
+     "about": "Runs the workflow automatically when a new payment intent is created in your Stripe account."
+    },
+    {
+     "name": "Payment Fails",
+     "type": "trigger",
+     "about": "Runs when payment fails"
+    },
+    {
+     "name": "When a payment succeeds",
+     "type": "trigger",
+     "about": "Runs the workflow automatically whenever a payment succeeds."
+    },
+    {
+     "name": "Payment Link Updated",
+     "type": "trigger",
+     "about": "Triggers when a payment link is updated."
+    },
+    {
+     "name": "Payment Method Attached",
+     "type": "trigger",
+     "about": "Triggers whenever a new payment method is attached to a customer."
+    },
+    {
+     "name": "Payment Method Automatically Updated",
+     "type": "trigger",
+     "about": "Triggers whenever a payment method’s details are automatically updated by the network."
+    },
+    {
+     "name": "Payment Method Detached",
+     "type": "trigger",
+     "about": "Triggers whenever a payment method is detached from a customer."
+    },
+    {
+     "name": "Payment Method Updated",
+     "type": "trigger",
+     "about": "Triggers whenever a payment method is updated."
+    },
+    {
+     "name": "Payout Canceled",
+     "type": "trigger",
+     "about": "Triggers whenever a payout is canceled."
+    },
+    {
+     "name": "New Payout",
+     "type": "trigger",
+     "about": "Triggers whenever a payout is canceled."
+    },
+    {
+     "name": "Payout Failed",
+     "type": "trigger",
+     "about": "Triggers whenever a payout attempt fails."
+    },
+    {
+     "name": "Payout Paid",
+     "type": "trigger",
+     "about": "Triggers whenever a payout is expected to be available in the destination account."
+    },
+    {
+     "name": "Payout Updated",
+     "type": "trigger",
+     "about": "Triggers whenever a payout is updated."
+    },
+    {
+     "name": "New Person",
+     "type": "trigger",
+     "about": "Triggers whenever a person associated with an account is created."
+    },
+    {
+     "name": "Person Deleted",
+     "type": "trigger",
+     "about": "Triggers whenever a person associated with an account is deleted."
+    },
+    {
+     "name": "Person Updated",
+     "type": "trigger",
+     "about": "Triggers whenever a person associated with an account is updated."
+    },
+    {
+     "name": "New Plan",
+     "type": "trigger",
+     "about": "Triggers whenever a plan is created."
+    },
+    {
+     "name": "Plan Deleted",
+     "type": "trigger",
+     "about": "Triggers whenever a plan is deleted."
+    },
+    {
+     "name": "Plan Updated",
+     "type": "trigger",
+     "about": "Triggers whenever a plan is updated."
+    },
+    {
+     "name": "New Price",
+     "type": "trigger",
+     "about": "Triggers whenever a price is created."
+    },
+    {
+     "name": "Price Deleted",
+     "type": "trigger",
+     "about": "Triggers whenever a price is deleted."
+    },
+    {
+     "name": "Price Updated",
+     "type": "trigger",
+     "about": "Triggers whenever a price is updated."
+    },
+    {
+     "name": "New Product",
+     "type": "trigger",
+     "about": "Triggers whenever a product is created."
+    },
+    {
+     "name": "Product Deleted",
+     "type": "trigger",
+     "about": "Triggers whenever a product is deleted."
+    },
+    {
+     "name": "Product Updated",
+     "type": "trigger",
+     "about": "Triggers whenever a product is updated."
+    },
+    {
+     "name": "New Promotion Code",
+     "type": "trigger",
+     "about": "Triggers whenever a promotion code is created."
+    },
+    {
+     "name": "Promotion Code Updated",
+     "type": "trigger",
+     "about": "Triggers whenever a promotion code is updated."
+    },
+    {
+     "name": "Quote Accepted",
+     "type": "trigger",
+     "about": "Triggers whenever a quote is accepted."
+    },
+    {
+     "name": "Quote Canceled",
+     "type": "trigger",
+     "about": "Triggers whenever a quote is canceled."
+    },
+    {
+     "name": "Quote Canceled",
+     "type": "trigger",
+     "about": "Triggers whenever a quote is canceled."
+    },
+    {
+     "name": "Search Invoice Details",
+     "type": "action",
+     "about": "search invoice by selecting id"
+    },
+    {
+     "name": "Search Customer",
+     "type": "action",
+     "about": "Find a Stripe customer by ID or email; supports limit, pagination, and creation date filters."
+    }
+   ]
+  },
+  {
+   "slug": "google-sheets",
+   "name": "Google Sheets",
+   "events": [
+    {
+     "name": "Update Spreadsheet Row",
+     "type": "action",
+     "about": "Update columns in sheet row"
+    },
+    {
+     "name": "List Rows in Sheet",
+     "type": "action",
+     "about": "Get rows from a sheet tab as objects with row numbers. Supports an optional header row, offset/limit paging, and fetching from the last row."
+    },
+    {
+     "name": "Delete Rows",
+     "type": "action",
+     "about": "Delete one or more rows from a specific sheet in a Google Spreadsheet using a row range or row numbers."
+    },
+    {
+     "name": "Add New Row to Sheet",
+     "type": "action",
+     "about": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+    },
+    {
+     "name": "Lookup Spreadsheet Rows",
+     "type": "action",
+     "about": "Find rows in a Google Sheet that match a column value or an advanced filter."
+    },
+    {
+     "name": "Copy Sheet To Spreadsheet",
+     "type": "action",
+     "about": "Copy a sheet to another file"
+    },
+    {
+     "name": "Add Multiple Rows",
+     "type": "action",
+     "about": "Add one or more rows to a specific sheet in a Google Spreadsheet. Provide data column-by-column or paste a JSON array for bulk inserts. If the sheet has no headers, they will be auto-created from your JSON keys."
+    },
+    {
+     "name": "Create Subsheet",
+     "type": "action",
+     "about": "Add a new subsheet to a spreadsheet and optionally set its position and add column headers in the first row."
+    },
+    {
+     "name": "Create Sheet Column",
+     "type": "action",
+     "about": "Insert a new column into the specified Google Sheets sheet at the given index (or append to the end) and optionally set its header."
+    },
+    {
+     "name": "Get Rows From Range",
+     "type": "action",
+     "about": "Retrieve rows from sheet range"
+    },
+    {
+     "name": "Create a Spreadsheet",
+     "type": "action",
+     "about": "create a new spreadsheet."
+    },
+    {
+     "name": "Find Subsheet",
+     "type": "action",
+     "about": "Searches a sheet in a spreadsheet by name and returns the sheet name, column titles, and number of rows."
+    },
+    {
+     "name": "Get Row Details",
+     "type": "action",
+     "about": "Retrieve values and metadata for a specific row in a spreadsheet sheet."
+    },
+    {
+     "name": "Clear Spreadsheet Row",
+     "type": "action",
+     "about": "Clears the contents of the selected row(s) while keeping the row(s) intact in the spreadsheet."
+    },
+    {
+     "name": "Create Spreadsheet From Template",
+     "type": "action",
+     "about": "Create sheet from template"
+    },
+    {
+     "name": "List Spreadsheets",
+     "type": "action",
+     "about": "Fetch all spreadsheets"
+    },
+    {
+     "name": "List Spreadsheet Tabs",
+     "type": "action",
+     "about": "Lists all tabs (sheets) in a spreadsheet and returns the total count."
+    },
+    {
+     "name": "Row Added Or Updated",
+     "type": "trigger",
+     "about": "Runs when row added or updated"
+    },
+    {
+     "name": "Batch Update Cell Values",
+     "type": "action",
+     "about": "Update multiple cells at once"
+    },
+    {
+     "name": "Format Spreadsheet Row",
+     "type": "action",
+     "about": "Format row font and background"
+    },
+    {
+     "name": "Add Conditional Formatting Rule",
+     "type": "action",
+     "about": "Apply conditional formatting to cells in a Google Sheets spreadsheet based on their values"
+    },
+    {
+     "name": "Update Sheet Name",
+     "type": "action",
+     "about": "Renames an existing sheet (tab) within a Google Spreadsheet to a new name you specify."
+    },
+    {
+     "name": "Update Multiple Rows",
+     "type": "action",
+     "about": "Update values in one or more rows of a Google Sheet."
+    },
+    {
+     "name": "Permanently Delete Spreadsheet",
+     "type": "action",
+     "about": "Permanently delete a spreadsheet from Google Drive, including files on shared drives."
+    }
+   ]
+  }
+ ],
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

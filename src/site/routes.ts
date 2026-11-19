@@ -1,6 +1,6 @@
 // Every new page that exists, so links only point at real pages (a link to one not built yet is drawn as text).
 // Each family's content index exports PATHS; add a family here once, never edit another family's list.
-import { USE_CASES } from '@/content/use-cases';
+import { PAGES as USE_CASES } from '@/content/use-cases/pages';
 import { PATHS as HUBS } from '@/content/hubs/paths';
 import { PATHS as INTEGRATIONS } from '@/content/integrations/paths';
 import { PATHS as COMPARE } from '@/content/compare/paths';

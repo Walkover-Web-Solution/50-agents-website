@@ -1,0 +1,63 @@
+{
+  "slug": "customer-requests-desk",
+  "kind": "app",
+  "query": "track customer requests from email",
+  "category": "customer-support",
+  "title": "Track customer requests from email | 50agents",
+  "description": "Tell Captain \"Keep track of customer requests and draft the replies\" to get a desk with status and urgency, and a reply drafted for each question.",
+  "h1": "Track customer requests from email",
+  "answer": [
+    "To track customer requests from email, tell Captain \"Keep track of customer requests and draft the replies\" in 50agents.",
+    "It builds a requests desk where every request has a status, a priority and an answer-by date, with an AI agent that sorts each new request and drafts a reply to each question, sent from your Gmail only after you approve it."
+  ],
+  "ask": "Keep track of customer requests and draft the replies",
+  "build": {
+    "name": "Requests desk",
+    "line": "every request, the urgent ones first",
+    "when": "When a request is added to the desk",
+    "does": ["Sorts each request by kind and urgency", "Drafts a reply to each question", "Sets Waiting on them once you approve"],
+    "apps": ["gmail"],
+    "asksFirst": "Every reply to a customer"
+  },
+  "steps": [
+    { "key": "ask", "title": "You say it in one sentence", "body": "\"Keep track of customer requests and draft the replies.\" Captain asks where requests come in and whether replies go out from your email." },
+    { "key": "plan", "title": "Captain shows you the plan", "body": "A requests desk with Desk, Urgent and All requests views, four statuses, and Desk, an AI agent that sorts each request and drafts replies." },
+    { "key": "connect", "title": "You connect Gmail and add requests", "body": "Connect Gmail once, for sending replies. Add requests by hand, paste a table, or drop in a CSV. The desk does not read your inbox by itself." },
+    { "key": "run", "title": "Desk sorts each new request", "body": "It sets the kind and the priority, fills in the answer-by date, and notes why. For a question, it drafts a reply from what the business knows." },
+    { "key": "approve", "title": "You approve, the status moves", "body": "The reply waits in Needs you. Approve and send, change it, or decline it. Once it is sent, the request moves to Waiting on them." }
+  ],
+  "run": [
+    { "when": "Tuesday, 10:12", "did": "Sorted a request as a Complaint, Urgent" },
+    { "when": "Tuesday, 10:13", "did": "Drafted a reply to a delivery question" },
+    { "when": "Wednesday, 8:40", "did": "Moved a request to Waiting on them after your OK" }
+  ],
+  "approval": {
+    "title": "Reply to Priya Nair",
+    "to": "priya@example.com",
+    "lines": ["Thanks for getting in touch. Your order shipped on Monday, and the tracking link is in your confirmation email.", "If it has not arrived by Friday, reply here and we will chase it."],
+    "button": "Approve and send"
+  },
+  "compare": {
+    "methods": ["Gmail labels and stars", "A help desk tool", "Zapier email to sheet"],
+    "rows": [
+      { "label": "Set up", "cells": ["None", "Sign up, connect your inbox", "Build each step yourself", "One sentence"] },
+      { "label": "Pulls email in on its own", "cells": ["You read it", "Yes", "Yes, with a trigger", "No, you add each one"] },
+      { "label": "Status and answer-by date per request", "cells": ["No", "Yes", "Columns you add", "Yes"] },
+      { "label": "Drafts the reply for you", "cells": ["No", "Depends on the tool", "Only with an AI step you add", "Yes, for questions"] },
+      { "label": "Waits for your OK before sending", "cells": ["Yes", "Depends on the tool", "Only if you build it", "Yes, always"] }
+    ],
+    "sources": [
+      { "label": "ProProfs Help Desk", "href": "https://proprofsdesk.com/blog/track-customer-requests" },
+      { "label": "Zapier", "href": "https://zapier.com/templates/details/create-support-tracker-rows-from-inbound-customer-emails-c340721013e0" }
+    ]
+  },
+  "faqs": [
+    { "q": "How do I track customer requests that come in by email?", "a": "Give each request a record with a status and a date to answer by, outside the inbox, and check the late ones every day. The desk does that, with fields for status, priority, kind and answer-by." },
+    { "q": "Does it read my Gmail inbox on its own?", "a": "No. The requests desk has no step that pulls email in by itself. You add each request by hand, paste a table or drop in a CSV, and Gmail is used only to send replies you approve." },
+    { "q": "Will it email customers without asking me?", "a": "No. Every reply waits in Needs you until you approve it, change it or decline it. The app will not build a step that sends to a customer without asking first." },
+    { "q": "What if one customer sends several requests?", "a": "Importing a file keeps one record per email address today, so extra requests from the same person would merge. Add the others by hand to keep each request on its own line." },
+    { "q": "How is this different from an AI agent that only replies to support email?", "a": "A reply-only AI agent answers and keeps nothing. The desk keeps each request as a record until it is solved, with status, priority, answer-by date and what was sent. If every question has a one-reply answer, replying alone is enough." }
+  ],
+  "tags": ["support", "gmail", "requests", "desk"],
+  "updated": "2026-11-19"
+}

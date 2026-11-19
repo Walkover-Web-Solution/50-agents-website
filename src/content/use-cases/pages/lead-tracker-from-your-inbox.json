@@ -1,0 +1,180 @@
+{
+  "slug": "lead-tracker-from-your-inbox",
+  "kind": "app",
+  "query": "track leads from email; simple lead tracker",
+  "category": "crm",
+  "title": "Track leads from your email, simple lead tracker | 50agents",
+  "description": "To track leads from email, tell Captain \"Track my leads and follow up\": a pipeline fills from your Gmail, with follow-ups drafted for you to approve.",
+  "h1": "Track leads from your email",
+  "answer": [
+    "To track leads from your email, tell Captain \"Track my leads and follow up\" in 50agents.",
+    "It builds a leads desk with a pipeline board, where Closer, an AI agent, adds leads it finds in your Gmail and drafts follow-ups, and asks before sending any email."
+  ],
+  "ask": "Track my leads and follow up",
+  "stat": {
+    "text": "HubSpot says its lead tracker template suits you if you add fewer than 10 new leads a week, and points you to a CRM above that.",
+    "source": "HubSpot lead tracker template page",
+    "href": "https://www.hubspot.com/resources/templates/lead-tracker"
+  },
+  "build": {
+    "name": "Leads desk",
+    "line": "your pipeline, who to follow up today",
+    "when": "Every weekday at 9:00, and 3 quiet days after contact",
+    "does": [
+      "Adds new leads from your Gmail",
+      "Moves leads to Replied",
+      "Drafts follow-ups for quiet leads"
+    ],
+    "apps": [
+      "gmail"
+    ],
+    "asksFirst": "Every email to a lead"
+  },
+  "steps": [
+    {
+      "key": "ask",
+      "title": "You say it in four words",
+      "body": "\"Track my leads and follow up.\" Captain asks where leads come from, and whether follow-ups go from your email after you approve each."
+    },
+    {
+      "key": "plan",
+      "title": "Captain shows the desk",
+      "body": "Pipeline, Follow up and All leads views, four numbers on the Overview, and two crew: Closer, an AI agent, and Scout, a browser agent."
+    },
+    {
+      "key": "connect",
+      "title": "You connect Gmail, add the leads you have",
+      "body": "Connect Gmail once. Type leads in, paste a table, or drop a CSV or Excel file and Captain matches the columns."
+    },
+    {
+      "key": "run",
+      "title": "Closer reads your email each weekday",
+      "body": "At 9:00 Closer adds new people asking to buy, notes replies and picks leads quiet for 3 days. Scout reads each new company's website."
+    },
+    {
+      "key": "approve",
+      "title": "You approve each follow-up",
+      "body": "A follow-up waits in Needs you with the lead, subject and full text. Approve and send, change it, or decline it."
+    }
+  ],
+  "run": [
+    {
+      "when": "Today, 9:00",
+      "did": "Added 2 leads, noticed 1 reply, drafted 1 follow-up"
+    },
+    {
+      "when": "Yesterday, 9:00",
+      "did": "Added 1 lead from the website form"
+    },
+    {
+      "when": "Monday, 9:00",
+      "did": "No new leads, 2 follow-ups drafted"
+    }
+  ],
+  "approval": {
+    "title": "Email Jordan Reyes at Fernway",
+    "to": "jordan@fernway.example",
+    "lines": [
+      "Just checking you saw my note on the website redesign quote. Happy to adjust the scope if the budget is tight.",
+      "Would a short call this week help?"
+    ],
+    "button": "Approve and send"
+  },
+  "compare": {
+    "methods": [
+      "A spreadsheet template",
+      "Streak in Gmail",
+      "A CRM plus Zapier"
+    ],
+    "rows": [
+      {
+        "label": "Set up",
+        "cells": [
+          "Download and fill in",
+          "Install, build a pipeline",
+          "Choose a CRM, build a Zap",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "Adds leads from your inbox",
+        "cells": [
+          "No, you copy them",
+          "You add each email",
+          "Yes, by rules you set",
+          "Yes, once each weekday"
+        ]
+      },
+      {
+        "label": "Drafts the follow-up email",
+        "cells": [
+          "No",
+          "No",
+          "Only with an AI step",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Waits for your OK before sending",
+        "cells": [
+          "Not applicable",
+          "Not applicable",
+          "Only if you build it",
+          "Yes, always"
+        ]
+      },
+      {
+        "label": "Best for a team selling together",
+        "cells": [
+          "No",
+          "Yes",
+          "Yes",
+          "Not yet"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "HubSpot template",
+        "href": "https://www.hubspot.com/resources/templates/lead-tracker"
+      },
+      {
+        "label": "Streak",
+        "href": "https://support.streak.com/en/articles/2761787-creating-and-editing-a-pipeline"
+      },
+      {
+        "label": "Zapier",
+        "href": "https://zapier.com/templates/details/01cb688df65c21500106ec1f7e704092d041e2d3f53f9724b4244d90ffd25a03"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "What should a simple lead tracker include?",
+      "a": "Who they are (name, email, company), where they came from, the stage, the deal size, when you last spoke and when to follow up next. The next follow-up date matters most, because it tells you who to write to today."
+    },
+    {
+      "q": "How does it know which emails are leads?",
+      "a": "Closer reads the last day of email and picks out new people asking to buy, asking for a quote or filling in your website form. It looks each one up by email first so nobody is added twice, and it never replies to them."
+    },
+    {
+      "q": "Will it email my leads without asking me?",
+      "a": "No. Every follow-up waits in Needs you until you approve it. If you tell Captain you only want reminders, it never drafts an email."
+    },
+    {
+      "q": "Does it sync with HubSpot or another CRM?",
+      "a": "No. It is its own tracker, and a file import keeps one lead per email address. If you already live in a CRM, an AI agent that works on your deals there is a better fit."
+    },
+    {
+      "q": "Does a lead land the moment their email arrives?",
+      "a": "No. Closer reads your Gmail once each weekday at 9:00, so a new lead shows up the next morning at the latest."
+    }
+  ],
+  "tags": [
+    "sales",
+    "gmail",
+    "leads",
+    "pipeline"
+  ],
+  "updated": "2026-11-19"
+}

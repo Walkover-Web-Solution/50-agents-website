@@ -1,0 +1,384 @@
+{
+ "row": {
+  "slug": "shopify-orders-to-google-sheets",
+  "query": "Shopify orders to Google Sheets",
+  "kind": "auto",
+  "apps": [
+   "shopify",
+   "google-sheets"
+  ],
+  "category": "ecommerce",
+  "ask": "Set up an automation: every new Shopify order is added as a row to my Google Sheet with its items and total",
+  "own": "Shopify-specific: line items, variants, cancellations, one row per order or per item"
+ },
+ "catalog": [
+  {
+   "slug": "shopify",
+   "name": "Shopify",
+   "events": [
+    {
+     "name": "Create Customer",
+     "type": "action",
+     "about": "Creates a new Shopify customer with contact info, optional addresses, tax settings, tags, and marketing consents."
+    },
+    {
+     "name": "Find Customers",
+     "type": "action",
+     "about": "Finds customers by name, email, phone, or other filters and returns matching customer details."
+    },
+    {
+     "name": "Create Order",
+     "type": "action",
+     "about": "Create a Shopify order with variant line items, optional title/price overrides, discount codes, shipping/billing addresses, and fulfillment status."
+    },
+    {
+     "name": "New Customer",
+     "type": "trigger",
+     "about": "Triggers when a new customer is created to Shopify account"
+    },
+    {
+     "name": "New Order",
+     "type": "trigger",
+     "about": "Triggers when a new order is created."
+    },
+    {
+     "name": "Create Product",
+     "type": "action",
+     "about": "Creates a new product in your store."
+    },
+    {
+     "name": "Update Customer",
+     "type": "action",
+     "about": "Update a customer's profile, contact details, addresses, tags, and tax settings."
+    },
+    {
+     "name": "Update Order",
+     "type": "action",
+     "about": "Update an order's email, note, tags, custom note attributes, and shipping address using an Order ID or Order Name."
+    },
+    {
+     "name": "Create Fulfillment",
+     "type": "action",
+     "about": "Create a fulfillment for selected items on an order."
+    },
+    {
+     "name": "Find Orders",
+     "type": "action",
+     "about": "Find orders by name, email, phone, ID, or filters and return matching order details."
+    },
+    {
+     "name": "Find Products",
+     "type": "action",
+     "about": "Find products in your Shopify store using titles, tags, vendors, price, or date filters."
+    },
+    {
+     "name": "Get Order Status",
+     "type": "action",
+     "about": "Get the latest status of a specific order."
+    },
+    {
+     "name": "Create Draft Order",
+     "type": "action",
+     "about": "Create a draft order for a customer with specified product variants and quantities, plus optional discounts, shipping, tags, and addresses."
+    },
+    {
+     "name": "Add Discount Code to Draft Order",
+     "type": "action",
+     "about": "Adds a discount code to a draft order."
+    },
+    {
+     "name": "Remove Discount Code",
+     "type": "action",
+     "about": "Remove an existing discount code."
+    },
+    {
+     "name": "New Product",
+     "type": "trigger",
+     "about": "Triggers when a new product is created to Shopify account."
+    },
+    {
+     "name": "Order Deleted",
+     "type": "trigger",
+     "about": "Triggers when a order is deleted in Shopify account."
+    },
+    {
+     "name": "Order Cancelled",
+     "type": "trigger",
+     "about": "Triggers when a order is cancelled in Shopify account."
+    },
+    {
+     "name": "Order Paid",
+     "type": "trigger",
+     "about": "Triggers when a order is paid in Shopify account."
+    },
+    {
+     "name": "Customer Updated",
+     "type": "trigger",
+     "about": "Triggers when a customer is updated in Shopify account."
+    },
+    {
+     "name": "Product Updated",
+     "type": "trigger",
+     "about": "Triggers when a product is updated in Shopify account."
+    },
+    {
+     "name": "New Collection",
+     "type": "trigger",
+     "about": "Triggers when a new collection is created in Shopify account."
+    },
+    {
+     "name": "Collection Updated",
+     "type": "trigger",
+     "about": "Triggers when a collection is updated in Shopify account."
+    },
+    {
+     "name": "New Segment",
+     "type": "trigger",
+     "about": "Triggers when a new segment is created in Shopify account."
+    },
+    {
+     "name": "Segment Updated",
+     "type": "trigger",
+     "about": "Triggers when a segment is updated in Shopify account."
+    },
+    {
+     "name": "New Company",
+     "type": "trigger",
+     "about": "Triggers when a new company is created in Shopify account."
+    },
+    {
+     "name": "Company Updated",
+     "type": "trigger",
+     "about": "Triggers when a company is updated in Shopify account."
+    },
+    {
+     "name": "New Location",
+     "type": "trigger",
+     "about": "Triggers when a new location is created in Shopify account."
+    },
+    {
+     "name": "Location Updated",
+     "type": "trigger",
+     "about": "Triggers when a location is updated in Shopify account."
+    },
+    {
+     "name": "Location Deactivated",
+     "type": "trigger",
+     "about": "Triggers when a location is diactivated in Shopify account."
+    },
+    {
+     "name": "Get all Discount Coupon Codes",
+     "type": "action",
+     "about": "Get an all existing discount coupon code."
+    },
+    {
+     "name": "Add Tag to an Order",
+     "type": "action",
+     "about": "Adds one or more tags to an order."
+    },
+    {
+     "name": "Cancel Order",
+     "type": "action",
+     "about": "Cancel an order, refund via the original payment or store credit, and optionally restock items and notify the customer."
+    },
+    {
+     "name": "Update Product",
+     "type": "action",
+     "about": "Update an existing product's details, tags, collections, status, SEO, and media."
+    },
+    {
+     "name": "Watch Product",
+     "type": "trigger",
+     "about": "Triggers when a product is created or updated."
+    },
+    {
+     "name": "Adjust Inventory Quantity",
+     "type": "action",
+     "about": "Set or adjust the inventory count for a product variant at a specific Shopify location, including a reason and optional comparison quantity for auditing."
+    },
+    {
+     "name": "Abandoned Checkout",
+     "type": "trigger",
+     "about": "Triggers when a customer adds items to checkout, enters their email/phone, and abandons without completing the purchase."
+    },
+    {
+     "name": "Order Line Items Are Edited",
+     "type": "trigger",
+     "about": "Runs when items on an order are edited."
+    },
+    {
+     "name": "Create Blog Article",
+     "type": "action",
+     "about": "Create a new article in a selected blog."
+    },
+    {
+     "name": "Delete Product",
+     "type": "action",
+     "about": "Delete a product from your store."
+    },
+    {
+     "name": "List Markets and Currencies",
+     "type": "action",
+     "about": "Lists markets with their currency settings, locales, and regions."
+    },
+    {
+     "name": "Create Navigation Menu",
+     "type": "action",
+     "about": "Create a navigation menu with a title, handle, and items linking to products, collections, pages, or custom URLs."
+    },
+    {
+     "name": "New Blog Article",
+     "type": "trigger",
+     "about": "Runs when new blog article is published."
+    },
+    {
+     "name": "Find Blogs",
+     "type": "action",
+     "about": "Find blogs in your Shopify store using filters such as ID, handle, title, or other search criteria."
+    },
+    {
+     "name": "Find Draft Orders",
+     "type": "action",
+     "about": "Search and retrieve draft orders from your Shopify store based on the specified criteria."
+    },
+    {
+     "name": "When an order is marked as delivered",
+     "type": "trigger",
+     "about": "Runs the workflow automatically whenever an order is marked as delivered."
+    },
+    {
+     "name": "New Form Submission",
+     "type": "trigger",
+     "about": "Runs when a Shopify Forms submission is forwarded through Shopify Flow."
+    }
+   ]
+  },
+  {
+   "slug": "google-sheets",
+   "name": "Google Sheets",
+   "events": [
+    {
+     "name": "Update Spreadsheet Row",
+     "type": "action",
+     "about": "Update columns in sheet row"
+    },
+    {
+     "name": "List Rows in Sheet",
+     "type": "action",
+     "about": "Get rows from a sheet tab as objects with row numbers. Supports an optional header row, offset/limit paging, and fetching from the last row."
+    },
+    {
+     "name": "Delete Rows",
+     "type": "action",
+     "about": "Delete one or more rows from a specific sheet in a Google Spreadsheet using a row range or row numbers."
+    },
+    {
+     "name": "Add New Row to Sheet",
+     "type": "action",
+     "about": "Conditionally require column selection only for header-based mapping and support direct column-letter value mapping when no header row is used."
+    },
+    {
+     "name": "Lookup Spreadsheet Rows",
+     "type": "action",
+     "about": "Find rows in a Google Sheet that match a column value or an advanced filter."
+    },
+    {
+     "name": "Copy Sheet To Spreadsheet",
+     "type": "action",
+     "about": "Copy a sheet to another file"
+    },
+    {
+     "name": "Add Multiple Rows",
+     "type": "action",
+     "about": "Add one or more rows to a specific sheet in a Google Spreadsheet. Provide data column-by-column or paste a JSON array for bulk inserts. If the sheet has no headers, they will be auto-created from your JSON keys."
+    },
+    {
+     "name": "Create Subsheet",
+     "type": "action",
+     "about": "Add a new subsheet to a spreadsheet and optionally set its position and add column headers in the first row."
+    },
+    {
+     "name": "Create Sheet Column",
+     "type": "action",
+     "about": "Insert a new column into the specified Google Sheets sheet at the given index (or append to the end) and optionally set its header."
+    },
+    {
+     "name": "Get Rows From Range",
+     "type": "action",
+     "about": "Retrieve rows from sheet range"
+    },
+    {
+     "name": "Create a Spreadsheet",
+     "type": "action",
+     "about": "create a new spreadsheet."
+    },
+    {
+     "name": "Find Subsheet",
+     "type": "action",
+     "about": "Searches a sheet in a spreadsheet by name and returns the sheet name, column titles, and number of rows."
+    },
+    {
+     "name": "Get Row Details",
+     "type": "action",
+     "about": "Retrieve values and metadata for a specific row in a spreadsheet sheet."
+    },
+    {
+     "name": "Clear Spreadsheet Row",
+     "type": "action",
+     "about": "Clears the contents of the selected row(s) while keeping the row(s) intact in the spreadsheet."
+    },
+    {
+     "name": "Create Spreadsheet From Template",
+     "type": "action",
+     "about": "Create sheet from template"
+    },
+    {
+     "name": "List Spreadsheets",
+     "type": "action",
+     "about": "Fetch all spreadsheets"
+    },
+    {
+     "name": "List Spreadsheet Tabs",
+     "type": "action",
+     "about": "Lists all tabs (sheets) in a spreadsheet and returns the total count."
+    },
+    {
+     "name": "Row Added Or Updated",
+     "type": "trigger",
+     "about": "Runs when row added or updated"
+    },
+    {
+     "name": "Batch Update Cell Values",
+     "type": "action",
+     "about": "Update multiple cells at once"
+    },
+    {
+     "name": "Format Spreadsheet Row",
+     "type": "action",
+     "about": "Format row font and background"
+    },
+    {
+     "name": "Add Conditional Formatting Rule",
+     "type": "action",
+     "about": "Apply conditional formatting to cells in a Google Sheets spreadsheet based on their values"
+    },
+    {
+     "name": "Update Sheet Name",
+     "type": "action",
+     "about": "Renames an existing sheet (tab) within a Google Spreadsheet to a new name you specify."
+    },
+    {
+     "name": "Update Multiple Rows",
+     "type": "action",
+     "about": "Update values in one or more rows of a Google Sheet."
+    },
+    {
+     "name": "Permanently Delete Spreadsheet",
+     "type": "action",
+     "about": "Permanently delete a spreadsheet from Google Drive, including files on shared drives."
+    }
+   ]
+  }
+ ],
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

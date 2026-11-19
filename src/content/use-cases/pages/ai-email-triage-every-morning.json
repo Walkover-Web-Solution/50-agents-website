@@ -1,0 +1,64 @@
+{
+  "slug": "ai-email-triage-every-morning",
+  "kind": "ai",
+  "query": "AI inbox triage; AI draft email replies",
+  "category": "email",
+  "title": "AI inbox triage and draft replies | 50agents",
+  "description": "Tell Captain to go through your unread Gmail every weekday at 8:00. An AI agent sorts it, drafts the replies, and you approve each one before it is sent.",
+  "h1": "AI inbox triage, with replies drafted",
+  "answer": [
+    "To triage your inbox with AI, tell Captain \"Go through my unread email now, then every weekday at 8:00, and draft replies\" in 50agents.",
+    "It builds an AI agent that reads your unread Gmail, sorts it by what needs you, and drafts a reply for each email that needs one; every reply waits for your approval before it is sent."
+  ],
+  "ask": "Go through my unread email now, then every weekday at 8:00, and draft replies",
+  "build": {
+    "name": "Morning inbox",
+    "line": "your unread email, sorted and answered",
+    "when": "Every weekday at 8:00",
+    "does": ["Reads your unread Gmail", "Sorts it by what needs you", "Drafts a reply where one is due"],
+    "apps": ["gmail"],
+    "asksFirst": "Every reply, even to colleagues"
+  },
+  "steps": [
+    { "key": "ask", "title": "You say it in one sentence", "body": "Tell Captain to go through your unread email and draft replies. It asks whose voice to write in and which senders always need you." },
+    { "key": "plan", "title": "Captain shows you the plan", "body": "An AI agent with Gmail, a weekday 8:00 schedule and instructions: sort the inbox, draft replies, and ask before sending." },
+    { "key": "connect", "title": "You connect Gmail", "body": "Connect your Gmail once. The AI agent reads your unread messages and replies in the same thread." },
+    { "key": "run", "title": "It works through the unread mail", "body": "Each weekday it reads what arrived, groups it into reply, read, waiting and nothing, and writes a draft for the ones that need you." },
+    { "key": "approve", "title": "You check each draft", "body": "Every draft waits in Needs you. Approve and send, change the wording, or decline it. Tell its chat what to fix next time." }
+  ],
+  "run": [
+    { "when": "Today, 8:00", "did": "Sorted 23 unread, drafted 4 replies" },
+    { "when": "Yesterday, 8:00", "did": "Sorted 17 unread, drafted 2 replies" },
+    { "when": "Monday, 8:00", "did": "Sorted 41 unread, drafted 6 replies" }
+  ],
+  "approval": {
+    "title": "Reply to Alex Moreno",
+    "to": "alex@northwind.example",
+    "lines": ["Thursday is tight for me too. Friday at 10:00 or 14:00 both work; pick one and I will move the invite.", "Sam"],
+    "button": "Approve and send"
+  },
+  "compare": {
+    "methods": ["By hand", "Gmail's built-in AI", "Zapier, Make or n8n"],
+    "rows": [
+      { "label": "Set up", "cells": ["None", "Turn it on", "Build each step yourself", "One sentence"] },
+      { "label": "Sorts mail by what needs you", "cells": ["You decide", "Partly", "Only if you add rules", "Yes"] },
+      { "label": "Drafts a full reply", "cells": ["Yes, slowly", "Short suggested replies", "With an AI step you add", "Yes"] },
+      { "label": "Waits for your OK before sending", "cells": ["Yes", "Yes", "Only if you build it", "Yes, always"] },
+      { "label": "Works inside Gmail's own screen", "cells": ["Yes", "Yes", "Partly", "No, in 50agents"] }
+    ],
+    "sources": [
+      { "label": "Google blog", "href": "https://blog.google/products-and-platforms/products/gmail/gmail-is-entering-the-gemini-era/" },
+      { "label": "Zapier", "href": "https://zapier.com/automations/personal-productivity/email-management/responding-to-emails/draft-friendly-email-replies-from-new-inbox-messages" },
+      { "label": "Superhuman", "href": "https://superhuman.com/agents/email-assistant" }
+    ]
+  },
+  "faqs": [
+    { "q": "Can AI tell which emails need a reply?", "a": "Yes. The AI agent reads each unread email and decides whether it needs a reply, a read, a wait or nothing. Tell it to put anything it is unsure about under read, so nothing slips past you." },
+    { "q": "Will it send emails for me?", "a": "Not without your yes. AI agents ask before sending, even to you, until you allow it in Settings. Each reply waits in Needs you." },
+    { "q": "Does it answer the moment an email arrives?", "a": "No. It runs on a schedule, here every weekday at 8:00, or when you ask it in its chat. It is a morning pass over your unread mail, not an instant responder." },
+    { "q": "How does it learn how I write?", "a": "From its instructions and your corrections. Tell its chat what to change, such as shorter replies or a different sign-off, and later drafts follow it." },
+    { "q": "Is this the same as AI for support email?", "a": "No. A support queue is one address with questions to answer. This reads your own mixed inbox, where most mail is not a question and the job is deciding what needs you." }
+  ],
+  "tags": ["email", "gmail", "inbox", "drafts"],
+  "updated": "2026-11-19"
+}

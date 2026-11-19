@@ -1,0 +1,83 @@
+{
+ "row": {
+  "slug": "chase-unpaid-invoices",
+  "query": "chase unpaid invoices automatically",
+  "kind": "app",
+  "apps": [
+   "gmail"
+  ],
+  "category": "accounting",
+  "ask": "Chase my unpaid invoices",
+  "own": "An invoices desk: late first, reminder drafted",
+  "recipe": "invoices"
+ },
+ "catalog": [
+  {
+   "slug": "gmail",
+   "name": "Gmail",
+   "events": [
+    {
+     "name": "Send Email",
+     "type": "action",
+     "about": "Send an email with subject, body, recipients, optional attachments, CC/BCC, and labels."
+    },
+    {
+     "name": "Modify Email Labels",
+     "type": "action",
+     "about": "Add or remove labels on a message or thread; target by thread ID, message ID, or search filters."
+    },
+    {
+     "name": "Reply To Thread",
+     "type": "action",
+     "about": "Reply to an existing email thread ,  choose recipients (sender/all/specific), send text or HTML, add attachments, and apply labels."
+    },
+    {
+     "name": "Get Thread Replies",
+     "type": "action",
+     "about": "Retrieve all messages in a thread excluding those sent from the specified email address."
+    },
+    {
+     "name": "Search_Email_Messages",
+     "type": "action",
+     "about": "Search emails (manual or AI), resolve custom labels by name or ID, and return message details, attachments, and a next-page token."
+    },
+    {
+     "name": "Get Email Attachment",
+     "type": "action",
+     "about": "Retrieve attachments from an email by Message ID and return attachment details (filename, MIME type, size) and accessible URLs."
+    },
+    {
+     "name": "New Attachment",
+     "type": "trigger",
+     "about": "Retrieve recent Gmail messages (optionally filtered by label) that contain attachments, upload those attachments to Viasocket, and return message and attachment details."
+    },
+    {
+     "name": "New Email Arrives",
+     "type": "trigger",
+     "about": "Runs when new email arrives. Filter by label, sender, or subject and choose to include or ignore replies."
+    },
+    {
+     "name": "New Email Sent",
+     "type": "trigger",
+     "about": "Runs the workflow automatically whenever a new email appears in the Sent mailbox or in a specified label."
+    },
+    {
+     "name": "Create Email Draft",
+     "type": "action",
+     "about": "Save an email draft in Gmail with recipients, subject, plain or HTML message, and optional attachments (file URLs or Google Drive files)."
+    },
+    {
+     "name": "List_all_Mails",
+     "type": "action",
+     "about": "Added optional multi-select System Labels filter (Spam/Important/Categories/etc.) mapped to Gmail system label IDs and applied via labelIds param with backward-compatible behavior."
+    },
+    {
+     "name": "Get Gmail Message by ID",
+     "type": "action",
+     "about": "Retrieve a single Gmail message by message ID, returning headers, plain and HTML body, attachments, and thread info."
+    }
+   ]
+  }
+ ],
+ "facts": "# What 50agents can do today (the pipeline's source of product truth)\n\nEvery product claim a page makes must follow from a line here. Keep it in step with the app\n(agentic-apps/app: PRODUCT.md, src/features/*/CLAUDE.md, product/problem-ledger.md). Last checked against the app: Nov 2026.\n\n## The product\n- You tell Captain what you need in one sentence; Captain asks a few short questions, shows a plan, and builds it when you tap Build it.\n- Four kinds: an **app** (your own lists and screens, run by AI agents), an **automation** (the same steps on an event or schedule; AI can be a step), an **AI agent** (decides what to do on each run, with instructions, connected apps, a schedule, its own chat), a **browser agent** (works websites with no app to connect, in its own browser).\n- Works with 2,300+ apps through viaSocket. Name only apps and actions that are in the catalog input.\n- Free to start. Never mention credits or prices on use case pages.\n\n## Asking first\n- Anything that reaches someone outside the business (an email to a client, a reply to a customer) waits in Needs you: Approve and send, Change, or Decline. The app refuses to build a step that sends outside without asking.\n- An automation's post to a Slack channel also waits for approval today.\n- AI agents ask before sending, even to you, until you allow it in Settings.\n\n## Runs\n- AI agents run on a schedule (a time of day) or when you ask them in their chat; not instantly on each new email.\n- Automations run on an app event (a new contact, a new payment, a new order) or a schedule.\n- App crews (the AI agents inside an app) start on a record event: a record added, a field becoming a value, or a date passing by N days.\n- Browser agents run on a schedule and leave a report; they can't log in for you without your OK.\n\n## Apps (the kind)\n- Lists of records with typed fields; views: board (by a choice field, with totals), table (search, sort); numbers on the Overview.\n- Bring data in: add by hand, paste a table, or drop a CSV or Excel file (Captain matches the columns). A file import keeps one record per email address today.\n- No sync with outside accounting or CRM apps unless an automation is built for it.\n- Recipes: invoices (Collector drafts reminders a day after the due date), leads (Closer follows up, Scout reads company websites), requests (Desk drafts replies). The requests recipe has no step that pulls email in by itself.\n\n## Never claim\n- An email address per AI agent; Undo for changes made in outside apps; notifications by email or WhatsApp; sending on WhatsApp or SMS; any security certification; customer counts, logos or testimonials; real-time or instant runs for AI agents.\n"
+}

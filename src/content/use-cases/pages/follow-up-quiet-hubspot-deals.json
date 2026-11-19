@@ -1,0 +1,181 @@
+{
+  "slug": "follow-up-quiet-hubspot-deals",
+  "kind": "ai",
+  "query": "follow up HubSpot deals with no reply",
+  "category": "crm",
+  "title": "Follow up HubSpot deals with no reply | 50agents",
+  "description": "To follow up HubSpot deals with no reply, an AI agent checks every weekday at 9:00, finds the quiet ones and drafts a Gmail follow-up you approve first.",
+  "h1": "Follow up HubSpot deals with no reply",
+  "answer": [
+    "To follow up HubSpot deals with no reply, tell Captain \"Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00\" in 50agents.",
+    "It builds an AI agent that checks your deals each weekday morning, drafts a short follow-up in the same Gmail thread for each quiet one, and sends nothing until you approve it."
+  ],
+  "ask": "Set up an AI agent that finds my HubSpot deals with no reply in 5 days every weekday at 9:00 and drafts a follow-up email for me to approve",
+  "stat": {
+    "text": "HubSpot sequences, its own automated follow-ups, need a Sales Hub or Service Hub Professional or Enterprise plan and an assigned seat.",
+    "source": "HubSpot Knowledge Base",
+    "href": "https://knowledge.hubspot.com/sequences/create-and-edit-sequences"
+  },
+  "build": {
+    "name": "Deal follow-ups",
+    "line": "quiet deals, a follow-up drafted for each",
+    "when": "Every weekday at 9:00",
+    "does": [
+      "Finds deals quiet for 5 days",
+      "Reads your last Gmail thread",
+      "Drafts a follow-up to approve"
+    ],
+    "apps": [
+      "hubspot",
+      "gmail"
+    ],
+    "asksFirst": "Every email it would send"
+  },
+  "steps": [
+    {
+      "key": "ask",
+      "title": "You say it in one sentence",
+      "body": "Paste the ask. Captain checks the wait (5 days here), the time, and whether follow-ups go from your own Gmail address."
+    },
+    {
+      "key": "plan",
+      "title": "Captain shows the AI agent's plan",
+      "body": "You see its job, its instructions, the apps it uses, its schedule and what asks you first. Nothing is built until you tap Build it."
+    },
+    {
+      "key": "connect",
+      "title": "You connect HubSpot and Gmail",
+      "body": "Connect each app once. The AI agent reads your deals and contacts in HubSpot and your sent threads in Gmail."
+    },
+    {
+      "key": "run",
+      "title": "It looks every weekday at 9:00",
+      "body": "It finds your unanswered sent emails, matches each to its contact and deal, skips answered ones, and drafts one reply per quiet deal."
+    },
+    {
+      "key": "approve",
+      "title": "You approve each follow-up",
+      "body": "Every draft waits in Needs you with the contact, subject and full text. Approve and send, change it, or decline it."
+    }
+  ],
+  "run": [
+    {
+      "when": "Today, 9:00",
+      "did": "Found 3 quiet deals, drafted 3 follow-ups"
+    },
+    {
+      "when": "Yesterday, 9:00",
+      "did": "No quiet deals"
+    },
+    {
+      "when": "Friday, 9:00",
+      "did": "Drafted 2, left 1 alone: they had replied"
+    }
+  ],
+  "approval": {
+    "title": "Email Priya Shah at Lumen Dental",
+    "to": "priya@lumen.example",
+    "lines": [
+      "Following up on the proposal I sent last Tuesday. Did the numbers work for your team, or should I change something?",
+      "I can talk on Thursday or Friday morning if that is easier."
+    ],
+    "button": "Approve and send"
+  },
+  "compare": {
+    "methods": [
+      "A saved view in HubSpot",
+      "HubSpot sequences",
+      "n8n template"
+    ],
+    "rows": [
+      {
+        "label": "Set up",
+        "cells": [
+          "A few filters",
+          "Build each sequence",
+          "Host n8n, add an AI key",
+          "One sentence"
+        ]
+      },
+      {
+        "label": "Writes each email from the thread",
+        "cells": [
+          "No, you write it",
+          "No, a template",
+          "Yes, with an AI step",
+          "Yes"
+        ]
+      },
+      {
+        "label": "Waits for your OK before sending",
+        "cells": [
+          "Yes",
+          "If you add a manual step",
+          "No",
+          "Yes, always"
+        ]
+      },
+      {
+        "label": "Stops when the contact replies",
+        "cells": [
+          "If you check",
+          "Yes, on its own",
+          "Skips recent contacts only",
+          "Skips answered threads"
+        ]
+      },
+      {
+        "label": "Works on a free HubSpot plan",
+        "cells": [
+          "Yes",
+          "No, Professional or above",
+          "Yes",
+          "Yes"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "label": "HubSpot sequences",
+        "href": "https://knowledge.hubspot.com/sequences/create-and-edit-sequences"
+      },
+      {
+        "label": "HubSpot contact properties",
+        "href": "https://knowledge.hubspot.com/properties/hubspots-default-contact-properties"
+      },
+      {
+        "label": "n8n",
+        "href": "https://n8n.io/workflows/11183-re-engage-stalled-hubspot-deals-with-gpt-5-mini-gmail-and-slack/"
+      }
+    ]
+  },
+  "faqs": [
+    {
+      "q": "How long should I wait before following up on a deal?",
+      "a": "Five days is a sensible start: long enough that you are not chasing, short enough that the deal is still warm. Change it in one sentence, for example 3 days for big deals and 7 for small ones."
+    },
+    {
+      "q": "Will it email my contacts without asking me?",
+      "a": "No. Every follow-up waits in Needs you until you approve it, change it or decline it. AI agents ask before sending, even to you, until you allow otherwise in Settings."
+    },
+    {
+      "q": "How does it know a deal has gone quiet?",
+      "a": "It starts from your Gmail threads: emails you sent that got no answer. It then finds the matching contact and deal in HubSpot and leaves out deals that are won, lost or answered."
+    },
+    {
+      "q": "Does it change anything in HubSpot?",
+      "a": "It reads deals, contacts and notes. Adding a note to a contact is a change in an outside app, so that asks you first too."
+    },
+    {
+      "q": "Does it run the moment a contact goes quiet?",
+      "a": "No. An AI agent runs on a schedule, here every weekday at 9:00, or when you ask it in its chat. It does not react to each email as it arrives."
+    }
+  ],
+  "tags": [
+    "sales",
+    "hubspot",
+    "gmail",
+    "deals"
+  ],
+  "updated": "2026-11-19"
+}
