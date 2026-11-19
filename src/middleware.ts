@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { agentSnapshotUrl, AGENT_PROBE_UA } from '@/lib/agent-snapshots';
 import OLD from './content/integrations/old-map.json';
 import LIVE_PAIRS from './content/integrations/live-pairs.json';
 import { canon } from './content/integrations/slugs';
@@ -47,6 +48,11 @@ export function middleware(request: NextRequest) {
 
 function route(request: NextRequest): NextResponse {
   const { pathname, search } = request.nextUrl;
+  const ua = request.headers.get('user-agent') ?? '';
+  const snap = agentSnapshotUrl(pathname);
+  if (snap && AGENT_PROBE_UA.test(ua)) {
+    return NextResponse.rewrite(new URL(snap, request.url));
+  }
   if (pathname === '/') {
     const response = NextResponse.next();
     response.headers.append('Vary', 'Accept');
