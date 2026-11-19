@@ -1,0 +1,16 @@
+diff --git a/dist/index.js b/dist/index.js
+index 5ee7d946e53665c918fe27abc3d6d86417ae9d9b..b622006bd2b3631b4503f1412e4636be3d1dce0a 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -6551,6 +6551,11 @@ async function buildVercelOutput(pm) {
+   if (tempVercelConfig) {
+     await (0, import_promises4.rm)(tempVercelConfig.tempPath);
+   }
++  // 50agents patch: the project's step between vercel build and the conversion (scripts/after-vercel-build.mjs).
++  if (await validateFile("scripts/after-vercel-build.mjs")) {
++    cliLog("Running scripts/after-vercel-build.mjs...");
++    (0, import_child_process2.execFileSync)(process.execPath, ["scripts/after-vercel-build.mjs"], { stdio: "inherit" });
++  }
+   const execStr = await pm.getRunExec("vercel", {
+     args: ["build"],
+     download: "prefer-if-needed"

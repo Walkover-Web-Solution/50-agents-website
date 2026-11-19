@@ -42,7 +42,9 @@ export async function generateMetadata({ params }: { params: Promise<{ app: stri
   const { a, b, pair } = d;
   const url = `${BASE}${pairPath(pair)}`;
   const title = `${a.name} and ${b.name} automations`;
-  const description = `Connect ${a.name} and ${b.name} in 50agents: every ready template between them from viaSocket’s catalog, each one an ask Captain builds as an automation you approve.`;
+  // Under 155 characters (Search, 19 Nov): the full line when the names are short, the short one otherwise.
+  const full = `Connect ${a.name} and ${b.name} in 50agents: ready templates from viaSocket’s catalog, each an ask Captain builds as an automation you approve.`;
+  const description = full.length <= 155 ? full : `Connect ${a.name} and ${b.name} in 50agents: ready templates, each an ask Captain builds as an automation you approve.`;
   return {
     title: { absolute: title.length < 48 ? `${title} | 50agents` : title },
     description,

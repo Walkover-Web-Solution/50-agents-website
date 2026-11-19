@@ -1,32 +1,25 @@
-// The Cloudflare Pages build (pnpm build:pages): next-on-pages, with one step between Vercel's build and the conversion.
+// The step between Vercel's build and next-on-pages' conversion, for the Cloudflare Pages build.
+//
+// next-on-pages runs it itself, through a pnpm patch (patches/@cloudflare__next-on-pages.patch): right after its
+// `vercel build`, it runs this file. So the Pages build command can be `pnpm build:pages` or the preset
+// `npx @cloudflare/next-on-pages@1`; both use the installed, patched next-on-pages and both get this step.
 //
 // Next 16 writes, for every pre-rendered page, the HTML plus an .rsc payload and about seven per-segment prefetch files
 // (.segments/). The site has no client-side navigation (no next/link, no router pushes: every link is a full page load),
 // so browsers never ask for them. Left in, they make about 22,000 pre-rendered routes for 2,257 pages, over Cloudflare
 // Pages' 20,000-file cap, and next-on-pages runs out of memory converting them. So they are removed before conversion.
 //
-// 1. .vercel/project.json, as next-on-pages writes it when missing;
-// 2. vercel build (the pinned devDependency, the version next-on-pages supports);
-// 3. remove the .rsc payloads and .segments of pre-rendered pages from .vercel/output/functions;
-// 4. drop the traced file list (filePathMap) from Node functions' .vc-config.json. Only Vercel deploys those files;
+// 1. remove the .rsc payloads and .segments of pre-rendered pages from .vercel/output/functions;
+// 2. drop the traced file list (filePathMap) from Node functions' .vc-config.json. Only Vercel deploys those files;
 //    on Cloudflare a Node function is only the container of its pre-rendered pages. next-on-pages copies the config into
 //    every pre-rendered route's entry of its build log, and 2,182 copies of a 250 KB list overflow a string;
-// 5. take out the pre-rendered route handlers (sitemaps, index.md: a .prerender-fallback.body, not .html), which
+// 3. take out the pre-rendered route handlers (sitemaps, index.md: a .prerender-fallback.body, not .html), which
 //    next-on-pages silently drops (they 404), and write each body as a static file at its path, so the conversion
-//    lists it among the static assets the worker serves;
-// 6. next-on-pages --skip-build converts the rest into .vercel/output/static.
+//    lists it among the static assets the worker serves.
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
 
-const run = (cmd) => execSync(cmd, { stdio: 'inherit' });
 const VERCEL = '.vercel';
-if (!fs.existsSync(path.join(VERCEL, 'project.json'))) {
-  fs.mkdirSync(VERCEL, { recursive: true });
-  fs.writeFileSync(path.join(VERCEL, 'project.json'), JSON.stringify({ projectId: '_', orgId: '_', settings: { framework: 'nextjs' } }));
-}
-
-run('pnpm exec vercel build');
 
 const FUNCS = path.join(VERCEL, 'output', 'functions');
 let removed = 0;
@@ -44,7 +37,7 @@ function prune(dir) {
   }
 }
 prune(FUNCS);
-console.log(`build-pages: removed ${removed} RSC and segment prefetch entries of pre-rendered pages`);
+console.log(`after-vercel-build: removed ${removed} RSC and segment prefetch entries of pre-rendered pages`);
 
 let slimmed = 0;
 (function slim(dir) {
@@ -59,7 +52,7 @@ let slimmed = 0;
     } else if (e.isDirectory()) slim(p);
   }
 })(FUNCS);
-console.log(`build-pages: dropped the traced file list from ${slimmed} Node functions`);
+console.log(`after-vercel-build: dropped the traced file list from ${slimmed} Node functions`);
 
 const bodies = [];
 (function collect(dir) {
@@ -72,7 +65,7 @@ const bodies = [];
     if (!c.fallback?.fsPath?.endsWith('.prerender-fallback.body')) continue;
     const route = path.relative(FUNCS, path.join(dir, m[1]));
     const out = path.join(VERCEL, 'output', 'static', route);
-    if (fs.existsSync(out)) throw new Error(`build-pages: ${route} already exists in the static output`);
+    if (fs.existsSync(out)) throw new Error(`after-vercel-build: ${route} already exists in the static output`);
     fs.mkdirSync(path.dirname(out), { recursive: true });
     fs.copyFileSync(path.join(dir, c.fallback.fsPath), out);
     bodies.push(route);
@@ -81,6 +74,4 @@ const bodies = [];
 })(FUNCS);
 
 
-console.log(`build-pages: wrote ${bodies.length} pre-rendered route handlers as static files: ${bodies.map(b => '/' + b).join(', ')}`);
-
-run('pnpm exec next-on-pages --skip-build');
+console.log(`after-vercel-build: wrote ${bodies.length} pre-rendered route handlers as static files: ${bodies.map(b => '/' + b).join(', ')}`);
