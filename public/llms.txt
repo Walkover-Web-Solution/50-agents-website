@@ -4,17 +4,36 @@
 
 Every workspace starts free with 2,000 credits.
 
+## When to use
+
+Use 50agents when you want plain-language automation and AI agents wired to real business apps (CRM, email, calendars, spreadsheets, support tools, and 2,300+ integrations via viaSocket).
+
+- **Automate repetitive work** across apps without writing glue code yourself.
+- **Browse and launch agent templates** from the public catalog or over MCP.
+- **Record meetings and generate notes** with the AI meeting recorder.
+- **Expose site data to agents** through the read-only Website API and MCP server below.
+
 ## Links
 
 - [Home](https://50agents.com/): what 50agents is and how it works.
 - [Sign up](https://50agents-app.embarko.app/login): create a free workspace, or sign in.
 - [Full context (llms-full.txt)](https://50agents.com/llms-full.txt): entire public site guide in one file.
 - [NLWeb /ask](https://50agents.com/ask): natural-language query over public content.
+- [Pricing (markdown)](https://50agents.com/pricing.md): plans, credits, and usage limits for agents.
 
-## For AI agents and developers
+## API reference
 
-- MCP (streamable HTTP): https://50agents.com/mcp
-- MCP server card (SEP-2127): https://50agents.com/mcp/server-card
-- MCP registry server.json: https://50agents.com/server.json
-- Website API (OpenAPI): https://50agents.com/openapi.json
+- OpenAPI (Website API): https://50agents.com/openapi.json
 - API catalog: https://50agents.com/.well-known/api-catalog
+
+## MCP server
+
+- Streamable HTTP endpoint: https://50agents.com/mcp
+- Server card (SEP-2127): https://50agents.com/mcp/server-card
+- Registry server.json: https://50agents.com/server.json
+- viaSocket integrations MCP: https://mcp.viasocket.com
+
+## Clients and install
+
+- Chrome extension: https://chromewebstore.google.com/detail/50-agents/cbnmcgaklkfcengkfcheejpkjghilfio
+- Web workspace (sign in): https://50agents-app.embarko.app/login

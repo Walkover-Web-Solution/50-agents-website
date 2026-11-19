@@ -85,6 +85,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="help" href="/llms.txt" title="Agent and developer guide" />
+        <link rel="alternate" href="/.well-known/api-catalog" type="application/json" title="API catalog" />
+        <link rel="alternate" href="/openapi.json" type="application/json" title="Website API (OpenAPI)" />
+        <link rel="alternate" href="/server.json" type="application/json" title="MCP registry server.json" />
         {/* the visitor's A/B/C version from the home page (or a new one, kept), so every page wears the same design (D152) */}
         <script dangerouslySetInnerHTML={{ __html: VARIANT_SCRIPT }} />
         {/* cookieless analytics, loaded after render (public/ph.js) */}
