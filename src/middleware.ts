@@ -37,7 +37,6 @@ export function middleware(request: NextRequest) {
   if (GONE.has(lower)) return gone();
 
   const url = request.nextUrl.clone();
-  if (lower === '/pricing') { url.pathname = '/'; return NextResponse.redirect(url, 301); }
   if (lower === '/templates' || lower.startsWith('/templates/')) { url.pathname = '/use-cases'; return NextResponse.redirect(url, 301); }
   if (lower === '/login') return NextResponse.redirect(`${APP}/login${search}`, 301);
   if (lower === '/org' || lower.startsWith('/org/')) return NextResponse.redirect(`${APP}/`, 301);
@@ -58,7 +57,6 @@ export const config = {
     '/',
     '/ai-note-taker/:path*',
     '/work-management/:path*',
-    '/pricing/:path*',
     '/templates/:path*',
     '/login/:path*',
     '/org/:path*',

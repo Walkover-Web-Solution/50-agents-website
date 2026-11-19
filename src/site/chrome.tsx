@@ -44,6 +44,7 @@ export function Header() {
             </div>
           </div>
           <a className="nv-a" href="/integrations">Integrations</a>
+          <a className="nv-a" href="/pricing">Pricing</a>
         </nav>
         <div className="hd-end">
           <HeaderCta />
@@ -60,7 +61,7 @@ const COLS: { head: string; links: { label: string; href: string; out?: boolean 
   { head: 'Popular integrations', links: [{ label: 'Gmail', href: '/integrations/gmail' }, { label: 'Google Sheets', href: '/integrations/google-sheets' }, { label: 'Slack', href: '/integrations/slack' }, { label: 'HubSpot', href: '/integrations/hubspot' }, { label: 'Shopify', href: '/integrations/shopify' }, { label: 'Stripe', href: '/integrations/stripe' }, { label: 'All integrations', href: '/integrations' }] },
   { head: 'Compare', links: COMPARE },
   { head: 'Guides', links: [{ label: 'Build an AI agent without code', href: '/guides/how-to-build-an-ai-agent-without-code' }, { label: 'Build an app from Google Sheets', href: '/guides/how-to-build-an-app-from-google-sheets' }, { label: 'Automate invoice reminders', href: '/guides/how-to-automate-invoice-reminders' }, { label: 'All guides', href: '/guides' }] },
-  { head: 'Company', links: [{ label: 'About', href: '/about' }, { label: 'Contact', href: '/contact' }, { label: 'Support', href: '/support' }, { label: 'Privacy policy', href: 'https://50agents.com/help/privacy-policy', out: true }, { label: 'viaSocket', href: 'https://viasocket.com', out: true }, { label: 'Careers at Walkover', href: 'https://walkover.in/careers', out: true }] },
+  { head: 'Company', links: [{ label: 'About', href: '/about' }, { label: 'Pricing', href: '/pricing' }, { label: 'Contact', href: '/contact' }, { label: 'Support', href: '/support' }, { label: 'Privacy policy', href: 'https://50agents.com/help/privacy-policy', out: true }, { label: 'viaSocket', href: 'https://viasocket.com', out: true }, { label: 'Careers at Walkover', href: 'https://walkover.in/careers', out: true }] },
 ];
 const CROWD = ['keeper', 'writer', 'scout', 'chaser', 'booker', 'closer', 'ledger', 'sorter', 'sprout', 'pilot', 'rosa', 'sunny'];
 
