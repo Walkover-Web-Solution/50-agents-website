@@ -2,20 +2,11 @@
   "name": "50agents",
   "url": "https://50agents.com",
   "actOn": true,
-  "mcp": {
-    "url": "https://50agents.com/mcp",
-    "transport": "streamable-http",
-    "serverJson": "https://50agents.com/server.json",
-    "serverCard": "https://50agents.com/server-card"
-  },
-  "oauth": {
-    "protectedResourceMetadata": "https://50agents.com/.well-known/oauth-protected-resource/mcp",
-    "authorizationServerMetadata": "https://50agents.com/.well-known/oauth-authorization-server"
-  },
   "nlweb": {
     "url": "https://50agents.com/ask"
   },
-  "integrationsMcp": "https://mcp.viasocket.com",
+  "aiCatalog": "https://50agents.com/.well-known/ai-catalog.json",
+  "agentSkills": "https://50agents.com/.well-known/agent-skills.json",
   "answerProbes": [
     {
       "question": "What is 50agents?",
