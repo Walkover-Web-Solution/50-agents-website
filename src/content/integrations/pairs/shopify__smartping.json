@@ -1,1 +1,8 @@
-{"usedFor": "Shopify holds orders, and Smartping texts the buyer through “Send SMS” after an “Order Paid”.", "bestTemplate": {"name": "“Order Paid” in Shopify, then “Send SMS” in Smartping", "why": "Payment confirmation goes to one recipient with your sender ID as soon as Shopify pushes it."}, "watchOut": "“Send SMS” needs a sender ID and DLT details, so have them ready before “Order Paid” runs."}
+{
+  "usedFor": "Shopify holds orders, and Smartping texts the buyer through “Send SMS” after an “Order Paid”.",
+  "bestTemplate": {
+    "name": "“Order Paid” in Shopify, then “Send SMS” in Smartping",
+    "why": "Payment confirmation goes to the buyer with your sender ID, sent through your Smartping account."
+  },
+  "watchOut": "“Send SMS” needs a sender ID and DLT details, so have them ready before “Order Paid” runs."
+}
