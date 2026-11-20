@@ -1,0 +1,144 @@
+{
+  "slug": "how-to-build-an-app-with-ai-agents",
+  "group": "Apps",
+  "kind": "app",
+  "query": "how to build an app with ai agents",
+  "title": "How to build an app with AI agents in 6 steps | 50agents",
+  "description": "How to build an app with AI agents: define the records, give each AI agent one event that starts it, approve what reaches customers, correct the rest.",
+  "h1": "How to build an app with AI agents",
+  "cover": {
+    "scene": "message",
+    "app": "gmail",
+    "where": "Needs you",
+    "subject": "Reply to Tomas Berg: wrong size delivered",
+    "lines": [
+      "Sorry about the mix-up. A medium goes out with the next courier, and the return label is attached.",
+      "Keep the large until the courier collects it."
+    ],
+    "tag": "Drafted by Desk",
+    "buttons": ["Approve and send", "Change"]
+  },
+  "answer": [
+    "Define the records first, then give each AI agent one duty and one event that starts it: a record added, a field changing, or a date passing.",
+    "Approve anything sent outside, and correct mistakes so they stick."
+  ],
+  "sections": [
+    {
+      "id": "events",
+      "h2": "What starts an AI agent inside an app",
+      "body": [
+        {
+          "table": {
+            "head": ["Event", "Example", "Good for"],
+            "rows": [
+              ["A record is added", "A new request lands on the desk", "Sorting and a first draft"],
+              ["A field becomes a value", "Priority becomes Urgent", "The next step after a change"],
+              ["A date passes by N days", "Due date plus one day", "Reminders and follow-ups"]
+            ]
+          }
+        },
+        {
+          "p": "Pick the event before you write the duty. An AI agent tied to a field nobody ever changes never runs."
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "Building an app with AI agents, step by step",
+    "steps": [
+      {
+        "title": "Tell Captain what to track",
+        "body": "Name the records and what should happen to them, in one sentence. Captain asks a few short questions, such as where requests come in, then shows the plan before anything is built."
+      },
+      {
+        "title": "Check the plan before Build it",
+        "body": "Read the fields, the statuses and each AI agent's duty. Ask for what is missing now, such as a status or a view. Tap Build it once the plan matches how you work."
+      },
+      {
+        "title": "Bring your records in",
+        "body": "Add a few by hand, paste a table, or drop a CSV or Excel file and Captain matches the columns. Coming from a sheet? Follow [how to build an app from Google Sheets](/guides/how-to-build-an-app-from-google-sheets).",
+        "note": {
+          "type": "warn",
+          "text": "A file import keeps one record per email address, so two rows for one customer become one record. Check the count after every import.",
+          "about": "app"
+        }
+      },
+      {
+        "title": "Give each AI agent one event",
+        "body": "A record added, a field becoming a value, or a date passing by a number of days. One duty per event keeps it clear which AI agent did what.",
+        "note": {
+          "type": "tip",
+          "text": "The requests desk does not pull email in by itself. Add each request as it comes, or have an automation add records from your apps.",
+          "about": "app"
+        }
+      },
+      {
+        "title": "Approve what goes out in Needs you",
+        "body": "Every email to a customer waits in Needs you with the full text. Approve and send, Change it, or Decline. The app refuses to build a step that sends outside without asking."
+      },
+      {
+        "title": "Correct it so it learns",
+        "body": "When an AI agent sets the wrong priority or strikes the wrong tone, fix it and say why. Each correction is kept as a lesson in its memory, which you can see, edit or forget.",
+        "note": {
+          "type": "tip",
+          "text": "Give the workspace your policies, hours and prices once. AI agents answer from them, so drafts quote your refund rule instead of guessing.",
+          "about": "ai"
+        }
+      }
+    ]
+  },
+  "captain": {
+    "at": 0,
+    "line": "Captain builds a requests desk with Desk, an AI agent that sorts each request you add and drafts a reply that waits for your yes.",
+    "useCase": "customer-requests-desk"
+  },
+  "wrong": [
+    {
+      "title": "An AI agent that never runs",
+      "body": "Its event never happens, such as a status your team never sets. Tie each duty to a field people really change, or to a date.",
+      "about": "ai"
+    },
+    {
+      "title": "A reply offers what you would not",
+      "body": "A draft promises a refund or a delivery date you cannot give. Keep your policies in memory, and use Change rather than Approve until drafts are right.",
+      "about": "ai"
+    },
+    {
+      "title": "Waiting for a run that is not coming",
+      "body": "You expect the crew to act on a new email, but nothing in the app changed. Crews start on record events, so the record has to exist first.",
+      "about": "app"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I need to code to build an app with AI agents?",
+      "a": "No. In 50agents you describe the app to Captain, answer a few questions, check the plan and tap Build it. The lists, the views and the AI agents are built together."
+    },
+    {
+      "q": "How many AI agents should one app have?",
+      "a": "One per job that slips, which is often one or two. The leads app has two: Closer, an AI agent that follows up, and Scout, a browser agent that reads each new lead's company website."
+    },
+    {
+      "q": "Can AI agents in an app email customers on their own?",
+      "a": "No. Every email to someone outside the business waits in Needs you until you approve it. You can read the full text, change it, or decline it."
+    },
+    {
+      "q": "What is the difference between an app's crew and a standalone AI agent?",
+      "a": "A crew works inside one app and starts on record events. A standalone AI agent has its own chat and runs on a schedule or when you ask it."
+    },
+    {
+      "q": "Where do I see what the AI agents did?",
+      "a": "Each AI agent keeps its last runs in its memory, next to its instructions and the lessons from your corrections. Anything waiting on you sits in Needs you."
+    },
+    {
+      "q": "What can AI agents in an app not do yet?",
+      "a": "They do not sync with accounting or CRM apps unless an automation is built for it, and they do not send on WhatsApp or SMS. The requests desk does not read your inbox by itself."
+    }
+  ],
+  "related": [
+    "what-is-an-agentic-app",
+    "agentic-app-vs-no-code-app-builder",
+    "how-to-build-an-app-from-google-sheets"
+  ],
+  "updated": "2026-11-21"
+}

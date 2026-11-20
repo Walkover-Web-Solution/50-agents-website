@@ -1,0 +1,200 @@
+{
+  "slug": "what-is-an-agentic-app",
+  "group": "Apps",
+  "kind": "app",
+  "query": "what is an agentic app",
+  "title": "What is an agentic app? Definition and examples | 50agents",
+  "description": "What is an agentic app: your own lists and screens, with a crew of AI agents working the records, sorting, drafting and following up while you approve.",
+  "h1": "What is an agentic app?",
+  "cover": {
+    "scene": "board",
+    "label": "Leads, worked by the crew",
+    "columns": [
+      {
+        "name": "New",
+        "cards": [
+          { "title": "Larch Interiors", "tag": "Scout read the site" }
+        ]
+      },
+      {
+        "name": "Quiet 3 days",
+        "cards": [
+          { "title": "Fenwick Bikes", "tag": "Closer drafted" }
+        ]
+      },
+      {
+        "name": "Replied",
+        "cards": [
+          { "title": "Moss & Daughter" }
+        ]
+      }
+    ]
+  },
+  "answer": [
+    "An agentic app is your own lists and screens, with a crew of AI agents that work the records: sorting, drafting and following up.",
+    "You approve anything that reaches a customer."
+  ],
+  "chooser": {
+    "h2": "Do you need an agentic app?",
+    "root": {
+      "q": "What does the job look like?",
+      "options": [
+        {
+          "label": "A list people fill in and read",
+          "then": {
+            "answer": "A plain app or a sheet",
+            "why": "If nobody needs to act on the records for you, a list and a few screens are enough. Add AI agents once follow-ups start slipping.",
+            "kind": "app"
+          }
+        },
+        {
+          "label": "Records that need follow-up work",
+          "then": {
+            "answer": "An agentic app",
+            "why": "Leads to chase, requests to answer, invoices to collect: the records and the AI agents working them belong in one place.",
+            "kind": "app",
+            "href": "/apps"
+          }
+        },
+        {
+          "label": "One task on a schedule",
+          "then": {
+            "answer": "A single AI agent",
+            "why": "A morning summary or a weekly report needs instructions, connected apps and a schedule, not records and screens.",
+            "kind": "ai",
+            "href": "/guides/how-to-build-an-ai-agent-without-code"
+          }
+        },
+        {
+          "label": "The same steps on every event",
+          "then": {
+            "answer": "An automation",
+            "why": "Copying each new order into a sheet needs no judgement. An automation runs the same steps every time the event happens.",
+            "kind": "auto",
+            "href": "/guides/ai-agent-vs-automation-which-one-you-need"
+          }
+        }
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "difference",
+      "h2": "Plain app, single AI agent, agentic app",
+      "body": [
+        {
+          "table": {
+            "head": ["", "Plain app", "Single AI agent", "Agentic app"],
+            "rows": [
+              ["Holds your records", "Yes", "No, it reads other apps", "Yes"],
+              ["Screens you work from", "Yes", "No, a chat and its runs", "Yes, a board and a table"],
+              ["Works without you", "No", "Yes, on a schedule", "Yes, on record events"],
+              ["Keeps each record's status true", "Only if you do", "No list to keep", "Yes, it moves the status"],
+              ["Who checks outgoing email", "You write it", "Depends on its settings", "You, before it sends"]
+            ]
+          }
+        },
+        {
+          "p": "A plain app waits for you to act. A single AI agent acts, but keeps no list you can open and check. An agentic app puts the two together, so you see each record, what was done to it and what happens next."
+        }
+      ]
+    },
+    {
+      "id": "examples",
+      "h2": "Agentic app examples for a small team",
+      "body": [
+        {
+          "ul": [
+            "**[Leads](/use-cases/lead-tracker-from-your-inbox):** Closer, an AI agent, drafts follow-ups for quiet leads, and Scout, a browser agent, reads each new lead's company website.",
+            "**[Customer requests](/use-cases/customer-requests-desk):** Desk, an AI agent, sorts each request you add by kind and urgency and drafts the reply.",
+            "**[Invoices](/use-cases/chase-unpaid-invoices):** Collector, an AI agent, drafts a reminder a day after an invoice's due date."
+          ]
+        }
+      ]
+    }
+  ],
+  "method": {
+    "h2": "How to start an agentic app, step by step",
+    "steps": [
+      {
+        "title": "Pick a list that needs follow-up",
+        "body": "Leads, requests or invoices: records where something should happen next and often does not. A list nobody acts on needs a plain app, not AI agents."
+      },
+      {
+        "title": "Name the fields and statuses",
+        "body": "Write down what one record holds and the statuses it moves through. The AI agents act on those statuses, so make them fixed choices, never free text.",
+        "note": {
+          "type": "warn",
+          "text": "\"Paid\", \"paid\" and \"pd\" read as three different states. An AI agent working on free-text statuses skips records you expected it to handle.",
+          "about": "app"
+        }
+      },
+      {
+        "title": "Describe it in one sentence",
+        "body": "Say what you track and what should happen. Captain asks a few short questions, shows the lists, views and crew, and builds it when you tap Build it."
+      },
+      {
+        "title": "Bring in the records you have",
+        "body": "Add them by hand, paste a table, or drop a CSV or Excel file. Starting from a sheet? See [how to build an app from Google Sheets](/guides/how-to-build-an-app-from-google-sheets)."
+      },
+      {
+        "title": "Read every draft for a week",
+        "body": "Approve, change or decline each one. Fix what the crew got wrong: each correction is kept as a lesson in that AI agent's memory, so the next draft starts closer."
+      }
+    ]
+  },
+  "captain": {
+    "at": 2,
+    "line": "Captain builds a leads desk: your pipeline, a Follow up view, Closer to draft follow-ups, and Scout, a browser agent, to read each new lead's website.",
+    "useCase": "lead-tracker-from-your-inbox"
+  },
+  "wrong": [
+    {
+      "title": "Too many AI agents on day one",
+      "body": "Five duties at once, and nobody can tell which one changed a record. Start with the one job that slips most and add the next once you trust it.",
+      "about": "ai"
+    },
+    {
+      "title": "Drafts approved without reading",
+      "body": "Approving on autopilot sends a wrong amount or tone to a customer. Read each draft, and use Change when it is close but not right.",
+      "about": "ai"
+    },
+    {
+      "title": "The old list stays in use",
+      "body": "Half the team keeps updating the spreadsheet, so the crew works stale records. Archive the old list the day the app goes live.",
+      "about": "app"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What is the difference between an AI agent and an agentic app?",
+      "a": "An AI agent is one worker with instructions, connected apps and a schedule. An agentic app is records and screens plus a crew of AI agents working them, so the work and its state sit in one place."
+    },
+    {
+      "q": "Is an agentic app the same as agentic AI?",
+      "a": "[Agentic AI](/learn/agentic-ai) is the wider idea of AI that plans and acts toward a goal. An agentic app is one way to use it: a business app whose records are worked by AI agents within limits you set."
+    },
+    {
+      "q": "Do agentic apps act without asking?",
+      "a": "Inside the app, yes: sorting a request, setting a priority, marking an invoice Reminded. In 50agents, anything that reaches someone outside the business waits in Needs you: Approve and send, Change, or Decline."
+    },
+    {
+      "q": "Can I build an agentic app without code?",
+      "a": "Yes. In 50agents you describe it to Captain in one sentence, answer a few questions, check the plan and tap Build it. The [apps page](/apps) shows what you can start from."
+    },
+    {
+      "q": "Does an agentic app replace my CRM or accounting app?",
+      "a": "Usually not. A 50agents app does not sync with an accounting or CRM app unless an automation is built for it, so it suits the work those apps leave undone, like follow-ups."
+    },
+    {
+      "q": "What does an agentic app remember?",
+      "a": "Each app and each AI agent in it has its own memory: instructions, what it learned, lessons from your corrections and its last runs. You can see, correct or forget any item."
+    }
+  ],
+  "related": [
+    "agentic-app-vs-no-code-app-builder",
+    "how-to-build-an-app-with-ai-agents",
+    "how-to-build-an-app-from-google-sheets"
+  ],
+  "updated": "2026-11-21"
+}

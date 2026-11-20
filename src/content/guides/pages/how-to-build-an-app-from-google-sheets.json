@@ -1,212 +1,212 @@
 {
-  "slug": "how-to-build-an-app-from-google-sheets",
-  "group": "Apps",
-  "kind": "app",
-  "query": "how to build an app from google sheets",
-  "title": "How to build an app from Google Sheets | 50agents",
-  "description": "Build an app from Google Sheets: tidy the sheet into one table per tab with an ID column, then pick AppSheet, Glide, Softr or an AI builder by its limits.",
-  "h1": "How to build an app from Google Sheets",
-  "cover": {
-    "scene": "pipe",
-    "from": {
-      "app": "google-sheets",
-      "label": "Tickets",
-      "look": "sheet",
-      "rows": [
-        {
-          "cells": [
-            "T-14",
-            "Open"
-          ]
-        },
-        {
-          "cells": [
-            "T-15",
-            "Done"
-          ]
-        }
-      ]
+ "slug": "how-to-build-an-app-from-google-sheets",
+ "group": "Apps",
+ "kind": "app",
+ "query": "how to build an app from google sheets",
+ "title": "How to build an app from Google Sheets | 50agents",
+ "description": "Build an app from Google Sheets: tidy the sheet into one table per tab with an ID column, then pick AppSheet, Glide, Softr or an AI builder by its limits.",
+ "h1": "How to build an app from Google Sheets",
+ "cover": {
+  "scene": "pipe",
+  "from": {
+   "app": "google-sheets",
+   "label": "Tickets",
+   "look": "sheet",
+   "rows": [
+    {
+     "cells": [
+      "T-14",
+      "Open"
+     ]
     },
-    "via": "Live sheet",
-    "to": {
-      "label": "Ticket desk",
-      "rows": [
-        {
-          "cells": [
-            "T-14 Login fails"
-          ],
-          "tag": "Open"
-        },
-        {
-          "cells": [
-            "T-15 Refund"
-          ]
-        }
-      ]
+    {
+     "cells": [
+      "T-15",
+      "Done"
+     ]
     }
+   ]
   },
-  "answer": [
-    "Tidy the sheet first: one table per tab, one header row, one row per record, an ID column.",
-    "Then pick a builder that works on the live sheet, or one that imports a copy and replaces it."
-  ],
-  "chooser": {
-    "h2": "Which app builder works best with Google Sheets?",
-    "root": {
-      "q": "Will people keep editing the sheet after the app exists?",
+  "via": "Live sheet",
+  "to": {
+   "label": "Ticket desk",
+   "rows": [
+    {
+     "cells": [
+      "T-14 Login fails"
+     ],
+     "tag": "Open"
+    },
+    {
+     "cells": [
+      "T-15 Refund"
+     ]
+    }
+   ]
+  }
+ },
+ "answer": [
+  "Tidy the sheet first: one table per tab, one header row, one row per record, an ID column.",
+  "Then pick a builder that works on the live sheet, or one that imports a copy and replaces it."
+ ],
+ "chooser": {
+  "h2": "Which app builder works best with Google Sheets?",
+  "root": {
+   "q": "Will people keep editing the sheet after the app exists?",
+   "options": [
+    {
+     "label": "Yes, the sheet stays the source",
+     "then": {
+      "q": "Are you on a paid Google Workspace plan?",
       "options": [
-        {
-          "label": "Yes, the sheet stays the source",
-          "then": {
-            "q": "Are you on a paid Google Workspace plan?",
-            "options": [
-              {
-                "label": "Yes",
-                "then": {
-                  "answer": "Try AppSheet first",
-                  "why": "It reads and writes the sheet live, and AppSheet Core is included in most paid Workspace plans."
-                }
-              },
-              {
-                "label": "No",
-                "then": {
-                  "answer": "Try Glide or Softr",
-                  "why": "Both sync the sheet. Softr connects Google Sheets on every plan, Free included; Glide caps spreadsheet sources at 25,000 rows."
-                }
-              }
-            ]
-          }
-        },
-        {
-          "label": "No, the app replaces the sheet",
-          "then": {
-            "answer": "Import once into an AI app builder",
-            "why": "It builds the screens and the AI agents for you and keeps its own records. Retire the sheet so nobody edits in two places.",
-            "kind": "app"
-          }
+       {
+        "label": "Yes",
+        "then": {
+         "answer": "Try AppSheet first",
+         "why": "It reads and writes the sheet live, and AppSheet Core is included in most paid Workspace plans."
         }
+       },
+       {
+        "label": "No",
+        "then": {
+         "answer": "Try Glide or Softr",
+         "why": "Both sync the sheet. Softr connects Google Sheets on every plan, Free included; Glide caps spreadsheet sources at 25,000 rows."
+        }
+       }
       ]
+     }
+    },
+    {
+     "label": "No, the app replaces the sheet",
+     "then": {
+      "answer": "Import once into an AI app builder",
+      "why": "It builds the screens and the AI agents for you and keeps its own records. Retire the sheet so nobody edits in two places.",
+      "kind": "app"
+     }
     }
+   ]
+  }
+ },
+ "sections": [
+  {
+   "id": "tidy",
+   "h2": "Get the sheet into shape",
+   "body": [
+    {
+     "p": "Every builder reads your sheet as a table. Most \"the app is broken\" problems start here, so fix these first."
+    },
+    {
+     "ul": [
+      "**One table per tab.** No second table below the first, no totals row.",
+      "**One header row, in row 1.** Short, unique column names.",
+      "**One row per record.** One row per order or lead, never orders across columns.",
+      "**An ID column** that never changes, so the app finds a row after sorting.",
+      "**Choices as fixed values.** Use Data validation dropdowns, so \"done\" and \"Done\" are one status.",
+      "**No formulas in empty-looking rows.** Some builders read them as blank records."
+     ]
+    }
+   ]
+  }
+ ],
+ "method": {
+  "h2": "How to turn a Google Sheet into an app",
+  "steps": [
+   {
+    "title": "Name the screens you need",
+    "body": "Usually two or three: a list to find things, a board by status, a form to add one. Write them down before you open a builder."
+   },
+   {
+    "title": "Tidy a copy of the sheet",
+    "body": "Work through the checklist above on a copy, never the original."
+   },
+   {
+    "title": "Connect or import",
+    "body": "A live connection for AppSheet, Glide or Softr; a CSV or Excel import for builders that keep their own data."
+   },
+   {
+    "title": "Set who can see and change what",
+    "body": "Add users by email and limit who can edit before anyone else opens it.",
+    "note": {
+     "type": "warn",
+     "text": "A shared link is not access control. An app shared by link can show salaries or customer phone numbers to the whole team.",
+     "about": "app"
+    }
+   },
+   {
+    "title": "Add one thing the sheet could not do",
+    "body": "A reminder when a due date passes, a status that moves on its own, an email drafted from a row. That is why you built an app."
+   },
+   {
+    "title": "Give it to one real user first",
+    "body": "Let one person use it for a week. Fix what confuses them before you hand it to everyone."
+   }
+  ]
+ },
+ "captain": {
+  "at": 2,
+  "line": "Captain builds the app from your description, then takes your sheet as a CSV or Excel file or a pasted table and matches the columns to its fields.",
+  "ask": "I need a simple ticket desk for support emails"
+ },
+ "wrong": [
+  {
+   "title": "Someone deletes the ID column",
+   "body": "The app loses track of every row. Protect the column, or keep the app's own copy of the data.",
+   "about": "app"
   },
-  "sections": [
-    {
-      "id": "tidy",
-      "h2": "Get the sheet into shape",
-      "body": [
-        {
-          "p": "Every builder reads your sheet as a table. Most \"the app is broken\" problems start here, so fix these first."
-        },
-        {
-          "ul": [
-            "**One table per tab.** No second table below the first, no totals row.",
-            "**One header row, in row 1.** Short, unique column names.",
-            "**One row per record.** One row per order or lead, never orders across columns.",
-            "**An ID column** that never changes, so the app finds a row after sorting.",
-            "**Choices as fixed values.** Use Data validation dropdowns, so \"done\" and \"Done\" are one status.",
-            "**No formulas in empty-looking rows.** Some builders read them as blank records."
-          ]
-        }
-      ]
-    }
-  ],
-  "method": {
-    "h2": "How to turn a Google Sheet into an app",
-    "steps": [
-      {
-        "title": "Name the screens you need",
-        "body": "Usually two or three: a list to find things, a board by status, a form to add one. Write them down before you open a builder."
-      },
-      {
-        "title": "Tidy a copy of the sheet",
-        "body": "Work through the checklist above on a copy, never the original."
-      },
-      {
-        "title": "Connect or import",
-        "body": "A live connection for AppSheet, Glide or Softr; a CSV or Excel import for builders that keep their own data."
-      },
-      {
-        "title": "Set who can see and change what",
-        "body": "Add users by email and limit who can edit before anyone else opens it.",
-        "note": {
-          "type": "warn",
-          "text": "A shared link is not access control. An app shared by link can show salaries or customer phone numbers to the whole team.",
-          "about": "app"
-        }
-      },
-      {
-        "title": "Add one thing the sheet could not do",
-        "body": "A reminder when a due date passes, a status that moves on its own, an email drafted from a row. That is why you built an app."
-      },
-      {
-        "title": "Give it to one real user first",
-        "body": "Let one person use it for a week. Fix what confuses them before you hand it to everyone."
-      }
-    ]
+  {
+   "title": "Dates and numbers read wrong",
+   "body": "03/04 means March in one locale and April in another. Set the sheet's locale before connecting, and check a few rows.",
+   "about": "app"
   },
-  "captain": {
-    "at": 2,
-    "line": "Captain builds the app from your description, then takes your sheet as a CSV or Excel file or a pasted table and matches the columns to its fields.",
-    "ask": "I need a simple ticket desk for support emails"
+  {
+   "title": "Edits in two places",
+   "body": "People update the sheet and the app, and they drift apart. Pick one place to edit.",
+   "about": "app"
   },
-  "wrong": [
-    {
-      "title": "Someone deletes the ID column",
-      "body": "The app loses track of every row. Protect the column, or keep the app's own copy of the data.",
-      "about": "app"
-    },
-    {
-      "title": "Dates and numbers read wrong",
-      "body": "03/04 means March in one locale and April in another. Set the sheet's locale before connecting, and check a few rows.",
-      "about": "app"
-    },
-    {
-      "title": "Edits in two places",
-      "body": "People update the sheet and the app, and they drift apart. Pick one place to edit.",
-      "about": "app"
-    },
-    {
-      "title": "Phantom rows",
-      "body": "Formulas copied down to row 1,000 look like 900 empty records. Delete them before you connect.",
-      "about": "app"
-    }
-  ],
-  "faqs": [
-    {
-      "q": "Can I make an app from a Google Sheet for free?",
-      "a": "Yes, to start: AppSheet is free to prototype with up to 10 test users, and Softr's free plan connects Google Sheets. Expect to pay once real users need access."
-    },
-    {
-      "q": "Is AppSheet free with Google Workspace?",
-      "a": "AppSheet Core is included in most paid Google Workspace plans."
-    },
-    {
-      "q": "What is the row limit for an app on Google Sheets?",
-      "a": "Google Sheets holds up to 20 million cells. Builders set their own limits; Glide, for example, caps spreadsheet sources at 25,000 rows."
-    },
-    {
-      "q": "Will editing the sheet break the app?",
-      "a": "It can. Renaming a header, deleting the ID column or adding a totals row are the usual causes. Lock the header row and the ID column, and change the structure only in the builder."
-    },
-    {
-      "q": "Should the app use the live sheet or a copy?",
-      "a": "A live connection keeps one source of truth, which suits AppSheet, Glide or Softr. Builders that import a copy replace the sheet, so stop editing the old one the day you switch."
-    },
-    {
-      "q": "Who can see the data in my app?",
-      "a": "Only who you add, if you set it up. Add users by email and limit who can edit before anyone else opens it. A shared link is not access control."
-    },
-    {
-      "q": "Can Google Sheets be used as a database for an app?",
-      "a": "Yes, for a small app with one main list and a few people editing. Sheets holds up to 20 million cells, and builders set their own limits; Glide, for example, caps spreadsheet sources at 25,000 rows. When you need linked tables, typed fields or many people writing at once, move the data into the builder."
-    },
-    {
-      "q": "Can I turn a Google Sheet into a mobile app?",
-      "a": "Yes, though only some builders publish to the Apple App Store and Google Play. Adalo does, and connects to Sheets through its SheetBridge tool. Glide makes progressive web apps that people add to their home screen from a link, and it does not publish to the stores."
-    }
-  ],
-  "related": [
-    "how-to-build-a-simple-crm-without-code",
-    "internal-tools-without-code-what-to-build-first",
-    "how-to-build-an-invoice-tracker"
-  ],
-  "updated": "2026-11-20"
+  {
+   "title": "Phantom rows",
+   "body": "Formulas copied down to row 1,000 look like 900 empty records. Delete them before you connect.",
+   "about": "app"
+  }
+ ],
+ "faqs": [
+  {
+   "q": "Can I make an app from a Google Sheet for free?",
+   "a": "Yes, to start: AppSheet is free to prototype with up to 10 test users, and Softr's free plan connects Google Sheets. Expect to pay once real users need access."
+  },
+  {
+   "q": "Is AppSheet free with Google Workspace?",
+   "a": "AppSheet Core is included in most paid Google Workspace plans."
+  },
+  {
+   "q": "What is the row limit for an app on Google Sheets?",
+   "a": "Google Sheets holds up to 20 million cells. Builders set their own limits; Glide, for example, caps spreadsheet sources at 25,000 rows."
+  },
+  {
+   "q": "Will editing the sheet break the app?",
+   "a": "It can. Renaming a header, deleting the ID column or adding a totals row are the usual causes. Lock the header row and the ID column, and change the structure only in the builder."
+  },
+  {
+   "q": "Should the app use the live sheet or a copy?",
+   "a": "A live connection keeps one source of truth, which suits AppSheet, Glide or Softr. Builders that import a copy replace the sheet, so stop editing the old one the day you switch."
+  },
+  {
+   "q": "Who can see the data in my app?",
+   "a": "Only who you add, if you set it up. Add users by email and limit who can edit before anyone else opens it. A shared link is not access control."
+  },
+  {
+   "q": "Can Google Sheets be used as a database for an app?",
+   "a": "Yes, for a small app with one main list and a few people editing. Sheets holds up to 20 million cells, and builders set their own limits; Glide, for example, caps spreadsheet sources at 25,000 rows. When you need linked tables, typed fields or many people writing at once, move the data into the builder."
+  },
+  {
+   "q": "Can I turn a Google Sheet into a mobile app?",
+   "a": "Yes, though only some builders publish to the Apple App Store and Google Play. Adalo does, and connects to Sheets through its SheetBridge tool. Glide makes progressive web apps that people add to their home screen from a link, and it does not publish to the stores."
+  }
+ ],
+ "related": [
+  "how-to-build-an-app-with-ai-agents",
+  "what-is-an-agentic-app",
+  "how-to-build-a-simple-crm-without-code"
+ ],
+ "updated": "2026-11-20"
 }

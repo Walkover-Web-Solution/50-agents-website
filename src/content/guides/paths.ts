@@ -31,4 +31,7 @@ export const PATHS: string[] = [
   '/guides/how-to-choose-an-ai-agent-builder',
   '/guides/what-to-automate-first-in-a-small-business',
   '/guides/how-much-automation-costs-credits-tasks-and-runs-compared',
+  '/guides/what-is-an-agentic-app',
+  '/guides/agentic-app-vs-no-code-app-builder',
+  '/guides/how-to-build-an-app-with-ai-agents',
 ];
