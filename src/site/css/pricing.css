@@ -47,3 +47,4 @@
 .pr-use-face{position:absolute;top:22px;right:22px}
 .pr-uses h3{padding-right:44px}
 @media (max-width:760px){.pr-crew{right:16px}.pr-glow{top:-20px}}
+@media (max-width:1020px){.pr-plans{row-gap:48px}}
