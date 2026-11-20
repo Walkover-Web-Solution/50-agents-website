@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/sync-organization-ld.mjs && node scripts/validate-json-ld.mjs && node scripts/validate-mcp-tools.mjs && node scripts/validate-mcp-protocol.mjs && node scripts/sync-landing-sections.mjs && node scripts/generate-llms-full.mjs",
+    "prebuild": "node scripts/check-landing-width.mjs && node scripts/sync-organization-ld.mjs && node scripts/validate-json-ld.mjs && node scripts/validate-mcp-tools.mjs && node scripts/validate-mcp-protocol.mjs && node scripts/sync-landing-sections.mjs && node scripts/generate-llms-full.mjs",
     "build": "next build",
     "pages:live-pairs": "node scripts/pages/write-live-pairs.mjs",
     "validate:mcp-tools": "node scripts/validate-mcp-tools.mjs",
