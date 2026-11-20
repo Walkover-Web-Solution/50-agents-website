@@ -31,6 +31,8 @@ export const FAMILIES: Record<string, () => Entry[]> = {
   // Integrations and pairs by tier (Search review 01, S20): the core and a test cohort, each in its own sitemap.
   integrations: () => catalog().apps.filter(a => appTier(a.s) === 'core').map(a => ({ path: `/integrations/${a.s}`, date: index.read })),
   'integrations-test': () => catalog().apps.filter(a => appTier(a.s) === 'test').map(a => ({ path: `/integrations/${a.s}`, date: index.read })),
+  // The rest of the app pages (fixes-02 item 4, S38): their own cohort, so Search can watch them apart.
+  'integrations-rest': () => catalog().apps.filter(a => appTier(a.s) === 'rest').map(a => ({ path: `/integrations/${a.s}`, date: index.read })),
   pairs: () => pairs().list.filter(p => pairTier(p) === 'core').map(p => ({ path: `/integrations/${p.a}/${p.b}`, date: index.read })),
   'pairs-test': () => pairs().list.filter(p => pairTier(p) === 'test').map(p => ({ path: `/integrations/${p.a}/${p.b}`, date: index.read })),
 };

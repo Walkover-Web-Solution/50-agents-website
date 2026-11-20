@@ -109,11 +109,14 @@ export const writtenSlugs = () => (fs.existsSync(PAGES_DIR) ? fs.readdirSync(PAG
 // - test: the apps whose old /ai-agents/<slug> pages Google already showed (test-cohort.json, from
 //   gtm/seo/research/02-old-pages.md), unless in the core; 150 pairs with both apps in the top 200 and 2 or more
 //   recipes, most recipes first, not in the core. Sitemaps integrations-test, pairs-test.
-// - none: everything else, noindex, follow, in no sitemap.
+// - rest: every other app page with at least one trigger or action (Jii, 20 Nov, fixes-02 item 4, S38: "I also want the
+//   remaining pages ... so that entire family gets on live"). Sitemap integrations-rest, its own cohort.
+// - none: an app with no trigger and no action, a page that fails the uniqueness gate, and every pair outside core and
+//   test: noindex, follow, in no sitemap.
 // A page that fails the uniqueness gate (5-word shingle overlap of 0.5 or more with another indexed page of its family;
 // scripts/pages/uniqueness-integrations.mjs writes the list) is none, and so is a pair with no lines of its own (S24: a pair
 // whose lines could not be written honestly stays noindex), and the test cohort fills from the next in line.
-export type Tier = 'core' | 'test' | 'none';
+export type Tier = 'core' | 'test' | 'rest' | 'none';
 const GATE_FAILED = new Set<string>(gate.failed);
 const gateFailed = (p: string) => GATE_FAILED.has(p);
 let _appTiers: Map<string, Tier> | null = null;
@@ -127,6 +130,7 @@ function appTiers() {
     if (!app) return;
     if (rank < 200 && app.events.length >= 5 && app.recipes.length >= 1) m.set(a.s, 'core');
     else if (test.has(a.s)) m.set(a.s, 'test');
+    else if (app.events.length >= 1) m.set(a.s, 'rest');
   });
   return (_appTiers = m);
 }
