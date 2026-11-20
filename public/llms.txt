@@ -11,10 +11,10 @@ Every workspace starts free with 2,000 credits.
 - [Full context (llms-full.txt)](https://50agents.com/llms-full.txt): entire public site guide in one file.
 - [NLWeb /ask](https://50agents.com/ask): natural-language query over public content.
 
-## For AI agents and developers
+## For AI agents
 
-- MCP (streamable HTTP): https://50agents.com/mcp
-- MCP server card (SEP-2127): https://50agents.com/server-card
-- MCP registry server.json: https://50agents.com/server.json
-- Website API (OpenAPI): https://50agents.com/openapi.json
-- API catalog: https://50agents.com/.well-known/api-catalog
+- [AI catalog](https://50agents.com/.well-known/ai-catalog.json): every machine-readable resource on this site.
+- [Agent skills](https://50agents.com/.well-known/agent-skills.json): what an agent can do here today.
+- [Home in markdown](https://50agents.com/index.md) and [pricing in markdown](https://50agents.com/pricing.md).
+- Open Captain with a job already typed: https://50agents-app.embarko.app/login?draft=<the job, URL-encoded>. The person signs in and taps Build it.
+- [Sitemap index](https://50agents.com/sitemap.xml): every indexed page, one sitemap per family.

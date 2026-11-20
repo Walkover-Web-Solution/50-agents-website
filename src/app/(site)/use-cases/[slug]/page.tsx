@@ -66,7 +66,7 @@ export default async function UseCasePageView({ params }: { params: Promise<{ sl
   ];
 
   return (
-    <div className="page uc3" style={{ ['--k' as string]: k.tint }}>
+    <div className="page uc3" style={{ ['--k' as string]: k.tint, ['--kt' as string]: k.tint }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Use cases', href: '/use-cases' }, { label: u.h1 }]} /></div>
 

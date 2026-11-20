@@ -4,6 +4,8 @@
 // marquee rows, questions, more to read. No date on the page: `updated` goes to JSON-LD only.
 import type { HubPage } from './types';
 import { PAGES } from '@/content/use-cases/pages';
+import { GUIDES } from '@/content/guides/pages';
+import { LIVE } from '../parts';
 import { Crumbs, Cta, Face, KindBadge, KINDS, KindFace } from '../parts';
 import { StickyBar } from '../sticky';
 import { rich } from '../guides/rich';
@@ -17,13 +19,23 @@ import { appLd, crumbsLd, Ld } from './meta';
 import '../css/usecase.css';
 import '../css/hubs.css';
 
+const AGENTIC_STEPS = [
+  { h: 'Tell Captain what to track', p: 'Say what the app is for, such as leads, customer requests or invoices. Captain asks a few short questions, shows a plan, and builds it when you tap Build it.', tint: '#E2E9FF', crew: ['lead'] },
+  { h: 'Bring your data in', p: 'From your files, your spreadsheets or the apps you use: drop a CSV or Excel file or paste a table and Captain matches the columns, or have an automation add records from your apps. You get a board and a table view.', tint: '#FFEDC2', crew: ['sorter', 'keeper'] },
+  { h: 'The crew works the records', p: 'AI agents start when a record is added, a field changes, or a date passes, such as Collector drafting a reminder a day after an invoice is due. Anything that reaches a customer waits for your yes.', tint: '#FFE1D6', crew: ['closer', 'scout', 'writer'] },
+];
+
 export function HubView({ h }: { h: HubPage }) {
   const k = KINDS[h.kind];
   const path = `/${h.slug}`;
   const page = `hub-${h.slug}`;
   const ucs = PAGES.filter(u => u.kind === h.kind);
   // The other hubs are in the bento, so "Keep reading" is this hub's own reads.
-  const reads = live(h.links).slice(0, 6);
+  // Round B, B5: three cards. Fewer than three of the hub's own reads fill from live guides of the same kind.
+  const own = live(h.links).slice(0, 3);
+  const fill = GUIDES.filter(g => g.kind === h.kind && LIVE.has(`/guides/${g.slug}`) && !own.some(r => r.href === `/guides/${g.slug}`))
+    .map(g => ({ href: `/guides/${g.slug}`, label: g.h1 }));
+  const reads = [...own, ...fill].slice(0, 3);
 
   return (
     <div className="page uc3 hub3" style={{ ['--k' as string]: k.tint }}>
@@ -40,6 +52,23 @@ export function HubView({ h }: { h: HubPage }) {
 
       {/* What you can build (D259): 20 to 30 jobs of this kind under team filters, each opening Captain with its ask */}
       <Gallery kind={h.kind} page={page} label={h.crumb} />
+
+      {/* Round B, B8 (Jii: "tell and explain more about agentic apps and how you can build them in this"): what an
+          agentic app is and how it is built, in three steps. Every line follows scripts/pages/product-facts.md. */}
+      {h.kind === 'app' && (
+        <section className="wrap sec" id="agentic-apps">
+          <div className="sec-h c"><h2>What an agentic app is, and how you build one</h2><p>An app is your own lists and screens, with a crew of AI agents working in the records.</p></div>
+          <ol className="aa3">
+            {AGENTIC_STEPS.map((x, i) => (
+              <li key={x.h} style={{ ['--k' as string]: x.tint }}>
+                <span className="aa3-pic" aria-hidden="true"><span className="aa3-n">{i + 1}</span><span className="aa3-crew">{x.crew.map(f => <Face key={f} id={f} size={40} />)}</span></span>
+                <h3>{x.h}</h3>
+                <p>{x.p}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
 
       {/* Which kind: the four kinds as cards, this kind leading; the others link to their hubs */}
       <section className="wrap sec" id="which-kind">
@@ -84,7 +113,7 @@ export function HubView({ h }: { h: HubPage }) {
       {reads.length > 0 && (
         <section className="wrap sec" id="more">
           <div className="sec-h c"><h2>Keep reading</h2></div>
-          <div className={`cards3 hub3-n${Math.min(reads.length, 3)}`}>{reads.map(r => <ReadCard key={r.href} href={r.href} label={r.label} />)}</div>
+          <div className={`cards3 rc3 hub3-n${Math.min(reads.length, 3)}`}>{reads.map(r => <ReadCard key={r.href} href={r.href} label={r.label} />)}</div>
         </section>
       )}
 
