@@ -196,3 +196,28 @@ span.ig3-kind-more{display:none}
   .ig5-col-h{padding:16px 18px 12px}
   .ig5-items>li{padding:14px 18px}
 }
+
+/* Round B, B6 (Jii: "lets add subtle colors here"): triggers take the automation tint, actions the app tint. Tinted
+   column headers, a count chip, and a tinted dot on each row; the text is the same. */
+.ig5-col[data-col="triggers"]{--c:#FFEDC2;--cd:#E2A400}
+.ig5-col[data-col="actions"]{--c:#E2E9FF;--cd:#4F6BED}
+.ig5-col-h{background:linear-gradient(90deg,var(--c) 0,color-mix(in srgb,var(--c) 35%,#fff) 100%)}
+.ig5-col-h .ig5-count{display:inline-grid;place-items:center;min-width:28px;height:24px;padding:0 8px;border-radius:12px;background:#fff;font-weight:600;color:var(--ink);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cd) 30%,transparent)}
+.ig5-items li{position:relative;padding-left:44px!important}
+.ig5-items li::before{content:"";position:absolute;left:22px;top:24px;width:8px;height:8px;border-radius:50%;background:var(--cd);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 80%,transparent)}
+.ig5-items li:hover{background:color-mix(in srgb,var(--c) 25%,#fff)}
+
+/* Round B, B7 (Jii: "app icons ... on click they get thrown to the two app page"; review: a search, high on the page,
+   not too big): a search box, then compact app tiles in rows of four, two rows until "See all". */
+.ig3-pair-sec{padding-top:88px}
+.ig3-pp{max-width:1040px;margin:0 auto;display:grid;gap:16px}
+.ig3-pp-find{max-width:520px;width:100%;margin:0 auto}
+.ig3-pick{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.ig3-pick li[hidden]{display:none}
+.ig3-pick a{display:flex;align-items:center;gap:12px;height:100%;padding:12px 16px;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;line-height:1.3;transition:box-shadow .2s}
+.ig3-pick a:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.ig3-pick a span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ig3-pp-more{display:flex;justify-content:center}
+.ig3-pp-none{text-align:center;color:var(--mute);font-size:15px}
+@media (max-width:1020px){.ig3-pick{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.ig3-pair-sec{padding-top:64px}.ig3-pick a{padding:10px 12px;font-size:14px}}

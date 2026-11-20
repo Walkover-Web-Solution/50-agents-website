@@ -3,7 +3,7 @@
 // ask, and a small round arrow at its corner says so. Four rows show, "Load more" adds four; every card is in the HTML.
 import type { Kind } from '../types';
 import { GALLERY, GALLERY_HEAD, GALLERY_LINE, TEAMS } from '@/content/hubs/gallery';
-import { AppLogo, KINDS, KindFace } from '../parts';
+import { AppLogo, Face, KINDS, KindFace } from '../parts';
 import { BuildLink } from '../integrations/build-link';
 import { appIcon, appName } from '../usecase/apps-data';
 import { GalleryFilter } from './gallery-filter';
@@ -17,7 +17,11 @@ const BRAND: Record<string, string> = {
   docusign: '#FFB800', 'google-forms': '#673AB7', intercom: '#1F8DED', razorpay: '#3395FF', chargebee: '#FF3300',
   jotform: '#FF6100', 'google-drive': '#1FA463', trello: '#0079BF', 'google-sheets': '#34A853',
 };
-function tint(apps: string[], kind: Kind) {
+// Round B review (Jii: "we need to use different colors"): a card with no app takes the next soft colour in turn, so
+// neighbouring cards always differ and a gallery of browser agents isn't one colour.
+const SOFT = ['#FFD9C7', '#CFE6FF', '#CFF0DD', '#FFEBB3', '#FFD3E2', '#E3DAFF', '#D2F1F4'];
+function tint(apps: string[], kind: Kind, n?: number) {
+  if (!apps.length && n !== undefined) return SOFT[n % SOFT.length];
   const lead = apps.find(a => a !== 'gmail' && BRAND[a]) ?? apps.find(a => BRAND[a]);
   return lead ? BRAND[lead] : KINDS[kind].tint;
 }
@@ -27,14 +31,18 @@ export function Gallery({ kind, page, label }: { kind: Kind; page: string; label
   const teams = TEAMS.map(t => ({ ...t, count: cards.filter(c => c.team === t.slug).length })).filter(t => t.count);
   return (
     <section className="wrap sec gal" id="possibilities">
-      <div className="sec-h c"><h2>{GALLERY_HEAD[kind]}</h2><p>{GALLERY_LINE}</p></div>
+      <div className="sec-h c">
+        <h2>{GALLERY_HEAD[kind]}</h2><p>{GALLERY_LINE}</p>
+      </div>
       <GalleryFilter teams={teams} total={cards.length} label={label}>
-        {cards.map(c => (
-          <article key={c.ask} className="gal-card" data-team={c.team} style={{ ['--app' as string]: tint(c.apps, kind) }}>
+        {cards.map((c, i) => (
+          <article key={c.ask} className="gal-card" data-team={c.team} style={{ ['--app' as string]: tint(c.apps, kind, i) }}>
+            {/* Round B, B3: two of the crew peek over a card's top edge, where the cards carry no app logos (browser agents) */}
+            {kind === 'browser' && (i === 1 || i === 6) && <span className="gal-peek" aria-hidden="true"><Face id={i === 1 ? 'scout' : 'pilot'} size={40} /></span>}
             <div className="gal-apps">
               {c.apps.length
                 ? c.apps.map(a => <span key={a} title={appName(a)}><AppLogo app={a} icon={appIcon(a)} size={26} /><span className="sr">{appName(a)}</span></span>)
-                : <span className="gal-kind" style={{ background: KINDS[kind].tint }} aria-hidden="true"><KindFace kind={kind} size={18} /></span>}
+                : <span className="gal-kind" aria-hidden="true"><KindFace kind={kind} size={24} /></span>}
             </div>
             <h3><BuildLink className="gal-go" page={page} place="gallery" campaign="seo-hub" ask={c.ask}>{c.job}<span className="sr"> (opens Captain)</span></BuildLink></h3>
             <span className="gal-arrow" aria-hidden="true">

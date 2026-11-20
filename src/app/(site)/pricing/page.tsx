@@ -1,12 +1,20 @@
 // /pricing (Jii, 19 Nov: "then we add the pricing page"): the live plans from src/content/pages/pricing.ts.
 import type { Metadata } from 'next';
-import { Crumbs, Cta } from '@/site/parts';
+import { Crumbs, Cta, Face } from '@/site/parts';
 import { PLANS, PRICING_FAQS, TOPUP, USES } from '@/content/pages/pricing';
 import '@/site/css/pricing.css';
 
 const BASE = 'https://50agents.com';
 const url = `${BASE}/pricing`;
 const fmt = (n: number) => n.toLocaleString('en-US');
+// Round B (B1): each plan wears a kind's soft tint (no faces on the plans, Jii's review); the uses cards take a kind each.
+const PLAN_LOOK: Record<string, { tint: string; crew: string[] }> = {
+  free: { tint: '#FFEDC2', crew: ['keeper'] },
+  starter: { tint: '#E2E9FF', crew: ['sorter', 'keeper'] },
+  pro: { tint: '#FFE1D6', crew: ['writer', 'closer', 'scout'] },
+  business: { tint: '#E8E0FF', crew: ['scout', 'rosa', 'sunny', 'ledger'] },
+};
+const USE_LOOK = [{ tint: '#E2E9FF', face: 'sorter' }, { tint: '#FFE1D6', face: 'writer' }, { tint: '#FFEDC2', face: 'lead' }];
 
 export const metadata: Metadata = {
   title: '50agents pricing: free to start, plans from $19',
@@ -28,11 +36,12 @@ const ld = [
 
 export default function PricingPage() {
   return (
-    <div className="page pr">
+    <div className="page pr" style={{ ['--k' as string]: '#FFE1D6' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Pricing' }]} /></div>
 
       <section className="wrap pr-hero">
+        <span className="pr-glow" aria-hidden="true" />
         <h1>Free to start. Pay for what you run.</h1>
         <p className="pr-lede">Every workspace gets 2,000 free credits a month. Pick a plan when your work grows.</p>
       </section>
@@ -40,7 +49,7 @@ export default function PricingPage() {
       <section className="wrap pr-plans-wrap" aria-label="Plans">
         <div className="pr-plans">
           {PLANS.map(p => (
-            <div key={p.id} className={p.id === 'pro' ? 'pr-plan on' : 'pr-plan'}>
+            <div key={p.id} className={p.id === 'pro' ? 'pr-plan on' : 'pr-plan'} style={{ ['--pt' as string]: PLAN_LOOK[p.id]?.tint ?? '#F2F1ED' }}>
               <h2>{p.name}</h2>
               <p className="pr-line">{p.line}</p>
               <p className="pr-price"><b>${p.price}</b><span>{p.price ? 'a month' : 'forever'}</span></p>
@@ -58,8 +67,8 @@ export default function PricingPage() {
       <section className="wrap sec" id="credits">
         <div className="sec-h c"><h2>What uses credits</h2><p>You see every charge in Usage, by who and on what.</p></div>
         <div className="pr-uses">
-          {USES.map(u => (
-            <div key={u.what}><h3>{u.what}</h3><p>{u.how}</p><span>{u.example}</span></div>
+          {USES.map((u, i) => (
+            <div key={u.what} style={{ ['--ut' as string]: USE_LOOK[i % 3].tint }}><span className="pr-use-face" aria-hidden="true"><Face id={USE_LOOK[i % 3].face} size={34} /></span><h3>{u.what}</h3><p>{u.how}</p><span>{u.example}</span></div>
           ))}
         </div>
       </section>
@@ -81,6 +90,8 @@ export default function PricingPage() {
           <h2>Start with the free plan</h2>
           <p>One sentence to Captain. Free to start.</p>
           <Cta campaign="seo-page" page="pricing" place="final">Start free</Cta>
+          <span className="peek l" aria-hidden="true"><Face id="keeper" size={52} /><Face id="sorter" size={44} /></span>
+          <span className="peek r" aria-hidden="true"><Face id="lead" size={50} /><Face id="scout" size={46} /></span>
         </div>
       </section>
     </div>
