@@ -9,31 +9,20 @@ import { HOME_AGENT_LINK } from './lib/home-agent-link';
 // 2. Old app pages: /ai-agents/<slug> and /services/<slug> whose app is in viaSocket's catalog go to /integrations/<slug>
 //    in one 308 (Jii, 19 Nov: "Yes, redirect them", S21; "Yes, all of them", S22), matched case-insensitively.
 // 3. The old site is removed (Jii, 19 Nov, S25, D257; gtm/seo/handoff/launch-cleanup.md section 1):
-//    the old product pages and old app pages not in the catalog answer 410 Gone; old pages with a new home get a 301.
+//    old pages with a new home get a 301. Pages with no new twin used to answer 410; from 20 Nov they 301 too
+//    (Jii: "can we not avoid the 410? put a redirect to some home page instead?", S37, T58): the old product pages to /,
+//    old app pages not in the catalog to /integrations. One hop each, no chains.
 //    /ai-agents itself is the new AI agents hub and is not touched here.
 // 4. Pair pages (Search S26): only the indexable pairs exist, in one canonical order (live-pairs.json, a few KB, so no
 //    catalog in this bundle). The reversed order, or a mixed-case or duplicate slug, 308s to the canonical page.
 //    An app page asked with a mixed-case or duplicate slug 308s to the canonical slug (slugs.ts canon) the same way.
 // 5. A Cloudflare preview (*.pages.dev) answers X-Robots-Tag: noindex, nofollow on every page (deploy plan step 3);
 //    production is unchanged. Cloudflare's _headers file doesn't apply to the worker's responses, so it is set here.
+// 6. A trailing slash 301s to the same path without it (T35), last, so no redirect chains.
 const MAP = OLD as Record<string, string>;
 const APP = 'https://50agents-app.embarko.app';
 const PAIRS = new Set<string>(LIVE_PAIRS.pairs);
-const GONE = new Set(['/ai-note-taker', '/work-management', '/ai-agents/50agents']);
-
-const GONE_HTML = `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex"><title>This page was removed | 50agents</title>
-<style>body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;box-sizing:border-box;background:#fff;color:#111214;font-family:'Schibsted Grotesk',system-ui,sans-serif;text-align:center}h1{margin:0;font-size:clamp(32px,6vw,48px);font-weight:500;letter-spacing:-.02em}p{margin:16px 0 0;font-size:18px;line-height:1.5;color:#4F535B}nav{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:28px}a{color:#111214;font-weight:600}</style>
-</head><body><main><h1>This page was removed</h1><p>It belonged to the old 50agents site.</p>
-<nav><a href="/">Home</a><a href="/use-cases">Use cases</a><a href="/integrations">Integrations</a></nav></main></body></html>`;
-
-function gone() {
-  return new NextResponse(GONE_HTML, {
-    status: 410,
-    headers: { 'Content-Type': 'text/html; charset=utf-8', 'X-Robots-Tag': 'noindex' },
-  });
-}
+const OLD_PRODUCTS = new Set(['/ai-note-taker', '/work-management', '/ai-agents/50agents']);
 
 function wantsHomeHtml(request: NextRequest) {
   return request.nextUrl.pathname === '/' && !/text\/(x-)?markdown/.test(request.headers.get('accept') ?? '');
@@ -62,9 +51,9 @@ function route(request: NextRequest): NextResponse {
   }
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   const lower = path.toLowerCase();
-  if (GONE.has(lower)) return gone();
-
-  const url = request.nextUrl.clone();
+  // A plain URL: Next's nextUrl.clone() remembers the request's trailing slash and puts it back on every redirect.
+  const url = new URL(request.url);
+  if (OLD_PRODUCTS.has(lower)) { url.pathname = '/'; url.search = ''; return NextResponse.redirect(url, 301); }
   if (lower === '/templates' || lower.startsWith('/templates/')) { url.pathname = '/use-cases'; return NextResponse.redirect(url, 301); }
   if (lower === '/login') return NextResponse.redirect(`${APP}/login${search}`, 301);
   if (lower === '/org' || lower.startsWith('/org/')) return NextResponse.redirect(`${APP}/`, 301);
@@ -74,9 +63,9 @@ function route(request: NextRequest): NextResponse {
     const slug = decodeURIComponent(m[2]).toLowerCase();
     const to = MAP[slug];
     if (to) { url.pathname = `/integrations/${to}`; return NextResponse.redirect(url, 308); }
-    return gone();
+    url.pathname = '/integrations'; url.search = ''; return NextResponse.redirect(url, 301);
   }
-  if (/^\/services(\/|$)/.test(pathname)) return gone();
+  if (/^\/services(\/|$)/.test(pathname)) { url.pathname = '/integrations'; url.search = ''; return NextResponse.redirect(url, 301); }
 
   const app = path.match(/^\/integrations\/([^/]+)$/);
   if (app) {
@@ -93,6 +82,9 @@ function route(request: NextRequest): NextResponse {
     const to = PAIRS.has(`${a}/${b}`) ? `${a}/${b}` : PAIRS.has(`${b}/${a}`) ? `${b}/${a}` : null;
     if (to && `/integrations/${to}` !== path) { url.pathname = `/integrations/${to}`; return NextResponse.redirect(url, 308); }
   }
+  // T35: /<path>/ answers a 301 to /<path>. It runs last, so a path that another rule moves takes one hop to its final
+  // page (every rule above reads the path without its slash). /ingest is outside the matcher and keeps its slash.
+  if (path !== pathname) { url.pathname = path; return NextResponse.redirect(url, 301); }
   return NextResponse.next();
 }
 
