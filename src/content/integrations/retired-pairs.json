@@ -1,0 +1,4 @@
+{
+ "note": "Pair pages that were live and lost their pair status (their only templates were catalog rows listing a trigger as the action, viaSocket row9axs8sano). Each 301s to its first app's page in src/middleware.ts. Add, never remove, while the URL may still be indexed.",
+ "pairs": ["activecampaign/woocommerce", "airtable/woocommerce", "facebook-lead-ads/zoho-crm", "liliphant/zoho-crm"]
+}

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OLD from './content/integrations/old-map.json';
 import LIVE_PAIRS from './content/integrations/live-pairs.json';
+import RETIRED_PAIRS from './content/integrations/retired-pairs.json';
 import { canon } from './content/integrations/slugs';
 import { HOME_AGENT_LINK } from './lib/home-agent-link';
 
@@ -22,6 +23,7 @@ import { HOME_AGENT_LINK } from './lib/home-agent-link';
 const MAP = OLD as Record<string, string>;
 const APP = 'https://50agents-app.embarko.app';
 const PAIRS = new Set<string>(LIVE_PAIRS.pairs);
+const RETIRED = new Set<string>(RETIRED_PAIRS.pairs);
 const OLD_PRODUCTS = new Set(['/ai-note-taker', '/work-management', '/ai-agents/50agents']);
 
 function wantsHomeHtml(request: NextRequest) {
@@ -79,6 +81,9 @@ function route(request: NextRequest): NextResponse {
     let x: string, y: string;
     try { x = decodeURIComponent(pair[1]); y = decodeURIComponent(pair[2]); } catch { return NextResponse.next(); }
     const a = canon(x), b = canon(y);
+    // a pair page that was live and lost its pair status 301s to its first app's page, in one hop from either order
+    const gone = RETIRED.has(`${a}/${b}`) ? a : RETIRED.has(`${b}/${a}`) ? b : null;
+    if (gone) { url.pathname = `/integrations/${gone}`; url.search = ''; return NextResponse.redirect(url, 301); }
     const to = PAIRS.has(`${a}/${b}`) ? `${a}/${b}` : PAIRS.has(`${b}/${a}`) ? `${b}/${a}` : null;
     if (to && `/integrations/${to}` !== path) { url.pathname = `/integrations/${to}`; return NextResponse.redirect(url, 308); }
   }
