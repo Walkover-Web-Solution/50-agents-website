@@ -28,13 +28,13 @@ export function Gallery({ kind, page, label }: { kind: Kind; page: string; label
   return (
     <section className="wrap sec gal" id="possibilities">
       <div className="sec-h c">
-        {/* Round B, B3: a few of the crew by the heading, where the cards carry no app logos (browser agents) */}
-        {kind === 'browser' && <span className="gal-peek" aria-hidden="true"><Face id="scout" size={44} /><Face id="pilot" size={38} /></span>}
         <h2>{GALLERY_HEAD[kind]}</h2><p>{GALLERY_LINE}</p>
       </div>
       <GalleryFilter teams={teams} total={cards.length} label={label}>
-        {cards.map(c => (
+        {cards.map((c, i) => (
           <article key={c.ask} className="gal-card" data-team={c.team} style={{ ['--app' as string]: tint(c.apps, kind) }}>
+            {/* Round B, B3: two of the crew peek over a card's top edge, where the cards carry no app logos (browser agents) */}
+            {kind === 'browser' && (i === 1 || i === 6) && <span className="gal-peek" aria-hidden="true"><Face id={i === 1 ? 'scout' : 'pilot'} size={40} /></span>}
             <div className="gal-apps">
               {c.apps.length
                 ? c.apps.map(a => <span key={a} title={appName(a)}><AppLogo app={a} icon={appIcon(a)} size={26} /><span className="sr">{appName(a)}</span></span>)

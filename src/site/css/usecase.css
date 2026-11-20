@@ -178,9 +178,10 @@
 }
 
 /* Round B, B2 (Jii: "we can def use some colors or gradient here"): "Make it yours" sits on a soft gradient in the page's
-   kind tint, inside the content edges; the cards stay white. */
+   kind tint, inside the content edges; the cards stay white. --kt carries the tint, since D255 pins --k to grey on big
+   surfaces and Jii asked for colour on this one. */
 .uc3 #variations{position:relative;isolation:isolate;margin-top:56px;padding-top:72px;padding-bottom:76px}
 .uc3 #variations::before{content:"";position:absolute;z-index:-1;inset:0 40px;border-radius:28px;
-  background:radial-gradient(60% 80% at 15% 10%,var(--k) 0,transparent 70%),radial-gradient(55% 75% at 90% 90%,var(--k) 0,transparent 70%),linear-gradient(135deg,color-mix(in srgb,var(--k) 55%,#fff),#fff 60%,color-mix(in srgb,var(--k) 55%,#fff))}
+  background:radial-gradient(60% 80% at 15% 10%,var(--kt) 0,transparent 70%),radial-gradient(55% 75% at 90% 90%,var(--kt) 0,transparent 70%),linear-gradient(135deg,color-mix(in srgb,var(--kt) 55%,#fff),#fff 60%,color-mix(in srgb,var(--kt) 55%,#fff))}
 .uc3 #variations .uc3-vars .btn.ghost{background:#fff}
 @media (max-width:760px){.uc3 #variations{margin-top:32px;padding-top:48px;padding-bottom:52px}.uc3 #variations::before{inset:0 18px;border-radius:22px}.uc3 #variations .sec-h,.uc3 #variations .uc3-vars{padding:0 14px}}
