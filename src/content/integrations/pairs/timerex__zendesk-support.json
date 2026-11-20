@@ -1,8 +1,0 @@
-{
-  "usedFor": "TimeRex holds booked meetings and Zendesk Support holds tickets, so “Event Cancelled” can run “Create Support Ticket” for follow-up.",
-  "bestTemplate": {
-    "name": "“Event Cancelled” in TimeRex, then “Create Support Ticket” in Zendesk Support",
-    "why": "A cancellation gives your support team a ticket to win the meeting back, with requester and priority settable."
-  },
-  "watchOut": "“Event Rescheduled” and “New Event” are separate triggers, so each needs its own template to reach “Create Support Ticket”."
-}

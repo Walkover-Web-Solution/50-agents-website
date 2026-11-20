@@ -1,8 +1,0 @@
-{
-  "usedFor": "LiveChat holds visitor conversations, and MailerLite receives people as subscribers through “Create or Update Subscriber” when “Finished Chat” fires.",
-  "bestTemplate": {
-    "name": "“Finished Chat” in LiveChat, then “Create or Update Subscriber” in MailerLite",
-    "why": "A finished chat adds or updates that person as a MailerLite subscriber for later emails."
-  },
-  "watchOut": "“New Chat” fires when a chat starts and “Finished Chat” when it ends, so pick your moment."
-}

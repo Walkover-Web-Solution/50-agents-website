@@ -1,8 +1,0 @@
-{
-  "usedFor": "Hive holds project actions and Slack holds team chat, so “Updated Action” can run “Send Message” to a channel.",
-  "bestTemplate": {
-    "name": "“Updated Action” in Hive, then “Send Message” in Slack",
-    "why": "Changed work in Hive reaches the channel where the team already talks, with no status chase."
-  },
-  "watchOut": "“Updated Action” in Hive is polling, and the Slack post waits for your approval before it goes out."
-}

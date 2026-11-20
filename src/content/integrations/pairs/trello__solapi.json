@@ -1,8 +1,0 @@
-{
-  "usedFor": "Trello tracks cards, and SOLAPI sends a text through your SOLAPI account with “Send Message” when “Card Updated” fires.",
-  "bestTemplate": {
-    "name": "“Card Updated” in Trello, then “Send Message” in SOLAPI",
-    "why": "A card change sends a text through your SOLAPI account, so the right person hears at once."
-  },
-  "watchOut": "“Card Updated” fires on every change to a card, so “Send Message” can go out repeatedly."
-}

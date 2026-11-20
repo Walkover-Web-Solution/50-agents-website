@@ -1,8 +1,0 @@
-{
-  "usedFor": "Shopify spots abandoned checkouts, and Holded receives the shopper as a contact through “Create Contact”.",
-  "bestTemplate": {
-    "name": "“Abandoned Checkout” in Shopify, then “Create Contact” in Holded",
-    "why": "A shopper who leaves a checkout is saved in Holded as a contact you can follow up."
-  },
-  "watchOut": "“Abandoned Checkout” in Shopify is polling, so the contact appears after a scheduled check, not at once."
-}

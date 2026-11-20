@@ -1,8 +1,0 @@
-{
-  "usedFor": "Aircall holds your phone contacts, and Teamhood receives a board item when “New Contact” runs “Create Item”.",
-  "bestTemplate": {
-    "name": "“New Contact” in Aircall, then “Create Item” in Teamhood",
-    "why": "A new Aircall contact becomes a Teamhood board item, ready for follow-up."
-  },
-  "watchOut": "“Create Item” adds to one Teamhood board, so choose the board your team actually watches."
-}

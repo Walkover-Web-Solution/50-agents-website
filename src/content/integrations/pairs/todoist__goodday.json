@@ -1,8 +1,0 @@
-{
-  "usedFor": "Todoist holds quick tasks, and GoodDay receives them as project tasks through “Create Task in Project”.",
-  "bestTemplate": {
-    "name": "“New Task Created in Project” in Todoist, then “Create Task in Project” in GoodDay",
-    "why": "A task added in Todoist shows up in the chosen GoodDay project, so planning happens in one place."
-  },
-  "watchOut": "“New Task Created in Project” is polling, so “Create Task in Project” runs after a scheduled check."
-}

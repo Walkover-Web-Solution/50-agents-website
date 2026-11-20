@@ -1,8 +1,0 @@
-{
-  "usedFor": "Sangam CRM holds your leads, and 8x8 texts them when “New Lead Created” runs “Send SMS”.",
-  "bestTemplate": {
-    "name": "“New Lead Created” in Sangam CRM, then “Send SMS” in 8x8",
-    "why": "A new lead gets a text message, sent through your 8x8 account."
-  },
-  "watchOut": "“New Lead Created” in Sangam CRM is polling, so “Send SMS” goes out after a scheduled check."
-}

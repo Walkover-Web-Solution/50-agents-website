@@ -1,8 +1,0 @@
-{
-  "usedFor": "inflow-inventory holds customers and purchase orders, and SproutVideo receives a viewer through “Create a New Login”.",
-  "bestTemplate": {
-    "name": "“New Customer” in inflow-inventory, then “Create a New Login” in SproutVideo",
-    "why": "A new customer in inflow-inventory gets a viewer login in SproutVideo without anyone creating it by hand."
-  },
-  "watchOut": "“Create a New Login” adds a real viewer login, so confirm the customer should see your videos first."
-}

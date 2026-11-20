@@ -1,8 +1,0 @@
-{
-  "usedFor": "Zoho CRM holds accounts and deals, and Callingly receives each new account as a client through “Create Client”.",
-  "bestTemplate": {
-    "name": "“New Account” in Zoho CRM, then “Create Client” in Callingly",
-    "why": "A new account in Zoho CRM becomes a Callingly client, so calling starts without retyping."
-  },
-  "watchOut": "“New Account” in Zoho CRM is polling, so “Create Client” runs after a scheduled check."
-}

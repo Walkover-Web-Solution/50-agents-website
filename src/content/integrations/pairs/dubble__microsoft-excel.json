@@ -1,8 +1,0 @@
-{
-  "usedFor": "Dubble holds guides and collections, and Microsoft Excel receives a table row through “Add Row To Table”.",
-  "bestTemplate": {
-    "name": "“Guide Added to a Collection” in Dubble, then “Add Row To Table” in Microsoft Excel",
-    "why": "Each guide added to a collection is logged as a row, giving you a running list."
-  },
-  "watchOut": "“Add Row To Table” writes into an Excel table, so the table must exist before the template runs."
-}

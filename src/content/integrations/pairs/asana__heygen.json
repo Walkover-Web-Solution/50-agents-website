@@ -1,8 +1,0 @@
-{
-  "usedFor": "HeyGen reports a failed translation with “Translate Video Fail”, and Asana receives the follow-up through “Create Task or Subtask”.",
-  "bestTemplate": {
-    "name": "“Translate Video Fail” in HeyGen, then “Create Task or Subtask” in Asana",
-    "why": "A failed video translation becomes an Asana task with an assignee and dates, so nobody watches HeyGen."
-  },
-  "watchOut": "“Translate Video Fail” only fires on failures, so a translation that finishes never creates a task."
-}

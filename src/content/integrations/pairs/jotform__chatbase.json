@@ -1,8 +1,0 @@
-{
-  "usedFor": "Jotform collects form answers, and Chatbase stores each respondent as a contact when “New Submission” runs “Create Contact”.",
-  "bestTemplate": {
-    "name": "“New Submission” in Jotform, then “Create Contact” in Chatbase",
-    "why": "A submitted form becomes a Chatbase contact without anyone retyping the answers."
-  },
-  "watchOut": "“New Submission” can return a single-line no-data message when nothing is found, so test with a real submission."
-}

@@ -1,8 +1,0 @@
-{
-  "usedFor": "Google Business Profile collects reviews, and Gtwy receives each through “Call AI Agent Instantly” for an AI agent.",
-  "bestTemplate": {
-    "name": "“New Review Posted” in Google Business Profile, then “Call AI Agent Instantly” in Gtwy",
-    "why": "A new review reaches an AI agent in Gtwy as a chat request, ready for a drafted reply."
-  },
-  "watchOut": "“New Review Posted” is polling, so the AI agent chat starts after a scheduled check, not at posting."
-}

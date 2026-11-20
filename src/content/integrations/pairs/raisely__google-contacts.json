@@ -1,8 +1,0 @@
-{
-  "usedFor": "Raisely runs fundraising campaigns, and Google Contacts receives each new supporter through “Create Contact” when “New Profile” fires.",
-  "bestTemplate": {
-    "name": "“New Profile” in Raisely, then “Create Contact” in Google Contacts",
-    "why": "A profile created in a campaign becomes a saved contact, so supporters are easy to find later."
-  },
-  "watchOut": "“New Campaign” in Raisely is polling, so a template built on it runs after a scheduled check."
-}

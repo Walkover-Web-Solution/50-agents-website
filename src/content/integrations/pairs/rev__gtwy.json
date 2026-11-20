@@ -1,8 +1,0 @@
-{
-  "usedFor": "Rev AI transcribes audio, and Gtwy takes each finished analysis through “Call AI Agent Instantly” for an AI agent.",
-  "bestTemplate": {
-    "name": "“New Topic Extraction” in Rev AI, then “Call AI Agent Instantly” in Gtwy",
-    "why": "Topics pulled from a transcript go straight into a chat request that an AI agent in Gtwy can summarize."
-  },
-  "watchOut": "Every Rev AI trigger here is polling, so the AI agent chat starts after a scheduled check."
-}

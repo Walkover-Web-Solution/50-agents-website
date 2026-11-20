@@ -1,8 +1,0 @@
-{
-  "usedFor": "UserEcho holds customer feedback and Microsoft Excel holds your tracking sheet, so “New Comment” can run “Add Row To Table”.",
-  "bestTemplate": {
-    "name": "“New Topic” in UserEcho, then “Add Row To Table” in Microsoft Excel",
-    "why": "Each new forum topic becomes a table row, a running list you can sort and review."
-  },
-  "watchOut": "“New Topic” and “New Comment” are separate triggers, so logging both needs a template for each."
-}

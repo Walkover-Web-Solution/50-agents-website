@@ -1,8 +1,0 @@
-{
-  "usedFor": "Paymo holds tracked projects and tasks, and Asana receives them when “New Task” runs “Create Task or Subtask”.",
-  "bestTemplate": {
-    "name": "“New Task” in Paymo, then “Create Task or Subtask” in Asana",
-    "why": "Teams working in both tools get each new Paymo task in Asana without retyping."
-  },
-  "watchOut": "“New Project Created” in Asana is polling, so “Create Task” in Paymo runs after a scheduled check."
-}

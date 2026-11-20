@@ -1,8 +1,0 @@
-{
-  "usedFor": "Mailtrap holds inbound email and HubSpot holds deals, so “New Email Received” can run “Create Deal” for each enquiry.",
-  "bestTemplate": {
-    "name": "“New Email Received” in Mailtrap, then “Create Deal” in HubSpot",
-    "why": "The trigger carries sender, recipients and subject, so a deal can start from a real inbound message."
-  },
-  "watchOut": "“Create Deal” on “New Email Opened” would make deals from opens, not enquiries, so use “New Email Received”."
-}

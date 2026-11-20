@@ -1,8 +1,0 @@
-{
-  "usedFor": "MailChimp holds your audience, and Whatchimp messages new subscribers through “Send WhatsApp Template”.",
-  "bestTemplate": {
-    "name": "“When a new subscriber is added to an audience” in MailChimp, then “Send WhatsApp Template” in Whatchimp",
-    "why": "A new subscriber gets a WhatsApp template message, sent through your Whatchimp account."
-  },
-  "watchOut": "“When a new subscriber is added to an audience” fires for any subscriber, so each one gets the template."
-}

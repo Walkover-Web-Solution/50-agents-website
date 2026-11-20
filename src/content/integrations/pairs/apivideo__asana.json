@@ -1,8 +1,0 @@
-{
-  "usedFor": "api.video holds your uploads and streams, and Asana receives a project when “New Video Created” runs “Create Project”.",
-  "bestTemplate": {
-    "name": "“New Video Created” in api.video, then “Create Project” in Asana",
-    "why": "Each new video gets its own Asana project, so review work starts with an owner and dates."
-  },
-  "watchOut": "“New Video Created” is polling, so “Create Project” runs after a scheduled check, not when a video appears."
-}

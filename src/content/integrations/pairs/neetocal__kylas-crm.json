@@ -1,8 +1,0 @@
-{
-  "usedFor": "NeetoCal holds bookings and Kylas CRM holds leads, so “New Booking” can run “Create or Update Lead”.",
-  "bestTemplate": {
-    "name": "“New Booking” in NeetoCal, then “Create or Update Lead” in Kylas CRM",
-    "why": "Each booking becomes a lead, and a duplicate phone or email is updated or skipped instead of doubled."
-  },
-  "watchOut": "“Delete Lead” also runs from “New Booking” in this pair, so never point a booking at it."
-}

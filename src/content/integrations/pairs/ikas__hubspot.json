@@ -1,8 +1,0 @@
-{
-  "usedFor": "ikas holds your store customers, and HubSpot receives each one through “New Customer” and “Create or Update Contact”.",
-  "bestTemplate": {
-    "name": "“New Customer” in ikas, then “Create or Update Contact” in HubSpot",
-    "why": "A new store customer becomes a HubSpot contact, or updates the one with the same email."
-  },
-  "watchOut": "“Create or Update Contact” works by email, so check that “New Customer” in ikas carries one."
-}

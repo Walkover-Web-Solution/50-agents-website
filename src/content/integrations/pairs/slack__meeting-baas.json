@@ -1,8 +1,0 @@
-{
-  "usedFor": "Slack is where people post meeting links, and Meeting BaaS answers with “Sending a bot” to join that meeting.",
-  "bestTemplate": {
-    "name": "“New Message Posted in Channel Instant” in Slack, then “Sending a bot” in Meeting BaaS",
-    "why": "A link dropped in a channel can send an AI bot into the meeting right away."
-  },
-  "watchOut": "“New Message Posted in Channel Instant” includes bot messages, so a bot post can run “Sending a bot” too."
-}
