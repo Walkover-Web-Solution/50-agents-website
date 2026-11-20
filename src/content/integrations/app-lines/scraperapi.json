@@ -1,0 +1,1 @@
+{"usedFor":"ScraperAPI fetches pages with “Scrape Webpage”, which returns the HTML of a URL.","bestTemplate":{"name":"“Scrape Webpage” in ScraperAPI","why":"It fetches the HTML of a specified URL, so page content can feed the next step."},"watchOut":"“Scrape Webpage” works from a specified URL, so pass it a complete address."}

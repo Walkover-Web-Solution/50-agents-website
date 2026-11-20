@@ -1,0 +1,1 @@
+{"usedFor": "Turso hosts databases, and “Create Database” and “Create Group” set up new ones.", "bestTemplate": {"name": "“Create Database” in Turso", "why": "It creates a new database, so a new project gets one without manual setup."}, "watchOut": "“Delete DataBase” in Turso deletes a specified database, so check which one before it runs."}

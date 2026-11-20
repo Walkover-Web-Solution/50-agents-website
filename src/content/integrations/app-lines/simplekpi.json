@@ -1,0 +1,1 @@
+{"usedFor": "Managers use SimpleKPI to record numbers with “Add KPI Data Entry” and fix them with “Update KPI Data Entry”.", "bestTemplate": {"name": "“Add KPI Data Entry” in SimpleKPI", "why": "It adds a KPI entry for a date, so numbers arrive without typing."}, "watchOut": "“Add KPI Data Entry” is for one date, so run it on a schedule that matches how often you measure."}

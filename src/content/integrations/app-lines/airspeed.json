@@ -1,0 +1,1 @@
+{"usedFor":"Airspeed records sales calls, and “Join Call” sends its recording bot to a meeting from the meeting URL.","bestTemplate":{"name":"“Join Call” in Airspeed","why":"It sends the recording bot to a meeting from its URL, so the call is captured for review."},"watchOut":"“Join Call” needs the meeting URL, so check each record carries the real meeting link."}

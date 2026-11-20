@@ -1,0 +1,1 @@
+{"usedFor": "Robopost plans social posts, and “Create Scheduled Post” queues one for a chosen time.", "bestTemplate": {"name": "“Create Scheduled Post” in Robopost", "why": "It queues a post from another event, so it goes out without someone opening Robopost."}, "watchOut": "A post is public, so it waits for your approval before “Create Scheduled Post” queues it."}

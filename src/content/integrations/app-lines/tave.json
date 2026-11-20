@@ -1,0 +1,1 @@
+{"usedFor": "VSCO Workspace runs a photography business, and “Create Contact” and “Create Job” add a person and the work.", "bestTemplate": {"name": "“Create Job” in VSCO Workspace", "why": "A job with name, stage and dates is where the work gets tracked."}, "watchOut": "Automations run on an app event or a schedule, so check which one starts “Create Job”."}

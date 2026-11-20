@@ -1,0 +1,1 @@
+{"usedFor": "Turtlink manages short links, and “Create Shortlink” shortens one on demand.", "bestTemplate": {"name": "“New Meeting” in Google Meet, then “Create Shortlink” in Turtlink", "why": "A meeting link can be shortened before you share it."}, "watchOut": "“Create Shortlink” needs a long link as input, so pass it from the event that has one."}

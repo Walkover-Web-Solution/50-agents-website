@@ -1,0 +1,1 @@
+{"usedFor": "Libeo holds invoices and suppliers, and “Create Invoice” and “Create Supplier” add them.", "bestTemplate": {"name": "“Create Invoice” in Libeo", "why": "It creates an invoice that is ready to be paid."}, "watchOut": "“Delete Invoice” removes an invoice, so check which one it targets before it runs."}

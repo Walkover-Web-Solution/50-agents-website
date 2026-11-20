@@ -1,0 +1,1 @@
+{"usedFor":"Scalekit manages organizations and users, with “Create an Organization” and “Create New User” adding both.","bestTemplate":{"name":"“Create New User” in Scalekit","why":"It creates a new user in an organization, so access starts from one event."},"watchOut":"“Create New User” adds a user to an organization, so check which organization it points at."}

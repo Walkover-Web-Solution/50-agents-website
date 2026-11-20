@@ -1,0 +1,1 @@
+{"usedFor": "Annotation teams use V7 Go to start projects with “Create Project” and collect results with “Create an export”.", "bestTemplate": {"name": "“Create Project” in V7 Go", "why": "It creates a project, so a new labeling job starts in one step."}, "watchOut": "“Delete Project” and “Delete an Export” remove items, so keep them behind approval."}

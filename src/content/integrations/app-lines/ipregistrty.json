@@ -1,0 +1,1 @@
+{"usedFor": "Ipregistrty looks up IP details, and “Parse a User-Agent” reads a browser string into its parts.", "bestTemplate": {"name": "“Parse a User-Agent” in Ipregistrty", "why": "It tells you the browser and device behind a visit, from the string you pass in."}, "watchOut": "“Parse a User-Agent” needs a string to read, so pass it from the event that carries one."}

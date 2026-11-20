@@ -1,0 +1,1 @@
+{"usedFor": "ViscribeAI reads images, with “Extract Image Data” pulling text or numbers and “Classify Image” sorting pictures.", "bestTemplate": {"name": "“Extract Image Data” in ViscribeAI", "why": "It returns the text or numeric fields you specify from an image URL."}, "watchOut": "AI agents run on a schedule or when asked, so image reads happen then, not on each new picture."}

@@ -1,0 +1,1 @@
+{"usedFor": "Clap.video is a video platform, and “Create User” adds a person to it.", "bestTemplate": {"name": "“Create User” in Clap.video", "why": "It adds a user to the platform, so new people do not need a manual sign-up."}, "watchOut": "AI agents run on a schedule or when asked, so “Create User” happens at the next run, not at once."}

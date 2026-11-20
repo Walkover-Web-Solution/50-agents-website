@@ -1,0 +1,1 @@
+{"usedFor":"Maybe tracks social conversations, and “Create Conversation”, “Create Task” and “Update Task” keep the follow-up in order.","bestTemplate":{"name":"“Create Task” in Maybe","why":"It creates a task, so a social conversation can end with a next step."},"watchOut":"“Delete Task” deletes a specific task, so check which one before it runs."}

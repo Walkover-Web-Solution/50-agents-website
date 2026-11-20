@@ -1,0 +1,1 @@
+{"usedFor": "Operations teams use SOS Inventory to add buyers with “Create Customer”, next to its inventory and orders.", "bestTemplate": {"name": "“Create Customer” in SOS Inventory", "why": "It creates a customer, so a new buyer exists before orders arrive."}, "watchOut": "Check the customer does not already exist before “Create Customer” runs, to avoid duplicates."}

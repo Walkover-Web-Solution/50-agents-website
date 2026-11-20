@@ -1,0 +1,1 @@
+{"usedFor": "Wootric gathers customer feedback, where “Create End User” adds a person and “getAllResponses” retrieves survey responses.", "bestTemplate": {"name": "“Create End User” in Wootric", "why": "It adds a new end user, so feedback can be tied to a person."}, "watchOut": "“Delete End User” in Wootric deletes by email, so check the address an earlier step passes."}

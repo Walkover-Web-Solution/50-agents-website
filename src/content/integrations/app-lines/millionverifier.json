@@ -1,0 +1,1 @@
+{"usedFor": "MillionVerifier checks email addresses with “Verify Email Address” before you write to them.", "bestTemplate": {"name": "“Verify Email Address” in MillionVerifier", "why": "It tells you if an address is valid, so mail to dead addresses is avoided."}, "watchOut": "Verifying sends nothing, and any email to a client waits in Needs you for your approval."}

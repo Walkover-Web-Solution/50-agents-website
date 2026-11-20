@@ -1,0 +1,1 @@
+{"usedFor": "Payrexx takes online payments, and “Create a Design” and “Update a Design” manage its designs.", "bestTemplate": {"name": "“Receive Incoming Message” in Quo, then “Create a Design” in Payrexx", "why": "It creates a new design in Payrexx, so a look can be set up without opening it."}, "watchOut": "“Update a Design” needs the design ID, so check it before you build."}

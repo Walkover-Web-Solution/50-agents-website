@@ -1,0 +1,1 @@
+{"usedFor": "Fatoora handles invoicing, and “Create Client” and “Update Client” keep its client list current.", "bestTemplate": {"name": "“Create Client” in Fatoora", "why": "A client needs to exist before an invoice, and this adds one from another event."}, "watchOut": "“Delete Client” removes a client, so keep it out of any automatic step you have not tested."}

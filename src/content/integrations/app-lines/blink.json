@@ -1,0 +1,1 @@
+{"usedFor": "Blink manages short, trackable links, and “Delete domain” clears out a whole domain when a team is done with it.", "bestTemplate": {"name": "“Delete domain” in Blink", "why": "It removes a domain and every link on it in one step, which saves tidying links by hand."}, "watchOut": "“Delete domain” also deletes all of that domain's links, so run it only after a check."}

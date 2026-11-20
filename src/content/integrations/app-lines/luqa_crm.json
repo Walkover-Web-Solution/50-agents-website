@@ -1,0 +1,1 @@
+{"usedFor": "LUQA CRM keeps leads, and “Create New Lead” adds one with contact details, priority and owner.", "bestTemplate": {"name": "“Create New Lead” in LUQA CRM", "why": "It records a lead with contact details, priority and owner in one step."}, "watchOut": "AI agents run on a schedule or when asked, so “Create New Lead” adds the lead at the next run."}

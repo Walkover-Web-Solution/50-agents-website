@@ -1,0 +1,1 @@
+{"usedFor": "Sendlane runs email lists, with “Add Contact”, “Subscribe a Contact” and “Unsubscribe a Contact” keeping them current.", "bestTemplate": {"name": "“Subscribe a Contact” in Sendlane", "why": "It subscribes a contact by their email."}, "watchOut": "“Delete a Contact” removes a contact by email, so check the address before it runs."}

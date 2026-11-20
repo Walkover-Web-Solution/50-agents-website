@@ -1,0 +1,1 @@
+{"usedFor": "lusha fills contact gaps, with “Enrich Contacts” and “Enrich Companies” adding details to a profile.", "bestTemplate": {"name": "“Enrich Contacts” in lusha", "why": "It adds phone, email and job title from an email, LinkedIn URL, or name and company."}, "watchOut": "“Enrich Contacts” needs an email, a LinkedIn URL, or a name and company, so check one is supplied."}

@@ -1,0 +1,1 @@
+{"usedFor": "Privyr is a phone CRM, and “Create Client” adds a new client.", "bestTemplate": {"name": "“New Booking Created” in DaySchedule, then “Create Client” in Privyr", "why": "A new booking becomes a client record, so nobody retypes it."}, "watchOut": "AI agents run on a schedule or when asked, so a client reaches Privyr then, not instantly."}

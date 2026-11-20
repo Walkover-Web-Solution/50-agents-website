@@ -1,0 +1,1 @@
+{"usedFor":"validTo checks expiry dates, and “Add ValidTo Entry” adds an entry to check against a reference date.","bestTemplate":{"name":"“Add ValidTo Entry” in validTo","why":"It adds an expiry check entry, so a deadline is tracked from the moment it exists."},"watchOut":"“Add ValidTo Entry” checks against a reference date, so check the date you pass in."}

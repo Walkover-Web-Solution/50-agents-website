@@ -1,0 +1,1 @@
+{"usedFor": "Data teams use Scale to group labeling work with “Create Batch” and control it with “Pause Batch” and “Resume Batch”.", "bestTemplate": {"name": "“Create Batch” in Scale", "why": "It groups related tasks in a project for processing."}, "watchOut": "“Cancel Batch” cancels unstarted tasks, so keep it behind an approval step."}

@@ -1,0 +1,1 @@
+{"usedFor":"mailfloss cleans email lists, and “Verify Email” checks whether an address is good before you use it.","bestTemplate":{"name":"“New Meeting” in Google Meet, then “Verify Email” in mailfloss","why":"The action verifies an email address, so bad addresses are caught early."},"watchOut":"“Verify Email” checks one address per run, so a long list means many runs."}

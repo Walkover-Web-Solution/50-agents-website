@@ -1,0 +1,1 @@
+{"usedFor": "Pantry stores small bits of data, and “Create and/or Replace Basket” and “Update Contents” save and change them.", "bestTemplate": {"name": "“Update Contents” in Pantry", "why": "It updates a basket's existing contents and returns them."}, "watchOut": "“Create and/or Replace Basket” can replace an existing basket, so check the basket name first."}

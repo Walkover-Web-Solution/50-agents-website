@@ -1,0 +1,1 @@
+{"usedFor": "Teams use GoToMeeting to schedule calls with “Create Meeting” and get a host link with “Start meeting”.", "bestTemplate": {"name": "“Create Meeting” in GoToMeeting", "why": "It creates a scheduled meeting in your account, so booking happens in one step."}, "watchOut": "“Delete a Meeting” removes a meeting by its meeting ID, so pass the right ID."}

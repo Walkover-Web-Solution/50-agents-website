@@ -1,0 +1,1 @@
+{"usedFor": "Trackabi tracks time and clients, and “Create Time Entry” logs hours for a member, project or client.", "bestTemplate": {"name": "“Create Time Entry” in Trackabi", "why": "It records date, time and billable status, so hours are logged without a timesheet."}, "watchOut": "“Create Time Entry” belongs to a member or project, so check who the time is for."}

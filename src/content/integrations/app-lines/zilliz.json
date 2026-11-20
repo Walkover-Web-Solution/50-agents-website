@@ -1,0 +1,1 @@
+{"usedFor":"Zilliz provides vector databases, and “Create Cluster” sets one up while “Delete Cluster” removes one.","bestTemplate":{"name":"“Create Cluster” in Zilliz","why":"It creates a dedicated cluster, so new data work has its own place."},"watchOut":"“Delete Cluster” deletes a specified cluster, so check which one it targets before it runs."}

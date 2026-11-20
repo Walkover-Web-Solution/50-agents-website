@@ -1,0 +1,1 @@
+{"usedFor": "Sigma Computing holds analytics workbooks, and “Create workbook” and “Create team” set up the workspace.", "bestTemplate": {"name": "“Create workbook” in Sigma Computing", "why": "It creates a workbook in a folder, with an optional owner and description."}, "watchOut": "“Create workbook” needs a folder to put it in, so check the folder is chosen."}

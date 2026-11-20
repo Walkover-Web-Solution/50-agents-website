@@ -1,0 +1,1 @@
+{"usedFor": "Teams use 7Shifts to pull up one staff member's details with “Retrive User” and a User ID.", "bestTemplate": {"name": "“Retrive User” in 7Shifts", "why": "It returns a specific user from a User ID, so later steps can use that person's details."}, "watchOut": "“Retrive User” needs a User ID, so the step must be given one before it runs."}

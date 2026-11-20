@@ -1,0 +1,1 @@
+{"usedFor": "On-call teams use OpsGenie to add people with “Create User”.", "bestTemplate": {"name": "“Create User” in OpsGenie", "why": "It sends a create user request, so a new teammate is added without a manual step."}, "watchOut": "“Create User” adds a real person, so check the name and email before an automation runs it."}

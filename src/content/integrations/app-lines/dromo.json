@@ -1,0 +1,1 @@
+{"usedFor": "Dromo handles data imports, and “Create Schema” defines the shape a file must have.", "bestTemplate": {"name": "“Create Schema” in Dromo", "why": "A schema sets the columns an import expects, so it comes before any file."}, "watchOut": "“Delete an import schema” removes a schema, so check the right one is chosen before it runs."}

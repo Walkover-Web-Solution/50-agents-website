@@ -1,0 +1,1 @@
+{"usedFor":"TMDB holds movie information, and “Top Rated Movie Reviews” returns a list of movies ordered by popularity.","bestTemplate":{"name":"“Top Rated Movie Reviews” in TMDB","why":"It returns movies ordered by popularity, so a team can pick titles without searching."},"watchOut":"“Top Rated Movie Reviews” orders movies by popularity, so check that is the order you want."}

@@ -1,0 +1,1 @@
+{"usedFor": "SquaredUp shows engineering dashboards, and “Create User” and “Create Tenant Group” manage who can see them.", "bestTemplate": {"name": "“Create User” in SquaredUp", "why": "It adds a tenant user to SquaredUp without anyone typing the details in."}, "watchOut": "“Delete Tenant Group” needs the group's unique ID, so check the ID before it runs."}

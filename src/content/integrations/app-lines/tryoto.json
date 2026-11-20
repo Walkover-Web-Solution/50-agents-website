@@ -1,0 +1,1 @@
+{"usedFor": "Tryoto handles orders, with “Create Order” placing one, “Order Status” checking it and “Cancel Order” stopping it.", "bestTemplate": {"name": "“Create Order” in Tryoto", "why": "It creates an order in Tryoto from data another step already holds."}, "watchOut": "“Order Status” and “Cancel Order” need the Order ID, so have it ready."}

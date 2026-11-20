@@ -1,0 +1,1 @@
+{"usedFor":"Plate Recognizer reads license plates, and “Run Recognition” runs one recognition each time it is called.","bestTemplate":{"name":"“Run Recognition” in Plate Recognizer","why":"It runs a recognition through Snapshot Cloud, so a plate in a photo becomes data."},"watchOut":"“Run Recognition” needs an image to read, so check each record supplies one."}

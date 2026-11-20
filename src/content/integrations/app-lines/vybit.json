@@ -1,0 +1,1 @@
+{"usedFor": "Teams use Vybit to get a distinct sound alert with “Trigger a Vybit”.", "bestTemplate": {"name": "“Trigger a Vybit” in Vybit", "why": "It finds a vybit by name or trigger key and triggers it."}, "watchOut": "“Trigger a Vybit” finds a vybit by its Name or TriggerKey, so pass one that exists."}

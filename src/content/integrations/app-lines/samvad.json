@@ -1,0 +1,1 @@
+{"usedFor": "Samvad supports telecalling teams, and “Create Lead” adds a lead with custom fields and an optional follow-up date.", "bestTemplate": {"name": "“Create Lead” in Samvad", "why": "It records a lead and can set the next follow-up date."}, "watchOut": "AI agents run on a schedule or when asked, so a lead from “Create Lead” appears at the next run."}

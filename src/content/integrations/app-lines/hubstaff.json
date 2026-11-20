@@ -1,0 +1,1 @@
+{"usedFor": "Hubstaff tracks time, and “Create a Project”, “Create a Client” and “Create a To-Do” set up the work to track.", "bestTemplate": {"name": "“Create a To-Do” in Hubstaff", "why": "It creates a task in a selected project and assigns it to a team member."}, "watchOut": "“Create a To-Do” needs a selected Hubstaff project and a team member to assign it to."}

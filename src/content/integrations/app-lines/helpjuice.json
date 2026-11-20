@@ -1,0 +1,1 @@
+{"usedFor": "Helpjuice holds a help center, and “Create Article”, “Update Article” and “Create Category” keep it organized.", "bestTemplate": {"name": "“Create Article” in Helpjuice", "why": "It adds an article with content, categories and visibility in one step."}, "watchOut": "“Delete Article” permanently deletes an article by its ID, so check the ID first."}

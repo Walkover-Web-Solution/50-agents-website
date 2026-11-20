@@ -1,0 +1,1 @@
+{"usedFor": "Fakturoid holds invoices, and “Create Invoice”, “Create Payment” and “Update Invoice” keep them in step with the work.", "bestTemplate": {"name": "“Create Invoice” in Fakturoid", "why": "It generates a new invoice in Fakturoid without anyone retyping the details."}, "watchOut": "“Delete Invoice” removes an existing invoice by its ID, so check the ID before it runs."}

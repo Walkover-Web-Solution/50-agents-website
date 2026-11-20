@@ -1,0 +1,1 @@
+{"usedFor":"Rows holds spreadsheets, where “Add Row” puts values into a table and “Create table” makes a new one.","bestTemplate":{"name":"“Add Row” in Rows","why":"It adds a row with the values you provide, so events elsewhere keep a table current."},"watchOut":"“Delete table” removes the selected table from the spreadsheet, so check the table first."}

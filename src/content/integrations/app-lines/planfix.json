@@ -1,0 +1,1 @@
+{"usedFor": "Teams use Planfix to keep work in one system, adding people with “Create Contact” and tidying with “Delete Comment”.", "bestTemplate": {"name": "“Payment Received” in PayHere, then “Create Contact” in Planfix", "why": "A payment can add its payer as a contact."}, "watchOut": "“Delete Comment” removes a comment, so keep it behind an approval step."}

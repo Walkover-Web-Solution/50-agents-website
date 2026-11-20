@@ -1,0 +1,1 @@
+{"usedFor": "Clarifai recognizes what is in images, and “Add Image Input” adds an image URL as a new input.", "bestTemplate": {"name": "“Add Image Input” in Clarifai", "why": "It is the one action here, and it gets a new image URL into Clarifai."}, "watchOut": "“Add Image Input” in Clarifai needs an image URL, so an earlier step must pass one."}

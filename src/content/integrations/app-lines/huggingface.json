@@ -1,0 +1,1 @@
+{"usedFor": "HuggingFace models do the language work, with “Text Classification” sorting text and “Language Translation” translating it.", "bestTemplate": {"name": "“Text Classification” in HuggingFace", "why": "It sorts input text with a compatible model from the Hub."}, "watchOut": "Both actions need a compatible model from the Hugging Face Hub, so pick one that fits the job."}

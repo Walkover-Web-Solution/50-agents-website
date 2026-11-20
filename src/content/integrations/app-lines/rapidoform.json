@@ -1,0 +1,1 @@
+{"usedFor": "RapidoForm builds forms, and “Create Survey” makes a new survey.", "bestTemplate": {"name": "“Create Survey” in RapidoForm", "why": "It creates a new survey in RapidoForm from a run."}, "watchOut": "AI agents run on a schedule or when asked, so a survey is created then, not instantly."}

@@ -1,0 +1,1 @@
+{"usedFor":"SheetDB turns a spreadsheet into an API, with “Create a Rows” adding rows and “Update a Row” changing one.","bestTemplate":{"name":"“Create a Rows” in SheetDB","why":"It adds rows, so each event becomes a new line in your sheet."},"watchOut":"“Update a Row” changes existing data, so check which row it targets before it runs."}

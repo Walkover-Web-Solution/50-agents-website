@@ -1,0 +1,1 @@
+{"usedFor":"Google Cloud Storage keeps files in buckets, and “Create Bucket” adds a new one to store and organize them.","bestTemplate":{"name":"“Create Bucket” in Google Cloud Storage","why":"It creates a bucket, so new files have a place to be stored and organized."},"watchOut":"“Create Bucket” needs a bucket name to run, so check each record supplies one."}

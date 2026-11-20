@@ -1,0 +1,1 @@
+{"usedFor": "Sales teams use Salescamp to keep people in one place with “Create a Contact”.", "bestTemplate": {"name": "“New Order” in Base.com, then “Create a Contact” in Salescamp", "why": "A new order can add its buyer as a contact."}, "watchOut": "Check the contact does not already exist before “Create a Contact” runs, to avoid duplicates."}

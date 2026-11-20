@@ -1,0 +1,1 @@
+{"usedFor": "Teams use PDF-API.io to produce documents with “Generate PDF From Template”, which returns a file or link.", "bestTemplate": {"name": "“Generate PDF From Template” in PDF-API.io", "why": "It fills a template and returns the file or a link."}, "watchOut": "A link from “Generate PDF From Template” sent to a client waits for your approval first."}

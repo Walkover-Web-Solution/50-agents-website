@@ -1,0 +1,1 @@
+{"usedFor":"mindStudio runs your AI apps, where “Load an app” lists them and “Run Workflow” starts one and opens a thread.","bestTemplate":{"name":"“Run Workflow” in mindStudio","why":"It runs a workflow and creates a new thread, so an event can start an AI app."},"watchOut":"“Run Workflow” starts a workflow in one of your mindStudio apps, so pick the right app and workflow."}

@@ -1,0 +1,1 @@
+{"usedFor": "Product teams use IdeaLift to capture suggestions with “Create Idea”.", "bestTemplate": {"name": "“Create Idea” in IdeaLift", "why": "It adds a new idea to IdeaLift, so a suggestion is saved when it comes up."}, "watchOut": "Automations run on an app event or a schedule, so choose what should start “Create Idea”."}

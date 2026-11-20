@@ -1,0 +1,1 @@
+{"usedFor": "IT teams use Okta to set up and change accounts with “Create User” and “Update User”.", "bestTemplate": {"name": "“Create User” in Okta", "why": "It adds a new person to Okta as soon as the event happens."}, "watchOut": "“Update User” changes profile and contact details, so check the values before an automation runs it."}

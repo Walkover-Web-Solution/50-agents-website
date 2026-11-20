@@ -1,0 +1,1 @@
+{"usedFor": "Ganttic plans resources, and “Create Project”, “Create Task” and “Create Resource” add to the plan.", "bestTemplate": {"name": "“Create Project” in Ganttic", "why": "It starts a project that tasks and resources can then be added to."}, "watchOut": "AI agents run on a schedule or when asked, so “Create Task” runs then, not instantly."}

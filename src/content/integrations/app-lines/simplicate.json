@@ -1,0 +1,1 @@
+{"usedFor":"Simplicate runs projects, where “New Hours” and “New Invoice” report activity and “Create Project” opens a new one.","bestTemplate":{"name":"“New Hours” in Simplicate","why":"It reports new hours, so logged time can feed your next step."},"watchOut":"“New Project Created” is polling, so it runs after a scheduled check and a short delay is normal."}

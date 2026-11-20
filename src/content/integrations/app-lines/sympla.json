@@ -1,0 +1,1 @@
+{"usedFor":"Sympla sells event tickets, and “New Orders” reports each ticket order to the next step.","bestTemplate":{"name":"“New Orders” in Sympla, then “Create or Update Lead” in Sangam CRM","why":"Each order becomes a lead, so buyers reach your sales list."},"watchOut":"“New Orders” is polling, so it checks on a schedule and a short delay is normal."}

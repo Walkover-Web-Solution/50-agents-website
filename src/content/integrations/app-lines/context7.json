@@ -1,0 +1,1 @@
+{"usedFor": "Developer teams use Context7 to feed docs in with “Add GitHub Repository” and “Add Website”.", "bestTemplate": {"name": "“Add GitHub Repository” in Context7", "why": "It adds a GitHub repository for docs, so its documentation is ready to use."}, "watchOut": "Each source needs its own action, so pick “Add GitLab Repo” or “Add Bitbucket Repository” for those hosts."}

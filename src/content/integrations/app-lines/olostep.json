@@ -1,0 +1,1 @@
+{"usedFor":"Olostep reads public web pages, with “Scrape Website” fetching content and “Generate AI Answer” searching the web for a reply.","bestTemplate":{"name":"“Scrape Website” in Olostep","why":"It fetches a public page and extracts its content into formats such as Markdown."},"watchOut":"“Batch URL Scraper” takes a large list of URLs in one run, so check the list first."}

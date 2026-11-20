@@ -1,0 +1,1 @@
+{"usedFor": "Teams put work into 7todos with “Create Task”, so follow-ups land as tasks.", "bestTemplate": {"name": "“Create Task” in 7todos", "why": "It puts a new task in 7todos from whatever started the run."}, "watchOut": "An AI agent using “Create Task” runs on a schedule or when asked, so tasks appear then."}
