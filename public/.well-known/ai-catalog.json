@@ -2,24 +2,6 @@
   "specVersion": "1.0",
   "entries": [
     {
-      "identifier": "urn:air:50agents.com:mcp:server-card",
-      "displayName": "MCP server card (SEP-2127)",
-      "type": "application/mcp-server-card+json",
-      "url": "https://50agents.com/mcp/server-card"
-    },
-    {
-      "identifier": "urn:air:50agents.com:mcp:registry",
-      "displayName": "MCP registry server.json",
-      "type": "application/mcp-server-card+json",
-      "url": "https://50agents.com/server.json"
-    },
-    {
-      "identifier": "urn:air:50agents.com:openapi:public-site",
-      "displayName": "Public site OpenAPI",
-      "type": "application/vnd.oai.openapi+json",
-      "url": "https://50agents.com/openapi.json"
-    },
-    {
       "identifier": "urn:air:50agents.com:llms:guide",
       "displayName": "Agent guide (llms.txt)",
       "type": "text/plain",
@@ -27,9 +9,39 @@
     },
     {
       "identifier": "urn:air:50agents.com:llms:full",
-      "displayName": "Full agent context (llms-full.txt)",
+      "displayName": "Full site context (llms-full.txt)",
       "type": "text/plain",
       "url": "https://50agents.com/llms-full.txt"
+    },
+    {
+      "identifier": "urn:air:50agents.com:md:home",
+      "displayName": "Home page in markdown",
+      "type": "text/markdown",
+      "url": "https://50agents.com/index.md"
+    },
+    {
+      "identifier": "urn:air:50agents.com:md:pricing",
+      "displayName": "Pricing in markdown",
+      "type": "text/markdown",
+      "url": "https://50agents.com/pricing.md"
+    },
+    {
+      "identifier": "urn:air:50agents.com:skills",
+      "displayName": "Agent skills",
+      "type": "application/json",
+      "url": "https://50agents.com/.well-known/agent-skills.json"
+    },
+    {
+      "identifier": "urn:air:50agents.com:nlweb:ask",
+      "displayName": "NLWeb ask (search the public pages)",
+      "type": "application/json",
+      "url": "https://50agents.com/ask"
+    },
+    {
+      "identifier": "urn:air:50agents.com:sitemap",
+      "displayName": "Sitemap index",
+      "type": "application/xml",
+      "url": "https://50agents.com/sitemap.xml"
     }
   ]
 }
