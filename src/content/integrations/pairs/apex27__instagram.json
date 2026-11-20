@@ -1,0 +1,8 @@
+{
+  "usedFor": "Apex27 holds the listings, and “New Listings” can start a “Post Video or Reel” on Instagram for Business.",
+  "bestTemplate": {
+    "name": "“New Listings” in Apex27, then “Post Video or Reel” in Instagram for Business",
+    "why": "A new property listing becomes a video or Reel on your Instagram Business account."
+  },
+  "watchOut": "Every Apex27 trigger here is polling, so a new listing reaches Instagram for Business on a schedule, not at once."
+}

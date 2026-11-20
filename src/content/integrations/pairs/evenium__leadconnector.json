@@ -1,0 +1,8 @@
+{
+  "usedFor": "Guests and events from Evenium reach LeadConnector as contacts, tags or workflow entries, starting from “New Guests Added”.",
+  "bestTemplate": {
+    "name": "“New Guests Added” in Evenium, then “Create Or Update Contact” in LeadConnector",
+    "why": "Each new guest becomes a LeadConnector contact, and an existing contact is updated instead of repeated."
+  },
+  "watchOut": "Evenium triggers are polling, and “Guest Created or Updated” fires on edits, so a guest can arrive late or twice."
+}

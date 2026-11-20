@@ -1,0 +1,8 @@
+{
+  "usedFor": "Speak AI analyzes audio and video, Hastewire makes text sound natural, and “Media Analyzed” can start “Humanize Text”.",
+  "bestTemplate": {
+    "name": "“Media Analyzed” in Speak AI, then “Humanize Text” in Hastewire",
+    "why": "It fires once media is analyzed, so each finished analysis can be followed by text made to sound natural."
+  },
+  "watchOut": "“Events Updated” and “New Events Created” in Speak AI are polling, while “Media Analyzed” is pushed."
+}

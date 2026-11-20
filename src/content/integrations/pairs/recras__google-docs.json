@@ -1,0 +1,8 @@
+{
+  "usedFor": "Recras runs bookings, and “New Booking Created” can write a Google Docs tab via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Booking Created” in Recras, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "It runs when a booking is created in Recras, so the doc gets the booking as it comes in."
+  },
+  "watchOut": "“Booking Updated” fires on every change, so with the replace option a tab can be overwritten by the latest update."
+}

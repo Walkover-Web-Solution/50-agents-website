@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Sign tracks documents for signature, and Keka adds the person through “Add an new employee” after a recipient signs.",
+  "bestTemplate": {
+    "name": "“When a document is fully signed and approved by all recipients” in Zoho Sign, then “Add an new employee” in Keka",
+    "why": "Keka creates the employee with personal details, job assignment and salary information once every recipient has signed."
+  },
+  "watchOut": "“When a recipient signs a document” fires for any recipient, so “Add an new employee” can run too early."
+}

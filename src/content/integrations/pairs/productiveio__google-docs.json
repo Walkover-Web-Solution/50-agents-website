@@ -1,0 +1,8 @@
+{
+  "usedFor": "Productive.io holds budgets, and “New Budgets” can write into Google Docs via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Budgets” in Productive.io, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A newly created budget turns into text in the Google Doc tab you pick."
+  },
+  "watchOut": "“Update Budgets” fires on every change, and “Add or Replace Text In Tab” can replace existing tab content."
+}

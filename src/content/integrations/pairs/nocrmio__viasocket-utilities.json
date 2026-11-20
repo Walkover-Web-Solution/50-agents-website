@@ -1,0 +1,8 @@
+{
+  "usedFor": "noCRM.io tracks leads, tasks and steps, and “Pause Workflow” in viaSocket utilities holds a workflow after one of those events.",
+  "bestTemplate": {
+    "name": "“Lead Created” in noCRM.io, then “Pause Workflow” in viaSocket utilities",
+    "why": "A new lead waits X minutes, so the next step does not run the moment the lead is added."
+  },
+  "watchOut": "“Pause Workflow” only holds the workflow for X minutes, so a step after it must do the work."
+}

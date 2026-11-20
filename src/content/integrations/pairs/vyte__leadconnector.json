@@ -1,0 +1,8 @@
+{
+  "usedFor": "Vyte holds the scheduled events, LeadConnector receives the person, and “Event Is Confirmed” can start “Create Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Event Is Confirmed” in Vyte, then “Create Or Update Contact” in LeadConnector",
+    "why": "A confirmed event adds the contact, or updates it if it already exists in LeadConnector."
+  },
+  "watchOut": "“Event Is Updated” fires on every change, so “Create Contact” can duplicate a person; “Create Or Update Contact” avoids that."
+}

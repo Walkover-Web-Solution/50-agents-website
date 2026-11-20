@@ -1,0 +1,8 @@
+{
+  "usedFor": "Wrike holds folders, projects and tasks, LeadConnector holds contacts, and “Task Shareds Added” can feed “Create Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Project Dates Changed” in Wrike, then “Add/Remove Tags to Contact” in LeadConnector",
+    "why": "A project's start or end dates changing is a clear signal, and the action tags a contact in LeadConnector."
+  },
+  "watchOut": "“Folder Title Changed” and “Task Description Changed” fire on edits, so “Create Or Update Contact” can run repeatedly."
+}

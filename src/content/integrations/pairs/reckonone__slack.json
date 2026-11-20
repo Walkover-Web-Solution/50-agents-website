@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bookkeeping events in Reckon One, such as “New Invoice”, reach people in Slack through “Send Direct Message”.",
+  "bestTemplate": {
+    "name": "“New Invoice” in Reckon One, then “Send Direct Message” in Slack",
+    "why": "A new invoice in the books goes straight to a chosen person as a Slack DM."
+  },
+  "watchOut": "Reckon One triggers like “New Payment” are polling, so “Send Direct Message” follows on a schedule."
+}

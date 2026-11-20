@@ -1,0 +1,8 @@
+{
+  "usedFor": "Clientary holds clients, invoices and leads, and Calendly returns a booking link through “Create Scheduling Link” when “New Client” fires.",
+  "bestTemplate": {
+    "name": "“New Client” in Clientary, then “Create Scheduling Link” in Calendly",
+    "why": "A new client is the right time to offer a meeting, and the action creates a booking link for it."
+  },
+  "watchOut": "“New Client” in Clientary is polling, so the link appears after a scheduled check, not instantly."
+}

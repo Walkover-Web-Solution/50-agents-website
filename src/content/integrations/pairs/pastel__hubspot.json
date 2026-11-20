@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pastel holds the client feedback projects and canvases, HubSpot holds the CRM records, and “New Project” can start “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Project” in Pastel, then “Create Deal” in HubSpot",
+    "why": "Each new Pastel project opens a deal in HubSpot."
+  },
+  "watchOut": "“Update Company” in HubSpot needs a company ID, so match a Pastel “New Canvases” event to an existing company first."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "SafetyCulture holds inspections and actions, LeadConnector holds contacts, and “Inspection Completed” in SafetyCulture can feed “Create Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Any Inspection Completed” in SafetyCulture, then “Create Or Update Contact” in LeadConnector",
+    "why": "Any inspection completed, across all templates, creates the contact or updates an existing one."
+  },
+  "watchOut": "“Inspection Completed” is polling and covers one selected template, while “Any Inspection Completed” is pushed and covers all of them."
+}

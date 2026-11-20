@@ -1,0 +1,8 @@
+{
+  "usedFor": "Odoo holds invoices, and “When an invoice is paid” adds a Microsoft Excel row with “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“When an invoice is paid” in Odoo, then “Add Row To Table” in Microsoft Excel",
+    "why": "It runs when an invoice is marked paid, so the table lists paid invoices only."
+  },
+  "watchOut": "“Lead created or updated” fires on edits too, so “Add Row To Table” can add the same lead twice."
+}

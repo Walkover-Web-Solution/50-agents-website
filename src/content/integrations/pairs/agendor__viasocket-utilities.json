@@ -1,0 +1,8 @@
+{
+  "usedFor": "Agendor holds your deals and people, and viaSocket utilities adds a wait with “Pause Workflow” after “Deal Won”.",
+  "bestTemplate": {
+    "name": "“Deal Won” in Agendor, then “Pause Workflow” in viaSocket utilities",
+    "why": "A won deal starts the run, and the pause holds it for X minutes before the next step."
+  },
+  "watchOut": "“Update Deal” fires on every update, so one deal can start a run and its pause more than once."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Capsule CRM holds the contacts and opportunities, HubSpot receives them with “Create Deal” or “Update Contact”.",
+  "bestTemplate": {
+    "name": "“New or Updated Opportunity” in Capsule CRM, then “Create Deal” in HubSpot",
+    "why": "Each opportunity in Capsule CRM can open a matching deal in HubSpot."
+  },
+  "watchOut": "“New or Updated Opportunity” fires on updates too, so “Create Deal” can add a second deal for one opportunity."
+}

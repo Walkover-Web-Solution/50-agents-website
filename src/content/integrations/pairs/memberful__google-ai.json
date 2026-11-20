@@ -1,0 +1,8 @@
+{
+  "usedFor": "Memberful holds members, and Google AI Studio (Gemini) writes from a prompt through “Generate Content” after a subscription event.",
+  "bestTemplate": {
+    "name": "“When a subscription is renewed” in Memberful, then “Generate Content” in Google AI Studio (Gemini)",
+    "why": "A renewal carries the member and subscription details, which gives the prompt real facts to write from."
+  },
+  "watchOut": "“When a subscription is updated” fires on every change, so “Generate Content” can run again for the same subscription."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "MSG91 sends messages, LeadConnector holds contacts, and “When an SMS is confirmed as delivered” can feed “Create Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“When a new voice call is made or received” in MSG91, then “Create Or Update Contact” in LeadConnector",
+    "why": "It creates the contact or updates it if it already exists, so repeat callers stay one contact."
+  },
+  "watchOut": "“New Call Completed” in MSG91 is polling, so tags added with “Add/Remove Tags to Contact” arrive after a short delay."
+}

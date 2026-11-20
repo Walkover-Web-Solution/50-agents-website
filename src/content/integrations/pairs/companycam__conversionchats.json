@@ -1,0 +1,8 @@
+{
+  "usedFor": "CompanyCam holds job site projects, photos and comments, and Conversion Chats sends a message about them with “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“Contact Added To Project” in CompanyCam, then “Send Template Message” in Conversion Chats",
+    "why": "Adding a contact to a project is a clear point to message them, and the action sends a template message."
+  },
+  "watchOut": "“Send Template Message” reaches someone outside your business, so the message waits for your approval before it goes out."
+}

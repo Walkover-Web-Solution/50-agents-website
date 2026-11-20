@@ -1,0 +1,8 @@
+{
+  "usedFor": "Drip holds subscribers and email activity, and “Update Spreadsheet Row” rewrites a Google Sheets row after “Updated Lead Score”.",
+  "bestTemplate": {
+    "name": "“Updated Lead Score” in Drip, then “Update Spreadsheet Row” in Google Sheets",
+    "why": "The sheet row for a subscriber gets its columns updated each time the lead score changes."
+  },
+  "watchOut": "“Update Spreadsheet Row” edits an existing row, so a “New Subscriber” needs a row in the sheet first."
+}

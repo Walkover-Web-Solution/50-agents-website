@@ -1,0 +1,8 @@
+{
+  "usedFor": "Signaturit tracks documents and emails for signing, and Instagram for Business receives a story from them through “Publish Instagram Story”.",
+  "bestTemplate": {
+    "name": "“Document Signed” in Signaturit, then “Publish Instagram Story” in Instagram for Business",
+    "why": "A signed document is worth sharing, and the action posts a photo or video from a public URL."
+  },
+  "watchOut": "“Publish Instagram Story” needs media at a public URL, and “Document Signed” gives a document event, so supply the media."
+}

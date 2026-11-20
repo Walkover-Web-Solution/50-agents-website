@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zite holds records, and “When a new record is created” can start “Create Document From Text” in Google Docs.",
+  "bestTemplate": {
+    "name": "“When a new record is created” in Zite, then “Create Document From Text” in Google Docs",
+    "why": "It creates a Google Doc with a title and content, optionally in a folder you choose."
+  },
+  "watchOut": "“When a new record is created” in Zite is polling, so the Google Doc appears after a short delay."
+}

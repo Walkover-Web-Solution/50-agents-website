@@ -1,0 +1,8 @@
+{
+  "usedFor": "Salesforce records, such as “New Opportunity”, add people to Google Contacts through “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Opportunity” in Salesforce, then “Create Contact” in Google Contacts",
+    "why": "A new opportunity is a moment to save the person, and the action creates the entry in Google Contacts."
+  },
+  "watchOut": "“Update Contact” fires on updates, so one person can run “Create Contact” twice; Salesforce triggers here are polling."
+}

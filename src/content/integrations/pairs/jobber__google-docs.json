@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jobber holds quotes; “When a quote is approved” can write to Google Docs via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“When a quote is approved” in Jobber, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "An approved quote is where a job becomes real, and the action writes text into a chosen doc tab."
+  },
+  "watchOut": "“When a job is updated” fires on each change, so one job can write to the same tab twice."
+}

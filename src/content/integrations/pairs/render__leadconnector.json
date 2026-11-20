@@ -1,0 +1,8 @@
+{
+  "usedFor": "Render reports service events and deploys, and LeadConnector records them on a contact, for example with “Add/Remove Tags to Contact”.",
+  "bestTemplate": {
+    "name": "“Deploy Finished” in Render, then “Add/Remove Tags to Contact” in LeadConnector",
+    "why": "A deploy that ends live, failed or canceled can tag a chosen contact in LeadConnector."
+  },
+  "watchOut": "“Add/Remove Tags to Contact” finds the contact by email or phone, which a Render service event lacks, so supply one."
+}

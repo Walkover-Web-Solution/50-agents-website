@@ -1,0 +1,8 @@
+{
+  "usedFor": "Clio holds matters, documents and contacts, and TRIGGERcmd turns a change there into “Trigger Command” on your own computers.",
+  "bestTemplate": {
+    "name": "“New Document” in Clio, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new document is a clear event, and the action starts a command on your computers when it arrives."
+  },
+  "watchOut": "“Matter Updated” in Clio fires on every matter update, so one matter can run “Trigger Command” repeatedly."
+}

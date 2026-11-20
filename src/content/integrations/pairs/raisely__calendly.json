@@ -1,0 +1,8 @@
+{
+  "usedFor": "Raisely holds fundraising people, profiles and donations, and “Create Scheduling Link” in Calendly makes a link when one changes.",
+  "bestTemplate": {
+    "name": "“Donation Succeeded” in Raisely, then “Create Scheduling Link” in Calendly",
+    "why": "A completed gift is a good moment to offer a call, and the action returns the link to book it."
+  },
+  "watchOut": "“New Campaign” in Raisely polls on a schedule, while “New Person” is pushed, so only the first has a delay."
+}

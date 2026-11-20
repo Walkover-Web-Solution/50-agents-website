@@ -1,0 +1,8 @@
+{
+  "usedFor": "JustCall events start the work, and FreJun places the next call with “Initiate Call” to the specified candidate.",
+  "bestTemplate": {
+    "name": "“Call Ended” in JustCall, then “Initiate Call” in FreJun",
+    "why": "A finished call is a clean point for the next, and the action calls the specified candidate."
+  },
+  "watchOut": "“Initiate Call” needs a specified candidate, so check that the JustCall event gives you someone to call."
+}

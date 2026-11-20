@@ -4,16 +4,19 @@
 // index-gate.json first ({ "failed": [] }) to list every pair in line, not only those that passed the gate.
 // Usage: node scripts/pages/build-inputs-pairs.mjs [http://localhost:3050]
 import fs from 'node:fs';
-const BASE = process.argv[2] ?? 'http://localhost:3050';
+const BASE = process.argv[2]?.startsWith('http') ? process.argv[2] : 'http://localhost:3050';
 const CAT = 'src/content/integrations/catalog';
-const OUT = 'scripts/pages/inputs/pairs';
+const OUT = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'scripts/pages/inputs/pairs';
 const idx = JSON.parse(fs.readFileSync(`${CAT}/index.json`, 'utf8')).apps;
 const raw = new Map(idx.map(a => [a.s.toLowerCase(), a.s]));
 const loadApp = s => JSON.parse(fs.readFileSync(`${CAT}/apps/${raw.get(s) ?? s}.json`, 'utf8'));
 const LOOKUP = /^(find|search|get|list|lookup|look up|retrieve|fetch|read|query|view|check|count|describe)\b/i;
 fs.mkdirSync(OUT, { recursive: true });
 const paths = [];
-for (const f of ['pairs', 'pairs-test']) {
+// --list <file>: one canonical pair per line (a/b), for a new tier (pairs tier 2, from the catalog's candidates)
+const li = process.argv.indexOf('--list');
+if (li > 0) paths.push(...fs.readFileSync(process.argv[li + 1], 'utf8').split('\n').map(x => x.trim()).filter(Boolean));
+else for (const f of ['pairs', 'pairs-test']) {
   const xml = await (await fetch(`${BASE}/sitemaps/${f}.xml`)).text();
   paths.push(...[...xml.matchAll(/<loc>https:\/\/50agents\.com\/integrations\/([^<]+)<\/loc>/g)].map(m => m[1]));
 }

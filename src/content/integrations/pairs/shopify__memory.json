@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify is where orders and checkouts happen, and Memory stores them through “Create a record” or “Update a record”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create a record” in Memory",
+    "why": "It keeps each abandoned checkout as a record, which can add a new entry or update an existing one."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify polls on a schedule, so a checkout reaches Memory a little after the customer leaves."
+}

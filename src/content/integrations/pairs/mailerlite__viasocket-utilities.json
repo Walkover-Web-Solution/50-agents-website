@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailerLite reports subscriber events like “Campaign Sent”, and viaSocket utilities waits with “Pause Workflow” before the run continues.",
+  "bestTemplate": {
+    "name": "“Subscriber Created” in MailerLite, then “Pause Workflow” in viaSocket utilities",
+    "why": "A new subscriber waits X minutes before the next step, which puts a delay after signup."
+  },
+  "watchOut": "“Pause Workflow” only holds the run for X minutes, so a step after it must do the actual work."
+}

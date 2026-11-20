@@ -1,0 +1,8 @@
+{
+  "usedFor": "Roadmap changes in ProductPlan, like “Roadmap Bar Is Updated”, tag or move contacts in LeadConnector.",
+  "bestTemplate": {
+    "name": "“Roadmap Bar Is Updated” in ProductPlan, then “Add/Remove Tags to Contact” in LeadConnector",
+    "why": "A changed roadmap bar tags a contact LeadConnector finds by email or phone, so the right people get the update."
+  },
+  "watchOut": "ProductPlan triggers here are polling, and a roadmap event names no contact, so pass an email or phone to LeadConnector."
+}

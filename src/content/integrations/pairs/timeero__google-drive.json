@@ -1,0 +1,8 @@
+{
+  "usedFor": "Timeero tracks mileage and GPS time, and “Job Created” there can start “Share File With Anyone” in Google Drive.",
+  "bestTemplate": {
+    "name": "“User Created” in Timeero, then “Share File With Anyone” in Google Drive",
+    "why": "When a user is created, a file can be made available by link at Viewer, Commenter or Editor level."
+  },
+  "watchOut": "“User Updated” and “Group Updated” fire on every change, so “Share File With Anyone” can run repeatedly."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Easyship knows the shipments and LeadConnector holds the contacts, so “Shipment Delivered” can update a contact there.",
+  "bestTemplate": {
+    "name": "“Shipment Delivered” in Easyship, then “Create Or Update Contact” in LeadConnector",
+    "why": "The action creates the contact or updates it, so a repeat buyer does not get a second record."
+  },
+  "watchOut": "Every Easyship trigger here is polling, so “Shipment Delivered” reaches LeadConnector after a short delay."
+}

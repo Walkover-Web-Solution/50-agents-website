@@ -1,0 +1,8 @@
+{
+  "usedFor": "Changes in actiTIME, such as “Task Created” or “Project Updated”, get written into a tab of a Google Docs document.",
+  "bestTemplate": {
+    "name": "“Task Created” in actiTIME, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new task can add its text to a chosen tab, or replace what that tab held."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s content, so check its mode before using a shared doc."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "When actiTIME logs a new customer, Calendly can answer with “Create Scheduling Link”, a booking link for that account.",
+  "bestTemplate": {
+    "name": "“Customer Created” in actiTIME, then “Create Scheduling Link” in Calendly",
+    "why": "A new customer is the clearest moment to offer a meeting, and the action turns it into a booking link."
+  },
+  "watchOut": "“Customer Updated” in actiTIME fires on every edit, so “Create Scheduling Link” would make a new link each time."
+}

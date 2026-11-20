@@ -1,0 +1,8 @@
+{
+  "usedFor": "Outreach results in Woodpecker, like “Prospect Interested”, hand the prospect a booking link from Calendly.",
+  "bestTemplate": {
+    "name": "“Prospect Interested” in Woodpecker, then “Create Scheduling Link” in Calendly",
+    "why": "A prospect marked interested gets a booking link for the next call from the action."
+  },
+  "watchOut": "“Prospect Blacklisted done” also fires when someone unsubscribes, so keep it away from “Create Scheduling Link”."
+}

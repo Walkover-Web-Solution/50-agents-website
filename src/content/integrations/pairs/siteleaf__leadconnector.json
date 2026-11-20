@@ -1,0 +1,8 @@
+{
+  "usedFor": "siteleaf starts with “New Page Is Created”, and LeadConnector receives it through “Add or Remove Contact from Workflow”.",
+  "bestTemplate": {
+    "name": "“New Page Is Created” in siteleaf, then “Add or Remove Contact from Workflow” in LeadConnector",
+    "why": "The action adds or removes a contact by Contact ID, Email or Phone number."
+  },
+  "watchOut": "Every siteleaf trigger here is polling, so “New Page Is Created” reaches LeadConnector on a schedule."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "DocuSeal holds forms and submissions, and “Form Completed” can trigger “Share File With Anyone” on a Google Drive file.",
+  "bestTemplate": {
+    "name": "“Form Completed” in DocuSeal, then “Share File With Anyone” in Google Drive",
+    "why": "A completed form means a file is ready to hand over, with Viewer, Commenter or Editor access set."
+  },
+  "watchOut": "“Form Viewed” and “Form Declined” fire here too, so pick the DocuSeal trigger allowed to hand out a link."
+}

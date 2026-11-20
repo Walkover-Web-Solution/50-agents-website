@@ -1,0 +1,8 @@
+{
+  "usedFor": "Autopilot holds clients, jobs, estimates and invoices, and Microsoft Excel receives them as rows through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Invoice” in Autopilot, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each new invoice becomes a row in an Excel table, so billing sits in one sheet."
+  },
+  "watchOut": "“Updated Job” runs on every job update, so “Add Row To Table” can repeat a job; use the status filter."
+}

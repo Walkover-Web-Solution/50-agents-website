@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sales events in noCRM.io, such as “Lead Won”, update a row in Google Sheets with “Update Spreadsheet Row”.",
+  "bestTemplate": {
+    "name": "“Lead Won” in noCRM.io, then “Update Spreadsheet Row” in Google Sheets",
+    "why": "A lead turning Won is worth logging, and the action updates columns in a chosen sheet row."
+  },
+  "watchOut": "Other triggers like “Task Standby” can also feed “Update Spreadsheet Row”, so pick the one that matches your column."
+}

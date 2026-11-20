@@ -1,0 +1,8 @@
+{
+  "usedFor": "Flow holds tasks and projects, and “Task Completed” there can add a contact or update one in LeadConnector.",
+  "bestTemplate": {
+    "name": "“Task Completed” in Flow, then “Add or Remove Contact from Workflow” in LeadConnector",
+    "why": "A finished task can put a contact into a LeadConnector workflow or remove it, by Contact ID, email or phone."
+  },
+  "watchOut": "“Task Completed” in Flow is polling, so the contact moves a little after the task is marked done."
+}

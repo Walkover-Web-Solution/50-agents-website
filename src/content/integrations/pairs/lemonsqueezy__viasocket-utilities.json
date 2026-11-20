@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lemon Squeezy holds subscriptions and customers, viaSocket utilities holds workflow controls, and “New Subscription Created” can start “Pause Workflow”.",
+  "bestTemplate": {
+    "name": "“New Subscription Created” in Lemon Squeezy, then “Pause Workflow” in viaSocket utilities",
+    "why": "It holds the workflow for a set number of minutes after a new subscription before later steps continue."
+  },
+  "watchOut": "“New Customer” and “New Discount” in Lemon Squeezy are polling, while “Subscription Cancelled” is pushed, so timing differs by trigger."
+}

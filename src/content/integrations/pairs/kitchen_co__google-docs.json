@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kitchen.co holds clients and invoices, and Google Docs gets text via “Add or Replace Text In Tab” after “Invoice Paid”.",
+  "bestTemplate": {
+    "name": "“Invoice Paid” in Kitchen.co, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A paid invoice writes new text into a chosen Google Doc tab, or replaces that tab's existing content."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s content, so confirm you chose add before “Card Updated”."
+}

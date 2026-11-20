@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copper tracks leads, opportunities and people, and TRIGGERcmd runs a command on your computers through “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“New Opportunity” in Copper, then “Trigger Command” in TRIGGERcmd",
+    "why": "The action triggers a command on your computers, so a new opportunity can start local work."
+  },
+  "watchOut": "“Updated Opportunity” and other update triggers fire on every change, so one record can run “Trigger Command” twice."
+}

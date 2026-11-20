@@ -1,0 +1,8 @@
+{
+  "usedFor": "Checklist progress in CheckFlow, such as “Task Is Completed”, creates, tags or moves contacts in LeadConnector.",
+  "bestTemplate": {
+    "name": "“Task Is Completed” in CheckFlow, then “Add or Remove Contact from Workflow” in LeadConnector",
+    "why": "A finished task adds a contact to, or removes it from, a LeadConnector workflow, found by ID, email or phone."
+  },
+  "watchOut": "Use “Create Or Update Contact” rather than “Create Contact” if one person can fire “Task Is Completed” repeatedly."
+}

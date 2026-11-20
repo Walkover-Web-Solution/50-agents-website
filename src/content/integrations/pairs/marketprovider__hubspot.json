@@ -1,0 +1,8 @@
+{
+  "usedFor": "MarketProvider holds your products, HubSpot is where sales follows up, and “New Product Created” can open a deal.",
+  "bestTemplate": {
+    "name": "“New Product Created” in MarketProvider, then “Create Deal” in HubSpot",
+    "why": "Each new product gives sales a deal to work on, without anyone typing it in."
+  },
+  "watchOut": "“Product Is Updated” polls and fires on every update, so with “Create Deal” it can add a deal twice."
+}

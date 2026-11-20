@@ -1,0 +1,8 @@
+{
+  "usedFor": "HubSpot events, such as “New Invoice Created”, start sales opportunities in Sangam CRM through “Create Opportunity”.",
+  "bestTemplate": {
+    "name": "“New Task Due” in HubSpot, then “Create Opportunity” in Sangam CRM",
+    "why": "A due HubSpot task carries its details, and the action creates an opportunity with a next follow-up date."
+  },
+  "watchOut": "“New Task Due” is polling, so the opportunity in Sangam CRM appears on a schedule after the task falls due."
+}

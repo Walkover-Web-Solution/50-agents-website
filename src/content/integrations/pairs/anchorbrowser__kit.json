@@ -1,0 +1,8 @@
+{
+  "usedFor": "Anchor Browser reports when a task or session ends, and Kit tags a subscriber through “Add Tag to Subscriber”.",
+  "bestTemplate": {
+    "name": "“When a task fails” in Anchor Browser, then “Add Tag to Subscriber” in Kit",
+    "why": "A failed task is the event worth marking, and the action tags a specific Kit subscriber."
+  },
+  "watchOut": "Anchor Browser events describe tasks, not people, so decide how “Add Tag to Subscriber” finds the subscriber."
+}

@@ -45,7 +45,7 @@ for (let pass = 1; pass <= 6; pass++) {
   report = [];
   const now = new Set();
   for (const fam of ['integrations', 'pairs']) {
-    const listed = [...locs(await get(`/sitemaps/${fam}.xml`)), ...locs(await get(`/sitemaps/${fam}-test.xml`)), ...(fam === 'integrations' ? locs(await get('/sitemaps/integrations-rest.xml')) : [])];
+    const listed = [...locs(await get(`/sitemaps/${fam}.xml`)), ...locs(await get(`/sitemaps/${fam}-test.xml`)), ...(fam === 'integrations' ? locs(await get('/sitemaps/integrations-rest.xml')) : locs(await get('/sitemaps/pairs-2.xml')))];
     listed.forEach(p => now.add(p));
     const isPair = p => p.split('/').length === 4;
     const paths = [...new Set([...listed, ...[...failed].filter(p => (fam === 'pairs') === isPair(p))])];

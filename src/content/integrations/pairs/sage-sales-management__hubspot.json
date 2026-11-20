@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sage Sales Management holds contacts and opportunities, and HubSpot receives them with “Create or Update Contact” and “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Opportunity” in Sage Sales Management, then “Create Deal” in HubSpot",
+    "why": "Each new opportunity becomes a deal in HubSpot."
+  },
+  "watchOut": "“Opportunity Updated” also reaches “Create Deal”, so one opportunity can add several deals if you pick the update trigger."
+}

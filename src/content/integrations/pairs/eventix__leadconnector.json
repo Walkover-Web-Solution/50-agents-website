@@ -1,0 +1,8 @@
+{
+  "usedFor": "Eventix holds the events, shops and locations behind ticket sales, and LeadConnector receives them as contacts, tags or workflow entries.",
+  "bestTemplate": {
+    "name": "“New Event” in Eventix, then “Create Or Update Contact” in LeadConnector",
+    "why": "The action updates the contact if it already exists, so a repeat run does not add a duplicate."
+  },
+  "watchOut": "Eventix triggers such as “Update Shop” poll on a schedule, so a short delay before LeadConnector changes is normal."
+}

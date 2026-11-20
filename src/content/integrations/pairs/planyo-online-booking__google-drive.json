@@ -1,0 +1,8 @@
+{
+  "usedFor": "Planyo Online Booking holds reservations, Google Drive holds files, and “New Reservation” can start “Share File With Anyone”.",
+  "bestTemplate": {
+    "name": "“New Reservation” in Planyo Online Booking, then “Share File With Anyone” in Google Drive",
+    "why": "A new reservation makes a file reachable by link with Viewer, Commenter or Editor access."
+  },
+  "watchOut": "Anyone with the link gets the access level you pick, so use “Share File With Anyone” only on shareable files."
+}

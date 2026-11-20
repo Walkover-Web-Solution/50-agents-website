@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jobber runs quotes and jobs, and “When a quote is approved” can start “Create Scheduling Link” in Calendly.",
+  "bestTemplate": {
+    "name": "“When a quote is approved” in Jobber, then “Create Scheduling Link” in Calendly",
+    "why": "An approved quote can produce a booking link for the next step."
+  },
+  "watchOut": "“When a client is updated” fires on any client edit, so the same client can end up with several links."
+}

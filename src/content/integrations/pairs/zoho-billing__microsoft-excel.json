@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Billing holds invoices, and “New Successful Payment” adds a row to Microsoft Excel through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Successful Payment” in Zoho Billing, then “Add Row To Table” in Microsoft Excel",
+    "why": "It records each successful payment as a row, and you can set a lookback window."
+  },
+  "watchOut": "Zoho Billing triggers are polling, so “New Invoice” reaches Excel after a short delay."
+}

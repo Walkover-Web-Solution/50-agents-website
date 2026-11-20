@@ -1,0 +1,8 @@
+{
+  "usedFor": "ClearCRM keeps proposals and invoices, and Google Drive runs “Copy a File” or “Share File With Anyone” on new records.",
+  "bestTemplate": {
+    "name": "“New Proposal” in ClearCRM, then “Copy a File” in Google Drive",
+    "why": "It copies a file into a chosen folder with an optional new name, so each proposal starts from your document."
+  },
+  "watchOut": "“New Invoice” in ClearCRM checks a time window on a schedule, so match the window to how often it runs."
+}

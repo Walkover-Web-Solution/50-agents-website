@@ -1,0 +1,8 @@
+{
+  "usedFor": "Drip holds subscribers and email activity, and “Pause Workflow” in viaSocket utilities adds a wait after “New Lead”.",
+  "bestTemplate": {
+    "name": "“Subscriber Receives Email” in Drip, then “Pause Workflow” in viaSocket utilities",
+    "why": "It holds the workflow for X minutes after a subscriber gets an email, so later steps run after a gap."
+  },
+  "watchOut": "“Pause Workflow” only waits and changes nothing in Drip, so a step has to follow it."
+}

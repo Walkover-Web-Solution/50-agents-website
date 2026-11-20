@@ -1,0 +1,8 @@
+{
+  "usedFor": "Membership events in Memberful, like “When a new subscription is created”, hold a workflow through “Pause Workflow” in viaSocket utilities.",
+  "bestTemplate": {
+    "name": "“When a new subscription is created” in Memberful, then “Pause Workflow” in viaSocket utilities",
+    "why": "A new subscription starts a wait, since the action pauses the workflow for X minutes before later steps run."
+  },
+  "watchOut": "“When a subscription is updated” fires on any update, so each one pauses the workflow for your “Pause Workflow” minutes."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "DevRev holds work items, Slack is where your team sees them, and “Work Created” can post “Send Interactive Message”.",
+  "bestTemplate": {
+    "name": "“Work Created” in DevRev, then “Send Interactive Message” in Slack",
+    "why": "The message carries buttons or a form, so your team can approve or respond where the new work appears."
+  },
+  "watchOut": "An automation’s post to a Slack channel waits for your approval, so “Send Interactive Message” will not appear unprompted."
+}

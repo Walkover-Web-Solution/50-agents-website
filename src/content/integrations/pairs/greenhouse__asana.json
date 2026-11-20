@@ -1,0 +1,8 @@
+{
+  "usedFor": "Greenhouse holds jobs, candidates and offers, and Asana receives the follow-up work through “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“Candidate Hired” in Greenhouse, then “Create Task or Subtask” in Asana",
+    "why": "A hire becomes a task with an assignee, dates, tags and a description, so the next steps have an owner."
+  },
+  "watchOut": "“Updated Application” polls and fires on every update, so one application can create several Asana tasks."
+}

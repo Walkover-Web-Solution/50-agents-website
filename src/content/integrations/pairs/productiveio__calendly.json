@@ -1,0 +1,8 @@
+{
+  "usedFor": "Productive.io holds bookings, deals and invoices for an agency, and “New Booking” there can start Calendly's “Create Scheduling Link”.",
+  "bestTemplate": {
+    "name": "“New Booking” in Productive.io, then “Create Scheduling Link” in Calendly",
+    "why": "A fresh booking in Productive.io can pair with a link to schedule the matching meeting."
+  },
+  "watchOut": "“Updated Booking” and “Invoice Updated” fire on changes, so “Create Scheduling Link” can make a second link for one record."
+}

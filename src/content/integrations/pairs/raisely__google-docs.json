@@ -1,0 +1,8 @@
+{
+  "usedFor": "Raisely holds donations, and “Donation Succeeded” can write into Google Docs via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Online Donation” in Raisely, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Card or PayPal donations to your campaign can be listed in the doc as online gifts."
+  },
+  "watchOut": "“New Campaign” in Raisely is polling, so its doc update arrives after a short delay."
+}

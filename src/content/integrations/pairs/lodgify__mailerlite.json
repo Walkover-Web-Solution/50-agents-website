@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lodgify knows your guests and bookings, and MailerLite keeps the email list, so “Create or Update Subscriber” adds a guest.",
+  "bestTemplate": {
+    "name": "“Booking Status Changed to Booked” in Lodgify, then “Create or Update Subscriber” in MailerLite",
+    "why": "Only confirmed bookings reach the list, and a guest who is already subscribed is updated instead of duplicated."
+  },
+  "watchOut": "“Booking Change” in Lodgify fires whenever a booking is updated, so the same guest can reach MailerLite more than once."
+}

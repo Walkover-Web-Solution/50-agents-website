@@ -1,0 +1,8 @@
+{
+  "usedFor": "Guru is the knowledge base, Google Sheets is the log, and “Card Verified” can feed “Update Spreadsheet Row”.",
+  "bestTemplate": {
+    "name": "“Card Verified” in Guru, then “Update Spreadsheet Row” in Google Sheets",
+    "why": "A verified card can update a row, so a sheet can show which knowledge has been checked."
+  },
+  "watchOut": "“Update Spreadsheet Row” edits existing rows and does not add new ones for events like “Card Viewed”."
+}

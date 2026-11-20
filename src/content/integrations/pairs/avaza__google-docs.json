@@ -1,0 +1,8 @@
+{
+  "usedFor": "Avaza holds invoices, and Google Docs gets a record from “Invoice created” via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Invoice created” in Avaza, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new invoice can write its details into a selected tab, so the doc keeps up without copying by hand."
+  },
+  "watchOut": "Because “Invoice updated” also fires, choose add or replace on purpose, or one invoice can overwrite its own tab content."
+}

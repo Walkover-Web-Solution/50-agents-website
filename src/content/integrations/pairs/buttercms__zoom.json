@@ -1,0 +1,8 @@
+{
+  "usedFor": "Content events in ButterCMS, like “Collection Item Published”, sign someone up through “Register Attendee for Webinar” in Zoom.",
+  "bestTemplate": {
+    "name": "“Collection Item Published” in ButterCMS, then “Register Attendee for Webinar” in Zoom",
+    "why": "Publishing is a clear moment to act, and the action registers an attendee for a Zoom webinar."
+  },
+  "watchOut": "“Collection Item Draft Saved” also fires, so choose “Collection Item Published” to avoid registering attendees on drafts."
+}

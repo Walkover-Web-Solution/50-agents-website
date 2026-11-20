@@ -1,0 +1,8 @@
+{
+  "usedFor": "Meetings and webinars in Zoom, like “When someone registers for the meeting”, add or update people in Brevo.",
+  "bestTemplate": {
+    "name": "“When someone registers for the meeting” in Zoom, then “Add Or Update Contact” in Brevo",
+    "why": "Each registrant lands in Brevo, and the action updates the contact if it already exists instead of adding a duplicate."
+  },
+  "watchOut": "“Add Contacts To List” only takes contacts already in Brevo, so a new registrant needs “Add Or Update Contact” first."
+}

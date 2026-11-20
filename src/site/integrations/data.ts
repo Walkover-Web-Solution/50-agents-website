@@ -116,7 +116,7 @@ export const writtenSlugs = () => (fs.existsSync(PAGES_DIR) ? fs.readdirSync(PAG
 // A page that fails the uniqueness gate (5-word shingle overlap of 0.5 or more with another indexed page of its family;
 // scripts/pages/uniqueness-integrations.mjs writes the list) is none, and so is a pair with no lines of its own (S24: a pair
 // whose lines could not be written honestly stays noindex), and the test cohort fills from the next in line.
-export type Tier = 'core' | 'test' | 'rest' | 'none';
+export type Tier = 'core' | 'test' | 'rest' | 'pairs2' | 'none';
 const GATE_FAILED = new Set<string>(gate.failed);
 const gateFailed = (p: string) => GATE_FAILED.has(p);
 let _appTiers: Map<string, Tier> | null = null;
@@ -145,6 +145,14 @@ function pairTiers() {
     .map(p => ({ p, n: pairRecipes(p.a, p.b).length }));
   for (const { p, n } of near) if ((r.get(p.a) ?? 1e9) < 100 && (r.get(p.b) ?? 1e9) < 100 && n >= 3) m.set(`${p.a}|${p.b}`, 'core');
   near.filter(x => x.n >= 2 && !m.has(`${x.p.a}|${x.p.b}`)).sort((x, y) => y.n - x.n).slice(0, 150).forEach(x => m.set(`${x.p.a}|${x.p.b}`, 'test'));
+  // pairs2 (App × App tier 2, Search's pairs-tier-2 brief): both apps have an indexable page, 3 or more real templates
+  // between them (lookup-only actions left out), their own written lines, and the uniqueness gate passed. Sitemap pairs-2.
+  const LOOKUP = /^(find|search|get|list|lookup|look up|retrieve|fetch|read|query|view|check|count|describe)\b/i;
+  for (const p of pairs().list) {
+    const k = `${p.a}|${p.b}`;
+    if (m.has(k) || appTier(p.a) === 'none' || appTier(p.b) === 'none' || gateFailed(`/integrations/${p.a}/${p.b}`) || !pairLines(p.a, p.b)) continue;
+    if (pairRecipes(p.a, p.b).filter(r => !LOOKUP.test(r.ae.replace(/_/g, ' '))).length >= 3) m.set(k, 'pairs2');
+  }
   return (_pairTiers = m);
 }
 export const pairTier = (p: { a: string; b: string }): Tier => pairTiers().get(`${p.a}|${p.b}`) ?? 'none';

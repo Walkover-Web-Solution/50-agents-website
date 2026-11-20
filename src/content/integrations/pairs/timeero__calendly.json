@@ -1,0 +1,8 @@
+{
+  "usedFor": "Timeero tracks time and mileage, and Calendly makes a booking link with “Create Scheduling Link” when “Job Created” happens.",
+  "bestTemplate": {
+    "name": "“Schedule Created” in Timeero, then “Create Scheduling Link” in Calendly",
+    "why": "A new schedule in Timeero can produce a booking link in Calendly."
+  },
+  "watchOut": "Delete triggers like “User Deleted” fire too, so a link can be created for a record already gone."
+}

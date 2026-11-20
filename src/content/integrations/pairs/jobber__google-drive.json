@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jobber holds quotes, Google Drive holds files, and “When a quote is sent” can start “Share File With Anyone”.",
+  "bestTemplate": {
+    "name": "“When a new invoice is created” in Jobber, then “Share File With Anyone” in Google Drive",
+    "why": "It makes a file available by link at Viewer, Commenter or Editor level when an invoice is created."
+  },
+  "watchOut": "“When a job is updated” fires on every update, so the share can run more than once per record."
+}

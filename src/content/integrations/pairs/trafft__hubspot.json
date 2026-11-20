@@ -1,0 +1,8 @@
+{
+  "usedFor": "Trafft holds the appointments and customers, HubSpot receives them as deals, and “Appointment Booked” can start “Create Deal”.",
+  "bestTemplate": {
+    "name": "“Appointment Booked” in Trafft, then “Create Deal” in HubSpot",
+    "why": "It opens a deal in HubSpot when a Trafft appointment is booked."
+  },
+  "watchOut": "“Appointment Rescheduled” can also reach “Create Deal”, so use “Update Deal”, which needs the deal ID, for changes."
+}

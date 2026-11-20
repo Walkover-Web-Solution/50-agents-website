@@ -1,0 +1,8 @@
+{
+  "usedFor": "Twenty holds companies, people and opportunities, and viaSocket utilities waits with “Pause Workflow” after “New Opportunity”.",
+  "bestTemplate": {
+    "name": "“New Opportunity” in Twenty, then “Pause Workflow” in viaSocket utilities",
+    "why": "The pause waits X minutes, so a later step runs after a delay instead of right away."
+  },
+  "watchOut": "“Updated Message” fires on every edit, so the pause can start again and again for one message."
+}

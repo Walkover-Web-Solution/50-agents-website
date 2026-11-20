@@ -1,0 +1,8 @@
+{
+  "usedFor": "Woodpecker runs cold email campaigns, and Google Docs holds the notes that “Add or Replace Text In Tab” writes.",
+  "bestTemplate": {
+    "name": "“Prospect Replied” in Woodpecker, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A reply is the signal worth keeping, and it can be written into a Doc tab for whoever follows up."
+  },
+  "watchOut": "“Prospect Saved” fires when a prospect is created or updated, so one prospect can write to the tab twice."
+}

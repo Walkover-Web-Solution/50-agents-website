@@ -1,0 +1,8 @@
+{
+  "usedFor": "CompanyCam holds job site projects and photos, Freshsales Classic holds deals, and “Project Updated” can drive “Update Deal”.",
+  "bestTemplate": {
+    "name": "“Archived Project” in CompanyCam, then “Update Deal” in Freshsales Classic",
+    "why": "Archiving a project is a clear end point, and the action can change a deal’s stage, amount or close date."
+  },
+  "watchOut": "“Update Deal” finds the deal by deal ID or name, so the CompanyCam event has to supply one of them."
+}

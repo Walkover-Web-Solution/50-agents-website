@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webshipper holds orders, shipments and returns, and Google AI Studio (Gemini) writes text from them with “Generate Content”.",
+  "bestTemplate": {
+    "name": "“Return Created” in Webshipper, then “Generate Content” in Google AI Studio (Gemini)",
+    "why": "A new return becomes the moment to draft text from a prompt, such as a summary of what came back."
+  },
+  "watchOut": "“Generate Content” works from a prompt, so order or return details reach Gemini only if you place them there."
+}

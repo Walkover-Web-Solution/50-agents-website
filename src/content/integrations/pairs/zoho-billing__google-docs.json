@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Billing holds quotes and invoices, and Google Docs is where “Add or Replace Text In Tab” writes them out.",
+  "bestTemplate": {
+    "name": "“New Invoice” in Zoho Billing, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each invoice is written into a Doc tab, giving you readable billing notes beside your other documents."
+  },
+  "watchOut": "“Updated Invoice” in Zoho Billing is polling and runs for invoices paid in a chosen window, so set it."
+}

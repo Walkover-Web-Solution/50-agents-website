@@ -1,0 +1,8 @@
+{
+  "usedFor": "Square sales events, such as “New Order”, start another workflow through “Flow in Flow” in viaSocket utilities.",
+  "bestTemplate": {
+    "name": "“New Order” in Square, then “Flow in Flow” in viaSocket utilities",
+    "why": "A new order launches a second workflow from the current one, so order handling can live in its own flow."
+  },
+  "watchOut": "“Flow in Flow” requires a flowid, the child flow script id in the same project, so build the child first."
+}

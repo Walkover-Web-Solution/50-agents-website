@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slide order events like “When an order is fulfilled” save files into Dropbox with “Upload File to Dropbox”.",
+  "bestTemplate": {
+    "name": "“When an order is fulfilled” in Slide, then “Upload File to Dropbox” in Dropbox",
+    "why": "Fulfilled orders trigger it, and the action saves a file from a public web link to a chosen folder."
+  },
+  "watchOut": "“Delete File or Folder” empties a whole folder, so keep it off broad triggers like “When a contact is updated”."
+}

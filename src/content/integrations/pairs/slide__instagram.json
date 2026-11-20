@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slide holds contacts and orders, Instagram for Business publishes, and “When an order is fulfilled” can run “Publish Instagram Story”.",
+  "bestTemplate": {
+    "name": "“When an order is fulfilled” in Slide, then “Publish Instagram Story” in Instagram for Business",
+    "why": "A fulfilled order can become a Story built from a public photo or video URL."
+  },
+  "watchOut": "“Publish Instagram Story” takes a photo or video from a public URL, so the trigger has to supply one."
+}

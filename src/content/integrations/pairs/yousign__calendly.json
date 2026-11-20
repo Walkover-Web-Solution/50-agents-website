@@ -1,0 +1,8 @@
+{
+  "usedFor": "Signing events in Yousign, such as “Signature Request Approved”, create booking links in Calendly through “Create Scheduling Link”.",
+  "bestTemplate": {
+    "name": "“Signature Request Approved” in Yousign, then “Create Scheduling Link” in Calendly",
+    "why": "Once a signature request is approved, the action creates a booking link, so a kickoff call can follow the signing."
+  },
+  "watchOut": "“Update Workspace” in Yousign polls, so a link made from it arrives on a schedule."
+}

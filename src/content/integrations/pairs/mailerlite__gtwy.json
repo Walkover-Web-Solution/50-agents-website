@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailerLite holds subscribers, and “Spam Complaint” there can start “Call AI Agent Instantly” in Gtwy, which runs AI agents.",
+  "bestTemplate": {
+    "name": "“Spam Complaint” in MailerLite, then “Call AI Agent Instantly” in Gtwy",
+    "why": "It sends a chat request with custom variables to a chosen AI agent when a subscriber marks a campaign spam."
+  },
+  "watchOut": "“Subscriber Opened Campaign” fires on each open, so “Call AI Agent Instantly” can run repeatedly for one person."
+}

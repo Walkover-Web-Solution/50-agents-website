@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sangam CRM holds contracts and tickets, and Google Docs is where “Add or Replace Text In Tab” writes them down.",
+  "bestTemplate": {
+    "name": "“New Contract Created” in Sangam CRM, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A new contract can write its text into a chosen Doc tab, so the document is ready with the record."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s content, so choose adding to keep what is there."
+}

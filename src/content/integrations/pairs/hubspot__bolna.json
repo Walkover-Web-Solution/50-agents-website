@@ -1,0 +1,8 @@
+{
+  "usedFor": "HubSpot holds the contacts and deals, and Bolna places the call with “Make a Phone Call” when lead status changes.",
+  "bestTemplate": {
+    "name": "“Update Contact's Lead Status” in HubSpot, then “Make a Phone Call” in Bolna",
+    "why": "A contact's lead status change can prompt a phone call from Bolna while the change is fresh."
+  },
+  "watchOut": "“New Task Due” in HubSpot polls, so a Bolna call from it starts on a schedule, not when due."
+}

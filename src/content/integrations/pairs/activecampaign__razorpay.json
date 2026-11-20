@@ -1,0 +1,8 @@
+{
+  "usedFor": "ActiveCampaign is the source of events like “New Campaign Link Click”, and Razorpay receives them as a “Create Payment Link”.",
+  "bestTemplate": {
+    "name": "“New Deal Added or Updated” in ActiveCampaign, then “Create Payment Link” in Razorpay",
+    "why": "The action takes amount, expiry and customer details, so a deal can come with a shareable link ready to pay."
+  },
+  "watchOut": "“New Deal Added or Updated” fires on updates too, so one deal can create a second Razorpay payment link."
+}

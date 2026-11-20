@@ -1,0 +1,8 @@
+{
+  "usedFor": "actiTIME sends project and task events, and “Share File With Anyone” in Google Drive turns a file into a link.",
+  "bestTemplate": {
+    "name": "“Project Created” in actiTIME, then “Share File With Anyone” in Google Drive",
+    "why": "A new project is a natural moment to share a link, and the action sets Viewer, Commenter or Editor access."
+  },
+  "watchOut": "“Share File With Anyone” opens a file to anyone with the link, so set the access level deliberately."
+}

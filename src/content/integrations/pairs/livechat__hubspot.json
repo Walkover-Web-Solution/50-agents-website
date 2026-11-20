@@ -1,0 +1,8 @@
+{
+  "usedFor": "LiveChat holds your website conversations, and HubSpot turns the people in them into contacts once a chat ends.",
+  "bestTemplate": {
+    "name": "“Finished Chat” in LiveChat, then “Create or Update Contact” in HubSpot",
+    "why": "It matches on email, creating the contact or updating the existing one, so a returning visitor is not added twice."
+  },
+  "watchOut": "“Create Contact” in HubSpot requires an email, so a chat that never captured one cannot make a record."
+}

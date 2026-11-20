@@ -35,6 +35,8 @@ export const FAMILIES: Record<string, () => Entry[]> = {
   'integrations-rest': () => catalog().apps.filter(a => appTier(a.s) === 'rest').map(a => ({ path: `/integrations/${a.s}`, date: index.read })),
   pairs: () => pairs().list.filter(p => pairTier(p) === 'core').map(p => ({ path: `/integrations/${p.a}/${p.b}`, date: index.read })),
   'pairs-test': () => pairs().list.filter(p => pairTier(p) === 'test').map(p => ({ path: `/integrations/${p.a}/${p.b}`, date: index.read })),
+  // App × App tier 2 (Search's pairs-tier-2 brief): its own cohort.
+  'pairs-2': () => pairs().list.filter(p => pairTier(p) === 'pairs2').map(p => ({ path: `/integrations/${p.a}/${p.b}`, date: index.read })),
 };
 
 const xml = (body: string) => new Response(`<?xml version="1.0" encoding="UTF-8"?>\n${body}`, { headers: { 'content-type': 'application/xml; charset=utf-8' } });

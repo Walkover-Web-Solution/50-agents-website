@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lodgify holds rental bookings, and TRIGGERcmd runs “Trigger Command” on your computers after something like “New Booking”.",
+  "bestTemplate": {
+    "name": "“Booking Status Changed to Booked” in Lodgify, then “Trigger Command” in TRIGGERcmd",
+    "why": "It fires only when a booking reaches Booked, so the command skips tentative or declined ones."
+  },
+  "watchOut": "“Booking Change” fires on every booking update, so a command tied to it can run many times."
+}

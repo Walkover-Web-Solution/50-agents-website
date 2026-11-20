@@ -1,0 +1,8 @@
+{
+  "usedFor": "Clicksign runs the signing, and a signer event like “New Signer” can add someone through “Create Contact” in Google Contacts.",
+  "bestTemplate": {
+    "name": "“New Signer” in Clicksign, then “Create Contact” in Google Contacts",
+    "why": "A signer added to a document becomes a Google Contacts entry, so your address book grows as documents go out."
+  },
+  "watchOut": "“Add Contact to Group” finds a contact first, so run “Create Contact” before it for new signers."
+}

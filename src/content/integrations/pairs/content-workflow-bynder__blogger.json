@@ -1,0 +1,8 @@
+{
+  "usedFor": "Items moving through Content Workflow Bynder, tracked by “When an item's status changes”, become posts in Google Blogger.",
+  "bestTemplate": {
+    "name": "“When an item's status changes” in Content Workflow Bynder, then “Create Blog Post” in Google Blogger",
+    "why": "A status change in Content Workflow Bynder builds a post with title, content, labels and publish date."
+  },
+  "watchOut": "“Create Blog Post” takes its publish date as YYYY-MM-DD HH:mm:ss UTC or RFC3339, so check your format."
+}

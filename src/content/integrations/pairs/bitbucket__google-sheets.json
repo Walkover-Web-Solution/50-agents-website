@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bitbucket code activity becomes a Google Sheets log, with “Add New Row to Sheet” adding a line per pull request.",
+  "bestTemplate": {
+    "name": "“Pull Request Merges” in Bitbucket, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Each merged pull request lands as a row, giving you a running list of finished work."
+  },
+  "watchOut": "“Pipeline State Changed” in Bitbucket is polling, so a failed or passed pipeline can reach the sheet late."
+}

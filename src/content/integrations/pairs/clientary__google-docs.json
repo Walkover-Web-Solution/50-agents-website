@@ -1,0 +1,8 @@
+{
+  "usedFor": "Clientary holds invoices, and “New Invoice” can fill a Google Docs tab via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Payment” in Clientary, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each payment lands in a Google Docs tab you choose, added to the text or replacing it."
+  },
+  "watchOut": "Clientary triggers here are polling, and “Add or Replace Text In Tab” can replace tab content, so choose add."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Planyo Online Booking holds reservations; Google Docs gets text from “New Payment Received” via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Payment Received” in Planyo Online Booking, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each payment becomes text in a Google Doc tab you choose, either appended or in place of what was there."
+  },
+  "watchOut": "“Reservation Modified by Customer” fires on edits, so one reservation can write to the tab again."
+}
