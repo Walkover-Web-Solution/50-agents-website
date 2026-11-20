@@ -1,1 +1,8 @@
-{"usedFor": "Shopify holds customers and orders, and 8x8 texts them with “Send SMS” when something changes.", "bestTemplate": {"name": "“Order Cancelled” in Shopify, then “Send SMS” in 8x8", "why": "A cancelled order is worth telling the customer about, and the action can set a sender and get delivery reports."}, "watchOut": "“Send SMS” reaches a customer outside your business, so it waits in Needs you for approval."}
+{
+  "usedFor": "Shopify holds customers and orders, and 8x8 texts them with “Send SMS” when something changes.",
+  "bestTemplate": {
+    "name": "“Order Cancelled” in Shopify, then “Send SMS” in 8x8",
+    "why": "A cancelled order tells the customer by text, sent through your 8x8 account with its delivery reports."
+  },
+  "watchOut": "“Send SMS” reaches a customer outside your business, so it waits in Needs you for approval."
+}

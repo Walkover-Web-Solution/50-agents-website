@@ -1,1 +1,8 @@
-{"usedFor": "Shopify raises store events, and KIXIE receives outreach through “Send a Team SMS” and “Send to Queue”.", "bestTemplate": {"name": "“Abandoned Checkout” in Shopify, then “Send a Team SMS” in KIXIE", "why": "A shopper who left a checkout can get a team text from the action's inbox number."}, "watchOut": "“Abandoned Checkout” in Shopify is polling, so “Send a Team SMS” in KIXIE goes out after a scheduled check."}
+{
+  "usedFor": "Shopify raises store events, and KIXIE receives outreach through “Send a Team SMS” and “Send to Queue”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Send a Team SMS” in KIXIE",
+    "why": "A shopper who left a checkout gets a team text from your inbox number, through your KIXIE account."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so “Send a Team SMS” in KIXIE goes out after a scheduled check."
+}

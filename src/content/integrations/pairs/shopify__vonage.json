@@ -1,1 +1,8 @@
-{"usedFor": "Shopify takes the orders, and Vonage texts the buyer when “Order Paid” runs “Send SMS”.", "bestTemplate": {"name": "“Order Paid” in Shopify, then “Send SMS” in Vonage", "why": "A paid order can send a text confirmation to the buyer's phone."}, "watchOut": "“Send SMS” needs a phone number, so the order must carry one."}
+{
+  "usedFor": "Shopify takes the orders, and Vonage texts the buyer when “Order Paid” runs “Send SMS”.",
+  "bestTemplate": {
+    "name": "“Order Paid” in Shopify, then “Send SMS” in Vonage",
+    "why": "A paid order sends a text confirmation to the buyer, through your Vonage account."
+  },
+  "watchOut": "“Send SMS” needs a phone number, so the order must carry one."
+}

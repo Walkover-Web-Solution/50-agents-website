@@ -1,1 +1,8 @@
-{"usedFor": "Paystack holds transactions and subscriptions, and Conversion Chats runs “Send Template Message” after events like “Abandoned Transaction”.", "bestTemplate": {"name": "“Abandoned Transaction” in Paystack, then “Send Template Message” in Conversion Chats", "why": "An abandoned transaction is a sale at risk, so a template message gives the customer a nudge."}, "watchOut": "“Abandoned Transaction” in Paystack is polling, so the template message follows a scheduled check."}
+{
+  "usedFor": "Paystack holds transactions and subscriptions, and Conversion Chats runs “Send Template Message” after events like “Abandoned Transaction”.",
+  "bestTemplate": {
+    "name": "“Abandoned Transaction” in Paystack, then “Send Template Message” in Conversion Chats",
+    "why": "An abandoned transaction is a sale at risk, so a template message goes through your Conversion Chats account."
+  },
+  "watchOut": "“Abandoned Transaction” in Paystack is polling, so the template message follows a scheduled check."
+}
