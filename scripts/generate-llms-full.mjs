@@ -92,7 +92,7 @@ OpenAPI: https://50agents.com/openapi.json
 URL: https://50agents.com/mcp
 Transport: streamable HTTP (JSON-RPC over POST).
 Tool: list_agent_templates, with optional limit, page and category; returns public plugin metadata from /api/plugins.
-Server card (SEP-2127): https://50agents.com/mcp/server-card
+Server card (SEP-2127): https://50agents.com/server-card
 Registry entry: https://50agents.com/server.json
 
 A separate MCP for live integrations: https://mcp.viasocket.com (listed in /products.json).

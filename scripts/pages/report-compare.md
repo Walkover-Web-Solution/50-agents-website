@@ -18,9 +18,9 @@ Pages 20, passed 20, failed 0. facts.ts cells: pass. Run: node scripts/pages/gat
 | ifttt-alternatives | 450 | pass |
 | lindy-alternatives | 476 | pass |
 | make-alternatives | 500 | pass |
-| n8n-alternatives | 515 | pass |
+| n8n-alternatives | 562 | pass |
 | pipedream-alternatives | 494 | pass |
 | power-automate-alternatives | 444 | pass |
 | relay-app-alternatives | 469 | pass |
 | relevance-ai-alternatives | 469 | pass |
-| zapier-alternatives | 541 | pass |
+| zapier-alternatives | 676 | pass |

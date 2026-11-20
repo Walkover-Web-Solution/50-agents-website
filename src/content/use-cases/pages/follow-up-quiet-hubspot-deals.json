@@ -189,6 +189,10 @@
     {
       "q": "How do I stop or change it?",
       "a": "Tell its chat what to change, such as the wait or the tone of the follow-up. Its instructions and memory are visible, so you can correct or forget anything it learned."
+    },
+    {
+      "q": "Can HubSpot send automatic follow-up emails by itself?",
+      "a": "Yes, with sequences, which need Sales Hub or Service Hub on a Professional or Enterprise plan and a Sales or Service seat. A sequence sends a set series of emails and, by default, stops when the contact replies. This AI agent reads which deals went quiet and drafts a follow-up for each, waiting in Needs you. If you already have sequences and want fixed timing, use them."
     }
   ],
   "variations": [
@@ -215,5 +219,5 @@
     "gmail",
     "deals"
   ],
-  "updated": "2026-11-19"
+  "updated": "2026-11-20"
 }

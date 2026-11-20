@@ -120,7 +120,7 @@ const results = pages.map(p => {
   // what can go wrong, questions
   if (p.wrong.length < 3 || p.wrong.length > 5) bad.push(`${p.wrong.length} things that can go wrong (3 to 5)`);
   p.wrong.forEach(w => { if (!KINDS.includes(w.about)) bad.push(`"${w.title}" about ${w.about}`); if (words(w.body) > 40) bad.push(`"${w.title}" is ${words(w.body)} words (40 at most)`); });
-  if (p.faqs.length < 5 || p.faqs.length > 7) bad.push(`${p.faqs.length} questions (5 to 7; D260: more questions)`);
+  if (p.faqs.length < 5 || p.faqs.length > 9) bad.push(`${p.faqs.length} questions (5 to 9; D260: more questions; gap FAQs 20 Nov)`);
   if (new Set(p.faqs.map(f => f.q.toLowerCase())).size !== p.faqs.length) bad.push('a question asked twice');
   p.faqs.forEach(f => words(f.a) > 60 && bad.push(`answer to "${f.q}" over 60 words`));
   p.related.forEach(r => !slugs.has(r) && bad.push(`related ${r} is not a guide`));
@@ -138,7 +138,7 @@ const results = pages.map(p => {
   if (uc) { const o = overlap(sh[p.slug], shingles(JSON.stringify(uc))); if (o >= 0.2) bad.push(`repeats use case ${uc.slug} (${o.toFixed(2)})`); }
   // length: to the point
   const n = words(all);
-  if (n < 400 || n > 1000) bad.push(`${n} words (400 to 1,000; D258 concise, D260 two or three more questions)`);
+  if (n < 400 || n > 1150) bad.push(`${n} words (400 to 1,150; gap FAQs 20 Nov; D258 concise, D260 two or three more questions)`);
   return { slug: p.slug, words: n, bad };
 });
 for (const r of Object.keys(rows)) if (!slugs.has(r)) results.push({ slug: r, words: 0, bad: ['a row with no page'] });

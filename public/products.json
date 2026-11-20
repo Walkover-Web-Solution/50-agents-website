@@ -6,7 +6,7 @@
     "url": "https://50agents.com/mcp",
     "transport": "streamable-http",
     "serverJson": "https://50agents.com/server.json",
-    "serverCard": "https://50agents.com/mcp/server-card"
+    "serverCard": "https://50agents.com/server-card"
   },
   "oauth": {
     "protectedResourceMetadata": "https://50agents.com/.well-known/oauth-protected-resource/mcp",

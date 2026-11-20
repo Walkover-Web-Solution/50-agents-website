@@ -183,6 +183,10 @@
     {
       "q": "How long does setup take?",
       "a": "One sentence to Captain, a few short questions about your voice and your key senders, then you connect Gmail once and tap Build it. The first pass over your unread mail can run straight away."
+    },
+    {
+      "q": "Can Gmail's built-in AI draft replies for me?",
+      "a": "Yes. Gemini in Gmail drafts a reply or a new email when you ask it, on an eligible Google Workspace or Google AI plan, and you send it yourself. If you want help with one email at a time, that is enough. This AI agent goes through all your unread mail each weekday morning, sorts it, and drafts the replies for you to approve in Needs you."
     }
   ],
   "variations": [
@@ -209,5 +213,5 @@
     "inbox",
     "drafts"
   ],
-  "updated": "2026-11-19"
+  "updated": "2026-11-20"
 }

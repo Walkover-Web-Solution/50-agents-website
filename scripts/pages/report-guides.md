@@ -16,8 +16,8 @@ Pages 30, passed 30, failed 0. Run: node scripts/pages/gates-guides.mjs
 | how-to-automate-weekly-reports-by-email | 778 | pass |
 | how-to-build-a-customer-requests-desk-from-your-inbox | 773 | pass |
 | how-to-build-a-simple-crm-without-code | 814 | pass |
-| how-to-build-an-ai-agent-without-code | 949 | pass |
-| how-to-build-an-app-from-google-sheets | 813 | pass |
+| how-to-build-an-ai-agent-without-code | 1043 | pass |
+| how-to-build-an-app-from-google-sheets | 936 | pass |
 | how-to-build-an-invoice-tracker | 652 | pass |
 | how-to-choose-an-ai-agent-builder | 795 | pass |
 | how-to-draft-email-replies-with-ai-and-still-check-them | 674 | pass |
