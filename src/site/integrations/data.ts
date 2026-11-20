@@ -64,6 +64,24 @@ export const doesSomething = (r: Recipe) => !LOOKUP.test(r.ae.replace(/_/g, ' ')
 
 const appCache = new Map<string, AppFile>();
 /** One app's file, by canonical slug, with canonical slugs in its recipes and lookup-only recipes left out. */
+// viaSocket's catalog lists some triggers in the action slot of a template (Shopify's "Abandoned Checkout", "New
+// Product", "Order Cancelled"; reported as row9axs8sano). Until it is fixed, a template whose action is really a trigger
+// of the action app is left off every page (Search, pairs tier 2). Read from the raw app file, so no recursion.
+const evCache = new Map<string, { trig: Set<string>; act: Set<string> }>();
+function eventsOf(slug: string) {
+  if (evCache.has(slug)) return evCache.get(slug)!;
+  const raw = catalog().raw.get(slug);
+  const ev = raw ? json<AppFile>(`apps/${raw}.json`).events : [];
+  const k = (n: string) => n.toLowerCase().replace(/[_\s]+/g, ' ').trim();
+  const v = { trig: new Set(ev.filter(e => e.t === 'trigger').map(e => k(e.n))), act: new Set(ev.filter(e => e.t !== 'trigger').map(e => k(e.n))) };
+  evCache.set(slug, v);
+  return v;
+}
+function actionIsTrigger(r: { aa: string; ae: string }) {
+  const e = eventsOf(r.aa), n = r.ae.toLowerCase().replace(/[_\s]+/g, ' ').trim();
+  return e.trig.has(n) && !e.act.has(n);
+}
+
 export function loadApp(slug: string): AppFile | null {
   if (appCache.has(slug)) return appCache.get(slug)!;
   const raw = catalog().raw.get(slug);
@@ -72,7 +90,7 @@ export function loadApp(slug: string): AppFile | null {
   const seen = new Set<string>();
   const recipes = a.recipes
     .map(r => ({ ...r, ta: canon(r.ta), aa: canon(r.aa) }))
-    .filter(r => catalog().by.has(r.ta) && catalog().by.has(r.aa) && doesSomething(r))
+    .filter(r => catalog().by.has(r.ta) && catalog().by.has(r.aa) && doesSomething(r) && !actionIsTrigger(r))
     .filter(r => { const k = `${r.ta}|${r.te}|${r.aa}|${r.ae}`; return !seen.has(k) && !!seen.add(k); });
   const app = { ...a, slug, recipes };
   appCache.set(slug, app);
