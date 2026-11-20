@@ -18,6 +18,7 @@ import { HOME_AGENT_LINK } from './lib/home-agent-link';
 //    An app page asked with a mixed-case or duplicate slug 308s to the canonical slug (slugs.ts canon) the same way.
 // 5. A Cloudflare preview (*.pages.dev) answers X-Robots-Tag: noindex, nofollow on every page (deploy plan step 3);
 //    production is unchanged. Cloudflare's _headers file doesn't apply to the worker's responses, so it is set here.
+// 6. A trailing slash 301s to the same path without it (T35), last, so no redirect chains.
 const MAP = OLD as Record<string, string>;
 const APP = 'https://50agents-app.embarko.app';
 const PAIRS = new Set<string>(LIVE_PAIRS.pairs);
@@ -80,6 +81,9 @@ function route(request: NextRequest): NextResponse {
     const to = PAIRS.has(`${a}/${b}`) ? `${a}/${b}` : PAIRS.has(`${b}/${a}`) ? `${b}/${a}` : null;
     if (to && `/integrations/${to}` !== path) { url.pathname = `/integrations/${to}`; return NextResponse.redirect(url, 308); }
   }
+  // T35: /<path>/ answers a 301 to /<path>. It runs last, so a path that another rule moves takes one hop to its final
+  // page (every rule above reads the path without its slash). /ingest is outside the matcher and keeps its slash.
+  if (path !== pathname) { url.pathname = path; return NextResponse.redirect(url, 301); }
   return NextResponse.next();
 }
 
