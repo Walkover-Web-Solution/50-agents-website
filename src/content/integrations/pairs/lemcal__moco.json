@@ -1,0 +1,1 @@
+{"usedFor": "lemcal holds booked meetings, and Moco turns each into agency work through “Create Deal” or “Create Task”.", "bestTemplate": {"name": "“New Meeting” in lemcal, then “Create Deal” in Moco", "why": "A booked meeting is a new lead, and this records it as one in Moco."}, "watchOut": "“Create Deal” creates a lead each time, so a repeat booker adds a second one."}

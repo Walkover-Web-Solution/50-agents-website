@@ -1,0 +1,1 @@
+{"usedFor": "Shopify holds the products, and Nyckel labels them when “New Product” runs “Classify” on image or text data.", "bestTemplate": {"name": "“New Product” in Shopify, then “Classify” in Nyckel", "why": "Each new product gets a category label from your own classifier."}, "watchOut": "“Classify” takes image or text data, so the trigger must pass one of those."}

@@ -1,0 +1,1 @@
+{"usedFor": "Shopify takes orders and RotaCloud schedules staff, so “New Order” can feed “Create Shift”.", "bestTemplate": {"name": "“New Order” in Shopify, then “Create Shift” in RotaCloud", "why": "A new order adds a shift in RotaCloud for the people who will handle it."}, "watchOut": "“Delete a User” removes a RotaCloud user by ID, so never attach it to a Shopify trigger."}

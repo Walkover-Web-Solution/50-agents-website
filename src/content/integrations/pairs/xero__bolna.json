@@ -1,0 +1,1 @@
+{"usedFor": "Xero holds contacts, quotes, bills and payments, and Bolna places a call through “Make a Phone Call”.", "bestTemplate": {"name": "“New Quote” in Xero, then “Make a Phone Call” in Bolna", "why": "A fresh quote is a good moment to follow up, and the action places the call."}, "watchOut": "“New Quote” in Xero is polling, so the call goes out after a scheduled check."}

@@ -1,0 +1,1 @@
+{"usedFor": "Shopify takes the orders, and Linear tracks the work that follows through “Create Issue”.", "bestTemplate": {"name": "“Order Cancelled” in Shopify, then “Create Issue” in Linear", "why": "Each cancelled order opens an issue the team can assign and track."}, "watchOut": "“Create Comment” adds to an existing issue, so it needs an issue to attach to."}
