@@ -125,6 +125,18 @@
     {
       "q": "Which alternative has code steps?",
       "a": "Make has JavaScript or Python steps, and so does n8n. 50agents has no code step."
+    },
+    {
+      "q": "Which Zapier alternative is open source?",
+      "a": "Activepieces: its core is MIT-licensed and it runs on your own servers. n8n is fair-code under its Sustainable Use License, so you can self-host it, but it is not open source. Pick either to keep the code in-house."
+    },
+    {
+      "q": "Should I choose n8n or Zapier?",
+      "a": "n8n suits technical teams that self-host or want to pay per run: one execution covers every step. Zapier connects 10,541+ apps and counts each action step as a task. See [Zapier vs Make vs n8n for a small team](/guides/zapier-vs-make-vs-n8n-for-a-small-team)."
+    },
+    {
+      "q": "Does Make cost less than Zapier?",
+      "a": "At the first paid plan, yes. Make Core is $9 a month for 10,000 credits; Zapier Professional is $19.99 a month billed yearly for 750 tasks. Most Make actions use one credit and every Zapier action step is a task."
     }
   ],
   "related": [
@@ -144,5 +156,5 @@
       "line": "For technical teams choosing a workflow tool"
     }
   ],
-  "updated": "2026-11-19"
+  "updated": "2026-11-20"
 }

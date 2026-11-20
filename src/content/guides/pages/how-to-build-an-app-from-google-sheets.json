@@ -193,6 +193,14 @@
     {
       "q": "Who can see the data in my app?",
       "a": "Only who you add, if you set it up. Add users by email and limit who can edit before anyone else opens it. A shared link is not access control."
+    },
+    {
+      "q": "Can Google Sheets be used as a database for an app?",
+      "a": "Yes, for a small app with one main list and a few people editing. Sheets holds up to 20 million cells, and builders set their own limits; Glide, for example, caps spreadsheet sources at 25,000 rows. When you need linked tables, typed fields or many people writing at once, move the data into the builder."
+    },
+    {
+      "q": "Can I turn a Google Sheet into a mobile app?",
+      "a": "Yes, though only some builders publish to the Apple App Store and Google Play. Adalo does, and connects to Sheets through its SheetBridge tool. Glide makes progressive web apps that people add to their home screen from a link, and it does not publish to the stores."
     }
   ],
   "related": [
@@ -200,5 +208,5 @@
     "internal-tools-without-code-what-to-build-first",
     "how-to-build-an-invoice-tracker"
   ],
-  "updated": "2026-11-19"
+  "updated": "2026-11-20"
 }

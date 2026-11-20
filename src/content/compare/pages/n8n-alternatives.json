@@ -123,6 +123,10 @@
     {
       "q": "How many apps do the alternatives list?",
       "a": "Zapier connects 10,541+ apps and Make 3,500+. Activepieces has 770+. 50agents works with 2,300+ apps through viaSocket."
+    },
+    {
+      "q": "When does an n8n alternative make sense?",
+      "a": "When you want a free cloud plan, which n8n does not offer, or more than Starter's 2.5K executions a month, or would rather describe a job than build each workflow by hand. For self-hosting or code steps, stay with n8n."
     }
   ],
   "related": [
@@ -142,5 +146,5 @@
       "line": "Where Pipedream workflows can go"
     }
   ],
-  "updated": "2026-11-19"
+  "updated": "2026-11-20"
 }

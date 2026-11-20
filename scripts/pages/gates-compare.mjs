@@ -97,7 +97,7 @@ for (const p of pages) {
   else p.strengths.forEach(s => { max(s.title, 5, `strength "${s.title}" title`); max(s.line, 16, `strength "${s.title}" line`); if (!FACES.has(s.face)) bad.push(`strength face ${s.face}`); });
   if (p.move.length < 3 || p.move.length > 4) bad.push('move not 3 or 4 steps');
   p.move.forEach(m => { max(m.title, 5, `move "${m.title}" title`); max(m.body, 16, `move "${m.title}" body`); });
-  if (p.faqs.length < 6 || p.faqs.length > 9) bad.push('faqs not 6 to 9 (D260)');
+  if (p.faqs.length < 6 || p.faqs.length > 11) bad.push('faqs not 6 to 11 (D260; gap FAQs 20 Nov)');
   p.faqs.forEach(f => max(plain(f.a), 40, `faq "${f.q}"`));
   // SEO pass 01: the description leads with the query and the answer; a table heading that carries the query is a short line;
   // links in answers are internal and live

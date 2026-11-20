@@ -189,6 +189,10 @@
     {
       "q": "How long does setup take?",
       "a": "One sentence to Captain, then you connect HubSpot, Google Sheets and Slack and pick the sheet. The automation runs from the next new contact once it is built."
+    },
+    {
+      "q": "Does HubSpot have its own Slack integration?",
+      "a": "Yes. HubSpot's Slack app works on all plans and sends your own notifications, such as mentions, tasks and new chats, to Slack. A custom message to a channel for each new contact needs a workflow, which needs a Professional or Enterprise plan. On those plans HubSpot covers the Slack part alone; this automation suits free or Starter plans, or when you also want each contact in Google Sheets."
     }
   ],
   "variations": [
@@ -215,5 +219,5 @@
     "sheets",
     "slack"
   ],
-  "updated": "2026-11-19"
+  "updated": "2026-11-20"
 }

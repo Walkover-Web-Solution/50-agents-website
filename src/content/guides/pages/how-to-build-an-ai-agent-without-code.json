@@ -179,6 +179,14 @@
     {
       "q": "What should it do when it is unsure?",
       "a": "Say so in its instructions: \"skip it and tell me why\" is a good default. Without that line, an AI agent guesses, and a confident guess is the most common failure."
+    },
+    {
+      "q": "What are the main types of AI agents?",
+      "a": "Textbooks list five: simple reflex, model-based, goal-based, utility-based and learning. In practice, sort them by how they run: an AI agent on a schedule, one you ask in its chat, and a browser agent that works websites."
+    },
+    {
+      "q": "Can I build an AI agent with ChatGPT?",
+      "a": "Partly. ChatGPT is a chatbot, a good place to write and test the instructions. An AI agent also needs a job, a schedule or trigger, and your apps, so it works while you are away. Check what your ChatGPT plan includes."
     }
   ],
   "related": [
@@ -186,5 +194,5 @@
     "ai-agent-vs-automation-which-one-you-need",
     "how-to-choose-an-ai-agent-builder"
   ],
-  "updated": "2026-11-19"
+  "updated": "2026-11-20"
 }
