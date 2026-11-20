@@ -17,11 +17,11 @@ const BRAND: Record<string, string> = {
   docusign: '#FFB800', 'google-forms': '#673AB7', intercom: '#1F8DED', razorpay: '#3395FF', chargebee: '#FF3300',
   jotform: '#FF6100', 'google-drive': '#1FA463', trello: '#0079BF', 'google-sheets': '#34A853',
 };
-// Round B review (Jii: "we need to use different colors"): a card with no app takes its team's soft colour, so a gallery
-// of browser agents isn't one colour.
-const TEAM_TINT: Record<string, string> = { sales: '#FFD9C7', support: '#CFE6FF', finance: '#CFF0DD', operations: '#FFEBB3', ecommerce: '#FFD3E2', personal: '#E3DAFF' };
-function tint(apps: string[], kind: Kind, team?: string) {
-  if (!apps.length && team && TEAM_TINT[team]) return TEAM_TINT[team];
+// Round B review (Jii: "we need to use different colors"): a card with no app takes the next soft colour in turn, so
+// neighbouring cards always differ and a gallery of browser agents isn't one colour.
+const SOFT = ['#FFD9C7', '#CFE6FF', '#CFF0DD', '#FFEBB3', '#FFD3E2', '#E3DAFF', '#D2F1F4'];
+function tint(apps: string[], kind: Kind, n?: number) {
+  if (!apps.length && n !== undefined) return SOFT[n % SOFT.length];
   const lead = apps.find(a => a !== 'gmail' && BRAND[a]) ?? apps.find(a => BRAND[a]);
   return lead ? BRAND[lead] : KINDS[kind].tint;
 }
@@ -36,7 +36,7 @@ export function Gallery({ kind, page, label }: { kind: Kind; page: string; label
       </div>
       <GalleryFilter teams={teams} total={cards.length} label={label}>
         {cards.map((c, i) => (
-          <article key={c.ask} className="gal-card" data-team={c.team} style={{ ['--app' as string]: tint(c.apps, kind, c.team) }}>
+          <article key={c.ask} className="gal-card" data-team={c.team} style={{ ['--app' as string]: tint(c.apps, kind, i) }}>
             {/* Round B, B3: two of the crew peek over a card's top edge, where the cards carry no app logos (browser agents) */}
             {kind === 'browser' && (i === 1 || i === 6) && <span className="gal-peek" aria-hidden="true"><Face id={i === 1 ? 'scout' : 'pilot'} size={40} /></span>}
             <div className="gal-apps">
