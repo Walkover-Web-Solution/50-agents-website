@@ -1,0 +1,8 @@
+{
+  "usedFor": "EventBrite holds events and ticket orders, and Conversion Chats sends a template message to buyers after “New Orders”.",
+  "bestTemplate": {
+    "name": "“New Orders” in EventBrite, then “Send Template Message” in Conversion Chats",
+    "why": "Ticket buyers get a template message when an order lands, sent through your Conversion Chats account."
+  },
+  "watchOut": "Attendees sit outside your team, so “Send Template Message” holds each message in Needs you until you approve it."
+}

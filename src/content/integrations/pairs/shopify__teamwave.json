@@ -1,0 +1,1 @@
+{"usedFor": "Shopify takes orders and TeamWave tracks deals, so “New Order” can feed “Create Deal”.", "bestTemplate": {"name": "“New Order” in Shopify, then “Create Deal” in TeamWave", "why": "Each new order lands in TeamWave as a deal, so the sales side sees it."}, "watchOut": "“Create Deal” starts a new deal for every order, so repeat buyers get a deal each time."}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify spots the abandoned checkout and Mitto sends the text, so “Abandoned Checkout” can feed “Send an SMS”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Send an SMS” in Mitto",
+    "why": "The text reaches the shopper while the cart is still on their mind, through your Mitto account."
+  },
+  "watchOut": "An SMS to a customer waits for your approval, and “Abandoned Checkout” is polling, so it is not instant."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify records the checkout and Whatchimp sends the message, so “Abandoned Checkout” can feed “Send Message”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Send Message” in Whatchimp",
+    "why": "The shopper hears about the cart they left in a message you write, sent through your Whatchimp account."
+  },
+  "watchOut": "“Send Message” works only within the messaging window, so older checkouts may not get one."
+}

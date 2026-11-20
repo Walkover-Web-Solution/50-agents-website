@@ -1,0 +1,1 @@
+{"usedFor": "TimeRex books meetings and Brevo runs the mailing lists, so “New Event” can feed “Add Contacts To List”.", "bestTemplate": {"name": "“New Event” in TimeRex, then “Add Contacts To List” in Brevo", "why": "Someone who books a meeting joins the list you choose."}, "watchOut": "“Add Contacts To List” takes existing contacts, so the booker must exist in Brevo first."}

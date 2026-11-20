@@ -1,0 +1,1 @@
+{"usedFor": "Shopify takes the orders, and Teable stores them as rows through “Create Record”.", "bestTemplate": {"name": "“Order Cancelled” in Shopify, then “Create Record” in Teable", "why": "Each cancellation adds a row to a selected table, attachment URLs included."}, "watchOut": "“Delete Records” deletes records and returns them, so keep it away from these triggers."}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds the catalog, and ClickSend SMS announces a launch when “New Product” runs “Send MMS Campaign”.",
+  "bestTemplate": {
+    "name": "“New Product” in Shopify, then “Send MMS Campaign” in ClickSend SMS",
+    "why": "A new product goes out as a picture message campaign through your ClickSend SMS account."
+  },
+  "watchOut": "“Send MMS Campaign” goes to a whole list, so every new product would trigger a campaign."
+}

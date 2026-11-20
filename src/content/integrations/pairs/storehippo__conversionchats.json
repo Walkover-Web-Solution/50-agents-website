@@ -1,0 +1,8 @@
+{
+  "usedFor": "StoreHippo holds the shop's orders and users, and Conversion Chats sends a template message after “New User Enquiry”.",
+  "bestTemplate": {
+    "name": "“New User Enquiry” in StoreHippo, then “Send Template Message” in Conversion Chats",
+    "why": "An enquiry gets its answer as a template message, sent through your Conversion Chats account."
+  },
+  "watchOut": "A message to a shopper leaves the business, so “Send Template Message” waits in Needs you until someone approves it."
+}
