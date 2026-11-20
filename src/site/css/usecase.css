@@ -16,6 +16,8 @@
 .film-captain{flex:none;animation:none}
 .film-box{flex:1;min-width:0;display:flex;align-items:center;gap:14px;padding:14px 14px 14px 24px;border-radius:22px;background:#fff;box-shadow:0 0 0 1px rgba(17,18,20,.08),0 24px 48px -28px rgba(17,18,20,.35)}
 .film-text{flex:1;min-height:30px;font-size:19px;line-height:1.45;letter-spacing:-.01em}
+/* fixes-02 (T56): the box keeps the longest ask's height, so the page below never shifts while asks type and clear */
+.film-text{display:grid}.film-size,.film-live{grid-area:1/1}.film-size{visibility:hidden;padding-right:4px}
 .film .caret{display:inline-block;width:2px;height:1.1em;margin-left:2px;vertical-align:-.15em;background:var(--ink);opacity:0}
 .film.is-typing .caret{opacity:1;animation:filmBlink 1s steps(1) infinite}
 @keyframes filmBlink{50%{opacity:0}}
