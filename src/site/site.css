@@ -523,3 +523,6 @@ html,body{margin:0;padding:0}
 .wrap,.hd-in,.wrap:has(> .crumbs),.foot-in.wrap,.uc3-wall{max-width:1360px;padding-left:40px;padding-right:40px}
 .foot .crowd{max-width:none}
 @media (max-width:760px){.wrap,.hd-in,.wrap:has(> .crumbs),.foot-in.wrap,.uc3-wall{padding-left:18px;padding-right:18px}}
+
+/* The crowd is dormant (Jii, 20 Nov): no hover rise. */
+.foot .crowd>span,.foot .crowd>span:hover{transform:translateY(42%);transition:none}
