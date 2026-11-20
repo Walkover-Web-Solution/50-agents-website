@@ -1,0 +1,1 @@
+{"usedFor":"Fluid CRM keeps deals, contacts and reminders, and “Create or Update Lead and Deal” sends a lead in.","bestTemplate":{"name":"“Create or Update Lead and Deal” in Fluid CRM","why":"It sends a lead in and creates a deal automatically, so one step covers both records."},"watchOut":"“Delete Contact” deletes a contact, so check which contact it points at before it runs."}

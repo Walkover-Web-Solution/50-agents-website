@@ -1,0 +1,1 @@
+{"usedFor": "ZarMoney is accounting software, and “Add a customer” and “Create a Vendor” keep your people records.", "bestTemplate": {"name": "“Add a customer” in ZarMoney", "why": "A new customer record gives later accounting work something to build on."}, "watchOut": "“Delete a customer” removes a record, so test it before it runs in an automation."}

@@ -1,0 +1,1 @@
+{"usedFor": "Sanity holds structured content in projects, and “Create project” and “Update Project” manage them.", "bestTemplate": {"name": "“Create project” in Sanity", "why": "It creates a project with a display name, so new work starts with its own project."}, "watchOut": "“Delete Project” in Sanity deletes a specific project, so check which one before it runs."}

@@ -1,0 +1,1 @@
+{"usedFor":"Elmah records errors for .NET apps, and “Create log” adds a log entry from any flow.","bestTemplate":{"name":"“Create log” in Elmah","why":"It creates a log, so a failure elsewhere leaves a record where you track errors."},"watchOut":"“Create log” writes a log entry, so check the message text before a flow sends it."}

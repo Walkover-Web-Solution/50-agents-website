@@ -1,0 +1,1 @@
+{"usedFor": "Webex Interact runs SMS campaigns, and “Create Contact List” and “Create Short Link” prepare them.", "bestTemplate": {"name": "“New Meeting” in Google Meet, then “Create Contact List” in Webex Interact", "why": "A new meeting can start a contact list for follow-up."}, "watchOut": "“Delete Contact List” removes a list, so keep it out of automatic steps."}

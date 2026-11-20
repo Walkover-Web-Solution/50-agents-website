@@ -1,0 +1,1 @@
+{"usedFor": "Nuelink schedules social posts, with “Upload Media” adding a file by URL and “Create Post” writing the post.", "bestTemplate": {"name": "“Create Post” in Nuelink", "why": "It creates the post, and “Upload Media” can supply a media reference first."}, "watchOut": "Posts go to followers outside the business, so “Create Post” waits in Needs you for approval."}

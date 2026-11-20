@@ -1,0 +1,1 @@
+{"usedFor": "KeySender keeps digital keys and codes in databases, managed with “Create Database” and “Update database”.", "bestTemplate": {"name": "“Create Database” in KeySender", "why": "It creates a new database, a place to keep keys and codes."}, "watchOut": "“Delete Database” deletes an existing database, so keep it behind an approval step."}

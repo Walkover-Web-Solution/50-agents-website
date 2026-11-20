@@ -13,7 +13,8 @@ import { PromptFilm } from '@/site/usecase/film';
 import { CATEGORIES } from '@/content/integrations/categories';
 import { BuildLink } from '@/site/integrations/build-link';
 import { appIndexable, catalog, loadApp, partnersOf, topRecipes, writtenPage } from '@/site/integrations/data';
-import { BASE, crumbsLd, EventsBox, Final, firstRecipe, KindCards, LdScript, Lockup, PairCards, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
+import { BASE, crumbsLd, EventsBox, Final, firstRecipe, KindCards, LdScript, Lockup, PairCards, PracticeCards, Questions, softwareLd, TemplatesBox } from '@/site/integrations/parts';
+import { appLines } from '@/site/integrations/data';
 import type { IntegrationPage } from '@/site/integrations/types';
 import { templatePage } from '@/site/integrations/words';
 import '@/site/css/usecase.css';
@@ -61,6 +62,7 @@ export default async function IntegrationPageView({ params }: { params: Promise<
   const partners = partnersOf(app).slice(0, 6).map(x => x.slug);
   const cats = CATEGORIES.filter(c => app.categories.includes(c.slug));
   const C = 'seo-integration' as const;
+  const lines = appLines(slug);
   // Round B, B7: the pair picker. Only the pairs that have their own live, indexable page (live-pairs.json), in its order.
   const pairsHere = (LIVE_PAIRS.pairs as string[]).filter(x => x.split('/').includes(slug)).map(x => {
     const [a, b] = x.split('/');
@@ -93,6 +95,14 @@ export default async function IntegrationPageView({ params }: { params: Promise<
               ))}
             </ul>
           </PairPicker>
+        </section>
+      )}
+
+      {/* T65: the app's own lines (used for, best template, watch out), written from its real triggers and actions */}
+      {lines && (
+        <section className="wrap sec" id="in-practice">
+          <div className="sec-h c"><h2>{N} in practice</h2></div>
+          <PracticeCards lines={lines} />
         </section>
       )}
 

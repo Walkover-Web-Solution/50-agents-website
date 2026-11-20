@@ -1,0 +1,1 @@
+{"usedFor":"Retell AI places phone calls, with “Make a Phone Call” starting one and “Create a Phone Number” buying a number.","bestTemplate":{"name":"“Make a Phone Call” in Retell AI","why":"It creates a new outbound phone call, so one event can start a conversation."},"watchOut":"A call reaches someone outside your business, so it waits in Needs you until you approve it."}

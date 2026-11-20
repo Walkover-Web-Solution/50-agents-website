@@ -1,0 +1,1 @@
+{"usedFor": "Qlik is a data analytics platform, and “Create App”, “Create Space” and “Invite User” set up the workspace.", "bestTemplate": {"name": "“Invite User” in Qlik", "why": "It invites a person and assigns roles in one step."}, "watchOut": "“Invite User” assigns roles, so check which roles a person gets before it runs."}

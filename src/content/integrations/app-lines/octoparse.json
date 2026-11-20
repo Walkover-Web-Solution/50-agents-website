@@ -1,0 +1,1 @@
+{"usedFor": "Octoparse scrapes websites, and “Start a Task” runs a task in the cloud while “Stop a Task” halts it.", "bestTemplate": {"name": "“Start a Task” in Octoparse", "why": "It starts a saved scraping task, so fresh data arrives without opening Octoparse."}, "watchOut": "“Stop a Task” halts a running task, so keep it out of schedules that could cut a run short."}

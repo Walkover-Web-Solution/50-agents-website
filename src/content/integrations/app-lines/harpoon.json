@@ -1,0 +1,1 @@
+{"usedFor": "Freelancers use Harpoon to track clients and projects, reacting to “New Client” and adding costs with “Create Expense”.", "bestTemplate": {"name": "“New Client” in Harpoon", "why": "A new client usually needs a project next, so it can start “Create Project”."}, "watchOut": "“New Client” in Harpoon is polling, so a short delay after a client appears is normal."}

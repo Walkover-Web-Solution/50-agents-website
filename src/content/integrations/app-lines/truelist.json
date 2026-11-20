@@ -1,0 +1,1 @@
+{"usedFor":"Truelist checks emails with “Verify Email Address” one at a time or with “Verify Batch Emails” in bulk.","bestTemplate":{"name":"“Verify Batch Emails” in Truelist","why":"It validates many emails at once, so a whole list is checked in one step."},"watchOut":"“Delete Batch by ID” removes a batch, so check the ID first."}

@@ -1,0 +1,1 @@
+{"usedFor": "Gofile stores and shares files, and “Create Folder” adds a folder inside a parent folder you choose.", "bestTemplate": {"name": "“Create Folder” in Gofile", "why": "It sets up a folder inside a parent folder, so files have a place to go."}, "watchOut": "“Create Folder” in Gofile needs a parent folder, so an earlier step must pass the right one."}

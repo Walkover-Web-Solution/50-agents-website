@@ -1,0 +1,1 @@
+{"usedFor": "Teams use Tisane to read text with “Analyze Text” and “Detect Language”, with a focus on abusive content.", "bestTemplate": {"name": "“Analyze Text” in Tisane", "why": "It returns insights such as sentiment from the text you pass in."}, "watchOut": "Have a person confirm before acting on a message that “Analyze Text” flags."}

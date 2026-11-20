@@ -1,0 +1,1 @@
+{"usedFor": "Apper holds your app tables, and “Create Record” and “Update Record” fill them with data from other steps.", "bestTemplate": {"name": "“Create Record” in Apper", "why": "It adds a record to a chosen table and fills in its fields."}, "watchOut": "“Delete Records” permanently removes records by ID, so check the IDs before it runs."}

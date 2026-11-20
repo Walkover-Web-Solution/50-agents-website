@@ -1,0 +1,1 @@
+{"usedFor": "ScrapingBee reads web pages, and “Scrape Webpage” pulls a page's content into a step.", "bestTemplate": {"name": "“Scrape Webpage” in ScrapingBee", "why": "It scrapes a webpage, with headless browsers and proxies handled for you."}, "watchOut": "AI agents run on a schedule or when asked, so a scrape happens then, not on each page change."}

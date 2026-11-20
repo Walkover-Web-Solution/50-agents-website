@@ -1,0 +1,1 @@
+{"usedFor":"Simplesat collects customer feedback, and “Upsert Customer” keeps each customer record current by email.","bestTemplate":{"name":"“Upsert Customer” in Simplesat","why":"It updates the customer with the same email or creates a new one, so records stay unique."},"watchOut":"“Update Customer” works by ID, so check the customer ID before it runs."}

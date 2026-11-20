@@ -1,0 +1,1 @@
+{"usedFor": "LastPass holds your company's users, and “Create User”, “Update User” and “Invite User” manage who has access.", "bestTemplate": {"name": "“Invite User” in LastPass", "why": "It sends an activation invitation to a user by email."}, "watchOut": "“Delete User” permanently deletes a user by ID or email, so check who it targets first."}

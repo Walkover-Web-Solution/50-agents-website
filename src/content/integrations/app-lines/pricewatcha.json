@@ -1,0 +1,1 @@
+{"usedFor": "Pricewatcha tracks product prices, and “Track Product” and “Create Price Alert” watch a page and flag drops.", "bestTemplate": {"name": "“Track Product” in Pricewatcha", "why": "It adds a product page URL and returns its current price."}, "watchOut": "“Delete Price Alert” permanently deletes an alert by its ID, so check the ID first."}

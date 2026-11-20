@@ -1,0 +1,1 @@
+{"usedFor": "Wodify runs gym memberships, with “Create Client”, “Create Client Membership” and “Place Membership On Hold” covering each member.", "bestTemplate": {"name": "“Create Client Membership” in Wodify", "why": "It adds a membership to a client."}, "watchOut": "“Delete Membership” deletes a client's membership, so check which one before it runs."}

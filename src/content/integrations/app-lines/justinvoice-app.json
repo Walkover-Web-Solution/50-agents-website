@@ -1,0 +1,1 @@
+{"usedFor": "Just Invoice handles billing, with “Create Invoice”, “Finalize Invoice” and “Mark Invoice Paid” covering each step.", "bestTemplate": {"name": "“Create Invoice” in Just Invoice", "why": "It builds an invoice with customer details, line items, date and currency."}, "watchOut": "“Finalize Invoice” locks an invoice's details, so check them before it runs."}

@@ -1,0 +1,1 @@
+{"usedFor": "Data teams keep Akkio tidy with “Update a Project” and “Delete a Datasheet”, each found by its ID.", "bestTemplate": {"name": "“Update a Project” in Akkio", "why": "It changes a project's details using only the project ID."}, "watchOut": "“Delete a Datasheet” removes a datasheet by its ID, so check the ID before it runs."}

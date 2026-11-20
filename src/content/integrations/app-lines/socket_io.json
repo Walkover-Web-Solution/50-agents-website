@@ -1,0 +1,1 @@
+{"usedFor": "Socket.IO carries real-time events, and “Send Event” pushes one to a channel.", "bestTemplate": {"name": "“Receive Incoming Message” in Quo, then “Send Event” in Socket.IO", "why": "It sends an event to a channel, so a live screen can react to a message."}, "watchOut": "“Send Event” needs a channel, so check the channel name before you build."}

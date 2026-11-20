@@ -1,0 +1,1 @@
+{"usedFor": "Marketers use Redirect.pizza to keep links working by adding rules with “Create Redirect”.", "bestTemplate": {"name": "“New Feature Created” in Productboard, then “Create Redirect” in Redirect.pizza", "why": "A new feature can get its own redirect rule."}, "watchOut": "“Create Redirect” adds a rule each run, so tie it to events that need a new redirect."}

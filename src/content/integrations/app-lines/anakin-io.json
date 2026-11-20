@@ -1,0 +1,1 @@
+{"usedFor": "Teams use Anakin.io to pull web data with “Scrape URL”, “Start Website Crawl” and “Create Website Monitor”.", "bestTemplate": {"name": "“Create Website Monitor” in Anakin.io", "why": "A monitor keeps watching a website for you, so nobody has to scrape the page by hand."}, "watchOut": "“Scrape URL” needs a web address as input, so pass one from the earlier step."}

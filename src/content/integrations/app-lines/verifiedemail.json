@@ -1,0 +1,1 @@
+{"usedFor": "VerifiedEmail checks addresses, and “Verify Email Addresses” does it in real time.", "bestTemplate": {"name": "“Verify Email Addresses” in VerifiedEmail", "why": "It checks addresses as they arrive, so bad ones are caught before you write."}, "watchOut": "“Create a Download Request” returns results for a verification list, so create the list first."}

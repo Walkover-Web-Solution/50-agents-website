@@ -1,0 +1,1 @@
+{"usedFor":"Doppio renders pages from a URL with “Render PDF Direct” and “Render Screenshot Direct”.","bestTemplate":{"name":"“Render PDF Direct” in Doppio","why":"It turns a URL into a PDF directly, so a page can be kept as a document."},"watchOut":"Both direct actions render from a specified URL, so pass a full address."}

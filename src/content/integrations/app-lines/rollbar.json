@@ -1,0 +1,1 @@
+{"usedFor": "Engineering teams use Rollbar to organize error tracking with “Create a project” and “Create Team”.", "bestTemplate": {"name": "“Create a project” in Rollbar", "why": "It creates a project, so a new service gets its own error tracking."}, "watchOut": "“Delete a project” removes a project by name and “Delete a Team” removes a team, so keep both behind approval."}

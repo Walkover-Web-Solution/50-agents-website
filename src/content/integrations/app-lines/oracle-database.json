@@ -1,0 +1,1 @@
+{"usedFor":"Oracle Database stores your tables, and “Insert a Row” and “Update a row” write records into them.","bestTemplate":{"name":"“Insert a Row” in Oracle Database","why":"It adds a row to a table, so an event elsewhere becomes a record you can query."},"watchOut":"“Update a row” changes existing data in your table, so check the row it targets before it runs."}

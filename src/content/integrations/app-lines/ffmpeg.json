@@ -1,0 +1,1 @@
+{"usedFor": "Teams use FFmpeg to change media files from one format to another with “Convert File Format”.", "bestTemplate": {"name": "“Convert File Format” in FFmpeg", "why": "It converts a file from an existing format to another."}, "watchOut": "“Convert File Format” needs a source file and a target format, so check both before it runs."}

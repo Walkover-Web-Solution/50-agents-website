@@ -1,0 +1,1 @@
+{"usedFor":"Tny shortens links with “Shorten URL” and follows a short link to its destination with “Unshorten URL”.","bestTemplate":{"name":"“Shorten URL” in Tny","why":"It generates a shortened link from a long URL, so messages carry a clean address."},"watchOut":"“Unshorten URL” follows all redirects, so the final address may differ from the link you started with."}

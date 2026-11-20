@@ -1,0 +1,1 @@
+{"usedFor": "Sleekplan collects customer feedback, and “Create Feedback” and “Update Feedback” add and change posts.", "bestTemplate": {"name": "“Create Feedback” in Sleekplan", "why": "It creates a new post, so feedback from other places lands in Sleekplan."}, "watchOut": "AI agents run on a schedule or when asked, so a post from “Create Feedback” appears at the next run."}

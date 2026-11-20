@@ -1,0 +1,1 @@
+{"usedFor": "BrowserAct runs saved browser jobs, started with “Run Task From Template” or “Run Workflow Task”.", "bestTemplate": {"name": "“Run Task From Template” in BrowserAct", "why": "It starts a task you saved, so a repeated web chore runs the same way each time."}, "watchOut": "“Run Workflow Task” needs a workflow ID, so copy it from BrowserAct before you build the step."}

@@ -1,0 +1,1 @@
+{"usedFor": "Framejet captures a webpage with “Take Screenshot” and returns a hosted link to the image.", "bestTemplate": {"name": "“Take Screenshot” in Framejet", "why": "It saves how a page looked at one moment, so you can attach the link to a record."}, "watchOut": "“Take Screenshot” works on public webpages, so a page behind a login will not capture."}

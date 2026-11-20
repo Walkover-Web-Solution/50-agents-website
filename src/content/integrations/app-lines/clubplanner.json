@@ -1,0 +1,1 @@
+{"usedFor": "Club Planner tracks sales for clubs, and “Create Prospect” adds a new prospect there.", "bestTemplate": {"name": "“Create Prospect” in Club Planner", "why": "It adds a new prospect so sales can follow up."}, "watchOut": "AI agents run on a schedule or when asked, so “Create Prospect” runs then, not instantly."}

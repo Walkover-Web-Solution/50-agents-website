@@ -1,0 +1,1 @@
+{"usedFor":"ARCNM prices manufactured parts from CAD files, and “Create Part” adds a part by its part number.","bestTemplate":{"name":"“Create Part” in ARCNM","why":"It sets up a part with description, sourcing, currency and folder, so the part is ready to cost."},"watchOut":"“Create Part” works from a part number, so check every incoming record has one."}

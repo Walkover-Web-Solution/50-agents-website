@@ -1,0 +1,1 @@
+{"usedFor": "VATSense checks VAT numbers, and “Validate VAT number” and “Create invoice” help with VAT paperwork.", "bestTemplate": {"name": "“Validate VAT number” in VATSense", "why": "It says whether a VAT number is valid and returns its registration details."}, "watchOut": "“Add items to invoice” adds to an existing invoice, so it needs that invoice first."}

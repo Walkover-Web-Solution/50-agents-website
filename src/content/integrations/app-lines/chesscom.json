@@ -1,0 +1,1 @@
+{"usedFor": "Chess.com holds player games, and “Show Player Games” lists ongoing games, games awaiting a turn, or a given month.", "bestTemplate": {"name": "“Show Player Games” in Chess.com", "why": "It shows whose turn it is, so a reminder or report can follow the board."}, "watchOut": "AI agents run on a schedule or when you ask, so a move is noticed at the next run."}

@@ -1,0 +1,1 @@
+{"usedFor":"imgbb hosts images, and “Upload Image” sends one there from a flow.","bestTemplate":{"name":"“Upload Image” in imgbb","why":"It uploads an image to imgbb, so a file from another tool gets a hosted copy."},"watchOut":"“Upload Image” puts an image on a hosting service, so check the file before it runs."}

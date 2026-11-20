@@ -1,0 +1,1 @@
+{"usedFor": "Sniffmail checks email addresses, and “Verify Email” checks one while “Verify Bulk Email” checks a whole list.", "bestTemplate": {"name": "“Verify Bulk Email” in Sniffmail", "why": "It checks many addresses in one step, so a list is cleaned before you use it."}, "watchOut": "“Verify Email” in Sniffmail needs an email address from an earlier step."}

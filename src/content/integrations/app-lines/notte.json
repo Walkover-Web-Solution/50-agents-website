@@ -1,0 +1,1 @@
+{"usedFor": "Notte runs cloud browsers, and “Start Agent” runs a browser task while “Scrape Page” extracts content from a page.", "bestTemplate": {"name": "“Scrape Page” in Notte", "why": "It extracts content, links, images or structured JSON from a page in a session."}, "watchOut": "“Stop Session” needs a session ID, so keep the ID from “Start Browser Session”."}

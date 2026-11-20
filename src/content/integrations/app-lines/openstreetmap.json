@@ -1,0 +1,1 @@
+{"usedFor": "OpenStreetMap holds map notes, and “Create Note” pins one to a latitude and longitude.", "bestTemplate": {"name": "“Create Note” in OpenStreetMap", "why": "It places text at a map point, so a reported problem is pinned where it happened."}, "watchOut": "“Delete Note” removes a note by its ID, so check the ID before it runs."}

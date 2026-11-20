@@ -1,0 +1,1 @@
+{"usedFor":"Play AI holds AI agents, where “Create Agent” sets one up and “Create PlayNote” uses a file URL.","bestTemplate":{"name":"“Record Created Or Updated” in Airtable, then “Create PlayNote” in Play AI","why":"A changed record becomes a PlayNote built from a file URL."},"watchOut":"“Update Agent” and “Update External Function” need the ID of the item you change."}

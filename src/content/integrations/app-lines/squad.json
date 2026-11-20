@@ -1,0 +1,1 @@
+{"usedFor": "Squad gathers team feedback, and “Send feedback to Squad” puts user comments or notes into it.", "bestTemplate": {"name": "“Send feedback to Squad” in Squad", "why": "It sends user comments or notes into Squad from wherever they arrive."}, "watchOut": "AI agents run on a schedule or when asked, so feedback lands in Squad at the next run."}

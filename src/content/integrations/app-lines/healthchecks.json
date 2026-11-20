@@ -1,0 +1,1 @@
+{"usedFor":"HealthChecks watches cron jobs and background tasks, and “Create Check” and “Update Check” set up their monitors.","bestTemplate":{"name":"“Create Check” in HealthChecks","why":"It creates a check for a scheduled task, so a new job is monitored from the start."},"watchOut":"“Update Check” changes an existing check, so pick the right one first."}

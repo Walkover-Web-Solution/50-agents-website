@@ -1,0 +1,1 @@
+{"usedFor": "Aiso follows how a brand shows up in AI assistants, and “Create Project” sets up tracking for a domain.", "bestTemplate": {"name": "“Create Project” in Aiso", "why": "It starts a project for a domain, and Aiso analyzes the domain and returns its setup."}, "watchOut": "Aiso has no trigger here, so AI agents call “Create Project” on a schedule or when you ask them."}

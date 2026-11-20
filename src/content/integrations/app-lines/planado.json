@@ -1,0 +1,1 @@
+{"usedFor": "Planado manages fieldwork, and “Create Job” assigns a new job to a field worker.", "bestTemplate": {"name": "“Create Job” in Planado", "why": "A job assigned to a field worker turns a request into work on the road."}, "watchOut": "Automations run on an app event or a schedule, so check which one starts “Create Job”."}

@@ -1,0 +1,1 @@
+{"usedFor": "Tuskr tracks test runs, and “Create Test Run” and “Add Test Run Results” record each one.", "bestTemplate": {"name": "“Create Test Run” in Tuskr", "why": "It opens a new test run, so results from a build have a place to land."}, "watchOut": "“Add Test Run Results” uploads several results at once, so check it points to the right run."}

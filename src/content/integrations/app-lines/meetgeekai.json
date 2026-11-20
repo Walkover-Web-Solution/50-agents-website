@@ -1,0 +1,1 @@
+{"usedFor": "Meetgeek.ai analyzes meetings, and “Upload File” sends a video or audio recording in for analysis.", "bestTemplate": {"name": "“Upload File” in Meetgeek.ai", "why": "It uploads a recording and gives a notification when the analysis finishes."}, "watchOut": "“Upload File” needs a video or audio file, so the recording must exist before the step runs."}

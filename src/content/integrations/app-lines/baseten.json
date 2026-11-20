@@ -1,0 +1,1 @@
+{"usedFor":"Baseten teams store a named secret with “Create Secret” and start model work with “Create Training Project”.","bestTemplate":{"name":"“Create Training Project” in Baseten","why":"It sets up a training project when an event starts it, so model work needs no manual step."},"watchOut":"Secrets are stored values, so check the value before “Create Secret” runs."}

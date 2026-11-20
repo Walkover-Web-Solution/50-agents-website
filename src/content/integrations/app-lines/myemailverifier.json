@@ -1,0 +1,1 @@
+{"usedFor": "MyEmailVerifier checks email deliverability with “Verify Email Address”.", "bestTemplate": {"name": "“Verify Email Address” in MyEmailVerifier", "why": "It confirms an address can be delivered to before you use it."}, "watchOut": "It checks deliverability only, so decide what happens to addresses that fail."}

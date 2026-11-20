@@ -114,6 +114,11 @@ export function writtenPage<T>(slug: string): T | null {
 }
 /** The lines the pair pipeline wrote for a pair (src/content/integrations/pairs/<a>__<b>.json, canonical order), if there are any. */
 const PAIRS_DIR = path.join(process.cwd(), 'src/content/integrations/pairs');
+/** An app page's own lines (T65), written for pages whose template text alone reads alike: src/content/integrations/app-lines/<slug>.json. */
+export function appLines(slug: string): import('./types').PairLines | null {
+  const f = path.join(process.cwd(), 'src/content/integrations/app-lines', `${slug}.json`);
+  return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;
+}
 export function pairLines(a: string, b: string): import('./types').PairLines | null {
   const f = path.join(PAIRS_DIR, `${a}__${b}.json`);
   return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : null;

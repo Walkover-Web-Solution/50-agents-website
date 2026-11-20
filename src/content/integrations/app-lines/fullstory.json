@@ -1,0 +1,1 @@
+{"usedFor":"Fullstory studies how people use your product, and “Create User” adds a user to it.","bestTemplate":{"name":"“Payment Received” in PayHere, then “Create User” in Fullstory","why":"A payment shows a real customer, and the action creates that user in Fullstory."},"watchOut":"“Create User” adds a user each time it runs, so check you do not send the same person twice."}

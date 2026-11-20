@@ -1,0 +1,1 @@
+{"usedFor": "Pulse reads documents, and “Extract Document” pulls text, tables and layout from a document URL.", "bestTemplate": {"name": "“Extract Document” in Pulse", "why": "It turns a PDF or scan into text and tables, so people and AI agents can read it."}, "watchOut": "“Extract Tables” and “Apply Schema” work from a saved extraction, so run “Extract Document” first."}

@@ -1,0 +1,1 @@
+{"usedFor": "Expedify is a CRM, and “Create Contact”, “Update Contact” and “Create Company” keep its records current.", "bestTemplate": {"name": "“Create Contact” in Expedify", "why": "It sets name, email, phone, tags and owner in one step."}, "watchOut": "“Update Contact” changes only the fields you fill, so leave blank any field you want kept."}

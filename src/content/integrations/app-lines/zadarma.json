@@ -1,0 +1,1 @@
+{"usedFor": "Zadarma is a phone system, and “Create Callback” asks it to ring a customer back.", "bestTemplate": {"name": "“Create Callback” in Zadarma", "why": "It turns a request from another app into a callback, so no one has to note it down."}, "watchOut": "A callback reaches someone outside the business, so it waits in Needs you until you approve."}

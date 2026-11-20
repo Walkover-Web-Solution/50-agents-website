@@ -1,0 +1,1 @@
+{"usedFor": "Fireworks AI runs models, and “Transcribe audio” and “Translate audio” work on recordings.", "bestTemplate": {"name": "“New Message in Channels” in Slack, then “Translate audio” in Fireworks AI", "why": "A new channel message can start an audio translation."}, "watchOut": "AI agents run on a schedule or when asked, so “Transcribe audio” runs then, not instantly."}

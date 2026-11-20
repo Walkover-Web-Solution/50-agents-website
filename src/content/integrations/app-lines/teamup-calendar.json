@@ -1,0 +1,1 @@
+{"usedFor": "TeamUp Calendar organizes jobs and availability, and “Create Booking” adds an event to one or more sub-calendars.", "bestTemplate": {"name": "“Create Booking” in TeamUp Calendar", "why": "It creates an event with start and end times on the chosen sub-calendars."}, "watchOut": "“Create Booking” needs start and end dates or times, so check them before it runs."}

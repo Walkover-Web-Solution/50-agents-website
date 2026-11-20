@@ -1,0 +1,1 @@
+{"usedFor":"FormRobin runs form backends, and “Create Form”, “Update Form” and “Delete Form” manage forms from a flow.","bestTemplate":{"name":"“Create Form” in FormRobin","why":"It creates a form with a name, folder and submit text, so a new form is ready to collect."},"watchOut":"“Update Form” changes settings of an existing form, so pick the right form first."}

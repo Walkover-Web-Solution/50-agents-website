@@ -1,0 +1,1 @@
+{"usedFor": "Reclaim AI plans calendar time, and “Create Task” adds work for it to schedule.", "bestTemplate": {"name": "“New Meeting” in Google Meet, then “Create Task” in Reclaim AI", "why": "A new meeting can add a follow-up task, so the time to do it gets found."}, "watchOut": "“When a new task is created” is polling, so it is checked on a schedule."}
