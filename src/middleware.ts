@@ -51,7 +51,8 @@ function route(request: NextRequest): NextResponse {
   }
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   const lower = path.toLowerCase();
-  const url = request.nextUrl.clone();
+  // A plain URL: Next's nextUrl.clone() remembers the request's trailing slash and puts it back on every redirect.
+  const url = new URL(request.url);
   if (OLD_PRODUCTS.has(lower)) { url.pathname = '/'; url.search = ''; return NextResponse.redirect(url, 301); }
   if (lower === '/templates' || lower.startsWith('/templates/')) { url.pathname = '/use-cases'; return NextResponse.redirect(url, 301); }
   if (lower === '/login') return NextResponse.redirect(`${APP}/login${search}`, 301);
