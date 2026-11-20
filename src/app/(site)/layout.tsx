@@ -11,7 +11,6 @@ const ORG = {
   '@context': 'https://schema.org',
   ...orgLd,
   logo: 'https://50agents.com/landing/favicon.svg',
-  parentOrganization: { '@type': 'Organization', name: 'Walkover', url: 'https://walkover.in' },
 };
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {

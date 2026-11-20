@@ -25,7 +25,9 @@ if (!org || org['@type'] !== 'Organization') fail('homepage @graph[0] must be Or
 for (const key of ['name', 'url', 'logo']) {
   if (!org[key]) fail(`Organization missing ${key}`);
 }
-if (!Array.isArray(org.sameAs) || org.sameAs.length < 2) fail('Organization needs 2+ sameAs links');
+// sameAs is left out until 50agents has profiles of its own (Search, S15); the parents are in parentOrganization.
+if (org.sameAs) fail('Organization sameAs must be 50agents\'s own profiles; it has none yet (S15)');
+if (org.parentOrganization?.name !== 'viaSocket') fail('Organization needs parentOrganization viaSocket');
 const cp = org.contactPoint;
 const hasContact =
   (Array.isArray(cp) && cp.some(p => p?.email || p?.telephone)) ||
