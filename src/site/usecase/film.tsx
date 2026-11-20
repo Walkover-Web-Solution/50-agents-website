@@ -49,7 +49,10 @@ export function PromptFilm({ ask, asks, button, link }: { ask: string; asks?: st
     <div ref={ref} className={`film is-${stage}`}>
       <span className="film-captain" aria-hidden="true"><Face id="lead" size={44} /></span>
       <div className="film-box">
-        <p className="film-text"><span className="sr">{list.join(' · ')}</span><span aria-hidden="true">{typed}</span><i className="caret" aria-hidden="true" /></p>
+        <p className="film-text"><span className="sr">{list.join(' · ')}</span>
+          {/* the longest ask, invisible, holds the box at its final height so nothing below moves while asks type and clear */}
+          <span className="film-size" aria-hidden="true">{list.reduce((a, b) => (b.length > a.length ? b : a))}</span>
+          <span className="film-live" aria-hidden="true">{typed}<i className="caret" /></span></p>
         {btn}
       </div>
     </div>

@@ -502,3 +502,17 @@ html,body{margin:0;padding:0}
 @media (max-width:760px){.hd-in{padding:0 18px;height:58px}.wrap:has(> .crumbs){padding:0 18px}.foot-in.wrap{padding-left:18px;padding-right:18px}.foot .crowd{margin:8px 18px 32px}}
 @media (max-width:1020px){.nv-toggle:checked~.nv{top:60px}}
 @media (max-width:760px){.nv-toggle:checked~.nv{top:58px}}
+
+/* fixes-02 (T56): no backdrop blur. The sticky header and the phone's sticky bar repainted the blur on every scroll
+   frame; at 92 to 94% white the blur barely showed, so a solid white keeps the look and drops the cost. */
+.hd{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}
+.sticky{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}
+
+/* fixes-02 (T57): the crowd peeps from the bottom edge of the page. One row, edge to edge, flush with the bottom;
+   each face is pushed 42% below the edge so only the tops of the heads and the eyes show. Transform only, no layout. */
+.foot .crowd{max-width:none;margin:12px 0 0;padding:0;height:33px;gap:10px;flex-wrap:nowrap;justify-content:center;align-items:flex-end;overflow:hidden;opacity:1;filter:none}
+.foot .crowd>span{flex:none;display:block;height:auto;transform:translateY(42%);transition:transform .25s ease}
+.foot .crowd>span:hover{transform:translateY(20%)}
+.foot .crowd .face{display:block}
+@media (max-width:760px){.foot .crowd{margin:8px 0 0;gap:8px}}
+@media (prefers-reduced-motion:reduce){.foot .crowd>span{transition:none}}

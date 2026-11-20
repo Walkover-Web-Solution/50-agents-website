@@ -84,7 +84,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="crowd" aria-hidden="true">
-        {Array.from({ length: 40 }, (_, i) => CROWD[(i * 5) % CROWD.length]).map((id, i) => <span key={i}><Face id={id} size={[30, 34, 28, 32, 30, 36, 28, 32, 30, 34][i % 10]} /></span>)}
+        {Array.from({ length: 40 }, (_, i) => CROWD[(i * 5) % CROWD.length]).map((id, i) => <span key={i}><Face id={id} size={[48, 54, 46, 52, 48, 56, 46, 52, 48, 54][i % 10]} /></span>)}
       </div>
     </footer>
   );
