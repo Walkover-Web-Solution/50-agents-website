@@ -1,0 +1,8 @@
+{
+  "usedFor": "Seven Time holds your projects and Slack is where the team talks, so “New Project” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Project” in Seven Time, then “Send Message” in Slack",
+    "why": "The team hears about a new project in a channel as soon as it exists."
+  },
+  "watchOut": "An automation's post to a Slack channel waits for your approval today, so check Needs you."
+}

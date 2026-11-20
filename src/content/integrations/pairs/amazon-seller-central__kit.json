@@ -1,0 +1,8 @@
+{
+  "usedFor": "Amazon Seller Central holds orders and Kit holds subscribers, and “Create or Update Subscriber” adds a subscriber for each order.",
+  "bestTemplate": {
+    "name": "“New Order Created” in Amazon Seller Central, then “Create or Update Subscriber” in Kit",
+    "why": "A new order creates or updates the subscriber, so your email list follows what customers actually bought."
+  },
+  "watchOut": "“New Order Created” is polling, so subscribers appear after a scheduled check, not the moment an order lands."
+}

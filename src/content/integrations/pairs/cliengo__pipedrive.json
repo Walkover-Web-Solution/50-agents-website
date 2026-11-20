@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cliengo captures chat contacts, and Pipedrive stores them as people when “New Customer/Contact” runs “Create Person”.",
+  "bestTemplate": {
+    "name": "“New Customer/Contact” in Cliengo, then “Create Person” in Pipedrive",
+    "why": "Every contact the chatbot collects becomes a Pipedrive person, with email and phone ready for your sales team."
+  },
+  "watchOut": "“New Customer/Contact” in Cliengo is polling, so “Create Person” runs after a scheduled check, not at once."
+}

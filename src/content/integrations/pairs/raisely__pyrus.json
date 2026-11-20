@@ -1,0 +1,8 @@
+{
+  "usedFor": "Raisely collects fundraising gifts, and each “New Online Donation” opens a task in Pyrus.",
+  "bestTemplate": {
+    "name": "“New Online Donation” in Raisely, then “Create Task With Form” in Pyrus",
+    "why": "Every card or PayPal donation becomes a Pyrus task, so a thank-you or receipt step has an owner."
+  },
+  "watchOut": "“Create Task With Form” in Pyrus needs an existing form, so build that form before the template."
+}

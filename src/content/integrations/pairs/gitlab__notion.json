@@ -1,0 +1,8 @@
+{
+  "usedFor": "GitLab holds your merge requests, and Notion tracks them as database items through “Create_Data_Source_Item” after “New Project Merge Request Event”.",
+  "bestTemplate": {
+    "name": "“New Project Merge Request Event” in GitLab, then “Create_Data_Source_Item” in Notion",
+    "why": "Each merge request lands as a Notion database item, giving non-developers a view of review work."
+  },
+  "watchOut": "“New Project Merge Request Event” fires on open, merge and close, so one request can create three items."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Apollo finds contacts and Pipedrive keeps the pipeline, so “When a new contact is created in Apollo” runs “Create Lead”.",
+  "bestTemplate": {
+    "name": "“When a new contact is created in Apollo” in Apollo, then “Create Lead” in Pipedrive",
+    "why": "Each contact Apollo adds lands in Pipedrive as a lead your reps can qualify."
+  },
+  "watchOut": "“When a new contact is created in Apollo” is polling, so leads appear after the next scheduled check."
+}

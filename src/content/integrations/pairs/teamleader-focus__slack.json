@@ -1,0 +1,8 @@
+{
+  "usedFor": "Teamleader Focus holds your deals, and Slack announces wins when “Deal Accepted” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“Deal Accepted” in Teamleader Focus, then “Send Message” in Slack",
+    "why": "An accepted deal reaches a Slack channel, so the team can plan delivery straight away."
+  },
+  "watchOut": "The catalog describes “Deal Accepted” as firing when a deal is updated, so check it does not announce unrelated edits."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Acadle holds your learners, and HubSpot keeps their contact records current when “New User” runs “Update Contact”.",
+  "bestTemplate": {
+    "name": "“User Activated” in Acadle, then “Update Contact” in HubSpot",
+    "why": "Activation changes a learner's status, and the action updates the matching contact by its email."
+  },
+  "watchOut": "Acadle triggers like “User Deactivated” are polling, and “Update Contact” finds the contact by email, so match emails."
+}

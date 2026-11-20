@@ -1,0 +1,8 @@
+{
+  "usedFor": "Applivery holds builds and feedback, and Documint fills a document when “New Feedback Report” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“New Feedback Report” in Applivery, then “Add Content To Template” in Documint",
+    "why": "Each tester bug report is added to a Documint template, so reports come out in one format."
+  },
+  "watchOut": "“New Build Uploaded” and “New Build Processed” both fire for one build, so pick one to avoid two documents."
+}

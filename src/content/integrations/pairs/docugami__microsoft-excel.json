@@ -1,0 +1,8 @@
+{
+  "usedFor": "Docugami creates projects and Microsoft Excel lists them, as “Create Project” feeds “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“Create Project” in Docugami, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each new project becomes a table row, so you can sort and total projects without opening Docugami."
+  },
+  "watchOut": "“Create Project” in Docugami is polling, so rows arrive after a scheduled check, not at once."
+}

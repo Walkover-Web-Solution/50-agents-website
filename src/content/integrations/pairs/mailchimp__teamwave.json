@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailChimp holds your subscribers, and TeamWave gets a deal for each new one through “Create Deal”.",
+  "bestTemplate": {
+    "name": "“When a new subscriber is added to an audience” in MailChimp, then “Create Deal” in TeamWave",
+    "why": "Each new subscriber becomes a deal in TeamWave, so sales can follow up on interest from your list."
+  },
+  "watchOut": "“Create Deal” adds no follower or activity, so use “Add Follower” and “Create Activity” for those."
+}

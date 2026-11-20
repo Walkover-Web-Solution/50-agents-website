@@ -1,0 +1,8 @@
+{
+  "usedFor": "Keap Max Classic holds contacts, and Documint fills a document template when “New Contact Created” runs.",
+  "bestTemplate": {
+    "name": "“New Contact Created” in Keap Max Classic, then “Add Content To Template” in Documint",
+    "why": "A new contact's details go into a template, so documents start from the CRM record."
+  },
+  "watchOut": "“Company Is Updated” fires on every edit, so the same company can fill a template more than once."
+}

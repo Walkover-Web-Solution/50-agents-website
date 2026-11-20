@@ -1,0 +1,8 @@
+{
+  "usedFor": "PayHere holds your subscriptions, and Freshsales Classic receives a deal through “Create Deal” when one is cancelled.",
+  "bestTemplate": {
+    "name": "“Subscription Cancelled” in PayHere, then “Create Deal” in Freshsales Classic",
+    "why": "A cancelled subscription opens a deal, so someone can try to win the customer back."
+  },
+  "watchOut": "“Create Deal” creates the contact if it is missing, so check for duplicates in Freshsales Classic."
+}

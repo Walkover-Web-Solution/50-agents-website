@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds your bookings and Google Docs keeps the log, so “New Booking” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Booking” in DitCal, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new booking is written into a doc tab, so the day's meetings sit on one page."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace what is in the tab, so check it is set to add."
+}

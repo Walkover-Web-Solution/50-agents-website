@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pitchit holds pitches and lead insights, and Sangam CRM keeps the lead through “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“When a lead's insights are updated” in Pitchit, then “Create or Update Lead” in Sangam CRM",
+    "why": "Fresh insights on a lead reach the CRM, and the action matches by ID, email or phone."
+  },
+  "watchOut": "“When a lead's insights are updated” fires on every update, so the same lead can run more than once."
+}

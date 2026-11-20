@@ -1,0 +1,8 @@
+{
+  "usedFor": "Adafruit IO holds sensor feeds, and Conversion Chats turns “New Feed Data” into a template message with “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“New Feed Data” in Adafruit IO, then “Send Template Message” in Conversion Chats",
+    "why": "A fresh sensor reading goes out as a template message through your Conversion Chats account."
+  },
+  "watchOut": "“New Feed Data” in Adafruit IO is polling, so each message follows a scheduled check, not the reading itself."
+}

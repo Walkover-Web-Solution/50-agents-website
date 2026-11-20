@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds orders and products, and Height receives a task when “Order Paid” runs “Create Task”.",
+  "bestTemplate": {
+    "name": "“Order Paid” in Shopify, then “Create Task” in Height",
+    "why": "A paid order becomes a Height task, so fulfilment work starts without anyone copying the order over."
+  },
+  "watchOut": "“Create Task” adds to one Height workspace, so pick the workspace your fulfilment team watches."
+}

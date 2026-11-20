@@ -1,0 +1,8 @@
+{
+  "usedFor": "monday.com holds your boards and Pushwoosh sends alerts, so “Item Column Value Changes” runs “Send Push Notification”.",
+  "bestTemplate": {
+    "name": "“Item Column Value Changes” in monday.com, then “Send Push Notification” in Pushwoosh",
+    "why": "A value change on a board reaches a segment as a push notification."
+  },
+  "watchOut": "“Item Column Value Changes” fires on any column edit, so expect one push per change."
+}

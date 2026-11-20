@@ -1,0 +1,8 @@
+{
+  "usedFor": "HeySummit holds your event attendees, and TRIGGERcmd runs a command on your computers through “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in HeySummit, then “Trigger Command” in TRIGGERcmd",
+    "why": "Each registration starts a command you chose on your computers, so setup on your machine runs itself."
+  },
+  "watchOut": "“Trigger Command” acts on your computers, so test it on one registration before pointing it at a live event."
+}

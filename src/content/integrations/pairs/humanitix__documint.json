@@ -1,0 +1,8 @@
+{
+  "usedFor": "humanitix holds events and ticket orders, and Documint fills a document through “Add Content To Template” for each “New Order”.",
+  "bestTemplate": {
+    "name": "“New Order” in humanitix, then “Add Content To Template” in Documint",
+    "why": "Each ticket order fills a Documint template, giving you an order document without copying fields by hand."
+  },
+  "watchOut": "“New Order” carries only high level order information, while “New Attendes” carries each attendee's details."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Freelo holds your project tasks, and GitHub gets an issue from “New Task Created” through “Create Issue”.",
+  "bestTemplate": {
+    "name": "“New Task Created” in Freelo, then “Create Issue” in GitHub",
+    "why": "Tasks planned in Freelo show up as GitHub issues, so developers see them where they work."
+  },
+  "watchOut": "“New Task Created” in Freelo is polling, so the GitHub issue appears after the next scheduled check."
+}

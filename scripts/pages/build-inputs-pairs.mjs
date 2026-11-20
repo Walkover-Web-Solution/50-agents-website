@@ -27,6 +27,8 @@ for (const p of paths) {
   const seen = new Set();
   const recipes = [...A.recipes, ...B.recipes].map(r => ({ ...r, ta: r.ta.toLowerCase(), aa: r.aa.toLowerCase() }))
     .filter(r => ((r.ta === a && r.aa === b) || (r.ta === b && r.aa === a)) && !LOOKUP.test(r.ae.replace(/_/g, ' ')))
+    // a template whose action is really a trigger of the action app is a catalog error (row9axs8sano): left out
+    .filter(r => { const e = ev.get(`${r.aa}:${r.ae}`); return !(e && e.t === 'trigger' && ![...ev.values()].some(x => x.n === r.ae && x.t !== 'trigger')); })
     .filter(r => { const k = JSON.stringify(r); return !seen.has(k) && !!seen.add(k); });
   // Group by action: the templates read "<trigger> in <app> -> <action> in <app>".
   const byAction = {};

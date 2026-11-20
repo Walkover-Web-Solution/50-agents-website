@@ -1,0 +1,8 @@
+{
+  "usedFor": "monday.com tracks work on boards, and Megaventory holds the sales orders “Update Sales Order” edits on “Item Column Value Changes”.",
+  "bestTemplate": {
+    "name": "“Item Column Value Changes” in monday.com, then “Update Sales Order” in Megaventory",
+    "why": "A value changed on a board carries into the order, so the team stops updating two places."
+  },
+  "watchOut": "“Update Sales Order” edits an existing order, and the trigger fires on any column change, so filter first."
+}

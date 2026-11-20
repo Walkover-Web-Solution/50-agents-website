@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify takes the orders and Paddle holds billing customers, so “New Order” can register the buyer with “Create Customer”.",
+  "bestTemplate": {
+    "name": "“New Order” in Shopify, then “Create Customer” in Paddle",
+    "why": "Each order creates its buyer as a Paddle customer, which the address and business actions then build on."
+  },
+  "watchOut": "“Create an Address” and “Create a Business” belong to an existing Paddle customer, so run “Create Customer” first."
+}

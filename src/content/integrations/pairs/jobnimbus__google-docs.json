@@ -1,0 +1,8 @@
+{
+  "usedFor": "JobNimbus holds your estimates, and Google Docs receives the details when “New Estimate” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Estimate” in JobNimbus, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A new estimate is written into a Google Docs tab, so the estimate text is on hand to edit."
+  },
+  "watchOut": "“Task Created Modified or Deleted” fires on edits and deletions too, so one task can run the template several times."
+}

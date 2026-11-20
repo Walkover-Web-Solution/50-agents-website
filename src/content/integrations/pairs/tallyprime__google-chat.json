@@ -1,0 +1,8 @@
+{
+  "usedFor": "TallyPrime holds your books, and Google Chat tells finance when “New Purchase event occurs” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Purchase event occurs” in TallyPrime, then “Send Message” in Google Chat",
+    "why": "Each new purchase voucher is posted to a chat space, so finance sees spending as it is booked."
+  },
+  "watchOut": "“Account Statement Exported” also triggers in TallyPrime, so pick the purchase event if you only want voucher alerts."
+}

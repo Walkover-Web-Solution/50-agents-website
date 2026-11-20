@@ -1,0 +1,8 @@
+{
+  "usedFor": "Browse AI extracts web data, and each “Table Export” can open work in Asana.",
+  "bestTemplate": {
+    "name": "“Table Export” in Browse AI, then “Create Task or Subtask” in Asana",
+    "why": "A finished table export becomes an Asana task, so someone reviews the scraped data."
+  },
+  "watchOut": "“New Tasks” in Browse AI fires when a task finishes successfully, not when one is created."
+}

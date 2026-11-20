@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kajabi sells your courses and offers, and Microsoft Excel records each “New Purchased” through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Purchased” in Kajabi, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every offer purchase adds a row, so sales by offer can be totalled in a table."
+  },
+  "watchOut": "“Add Row To Table” needs an existing Excel table, so set it up before the first “New Purchased” runs."
+}

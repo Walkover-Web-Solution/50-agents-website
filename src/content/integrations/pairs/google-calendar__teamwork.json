@@ -1,0 +1,8 @@
+{
+  "usedFor": "Google Calendar holds your meetings, and Teamwork receives follow-up work when “New or Updated Event” runs “Create Task”.",
+  "bestTemplate": {
+    "name": "“New or Updated Event” in Google Calendar, then “Create Task” in Teamwork",
+    "why": "Each scheduled event gets a Teamwork task, so preparation does not live only on the calendar."
+  },
+  "watchOut": "“New or Updated Event” fires on edits as well, so a moved meeting can create a second task."
+}

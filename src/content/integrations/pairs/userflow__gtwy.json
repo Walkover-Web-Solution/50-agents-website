@@ -1,0 +1,8 @@
+{
+  "usedFor": "Userflow holds your onboarding users, and Gtwy runs your AI when “User Created” runs “Call AI Agent Instantly”.",
+  "bestTemplate": {
+    "name": "“User Created” in Userflow, then “Call AI Agent Instantly” in Gtwy",
+    "why": "Each new user sends a chat request to your selected AI agent, with custom variables from the user."
+  },
+  "watchOut": "“Group Updated” fires on every change, so the same group can reach Gtwy repeatedly."
+}

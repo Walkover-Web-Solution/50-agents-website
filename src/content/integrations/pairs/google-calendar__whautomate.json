@@ -1,0 +1,8 @@
+{
+  "usedFor": "Whautomate holds client appointments, and Google Calendar shows them when “New Appointment Scheduled” runs “Create Calendar Event”.",
+  "bestTemplate": {
+    "name": "“New Appointment Scheduled” in Whautomate, then “Create Calendar Event” in Google Calendar",
+    "why": "Every appointment booked lands on your calendar with time, duration and attendees."
+  },
+  "watchOut": "“New Event” in Google Calendar is polling, so “Create Client” in Whautomate follows a scheduled check."
+}

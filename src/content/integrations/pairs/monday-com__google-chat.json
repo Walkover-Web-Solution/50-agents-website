@@ -1,0 +1,8 @@
+{
+  "usedFor": "monday.com holds boards and Google Chat is where the team reads them, so “Item Column Value Changes” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“Item Column Value Changes” in monday.com, then “Send Message” in Google Chat",
+    "why": "A changed column posts to a chat space, so the team sees a status move without opening the board."
+  },
+  "watchOut": "“Item Column Value Changes” runs on any column update, so the same item can post to the space repeatedly."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sensible extracts data from documents, and HubSpot receives it when “Extraction Completes” runs “Update Contact”.",
+  "bestTemplate": {
+    "name": "“Extraction Completes” in Sensible, then “Update Contact” in HubSpot",
+    "why": "Finished extractions update an existing HubSpot contact, so extracted details reach the record."
+  },
+  "watchOut": "“Update Contact” finds the contact by email, so an extraction without a matching email updates nothing."
+}

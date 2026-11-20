@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify sees abandoned carts, and OneHash CRM receives the shopper when “Abandoned Checkout” runs “Create new lead”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create new lead” in OneHash CRM",
+    "why": "A shopper who left an email or phone at checkout becomes a lead your sales team can follow up."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so “Create new lead” runs after a scheduled check."
+}

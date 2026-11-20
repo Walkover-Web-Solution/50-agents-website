@@ -1,0 +1,8 @@
+{
+  "usedFor": "Nozbe holds your tasks and projects, and Calendly gets a booking link when “Create Scheduling Link” follows “New Task”.",
+  "bestTemplate": {
+    "name": "“New Task” in Nozbe, then “Create Scheduling Link” in Calendly",
+    "why": "A new task creates a scheduling link, so you can book the time it needs."
+  },
+  "watchOut": "“Update or New Task” also fires on edits, so the same task can create a second link."
+}

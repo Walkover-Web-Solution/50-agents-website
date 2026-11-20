@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack is where requests get posted, and TeamWave turns each one into work through “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Create Task” in TeamWave",
+    "why": "A message in a chosen Slack channel becomes a TeamWave task, so requests stop getting lost in chat."
+  },
+  "watchOut": "It also catches bot messages, so a busy channel can create tasks you did not mean to track."
+}

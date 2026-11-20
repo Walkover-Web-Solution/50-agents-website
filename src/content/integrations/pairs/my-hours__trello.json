@@ -1,0 +1,8 @@
+{
+  "usedFor": "Trello holds your cards and My Hours holds your time-tracked projects, so “New Card Created” can run “Create Project”.",
+  "bestTemplate": {
+    "name": "“New Card Created” in Trello, then “Create Project” in My Hours",
+    "why": "Each new card opens a project in My Hours, so time can be logged against the work from day one."
+  },
+  "watchOut": "“Add Label to Card” fires on every label added, so it can create a second project for one card."
+}

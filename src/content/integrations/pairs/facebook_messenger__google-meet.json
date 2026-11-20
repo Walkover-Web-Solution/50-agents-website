@@ -1,0 +1,8 @@
+{
+  "usedFor": "Facebook Messenger receives page messages, and Google Meet books a call through “Schedule a Meeting” on each “New Page Message”.",
+  "bestTemplate": {
+    "name": "“New Page Message” in Facebook Messenger, then “Schedule a Meeting” in Google Meet",
+    "why": "A customer who writes to your page gets a video call scheduled without a back and forth."
+  },
+  "watchOut": "“New Page Message” runs on every message, so one conversation can book several meetings with “Schedule a Meeting”."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and pushover alerts your phone when “New Task Created in Project” runs “Send a Pushover Notification”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Send a Pushover Notification” in pushover",
+    "why": "A task added to a project reaches your devices as a push notification, so nothing waits unseen."
+  },
+  "watchOut": "“New Task Created in Project” in Todoist is polling, so the notification follows a scheduled check."
+}

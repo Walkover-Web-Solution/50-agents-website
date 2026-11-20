@@ -1,0 +1,8 @@
+{
+  "usedFor": "api.video hosts your streams and Documint builds documents, so “Live Stream Ended” can feed “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“Live Stream Ended” in api.video, then “Add Content To Template” in Documint",
+    "why": "A finished broadcast becomes a document built from the stream details, ready to file or share."
+  },
+  "watchOut": "“New Video Created” in api.video is polling, so a new video reaches Documint after a scheduled check."
+}

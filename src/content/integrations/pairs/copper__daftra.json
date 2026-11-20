@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copper captures leads and people, and Daftra gets each “New Person” as a client through “Add Client”.",
+  "bestTemplate": {
+    "name": "“New Person” in Copper, then “Add Client” in Daftra",
+    "why": "A person added in Copper is ready as a client in Daftra before the first invoice is needed."
+  },
+  "watchOut": "“New Lead” in Copper would also run “Add Client”, so pick one trigger or unqualified leads become clients."
+}

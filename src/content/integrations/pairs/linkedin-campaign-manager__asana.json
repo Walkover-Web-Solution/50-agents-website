@@ -1,0 +1,8 @@
+{
+  "usedFor": "LinkedIn Campaign Manager collects lead form responses, and Asana receives a task through “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Sponsored Lead Form Response” in LinkedIn Campaign Manager, then “Create Task or Subtask” in Asana",
+    "why": "Each ad lead becomes a task with an assignee and due date, so follow up has an owner."
+  },
+  "watchOut": "Organic and sponsored lead forms are separate triggers, so set up one for each type you run."
+}

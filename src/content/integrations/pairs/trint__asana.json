@@ -1,0 +1,8 @@
+{
+  "usedFor": "Trint produces transcripts, and Asana turns them into work when “New Transcript” runs “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Transcript” in Trint, then “Create Task or Subtask” in Asana",
+    "why": "Each ready transcript becomes an Asana task, so someone owns the review."
+  },
+  "watchOut": "“New Transcript” fires when a transcript is ready, not verified, so use “Verified Transcript” for approved text."
+}

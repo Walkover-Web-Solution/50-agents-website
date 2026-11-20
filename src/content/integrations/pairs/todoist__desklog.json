@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist is where tasks are captured and Desklog.io tracks the time, so “New Task Created in Project” runs “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Task” in Desklog.io",
+    "why": "Tasks added in a chosen Todoist project show up in Desklog.io, ready for time tracking."
+  },
+  "watchOut": "“New Incomplete Task” only looks at recently added tasks, so older ones can be missed."
+}

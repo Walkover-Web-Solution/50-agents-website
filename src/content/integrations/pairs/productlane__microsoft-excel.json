@@ -1,0 +1,8 @@
+{
+  "usedFor": "Productlane holds your customer contacts, and Microsoft Excel stores each one in a table through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Productlane, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every new contact is added to an Excel table you can filter and share."
+  },
+  "watchOut": "“New Contact” is polling, so rows arrive after a scheduled check, and “Update Row” is a separate step."
+}

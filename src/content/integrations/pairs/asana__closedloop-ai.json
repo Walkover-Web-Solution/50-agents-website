@@ -1,0 +1,8 @@
+{
+  "usedFor": "ClosedLoop AI turns customer feedback into product insights, and Asana receives them as work through “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Product Insight Generated” in ClosedLoop AI, then “Create Task or Subtask” in Asana",
+    "why": "Every new insight becomes a task with an assignee and dates, so no insight sits unread."
+  },
+  "watchOut": "“New Product Insight Generated” in ClosedLoop AI is polling, so tasks appear after a scheduled check, not at once."
+}

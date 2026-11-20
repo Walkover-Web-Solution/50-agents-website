@@ -1,0 +1,8 @@
+{
+  "usedFor": "Gmail receives the emails and Freshservice runs your IT desk, so “New Email Arrives” can register senders through “Create Requestor”.",
+  "bestTemplate": {
+    "name": "“New Email Arrives” in Gmail, then “Create Requestor” in Freshservice",
+    "why": "Each sender who writes in gets a requester record, so tickets can be raised for them in Freshservice."
+  },
+  "watchOut": "“New Email Arrives” is polling, so “Create Requestor” follows a scheduled check; use its reply setting to skip repeat senders."
+}

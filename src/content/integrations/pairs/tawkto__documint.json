@@ -1,0 +1,8 @@
+{
+  "usedFor": "tawk.to holds chats, and Documint fills a template when “New Chat Transcript Arrives” fires.",
+  "bestTemplate": {
+    "name": "“New Chat Transcript Arrives” in tawk.to, then “Add Content To Template” in Documint",
+    "why": "A saved transcript goes into a Documint template, so each chat gets a document of its own."
+  },
+  "watchOut": "“Add Content To Template” fills a template you already built in Documint, so set one up first."
+}

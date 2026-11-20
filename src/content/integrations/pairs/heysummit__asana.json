@@ -1,0 +1,8 @@
+{
+  "usedFor": "HeySummit holds your summit registrations, and Asana gets a task from “New Attendee” through “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in HeySummit, then “Create Task or Subtask” in Asana",
+    "why": "Each registration becomes a task with assignee and dates, so someone owns the welcome and follow up."
+  },
+  "watchOut": "“Ticket Purchased” fires when an attendee registers too, so using both creates two tasks for one person."
+}

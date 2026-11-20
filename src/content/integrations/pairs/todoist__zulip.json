@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and Zulip tells the team when “Send Stream Message” follows “New Task Created in Project”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Send Stream Message” in Zulip",
+    "why": "A new task posts to a Zulip stream and topic, so the right people see it."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so the Zulip message arrives after a scheduled check."
+}

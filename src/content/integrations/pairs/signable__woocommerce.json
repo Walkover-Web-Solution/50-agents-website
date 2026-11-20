@@ -1,0 +1,8 @@
+{
+  "usedFor": "WooCommerce takes orders, and Signable sends the contract when “New Order Created” runs “Send an Envelope using a Template”.",
+  "bestTemplate": {
+    "name": "“New Order Created” in WooCommerce, then “Send an Envelope using a Template” in Signable",
+    "why": "A new order starts the signing paperwork from your saved template without anyone sending it by hand."
+  },
+  "watchOut": "“Send an Envelope using a Template” reaches a customer outside, so it waits in Needs you for approval."
+}

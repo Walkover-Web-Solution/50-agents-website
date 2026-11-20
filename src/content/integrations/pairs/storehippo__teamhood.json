@@ -1,0 +1,8 @@
+{
+  "usedFor": "StoreHippo holds your orders and Teamhood organizes the work, so “New Order” runs “Create Item”.",
+  "bestTemplate": {
+    "name": "“New Order” in StoreHippo, then “Create Item” in Teamhood",
+    "why": "Each order becomes an item on your board, so fulfilment has a visible owner."
+  },
+  "watchOut": "“New Product Created” and “New User” also fit “Create Item”, so pick one trigger or the board fills fast."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bexio holds quotes, orders and invoices, and TRIGGERcmd runs a command on your computer when “New Order” appears.",
+  "bestTemplate": {
+    "name": "“New Order” in Bexio, then “Trigger Command” in TRIGGERcmd",
+    "why": "Each new order starts a command you have set up on your own computer."
+  },
+  "watchOut": "“New Quote” in Bexio fires on updates as well as new quotes, so one quote can run “Trigger Command” twice."
+}

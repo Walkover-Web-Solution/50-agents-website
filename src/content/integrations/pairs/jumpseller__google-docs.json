@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jumpseller runs the store and Google Docs holds a running note via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Product Added” in Jumpseller, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new product adds a line to a catalog tab, so the team sees launches in one place."
+  },
+  "watchOut": "The replace option in “Add or Replace Text In Tab” wipes the tab's current content, so pick adding before connecting."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "HeySummit holds event registrations and MailerLite holds your mailing list, so “New Attendee” can run “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in HeySummit, then “Create or Update Subscriber” in MailerLite",
+    "why": "Every registration lands on your MailerLite list, so you can email attendees about the event."
+  },
+  "watchOut": "“Ticket Purchased” and “New Attendee” in HeySummit both cover registrations, so pick one trigger to avoid running twice."
+}

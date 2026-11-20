@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pitchit holds lead insights, and Salesforce receives a contact when “When a lead's insights are updated” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“When a lead's insights are updated” in Pitchit, then “Create Contact” in Salesforce",
+    "why": "Once a lead has fresh insights, a Salesforce contact is created so sales sees them in the CRM."
+  },
+  "watchOut": "That trigger fires on every update to a lead's insights, so “Create Contact” can add the same person twice."
+}

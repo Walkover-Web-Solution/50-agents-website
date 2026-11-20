@@ -1,0 +1,8 @@
+{
+  "usedFor": "Woodpecker runs your outreach, and Google Contacts stores the person through “Create Contact” when “Prospect Interested” runs.",
+  "bestTemplate": {
+    "name": "“Prospect Interested” in Woodpecker, then “Create Contact” in Google Contacts",
+    "why": "A prospect marked interested is saved as a contact, so your phone knows who replied."
+  },
+  "watchOut": "“Email Opened” in Woodpecker fires on every open, so keep “Create Contact” on “Prospect Interested” only."
+}

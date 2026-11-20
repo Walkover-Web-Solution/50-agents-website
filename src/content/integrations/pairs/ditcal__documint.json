@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds your bookings, and Documint fills a document through “Add Content To Template” for each one.",
+  "bestTemplate": {
+    "name": "“New Booking” in DitCal, then “Add Content To Template” in Documint",
+    "why": "Each new booking is added to a Documint template, so booking paperwork starts without retyping."
+  },
+  "watchOut": "“Meeting Rescheduled” and “Booking Cancelled” are separate triggers, so one template per event keeps the wording right."
+}

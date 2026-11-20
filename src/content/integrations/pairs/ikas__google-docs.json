@@ -1,0 +1,8 @@
+{
+  "usedFor": "ikas holds your store orders, and Google Docs keeps a running record through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Order” in ikas, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new order is written into a Google Docs tab, giving you a readable order log."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's content, so choose add, not replace, for a running log."
+}

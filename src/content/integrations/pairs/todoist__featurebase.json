@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks and Featurebase holds feedback, so “New Task Created in Project” can run “Create Feedback Post”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Feedback Post” in Featurebase",
+    "why": "A task capturing a customer request in Todoist becomes a feedback post your team can prioritize."
+  },
+  "watchOut": "“New Task Created in Project” in Todoist is polling, and every task in that project becomes a feedback post."
+}

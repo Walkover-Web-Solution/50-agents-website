@@ -1,0 +1,8 @@
+{
+  "usedFor": "Elai builds videos and Google Docs keeps notes, so “Video Ready” can log through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Video Ready” in Elai, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A finished video is worth logging, so the action adds a line to a chosen document tab."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace existing tab content, so check its mode before “Video Ready” runs it."
+}

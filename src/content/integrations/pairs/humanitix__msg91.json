@@ -1,0 +1,8 @@
+{
+  "usedFor": "humanitix holds your event orders and MSG91 handles communication, so “New Order” opens a ticket with “Send Mail via Hello”.",
+  "bestTemplate": {
+    "name": "“New Order” in humanitix, then “Send Mail via Hello” in MSG91",
+    "why": "Each order opens a ticket, so your team can follow up on buyers."
+  },
+  "watchOut": "“New Order” in humanitix is polling, so the ticket from “Send Mail via Hello” follows a scheduled check."
+}

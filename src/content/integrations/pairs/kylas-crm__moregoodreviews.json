@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kylas CRM holds your sales deals and More Good Reviews collects feedback, so “New Deal” can run “Create Customer”.",
+  "bestTemplate": {
+    "name": "“New Deal” in Kylas CRM, then “Create Customer” in More Good Reviews",
+    "why": "Each deal adds its customer to More Good Reviews, so review requests have someone to go to."
+  },
+  "watchOut": "“New Deal” fires when a deal is generated, not won, so customers can be added before they have bought."
+}

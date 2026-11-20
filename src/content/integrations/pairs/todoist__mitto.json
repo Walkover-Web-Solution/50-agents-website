@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and Mitto sends the text when “New Task Created in Project” runs “Send an SMS”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Send an SMS” in Mitto",
+    "why": "A new task texts one recipient, sent through your Mitto account, so urgent work is seen quickly."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so the text follows a scheduled check, not the task itself."
+}

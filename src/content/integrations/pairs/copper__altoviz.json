@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copper holds your people and companies, and Altoviz receives them as billing contacts when “New Person” runs “Create a Contact”.",
+  "bestTemplate": {
+    "name": "“New Person” in Copper, then “Create a Contact” in Altoviz",
+    "why": "Invoicing needs the contact before the first bill, and a new Copper person fills it without retyping."
+  },
+  "watchOut": "“Updated Person” also reaches “Create a Contact”, so an edited person could add a duplicate contact in Altoviz."
+}

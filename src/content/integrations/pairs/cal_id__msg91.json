@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cal ID holds the bookings, and MSG91 sends a confirmation through “Send Template SMS” when “Booking Created” runs.",
+  "bestTemplate": {
+    "name": "“Booking Created” in Cal ID, then “Send Template SMS” in MSG91",
+    "why": "A new booking triggers a confirmation SMS from a chosen template, sent through your MSG91 account."
+  },
+  "watchOut": "A text goes out through your MSG91 account, so check the template variables match what “Booking Created” carries."
+}

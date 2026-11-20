@@ -1,0 +1,8 @@
+{
+  "usedFor": "Envoy for Visitors records invites, and “Visitor Invited” can run “Share File” in Google Drive.",
+  "bestTemplate": {
+    "name": "“Visitor Invited” in Envoy for Visitors, then “Share File” in Google Drive",
+    "why": "An invited visitor gets access to a file you choose, as Viewer, Commenter or Editor."
+  },
+  "watchOut": "“Visitor Invited” in Envoy for Visitors is polling, so the share happens after a scheduled check."
+}

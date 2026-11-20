@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho POS holds shoppers as contacts, and “Send Template Message” in Conversion Chats greets them when “New Contact Created” runs.",
+  "bestTemplate": {
+    "name": "“New Contact Created” in Zoho POS, then “Send Template Message” in Conversion Chats",
+    "why": "A new contact gets a template message through your Conversion Chats account."
+  },
+  "watchOut": "“New Contact Created” in Zoho POS is polling, so the message goes after a scheduled check."
+}

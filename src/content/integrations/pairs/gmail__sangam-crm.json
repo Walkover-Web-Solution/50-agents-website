@@ -1,0 +1,8 @@
+{
+  "usedFor": "Gmail receives the enquiries, and Sangam CRM keeps each sender as a lead through “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Email Arrives” in Gmail, then “Create or Update Lead” in Sangam CRM",
+    "why": "Each incoming enquiry becomes a lead, or updates one that already exists for that email or phone."
+  },
+  "watchOut": "“New Email Arrives” is polling, so filter by label or sender or every newsletter becomes a lead."
+}

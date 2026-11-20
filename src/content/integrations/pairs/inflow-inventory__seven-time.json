@@ -1,0 +1,8 @@
+{
+  "usedFor": "inflow-inventory holds purchase orders and Seven Time holds tasks, so “Updated Purchase Order” can run “Create Task”.",
+  "bestTemplate": {
+    "name": "“Updated Purchase Order” in inflow-inventory, then “Create Task” in Seven Time",
+    "why": "When a purchase order changes, someone gets a Seven Time task to check it."
+  },
+  "watchOut": "“Updated Purchase Order” fires on every update, so the same order can create several tasks in Seven Time."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your orders and Chatwork is where the team talks, so “Order Cancelled” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“Order Cancelled” in Shopify, then “Send Message” in Chatwork",
+    "why": "A cancelled order is posted to a group chat, so the team can act on it."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so a message about it arrives after a scheduled check."
+}

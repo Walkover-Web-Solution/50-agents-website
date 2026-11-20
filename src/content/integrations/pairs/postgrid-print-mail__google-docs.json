@@ -1,0 +1,8 @@
+{
+  "usedFor": "PostGrid Print & Mail sends letters, Google Docs logs them: “New Letter Created” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Letter Created” in PostGrid Print & Mail, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new mailing is noted in a chosen document tab."
+  },
+  "watchOut": "“New Letter Created” is polling within a lookback window, and replace mode would overwrite earlier entries."
+}

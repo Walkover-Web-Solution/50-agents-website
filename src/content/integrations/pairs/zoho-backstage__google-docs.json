@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Backstage holds your event registrations, and Google Docs lists each attendee through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in Zoho Backstage, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each attendee is written into a doc, giving organizers a simple running guest list."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s content, so choose add for a running list."
+}

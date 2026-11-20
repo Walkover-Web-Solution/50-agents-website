@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jumpseller holds store customers, and “New Customer Created” fills a template in Documint.",
+  "bestTemplate": {
+    "name": "“New Customer Created” in Jumpseller, then “Add Content To Template” in Documint",
+    "why": "Each new customer produces a document filled from a Documint template."
+  },
+  "watchOut": "“Customer Updated” in Jumpseller fires on every update, so the same customer can produce another document."
+}

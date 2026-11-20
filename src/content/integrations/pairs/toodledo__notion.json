@@ -1,0 +1,8 @@
+{
+  "usedFor": "Toodledo holds tasks and Notion holds pages, so “New Task Created” can run “Create Page” for each one.",
+  "bestTemplate": {
+    "name": "“New Task Created” in Toodledo, then “Create Page” in Notion",
+    "why": "Each Toodledo task gets a Notion page where you can add notes and context."
+  },
+  "watchOut": "“New Task Created” in Toodledo is polling, so the Notion page appears after a scheduled check."
+}

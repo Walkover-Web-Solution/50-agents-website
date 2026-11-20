@@ -1,0 +1,8 @@
+{
+  "usedFor": "Way We Do runs checklists and sign-offs, and Slack tells the team through “Send Message” on a “Supervisor SignOff Invite”.",
+  "bestTemplate": {
+    "name": "“Supervisor SignOff Invite” in Way We Do, then “Send Message” in Slack",
+    "why": "The supervisor invited to sign off hears about it in Slack, where they will actually see it."
+  },
+  "watchOut": "An automation's post to a Slack channel waits for your approval today, so approve it in Needs you."
+}

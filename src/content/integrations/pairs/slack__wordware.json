@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack holds team conversations, and Wordware runs an app on them when “Run App” follows “New Mention”.",
+  "bestTemplate": {
+    "name": "“New Mention” in Slack, then “Run App” in Wordware",
+    "why": "When someone mentions you in a channel, a Wordware app runs on that message."
+  },
+  "watchOut": "“New Mention” is polling, so the Wordware app runs after a scheduled check, not on the mention."
+}

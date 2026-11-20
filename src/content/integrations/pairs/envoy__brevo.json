@@ -1,0 +1,8 @@
+{
+  "usedFor": "Envoy for Visitors records who is coming and Brevo holds your contacts, so “Visitor Invited” feeds “Add Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Visitor Invited” in Envoy for Visitors, then “Add Or Update Contact” in Brevo",
+    "why": "Each invited visitor is added to Brevo, and one who is already there is updated instead."
+  },
+  "watchOut": "“Visitor Invited” in Envoy for Visitors is polling, so contacts reach Brevo after a scheduled check."
+}

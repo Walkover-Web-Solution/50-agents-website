@@ -1,0 +1,8 @@
+{
+  "usedFor": "EasyBroker receives property enquiries, and TRIGGERcmd runs “Trigger Command” on your computers when “New Contact Request” arrives.",
+  "bestTemplate": {
+    "name": "“New Contact Request” in Easybroker, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new enquiry can start a command you have set up locally, without anyone watching the inbox."
+  },
+  "watchOut": "“New Contact Request” in EasyBroker is polling, so “Trigger Command” starts after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Amazon Seller Central holds your orders, and Google Contacts keeps each buyer once “Create Contact” follows “New Order Created”.",
+  "bestTemplate": {
+    "name": "“New Order Created” in Amazon Seller Central, then “Create Contact” in Google Contacts",
+    "why": "Each new order adds a contact, so buyers land in your address book without retyping."
+  },
+  "watchOut": "“New Order Created” is polling, so a new contact appears after the next scheduled check."
+}

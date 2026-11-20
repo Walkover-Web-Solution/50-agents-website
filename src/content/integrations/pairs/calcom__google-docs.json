@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cal.com holds bookings and Google Docs holds the notes, so “Booking Created” can run “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Booking Created” in Cal.com, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new booking can add a line to a tab, so a running booking log stays current."
+  },
+  "watchOut": "“Add or Replace Text In Tab” in Google Docs can replace the tab's content, so choose add when logging bookings."
+}

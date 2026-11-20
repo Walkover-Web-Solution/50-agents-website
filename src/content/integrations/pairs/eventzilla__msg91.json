@@ -1,0 +1,8 @@
+{
+  "usedFor": "Eventzilla holds registrations and MSG91 handles tickets in Hello, so “New Registration” can run “Send Mail via Hello”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Eventzilla, then “Send Mail via Hello” in MSG91",
+    "why": "A new registration opens a ticket in Hello, so someone follows up with the attendee."
+  },
+  "watchOut": "“Registration Is Updated” in Eventzilla also reaches “Send Mail via Hello”, so edits could open extra tickets."
+}

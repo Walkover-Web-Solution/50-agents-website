@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds tasks and Hive holds team projects, so “New Task Created in Project” can run “Create Action for Workspace”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Action for Workspace” in Hive",
+    "why": "Each new Todoist task appears in a Hive workspace with a scheduled date."
+  },
+  "watchOut": "Wiring both Todoist triggers to “Create Action for Workspace” in Hive could duplicate a task."
+}

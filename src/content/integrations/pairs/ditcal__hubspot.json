@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds your bookings, and HubSpot keeps the people when “New Booking” runs “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Booking” in DitCal, then “Create or Update Contact” in HubSpot",
+    "why": "Each booker lands in HubSpot by email, and a repeat booker updates the existing contact instead of duplicating it."
+  },
+  "watchOut": "“Booking Cancelled” can run the same action, so build only for the events you want recorded."
+}

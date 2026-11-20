@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and Teable mirrors them as rows when “Create Record” follows “New Task Created in Project”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Record” in Teable",
+    "why": "Every new task in a chosen project adds a Teable row, so you can report on them."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so rows show up after a scheduled check."
+}

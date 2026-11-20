@@ -1,0 +1,8 @@
+{
+  "usedFor": "HelloLeads CRM holds new leads and Freshsales Classic holds deals, so “New Lead Added” can run “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Lead Added” in HelloLeads CRM, then “Create Deal” in Freshsales Classic",
+    "why": "A new lead gets a deal with its stage and close date, and the contact is created if missing."
+  },
+  "watchOut": "“New Lead Added” in HelloLeads CRM is polling, so “Create Deal” in Freshsales Classic runs after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Brevo sends your campaigns and Attio keeps the customer records, so “Contact Unsubscribed” runs “Update Record” on the matching contact.",
+  "bestTemplate": {
+    "name": "“Contact Unsubscribed” in Brevo, then “Update Record” in Attio",
+    "why": "An unsubscribe is a status change your sales team should see on the Attio record, not only in Brevo."
+  },
+  "watchOut": "“Contact Updated” in Brevo fires on every edit, so the same contact can run “Update Record” again."
+}

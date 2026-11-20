@@ -1,0 +1,8 @@
+{
+  "usedFor": "Asana holds tasks and AI Studios by Deep Brain writes text, so “Create Text Generator” can follow task activity.",
+  "bestTemplate": {
+    "name": "“New Story Added to Task or Goal” in Asana, then “Create Text Generator” in AI Studios by Deep Brain",
+    "why": "Each new comment or activity on a task can supply the topic for generated text."
+  },
+  "watchOut": "“New Story Added to Task or Goal” is polling and watches one task or goal, so expect a delay."
+}

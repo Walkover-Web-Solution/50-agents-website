@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pipedrive holds your people, and Reply gets them as outreach targets when “New Person Created” runs “Create Person”.",
+  "bestTemplate": {
+    "name": "“New Person Created” in Pipedrive, then “Create Person” in Reply",
+    "why": "A person added to Pipedrive appears in Reply, ready to be placed in a campaign."
+  },
+  "watchOut": "“New Person Created” is polling, so “Create Person” runs after a scheduled check, not at once."
+}

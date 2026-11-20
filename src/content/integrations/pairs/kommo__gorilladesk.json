@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kommo holds your incoming leads, and GorillaDesk receives them through “Add a Lead”.",
+  "bestTemplate": {
+    "name": "“New Lead” in Kommo, then “Add a Lead” in GorillaDesk",
+    "why": "A lead captured in Kommo is added to GorillaDesk, so the field service team sees it too."
+  },
+  "watchOut": "“New Lead” also feeds “Add a Customer”, so pick lead or customer, not both, or one person appears twice."
+}

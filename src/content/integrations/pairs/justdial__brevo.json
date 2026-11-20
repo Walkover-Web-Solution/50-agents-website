@@ -1,0 +1,8 @@
+{
+  "usedFor": "Justdial captures local leads, and Brevo stores each one through “Add Or Update Contact” after a “New Leads” event.",
+  "bestTemplate": {
+    "name": "“New Leads” in Justdial, then “Add Or Update Contact” in Brevo",
+    "why": "A new enquiry becomes a Brevo contact, and the update path avoids a duplicate if the person is already there."
+  },
+  "watchOut": "A repeat enquirer overwrites existing details through “Add Or Update Contact”, so decide which fields should win."
+}

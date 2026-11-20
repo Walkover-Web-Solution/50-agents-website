@@ -1,0 +1,8 @@
+{
+  "usedFor": "Qminder runs the visitor queue, and Zendesk Support opens a ticket through “Create Support Ticket” when a “visitor checks in”.",
+  "bestTemplate": {
+    "name": "“visitor checks in” in Qminder, then “Create Support Ticket” in Zendesk Support",
+    "why": "A check-in becomes a ticket with requester, priority and tags, so the front desk and support share one record."
+  },
+  "watchOut": "“Add visitor to queue” and “Mark visitor as served” are separate triggers, so wire one or visitors get several tickets."
+}

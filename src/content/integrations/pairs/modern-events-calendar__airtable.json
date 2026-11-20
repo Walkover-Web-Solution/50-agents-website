@@ -1,0 +1,8 @@
+{
+  "usedFor": "Modern Events Calendar publishes events, and each “New Event” adds a record in Airtable.",
+  "bestTemplate": {
+    "name": "“New Event” in Modern Events Calendar, then “Create Record” in Airtable",
+    "why": "Each new event gets a row in your base, so planning happens next to the listing."
+  },
+  "watchOut": "“Update Record” in Airtable creates a record when no match is found, so check your matching field."
+}

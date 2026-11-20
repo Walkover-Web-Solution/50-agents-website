@@ -1,0 +1,8 @@
+{
+  "usedFor": "Acadle holds your learners and MSG91 sends the mail when “New User” runs “Send a Mail” from a template.",
+  "bestTemplate": {
+    "name": "“New User” in Acadle, then “Send a Mail” in MSG91",
+    "why": "A created user gets a templated mail, so onboarding starts without anyone typing it."
+  },
+  "watchOut": "“New User” in Acadle is polling, so “Send a Mail” goes out after the next scheduled check."
+}

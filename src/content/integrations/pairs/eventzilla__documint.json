@@ -1,0 +1,8 @@
+{
+  "usedFor": "Eventzilla takes event registrations and Documint builds documents, so “New Registration” can feed “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Eventzilla, then “Add Content To Template” in Documint",
+    "why": "A new registration is the moment attendee details exist, so the action can put them into a document template."
+  },
+  "watchOut": "“Registration Is Updated” fires on edits too, so “Add Content To Template” can run again for the same registration."
+}

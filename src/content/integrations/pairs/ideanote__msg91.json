@@ -1,0 +1,8 @@
+{
+  "usedFor": "Ideanote collects customer ideas, and MSG91 gets a ticket through “Send Mail via Hello” when “New Ideas” arrives.",
+  "bestTemplate": {
+    "name": "“New Ideas” in Ideanote, then “Send Mail via Hello” in MSG91",
+    "why": "Each new idea becomes an MSG91 ticket, so someone on your team owns the follow-up."
+  },
+  "watchOut": "“New Ideas” is polling, so tickets open after a scheduled check rather than the moment someone posts."
+}

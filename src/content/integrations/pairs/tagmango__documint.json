@@ -1,0 +1,8 @@
+{
+  "usedFor": "TagMango knows who finished a course, and Documint writes the document when “Course Completion” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“Course Completion” in TagMango, then “Add Content To Template” in Documint",
+    "why": "A learner finishing a course fills a template, so a certificate or summary is ready to send."
+  },
+  "watchOut": "“Course Progress Event” fires whenever progress starts, so choose “Course Completion” to avoid documents for partial work."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cal.com holds bookings, and MSG91 opens a ticket when “Booking Created” runs “Send Mail via Hello”.",
+  "bestTemplate": {
+    "name": "“Booking Created” in Cal.com, then “Send Mail via Hello” in MSG91",
+    "why": "Each new booking gets a ticket, so your team has one place to follow it up."
+  },
+  "watchOut": "“Booking Reschedules” and “Booking Is Cancelled” are separate triggers, so each needs its own template."
+}

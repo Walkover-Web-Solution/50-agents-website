@@ -1,0 +1,8 @@
+{
+  "usedFor": "Solve CRM holds contacts and companies, and HubSpot holds deals, so “New Tagged Contact” can run “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Tagged Contact” in Solve CRM, then “Create Deal” in HubSpot",
+    "why": "Tagging a contact opens a deal, so you choose which contacts reach the pipeline."
+  },
+  "watchOut": "“Update Contact” in Solve CRM fires on every update, so the same contact can create several deals."
+}

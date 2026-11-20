@@ -1,0 +1,8 @@
+{
+  "usedFor": "CTM tracks your calls, and Freshsales Classic receives a deal when “Call Ends” runs “Create Deal”.",
+  "bestTemplate": {
+    "name": "“Call Ends” in CTM, then “Create Deal” in Freshsales Classic",
+    "why": "Waiting for the call to end means the deal starts from a finished conversation, with the caller as contact."
+  },
+  "watchOut": "Using both “Call Ends” and “New Call Starts” with “Create Deal” opens two deals for one call."
+}

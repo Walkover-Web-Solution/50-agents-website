@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailChimp holds your subscribers and Reckon One your books, so each new subscriber can become a contact through “Create Contact”.",
+  "bestTemplate": {
+    "name": "“When a new subscriber is added to an audience” in MailChimp, then “Create Contact” in Reckon One",
+    "why": "A subscriber who joins an audience is recorded in Reckon One, so finance and marketing share one contact list."
+  },
+  "watchOut": "Templates run both ways, so “Create Contact” and “New Contact” together can bounce the same person back and forth."
+}

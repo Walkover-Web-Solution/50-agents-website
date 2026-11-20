@@ -1,0 +1,8 @@
+{
+  "usedFor": "CTM tracks calls and Microsoft Excel keeps the log, with “Call Ends” adding a line through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“Call Ends” in CTM, then “Add Row To Table” in Microsoft Excel",
+    "why": "A finished call becomes a row once it ends, so the call log fills itself."
+  },
+  "watchOut": "“Add Row To Table” writes into an Excel table, so set up that table before the first call ends."
+}

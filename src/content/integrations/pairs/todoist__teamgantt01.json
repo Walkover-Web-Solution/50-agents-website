@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds quick tasks and TeamGantt holds your project plan, so “New Task Created in Project” can run “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Task” in TeamGantt",
+    "why": "Each new Todoist task shows up in the Gantt plan, so scheduling sees work captured elsewhere."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so tasks reach TeamGantt after a scheduled check."
+}

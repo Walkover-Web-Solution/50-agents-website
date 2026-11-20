@@ -1,0 +1,8 @@
+{
+  "usedFor": "telecrm holds the leads and Template To builds the documents, so “New Lead Is Created” runs “Create PDF From Template”.",
+  "bestTemplate": {
+    "name": "“New Lead Is Created” in telecrm, then “Create PDF From Template” in Template To",
+    "why": "The action fills your template and returns the PDF file URL for that lead."
+  },
+  "watchOut": "“Create PDF From Template” returns a link, not a delivered file, so sharing it with the lead is separate."
+}

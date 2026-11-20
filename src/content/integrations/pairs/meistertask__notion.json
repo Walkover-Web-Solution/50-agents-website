@@ -1,0 +1,8 @@
+{
+  "usedFor": "Notion holds your pages, and MeisterTask turns each new page into work through “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Page Is Created” in Notion, then “Create Task” in MeisterTask",
+    "why": "A new Notion page becomes a MeisterTask task, so planning notes get an owner and a place."
+  },
+  "watchOut": "“New Page Is Created” in Notion is pushed, but “Create Task” still needs a project and section chosen."
+}

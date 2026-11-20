@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mobile Text Alerts holds your replies, and Google Docs logs them through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“SMS Reply Received” in Mobile Text Alerts, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each reply from a recipient is written into a Google Docs tab, so replies are readable in one place."
+  },
+  "watchOut": "Choose add over replace in “Add or Replace Text In Tab”, or each new reply overwrites the earlier ones."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cal.com holds bookings, and HubSpot keeps the contact history that “Add Notes to Contact” writes into.",
+  "bestTemplate": {
+    "name": "“Booking Created” in Cal.com, then “Add Notes to Contact” in HubSpot",
+    "why": "Each new booking leaves a dated note on the HubSpot contact, so sales sees the meeting."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or email, and “Booking Reschedules” would add a second note."
+}

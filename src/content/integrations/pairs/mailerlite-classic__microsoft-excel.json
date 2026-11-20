@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailerLite Classic holds your subscribers, and Microsoft Excel tracks list losses when “Add Row To Table” runs.",
+  "bestTemplate": {
+    "name": "“Subscriber Unsubscribes” in MailerLite Classic, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each unsubscribe becomes an Excel row, so you can see who left and when."
+  },
+  "watchOut": "Every MailerLite Classic trigger here is polling, so rows arrive after a scheduled check."
+}

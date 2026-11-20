@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copper holds leads and CheckFlow holds checklists, so “New Lead” in Copper can start “Create Checklist” in CheckFlow.",
+  "bestTemplate": {
+    "name": "“New Lead” in Copper, then “Create Checklist” in CheckFlow",
+    "why": "Each new lead gets a checklist built from a template, so the same steps run for every lead."
+  },
+  "watchOut": "“Create Checklist” in CheckFlow builds from a template, so pick the checklist template first."
+}

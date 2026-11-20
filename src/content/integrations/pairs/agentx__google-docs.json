@@ -1,0 +1,8 @@
+{
+  "usedFor": "AgentX holds your conversations and Google Docs holds the log that “Add or Replace Text In Tab” writes.",
+  "bestTemplate": {
+    "name": "“New Conversation” in AgentX, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new conversation is written into a doc tab, so you keep a running record of chats."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace the tab's existing text, so choose add, not replace."
+}

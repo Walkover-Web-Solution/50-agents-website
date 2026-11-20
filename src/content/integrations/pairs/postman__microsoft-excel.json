@@ -1,0 +1,8 @@
+{
+  "usedFor": "Postman holds API collections and Microsoft Excel keeps the tracker, so “New Collection” can run “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Collection” in Postman, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each new collection is logged in an Excel table, so the team sees what exists without opening Postman."
+  },
+  "watchOut": "“Updated Collection” is polling and fires on every update, so “Add Row To Table” can log one collection many times."
+}

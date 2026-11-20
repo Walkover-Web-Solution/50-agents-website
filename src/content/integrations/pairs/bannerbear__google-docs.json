@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bannerbear generates your visuals, and Google Docs keeps a written log of them through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Image” in Bannerbear, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each finished image adds a line to a shared doc, so the team sees what was made."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can overwrite a tab, so pick add if you want to keep the history."
+}

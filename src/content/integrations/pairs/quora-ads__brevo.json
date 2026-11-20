@@ -1,0 +1,8 @@
+{
+  "usedFor": "Quora Lead Gen Forms captures leads and Brevo runs email lists, so “New Lead” can run “Add Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Lead” in Quora Lead Gen Forms, then “Add Or Update Contact” in Brevo",
+    "why": "A lead who fills a form lands in Brevo, and an existing contact is updated instead of repeated."
+  },
+  "watchOut": "“New Lead” is polling, so “Add Or Update Contact” runs after a scheduled check, not the moment a lead arrives."
+}

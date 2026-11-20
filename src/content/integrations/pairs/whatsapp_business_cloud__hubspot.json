@@ -1,0 +1,8 @@
+{
+  "usedFor": "WhatsApp Business Cloud (Meta) receives customer messages, and HubSpot opens a deal through “Create Deal” for each “Message Notification”.",
+  "bestTemplate": {
+    "name": "“Message Notification” in WhatsApp Business Cloud (Meta), then “Create Deal” in HubSpot",
+    "why": "An inbound message becomes a deal right away, so a sales enquiry is not buried in a chat."
+  },
+  "watchOut": "Every received message fires “Message Notification”, so one chat can open many deals unless you filter first."
+}

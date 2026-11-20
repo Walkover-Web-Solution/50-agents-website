@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds checkouts, and Workiom keeps a list that gets a record when “Abandoned Checkout” runs “Create Record”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create Record” in Workiom",
+    "why": "Each abandoned checkout becomes a record with the customer's email or phone, so you can follow up."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so records appear after a scheduled check, not at the moment of abandonment."
+}

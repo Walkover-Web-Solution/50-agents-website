@@ -1,0 +1,8 @@
+{
+  "usedFor": "99 Acres holds property leads, and “New Leads” makes Google Drive run “Copy a File” for each one.",
+  "bestTemplate": {
+    "name": "“New Leads” in 99 Acres, then “Copy a File” in Google Drive",
+    "why": "Each new lead gets its own copy of a chosen file, optionally under a new name."
+  },
+  "watchOut": "“Copy a File” in Google Drive copies one file you pick in setup, so keep that source file current."
+}

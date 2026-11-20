@@ -1,0 +1,8 @@
+{
+  "usedFor": "Stripe knows who pays you, and Google Contacts stores them when “New Customer Created” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Customer Created” in Stripe, then “Create Contact” in Google Contacts",
+    "why": "Each new Stripe customer is saved as a Google contact, so your address book keeps up with paying people."
+  },
+  "watchOut": "“Add Contact to Group” finds an existing contact, so run “Create Contact” first when the customer is new."
+}

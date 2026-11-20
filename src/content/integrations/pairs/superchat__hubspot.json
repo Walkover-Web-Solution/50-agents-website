@@ -1,0 +1,8 @@
+{
+  "usedFor": "Superchat holds your conversations and HubSpot your CRM records, so “Contact Created” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“Contact Created” in Superchat, then “Create Contact” in HubSpot",
+    "why": "A new messaging contact becomes a HubSpot contact your sales team can work."
+  },
+  "watchOut": "“Create Contact” requires an email, so a Superchat contact without one cannot be created."
+}

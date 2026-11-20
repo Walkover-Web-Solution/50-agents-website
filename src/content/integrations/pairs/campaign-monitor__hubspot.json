@@ -1,0 +1,8 @@
+{
+  "usedFor": "Campaign Monitor collects your email subscribers, and HubSpot opens a sales record through “Create Deal” for each one.",
+  "bestTemplate": {
+    "name": "“New Subscriber” in Campaign Monitor, then “Create Deal” in HubSpot",
+    "why": "Sales sees each new sign-up as a deal in HubSpot, without anyone copying names across."
+  },
+  "watchOut": "“New Subscriber” is polling, so deals arrive after a scheduled check rather than at sign-up."
+}

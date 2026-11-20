@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds checkouts, and YCloud emails customers when “Abandoned Checkout” runs “Send an Email”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Send an Email” in YCloud",
+    "why": "The shopper left an email at checkout, so a reminder can go to the right person."
+  },
+  "watchOut": "An email to a customer waits in Needs you for approval, and “Abandoned Checkout” is polling."
+}

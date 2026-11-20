@@ -1,0 +1,8 @@
+{
+  "usedFor": "Browse AI finishes scraping tasks and Memory stores values by key, with “Table Export” feeding the “Memory” action.",
+  "bestTemplate": {
+    "name": "“Table Export” in Browse AI, then “Memory” in Memory",
+    "why": "A successful export saves the scraped values under a key you can look up later."
+  },
+  "watchOut": "“Delete Records” in Memory removes workspace records, so check which trigger feeds it before turning it on."
+}

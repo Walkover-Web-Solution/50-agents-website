@@ -1,0 +1,8 @@
+{
+  "usedFor": "Infinity holds items and TRIGGERcmd runs commands on your computers, so “New Item” can run “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“New Item” in Infinity, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new item starts a command on your own computer, so board activity can kick off local work."
+  },
+  "watchOut": "“New Item” in Infinity is polling, so “Trigger Command” starts after a scheduled check."
+}

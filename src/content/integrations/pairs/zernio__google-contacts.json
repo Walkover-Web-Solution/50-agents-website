@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zernio holds contacts and posts, and Google Contacts saves each new contact through “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Zernio, then “Create Contact” in Google Contacts",
+    "why": "A contact created in Zernio is saved to your address book without retyping."
+  },
+  "watchOut": "“New Contact” in Zernio is polling within a window you choose, so match it to your check schedule."
+}

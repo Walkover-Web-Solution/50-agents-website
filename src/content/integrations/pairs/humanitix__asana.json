@@ -1,0 +1,8 @@
+{
+  "usedFor": "humanitix holds your events and Asana holds projects, so “New Event Is Created” can run “Create Project” for planning.",
+  "bestTemplate": {
+    "name": "“New Event Is Created” in humanitix, then “Create Project” in Asana",
+    "why": "Each event you set up in Humanitix gets an Asana project with name, notes and dates ready."
+  },
+  "watchOut": "“New Event Is Created” in humanitix is polling, so “Create Project” in Asana runs after a scheduled check."
+}

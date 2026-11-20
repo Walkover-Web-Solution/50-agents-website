@@ -1,0 +1,8 @@
+{
+  "usedFor": "Acadle holds your learners, and Microsoft Excel keeps a table where “New User” adds a row for each one.",
+  "bestTemplate": {
+    "name": "“New User” in Acadle, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every new learner lands as a row, so the roster table grows without anyone typing it in."
+  },
+  "watchOut": "Acadle triggers are polling, so a row appears after the next scheduled check, not the moment a user signs up."
+}

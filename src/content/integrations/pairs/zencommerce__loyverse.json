@@ -1,0 +1,8 @@
+{
+  "usedFor": "ZenCommerce holds the online store and Loyverse the point of sale, so “Product Updated” can run “Create Or Update Variant”.",
+  "bestTemplate": {
+    "name": "“Product Updated” in ZenCommerce, then “Create Or Update Variant” in Loyverse",
+    "why": "A product edited online updates the matching variant in your point of sale, so both stay aligned."
+  },
+  "watchOut": "“New Order Created” in ZenCommerce also reaches “Create Or Update Variant”, so orders could also change variants."
+}

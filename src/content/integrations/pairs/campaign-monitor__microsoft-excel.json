@@ -1,0 +1,8 @@
+{
+  "usedFor": "Campaign Monitor holds your email list and Microsoft Excel keeps the record, so “New Subscriber” runs “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Subscriber” in Campaign Monitor, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every signup becomes a new row in your Excel table, so the list is easy to sort and share."
+  },
+  "watchOut": "“New Subscriber” in Campaign Monitor is polling, so rows reach Excel after a scheduled check."
+}

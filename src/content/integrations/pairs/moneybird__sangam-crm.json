@@ -1,0 +1,8 @@
+{
+  "usedFor": "Moneybird holds quotes and invoices and Sangam CRM tracks the pipeline, so “New Quote” can run “Create Opportunity”.",
+  "bestTemplate": {
+    "name": "“New Quote” in Moneybird, then “Create Opportunity” in Sangam CRM",
+    "why": "A quote sent means a deal is live, and the action records it with a next follow-up date."
+  },
+  "watchOut": "“New Quote” and “New Invoice” can each fire “Create Opportunity”, so one deal may be opened twice."
+}

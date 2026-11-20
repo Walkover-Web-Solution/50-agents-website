@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho POS rings up sales and TRIGGERcmd runs commands on your computers, so “New Invoice Added” can run “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“New Invoice Added” in Zoho POS, then “Trigger Command” in TRIGGERcmd",
+    "why": "Each new invoice starts a command on your own machine, so sales can kick off local jobs."
+  },
+  "watchOut": "“New Invoice Added” in Zoho POS is polling, so “Trigger Command” starts after a scheduled check."
+}

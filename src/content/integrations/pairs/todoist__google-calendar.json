@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and Google Calendar blocks the time when “New Incomplete Task” runs “Create Calendar Event”.",
+  "bestTemplate": {
+    "name": "“New Incomplete Task” in Todoist, then “Create Calendar Event” in Google Calendar",
+    "why": "A new task gets a calendar slot with attendees and details, so it is planned, not just listed."
+  },
+  "watchOut": "“New Incomplete Task” is polling and looks only at tasks added in the last 15 minutes."
+}

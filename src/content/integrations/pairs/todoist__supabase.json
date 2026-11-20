@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds tasks and Supabase holds the table, so “New Task Created in Project” runs “Add A Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Add A Row To Table” in Supabase",
+    "why": "Each task in the chosen project is mirrored as a row, so you can query tasks like any other data."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so the Supabase row appears after a scheduled check."
+}

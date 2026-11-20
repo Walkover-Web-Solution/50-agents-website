@@ -1,0 +1,8 @@
+{
+  "usedFor": "Qminder holds queue visitors, and HubSpot receives a contact when “visitor checks in” runs “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“visitor checks in” in Qminder, then “Create or Update Contact” in HubSpot",
+    "why": "A check-in puts the visitor in HubSpot, and the email match updates a returning contact instead of duplicating it."
+  },
+  "watchOut": "“Create or Update Contact” matches by email, so check that “visitor checks in” carries one."
+}

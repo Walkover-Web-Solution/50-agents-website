@@ -1,0 +1,8 @@
+{
+  "usedFor": "Adafruit IO logs device data, and Memory stores each “New Feed Data” reading as a key-value pair through “Memory”.",
+  "bestTemplate": {
+    "name": "“New Feed Data” in Adafruit IO, then “Memory” in Memory",
+    "why": "Every new reading is saved under a key, so later workflows can look up the latest value."
+  },
+  "watchOut": "“New Feed Data” in Adafruit IO is polling, so readings reach Memory after a scheduled check, not at once."
+}

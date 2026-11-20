@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lofty holds your leads and Google Contacts stores the people, so “New Lead Created” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Lead Created” in Lofty, then “Create Contact” in Google Contacts",
+    "why": "Every lead from the chosen list lands in Google Contacts, and “Add Contact to Group” can sort them."
+  },
+  "watchOut": "“Updated Lead” fires on edits, so pairing it with “Create Contact” can add the same lead twice."
+}

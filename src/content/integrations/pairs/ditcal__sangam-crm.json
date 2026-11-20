@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds your bookings, and Sangam CRM receives each booker as a lead through “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Booking” in DitCal, then “Create or Update Lead” in Sangam CRM",
+    "why": "Whoever books a slot lands in Sangam CRM as a lead, matched by ID, email or phone."
+  },
+  "watchOut": "“Booking Cancelled” and “Meeting Rescheduled” also run this action, so a lead can be updated again after a change."
+}

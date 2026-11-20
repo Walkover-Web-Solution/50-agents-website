@@ -1,0 +1,8 @@
+{
+  "usedFor": "Publora publishes social posts, and Google Sheets keeps a log through “Add Multiple Rows” when “New Post Published” fires.",
+  "bestTemplate": {
+    "name": "“New Post Published” in Publora, then “Add Multiple Rows” in Google Sheets",
+    "why": "Every published post becomes a row in a sheet, giving you a running log."
+  },
+  "watchOut": "A post fires “New Post Scheduled” and later “New Post Published”, so using both logs it twice."
+}

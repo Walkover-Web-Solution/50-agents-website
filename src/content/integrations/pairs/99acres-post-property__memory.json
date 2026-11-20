@@ -1,0 +1,8 @@
+{
+  "usedFor": "99 Acres produces the leads and Memory stores them, with “New Leads” feeding the “Memory” key-value action.",
+  "bestTemplate": {
+    "name": "“New Leads” in 99 Acres, then “Memory” in Memory",
+    "why": "Each new lead is saved as a key-value entry in Workspace Memory, ready for later lookups."
+  },
+  "watchOut": "“Delete Records” removes records from Workspace Memory, so keep it off the “New Leads” trigger unless clearing is intended."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack and Swit both hold team chat, so “New Message Arrives” in Swit can run “Send Message” in Slack.",
+  "bestTemplate": {
+    "name": "“New Message Arrives” in Swit, then “Send Message” in Slack",
+    "why": "Messages in one Swit channel are repeated in Slack, so people on either side stay informed."
+  },
+  "watchOut": "“New Message on Slack” covers every channel and direct message, so mirroring it into Swit could expose private chats."
+}

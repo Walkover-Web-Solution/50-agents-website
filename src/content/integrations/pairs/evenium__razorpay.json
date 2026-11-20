@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evenium holds your events and guests and Razorpay collects payment when “New Guests Added” runs “Create Payment Link”.",
+  "bestTemplate": {
+    "name": "“New Guests Added” in Evenium, then “Create Payment Link” in Razorpay",
+    "why": "Each added guest gets a payment link with amount and expiry set, so nobody chases fees by hand."
+  },
+  "watchOut": "“Guest Created or Updated” also fires on edits, so one guest could get a second “Create Payment Link” run."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and Notion records each one as an item through “Create_Data_Source_Item”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create_Data_Source_Item” in Notion",
+    "why": "Each new task becomes an item in your Notion data source, so planning lives in one place."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so the Notion item appears after a scheduled check, not at once."
+}

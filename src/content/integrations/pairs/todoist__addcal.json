@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and AddCal builds the calendar when “New Task Created in Project” runs “Create Event”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Event” in AddCal",
+    "why": "A new task becomes an AddCal event with a title, time, location and timezone."
+  },
+  "watchOut": "“New Incomplete Task” only sees tasks from the last 15 minutes, so keep its schedule short."
+}

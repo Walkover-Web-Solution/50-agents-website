@@ -1,0 +1,8 @@
+{
+  "usedFor": "PagerDuty holds incidents, and Google Sheets keeps a log of them through “Add Multiple Rows”.",
+  "bestTemplate": {
+    "name": "“New Incident Instant” in PagerDuty, then “Add Multiple Rows” in Google Sheets",
+    "why": "Every new incident adds a row, giving you a running record to sort and review."
+  },
+  "watchOut": "“New Incident acknowledged” is its own trigger and adds its own rows, so one incident can appear twice."
+}

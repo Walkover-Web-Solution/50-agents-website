@@ -1,0 +1,8 @@
+{
+  "usedFor": "Grist holds your records, and Google Contacts holds your address book, so “New Record” can run “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Record” in Grist, then “Create Contact” in Google Contacts",
+    "why": "A person added to a Grist table becomes a Google Contacts entry without copying details by hand."
+  },
+  "watchOut": "Use “New Record”, not “Updated Record”, with “Create Contact”, or edits could add the same person again."
+}

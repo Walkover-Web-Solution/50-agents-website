@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho CRM holds the leads, and “New Lead” there starts “Create Task” in Amwork for follow-up.",
+  "bestTemplate": {
+    "name": "“New Lead” in Zoho CRM, then “Create Task” in Amwork",
+    "why": "Every lead from Zoho CRM becomes an Amwork task, so nobody has to remember to start follow-up."
+  },
+  "watchOut": "“New Lead” in Zoho CRM is polling, so “Create Task” in Amwork starts after a scheduled check."
+}

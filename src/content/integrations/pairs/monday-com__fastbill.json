@@ -1,0 +1,8 @@
+{
+  "usedFor": "monday.com holds your project items, and FastBill drafts an invoice when “Item Column Value Changes” runs “Create Invoice”.",
+  "bestTemplate": {
+    "name": "“Item Column Value Changes” in monday.com, then “Create Invoice” in FastBill",
+    "why": "When a column on a board item changes, the invoice is created from that item."
+  },
+  "watchOut": "“Item Column Value Changes” fires on any column update, so one item can create several invoices."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kanban Zone tracks work as cards, and Freshsales Classic receives a sales record when “New Card Created” runs “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Card Created” in Kanban Zone, then “Create Deal” in Freshsales Classic",
+    "why": "A new card opens a deal tied to an account, so the pipeline starts from the board."
+  },
+  "watchOut": "“Card Is Moved” fires on every move, so pairing it with “Create Deal” would open duplicate deals."
+}

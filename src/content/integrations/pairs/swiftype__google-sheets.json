@@ -1,0 +1,8 @@
+{
+  "usedFor": "Swiftype indexes documents and Google Sheets lists them, so “New Document” can run “Add New Row to Sheet”.",
+  "bestTemplate": {
+    "name": "“New Document” in Swiftype, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Every document added to the Swiftype index gets a row, so you can audit what was indexed."
+  },
+  "watchOut": "“New Document” in Swiftype is polling, so rows appear after a scheduled check."
+}

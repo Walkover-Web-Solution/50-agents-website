@@ -1,0 +1,8 @@
+{
+  "usedFor": "Process Street runs your checklists and TRIGGERcmd runs commands on your computers, so “Task Ready” can run “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“Task Ready” in Process Street, then “Trigger Command” in TRIGGERcmd",
+    "why": "When a checklist task is ready, the command it needs starts on your computer."
+  },
+  "watchOut": "“Trigger Command” acts on your own computers, so test the chosen command before any task can start it."
+}

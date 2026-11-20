@@ -1,0 +1,8 @@
+{
+  "usedFor": "Hostfully holds bookings and inquiries, and MSG91 logs each one as a ticket through “Send Mail via Hello”.",
+  "bestTemplate": {
+    "name": "“New Booking Inquiry” in Hostfully, then “Send Mail via Hello” in MSG91",
+    "why": "An inquiry needs a quick reply, so it becomes a ticket your team can answer."
+  },
+  "watchOut": "“Updated Booking” and “Cancelled Booking” are separate triggers, so give each its own template."
+}

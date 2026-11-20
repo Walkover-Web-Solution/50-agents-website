@@ -1,0 +1,8 @@
+{
+  "usedFor": "Stripe holds customers, and “Send Message” in SOLAPI reaches them through your SOLAPI account when “Customer Subscribes”.",
+  "bestTemplate": {
+    "name": "“Customer Subscribes” in Stripe, then “Send Message” in SOLAPI",
+    "why": "A new subscriber gets a confirmation message sent through your SOLAPI account."
+  },
+  "watchOut": "A message reaching a customer waits in Needs you for your approval before “Send Message” goes out."
+}

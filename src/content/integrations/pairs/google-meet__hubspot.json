@@ -1,0 +1,8 @@
+{
+  "usedFor": "Google Meet holds your calls and HubSpot holds your pipeline, so “New Upcoming Meeting” can run “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Upcoming Meeting” in Google Meet, then “Create Deal” in HubSpot",
+    "why": "A call on the calendar opens a deal before it starts, so the sales conversation has a record."
+  },
+  "watchOut": "“New Upcoming Meeting” runs for any calendar event with a Meet link, so internal calls will also reach “Create Deal”."
+}

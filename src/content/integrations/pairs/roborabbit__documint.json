@@ -1,0 +1,8 @@
+{
+  "usedFor": "Roborabbit runs your browser tasks, and Documint writes up the result when “Run Finished” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“Run Finished” in Roborabbit, then “Add Content To Template” in Documint",
+    "why": "A finished run fills a document template, giving you a report without copying results by hand."
+  },
+  "watchOut": "“Run Finished” is polling, so the Documint template fills after a scheduled check."
+}

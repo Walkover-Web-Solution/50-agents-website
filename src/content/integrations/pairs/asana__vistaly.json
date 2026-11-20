@@ -1,0 +1,8 @@
+{
+  "usedFor": "Asana is where work gets discussed, and Vistaly collects feedback when a task comment runs “Create Feedback”.",
+  "bestTemplate": {
+    "name": "“When a new comment is added to a task” in Asana, then “Create Feedback” in Vistaly",
+    "why": "Comments teammates leave on tasks become feedback entries in Vistaly without anyone copying them over."
+  },
+  "watchOut": "“When a new comment is added to a task” is polling, so feedback arrives after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Aircall is where calls and contacts start, and Dynosend gets each “New Contact” as a contact through “Create a contact”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Aircall, then “Create a contact” in Dynosend",
+    "why": "People your phone team adds land in an audience in Dynosend without retyping."
+  },
+  "watchOut": "“Create a contact” adds to a given audience, so choose that audience before you turn the template on."
+}

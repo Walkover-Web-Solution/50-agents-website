@@ -1,0 +1,8 @@
+{
+  "usedFor": "HeySummit holds attendees and tickets and Conversion Chats messages them when “Ticket Purchased” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“Ticket Purchased” in HeySummit, then “Send Template Message” in Conversion Chats",
+    "why": "The buyer gets a templated message sent through your Conversion Chats account, so confirmations do not depend on email."
+  },
+  "watchOut": "“Send Template Message” needs a recipient number, so check that your HeySummit registration collects one."
+}

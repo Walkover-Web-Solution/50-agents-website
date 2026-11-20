@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mailparser holds parsed emails and Loyverse holds your products, so “New Email Parsed” can run “Create Or Update Variant”.",
+  "bestTemplate": {
+    "name": "“New Email Parsed” in Mailparser, then “Create Or Update Variant” in Loyverse",
+    "why": "A parsed email updates a product variant, so details sent by email reach your till without retyping."
+  },
+  "watchOut": "“New Parsed Email (one request per row)” runs once per row, so a long table makes many variant calls."
+}

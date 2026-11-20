@@ -1,0 +1,8 @@
+{
+  "usedFor": "ThriveCart holds your subscriptions and Google Meet holds your calls, so “Subscription Rebill Cancelled” can run “Schedule a Meeting”.",
+  "bestTemplate": {
+    "name": "“Subscription Rebill Cancelled” in ThriveCart, then “Schedule a Meeting” in Google Meet",
+    "why": "A cancelled rebill books a Google Meet call, so you can talk to the customer before they are gone."
+  },
+  "watchOut": "“Add People to Google Meet” invites people outside the business, so that invite waits in Needs you for approval."
+}

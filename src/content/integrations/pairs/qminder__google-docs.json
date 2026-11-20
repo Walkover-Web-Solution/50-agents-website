@@ -1,0 +1,8 @@
+{
+  "usedFor": "Qminder runs the visitor queue and Google Docs keeps the record when “visitor checks in” fires.",
+  "bestTemplate": {
+    "name": "“visitor checks in” in Qminder, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each check-in adds a line to a log tab, so front-desk history sits in one doc."
+  },
+  "watchOut": "“Add visitor to queue” and “visitor checks in” both fire for one visitor, so a log can get two lines."
+}

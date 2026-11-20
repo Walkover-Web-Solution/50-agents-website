@@ -1,0 +1,8 @@
+{
+  "usedFor": "Grist holds your records, and Eden AI checks their text when “New Record” runs “AI Generated Content Detection”.",
+  "bestTemplate": {
+    "name": "“New Record” in Grist, then “AI Generated Content Detection” in Eden AI",
+    "why": "Each new row gets its text checked for AI authorship, so you spot machine-written entries without reading them all."
+  },
+  "watchOut": "“Updated Record” also fires, so an edited record in Grist can be checked again by Eden AI."
+}

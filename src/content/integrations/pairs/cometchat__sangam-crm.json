@@ -1,0 +1,8 @@
+{
+  "usedFor": "CometChat holds chat users and groups, and Sangam CRM keeps them as leads through “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New User” in CometChat, then “Create or Update Lead” in Sangam CRM",
+    "why": "A new chat user becomes a lead, and the action matches by ID, email or phone."
+  },
+  "watchOut": "“New Message Received” in CometChat is polling and covers every message, so it can run often."
+}

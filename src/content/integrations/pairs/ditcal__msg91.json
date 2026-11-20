@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds bookings and MSG91 handles tickets in Hello, so “Booking Cancelled” can run “Send Mail via Hello”.",
+  "bestTemplate": {
+    "name": "“Booking Cancelled” in DitCal, then “Send Mail via Hello” in MSG91",
+    "why": "A cancelled booking opens a ticket in Hello, so someone follows up."
+  },
+  "watchOut": "“Send Mail via Hello” can reply with a ticket id, so decide whether it should open a ticket or reply."
+}

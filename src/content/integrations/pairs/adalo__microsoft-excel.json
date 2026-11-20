@@ -1,0 +1,8 @@
+{
+  "usedFor": "Adalo holds your app's records, and Microsoft Excel keeps a running table that “Add Row To Table” extends.",
+  "bestTemplate": {
+    "name": "“new record is created” in Adalo, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every new Adalo record becomes a row in an Excel table, giving you a report-ready copy."
+  },
+  "watchOut": "Adalo's “record is updated” is polling and fires on edits, so the same record can reach Excel twice."
+}

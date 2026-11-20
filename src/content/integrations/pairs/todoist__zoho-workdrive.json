@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks and Zoho WorkDrive holds your files, so “New Task Created in Project” runs “Create Folder”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Folder” in Zoho WorkDrive",
+    "why": "Each new task gets its own folder ready for its files."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so the folder appears after a scheduled check."
+}

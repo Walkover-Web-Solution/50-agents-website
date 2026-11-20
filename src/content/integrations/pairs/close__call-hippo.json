@@ -1,0 +1,8 @@
+{
+  "usedFor": "Close logs your sales calls and CallHippo handles texting, so “New Call” can start a follow-up through “Send SMS”.",
+  "bestTemplate": {
+    "name": "“New Call” in Close, then “Send SMS” in CallHippo",
+    "why": "A finished call is the right moment for a follow-up text, sent through your CallHippo account."
+  },
+  "watchOut": "“New Call” fires when a call is created or completed, so “Send SMS” can text the same person twice."
+}

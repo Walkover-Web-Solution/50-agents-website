@@ -1,0 +1,8 @@
+{
+  "usedFor": "Flodesk collects subscribers, and Sangam CRM receives them as leads when “New Subscriber Created” runs “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Subscriber Created” in Flodesk, then “Create or Update Lead” in Sangam CRM",
+    "why": "Matching by email or phone lets an existing lead be updated instead of added again."
+  },
+  "watchOut": "“New Subscriber Created” covers only new subscribers, so people already on your list will not reach Sangam CRM."
+}

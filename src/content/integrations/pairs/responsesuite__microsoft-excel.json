@@ -1,0 +1,8 @@
+{
+  "usedFor": "responsesuite collects survey answers, and Microsoft Excel stores them as rows through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Survey Response” in responsesuite, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each response adds a row to a table, so you can sort and total the answers."
+  },
+  "watchOut": "“New Survey Response” is polling with a lookback period, so a response can arrive after a short delay."
+}

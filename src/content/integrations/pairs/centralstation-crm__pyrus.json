@@ -1,0 +1,8 @@
+{
+  "usedFor": "CentralStationCRM holds deals and Pyrus holds the work, so “New Deal” can open a task through “Create Simple Task”.",
+  "bestTemplate": {
+    "name": "“New Deal” in Centralstation CRM, then “Create Simple Task” in Pyrus",
+    "why": "Every deal gets a task with contacts, so follow-up work starts in Pyrus when sales logs it."
+  },
+  "watchOut": "“New Deal” in Centralstation CRM is polling, so the Pyrus task appears after a scheduled check."
+}

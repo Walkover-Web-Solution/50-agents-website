@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho CRM holds your leads, and each “New Lead” becomes a card in Upwave.",
+  "bestTemplate": {
+    "name": "“New Lead” in Zoho CRM, then “Create Card” in Upwave",
+    "why": "Each new lead appears as an Upwave card, so the team can pick it up on the board."
+  },
+  "watchOut": "“New Lead” in Zoho CRM is polling, so “Create Card” runs after a scheduled check."
+}

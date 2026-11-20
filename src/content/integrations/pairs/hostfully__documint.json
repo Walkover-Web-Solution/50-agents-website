@@ -1,0 +1,8 @@
+{
+  "usedFor": "Hostfully holds vacation rental bookings, and Documint produces documents when “New Booking” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“New Booking” in Hostfully, then “Add Content To Template” in Documint",
+    "why": "Each new booking fills a Documint template with its details, so paperwork starts the moment a guest books."
+  },
+  "watchOut": "“Cancelled Booking” and “Updated Booking” are separate triggers, so each needs its own template wording."
+}

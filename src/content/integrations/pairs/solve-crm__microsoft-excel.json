@@ -1,0 +1,8 @@
+{
+  "usedFor": "Solve CRM holds your contacts and Microsoft Excel keeps the table, so “New Contacts” runs “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Contacts” in Solve CRM, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each contact you add becomes a row in an Excel table, handy for reporting outside the CRM."
+  },
+  "watchOut": "“Update Contact” in Solve CRM fires on edits, so the same contact can add another row."
+}

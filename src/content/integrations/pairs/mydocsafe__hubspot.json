@@ -1,0 +1,8 @@
+{
+  "usedFor": "MyDocSafe holds signed documents and HubSpot holds contacts, so “Document is Signed” can run “Update Contact”.",
+  "bestTemplate": {
+    "name": "“Document is Signed” in MyDocSafe, then “Update Contact” in HubSpot",
+    "why": "Once every party has signed, the contact in HubSpot is updated, so sales sees it without asking."
+  },
+  "watchOut": "“Update Contact” in HubSpot finds the contact by email, so the signer’s email must match a contact."
+}

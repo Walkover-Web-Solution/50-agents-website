@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds your bookings, and Zendesk Support gets a ticket when “Booking Cancelled” runs “Create Support Ticket”.",
+  "bestTemplate": {
+    "name": "“Booking Cancelled” in DitCal, then “Create Support Ticket” in Zendesk Support",
+    "why": "A cancellation opens a ticket, so someone in support can offer a new time."
+  },
+  "watchOut": "“Meeting Rescheduled” in DitCal fires on every change, so it can open several tickets for one meeting."
+}

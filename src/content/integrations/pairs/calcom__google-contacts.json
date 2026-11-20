@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cal.com holds your bookings, and Google Contacts stores the people when “Booking Created” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“Booking Created” in Cal.com, then “Create Contact” in Google Contacts",
+    "why": "A new booking saves the person who booked as a contact, so your address book fills itself."
+  },
+  "watchOut": "“Booking Reschedules” also triggers, so the same person can reach “Create Contact” again after a move."
+}

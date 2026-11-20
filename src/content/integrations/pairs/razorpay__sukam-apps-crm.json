@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay processes payments, and Sukam Apps CRM records the customer through “Create Contact” after “A New Refund Is Created”.",
+  "bestTemplate": {
+    "name": "“A New Refund Is Created” in Razorpay, then “Create Contact” in Sukam Apps CRM",
+    "why": "A refund is a signal worth following up, so the customer lands in the CRM with the fields you set."
+  },
+  "watchOut": "“Create a Lead” and “Create Contact” both fit this trigger, so choose one or the same refund adds two records."
+}

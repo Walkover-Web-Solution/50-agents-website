@@ -1,0 +1,8 @@
+{
+  "usedFor": "SimpleCert holds certificate recipients and MSG91 sends mail from templates, so “New Recipient Added” can run “Send a Mail”.",
+  "bestTemplate": {
+    "name": "“New Recipient Added” in SimpleCert, then “Send a Mail” in MSG91",
+    "why": "Each new recipient gets a templated mail sent through your MSG91 account."
+  },
+  "watchOut": "A mail to someone outside your business waits in Needs you for approval before “Send a Mail” goes out."
+}

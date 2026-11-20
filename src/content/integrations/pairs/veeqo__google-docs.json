@@ -1,0 +1,8 @@
+{
+  "usedFor": "Veeqo manages inventory, and Google Docs lists each “New Incomplete Purchase Order” through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Incomplete Purchase Order” in Veeqo, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Incomplete purchase orders gather in one doc tab, so a buyer can review them without logging in to Veeqo."
+  },
+  "watchOut": "“New Incomplete Purchase Order” is polling, so a doc entry appears after the next scheduled check."
+}

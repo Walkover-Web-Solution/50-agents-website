@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bexio holds your invoices and customers, and Conversion Chats messages them when “New Sales-Invoice” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“New Sales-Invoice” in Bexio, then “Send Template Message” in Conversion Chats",
+    "why": "A fresh invoice tells the customer right away, and the message goes through your Conversion Chats account."
+  },
+  "watchOut": "“New Sales-Invoice” also fires on updates, so an edited invoice can send the same template message twice."
+}

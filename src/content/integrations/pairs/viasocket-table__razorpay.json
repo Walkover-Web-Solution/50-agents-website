@@ -1,0 +1,8 @@
+{
+  "usedFor": "viaSocket Table holds your records, and Razorpay collects the money when “New Row Created” runs “Create Payment Link”.",
+  "bestTemplate": {
+    "name": "“New Row Created” in viaSocket Table, then “Create Payment Link” in Razorpay",
+    "why": "Each new row becomes a shareable payment link with the amount and customer details you set."
+  },
+  "watchOut": "“Record Is Updated” also triggers, so an edited row can create a second link for the same customer."
+}

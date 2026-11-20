@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copper is where new people land and Contacts+ keeps the address book, so “New Person” can run “Create a Contact”.",
+  "bestTemplate": {
+    "name": "“New Person” in Copper, then “Create a Contact” in Contacts+",
+    "why": "Every new Copper person gets a Contacts+ entry with name, email and phone, so both lists match."
+  },
+  "watchOut": "“Updated Person” fires on every change in Copper, so “Create a Contact” can run again for someone already added."
+}

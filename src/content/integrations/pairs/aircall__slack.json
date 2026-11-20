@@ -1,0 +1,8 @@
+{
+  "usedFor": "Aircall holds your phone contacts, and Slack is where the team sees them through “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Aircall, then “Send Message” in Slack",
+    "why": "Each new phone contact lands in a channel, so the team sees who just came in."
+  },
+  "watchOut": "An automation's post to a Slack channel waits for your approval today, so “Send Message” will not post alone."
+}

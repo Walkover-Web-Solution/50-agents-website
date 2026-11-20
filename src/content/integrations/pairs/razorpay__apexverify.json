@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay holds your payments, and ApexVerify checks contact details when “Payment Fails” runs “Verify Email or Phone”.",
+  "bestTemplate": {
+    "name": "“Payment Fails” in Razorpay, then “Verify Email or Phone” in ApexVerify",
+    "why": "A failed payment checks whether the payer’s email or phone is real before anyone follows up."
+  },
+  "watchOut": "“Verify Email or Phone” needs a verification type and target country, so set both in the template."
+}

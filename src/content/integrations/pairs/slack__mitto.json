@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack carries team posts, and Mitto texts a number through “Send an SMS” after “New Message Posted in Channel Instant”.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Send an SMS” in Mitto",
+    "why": "A post in an alerts channel can reach an on call phone, sent through your Mitto account."
+  },
+  "watchOut": "“New Message Posted in Channel Instant” includes bot messages, and texts go through your Mitto account, so pick channels carefully."
+}

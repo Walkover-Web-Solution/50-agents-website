@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds orders, and Autobound writes a personal email when “New Order” runs “Write Hyper-Personalized Email”.",
+  "bestTemplate": {
+    "name": "“New Order” in Shopify, then “Write Hyper-Personalized Email” in Autobound",
+    "why": "Each order gives Autobound a real customer to write to, so the email fits that purchase."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so any email written from it follows after a scheduled check."
+}

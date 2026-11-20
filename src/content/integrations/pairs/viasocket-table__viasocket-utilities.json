@@ -1,0 +1,8 @@
+{
+  "usedFor": "viaSocket Table holds records and viaSocket utilities runs other workflows, so “New Row Created” can run “Flow in Flow”.",
+  "bestTemplate": {
+    "name": "“New Row Created” in viaSocket Table, then “Flow in Flow” in viaSocket utilities",
+    "why": "A new row starts another workflow, so one table entry can drive a longer chain of steps."
+  },
+  "watchOut": "“Flow in Flow” requires the child flow's id, so set it before choosing a trigger."
+}

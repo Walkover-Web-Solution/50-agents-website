@@ -1,0 +1,8 @@
+{
+  "usedFor": "LiveChat holds your customer conversations, and Conversion Chats follows up through “Send Template Message” when “Finished Chat” runs.",
+  "bestTemplate": {
+    "name": "“Finished Chat” in LiveChat, then “Send Template Message” in Conversion Chats",
+    "why": "A chat that ends can trigger a template follow-up, sent through your Conversion Chats account."
+  },
+  "watchOut": "A customer message goes out through your Conversion Chats account, so match each template to the “Finished Chat” event."
+}

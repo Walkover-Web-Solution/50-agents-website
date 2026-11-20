@@ -1,0 +1,8 @@
+{
+  "usedFor": "BlueyEmail runs campaigns and forms, and Slack tells the team through “Send Message” when “When a form is submitted” runs.",
+  "bestTemplate": {
+    "name": "“When a form is submitted” in BlueyEmail, then “Send Message” in Slack",
+    "why": "The team hears about a new form response in a channel while the lead is still warm."
+  },
+  "watchOut": "A Slack post from an automation waits for approval today, so “Send Message” posts after you approve."
+}

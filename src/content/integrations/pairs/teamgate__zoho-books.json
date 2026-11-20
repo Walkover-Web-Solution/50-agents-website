@@ -1,0 +1,8 @@
+{
+  "usedFor": "Teamgate holds leads and companies, and Zoho Books holds customers, so “New Company Created” can run “Create or Update Customer”.",
+  "bestTemplate": {
+    "name": "“New Company Created” in Teamgate, then “Create or Update Customer” in Zoho Books",
+    "why": "A new company gets a customer record for invoicing, and an existing one is updated, not duplicated."
+  },
+  "watchOut": "“New Company Created” in Teamgate is polling, so the customer appears in Zoho Books after a scheduled check."
+}

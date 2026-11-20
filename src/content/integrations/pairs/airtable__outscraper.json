@@ -1,0 +1,8 @@
+{
+  "usedFor": "Outscraper finishes scraping jobs and Airtable keeps the results, with “Task Finished” triggering “Create Record” for each one.",
+  "bestTemplate": {
+    "name": "“Task Finished” in Outscraper, then “Create Record” in Airtable",
+    "why": "Each finished task adds a row to your base, so results sit where the team already works."
+  },
+  "watchOut": "“Task Finished” in Outscraper is polling, so a finished job reaches Airtable after the next scheduled check."
+}

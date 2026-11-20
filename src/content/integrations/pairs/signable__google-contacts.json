@@ -1,0 +1,8 @@
+{
+  "usedFor": "Signable sends documents for signature and Google Contacts stores people, so “Add Contact” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“Add Contact” in Signable, then “Create Contact” in Google Contacts",
+    "why": "A contact added in Signable is saved in Google Contacts too."
+  },
+  "watchOut": "“Send Envelope” is a second trigger here, so pick “Add Contact” to avoid one run per envelope."
+}

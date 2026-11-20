@@ -1,0 +1,8 @@
+{
+  "usedFor": "SendFox holds subscribers and Google Docs keeps the record, so “Contact Unsubscribed” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Contact Unsubscribed” in SendFox, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each unsubscribe is logged in a document tab for later review."
+  },
+  "watchOut": "“Contact Unsubscribed” is polling, and replace mode would wipe earlier lines from the tab."
+}

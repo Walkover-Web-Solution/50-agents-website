@@ -1,0 +1,8 @@
+{
+  "usedFor": "Signwell holds documents out for signature, and MailerLite receives the signer through “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“Document Completed” in Signwell, then “Create or Update Subscriber” in MailerLite",
+    "why": "A completed signature adds the signer to MailerLite, or updates the existing subscriber."
+  },
+  "watchOut": "“Document Viewed”, “Document Sent” and “Document Completed” fire at different stages, so choose one for each template."
+}

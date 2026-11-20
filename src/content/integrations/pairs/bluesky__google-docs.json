@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bluesky gains followers, and Google Docs logs each “New Follower on Account” through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Follower on Account” in Bluesky, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "The trigger returns the follower's profile details, so the doc tab gets a readable record of who followed."
+  },
+  "watchOut": "Choosing replace instead of add in “Add or Replace Text In Tab” wipes the tab's existing log."
+}

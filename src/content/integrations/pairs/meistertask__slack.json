@@ -1,0 +1,8 @@
+{
+  "usedFor": "MeisterTask holds tasks, and Slack gets a note when “New Task Is Created” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Task Is Created” in MeisterTask, then “Send Message” in Slack",
+    "why": "Each new task is announced in a Slack channel or to a person, so assignments do not sit unseen."
+  },
+  "watchOut": "“New Task Is Created” in MeisterTask is polling, and a Slack channel post waits for your approval today."
+}

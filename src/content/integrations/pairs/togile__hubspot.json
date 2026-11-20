@@ -1,0 +1,8 @@
+{
+  "usedFor": "Togile holds new leads, and HubSpot receives them as deals when “New Lead” runs “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Lead” in Togile, then “Create Deal” in HubSpot",
+    "why": "A lead received in Togile becomes a deal in HubSpot with its details passed along."
+  },
+  "watchOut": "“New Contact” and “New Lead” in Togile can both fire for one person, so “Create Deal” may run twice."
+}

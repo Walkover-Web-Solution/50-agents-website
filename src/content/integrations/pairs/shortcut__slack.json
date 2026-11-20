@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shortcut holds epics and Slack is where the team talks, so “When a new epic is created” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“When a new epic is created” in Shortcut, then “Send Message” in Slack",
+    "why": "The team learns a new epic exists in the channel where they already talk."
+  },
+  "watchOut": "“When a new epic is created” is polling, so the Slack message follows a scheduled check."
+}

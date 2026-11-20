@@ -1,0 +1,8 @@
+{
+  "usedFor": "Paymo holds your clients and projects and Orderry runs your service work, so “New Client” runs “Create Client”.",
+  "bestTemplate": {
+    "name": "“New Client” in Paymo, then “Create Client” in Orderry",
+    "why": "A client added in Paymo appears in Orderry too, so both systems start from the same list."
+  },
+  "watchOut": "Adding “Client Updated” to “Create Client” would add the same client again after every edit."
+}

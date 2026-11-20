@@ -1,0 +1,8 @@
+{
+  "usedFor": "LiveChat holds your conversations, and each “Finished Chat” saves a lead in Sangam CRM.",
+  "bestTemplate": {
+    "name": "“Finished Chat” in LiveChat, then “Create or Update Lead” in Sangam CRM",
+    "why": "Each ended chat leaves a lead in Sangam CRM, created or updated rather than duplicated."
+  },
+  "watchOut": "“Create or Update Lead” in Sangam CRM matches by ID, email or phone, so a chat without one can't match."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Hostfully holds your rental bookings, and Razorpay creates a payment link when “New Booking” runs “Create Payment Link”.",
+  "bestTemplate": {
+    "name": "“New Booking” in Hostfully, then “Create Payment Link” in Razorpay",
+    "why": "A new booking gets a payment link with amount and expiry, ready to share with the guest."
+  },
+  "watchOut": "“Updated Booking” in Hostfully fires on every edit, so it would create another payment link for the same booking."
+}

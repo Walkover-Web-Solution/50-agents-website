@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks and Perfex CRM holds your leads, so “New Task Created in Project” can run “Create Lead”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Lead” in Perfex CRM",
+    "why": "A task added to a lead project becomes a lead in Perfex CRM, so quick notes turn into records."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so leads appear after a scheduled check."
+}

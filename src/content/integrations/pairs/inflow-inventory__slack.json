@@ -1,0 +1,8 @@
+{
+  "usedFor": "inflow-inventory holds purchasing and stock, and Slack asks someone to decide through “Send Interactive Message” on “New Sales Order Created”.",
+  "bestTemplate": {
+    "name": "“New Sales Order Created” in inflow-inventory, then “Send Interactive Message” in Slack",
+    "why": "A new sales order reaches Slack with buttons or a form, so someone can approve it there."
+  },
+  "watchOut": "An automation's Slack post waits for approval today, so “Send Interactive Message” appears only after you approve it."
+}

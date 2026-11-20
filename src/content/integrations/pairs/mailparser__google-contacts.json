@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mailparser pulls structured data out of emails and Google Contacts stores people, so “New Email Parsed” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Email Parsed” in Mailparser, then “Create Contact” in Google Contacts",
+    "why": "Each parsed lead or form email becomes a saved contact without retyping."
+  },
+  "watchOut": "“New Parsed Email (one request per row)” runs per row, so one email with many rows can create many contacts."
+}

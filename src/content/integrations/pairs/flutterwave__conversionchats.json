@@ -1,0 +1,8 @@
+{
+  "usedFor": "Flutterwave holds your payments and Conversion Chats holds your customer messages, so “New Subscription” can run “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“New Subscription” in Flutterwave, then “Send Template Message” in Conversion Chats",
+    "why": "A new subscription sends the customer a template message through your Conversion Chats account."
+  },
+  "watchOut": "“New Subscription” is polling, and a message to a customer waits in Needs you for your approval."
+}

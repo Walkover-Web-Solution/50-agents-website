@@ -1,0 +1,8 @@
+{
+  "usedFor": "CalendarHero holds scheduling contacts and MailerLite holds subscribers, joined by “New Contact Is Added” then “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“New Contact Is Added” in CalendarHero, then “Create or Update Subscriber” in MailerLite",
+    "why": "A person you add in CalendarHero reaches MailerLite without a second entry, since the action creates or updates."
+  },
+  "watchOut": "“Create or Update Subscriber” updates an existing subscriber, so a repeat contact will not create a duplicate."
+}

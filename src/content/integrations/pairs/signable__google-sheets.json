@@ -1,0 +1,8 @@
+{
+  "usedFor": "Signable sends documents for signature, and Google Sheets logs them when “Add New Row to Sheet” follows “Envelope Signed”.",
+  "bestTemplate": {
+    "name": "“Envelope Signed” in Signable, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Every signed envelope adds a row, giving you a live record of what has been signed."
+  },
+  "watchOut": "“Add New Row to Sheet” maps values to columns, so check the column mapping once before relying on it."
+}

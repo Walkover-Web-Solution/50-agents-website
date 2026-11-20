@@ -1,0 +1,8 @@
+{
+  "usedFor": "Chatlayer builds your chatbots, and Google Drive holds the file that “Copy a File” duplicates whenever a “New Bot” appears.",
+  "bestTemplate": {
+    "name": "“New Bot” in Chatlayer, then “Copy a File” in Google Drive",
+    "why": "Each new bot can get its own copy of a brief or checklist, placed in the folder you choose."
+  },
+  "watchOut": "“New Bot” is polling, and “Copy a File” can give each copy a new name, so name them clearly."
+}

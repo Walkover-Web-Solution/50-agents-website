@@ -1,0 +1,8 @@
+{
+  "usedFor": "WPForms collects your form entries and HubSpot keeps the contacts, so “New Form Entry” runs “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Form Entry” in WPForms, then “Create or Update Contact” in HubSpot",
+    "why": "A submission creates the contact or updates the existing one by email."
+  },
+  "watchOut": "“Create or Update Contact” matches on email, so the form needs an email field."
+}

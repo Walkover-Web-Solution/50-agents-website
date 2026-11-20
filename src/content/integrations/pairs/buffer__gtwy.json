@@ -1,0 +1,8 @@
+{
+  "usedFor": "Buffer queues your social posts, and Gtwy’s AI agent hears about each “New Scheduled Post” via “Call AI Agent Instantly”.",
+  "bestTemplate": {
+    "name": "“New Scheduled Post” in Buffer, then “Call AI Agent Instantly” in Gtwy",
+    "why": "Each queued post reaches your Gtwy AI agent as a chat request, so it can review wording early."
+  },
+  "watchOut": "“New Scheduled Post” in Buffer is polling, so the AI agent hears about a post after the next scheduled check."
+}

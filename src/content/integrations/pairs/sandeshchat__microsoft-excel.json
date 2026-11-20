@@ -1,0 +1,8 @@
+{
+  "usedFor": "SandeshChat carries the conversations, and Microsoft Excel logs each “New Inbound Message Arrives” through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Inbound Message Arrives” in SandeshChat, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each inbound message becomes a row, giving support a sortable log of what customers wrote."
+  },
+  "watchOut": "“Message Delivery Status Changes” fires per message, so pair it with “Update Row” rather than adding duplicate rows."
+}

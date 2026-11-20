@@ -1,0 +1,8 @@
+{
+  "usedFor": "TestDome holds your candidates and tests, and Microsoft Excel logs each candidate as a row through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Candidates” in TestDome, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each new candidate lands in a hiring table you can sort and filter."
+  },
+  "watchOut": "“New Candidates” in TestDome is polling, so rows arrive after the next scheduled check."
+}

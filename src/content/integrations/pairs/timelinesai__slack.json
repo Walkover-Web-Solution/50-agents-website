@@ -1,0 +1,8 @@
+{
+  "usedFor": "TimelinesAI holds uploaded files, and Slack gets a direct message when “New Uploaded File” runs “Send Direct Message”.",
+  "bestTemplate": {
+    "name": "“New Uploaded File” in TimelinesAI, then “Send Direct Message” in Slack",
+    "why": "Whoever you choose hears about each upload in Slack, so a file does not wait unnoticed."
+  },
+  "watchOut": "“New Uploaded File” in TimelinesAI is polling, so “Send Direct Message” follows a scheduled check."
+}

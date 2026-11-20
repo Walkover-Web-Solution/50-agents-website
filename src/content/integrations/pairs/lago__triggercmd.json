@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lago tracks your billing, and TRIGGERcmd runs a command on your computers when “New Payment Arrives” fires “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“New Payment Arrives” in Lago, then “Trigger Command” in TRIGGERcmd",
+    "why": "Each new payment can start a script on your own machine, such as one that files a receipt."
+  },
+  "watchOut": "“New Payment Arrives” in Lago is polling, so “Trigger Command” runs after a scheduled check."
+}

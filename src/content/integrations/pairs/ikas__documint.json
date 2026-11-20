@@ -1,0 +1,8 @@
+{
+  "usedFor": "ikas holds store orders and Documint builds documents from templates, so “New Order” can run “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“New Order” in ikas, then “Add Content To Template” in Documint",
+    "why": "Each new ikas order feeds its details into a Documint template instead of being typed in."
+  },
+  "watchOut": "“Order Updated” in ikas can also run “Add Content To Template”, so one order may be added more than once."
+}

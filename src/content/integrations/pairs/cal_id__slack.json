@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cal ID holds your bookings, and Slack tells the team about each one through “Send Message”.",
+  "bestTemplate": {
+    "name": "“Booking Created” in Cal ID, then “Send Message” in Slack",
+    "why": "Every new booking posts to a channel, so the team knows before the meeting happens."
+  },
+  "watchOut": "A post to a Slack channel waits for your approval, so a busy booking day means many posts to approve."
+}

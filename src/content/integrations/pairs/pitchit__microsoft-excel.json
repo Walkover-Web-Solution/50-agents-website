@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pitchit holds your pitches, and Microsoft Excel lists each one when “Add Row To Table” runs.",
+  "bestTemplate": {
+    "name": "“When a new pitch is created” in Pitchit, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every new pitch gets an Excel row, so your team can track pitches in one table."
+  },
+  "watchOut": "“When a lead's insights are updated” fires on every update, so the same lead can add rows twice."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Browse AI extracts web data, and Microsoft Excel stores it when “Table Export” runs “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“Table Export” in Browse AI, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each completed export from Browse AI adds a row to your Excel table, keeping scraped results in one place."
+  },
+  "watchOut": "“Update Row” sits beside “Add Row To Table” here, so pick the one that fits history versus one latest row."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify takes your orders, and Fireberry stores each “New Order” as a record through “Create Record”.",
+  "bestTemplate": {
+    "name": "“New Order” in Shopify, then “Create Record” in Fireberry",
+    "why": "Every order lands in Fireberry as a record, so the team working there sees sales without opening the store."
+  },
+  "watchOut": "“New Order” and “Order Paid” both fire for one sale, so connect one of them to avoid duplicate records."
+}

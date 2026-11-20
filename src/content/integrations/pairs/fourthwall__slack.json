@@ -1,0 +1,8 @@
+{
+  "usedFor": "Fourthwall holds your shop products, and Slack gets a message with buttons when “Send Interactive Message” runs.",
+  "bestTemplate": {
+    "name": "“When a new product is created” in Fourthwall, then “Send Interactive Message” in Slack",
+    "why": "A new product reaches Slack with buttons, so the team can approve it before it goes further."
+  },
+  "watchOut": "“When a product is updated” fires on every edit, so one product can post to Slack several times."
+}

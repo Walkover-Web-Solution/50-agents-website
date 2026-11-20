@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify catches the abandoned cart and Moxie holds the work, so “Abandoned Checkout” runs “Create Task”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create Task” in Moxie",
+    "why": "Each abandoned checkout becomes a task to follow up, so recovery work has an owner."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so the Moxie task lands after a scheduled check."
+}

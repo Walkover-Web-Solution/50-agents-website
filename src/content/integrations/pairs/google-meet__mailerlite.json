@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailerLite holds your subscribers, and Google Meet gets a call when “Schedule a Meeting” follows “Subscriber Added to Group”.",
+  "bestTemplate": {
+    "name": "“Subscriber Added to Group” in MailerLite, then “Schedule a Meeting” in Google Meet",
+    "why": "Moving a subscriber into a group books a Google Meet, handy for demo or onboarding groups."
+  },
+  "watchOut": "Only subscribers added to the chosen group fire it, so point the trigger at a group meant for calls."
+}

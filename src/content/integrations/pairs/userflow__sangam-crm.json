@@ -1,0 +1,8 @@
+{
+  "usedFor": "Userflow knows who signs up and Sangam CRM works the leads, so “User Created” runs “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“User Created” in Userflow, then “Create or Update Lead” in Sangam CRM",
+    "why": "Each new product user is added as a lead, or updates the matching one."
+  },
+  "watchOut": "“Create or Update Lead” updates by ID, email or phone, so confirm the Userflow user carries one of them."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Teambook holds your team and projects and HubSpot holds your contacts, so “New User Joins” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New User Joins” in Teambook, then “Create Contact” in HubSpot",
+    "why": "Each new user lands in HubSpot as a contact, so sales sees them right away."
+  },
+  "watchOut": "“Create Contact” requires an email, and “New User Joins” in Teambook is polling, so contacts arrive after a short delay."
+}

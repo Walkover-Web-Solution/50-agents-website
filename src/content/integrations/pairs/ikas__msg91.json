@@ -1,0 +1,8 @@
+{
+  "usedFor": "ikas runs the store, and MSG91 Hello receives a support ticket from “New Order” through “Send Mail via Hello”.",
+  "bestTemplate": {
+    "name": "“New Order” in ikas, then “Send Mail via Hello” in MSG91",
+    "why": "Every new order opens a ticket in Hello, so support can see it before the customer writes."
+  },
+  "watchOut": "“Send Mail via Hello” creates a ticket or replies with a ticket id, so a reply needs that id."
+}

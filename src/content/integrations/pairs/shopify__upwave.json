@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your orders and Upwave tracks the work, so “Order Cancelled” runs “Create Card”.",
+  "bestTemplate": {
+    "name": "“Order Cancelled” in Shopify, then “Create Card” in Upwave",
+    "why": "Each cancelled order becomes a card, so someone owns the follow-up."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so its “Create Card” follows a scheduled check."
+}

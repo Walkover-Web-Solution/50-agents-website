@@ -1,0 +1,8 @@
+{
+  "usedFor": "Render hosts your services and Google Calendar holds the schedule, so “Deploy Finished” runs “Create Calendar Event”.",
+  "bestTemplate": {
+    "name": "“Deploy Finished” in Render, then “Create Calendar Event” in Google Calendar",
+    "why": "Each deploy leaves a calendar event, so the team can see when releases went live or failed."
+  },
+  "watchOut": "“Deploy Finished” in Render fires on live, failed and canceled deploys, so the event needs to say which."
+}

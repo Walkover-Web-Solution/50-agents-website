@@ -1,0 +1,8 @@
+{
+  "usedFor": "Teamgate captures new leads, and Sangam CRM keeps them when “New Lead Created” runs “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Lead Created” in Teamgate, then “Create or Update Lead” in Sangam CRM",
+    "why": "Leads from Teamgate reach Sangam CRM, matched by ID, email or phone, so one person stays one lead."
+  },
+  "watchOut": "“New Lead Created” in Teamgate is polling, so leads reach Sangam CRM after a scheduled check."
+}

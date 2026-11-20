@@ -1,0 +1,8 @@
+{
+  "usedFor": "Booqable holds rental orders and MailerLite holds your list, so “Reserved Order” can run “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“Completed Payment” in Booqable, then “Create or Update Subscriber” in MailerLite",
+    "why": "A paid customer joins your list, and an existing subscriber is updated instead of duplicated."
+  },
+  "watchOut": "“Finalize Invoice” and “Completed Payment” in Booqable both reach “Create or Update Subscriber”, so enable only the events you want."
+}

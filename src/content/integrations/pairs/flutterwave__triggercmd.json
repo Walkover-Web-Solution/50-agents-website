@@ -1,0 +1,8 @@
+{
+  "usedFor": "Flutterwave records the payments, and TRIGGERcmd runs a command on your computer through “Trigger Command” after each “New Transactions”.",
+  "bestTemplate": {
+    "name": "“New Transactions” in Flutterwave, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new payment can start a script on your own machine, such as an export or a sound."
+  },
+  "watchOut": "“New Transactions” is polling, so “Trigger Command” runs after a scheduled check and your computer must be on."
+}

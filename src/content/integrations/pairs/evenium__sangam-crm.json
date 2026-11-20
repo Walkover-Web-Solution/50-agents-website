@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evenium manages event registrations, and Sangam CRM keeps the leads “Create or Update Lead” writes from “New Guests Added”.",
+  "bestTemplate": {
+    "name": "“New Guests Added” in Evenium, then “Create or Update Lead” in Sangam CRM",
+    "why": "Guests become leads for follow-up after the event, and the update path avoids duplicating a returning guest."
+  },
+  "watchOut": "“New Guests Added” in Evenium is polling, so leads arrive after a scheduled check, not at registration."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Justdial captures local leads, and HubSpot stores them when “Create or Update Contact” follows “New Leads”.",
+  "bestTemplate": {
+    "name": "“New Leads” in Justdial, then “Create or Update Contact” in HubSpot",
+    "why": "Each Justdial lead lands in HubSpot as a contact, and a repeat email updates the record."
+  },
+  "watchOut": "“Create or Update Contact” matches on email, so a Justdial lead without one cannot be matched."
+}

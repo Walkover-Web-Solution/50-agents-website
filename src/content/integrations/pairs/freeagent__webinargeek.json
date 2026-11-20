@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webinargeek holds webinar sign-ups, and FreeAgent gets a to-do when “New Registration” runs “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Webinargeek, then “Create Task” in FreeAgent",
+    "why": "Each sign-up becomes a task in a FreeAgent project, so someone follows up with the registrant."
+  },
+  "watchOut": "“Create Task” in FreeAgent needs a project, and “New Registration” is polling, so a short delay is normal."
+}

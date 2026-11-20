@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sukam Apps CRM holds leads, and Sangam CRM mirrors them when “Lead Updated” runs “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“Lead Updated” in Sukam Apps CRM, then “Create or Update Lead” in Sangam CRM",
+    "why": "An edited lead in Sukam Apps CRM updates the same lead in Sangam CRM, matched by ID, email or phone."
+  },
+  "watchOut": "“Lead Updated” in Sukam Apps CRM is polling, so changes reach Sangam CRM after a scheduled check."
+}

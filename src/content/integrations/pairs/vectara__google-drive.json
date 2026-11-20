@@ -1,0 +1,8 @@
+{
+  "usedFor": "Vectara holds your search corpora, and Google Drive gets a document through “Create a new sheet or doc or slide”.",
+  "bestTemplate": {
+    "name": "“New Corpora Created” in Vectara, then “Create a new sheet or doc or slide” in Google Drive",
+    "why": "Each new corpus gets a document in Drive where you can note its purpose."
+  },
+  "watchOut": "“Delete File” permanently deletes a Drive file, so do not attach it to “New Corpora Created”."
+}

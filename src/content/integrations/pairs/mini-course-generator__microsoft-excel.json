@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mini Course Generator knows who finishes, and Microsoft Excel keeps the record when “Course Completed” runs “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“Course Completed” in Mini Course Generator, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each completion adds a row to your Excel table, giving you a running list of finishers."
+  },
+  "watchOut": "“Course Collection Completed” fires separately from “Course Completed”, so one learner can add several rows."
+}

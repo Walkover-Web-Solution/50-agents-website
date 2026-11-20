@@ -1,0 +1,8 @@
+{
+  "usedFor": "Stape sets up gateways, and Google Docs records them when “New Singals Gateway” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Singals Gateway” in Stape, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new gateway gets written into a doc tab, giving you a running reference for your setup."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s content, so point it at a tab you can overwrite."
+}

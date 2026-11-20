@@ -63,3 +63,7 @@ list the slugs and the reason in your report.
 - Same pattern (Search): when 5 or more pairs with the same app would share the same best action, prefer a different action
   in `templates` where one does real work; the website session keeps out the rest of such a cluster unless the use is clearly
   real for that trigger app (index-gate.json samePattern).
+- SMS and WhatsApp (Search): when the action sends an SMS, MMS or WhatsApp or template message, a line says it goes out
+  through the visitor's own account in that app ("sent through your ClickSend account"). Never say 50agents sends it.
+- A template whose action is really a trigger of the action app (the catalog lists some, such as Shopify's "Abandoned
+  Checkout" in the action slot) is not a template; the inputs leave them out.

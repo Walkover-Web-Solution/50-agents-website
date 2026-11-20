@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webflow collects form submissions, and EventBrite receives an event through “Create Event”.",
+  "bestTemplate": {
+    "name": "“New Form Submission” in Webflow, then “Create Event” in EventBrite",
+    "why": "A submitted event form becomes an EventBrite event without retyping the details."
+  },
+  "watchOut": "“Publish an Event” works on an existing event, so “Create Event” alone does not publish anything."
+}

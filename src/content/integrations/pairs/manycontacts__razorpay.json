@@ -1,0 +1,8 @@
+{
+  "usedFor": "ManyContacts captures website leads and Razorpay takes payment, so “New Contact” can run “Create Payment Link”.",
+  "bestTemplate": {
+    "name": "“New Contact” in ManyContacts, then “Create Payment Link” in Razorpay",
+    "why": "A new lead gets a payment link ready, so selling can start while they are interested."
+  },
+  "watchOut": "“New Contact” in ManyContacts is polling, so the payment link follows a scheduled check."
+}

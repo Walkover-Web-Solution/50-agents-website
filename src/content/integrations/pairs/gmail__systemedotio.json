@@ -1,0 +1,8 @@
+{
+  "usedFor": "Systeme.io holds your new contacts, and Gmail emails them through “Send Email”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Systeme.io, then “Send Email” in Gmail",
+    "why": "A new contact gets an email from your own Gmail, with subject and body set once in the template."
+  },
+  "watchOut": "An email to a new contact waits in Needs you, and “Send Email” only goes after you approve it."
+}

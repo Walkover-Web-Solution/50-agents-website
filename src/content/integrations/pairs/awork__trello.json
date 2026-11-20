@@ -1,0 +1,8 @@
+{
+  "usedFor": "Awork holds projects and tasks, and Trello shows them as cards when “New Task” runs “Create Trello Card”.",
+  "bestTemplate": {
+    "name": "“New Task” in Awork, then “Create Trello Card” in Trello",
+    "why": "Each new task becomes a card, so the board stays in step with the project."
+  },
+  "watchOut": "“New Task” in Awork only fires for tasks with a project assigned, so private tasks never reach Trello."
+}

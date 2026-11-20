@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kajabi sells offers and Gtwy runs AI agents, so “New Purchased” can hand each buyer to “Call AI Agent Instantly”.",
+  "bestTemplate": {
+    "name": "“New Purchased” in Kajabi, then “Call AI Agent Instantly” in Gtwy",
+    "why": "A purchase is the cue for a reply, and the action sends a chat request with custom variables."
+  },
+  "watchOut": "“Tag Added” and “Tag Removed” are separate triggers, so build one template per tag change you want."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Raisely holds your donors and MailChimp holds your audience, so “New Online Donation” runs “Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“New Online Donation” in Raisely, then “Update Subscriber” in MailChimp",
+    "why": "A donation updates the donor's subscriber profile, so your next email reflects it."
+  },
+  "watchOut": "“Add Tags to Audience Member” finds people by email, and “New Campaign” carries no donor email to tag."
+}

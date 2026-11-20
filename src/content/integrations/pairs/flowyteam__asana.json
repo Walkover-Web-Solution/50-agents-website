@@ -1,0 +1,8 @@
+{
+  "usedFor": "flowyteam tracks key results, and Asana receives a project through “Create Project” when one goes off track.",
+  "bestTemplate": {
+    "name": "“New Off-Track Key Result” in flowyteam, then “Create Project” in Asana",
+    "why": "A key result going off track gets its own Asana project, so someone owns the fix."
+  },
+  "watchOut": "Each run of “Create Project” adds a new project, so check the owner and dates you set."
+}

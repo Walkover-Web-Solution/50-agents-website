@@ -1,0 +1,8 @@
+{
+  "usedFor": "Follow Up Boss holds real estate contacts, and “Contact Is Updated” refreshes the list in MailerLite.",
+  "bestTemplate": {
+    "name": "“Contact Is Updated” in Follow Up Boss, then “Create or Update Subscriber” in MailerLite",
+    "why": "Edits to a contact reach your email list, since the action creates or updates the subscriber."
+  },
+  "watchOut": "“Contact Is Updated” in Follow Up Boss fires on every edit, so one contact can run more than once."
+}

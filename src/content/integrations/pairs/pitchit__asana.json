@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pitchit builds your pitches and Asana tracks the work, so “When a new pitch is created” runs “Create Project”.",
+  "bestTemplate": {
+    "name": "“When a new pitch is created” in Pitchit, then “Create Project” in Asana",
+    "why": "Each new pitch gets its own Asana project, with owner and dates, ready for the team."
+  },
+  "watchOut": "“When a lead's insights are updated” runs on every update, so “Create Task or Subtask” can repeat for one lead."
+}

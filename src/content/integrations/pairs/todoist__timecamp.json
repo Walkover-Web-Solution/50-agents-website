@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds tasks and TimeCamp tracks time, so “New Task Created in Project” can mirror each with “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Task” in TimeCamp",
+    "why": "Each new Todoist task is mirrored in TimeCamp, so hours can be logged against it from day one."
+  },
+  "watchOut": "“New Incomplete Task” only covers tasks added in the last 15 minutes, so older ones fall outside it."
+}

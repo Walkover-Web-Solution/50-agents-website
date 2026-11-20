@@ -1,0 +1,8 @@
+{
+  "usedFor": "Fathom records your meetings, and Slack shares what came out of them when “New Action Item” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Action Item” in Fathom, then “Send Message” in Slack",
+    "why": "Each action item from a meeting reaches a Slack channel, so owners see their follow-ups right away."
+  },
+  "watchOut": "An automation's “Send Message” post to a Slack channel waits for your approval today, so expect a tap first."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "ActivityInfo holds your program records, and Microsoft Excel receives each one as a row through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Record” in ActivityInfo, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every record collected in a chosen form lands in an Excel table, ready for reporting."
+  },
+  "watchOut": "“New Record” is polling, so rows appear after a scheduled check, and “Updated Record” would add rows for edits too."
+}

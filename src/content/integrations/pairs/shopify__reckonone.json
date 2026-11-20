@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify takes your orders and Reckon One keeps your books, so “New Order” runs “Create Receipt”.",
+  "bestTemplate": {
+    "name": "“New Order” in Shopify, then “Create Receipt” in Reckon One",
+    "why": "Each sale is recorded as a money-in receipt, so your books follow the store."
+  },
+  "watchOut": "Nothing here reverses “Create Receipt” if a Shopify order is later cancelled, so handle that by hand."
+}

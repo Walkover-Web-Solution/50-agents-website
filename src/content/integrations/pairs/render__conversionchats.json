@@ -1,0 +1,8 @@
+{
+  "usedFor": "Render hosts your services, and Conversion Chats messages your team when “Deploy Finished” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“Deploy Finished” in Render, then “Send Template Message” in Conversion Chats",
+    "why": "Every finished deploy, live or failed, reaches your team as a message through your Conversion Chats account."
+  },
+  "watchOut": "“Deploy Finished” in Render is polling, so the message follows a scheduled check, not the deploy itself."
+}

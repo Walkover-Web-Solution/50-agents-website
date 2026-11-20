@@ -1,0 +1,8 @@
+{
+  "usedFor": "Adafruit IO holds feeds, and Google Docs gets text from “New Feed Data” via “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Feed Data” in Adafruit IO, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new reading lands in a document tab your team can read without opening the feed."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s content, so choose add when you want a running log."
+}

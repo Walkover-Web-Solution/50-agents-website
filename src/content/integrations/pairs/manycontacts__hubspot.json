@@ -1,0 +1,8 @@
+{
+  "usedFor": "ManyContacts captures new conversations, and HubSpot tracks the sale when “New Contact” runs “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Contact” in ManyContacts, then “Create Deal” in HubSpot",
+    "why": "Every new contact opens a deal, so a sales owner sees the chat lead in HubSpot."
+  },
+  "watchOut": "“New Contact” is polling, so “Create Deal” runs after a scheduled check and a short delay is normal."
+}

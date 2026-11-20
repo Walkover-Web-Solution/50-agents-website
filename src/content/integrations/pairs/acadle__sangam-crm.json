@@ -1,0 +1,8 @@
+{
+  "usedFor": "Acadle holds your learners, and Sangam CRM receives each “New User” as a sales opportunity through “Create Opportunity”.",
+  "bestTemplate": {
+    "name": "“New User” in Acadle, then “Create Opportunity” in Sangam CRM",
+    "why": "Each new learner enters the sales pipeline with a next follow-up date, so someone reaches out."
+  },
+  "watchOut": "“New User” in Acadle is polling, so “Create Opportunity” runs after a scheduled check, not at sign-up."
+}

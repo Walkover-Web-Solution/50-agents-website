@@ -1,0 +1,8 @@
+{
+  "usedFor": "toflow.ai holds your outreach deals, and viaSocket utilities starts another workflow through “Flow in Flow”.",
+  "bestTemplate": {
+    "name": "“When a new deal is created” in toflow.ai, then “Flow in Flow” in viaSocket utilities",
+    "why": "A new deal hands off to a second workflow, so one follow-up process is reused."
+  },
+  "watchOut": "“When a new deal is created” is polling, so the second workflow starts after a scheduled check."
+}

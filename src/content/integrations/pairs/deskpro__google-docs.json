@@ -1,0 +1,8 @@
+{
+  "usedFor": "Deskpro holds your tickets and Google Docs keeps the notes, so “New Ticket” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Ticket” in Deskpro, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new ticket is written into a doc tab, which gives the team a plain running log."
+  },
+  "watchOut": "“New Ticket” in Deskpro is polling, and “Add or Replace Text In Tab” can overwrite a tab, so pick add."
+}

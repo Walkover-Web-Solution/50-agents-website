@@ -1,0 +1,8 @@
+{
+  "usedFor": "flowyteam flags key results and viaSocket utilities runs the follow-up workflow when “New Off-Track Key Result” calls “Flow in Flow”.",
+  "bestTemplate": {
+    "name": "“New Off-Track Key Result” in flowyteam, then “Flow in Flow” in viaSocket utilities",
+    "why": "A key result going off track starts your own follow-up workflow, such as alerting the owner."
+  },
+  "watchOut": "“Flow in Flow” requires the child workflow's flow ID and payload method, so set both first."
+}

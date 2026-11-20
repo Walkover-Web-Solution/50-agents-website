@@ -1,0 +1,8 @@
+{
+  "usedFor": "Breeze holds your projects and tasks, and TRIGGERcmd runs a command on your computer through “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“When a new task is created” in Breeze, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new task kicks off a command on your own machine, such as a build or a backup."
+  },
+  "watchOut": "“When a new task is created” in Breeze is polling, so the command runs after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Eventzilla holds registrations, and Bolna places a call through your Bolna account when “New Registration” runs “Make a Phone Call”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Eventzilla, then “Make a Phone Call” in Bolna",
+    "why": "A new registrant gets a call soon after signing up, instead of waiting for someone to dial."
+  },
+  "watchOut": "“Registration Is Updated” also fires, so one attendee could receive a second call from “Make a Phone Call”."
+}

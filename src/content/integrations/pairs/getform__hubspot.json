@@ -1,0 +1,8 @@
+{
+  "usedFor": "Getform collects your web form entries and HubSpot holds your contacts, so “New form submission” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New form submission” in Getform, then “Create Contact” in HubSpot",
+    "why": "Each form entry becomes a HubSpot contact, so leads do not sit in an inbox."
+  },
+  "watchOut": "“Create Contact” requires an email, and “New form submission” in Getform is polling, so entries arrive after a short delay."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Productive.io holds agency tasks, and Eden AI replies to each “New Task” through “Create Chat Conversation”.",
+  "bestTemplate": {
+    "name": "“New Task” in Productive.io, then “Create Chat Conversation” in Eden AI",
+    "why": "The new task is sent to an AI model, and its response comes back ready for the next step."
+  },
+  "watchOut": "“New Task” and “New Task Updated” both run, so one task can start a second chat after an edit."
+}

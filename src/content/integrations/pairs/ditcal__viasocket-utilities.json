@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds bookings, and viaSocket utilities hands each one on when “New Booking” runs “Flow in Flow”.",
+  "bestTemplate": {
+    "name": "“New Booking” in DitCal, then “Flow in Flow” in viaSocket utilities",
+    "why": "A new booking can start a second workflow that holds the follow-up steps, keeping the first one short."
+  },
+  "watchOut": "“Flow in Flow” needs the ID of the workflow to run, so set it before turning on “New Booking”."
+}

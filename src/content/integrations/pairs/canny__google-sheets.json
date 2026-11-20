@@ -1,0 +1,8 @@
+{
+  "usedFor": "Canny collects feedback, and each “New Post Created” becomes a log entry in Google Sheets.",
+  "bestTemplate": {
+    "name": "“New Post Created” in Canny, then “Add Multiple Rows” in Google Sheets",
+    "why": "Each new feedback post lands as a spreadsheet row, ready to sort and review."
+  },
+  "watchOut": "“Delete Rows” is also available in Google Sheets and removes data, so pick it only for cleanup."
+}

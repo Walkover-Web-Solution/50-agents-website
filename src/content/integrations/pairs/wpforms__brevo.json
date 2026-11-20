@@ -1,0 +1,8 @@
+{
+  "usedFor": "WPForms collects form entries, and Brevo stores each sender as a contact through “Add Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Form Entry” in WPForms, then “Add Or Update Contact” in Brevo",
+    "why": "A repeat sender updates the same contact instead of creating a second one."
+  },
+  "watchOut": "“Update Contact” only updates an existing contact, so use “Add Or Update Contact” for first-time senders."
+}

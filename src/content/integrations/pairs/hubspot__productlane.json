@@ -1,0 +1,8 @@
+{
+  "usedFor": "HubSpot holds your support tickets, and Productlane records each one as a note through “Create Note”.",
+  "bestTemplate": {
+    "name": "“Ticket Created or Updated” in HubSpot, then “Create Note” in Productlane",
+    "why": "Each ticket reaches Productlane as a note, so product sees what customers are reporting."
+  },
+  "watchOut": "“Ticket Created or Updated” also fires on edits, so one ticket can create more than one note."
+}

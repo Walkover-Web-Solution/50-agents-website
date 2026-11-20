@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailChimp holds subscribers and Cloze holds relationships, and “Create a Person” adds each new subscriber to Cloze.",
+  "bestTemplate": {
+    "name": "“When a new subscriber is added to an audience” in MailChimp, then “Create a Person” in Cloze",
+    "why": "New subscribers appear in Cloze as people, so follow-up lives next to your other contacts."
+  },
+  "watchOut": "“When a subscriber unsubscribes from an audience” also leads to “Create a Person”, so unsubscribes would add people too."
+}

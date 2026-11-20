@@ -1,0 +1,8 @@
+{
+  "usedFor": "Flutterwave holds payments and subscriptions, and MailerLite holds your mailing list, so “New Subscription” runs “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“New Subscription” in Flutterwave, then “Create or Update Subscriber” in MailerLite",
+    "why": "A paying subscriber lands on your MailerLite list, and a repeat customer is updated instead of duplicated."
+  },
+  "watchOut": "“New Subscription” in Flutterwave is polling, so the MailerLite subscriber appears after a scheduled check."
+}

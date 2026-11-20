@@ -1,0 +1,8 @@
+{
+  "usedFor": "Vyte holds events, and Razorpay creates a payment link when “Event Is Confirmed” runs “Create Payment Link”.",
+  "bestTemplate": {
+    "name": "“Event Is Confirmed” in Vyte, then “Create Payment Link” in Razorpay",
+    "why": "A confirmed event gets a shareable link with amount and expiry, so payment can be collected."
+  },
+  "watchOut": "“Event Cancelled” and “Event Is Updated” fire separately, so a changed event does not update an existing payment link."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Adafruit IO logs sensor feeds, and Anthropic Claude answers on them when “New Feed Data” triggers “Generate Response”.",
+  "bestTemplate": {
+    "name": "“New Feed Data” in Adafruit IO, then “Generate Response” in Anthropic Claude",
+    "why": "Each fresh reading becomes the prompt, so Claude can explain or flag it while the data is current."
+  },
+  "watchOut": "“New Feed Data” is polling, so “Generate Response” runs after a scheduled check, not on each reading."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Ideanote collects ideas and Google Docs holds the write-up, so “New Ideas” can run “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Ideas” in Ideanote, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new idea is added to a doc tab, so reviewers read one page instead of many."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's existing content, so choose add rather than replace."
+}

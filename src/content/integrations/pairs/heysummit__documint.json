@@ -1,0 +1,8 @@
+{
+  "usedFor": "HeySummit registers summit attendees, and Documint turns each “New Attendee” into a document through “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in HeySummit, then “Add Content To Template” in Documint",
+    "why": "Each registration fills your document template, so every attendee gets paperwork without anyone typing names."
+  },
+  "watchOut": "“New Attendee” and “Ticket Purchased” both run on registration, so pick one or each person gets two documents."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Teambook is where people join, and StoreHippo receives each one when “New User Joins” runs “Add User”.",
+  "bestTemplate": {
+    "name": "“New User Joins” in Teambook, then “Add User” in StoreHippo",
+    "why": "A person who joins Teambook gets a StoreHippo user, so you do not add them twice."
+  },
+  "watchOut": "“New User Joins” is polling, so “Add User” runs after a scheduled check and a short delay is normal."
+}

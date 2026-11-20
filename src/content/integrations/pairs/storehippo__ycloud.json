@@ -1,0 +1,8 @@
+{
+  "usedFor": "StoreHippo holds store orders and customers and YCloud sends the mail, so a “New Order” can trigger “Send an Email”.",
+  "bestTemplate": {
+    "name": "“New Order” in StoreHippo, then “Send an Email” in YCloud",
+    "why": "Each new order sends the customer an email through your YCloud account."
+  },
+  "watchOut": "An email to a customer waits in Needs you for your approval before “Send an Email” goes out."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Backstage manages event registration, and Documint fills a document template through “Add Content To Template” for each “New Attendee”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in Zoho Backstage, then “Add Content To Template” in Documint",
+    "why": "Each attendee gets a prepared document, such as a pass or confirmation, built from your template."
+  },
+  "watchOut": "“New Checkin” and “New Order” are also triggers here, so choose the event that matches when documents should be made."
+}

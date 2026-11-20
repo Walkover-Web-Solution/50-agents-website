@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pitchit scores your leads, and MailerLite mirrors them when “When a lead's priority changes” runs “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“When a lead's priority changes” in Pitchit, then “Create or Update Subscriber” in MailerLite",
+    "why": "A lead whose priority shifts is added or refreshed in MailerLite, so your emails follow the sales view."
+  },
+  "watchOut": "A subscriber needs an email address, so check that Pitchit leads carry one before “Create or Update Subscriber” runs."
+}

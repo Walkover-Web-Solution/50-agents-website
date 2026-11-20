@@ -1,0 +1,8 @@
+{
+  "usedFor": "Freelo holds projects and Trello gets a board for each, since “Project Created” runs “Copy Board”.",
+  "bestTemplate": {
+    "name": "“Project Created” in Freelo, then “Copy Board” in Trello",
+    "why": "Each new project gets its own board copied from an existing one, so setup is the same every time."
+  },
+  "watchOut": "“Copy Board” needs an existing board to copy and an organization to put it in, so pick both in advance."
+}

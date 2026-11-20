@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify records order cancellations, and SmartTask turns each “Order Cancelled” into work through “Create Task”.",
+  "bestTemplate": {
+    "name": "“Order Cancelled” in Shopify, then “Create Task” in SmartTask",
+    "why": "A cancelled order gets a task straight away, so a refund or restock check is not forgotten."
+  },
+  "watchOut": "Each cancellation makes its own “Create Task” run, so expect one task per cancelled order."
+}

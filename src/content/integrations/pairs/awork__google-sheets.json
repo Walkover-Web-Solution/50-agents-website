@@ -1,0 +1,8 @@
+{
+  "usedFor": "Awork holds time entries, and Google Sheets logs each one when “New Time Entry” runs “Add New Row to Sheet”.",
+  "bestTemplate": {
+    "name": "“New Time Entry” in Awork, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Every logged time entry becomes a sheet row you can total or share without opening Awork."
+  },
+  "watchOut": "“Add New Row to Sheet” maps columns by header or by letter, so check the mapping before entries flow in."
+}

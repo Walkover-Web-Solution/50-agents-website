@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cliengo captures chatbot leads, and Google Sheets stores each one as a row through “Add Multiple Rows”.",
+  "bestTemplate": {
+    "name": "“New Customer/Contact” in Cliengo, then “Add Multiple Rows” in Google Sheets",
+    "why": "Each new chatbot contact becomes a spreadsheet row your team can sort and share."
+  },
+  "watchOut": "“New Customer/Contact” is polling, so rows show up after a scheduled check, not the moment someone chats."
+}

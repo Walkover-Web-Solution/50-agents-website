@@ -1,0 +1,8 @@
+{
+  "usedFor": "Stripe processes your payments, and Webengage gets each buyer as a user through “Add User”.",
+  "bestTemplate": {
+    "name": "“When a payment succeeds” in Stripe, then “Add User” in Webengage",
+    "why": "Each paying customer is added to Webengage, ready for engagement messages."
+  },
+  "watchOut": "“When a checkout session is completed” also fires for one purchase, so using both adds the user twice."
+}

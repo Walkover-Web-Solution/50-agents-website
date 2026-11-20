@@ -1,0 +1,8 @@
+{
+  "usedFor": "Twilio holds your calls and numbers, and Conversion Chats follows up when “Send Template Message” runs.",
+  "bestTemplate": {
+    "name": "“New Incoming Call” in Twilio, then “Send Template Message” in Conversion Chats",
+    "why": "A call to your Twilio number triggers a template message sent through your Conversion Chats account."
+  },
+  "watchOut": "“New Message” in Twilio is polling, so a follow-up from it trails the message by one check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailChimp holds your audience, and Zoho Invoice stores billable people when a new subscriber triggers “Create Contact”.",
+  "bestTemplate": {
+    "name": "“When a new subscriber is added to an audience” in MailChimp, then “Create Contact” in Zoho Invoice",
+    "why": "Each new subscriber is ready to invoice later, with no second data entry in Zoho Invoice."
+  },
+  "watchOut": "Using the unsubscribe trigger with “Create Contact” would add people who just left your audience."
+}

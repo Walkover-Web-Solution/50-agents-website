@@ -1,0 +1,8 @@
+{
+  "usedFor": "Quora Lead Gen Forms captures leads, and Google Drive copies a file for each “New Lead” through “Copy a File”.",
+  "bestTemplate": {
+    "name": "“New Lead” in Quora Lead Gen Forms, then “Copy a File” in Google Drive",
+    "why": "Each lead gets its own copy of a template file, filed into the folder you choose."
+  },
+  "watchOut": "“New Lead” is polling, so “Copy a File” runs after a scheduled check, not at once."
+}

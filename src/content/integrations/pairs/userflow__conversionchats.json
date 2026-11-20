@@ -1,0 +1,8 @@
+{
+  "usedFor": "Userflow knows your new users, and Conversion Chats messages them when “User Created” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“User Created” in Userflow, then “Send Template Message” in Conversion Chats",
+    "why": "A new user gets a welcome template message, sent through your Conversion Chats account."
+  },
+  "watchOut": "A message that reaches someone outside waits in Needs you for your approval before “Send Template Message” goes out."
+}

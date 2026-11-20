@@ -1,0 +1,8 @@
+{
+  "usedFor": "Product hunt surfaces launches, and Google Docs keeps a log of them through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“When a product becomes hot” in Product hunt, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A product reaching the hot threshold is written into a tab, so you track what is taking off."
+  },
+  "watchOut": "The trigger is polling, and “Add or Replace Text In Tab” can replace content, so pick adding to keep history."
+}

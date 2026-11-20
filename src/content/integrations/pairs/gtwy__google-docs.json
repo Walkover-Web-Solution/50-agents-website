@@ -1,0 +1,8 @@
+{
+  "usedFor": "Gtwy runs your AI apps and Google Docs keeps notes, so “Error Alert” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Error Alert” in Gtwy, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each error is written into a doc tab, which gives you one log to review."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace the tab's content, so set it to add to keep earlier errors."
+}

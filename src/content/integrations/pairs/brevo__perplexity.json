@@ -1,0 +1,8 @@
+{
+  "usedFor": "Brevo holds your contacts and Perplexity answers questions, so “Contact Updated” can feed “Chat Completion” for a written reply.",
+  "bestTemplate": {
+    "name": "“Contact Updated” in Brevo, then “Chat Completion” in Perplexity",
+    "why": "The changed contact details become the prompt, so Perplexity can draft a summary or research note for that person."
+  },
+  "watchOut": "“Contact Updated” in Brevo fires on every change, so “Chat Completion” can run again for the same contact."
+}

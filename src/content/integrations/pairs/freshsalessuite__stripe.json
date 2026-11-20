@@ -1,0 +1,8 @@
+{
+  "usedFor": "Freshsales Suite holds contacts and Stripe holds billing customers, so “Contact Created” can run “Create Customer”.",
+  "bestTemplate": {
+    "name": "“Contact Created” in Freshsales Suite, then “Create Customer” in Stripe",
+    "why": "Each new contact is ready to bill in Stripe, and “Create Customer” updates an existing customer instead of duplicating."
+  },
+  "watchOut": "“Contact Created” in Freshsales Suite is polling, so the Stripe customer appears after a scheduled check."
+}

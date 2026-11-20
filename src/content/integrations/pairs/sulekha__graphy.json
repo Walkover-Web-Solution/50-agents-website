@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sulekha captures local service leads and Graphy holds learners, so “New Leads” can run “Create a Learner”.",
+  "bestTemplate": {
+    "name": "“New Leads” in Sulekha, then “Create a Learner” in Graphy",
+    "why": "A new lead becomes a learner record, ready to be enrolled in a course."
+  },
+  "watchOut": "“Create a Learner” needs an email and a name, so each Sulekha lead must carry both."
+}

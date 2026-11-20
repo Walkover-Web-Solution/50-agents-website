@@ -1,0 +1,8 @@
+{
+  "usedFor": "Recall.ai transcribes meetings and Conversion Chats handles messaging, so “New Transcript Completed” can alert someone via “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“New Transcript Completed” in Recall.ai, then “Send Template Message” in Conversion Chats",
+    "why": "A finished transcript triggers a template message to your team, sent through your Conversion Chats account."
+  },
+  "watchOut": "“New Transcript Completed” is polling, so “Send Template Message” goes out after a scheduled check, not at the meeting’s end."
+}

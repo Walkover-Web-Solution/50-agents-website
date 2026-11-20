@@ -1,0 +1,8 @@
+{
+  "usedFor": "Missive holds your team’s conversations and contacts, and Airtable keeps the records when “New Contact” runs “Create Record”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Missive, then “Create Record” in Airtable",
+    "why": "Every contact Missive creates becomes a row in your base, ready for views and follow-up."
+  },
+  "watchOut": "“Record Created Or Updated” in Airtable also fires on edits, so pair it with “Update Contact” to avoid duplicate contacts."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "api.video holds the streams, and Google Docs keeps a log tab updated through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Live Stream Ended” in api.video, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "This trigger is pushed, so each ended broadcast reaches the doc tab without a scheduled-check delay."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's existing content, so check it appends before logging every stream."
+}

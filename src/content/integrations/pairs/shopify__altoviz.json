@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your store customers, and Altoviz receives each one as an invoicing contact through “Create a Contact”.",
+  "bestTemplate": {
+    "name": "“New Customer” in Shopify, then “Create a Contact” in Altoviz",
+    "why": "A new store customer is already a contact in Altoviz when you need to invoice them."
+  },
+  "watchOut": "“Create a Contact” adds a contact each run, so check for duplicates if customers already exist in Altoviz."
+}

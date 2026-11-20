@@ -1,0 +1,8 @@
+{
+  "usedFor": "SandeshChat holds your inbound messages, and Sangam CRM turns senders into leads through “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Inbound Message Arrives” in SandeshChat, then “Create or Update Lead” in Sangam CRM",
+    "why": "A new inbound message creates or updates a lead, so no chat sender goes unrecorded."
+  },
+  "watchOut": "“Message Delivery Status Changes” also triggers it, so one chat could write the lead many times."
+}

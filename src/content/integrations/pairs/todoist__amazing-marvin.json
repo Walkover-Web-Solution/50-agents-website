@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and Amazing Marvin receives a copy through “Create Task” when “New Task Created in Project” runs.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Task” in Amazing Marvin",
+    "why": "Tasks added in one project show up in your daily planner too."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so a copy lands after the next scheduled check."
+}

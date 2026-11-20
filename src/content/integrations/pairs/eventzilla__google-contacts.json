@@ -1,0 +1,8 @@
+{
+  "usedFor": "Eventzilla holds registrations, and Google Contacts keeps the address book that “Create Contact” fills from each “New Registration”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Eventzilla, then “Create Contact” in Google Contacts",
+    "why": "Every person who registers is saved to your address book, so you can reach them after the event."
+  },
+  "watchOut": "“Attendee Check-In Changes” fires on every change, so “Create Contact” on it can save the same person twice."
+}
