@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kuration builds research projects, and Slack receives a post through “Send Message” whenever a project is created or updated.",
+  "bestTemplate": {
+    "name": "“When a project is created or updated” in Kuration, then “Send Message” in Slack",
+    "why": "Your team sees each project change in a channel, with no one checking Kuration."
+  },
+  "watchOut": "An automation post to a Slack channel waits for your approval, and the Kuration trigger fires on updates as well."
+}

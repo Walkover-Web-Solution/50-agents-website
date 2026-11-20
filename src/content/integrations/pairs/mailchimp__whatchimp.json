@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailChimp holds your audience, and Whatchimp tags each new subscriber through “Assign Labels To Subscriber”.",
+  "bestTemplate": {
+    "name": "“When a new subscriber is added to an audience” in MailChimp, then “Assign Labels To Subscriber” in Whatchimp",
+    "why": "New subscribers get labels in Whatchimp, so you can group them from the first day."
+  },
+  "watchOut": "“When a new subscriber is added to an audience” fires for any subscriber, so each one gets the label."
+}

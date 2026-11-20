@@ -1,5 +1,5 @@
 {
-  "usedFor": "Todoist holds the tasks and Salesmate holds the sales activity, so “New Task Created in Project” can log work through “Create Activity”.",
+  "usedFor": "Todoist holds tasks and Salesmate holds sales activity, so “New Task Created in Project” can log work via “Create Activity”.",
   "bestTemplate": {
     "name": "“New Task Created in Project” in Todoist, then “Create Activity” in Salesmate",
     "why": "A task made in Todoist appears as an activity in Salesmate, so sales sees the work without asking."

@@ -1,5 +1,5 @@
 {
-  "usedFor": "Text-Em-All handles texting and Microsoft Excel keeps the log, so “New Text Received” can record each reply with “Add Row To Table”.",
+  "usedFor": "Text-Em-All handles texting and Microsoft Excel keeps the log, so “New Text Received” can run “Add Row To Table”.",
   "bestTemplate": {
     "name": "“New Text Received” in Text-Em-All, then “Add Row To Table” in Microsoft Excel",
     "why": "Every incoming text becomes a row, so replies sit in one table the team can sort."

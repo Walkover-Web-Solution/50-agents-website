@@ -1,5 +1,5 @@
 {
-  "usedFor": "Facebook Messenger is where people write to your page and Google Contacts keeps the address book, so “New Page Message” can run “Create Contact”.",
+  "usedFor": "Facebook Messenger gets page messages and Google Contacts keeps the address book, so “New Page Message” can run “Create Contact”.",
   "bestTemplate": {
     "name": "“New Page Message” in Facebook Messenger, then “Create Contact” in Google Contacts",
     "why": "Each new message from a person lands as a saved contact, so people who wrote in are not lost."

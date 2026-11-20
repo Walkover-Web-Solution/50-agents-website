@@ -1,0 +1,8 @@
+{
+  "usedFor": "PayHere holds payments and Google Contacts holds your address book, so “Payment Received” can run “Create Contact” for each payer.",
+  "bestTemplate": {
+    "name": "“Payment Received” in PayHere, then “Create Contact” in Google Contacts",
+    "why": "Paying customers land in your address book without retyping, ready for later follow-up."
+  },
+  "watchOut": "“Payment Received” fires on every payment, so a repeat buyer can run “Create Contact” again."
+}

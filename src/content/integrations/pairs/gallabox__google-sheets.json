@@ -1,5 +1,5 @@
 {
-  "usedFor": "Gallabox holds your customer conversations and Google Sheets holds the list, so “New Contact” can add a line with “Add New Row to Sheet”.",
+  "usedFor": "Gallabox holds conversations and Google Sheets holds the list, so “New Contact” can run “Add New Row to Sheet”.",
   "bestTemplate": {
     "name": "“New Contact” in Gallabox, then “Add New Row to Sheet” in Google Sheets",
     "why": "Each new contact becomes a sheet row, giving the team a live list outside the inbox."

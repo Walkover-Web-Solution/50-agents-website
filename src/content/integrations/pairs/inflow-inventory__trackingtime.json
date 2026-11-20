@@ -1,0 +1,8 @@
+{
+  "usedFor": "inflow-inventory holds customers and orders, and Trackingtime receives each customer when “New Customer” runs “Add Customer”.",
+  "bestTemplate": {
+    "name": "“New Customer” in inflow-inventory, then “Add Customer” in Trackingtime",
+    "why": "A customer created in inflow-inventory is already in Trackingtime when hours need logging."
+  },
+  "watchOut": "“Updated Purchase Order” fires on every update, so “Update Project” can run repeatedly for one order."
+}

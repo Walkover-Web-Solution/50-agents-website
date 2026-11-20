@@ -1,5 +1,5 @@
 {
-  "usedFor": "DitCal takes the bookings and Bolna makes AI phone calls, so “New Booking” can start “Make a Phone Call” as a confirmation.",
+  "usedFor": "DitCal takes bookings and Bolna makes AI phone calls, so “New Booking” can start “Make a Phone Call” as confirmation.",
   "bestTemplate": {
     "name": "“New Booking” in DitCal, then “Make a Phone Call” in Bolna",
     "why": "A new booking is the cue for a confirmation call, placed through Bolna."

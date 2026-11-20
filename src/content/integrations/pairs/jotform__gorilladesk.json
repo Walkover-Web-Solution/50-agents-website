@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jotform collects form entries, and GorillaDesk receives each as a lead through “Add a Lead” when “New Submission” fires.",
+  "bestTemplate": {
+    "name": "“New Submission” in Jotform, then “Add a Lead” in GorillaDesk",
+    "why": "A new form entry becomes a lead in GorillaDesk, so quote requests never sit in an inbox."
+  },
+  "watchOut": "“Add a Booking” puts the event on the GorillaDesk schedule as a pending booking, so someone still confirms it."
+}

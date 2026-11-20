@@ -1,0 +1,8 @@
+{
+  "usedFor": "StoreHippo holds your orders, and Google Sheets receives a row when “New Order” runs “Add New Row to Sheet”.",
+  "bestTemplate": {
+    "name": "“New Order” in StoreHippo, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Every new order lands as a spreadsheet row, so the team can sort and total sales."
+  },
+  "watchOut": "“Add New Row to Sheet” maps values by header or column letter, so confirm the mapping before orders arrive."
+}

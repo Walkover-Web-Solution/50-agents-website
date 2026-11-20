@@ -1,5 +1,5 @@
 {
-  "usedFor": "Shopify holds your products and TextRazor reads text, so “New Product” can send the listing to “Analyze Text” for entities and topics.",
+  "usedFor": "Shopify holds your products and TextRazor reads text, so “New Product” can send the listing to “Analyze Text”.",
   "bestTemplate": {
     "name": "“New Product” in Shopify, then “Analyze Text” in TextRazor",
     "why": "A new product’s description is analyzed for entities and topics, so you can review what the listing is about."

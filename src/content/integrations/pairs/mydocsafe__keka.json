@@ -1,5 +1,5 @@
 {
-  "usedFor": "MyDocSafe collects forms and signatures and Keka runs HR, so “Form is submitted” can add a hire through “Add an new employee”.",
+  "usedFor": "MyDocSafe collects forms and signatures and Keka runs HR, so “Form is submitted” can run “Add an new employee”.",
   "bestTemplate": {
     "name": "“Form is submitted” in MyDocSafe, then “Add an new employee” in Keka",
     "why": "A submitted form can carry the personal details, so the new employee exists in Keka without retyping."

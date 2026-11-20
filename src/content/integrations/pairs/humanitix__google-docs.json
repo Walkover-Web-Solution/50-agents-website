@@ -1,0 +1,8 @@
+{
+  "usedFor": "humanitix sells event tickets, and Google Docs receives attendee details through “Add or Replace Text In Tab” after “New Attendes”.",
+  "bestTemplate": {
+    "name": "“New Attendes” in humanitix, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each attendee created on an order is written into a document, so your attendee list builds itself."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's content, so choose add or each attendee overwrites the last."
+}

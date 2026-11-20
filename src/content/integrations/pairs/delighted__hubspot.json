@@ -1,0 +1,8 @@
+{
+  "usedFor": "Delighted holds survey feedback, and HubSpot receives a deal from “New Response” through “Create Deal” for follow-up.",
+  "bestTemplate": {
+    "name": "“New Response” in Delighted, then “Create Deal” in HubSpot",
+    "why": "Each survey answer opens a deal in HubSpot, so someone owns the follow-up."
+  },
+  "watchOut": "“New Response” fires for every response, not only low scores, so “Create Deal” also runs for happy customers."
+}
