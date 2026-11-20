@@ -1,0 +1,8 @@
+{
+  "usedFor": "Recruit CRM holds candidates and clients, and HubSpot receives each new contact through “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Contact Created” in Recruit CRM, then “Create or Update Contact” in HubSpot",
+    "why": "A new Recruit CRM contact is added to HubSpot, or merged into the existing one by email."
+  },
+  "watchOut": "“Create or Update Contact” works by email, so “Contact Created” in Recruit CRM needs an email to match."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "StoreHippo holds shop users, and Loops.so receives each new user through “Create a contact in mailing list” after “New User”.",
+  "bestTemplate": {
+    "name": "“New User” in StoreHippo, then “Create a contact in mailing list” in Loops.so",
+    "why": "A new shop user joins your Loops.so mailing list, so email starts without a manual import."
+  },
+  "watchOut": "“User Updated” also fires in StoreHippo, so the same user can reach “Create a contact in mailing list” again."
+}

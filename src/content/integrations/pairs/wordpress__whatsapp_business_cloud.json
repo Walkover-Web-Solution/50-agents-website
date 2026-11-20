@@ -1,0 +1,8 @@
+{
+  "usedFor": "WordPress holds site users, and WhatsApp Business Cloud (Meta) greets new ones through “Send Template Message” after “New User Created”.",
+  "bestTemplate": {
+    "name": "“New User Created” in Wordpress, then “Send Template Message” in WhatsApp Business Cloud",
+    "why": "A new site user gets a welcome template message through your WhatsApp Business Cloud account."
+  },
+  "watchOut": "“User Updates Profile” fires on each profile edit, so the same user could receive “Send Template Message” twice."
+}

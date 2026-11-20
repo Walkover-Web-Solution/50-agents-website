@@ -1,0 +1,8 @@
+{
+  "usedFor": "PayHere holds payments, and HubSpot receives a note on the contact when “Payment Received” runs “Add Notes to Contact”.",
+  "bestTemplate": {
+    "name": "“Payment Received” in PayHere, then “Add Notes to Contact” in HubSpot",
+    "why": "Each payment is logged on the customer's HubSpot contact, so sales sees it without asking finance."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or email, so the payer's email must match a HubSpot contact."
+}

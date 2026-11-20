@@ -1,0 +1,8 @@
+{
+  "usedFor": "flowyteam tracks key results, and Bolna places a call with “Make a Phone Call” when one goes off track.",
+  "bestTemplate": {
+    "name": "“New Off-Track Key Result” in flowyteam, then “Make a Phone Call” in Bolna",
+    "why": "A key result slipping off track starts a Bolna phone call, so the owner hears about it quickly."
+  },
+  "watchOut": "A call goes out each time “New Off-Track Key Result” fires, so keep the “Make a Phone Call” recipient internal."
+}

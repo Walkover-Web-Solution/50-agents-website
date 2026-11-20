@@ -71,12 +71,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ cat: 
 
       <section className="wrap uc3-hero ig3-hero ig3-dir-hero">
         <h1>{c.name} integrations for AI agents and automations</h1>
-        <p className="answer">50agents builds automations, AI agents and apps on {c.short} apps such as {list(top)}, through viaSocket. {c.about}</p>
+        <p className="answer">{c.intro ? `${c.intro} 50agents builds automations, AI agents and apps on them, such as ${list(top)}, through viaSocket.` : `50agents builds automations, AI agents and apps on ${c.short} apps such as ${list(top)}, through viaSocket. ${c.about}`}</p>
       </section>
 
       <section className="wrap sec" aria-label={`${c.name} apps`}>
         <DirectoryPanel apps={members} current={`/integrations/category/${c.slug}`} head={<h2>{/tools$/i.test(c.name) ? c.name : `${c.name} apps`}</h2>} label={`Search ${c.short} apps`} />
       </section>
+
+      {/* T67: what teams do with these apps, written per category where two categories read alike */}
+      {c.uses && (
+        <section className="wrap sec" id="uses">
+          <div className="sec-h c"><h2>What teams do with {c.short} apps</h2></div>
+          <ul className="cat-uses">{c.uses.map(u => <li key={u}>{u}</li>)}</ul>
+        </section>
+      )}
 
       {examples.length > 0 && (
         <section className="wrap sec" id="templates">

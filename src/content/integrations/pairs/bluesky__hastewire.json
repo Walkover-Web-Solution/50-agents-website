@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bluesky holds your posts, and Hastewire rewrites their text through “Humanize Text” so it sounds natural.",
+  "bestTemplate": {
+    "name": "“New Posts by Author” in Bluesky, then “Humanize Text” in Hastewire",
+    "why": "Each new post from the chosen author arrives as text that Hastewire can rewrite to sound natural."
+  },
+  "watchOut": "“New Posts by Author” in Bluesky is polling, so rewrites follow a scheduled check rather than the post itself."
+}

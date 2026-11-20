@@ -1,0 +1,8 @@
+{
+  "usedFor": "Better Stack holds incidents, and Slack receives the update when “Incident Is Updated” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“Incident Is Updated” in Better Stack, then “Send Message” in Slack",
+    "why": "Every incident change reaches your team channel, so nobody checks a dashboard to see status."
+  },
+  "watchOut": "A post to a Slack channel waits for your approval today, so “Send Message” reaches the channel after you approve."
+}

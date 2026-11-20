@@ -1,0 +1,8 @@
+{
+  "usedFor": "Callyzer tracks your calls, and HubSpot receives a deal through “Create Deal” when “New Event” fires.",
+  "bestTemplate": {
+    "name": "“New Event” in Callyzer, then “Create Deal” in HubSpot",
+    "why": "A call event opens a deal in HubSpot, so conversations that matter start in your pipeline."
+  },
+  "watchOut": "“New Event” in Callyzer fires for any event, so “Create Deal” can open deals for calls that need none."
+}

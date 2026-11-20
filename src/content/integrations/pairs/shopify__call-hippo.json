@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds store customers, and CallHippo receives each as a contact through “Create a Contact” when “New Customer” fires.",
+  "bestTemplate": {
+    "name": "“New Customer” in Shopify, then “Create a Contact” in CallHippo",
+    "why": "A new customer lands in CallHippo as a contact, ready for your team to call."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so a template built on it runs after a scheduled check."
+}

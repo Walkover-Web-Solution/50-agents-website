@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copper holds leads, and TURKEY SMS texts them when “New Lead” runs “Send SMS”, sent through your TURKEY SMS account.",
+  "bestTemplate": {
+    "name": "“New Lead” in Copper, then “Send SMS” in TURKEY SMS",
+    "why": "It does the most real work: a fresh lead in Copper gets a first text to the number you set."
+  },
+  "watchOut": "“Send SMS” texts a specified phone number, so a “New Lead” saved without one has nothing to send to."
+}

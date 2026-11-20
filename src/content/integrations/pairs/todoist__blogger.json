@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds tasks and Google Blogger holds posts, so “New Task Created in Project” can run “Create Blog Post”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Blog Post” in Google Blogger",
+    "why": "A task in your content project starts a blog post, so ideas stop sitting in a list."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so “Create Blog Post” runs after a scheduled check."
+}

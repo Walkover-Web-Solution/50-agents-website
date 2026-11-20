@@ -1,0 +1,8 @@
+{
+  "usedFor": "Campaign Monitor holds subscribers and Brevo holds your contact lists, so “New Subscriber” can run “Add Contacts To List”.",
+  "bestTemplate": {
+    "name": "“New Subscriber” in Campaign Monitor, then “Add Contacts To List” in Brevo",
+    "why": "New signups carry an email address, and the action files it into a chosen Brevo list."
+  },
+  "watchOut": "“Add Contacts To List” adds existing Brevo contacts, so a subscriber not yet in Brevo may not be added."
+}

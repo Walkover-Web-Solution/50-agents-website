@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack holds the chat, and pushover alerts your devices when “Send a Pushover Notification” follows a Slack channel post.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Send a Pushover Notification” in pushover",
+    "why": "Messages from the channels you pick reach subscribed devices, so urgent ones do not wait in a tab."
+  },
+  "watchOut": "“New Message Posted in Channel Instant” includes bot messages, so automated posts will notify your devices too."
+}

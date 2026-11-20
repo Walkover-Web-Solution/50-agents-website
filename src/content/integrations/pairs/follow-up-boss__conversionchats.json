@@ -1,0 +1,8 @@
+{
+  "usedFor": "Follow Up Boss holds appointments, and Conversion Chats messages them when “New Appointment Is Created” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“New Appointment Is Created” in Follow Up Boss, then “Send Template Message” in Conversion Chats",
+    "why": "A new appointment sends a WhatsApp template message through your Conversion Chats account."
+  },
+  "watchOut": "“Contact Is Updated” can fire repeatedly for one contact, so “Send Template Message” may go out more than once."
+}
