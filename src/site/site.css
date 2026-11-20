@@ -490,3 +490,15 @@ html,body{margin:0;padding:0}
 .cards3>.readcard{align-content:stretch;grid-template-rows:auto auto 1fr auto}
 /* round 6: the Apps kind as a small crew (KindFace) */
 .kind-crew{display:inline-flex;align-items:center}.kind-crew .face+.face{margin-left:-6px}
+
+/* ---- round 7 (Jii, 20 Nov): the header, breadcrumbs and footer end where the content ends; a thinner header ---- */
+/* Every row now uses the content's own width (.wrap: 1160px with 32px sides), the same as the homepage's sections,
+   instead of the wider 1280px band. */
+.hd-in{max-width:1160px;margin:0 auto;padding:0 32px;height:60px}
+.wrap:has(> .crumbs){max-width:1160px;padding:0 32px}
+.foot-in.wrap{max-width:1160px;padding-left:32px;padding-right:32px}
+.foot .crowd{max-width:1096px;margin:8px auto 40px}
+.hd .wm{padding:4px 10px}
+@media (max-width:760px){.hd-in{padding:0 18px;height:58px}.wrap:has(> .crumbs){padding:0 18px}.foot-in.wrap{padding-left:18px;padding-right:18px}.foot .crowd{margin:8px 18px 32px}}
+@media (max-width:1020px){.nv-toggle:checked~.nv{top:60px}}
+@media (max-width:760px){.nv-toggle:checked~.nv{top:58px}}

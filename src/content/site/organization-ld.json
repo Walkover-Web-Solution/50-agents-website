@@ -1,0 +1,20 @@
+{
+  "@type": "Organization",
+  "name": "50agents",
+  "url": "https://50agents.com",
+  "logo": "https://50agents.com/50_agents_logo.png",
+  "sameAs": [
+    "https://viasocket.com",
+    "https://github.com/Walkover-Web-Solution/50-agents-website",
+    "https://walkover.in"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "email": "support@viasocket.com",
+      "url": "https://50agents.com/support",
+      "availableLanguage": ["en"]
+    }
+  ]
+}

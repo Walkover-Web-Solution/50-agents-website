@@ -26,6 +26,7 @@ export function IndexView({ ix }: { ix: IndexPage }) {
       </section>
       {ix.filter ? (
         <section className="wrap sec ixf" aria-label={ix.crumb}>
+          <div className="sec-h c"><h2>All use cases</h2><p>One sentence to Captain for each job below.</p></div>
           <KindFilter kinds={[...new Set(groups.flatMap(g => g.cards.map(c => c.kind!)))]}>
             {groups.flatMap(g => g.cards).map(c => <CardLink key={c.href} c={c} />)}
           </KindFilter>
