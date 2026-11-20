@@ -1,0 +1,8 @@
+{
+  "usedFor": "Envoy for Visitors holds visitor invites and HubSpot holds contacts, so “Visitor Invited” can run “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Visitor Invited” in Envoy for Visitors, then “Create or Update Contact” in HubSpot",
+    "why": "An invited visitor becomes a contact matched by email, so repeat visitors update one record instead of adding copies."
+  },
+  "watchOut": "“Visitor Invited” in Envoy for Visitors is polling, so the contact appears in HubSpot after the next check."
+}

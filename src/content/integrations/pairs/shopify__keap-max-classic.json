@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds abandoned checkouts and Keap Max Classic holds contacts, so “Abandoned Checkout” can run “Add or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Add or Update Contact” in Keap Max Classic",
+    "why": "A shopper who left after entering an email or phone becomes a contact, so you can follow up."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so the contact reaches Keap Max Classic after a scheduled check."
+}

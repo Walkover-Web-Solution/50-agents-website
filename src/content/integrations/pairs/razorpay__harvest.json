@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay holds payments and refunds, and Harvest keeps your clients when “New Payment Captured” runs “Create a Client”.",
+  "bestTemplate": {
+    "name": "“New Payment Captured” in Razorpay, then “Create a Client” in Harvest",
+    "why": "A captured payment marks a paying customer, who then exists in Harvest as a client."
+  },
+  "watchOut": "“New Payment Captured” fires on every captured payment, so a repeat customer can run “Create a Client” again."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bigin holds small-business contacts, and HubSpot receives them when “New Contact Created” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Contact Created” in Bigin, then “Create Contact” in HubSpot",
+    "why": "Contacts added in Bigin appear in HubSpot as they are created, so marketing and sales share one list."
+  },
+  "watchOut": "“Create Contact” in HubSpot requires an email, so Bigin contacts saved without one will not come through."
+}

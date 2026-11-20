@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lofty holds real estate leads, and HubSpot receives a note on a contact through “Add Notes to Contact”.",
+  "bestTemplate": {
+    "name": "“New Lead Created” in Lofty, then “Add Notes to Contact” in HubSpot",
+    "why": "A new Lofty lead leaves a note on the matching HubSpot contact, so context travels with them."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or email, so the lead must already exist in HubSpot."
+}

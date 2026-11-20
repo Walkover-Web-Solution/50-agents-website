@@ -1,0 +1,8 @@
+{
+  "usedFor": "tawk.to handles website chats, and MSG91 gets a ticket through “Send Mail via Hello” when “Chat Ends” fires.",
+  "bestTemplate": {
+    "name": "“Chat Ends” in tawk.to, then “Send Mail via Hello” in MSG91",
+    "why": "When a chat finishes, a ticket is opened so the conversation has an owner afterwards."
+  },
+  "watchOut": "“Chat Ends” fires for every chat, so decide whether each one really needs an MSG91 ticket."
+}

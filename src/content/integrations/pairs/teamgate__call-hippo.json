@@ -1,0 +1,8 @@
+{
+  "usedFor": "Teamgate holds sales leads and CallHippo handles calls and texts, so “New Lead Created” in Teamgate can run “Send SMS”.",
+  "bestTemplate": {
+    "name": "“New Lead Created” in Teamgate, then “Send SMS” in CallHippo",
+    "why": "A new lead gets a text sent through your CallHippo account."
+  },
+  "watchOut": "“New Lead Created” in Teamgate is polling, so the text goes out after a scheduled check."
+}

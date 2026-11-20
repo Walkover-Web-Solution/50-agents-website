@@ -1,0 +1,8 @@
+{
+  "usedFor": "Text-Em-All holds your text messaging history, and Google Docs records incoming replies through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Text Received” in Text-Em-All, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Every reply you receive is written to a doc, so replies sit in one readable place."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can overwrite a tab, so choose add to keep earlier replies."
+}

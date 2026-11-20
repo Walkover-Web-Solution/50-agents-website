@@ -1,0 +1,8 @@
+{
+  "usedFor": "inflow-inventory holds your sales orders and Notion holds your pages, so “New Sales Order Created” can run “Create Page”.",
+  "bestTemplate": {
+    "name": "“New Sales Order Created” in inflow-inventory, then “Create Page” in Notion",
+    "why": "Each new sales order gets its own Notion page, so your team can track it in the workspace."
+  },
+  "watchOut": "“Update Customer” fires on every edit, so using it with “Create Page” can make several pages for one customer."
+}

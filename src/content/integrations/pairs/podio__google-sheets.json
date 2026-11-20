@@ -1,0 +1,8 @@
+{
+  "usedFor": "Podio holds app items, and Google Sheets receives them when “New Item Created” runs “Add Multiple Rows”.",
+  "bestTemplate": {
+    "name": "“New Item Created” in Podio, then “Add Multiple Rows” in Google Sheets",
+    "why": "Each new Podio item lands in a sheet row, giving you a running list outside Podio."
+  },
+  "watchOut": "“New Item Created” in Podio is polling, so “Add Multiple Rows” writes after a scheduled check, not at once."
+}

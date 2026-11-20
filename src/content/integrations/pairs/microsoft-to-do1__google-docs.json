@@ -1,0 +1,8 @@
+{
+  "usedFor": "Microsoft To Do tracks tasks, and Google Docs logs it when “Completed Task” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Completed Task” in Microsoft To Do, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Finished work is written into a doc tab, which makes a ready progress log for a weekly update."
+  },
+  "watchOut": "“Completed Task” in Microsoft To Do is polling, so entries land after a scheduled check, not on completion."
+}

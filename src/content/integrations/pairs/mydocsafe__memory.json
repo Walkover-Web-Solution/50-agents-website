@@ -1,0 +1,8 @@
+{
+  "usedFor": "MyDocSafe handles signatures and forms, and Memory stores a key-value record through “Memory” whenever “Document is Signed” runs.",
+  "bestTemplate": {
+    "name": "“Document is Signed” in MyDocSafe, then “Memory” in Memory",
+    "why": "A signed document leaves a stored key and value, so later runs can check what has been signed."
+  },
+  "watchOut": "“Document is Signed” fires only when all required parties have signed, so partial signing never writes to Memory."
+}

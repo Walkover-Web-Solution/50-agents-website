@@ -1,0 +1,8 @@
+{
+  "usedFor": "HeySummit holds your event attendees, and HubSpot updates the matching contact through “Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in HeySummit, then “Update Contact” in HubSpot",
+    "why": "A new attendee updates their HubSpot record, so sales sees who signed up for the event."
+  },
+  "watchOut": "“Update Contact” finds the contact by email, so an attendee not yet in HubSpot has nothing to update."
+}

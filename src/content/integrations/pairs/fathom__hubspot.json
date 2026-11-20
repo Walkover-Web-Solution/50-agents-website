@@ -1,0 +1,8 @@
+{
+  "usedFor": "Fathom captures your meetings and HubSpot holds the contact, so “New Action Item” can feed “Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Action Item” in Fathom, then “Update Contact” in HubSpot",
+    "why": "A meeting follow-up is written onto the contact record, so the next person sees what was agreed."
+  },
+  "watchOut": "“Update Contact” finds the contact by email, so it needs an email and an existing HubSpot contact."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Brix runs your screens and content, and Microsoft Excel keeps the log that “Add Row To Table” writes.",
+  "bestTemplate": {
+    "name": "“New Media” in Brix, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each file added to the media library becomes a row, giving you a running inventory of screen content."
+  },
+  "watchOut": "“New Media” in Brix is polling, so rows land after a scheduled check and the Excel table must exist already."
+}

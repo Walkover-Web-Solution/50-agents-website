@@ -1,0 +1,8 @@
+{
+  "usedFor": "Fathom captures meeting notes, and MSG91 sends the mail when “New Action Item” runs “Send a Mail” from a template.",
+  "bestTemplate": {
+    "name": "“New Action Item” in Fathom, then “Send a Mail” in MSG91",
+    "why": "Each action item from a meeting goes out as a templated mail through your MSG91 account."
+  },
+  "watchOut": "A mail that reaches someone outside your business waits in Needs you until you approve it."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "LinkedIn Campaign Manager captures leads and Brevo keeps contacts: “New Sponsored Lead Form Response” runs “Add Contacts To List”.",
+  "bestTemplate": {
+    "name": "“New Sponsored Lead Form Response” in LinkedIn Campaign Manager, then “Add Contacts To List” in Brevo",
+    "why": "Ad leads land on a Brevo list right away for follow-up emails."
+  },
+  "watchOut": "“Add Contacts To List” adds existing contacts, so a new lead needs a Brevo contact first."
+}

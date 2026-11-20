@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evoliz holds invoices and clients and MailerLite holds the mailing list, so “New Client” runs “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“New Client” in Evoliz, then “Create or Update Subscriber” in MailerLite",
+    "why": "“New Client” returns created or updated clients, and “Create or Update Subscriber” keeps repeats from doubling."
+  },
+  "watchOut": "“New Client” in Evoliz is polling over a recent time window, so a subscriber appears after a scheduled check."
+}

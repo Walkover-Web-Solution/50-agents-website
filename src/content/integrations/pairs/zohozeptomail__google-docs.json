@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Zeptomail delivers your email, and Google Docs records suppressions through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“When a suppression entry (email or domain) is created or updated” in Zoho Zeptomail, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each blocked address or domain is written to a doc your team can check."
+  },
+  "watchOut": "This trigger is polling and also fires on updates, so one entry can be logged twice."
+}

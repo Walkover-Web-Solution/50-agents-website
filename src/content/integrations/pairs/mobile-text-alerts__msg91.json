@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mobile Text Alerts receives customer texts, and MSG91 Hello logs them when “SMS Reply Received” runs “Send Mail via Hello”.",
+  "bestTemplate": {
+    "name": "“SMS Reply Received” in Mobile Text Alerts, then “Send Mail via Hello” in MSG91",
+    "why": "A customer reply to a text becomes a Hello ticket, so support picks it up in one place."
+  },
+  "watchOut": "“Send Mail via Hello” creates a ticket or replies with a ticket id, so a reply needs that id."
+}

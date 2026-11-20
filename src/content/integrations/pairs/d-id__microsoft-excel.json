@@ -1,0 +1,8 @@
+{
+  "usedFor": "D-iD generates avatar videos, and Microsoft Excel logs them when “Add Row To Table” follows “New Animation”.",
+  "bestTemplate": {
+    "name": "“New Animation” in D-iD, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each finished animation becomes a row, giving you a running log of what D-iD produced."
+  },
+  "watchOut": "“New Animation” is polling, and “Add Row To Table” needs an existing Excel table to write into."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "TimeRex holds your bookings, and Documint fills a document when “Add Content To Template” follows “New Event”.",
+  "bestTemplate": {
+    "name": "“New Event” in TimeRex, then “Add Content To Template” in Documint",
+    "why": "Each new booking fills a Documint template, so a prepared document is ready for the meeting."
+  },
+  "watchOut": "“Event Rescheduled” and “Event Cancelled” are separate triggers, so a changed booking will not update the document."
+}

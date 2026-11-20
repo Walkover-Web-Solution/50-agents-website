@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evoliz holds clients and invoices, and Conversion Chats messages them when “New Client” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“New Client” in Evoliz, then “Send Template Message” in Conversion Chats",
+    "why": "A new client gets a template message through your Conversion Chats account, so the first contact is consistent."
+  },
+  "watchOut": "“New Client” in Evoliz is polling and also returns updated clients, so the same client can be messaged twice."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Form.taxi collects form answers, and HubSpot updates the matching contact when “New Submission Arrives” runs “Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Submission Arrives” in Form.taxi, then “Update Contact” in HubSpot",
+    "why": "A submitted form refreshes the contact's details in HubSpot, so the CRM reflects what the person just told you."
+  },
+  "watchOut": "“Update Contact” in HubSpot finds the contact by email, so a submission from a new address has nothing to update."
+}

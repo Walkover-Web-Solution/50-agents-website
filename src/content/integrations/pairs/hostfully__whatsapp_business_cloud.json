@@ -1,0 +1,8 @@
+{
+  "usedFor": "Hostfully holds rental bookings, and WhatsApp Business Cloud (Meta) messages guests through “Send Template Message” on each “New Booking”.",
+  "bestTemplate": {
+    "name": "“New Booking” in Hostfully, then “Send Template Message” in WhatsApp Business Cloud (Meta)",
+    "why": "The guest receives a confirmation template, sent through your WhatsApp Business Cloud (Meta) account as the booking lands."
+  },
+  "watchOut": "Hostfully's “Updated Booking” and “Cancelled Booking” events need their own wording, or guests get confirmation text on changes."
+}

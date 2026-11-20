@@ -1,0 +1,8 @@
+{
+  "usedFor": "GiftUp takes gift card orders, and Pipedrive gains a person when “New Order” runs “Create Person”.",
+  "bestTemplate": {
+    "name": "“New Order” in GiftUp, then “Create Person” in Pipedrive",
+    "why": "Every gift card buyer is added to Pipedrive, so sales can follow up with people who already paid."
+  },
+  "watchOut": "“Create Person” runs on each “New Order”, so a repeat buyer can show up in Pipedrive more than once."
+}

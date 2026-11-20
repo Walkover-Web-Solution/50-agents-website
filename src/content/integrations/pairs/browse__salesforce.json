@@ -1,0 +1,8 @@
+{
+  "usedFor": "Browse AI scrapes web tables and Salesforce stores contacts, so “Table Export” can feed “Create Contact”.",
+  "bestTemplate": {
+    "name": "“Table Export” in Browse AI, then “Create Contact” in Salesforce",
+    "why": "A finished table export turns scraped details into a Salesforce contact, ready for follow-up."
+  },
+  "watchOut": "“Create Contact” only helps if the exported table carries contact details, so check the columns before connecting."
+}

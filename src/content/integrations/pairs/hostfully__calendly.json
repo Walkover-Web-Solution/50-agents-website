@@ -1,0 +1,8 @@
+{
+  "usedFor": "Hostfully holds bookings and inquiries and Calendly sets up calls, so “New Booking Inquiry” can run “Create One-Time Meeting”.",
+  "bestTemplate": {
+    "name": "“New Booking Inquiry” in Hostfully, then “Create One-Time Meeting” in Calendly",
+    "why": "A new inquiry opens a one-time meeting in Calendly, so a call with the guest is ready to schedule."
+  },
+  "watchOut": "“Cancelled Booking” and “Updated Booking” in Hostfully can feed “Create One-Time Meeting” too, so pick the trigger carefully."
+}

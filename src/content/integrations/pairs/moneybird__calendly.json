@@ -1,0 +1,8 @@
+{
+  "usedFor": "Moneybird holds your quotes and invoices, and Calendly gets a meeting when “Create One-Time Meeting” follows “New Quote”.",
+  "bestTemplate": {
+    "name": "“New Quote” in Moneybird, then “Create One-Time Meeting” in Calendly",
+    "why": "A sent quote creates a one-time Calendly meeting, so the client can walk through it with you."
+  },
+  "watchOut": "“New Quote” also fires for drafts you create, so check each quote is ready before the meeting goes out."
+}

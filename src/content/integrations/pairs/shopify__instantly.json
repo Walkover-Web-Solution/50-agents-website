@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds store checkouts, and each “Abandoned Checkout” can add a lead in Instantly.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create Lead” in Instantly",
+    "why": "Shoppers who left at checkout, with email or phone entered, become leads in a list or campaign."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so leads arrive after a scheduled check."
+}

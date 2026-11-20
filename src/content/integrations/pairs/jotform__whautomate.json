@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jotform collects the answers, and Whautomate stores the person as a client when “New Submission” runs “Create Client”.",
+  "bestTemplate": {
+    "name": "“New Submission” in Jotform, then “Create Client” in Whautomate",
+    "why": "A form submission turns into a client record, so you do not retype names from the form."
+  },
+  "watchOut": "When there are no submissions, the “New Submission” sample returns a one-line no-data message instead of a record."
+}

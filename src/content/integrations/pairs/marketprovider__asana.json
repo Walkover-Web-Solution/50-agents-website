@@ -1,0 +1,8 @@
+{
+  "usedFor": "MarketProvider holds your product catalog, and Asana tracks the work when “New Product Created” runs “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Product Created” in MarketProvider, then “Create Task or Subtask” in Asana",
+    "why": "Each new product gets its own task, so launch steps start without anyone remembering to add them."
+  },
+  "watchOut": "“Product Is Updated” also triggers, so a product edited twice can create a second task."
+}

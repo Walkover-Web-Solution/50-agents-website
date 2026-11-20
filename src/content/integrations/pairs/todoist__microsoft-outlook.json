@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks and Microsoft Outlook holds your mail, so “New Task Created in Project” runs “Create Draft Email”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Draft Email” in Microsoft Outlook",
+    "why": "A new task leaves a draft email waiting in Outlook, so you only review and send."
+  },
+  "watchOut": "“New Task Created in Project” in Todoist is polling, so the draft appears after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "BlueyEmail collects form answers and Sangam CRM tracks the sales, so “When a form is submitted” can open an opportunity with “Create Opportunity”.",
+  "bestTemplate": {
+    "name": "“When a form is submitted” in BlueyEmail, then “Create Opportunity” in Sangam CRM",
+    "why": "A submitted form is a lead raising a hand, and the action can record it with a next follow-up date."
+  },
+  "watchOut": "“When a contact unsubscribes” also triggers “Create Opportunity”, so choose the form event if you only want interested leads."
+}

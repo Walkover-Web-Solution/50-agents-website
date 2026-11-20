@@ -1,0 +1,8 @@
+{
+  "usedFor": "Habitify tracks habits, and TRIGGERcmd runs “Trigger Command” on your computers when “New Logs” appear.",
+  "bestTemplate": {
+    "name": "“New Logs” in Habitify, then “Trigger Command” in TRIGGERcmd",
+    "why": "Each new log can start a command you have set up on your own machine."
+  },
+  "watchOut": "“New Logs” in Habitify is polling, so “Trigger Command” starts after a scheduled check."
+}

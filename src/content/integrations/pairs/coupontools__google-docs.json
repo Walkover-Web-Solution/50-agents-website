@@ -1,0 +1,8 @@
+{
+  "usedFor": "Coupontools tracks claims and Google Docs keeps the log, with “New Coupon Claim” running “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Coupon Claim” in Coupontools, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each claim adds an entry to a shared document, so campaign results can be read in one place."
+  },
+  "watchOut": "“New Coupon Claim” in Coupontools is polling, so entries reach the document after a scheduled check."
+}

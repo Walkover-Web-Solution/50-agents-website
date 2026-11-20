@@ -1,0 +1,8 @@
+{
+  "usedFor": "42min holds booked meetings and Sangam CRM holds your leads, so “New Booking” can start “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Booking” in 42min, then “Create or Update Lead” in Sangam CRM",
+    "why": "Each booker lands in the CRM as a lead, and a repeat booker updates the existing one."
+  },
+  "watchOut": "Pairing “Updated Booking Time” with “Create Opportunity” would add a second opportunity whenever someone reschedules."
+}

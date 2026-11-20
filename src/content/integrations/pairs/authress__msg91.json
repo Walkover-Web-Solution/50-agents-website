@@ -1,0 +1,8 @@
+{
+  "usedFor": "Authress manages access and MSG91 handles communication, so “New Tenants” can open a ticket through “Send Mail via Hello”.",
+  "bestTemplate": {
+    "name": "“New Tenants” in Authress, then “Send Mail via Hello” in MSG91",
+    "why": "Each new tenant gets a support ticket, so someone follows up on their setup."
+  },
+  "watchOut": "“New Tenants” in Authress is polling, so the ticket from “Send Mail via Hello” appears after a short delay."
+}

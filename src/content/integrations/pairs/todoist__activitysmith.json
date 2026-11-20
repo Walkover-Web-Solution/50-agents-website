@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and ActivitySmith pushes each “New Task Created in Project” to your phone.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Send Push Notification” in ActivitySmith",
+    "why": "A new task in a chosen project reaches your paired iPhone or iPad as a push notification."
+  },
+  "watchOut": "Both new-task triggers in Todoist are polling, so the push follows a scheduled check."
+}

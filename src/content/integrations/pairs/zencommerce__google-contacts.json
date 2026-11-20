@@ -1,0 +1,8 @@
+{
+  "usedFor": "ZenCommerce holds store orders, and “New Order Created” saves the buyer in Google Contacts.",
+  "bestTemplate": {
+    "name": "“New Order Created” in ZenCommerce, then “Create Contact” in Google Contacts",
+    "why": "Each new buyer is saved as a contact, so your address book grows with your orders."
+  },
+  "watchOut": "“Add Contact to Group” in Google Contacts finds an existing contact, so run “Create Contact” first for new buyers."
+}

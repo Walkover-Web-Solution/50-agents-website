@@ -1,0 +1,8 @@
+{
+  "usedFor": "Systeme.io collects contacts, and Slack alerts your team when “New Contact” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Systeme.io, then “Send Message” in Slack",
+    "why": "Your team hears about each new sign-up in a Slack channel and can reply while the lead is fresh."
+  },
+  "watchOut": "An automation's “Send Message” post to a Slack channel waits for your approval today, so expect a tap first."
+}

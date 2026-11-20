@@ -1,0 +1,8 @@
+{
+  "usedFor": "TRIGGERcmd knows your computers, and Asana tracks the follow-up when “Computer Created” runs “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“Computer Created” in TRIGGERcmd, then “Create Task or Subtask” in Asana",
+    "why": "A newly added computer gets an Asana task, so setup steps have an owner and a date."
+  },
+  "watchOut": "“Computer Created” is polling, so the Asana task appears after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Upvoted holds feature requests, and Slack tells a private channel when comments arrive through “Message Private Channel”.",
+  "bestTemplate": {
+    "name": "“New comments arrive on a feature” in Upvoted, then “Message Private Channel” in Slack",
+    "why": "New comments on a feature reach a private channel, so the product team sees the feedback."
+  },
+  "watchOut": "“New comments arrive on a feature” is polling, and a channel post waits for your approval today."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailChimp collects subscribers and Podio stores them as items through “Create Item” after each new audience signup.",
+  "bestTemplate": {
+    "name": "“When a new subscriber is added to an audience” in MailChimp, then “Create Item” in Podio",
+    "why": "Each signup lands in a Podio app, so your team can work the list where tasks already live."
+  },
+  "watchOut": "“Send Campaign” in MailChimp reaches subscribers outside your business, so it waits in Needs you for approval."
+}

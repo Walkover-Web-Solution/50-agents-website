@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack carries channel messages, and TURKEY SMS texts a number through your TURKEY SMS account on each one.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Send SMS” in TURKEY SMS",
+    "why": "An urgent channel post reaches someone who is away from Slack as a text."
+  },
+  "watchOut": "“New Message Posted in Channel Instant” includes bot messages, so a bot post in that channel also sends a text."
+}

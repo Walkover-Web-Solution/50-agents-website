@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay holds your payments, and Google Chat warns your team through “Send Message” when one fails.",
+  "bestTemplate": {
+    "name": "“Payment Fails” in Razorpay, then “Send Message” in Google Chat",
+    "why": "A failed payment posts to a Google Chat space, so someone can follow up the same day."
+  },
+  "watchOut": "“Payment Fails” in Razorpay is pushed, but refunds need their own “A New Refund Is Created” template."
+}

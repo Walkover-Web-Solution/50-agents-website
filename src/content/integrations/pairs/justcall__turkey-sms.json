@@ -1,0 +1,8 @@
+{
+  "usedFor": "JustCall handles your calls, and TURKEY SMS texts the caller through your TURKEY SMS account when “Missed Call” fires.",
+  "bestTemplate": {
+    "name": "“Missed Call” in JustCall, then “Send SMS” in TURKEY SMS",
+    "why": "A caller who got no answer gets a text straight away, so the lead is not lost."
+  },
+  "watchOut": "“Send SMS” goes to a specified number, so map the caller's number from “Missed Call” into it."
+}

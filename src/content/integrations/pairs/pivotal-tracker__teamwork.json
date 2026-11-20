@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pivotal Tracker holds your stories, and Teamwork receives a matching task when “New Story” runs “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Story” in Pivotal Tracker, then “Create Task” in Teamwork",
+    "why": "Work planned in one tool shows up for the team in the other without anyone copying it."
+  },
+  "watchOut": "“New Story” in Pivotal Tracker is polling, so “Create Task” follows after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your shoppers, and Webengage adds them as users when “New Customer” runs “Add User”.",
+  "bestTemplate": {
+    "name": "“New Customer” in Shopify, then “Add User” in Webengage",
+    "why": "Every new Shopify customer becomes a Webengage user, ready for the campaigns you run there."
+  },
+  "watchOut": "“New Customer” fires only for new Shopify customers, so existing ones need a one-off import into Webengage."
+}

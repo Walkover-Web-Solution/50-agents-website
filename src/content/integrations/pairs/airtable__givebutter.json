@@ -1,0 +1,8 @@
+{
+  "usedFor": "Givebutter takes donations and Airtable keeps your records, so “New Transaction” in Givebutter adds a row through “Create Record”.",
+  "bestTemplate": {
+    "name": "“New Transaction” in Givebutter, then “Create Record” in Airtable",
+    "why": "Every new gift lands as a row in your base the moment Givebutter reports it."
+  },
+  "watchOut": "“Record Created Or Updated” in Airtable is polling and fires on edits too, so one record can reach Givebutter twice."
+}

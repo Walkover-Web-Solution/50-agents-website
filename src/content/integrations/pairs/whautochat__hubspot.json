@@ -1,0 +1,8 @@
+{
+  "usedFor": "WhautoChat holds your chat contacts and HubSpot your CRM, so “When a new contact is created” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“When a new contact is created” in WhautoChat, then “Create Contact” in HubSpot",
+    "why": "New chat contacts reach HubSpot as records your sales team can work."
+  },
+  "watchOut": "“When a new contact is created” is polling, and “Create Contact” requires an email."
+}

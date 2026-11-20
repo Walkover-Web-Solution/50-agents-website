@@ -1,0 +1,8 @@
+{
+  "usedFor": "Canny collects customer feedback, and HubSpot keeps the people when “New Post Created” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Post Created” in Canny, then “Create Contact” in HubSpot",
+    "why": "Anyone who posts an idea becomes a HubSpot contact, so sales can see who is asking."
+  },
+  "watchOut": "“Create Contact” requires an email, so check that the Canny post carries one before you rely on it."
+}

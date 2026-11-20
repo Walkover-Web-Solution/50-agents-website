@@ -1,0 +1,8 @@
+{
+  "usedFor": "Instantly runs outreach campaigns, and HubSpot receives a deal when “Create Deal” follows “New Lead in Campaign”.",
+  "bestTemplate": {
+    "name": "“New Lead in Campaign” in Instantly, then “Create Deal” in HubSpot",
+    "why": "Each new lead in an outreach campaign becomes a HubSpot deal your sales team can work."
+  },
+  "watchOut": "“New Lead in Campaign” is polling and tied to one campaign, so the deal appears after a scheduled check."
+}

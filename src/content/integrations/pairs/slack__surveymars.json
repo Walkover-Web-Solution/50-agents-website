@@ -1,0 +1,8 @@
+{
+  "usedFor": "SurveyMars collects survey answers, and Slack tells your team when a new response runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“When a new survey response is submitted” in SurveyMars, then “Send Message” in Slack",
+    "why": "Your team sees each survey response in a channel as it arrives."
+  },
+  "watchOut": "An automation’s post to a Slack channel waits for your approval today, so expect a step in Needs you."
+}

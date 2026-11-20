@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and Workflowy gets an outline item from “New Task Created in Project” through “Create Node”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Node” in Workflowy",
+    "why": "Tasks you capture in Todoist also appear in your Workflowy outline, with a title and note."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so the node appears after the next scheduled check."
+}

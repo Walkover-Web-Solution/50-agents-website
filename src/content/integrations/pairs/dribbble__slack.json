@@ -1,0 +1,8 @@
+{
+  "usedFor": "Dribbble holds your team's shots and projects, and Slack gets a “Send Direct Message” when “New Shot Added” runs.",
+  "bestTemplate": {
+    "name": "“New Shot Added” in Dribbble, then “Send Direct Message” in Slack",
+    "why": "Someone is told about each new shot directly, so design work is seen without anyone checking Dribbble."
+  },
+  "watchOut": "“New Shot Added” is polling, so the message lands after a scheduled check, not when the shot is posted."
+}

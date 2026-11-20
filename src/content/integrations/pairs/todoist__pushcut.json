@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds tasks and Pushcut notifies your device, so “New Task Created in Project” can run “Send Notification”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Send Notification” in Pushcut",
+    "why": "A task added to a chosen project sends a smart notification to your device."
+  },
+  "watchOut": "“New Task Created in Project” in Todoist is polling, so the notification arrives after a scheduled check."
+}

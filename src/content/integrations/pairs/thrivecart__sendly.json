@@ -1,0 +1,8 @@
+{
+  "usedFor": "ThriveCart takes your checkouts, and Sendly saves each buyer when “Upsell Purchased” runs “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Upsell Purchased” in ThriveCart, then “Create or Update Contact” in Sendly",
+    "why": "A customer who buys an upsell is stored in Sendly by phone number, updated if it already exists."
+  },
+  "watchOut": "“Create or Update Contact” keys on a phone number, so check the ThriveCart purchase supplies one."
+}

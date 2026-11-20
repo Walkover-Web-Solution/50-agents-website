@@ -1,0 +1,8 @@
+{
+  "usedFor": "Render hosts your services, and “Deploy Finished” opens follow-up work in Asana.",
+  "bestTemplate": {
+    "name": "“Deploy Finished” in Render, then “Create Task or Subtask” in Asana",
+    "why": "Every finished deploy leaves an Asana task, so a failed or canceled one gets an owner."
+  },
+  "watchOut": "“Deploy Finished” in Render is polling and covers live, failed and canceled deploys alike."
+}

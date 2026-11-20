@@ -1,0 +1,8 @@
+{
+  "usedFor": "Typeform holds form answers and Reply holds campaigns, so “When a form is submitted” can run “Create Person”.",
+  "bestTemplate": {
+    "name": "“When a form is submitted” in Typeform, then “Create Person and Push to Campaign” in Reply",
+    "why": "A submission creates the person and adds them to a campaign in one step, so follow-up starts at once."
+  },
+  "watchOut": "“When a form is submitted” runs on every submission, so a repeat submitter is pushed to the campaign again."
+}

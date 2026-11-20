@@ -1,0 +1,8 @@
+{
+  "usedFor": "Productboard holds features and notes, and Slack is where the team talks, so “New Feature Created” can run “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Feature Created” in Productboard, then “Send Message” in Slack",
+    "why": "The team hears about a new feature in a channel instead of checking Productboard."
+  },
+  "watchOut": "An automation's post to a Slack channel waits for your approval, so “Send Message” posts only once you approve."
+}

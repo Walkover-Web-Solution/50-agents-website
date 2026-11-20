@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds bookings and Asana holds projects, so “New Booking” in DitCal can start “Create Project” in Asana.",
+  "bestTemplate": {
+    "name": "“New Booking” in DitCal, then “Create Project” in Asana",
+    "why": "Each booking gets its own Asana project with a name, notes and dates set up front."
+  },
+  "watchOut": "“Booking Cancelled” in DitCal can also run “Create Project”, so keep that trigger off to avoid projects for cancelled work."
+}

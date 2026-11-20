@@ -1,0 +1,8 @@
+{
+  "usedFor": "Salesforce holds contacts and Givebutter holds your fundraising, so “Update Contact” can run “Create a Contact”.",
+  "bestTemplate": {
+    "name": "“Update Contact” in Salesforce, then “Create a Contact” in Givebutter",
+    "why": "A changed Salesforce contact is created in Givebutter, so donor records start from your CRM details."
+  },
+  "watchOut": "“Update Contact” is polling and fires on every edit, so “Create a Contact” can add the same person twice."
+}

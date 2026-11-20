@@ -1,0 +1,8 @@
+{
+  "usedFor": "ikas holds store orders and customers, and Zendesk Support holds tickets, so “New Order” can run “Create Support Ticket”.",
+  "bestTemplate": {
+    "name": "“New Order” in ikas, then “Create Support Ticket” in Zendesk Support",
+    "why": "Each order can open a ticket with requester, priority and tags set, so support has the order context."
+  },
+  "watchOut": "“Order Updated” in ikas fires on each change to an existing order, so one order can open several tickets."
+}

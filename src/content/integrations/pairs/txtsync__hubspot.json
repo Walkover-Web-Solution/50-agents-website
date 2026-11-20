@@ -1,0 +1,8 @@
+{
+  "usedFor": "TxtSync holds your text contacts, and HubSpot stores them when “Create Contact” follows “New Contact Created”.",
+  "bestTemplate": {
+    "name": "“New Contact Created” in TxtSync, then “Create Contact” in HubSpot",
+    "why": "Each new text contact is copied into HubSpot, so sales sees them with the rest of your people."
+  },
+  "watchOut": "“Create Contact” needs an email, so a TxtSync contact with only a phone number cannot be added."
+}

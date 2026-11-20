@@ -1,0 +1,8 @@
+{
+  "usedFor": "Harvest holds clients and projects, and Capsule CRM holds contacts, so “New Client Created” can run “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Client Created” in Harvest, then “Create Contact” in Capsule CRM",
+    "why": "Every new client gets a person or organisation record in your CRM, so sales sees who you bill."
+  },
+  "watchOut": "“New Client Created” in Harvest is polling, so “Create Contact” runs after the next scheduled check, not at once."
+}

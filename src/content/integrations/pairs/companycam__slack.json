@@ -1,0 +1,8 @@
+{
+  "usedFor": "CompanyCam holds job-site photos and Slack is where the crew hears about them through “Photo Tagged” and “Send Message”.",
+  "bestTemplate": {
+    "name": "“Photo Tagged” in CompanyCam, then “Send Message” in Slack",
+    "why": "A tagged photo tells the channel which job needs eyes, without anyone posting it by hand."
+  },
+  "watchOut": "“Send Message” in Slack waits for your approval today, so a tagged photo will not post on its own."
+}

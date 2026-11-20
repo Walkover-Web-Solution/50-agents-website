@@ -1,0 +1,8 @@
+{
+  "usedFor": "Vyte holds booked appointments, and MailerLite adds the customer as a subscriber through “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“Event Is Confirmed” in Vyte, then “Create or Update Subscriber” in MailerLite",
+    "why": "A confirmed Vyte booking adds the customer to MailerLite, with no duplicate if they exist."
+  },
+  "watchOut": "“Event Is Updated” fires on every change, so one booking can reach MailerLite more than once."
+}

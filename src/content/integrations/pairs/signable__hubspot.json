@@ -1,0 +1,8 @@
+{
+  "usedFor": "Signable holds your sent envelopes and HubSpot holds your contacts, so “Send Envelope” can run “Add Notes to Contact”.",
+  "bestTemplate": {
+    "name": "“Send Envelope” in Signable, then “Add Notes to Contact” in HubSpot",
+    "why": "Sending a document leaves a note on the HubSpot contact, so sales can see what was sent."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or email, so check the envelope data carries one."
+}

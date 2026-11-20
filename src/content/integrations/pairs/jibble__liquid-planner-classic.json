@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jibble tracks attendance, and Portfolio Manager records an event when “New Clock In” runs “Create an Event”.",
+  "bestTemplate": {
+    "name": "“New Clock In” in Jibble, then “Create an Event” in Portfolio Manager",
+    "why": "Each clock in shows up as an event in the project workspace, with owner and dates."
+  },
+  "watchOut": "“New Clock In” in Jibble is polling, so the event appears after the next scheduled check."
+}

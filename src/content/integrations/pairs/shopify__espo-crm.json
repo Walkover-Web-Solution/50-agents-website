@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds carts and orders and Espo CRM holds leads, so “Abandoned Checkout” can run “Create Lead”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create Lead” in Espo CRM",
+    "why": "A shopper who left with an email or phone becomes a lead your team can follow up."
+  },
+  "watchOut": "“Create Lead” takes contact details, so a checkout without an email or phone gives your CRM little to chase."
+}

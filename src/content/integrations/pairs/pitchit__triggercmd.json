@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pitchit holds your leads, and TRIGGERcmd runs a command on your computers when “When a lead's priority changes” fires.",
+  "bestTemplate": {
+    "name": "“When a lead's priority changes” in Pitchit, then “Trigger Command” in TRIGGERcmd",
+    "why": "A change in lead priority can start a script on your own machine, such as a report export."
+  },
+  "watchOut": "“When a lead's priority changes” fires for any lead in the account, so the command can run often."
+}

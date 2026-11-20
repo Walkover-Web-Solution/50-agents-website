@@ -1,0 +1,8 @@
+{
+  "usedFor": "OnceHub takes your meeting bookings and Pipeline CRM holds your people, so “Booking Scheduled” runs “Create Person”.",
+  "bestTemplate": {
+    "name": "“Booking Scheduled” in OnceHub, then “Create Person” in Pipeline CRM",
+    "why": "Each booked prospect becomes a person in Pipeline CRM before the call happens."
+  },
+  "watchOut": "“Booking Scheduled” runs for every booking, so a returning person can be added again by “Create Person”."
+}

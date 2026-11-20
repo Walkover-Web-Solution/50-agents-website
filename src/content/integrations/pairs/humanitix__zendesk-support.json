@@ -1,0 +1,8 @@
+{
+  "usedFor": "humanitix holds event orders and Zendesk Support holds tickets, so “New Order” can run “Create Support Ticket”.",
+  "bestTemplate": {
+    "name": "“New Order” in humanitix, then “Create Support Ticket” in Zendesk Support",
+    "why": "Each order opens a ticket with the requester, priority and tags you set, so support starts with the booking."
+  },
+  "watchOut": "“New Attendes” in humanitix fires for every attendee, so “Create Support Ticket” could open a ticket per attendee."
+}

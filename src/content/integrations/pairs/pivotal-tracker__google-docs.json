@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pivotal Tracker holds stories and Google Docs holds the log that “Add or Replace Text In Tab” writes.",
+  "bestTemplate": {
+    "name": "“New Story” in Pivotal Tracker, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new story is written into a doc tab, so product notes stay in one shared document."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can overwrite the tab, so pick add if you want a running log."
+}

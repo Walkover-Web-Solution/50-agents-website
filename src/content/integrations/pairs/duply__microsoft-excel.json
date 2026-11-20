@@ -1,0 +1,8 @@
+{
+  "usedFor": "Duply holds your generated images, and Microsoft Excel logs each one with “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Image Created” in Duply, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every image Duply generates gets a row in Excel, giving you a production log you can sort."
+  },
+  "watchOut": "“New Image Created” in Duply is polling, so rows arrive after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "TagMango holds your course buyers and MailerLite holds your subscribers, so “Course Completion” runs “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“Course Completion” in TagMango, then “Create or Update Subscriber” in MailerLite",
+    "why": "A learner who finishes a course is added or updated in MailerLite, ready for your next email."
+  },
+  "watchOut": "“Course Progress Event” also fires as people move through a course, so the same subscriber can update often."
+}

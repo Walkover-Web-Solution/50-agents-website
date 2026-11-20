@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jandi is where your team chats, and HubSpot stores the note that “Add Notes to Contact” writes.",
+  "bestTemplate": {
+    "name": "“New Messsage Begins” in Jandi, then “Add Notes to Contact” in HubSpot",
+    "why": "A Jandi message starting with your trigger word becomes a note on a HubSpot contact."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or email, so the Jandi message has to include one."
+}

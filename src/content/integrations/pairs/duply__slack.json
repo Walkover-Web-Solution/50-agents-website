@@ -1,0 +1,8 @@
+{
+  "usedFor": "Duply creates marketing images and videos, and Slack tells the team through “Send Message” when “New Image Created” fires.",
+  "bestTemplate": {
+    "name": "“New Image Created” in Duply, then “Send Message” in Slack",
+    "why": "The team sees each finished image in a channel and can review it without opening Duply."
+  },
+  "watchOut": "“New Image Created” in Duply is polling, and a channel post from an automation waits for your approval first."
+}

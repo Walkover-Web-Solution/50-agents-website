@@ -1,0 +1,8 @@
+{
+  "usedFor": "Applivery reports new builds, and TRIGGERcmd runs “Trigger Command” on your computers when “New Build Uploaded” fires.",
+  "bestTemplate": {
+    "name": "“New Build Uploaded” in Applivery, then “Trigger Command” in TRIGGERcmd",
+    "why": "A fresh upload can start any command you have already set up on your own computers."
+  },
+  "watchOut": "“New Build Uploaded” in Applivery covers any app in the workspace unless you choose one, so pick the app first."
+}

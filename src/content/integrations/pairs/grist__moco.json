@@ -1,0 +1,8 @@
+{
+  "usedFor": "Grist holds records you edit like a sheet, and Moco books “Create Incoming Payment” when “New Record” runs.",
+  "bestTemplate": {
+    "name": "“New Record” in Grist, then “Create Incoming Payment” in Moco",
+    "why": "A payment row added in Grist is booked in Moco, so the books follow the sheet."
+  },
+  "watchOut": "“Updated Record” in Grist also fires on edits, so using it with “Create Incoming Payment” can book a payment twice."
+}

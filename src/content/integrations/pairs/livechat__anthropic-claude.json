@@ -1,0 +1,8 @@
+{
+  "usedFor": "LiveChat holds your conversations and Anthropic Claude writes text, so “New Chat” can run “Generate Response” with the conversation.",
+  "bestTemplate": {
+    "name": "“New Chat” in LiveChat, then “Generate Response” in Anthropic Claude",
+    "why": "Each chat that starts gets a drafted reply from the model, ready for your team to review."
+  },
+  "watchOut": "“Generate Response” only writes text, so sending it to a customer still waits in Needs you for approval."
+}

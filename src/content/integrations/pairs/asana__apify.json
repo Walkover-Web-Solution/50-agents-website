@@ -1,0 +1,8 @@
+{
+  "usedFor": "Asana holds the team's tasks, and Apify scrapes with “Run Actor Task” whenever “New Task Created in Selected Project” runs.",
+  "bestTemplate": {
+    "name": "“New Task Created in Selected Project” in Asana, then “Run Actor Task” in Apify",
+    "why": "A research request filed as a task starts the matching Apify task, with the request details as input."
+  },
+  "watchOut": "“New Task Created in Selected Project” is polling and fires once per task, oldest first."
+}

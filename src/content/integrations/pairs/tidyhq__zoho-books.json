@@ -1,0 +1,8 @@
+{
+  "usedFor": "TidyHQ holds your members and Zoho Books holds the accounts, so “Contact Activated” runs “Create or Update Customer”.",
+  "bestTemplate": {
+    "name": "“Contact Activated” in TidyHQ, then “Create or Update Customer” in Zoho Books",
+    "why": "A new member becomes a Zoho Books customer, and an existing one is updated instead of duplicated."
+  },
+  "watchOut": "“Contact Merged” in TidyHQ fires when two contacts merge, so check which record “Create or Update Customer” should keep."
+}

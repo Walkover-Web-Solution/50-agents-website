@@ -1,0 +1,8 @@
+{
+  "usedFor": "Fibery holds your work entities, and TRIGGERcmd runs a command on your computers when “New Entity” fires.",
+  "bestTemplate": {
+    "name": "“New Entity” in Fibery, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new Fibery entity can start a script on your own machine, such as a backup or a build."
+  },
+  "watchOut": "“Entity Updated or Created” in Fibery also fires on edits, so the same entity can run the command twice."
+}

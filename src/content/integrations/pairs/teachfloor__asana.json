@@ -1,0 +1,8 @@
+{
+  "usedFor": "Teachfloor holds your courses, and Asana receives follow-up work through “Create Task or Subtask” whenever a “Module Is Created”.",
+  "bestTemplate": {
+    "name": "“Module Is Created” in Teachfloor, then “Create Task or Subtask” in Asana",
+    "why": "A new course module becomes an Asana task, so reviewing it is assigned work."
+  },
+  "watchOut": "“Course Updated” is a separate trigger, so edits to existing modules will not create tasks here."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bigin holds your deals, and Google Sheets logs them as rows when “New Deal Is Created” runs “Add Multiple Rows”.",
+  "bestTemplate": {
+    "name": "“New Deal Is Created” in Bigin, then “Add Multiple Rows” in Google Sheets",
+    "why": "Each new Bigin deal lands in a shared sheet you can sort and total without opening the CRM."
+  },
+  "watchOut": "“Delete Rows” also exists between these apps, so keep it out of any template that runs on every new deal."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay holds refunds, and Jandi gets a team message when “A New Refund Is Created” fires.",
+  "bestTemplate": {
+    "name": "“A New Refund Is Created” in Razorpay, then “Send Jandi Webhook Message” in Jandi",
+    "why": "Your team sees every refund in Jandi as it is created, with no one checking Razorpay by hand."
+  },
+  "watchOut": "“Send Jandi Webhook Message” posts to a Jandi webhook, so point it at the right one before turning it on."
+}

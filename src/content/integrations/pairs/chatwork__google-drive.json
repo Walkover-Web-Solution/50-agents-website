@@ -1,0 +1,8 @@
+{
+  "usedFor": "Google Drive holds files and Chatwork carries chat, so “New or Updated File in specific folder” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New or Updated File in specific folder” in Google Drive, then “Send Message” in Chatwork",
+    "why": "The room hears about each file dropped into a watched folder."
+  },
+  "watchOut": "That trigger fires on updates as well as new files, so one file can post twice."
+}

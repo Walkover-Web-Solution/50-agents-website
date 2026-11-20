@@ -1,0 +1,8 @@
+{
+  "usedFor": "Unbounce captures landing page leads, and HubSpot receives each lead as a deal through “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Lead Arrives” in Unbounce, then “Create Deal” in HubSpot",
+    "why": "Each landing page lead opens a HubSpot deal, so sales can follow it from day one."
+  },
+  "watchOut": "“New Lead Arrives” is polling, so the deal is created after a scheduled check."
+}

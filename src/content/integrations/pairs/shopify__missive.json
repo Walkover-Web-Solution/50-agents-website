@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds checkouts and orders, and Missive keeps the shopper as a contact through “Create Contact”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create Contact” in Missive",
+    "why": "A shopper who left with an email becomes a contact your team can write to."
+  },
+  "watchOut": "“Abandoned Checkout” is polling, so the contact appears after a scheduled check, not at the moment someone leaves."
+}

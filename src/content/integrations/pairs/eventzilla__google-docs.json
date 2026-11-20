@@ -1,0 +1,8 @@
+{
+  "usedFor": "Eventzilla holds your registrations and Google Docs keeps the roster, so “New Registration” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Eventzilla, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each registration is added to a doc tab as it happens, so the attendee list stays current."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace the tab's content, so set it to add before you run it."
+}

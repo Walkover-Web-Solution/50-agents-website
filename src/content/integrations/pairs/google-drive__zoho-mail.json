@@ -1,0 +1,8 @@
+{
+  "usedFor": "Google Drive holds your files, and Zoho Mail gets a “Create Draft” email for each new or changed file.",
+  "bestTemplate": {
+    "name": "“New or Updated File in specific folder” in Google Drive, then “Create Draft” in Zoho Mail",
+    "why": "A file added to the watched folder gets a draft ready in Zoho Mail, so you only write the message."
+  },
+  "watchOut": "“New or Updated File in specific folder” is polling and also fires on edits, so one file can draft twice."
+}

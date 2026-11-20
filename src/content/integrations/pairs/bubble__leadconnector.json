@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bubble holds what your web app creates, and LeadConnector gets each one as a contact through “Create Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Thing” in Bubble, then “Create Or Update Contact” in LeadConnector",
+    "why": "A new Bubble thing, such as a sign-up, becomes a LeadConnector contact, updated if one exists."
+  },
+  "watchOut": "“New Thing” in Bubble is polling, so a contact appears after a scheduled check, not instantly."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cloze tracks your contacts and Google Docs holds the write-up, so “Company Change” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Company Change” in Cloze, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each major company change from Cloze is written into a doc tab as a running log."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's existing content, so choose add if you want a history."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "TimeRex holds your bookings, and Google Docs logs them when “New Event” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Event” in TimeRex, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each booking is written into a doc tab, so a shared page lists what is on the calendar."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s content, so choose add to keep earlier events."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mailchimp holds your email audience, and Givebutter receives each new subscriber as a donor record through “Create a Contact”.",
+  "bestTemplate": {
+    "name": "“When a new subscriber is added to an audience” in Mailchimp, then “Create a Contact” in Givebutter",
+    "why": "Each new subscriber becomes a Givebutter contact, so fundraising starts from the same list."
+  },
+  "watchOut": "This trigger fires for any subscriber added to an audience, so check the audience before every subscriber becomes a contact."
+}

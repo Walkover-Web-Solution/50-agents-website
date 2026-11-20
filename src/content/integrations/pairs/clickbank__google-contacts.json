@@ -1,0 +1,8 @@
+{
+  "usedFor": "ClickBank sends the sale and Google Contacts keeps the buyer, so “New Transaction Postback” can run “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Transaction Postback” in ClickBank, then “Create Contact” in Google Contacts",
+    "why": "Every sale postback adds the buyer to your address book without anyone copying details across."
+  },
+  "watchOut": "“New Transaction Postback” also fires for impressions and upsells, so filter events or you may add one buyer twice."
+}

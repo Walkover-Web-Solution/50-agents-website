@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mailparser reads emails, and Kit gets the sender as a subscriber when “Create or Update Subscriber” follows “New Email Parsed”.",
+  "bestTemplate": {
+    "name": "“New Email Parsed” in Mailparser, then “Create or Update Subscriber” in Kit",
+    "why": "Parsed emails, such as contact form messages, add the person to your Kit list."
+  },
+  "watchOut": "Mailparser also has a per-row trigger, so choose it or “New Email Parsed” based on how your emails are structured."
+}

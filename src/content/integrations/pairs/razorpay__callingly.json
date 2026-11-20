@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay reports failed payments and Callingly connects leads by phone, so “Payment Fails” can run “Call Lead”.",
+  "bestTemplate": {
+    "name": "“Payment Fails” in Razorpay, then “Call Lead” in Callingly",
+    "why": "A failed payment connects a lead to the first available team member through your Callingly account."
+  },
+  "watchOut": "“A New Refund Is Created” also reaches “Call Lead”, so a refund could ring your team."
+}

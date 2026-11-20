@@ -1,0 +1,8 @@
+{
+  "usedFor": "LinkedIn Campaign Manager captures leads and MSG91 mails them, so “New Sponsored Lead Form Response” runs “Send a Mail”.",
+  "bestTemplate": {
+    "name": "“New Sponsored Lead Form Response” in LinkedIn Campaign Manager, then “Send a Mail” in MSG91",
+    "why": "Each ad lead gets a templated email from your MSG91 account."
+  },
+  "watchOut": "That email reaches someone outside, so it waits in Needs you for approval before it goes."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify spots the abandoned checkout and WhatsApp reaches the shopper when “Abandoned Checkout” runs “Send WhatsApp Message”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Send WhatsApp Message” in WhatsApp",
+    "why": "The trigger captures the shopper's email or phone, and the message goes out through your WhatsApp account."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so a nudge follows a scheduled check, not the moment of leaving."
+}

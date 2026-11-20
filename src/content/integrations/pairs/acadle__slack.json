@@ -1,0 +1,8 @@
+{
+  "usedFor": "Acadle holds your learners and Slack is where your team hears, so “New User” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New User” in Acadle, then “Send Message” in Slack",
+    "why": "Staff see each newly created learner in a channel without opening the course system."
+  },
+  "watchOut": "“New User” in Acadle is polling, and a Slack post from an automation waits for your approval."
+}

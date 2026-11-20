@@ -1,0 +1,8 @@
+{
+  "usedFor": "Parma tracks customers and Google Docs holds the write-up, so “New Deal Created” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Deal Created” in Parma, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new deal is written into a chosen tab of a document."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's existing content, so choose add for a running log."
+}

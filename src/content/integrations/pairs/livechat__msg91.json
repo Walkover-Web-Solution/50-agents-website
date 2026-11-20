@@ -1,0 +1,8 @@
+{
+  "usedFor": "LiveChat holds your conversations, and MSG91 sends the follow-up when “Finished Chat” runs “Send a Mail” from a template.",
+  "bestTemplate": {
+    "name": "“Finished Chat” in LiveChat, then “Send a Mail” in MSG91",
+    "why": "When a chat ends, the customer gets a templated mail, so the conversation closes with a next step."
+  },
+  "watchOut": "A mail to a customer waits in Needs you for your approval before “Send a Mail” goes out."
+}

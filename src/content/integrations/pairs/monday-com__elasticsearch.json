@@ -1,0 +1,8 @@
+{
+  "usedFor": "monday.com holds your boards, and Elasticsearch receives a document when “Item Column Value Changes” runs “Create Document”.",
+  "bestTemplate": {
+    "name": "“Item Column Value Changes” in monday.com, then “Create Document” in Elasticsearch",
+    "why": "Every column change is stored as its own document, so you can search the history of an item."
+  },
+  "watchOut": "“Create Document” takes the index name from inside the document, so include it in every payload."
+}

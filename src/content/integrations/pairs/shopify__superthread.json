@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your products and Superthread holds your projects, so “New Product” can run “Create Project”.",
+  "bestTemplate": {
+    "name": "“New Product” in Shopify, then “Create Project” in Superthread",
+    "why": "Each new product opens a Superthread project, so launch tasks have a home from the start."
+  },
+  "watchOut": "“Create Project” takes list, dates, members and owner, so set them once and every product gets the same."
+}

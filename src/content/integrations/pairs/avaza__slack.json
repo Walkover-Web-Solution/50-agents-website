@@ -1,0 +1,8 @@
+{
+  "usedFor": "Avaza handles your projects and billing, and Slack tells the team when “Invoice Sent” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“Invoice Sent” in Avaza, then “Send Message” in Slack",
+    "why": "The team sees every sent invoice in Slack, with no one chasing finance for an update."
+  },
+  "watchOut": "An automation's “Send Message” post to a Slack channel waits for your approval today, so expect a tap first."
+}

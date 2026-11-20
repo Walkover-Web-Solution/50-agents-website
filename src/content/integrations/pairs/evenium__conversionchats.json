@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evenium holds event guests, and Conversion Chats messages each new guest when “Send Template Message” runs.",
+  "bestTemplate": {
+    "name": "“New Guests Added” in Evenium, then “Send Template Message” in Conversion Chats",
+    "why": "A new guest gets a template message sent through your Conversion Chats account, such as a registration confirmation."
+  },
+  "watchOut": "“New Guests Added” in Evenium is polling, so messages go out after a scheduled check."
+}

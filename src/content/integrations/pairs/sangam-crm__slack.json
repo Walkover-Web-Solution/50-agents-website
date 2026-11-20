@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sangam CRM holds opportunities and Slack holds team chat, so “Opportunity Created” can run “Send Message”.",
+  "bestTemplate": {
+    "name": "“Opportunity Created” in Sangam CRM, then “Send Message” in Slack",
+    "why": "The team sees each new opportunity in a channel instead of checking the CRM."
+  },
+  "watchOut": "“New Message Posted in Channel Instant” in Slack includes bot messages, so watch which channel your own posts reach."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Eventzilla holds registrations, and Zendesk Support opens a ticket when “New Registration” runs “Create Support Ticket”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Eventzilla, then “Create Support Ticket” in Zendesk Support",
+    "why": "Each registration becomes a ticket with requester, priority and tags set, ready for your support team to pick up."
+  },
+  "watchOut": "“Create Support Ticket” opens a new ticket per run, so “Registration Is Updated” would raise duplicates for one attendee."
+}

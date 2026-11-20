@@ -1,0 +1,8 @@
+{
+  "usedFor": "Box holds the files and Slack carries the news, so “New File” can post through “Send Message” to a channel.",
+  "bestTemplate": {
+    "name": "“New File” in Box, then “Send Message” in Slack",
+    "why": "The team hears about a new upload in a channel without checking folders."
+  },
+  "watchOut": "A Slack channel post waits for approval today, and “New File” in Box is polling, so expect a delay."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mollie processes the payments and Google Sheets keeps the ledger, so “New Payment” runs “Add Multiple Rows”.",
+  "bestTemplate": {
+    "name": "“New Payment” in Mollie, then “Add Multiple Rows” in Google Sheets",
+    "why": "Each new payment becomes a spreadsheet row, so finance reads payments in one sheet."
+  },
+  "watchOut": "“New Payment” in Mollie is polling, so rows appear after a scheduled check, not at the moment of payment."
+}

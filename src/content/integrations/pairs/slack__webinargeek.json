@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webinargeek holds your webinar viewers and Slack is where the team hears, so “New Live Viewer” runs “Message Private Channel”.",
+  "bestTemplate": {
+    "name": "“New Live Viewer” in Webinargeek, then “Message Private Channel” in Slack",
+    "why": "The team gets a private channel message once someone watches a live or automated session."
+  },
+  "watchOut": "“New Live Viewer” is polling and fires after the scheduled time, and a Slack post waits for approval."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "ManyContacts captures chat contacts and Sangam CRM keeps your leads, so “New Contact” in ManyContacts feeds “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Contact” in ManyContacts, then “Create or Update Lead” in Sangam CRM",
+    "why": "New contacts become leads without retyping, and an existing lead is updated instead of doubled."
+  },
+  "watchOut": "“New Contact” in ManyContacts is polling, so a lead appears after a scheduled check."
+}

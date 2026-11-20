@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evenium holds event guests, and MailerLite keeps them as subscribers through “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“Guest Created or Updated” in Evenium, then “Create or Update Subscriber” in MailerLite",
+    "why": "It covers new and edited guests, and the action creates or updates the subscriber, so the list stays current."
+  },
+  "watchOut": "“Guest Created or Updated” is polling and fires on edits too, so the same guest can run twice."
+}

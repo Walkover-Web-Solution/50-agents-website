@@ -1,0 +1,8 @@
+{
+  "usedFor": "Worksection tracks projects, and Google Docs logs work when “Task Completed in Project” runs “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Task Completed in Project” in Worksection, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Finished tasks are written into a doc tab, giving you a running record to share."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's existing content, so set it to add, not replace."
+}

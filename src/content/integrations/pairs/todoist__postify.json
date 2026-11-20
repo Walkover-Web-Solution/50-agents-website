@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist is where post ideas start, and Postify drafts them when “New Task Created in Project” runs “Create Post”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Post” in Postify",
+    "why": "An idea added to a Todoist project becomes a post draft, so nothing waits in a to-do list."
+  },
+  "watchOut": "“Create Post” can publish immediately, so set it to save a draft unless you want that."
+}

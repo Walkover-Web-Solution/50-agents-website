@@ -1,0 +1,8 @@
+{
+  "usedFor": "Daftra holds your product records, and Loyverse is the register, so “New Product Added” can run “Create Or Update Variant”.",
+  "bestTemplate": {
+    "name": "“New Product Added” in Daftra, then “Create Or Update Variant” in Loyverse",
+    "why": "A product added in Daftra shows up in Loyverse as a variant, so the register matches your catalog."
+  },
+  "watchOut": "“New Product Added” in Daftra is polling, so the Loyverse variant appears after a scheduled check."
+}

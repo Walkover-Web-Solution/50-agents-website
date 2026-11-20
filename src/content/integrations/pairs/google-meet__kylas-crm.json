@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kylas CRM captures new leads, and Google Meet gets a call booked through “Schedule a Meeting” after “New Lead Created”.",
+  "bestTemplate": {
+    "name": "“New Lead Created” in Kylas CRM, then “Schedule a Meeting” in Google Meet",
+    "why": "A fresh lead gets a meeting on the calendar straight away, so the first call is not left to memory."
+  },
+  "watchOut": "“Schedule a Meeting” creates a calendar event with a Meet link, so check the calendar and invitees you set."
+}

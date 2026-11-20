@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pastel collects design feedback on your sites, and Asana receives each new canvas as work through “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Canvases” in Pastel, then “Create Task or Subtask” in Asana",
+    "why": "A new canvas becomes an Asana task, so review work gets an owner and a date."
+  },
+  "watchOut": "“New Canvases” is polling, so the task appears after a scheduled check rather than at once."
+}

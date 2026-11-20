@@ -1,0 +1,8 @@
+{
+  "usedFor": "Fathom holds meeting transcripts and Sangam CRM holds sales opportunities, so “New Transcript” can run “Create Opportunity”.",
+  "bestTemplate": {
+    "name": "“New Transcript” in Fathom, then “Create Opportunity” in Sangam CRM",
+    "why": "A finished meeting opens an opportunity with a follow-up date, so sales work starts from the call."
+  },
+  "watchOut": "Both “New Transcript” and “New Recording Available” can run “Create Opportunity”, so wire one to avoid two opportunities per meeting."
+}

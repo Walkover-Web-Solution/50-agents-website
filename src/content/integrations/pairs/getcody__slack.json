@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack is where your team talks, and Cody.ai stores what matters: “New Message in Channels” feeds “Create Document”.",
+  "bestTemplate": {
+    "name": "“New Message in Channels” in Slack, then “Create Document” in Cody.ai",
+    "why": "Channel messages become documents in your knowledge base, so answers can draw on what the team said."
+  },
+  "watchOut": "“New Message in Channels” is polling, so documents appear after a scheduled check and not instantly."
+}

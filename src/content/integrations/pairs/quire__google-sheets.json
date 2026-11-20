@@ -1,0 +1,8 @@
+{
+  "usedFor": "Quire holds tasks and Google Sheets holds your tracker, so “New Task Created” can run “Add New Row to Sheet”.",
+  "bestTemplate": {
+    "name": "“New Task Created” in Quire, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Every new Quire task gets its own sheet row, so you can sort and total tasks outside Quire."
+  },
+  "watchOut": "“New Task Created” in Quire is polling, so rows arrive after a scheduled check."
+}

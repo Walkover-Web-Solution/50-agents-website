@@ -1,0 +1,8 @@
+{
+  "usedFor": "WiziShop holds your store customers, and Freshsales Classic opens a deal for them through “Create Deal”.",
+  "bestTemplate": {
+    "name": "“Customer Event” in WiziShop, then “Create Deal” in Freshsales Classic",
+    "why": "A customer event opens a deal linked to an account, so sales picks it up."
+  },
+  "watchOut": "“Customer Event” fires on created, updated and deleted customers, so one customer can open several deals."
+}

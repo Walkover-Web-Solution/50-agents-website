@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lago holds customers and invoices, and MailerLite holds your subscribers, so “New Customer Created” can run “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“New Customer Created” in Lago, then “Create or Update Subscriber” in MailerLite",
+    "why": "Each new billing customer joins your list, and a returning one is updated rather than duplicated."
+  },
+  "watchOut": "“New Invoice Created” and “New Payment Arrives” in Lago are polling, so subscriber updates in MailerLite follow a scheduled check."
+}

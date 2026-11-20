@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks, and Ryver shares each new one with the team through “Send Chat Message”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Send Chat Message” in Ryver",
+    "why": "A task added to a project posts a message to the team chat you choose."
+  },
+  "watchOut": "“New Task Created in Project” is polling, so the chat message arrives after a scheduled check."
+}

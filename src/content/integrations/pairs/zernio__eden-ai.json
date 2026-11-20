@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zernio holds posts, and Eden AI checks them when “New Post” runs “AI Generated Content Detection”.",
+  "bestTemplate": {
+    "name": "“New Post” in Zernio, then “AI Generated Content Detection” in Eden AI",
+    "why": "Each new post is screened for AI-written text, so you see which ones need a closer look."
+  },
+  "watchOut": "“New Post” in Zernio is polling over a time window, so set the window wide enough to catch every post."
+}

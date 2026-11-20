@@ -1,0 +1,8 @@
+{
+  "usedFor": "Daftra issues invoices, and Google Contacts saves each client when “New Invoice Created” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Invoice Created” in Daftra, then “Create Contact” in Google Contacts",
+    "why": "Each invoice points to a client worth keeping, so your address book grows alongside your billing."
+  },
+  "watchOut": "“New Invoice Created” in Daftra is polling, and repeat invoices for one client could create repeat contacts."
+}

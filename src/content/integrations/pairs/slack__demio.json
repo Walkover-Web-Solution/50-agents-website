@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack holds members and Demio runs webinars, so “New User Joined or Updated in Your Org” runs “Register Attendee”.",
+  "bestTemplate": {
+    "name": "“New User Joined or Updated in Your Org” in Slack, then “Register Attendee” in Demio",
+    "why": "A new teammate is registered for a webinar and a unique join link comes back."
+  },
+  "watchOut": "That trigger name covers updates as well as joins, so check the same person is not registered twice."
+}

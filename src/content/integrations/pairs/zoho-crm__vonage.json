@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho CRM holds your leads, and Vonage sends the text when “New Lead” runs “Send SMS”.",
+  "bestTemplate": {
+    "name": "“New Lead” in Zoho CRM, then “Send SMS” in Vonage",
+    "why": "A new lead gets a text sent through your Vonage account, so first contact is quick."
+  },
+  "watchOut": "“New Lead” in Zoho CRM is polling, so the text follows the next scheduled check, not the lead itself."
+}

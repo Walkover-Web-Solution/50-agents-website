@@ -1,0 +1,8 @@
+{
+  "usedFor": "Flow holds your projects and HubSpot holds your deals, so “New Project” in Flow can start “Create Deal” in HubSpot.",
+  "bestTemplate": {
+    "name": "“New Project” in Flow, then “Create Deal” in HubSpot",
+    "why": "A project kicked off in Flow gets a deal in HubSpot, so sales sees the work as it starts."
+  },
+  "watchOut": "“New Project” in Flow is polling, so “Create Deal” in HubSpot runs after a scheduled check."
+}

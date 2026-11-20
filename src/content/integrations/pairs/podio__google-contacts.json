@@ -1,0 +1,8 @@
+{
+  "usedFor": "Podio holds your work items, and Google Contacts stores a person through “Create Contact” for each new one.",
+  "bestTemplate": {
+    "name": "“New Item Created” in Podio, then “Create Contact” in Google Contacts",
+    "why": "A new Podio item becomes a Google contact, so people you track stay in your address book."
+  },
+  "watchOut": "“New Item Created” in Podio is polling, and the item must carry the details “Create Contact” needs."
+}

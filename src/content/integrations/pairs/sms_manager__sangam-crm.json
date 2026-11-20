@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sangam CRM holds accounts, and SMS Manager by BulkSMS texts them when “Account Is Updated” runs “Send SMS”.",
+  "bestTemplate": {
+    "name": "“Account Is Updated” in Sangam CRM, then “Send SMS” in SMS Manager by BulkSMS",
+    "why": "An account change can notify the contact by text, sent through your SMS Manager by BulkSMS account."
+  },
+  "watchOut": "“Account Is Updated” is polling and fires on every update, so the same account can trigger a second text."
+}

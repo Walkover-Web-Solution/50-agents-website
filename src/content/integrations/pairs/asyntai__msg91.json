@@ -1,0 +1,8 @@
+{
+  "usedFor": "Asyntai AI Chatbot talks to visitors, and MSG91 gets a ticket through “Send Mail via Hello” on a help request.",
+  "bestTemplate": {
+    "name": "“New Human Help Request” in Asyntai AI Chatbot, then “Send Mail via Hello” in MSG91",
+    "why": "When a visitor asks for a person, the ticket opens in MSG91 so your team can pick it up."
+  },
+  "watchOut": "“Send Mail via Hello” creates a ticket or replies with a ticket ID, so check which one your step does."
+}

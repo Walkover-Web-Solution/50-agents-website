@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kylas CRM holds leads, and “Lead Updated” keeps the matching contact in snapADDY current.",
+  "bestTemplate": {
+    "name": "“Lead Updated” in Kylas CRM, then “Update contact” in snapADDY",
+    "why": "Changes to a lead flow into the matching snapADDY contact, so both lists agree."
+  },
+  "watchOut": "“Update contact” in snapADDY edits an existing contact, so the person must already be on the selected list."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Dubble holds your guides, and Asana receives follow-up work when “Guide Added to a Collection” runs “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“Guide Added to a Collection” in Dubble, then “Create Task or Subtask” in Asana",
+    "why": "Adding a guide to a collection can create a task with an assignee and dates set right then."
+  },
+  "watchOut": "“Create Task or Subtask” makes a new task each time, so a guide moved between collections can add several."
+}

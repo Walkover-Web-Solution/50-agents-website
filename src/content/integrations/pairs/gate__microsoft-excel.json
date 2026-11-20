@@ -1,0 +1,8 @@
+{
+  "usedFor": "gate keeps entries with a status, and Microsoft Excel logs each “Gate Status Changed” through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“Gate Status Changed” in gate, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every status change becomes a row, leaving a history table you can filter by date or entry."
+  },
+  "watchOut": "“Gate Status Changed” is polling, so quick back to back changes may be logged after a short delay."
+}

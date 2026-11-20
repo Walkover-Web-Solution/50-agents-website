@@ -1,0 +1,8 @@
+{
+  "usedFor": "Klaviyo holds campaigns and Google Docs holds your notes, so “New Campaign” can run “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Campaign” in Klaviyo, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new campaign adds a line to a document tab, giving you a running log of campaigns created."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s existing content, so choose add to keep the log."
+}

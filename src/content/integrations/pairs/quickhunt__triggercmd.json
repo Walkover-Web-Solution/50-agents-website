@@ -1,0 +1,8 @@
+{
+  "usedFor": "QuickHunt gathers feedback, and TRIGGERcmd runs “Trigger Command” on your computers when “New Feedback Received” fires.",
+  "bestTemplate": {
+    "name": "“New Feedback Received” in QuickHunt, then “Trigger Command” in TRIGGERcmd",
+    "why": "New feedback can start a command you have already set up on your own computers."
+  },
+  "watchOut": "“New Feedback Received” in QuickHunt is polling, so “Trigger Command” starts after a scheduled check."
+}

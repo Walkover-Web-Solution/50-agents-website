@@ -1,0 +1,8 @@
+{
+  "usedFor": "Toggl Track holds tracked work, and each “New Task” there can open one in Asana.",
+  "bestTemplate": {
+    "name": "“New Task” in Toggl Track, then “Create Task or Subtask” in Asana",
+    "why": "A task started in Toggl Track becomes an Asana task, with assignee, dates and description set."
+  },
+  "watchOut": "“New Task” in Toggl Track is polling and looks back over a recent time window, so expect a short delay."
+}

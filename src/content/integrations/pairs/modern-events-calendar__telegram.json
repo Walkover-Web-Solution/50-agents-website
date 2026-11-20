@@ -1,0 +1,8 @@
+{
+  "usedFor": "Modern Events Calendar holds your events, and Telegram announces them when “New Event” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Event” in Modern Events Calendar, then “Send Message” in Telegram",
+    "why": "A newly created event is posted to a Telegram chat, so followers hear about it without a manual announcement."
+  },
+  "watchOut": "“New Event” in Modern Events Calendar is polling, so the Telegram post follows a scheduled check."
+}

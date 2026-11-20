@@ -1,0 +1,8 @@
+{
+  "usedFor": "MyDocSafe holds signed documents, and Sangam CRM records the signer through “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“Document is Signed” in MyDocSafe, then “Create or Update Lead” in Sangam CRM",
+    "why": "Once every required party has signed, the lead in Sangam CRM is created or updated."
+  },
+  "watchOut": "“Create or Update Lead” finds the lead by ID, email or phone, so map one of those."
+}

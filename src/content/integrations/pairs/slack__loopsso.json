@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack knows who joins, and Loops.so adds them through “Create a contact in mailing list”.",
+  "bestTemplate": {
+    "name": "“New User Joined or Updated in Your Org” in Slack, then “Create a contact in mailing list” in Loops.so",
+    "why": "Each new teammate lands in your Loops.so mailing list without anyone adding them by hand."
+  },
+  "watchOut": "That trigger also fires on updates, so one person can reach “Create a contact in mailing list” twice."
+}

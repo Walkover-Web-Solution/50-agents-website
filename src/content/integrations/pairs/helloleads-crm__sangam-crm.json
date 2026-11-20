@@ -1,0 +1,8 @@
+{
+  "usedFor": "HelloLeads CRM captures the lead and Sangam CRM takes it on, so “New Lead Added” runs “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Lead Added” in HelloLeads CRM, then “Create or Update Lead” in Sangam CRM",
+    "why": "The action updates by ID, email or phone, so a repeat lead need not create a duplicate."
+  },
+  "watchOut": "“New Lead Added” in HelloLeads CRM is polling, so leads reach Sangam CRM after a scheduled check."
+}

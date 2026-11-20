@@ -1,0 +1,8 @@
+{
+  "usedFor": "Worksection holds your projects and Documint builds documents, so “Task Completed in Project” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“Task Completed in Project” in Worksection, then “Add Content To Template” in Documint",
+    "why": "A finished task fills a document template, so reports are built as work closes."
+  },
+  "watchOut": "“Task Completed in Project” in Worksection is polling and covers a recent time period, so documents follow a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Gtwy raises alerts when something fails, and Slack carries them to your team when “Error Alert” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“Error Alert” in Gtwy, then “Send Message” in Slack",
+    "why": "A failure in Gtwy reaches a Slack channel, so someone sees it without watching a dashboard."
+  },
+  "watchOut": "An automation's “Send Message” post to a Slack channel waits for approval today, which can delay an urgent error alert."
+}

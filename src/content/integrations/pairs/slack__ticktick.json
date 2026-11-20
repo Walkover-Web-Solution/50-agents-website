@@ -1,0 +1,8 @@
+{
+  "usedFor": "TickTick holds tasks, and Slack gets a message when “New Task Created” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Task Created” in TickTick, then “Send Message” in Slack",
+    "why": "New tasks reach a Slack channel, and the trigger can filter by list, tag or priority to cut noise."
+  },
+  "watchOut": "“New Task Created” in TickTick is polling, and a Slack channel post waits for approval today."
+}

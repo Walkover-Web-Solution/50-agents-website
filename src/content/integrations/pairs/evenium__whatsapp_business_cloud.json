@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evenium holds your event guests, and WhatsApp Business Cloud messages them when “New Guests Added” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“New Guests Added” in Evenium, then “Send Template Message” in WhatsApp Business Cloud",
+    "why": "Each added guest gets a template message sent through your WhatsApp Business Cloud account."
+  },
+  "watchOut": "“Guest Created or Updated” also fires on edits, so prefer “New Guests Added” to avoid repeat messages."
+}

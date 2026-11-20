@@ -1,0 +1,8 @@
+{
+  "usedFor": "Personio holds your employee records, and Google Contacts gets a new contact from “Person Created” through “Create Contact”.",
+  "bestTemplate": {
+    "name": "“Person Created” in Personio, then “Create Contact” in Google Contacts",
+    "why": "New hires appear in the shared address book without anyone copying their details over."
+  },
+  "watchOut": "Pairing “Person Updated” with “Create Contact” adds a new contact on each edit, not an update."
+}

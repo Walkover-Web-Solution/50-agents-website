@@ -1,0 +1,8 @@
+{
+  "usedFor": "Contact Form 7 collects enquiries, and Google Contacts stores each sender through “Create Contact” after a “New Form Submission”.",
+  "bestTemplate": {
+    "name": "“New Form Submission” in Contact Form 7, then “Create Contact” in Google Contacts",
+    "why": "Every enquiry becomes a saved contact the moment the form is sent, with no copying from an inbox."
+  },
+  "watchOut": "A repeat sender runs “Create Contact” again, while “Update Contact” merges new details into the existing record."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "anny takes bookings, and Microsoft Excel keeps a table filled by “Add Row To Table” on each “New Order”.",
+  "bestTemplate": {
+    "name": "“New Order” in anny, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each completed checkout adds a row, giving finance a table of orders to sort and total."
+  },
+  "watchOut": "“Add Row To Table” writes into an Excel table, so create the table first and keep its columns unchanged."
+}

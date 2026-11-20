@@ -1,0 +1,8 @@
+{
+  "usedFor": "LiveChat holds your customer conversations and Razorpay takes payment, so “Finished Chat” can run “Create Payment Link”.",
+  "bestTemplate": {
+    "name": "“Finished Chat” in LiveChat, then “Create Payment Link” in Razorpay",
+    "why": "When a chat ends, the customer can be sent a payment link for what was agreed."
+  },
+  "watchOut": "“Create Payment Link” needs an amount you set or map, because “Finished Chat” does not price anything."
+}

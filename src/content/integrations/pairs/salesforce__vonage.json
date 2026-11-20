@@ -1,0 +1,8 @@
+{
+  "usedFor": "Salesforce holds contacts, and Vonage texts them through your Vonage account when “New Contact” runs “Send SMS”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Salesforce, then “Send SMS” in Vonage",
+    "why": "A new contact gets a text sent through your Vonage account, using the phone number on the record."
+  },
+  "watchOut": "“New Contact” in Salesforce is polling, so “Send SMS” runs after a scheduled check."
+}

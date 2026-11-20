@@ -1,0 +1,8 @@
+{
+  "usedFor": "Freshsales Classic holds deals and Slack is the team chat, so “When a new deal is created” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“When a new deal is created” in Freshsales Classic, then “Send Message” in Slack",
+    "why": "The team sees each new deal in a channel with the details it carries."
+  },
+  "watchOut": "“When a new deal is created” is polling, and a Slack post from an automation waits for approval."
+}

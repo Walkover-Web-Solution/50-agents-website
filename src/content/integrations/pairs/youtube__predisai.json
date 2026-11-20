@@ -1,0 +1,8 @@
+{
+  "usedFor": "YouTube hosts your videos, and Predis.ai drafts social posts when “Create Content” follows “New Video Uploaded”.",
+  "bestTemplate": {
+    "name": "“New Video Uploaded” in YouTube, then “Create Content” in Predis.ai",
+    "why": "A new upload starts a Predis.ai content draft, so promotion begins with the video."
+  },
+  "watchOut": "“New Video Uploaded” is polling, so the draft starts after a scheduled check, not at upload."
+}

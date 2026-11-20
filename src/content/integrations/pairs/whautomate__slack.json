@@ -1,0 +1,8 @@
+{
+  "usedFor": "Whautomate holds your appointments, and Slack tells the team when “Send Message” follows “New Appointment Scheduled”.",
+  "bestTemplate": {
+    "name": "“New Appointment Scheduled” in Whautomate, then “Send Message” in Slack",
+    "why": "Each new booking posts to a Slack channel, so the team knows who is coming."
+  },
+  "watchOut": "A post to a Slack channel from an automation waits for your approval before it goes out."
+}

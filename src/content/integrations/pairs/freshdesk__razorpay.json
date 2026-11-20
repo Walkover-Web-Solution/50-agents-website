@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay handles payments, and Freshdesk gains a helpdesk contact through “Create a Contact” from each “A New Refund Is Created”.",
+  "bestTemplate": {
+    "name": "“A New Refund Is Created” in Razorpay, then “Create a Contact” in Freshdesk",
+    "why": "A refund puts the customer in the helpdesk before their question arrives, ready for support to find."
+  },
+  "watchOut": "One customer with several refunds runs “Create a Contact” each time, so check Freshdesk for duplicates."
+}

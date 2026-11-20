@@ -1,0 +1,8 @@
+{
+  "usedFor": "Appcues holds onboarding flows, and Google Meet gets a review call through “Schedule a Meeting” for each new flow.",
+  "bestTemplate": {
+    "name": "“When one or more flows are created” in Appcues, then “Schedule a Meeting” in Google Meet",
+    "why": "A newly built flow gets a Google Meet review on the calendar before users ever see it."
+  },
+  "watchOut": "“When one or more flows are created” is polling, so the meeting is scheduled after a short delay."
+}

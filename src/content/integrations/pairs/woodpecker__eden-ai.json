@@ -1,0 +1,8 @@
+{
+  "usedFor": "Woodpecker runs outreach emails and Eden AI writes with AI models, so “Prospect Interested” can start “Create Chat Conversation”.",
+  "bestTemplate": {
+    "name": "“Prospect Interested” in Woodpecker, then “Create Chat Conversation” in Eden AI",
+    "why": "An interested prospect is the cue to draft a reply, and the model’s answer comes back to review."
+  },
+  "watchOut": "“Email Opened” also triggers it, so use the narrower “Prospect Interested” unless you want a run on every open."
+}

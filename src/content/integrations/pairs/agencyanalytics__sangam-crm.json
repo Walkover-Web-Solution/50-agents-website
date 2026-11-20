@@ -1,0 +1,8 @@
+{
+  "usedFor": "AgencyAnalytics holds your reporting clients, and Sangam CRM keeps the leads “Create or Update Lead” writes for each “New Client”.",
+  "bestTemplate": {
+    "name": "“New Client” in AgencyAnalytics, then “Create or Update Lead” in Sangam CRM",
+    "why": "A new client account becomes a lead record, and an existing lead is updated by ID, email or phone."
+  },
+  "watchOut": "“New Client” checks on a schedule, so the lead appears after the next check, not when the client is added."
+}

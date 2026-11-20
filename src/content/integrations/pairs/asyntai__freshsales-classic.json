@@ -1,0 +1,8 @@
+{
+  "usedFor": "Asyntai AI Chatbot chats with visitors, and Freshsales Classic holds the deals “Update Deal” changes after “New Lead Captured”.",
+  "bestTemplate": {
+    "name": "“New Lead Captured” in Asyntai, then “Update Deal” in Freshsales Classic",
+    "why": "A lead captured in chat can move its deal along, changing stage, amount or contacts without retyping."
+  },
+  "watchOut": "“Update Deal” finds a deal by ID or name, so a matching deal must exist before the lead arrives."
+}

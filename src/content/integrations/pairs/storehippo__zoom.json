@@ -1,0 +1,8 @@
+{
+  "usedFor": "StoreHippo holds your store orders, and Zoom runs the webinar when “New Order” runs “Register Attendee for Webinar”.",
+  "bestTemplate": {
+    "name": "“New Order” in StoreHippo, then “Register Attendee for Webinar” in Zoom",
+    "why": "A customer who orders a webinar seat is registered for it automatically."
+  },
+  "watchOut": "“User Updated” fires on every change, so the same customer can reach “Register Attendee for Webinar” again."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copy.ai finishes the writing, and Webflow publishes it when “Completed Workflow Run” feeds “Create Item” into a collection.",
+  "bestTemplate": {
+    "name": "“Completed Workflow Run” in Copy.ai, then “Create Item” in Webflow",
+    "why": "Finished copy lands in your Webflow collection as a new item, ready for review before it goes live."
+  },
+  "watchOut": "“Create Live Item” publishes the site immediately, so choose “Create Item” unless you want that."
+}

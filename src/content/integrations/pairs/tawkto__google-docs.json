@@ -1,0 +1,8 @@
+{
+  "usedFor": "tawk.to handles live chat, and Google Docs stores each “New Chat Transcript Arrives” through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Chat Transcript Arrives” in tawk.to, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Every saved transcript is written into a doc, so chat history is readable without opening tawk.to."
+  },
+  "watchOut": "“Chat Ends” and “New Chat Transcript Arrives” can both fire for one chat, so connect only one."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "ZenCommerce holds your store orders, and HubSpot keeps the customer record when “New Order Created” runs “Add Notes to Contact”.",
+  "bestTemplate": {
+    "name": "“New Order Created” in ZenCommerce, then “Add Notes to Contact” in HubSpot",
+    "why": "Each new order leaves a note on the buyer’s HubSpot contact, so sales sees the purchase."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or email, so the buyer must already exist in HubSpot."
+}

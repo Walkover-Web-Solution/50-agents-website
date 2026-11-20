@@ -1,0 +1,8 @@
+{
+  "usedFor": "RD Station reports conversions and Microsoft Excel keeps the table, so “New Contact Converted” runs “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Contact Converted” in RD Station, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each form or landing page conversion becomes a row in an Excel table you can filter and share."
+  },
+  "watchOut": "“Add Row To Table” in Microsoft Excel writes to an Excel table, so the data must sit in a table."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "SurveyMethods collects survey answers, and Microsoft Excel stores them when “Add Row To Table” follows “New Response Completed”.",
+  "bestTemplate": {
+    "name": "“New Response Completed” in SurveyMethods, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each finished response becomes a row, so results sit in a table you can sort and chart."
+  },
+  "watchOut": "“Add Row To Table” writes into an existing Excel table, so create the table and its columns first."
+}

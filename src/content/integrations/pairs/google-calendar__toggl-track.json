@@ -1,0 +1,8 @@
+{
+  "usedFor": "Google Calendar holds your meetings and Toggl Track your hours, so “New or Updated Event” runs “Create a Time Entry”.",
+  "bestTemplate": {
+    "name": "“New or Updated Event” in Google Calendar, then “Create a Time Entry” in Toggl Track",
+    "why": "Meetings on your calendar turn into time entries, so you stop logging them by hand."
+  },
+  "watchOut": "“New or Updated Event” also fires on edits, so a moved meeting can create a second time entry."
+}

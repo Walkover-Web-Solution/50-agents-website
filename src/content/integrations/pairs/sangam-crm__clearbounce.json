@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sangam CRM captures leads, and ClearBounce checks their addresses when “New Lead Created” runs “Verify Email Address”.",
+  "bestTemplate": {
+    "name": "“New Lead Created” in Sangam CRM, then “Verify Email Address” in ClearBounce",
+    "why": "Each new lead has its email checked for validity before anyone sends it a message."
+  },
+  "watchOut": "“New Lead Created” is polling, so verification runs after a scheduled check and not at capture."
+}

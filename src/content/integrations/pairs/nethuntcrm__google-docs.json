@@ -1,0 +1,8 @@
+{
+  "usedFor": "NetHunt CRM logs customer calls, and “New Call Logs” writes notes into a Google Docs tab.",
+  "bestTemplate": {
+    "name": "“New Call Logs” in NetHunt CRM, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new call log is added to a Google Docs tab, building a running record of calls."
+  },
+  "watchOut": "“Add or Replace Text In Tab” in Google Docs can replace a tab's content, so choose add."
+}

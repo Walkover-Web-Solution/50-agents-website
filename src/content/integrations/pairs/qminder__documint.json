@@ -1,0 +1,8 @@
+{
+  "usedFor": "Qminder manages your visitor queue, and Documint produces documents when “visitor checks in” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“visitor checks in” in Qminder, then “Add Content To Template” in Documint",
+    "why": "A visitor’s check-in fills a Documint template, so a form or slip is ready as they arrive."
+  },
+  "watchOut": "“Add visitor to queue” and “visitor checks in” are different triggers, so pick one to avoid two documents."
+}

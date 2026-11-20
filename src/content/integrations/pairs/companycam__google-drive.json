@@ -1,0 +1,8 @@
+{
+  "usedFor": "CompanyCam holds job site projects, and Google Drive gets a folder from “New Project” through “Create Folder”.",
+  "bestTemplate": {
+    "name": "“New Project” in CompanyCam, then “Create Folder” in Google Drive",
+    "why": "Every new job gets its own Drive folder for paperwork, ready before the first photo is taken."
+  },
+  "watchOut": "“Copy a File” on “New Photo” in CompanyCam runs once per photo, so a busy job site means many copies."
+}

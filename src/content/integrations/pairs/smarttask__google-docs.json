@@ -1,0 +1,8 @@
+{
+  "usedFor": "SmartTask holds tasks and Google Docs holds your notes, so “Task Completion” can run “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Task Completion” in SmartTask, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each finished task adds a line to a document tab, so you get a running record of completed work."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can overwrite a tab’s content, so set it to add when logging completions."
+}

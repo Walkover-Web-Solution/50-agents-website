@@ -1,0 +1,8 @@
+{
+  "usedFor": "Follow Up Boss holds your deals, and Asana receives a project through “Create Project” for each new one.",
+  "bestTemplate": {
+    "name": "“New Deal Created” in Follow Up Boss, then “Create Project” in Asana",
+    "why": "Each new deal gets a project in Asana, so the work after the deal has a home."
+  },
+  "watchOut": "“Contact Is Updated” fires on every edit, so keep it away from “Create Project” or you get repeats."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Rev AI holds analysis jobs and Microsoft Excel holds the table that “Add Row To Table” fills.",
+  "bestTemplate": {
+    "name": "“New Topic Extraction” in Rev AI, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every finished topic job adds a row, so results from many transcripts sit in one sheet."
+  },
+  "watchOut": "“New Topic Extraction” is polling, so rows appear after a scheduled check, not when the job finishes."
+}

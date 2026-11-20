@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zagomail holds your subscribers, and Google Docs records them through “Add or Replace Text In Tab” when “New Subscriber” runs.",
+  "bestTemplate": {
+    "name": "“New Subscriber” in Zagomail, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A signup adds a line to a running subscriber document that your team can read."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's content, so choose add for a running list."
+}

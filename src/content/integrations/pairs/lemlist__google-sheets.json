@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lemlist holds your outreach campaigns, and Google Sheets keeps a suppression list that “Add New Row to Sheet” extends.",
+  "bestTemplate": {
+    "name": "“Unsubscribed Recipient” in Lemlist, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Each unsubscribe lands as a new sheet row, giving you one list of people to leave out."
+  },
+  "watchOut": "“Unsubscribed Recipient” in Lemlist is polling, so a row can trail the unsubscribe by one check."
+}

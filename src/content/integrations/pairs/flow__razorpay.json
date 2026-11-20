@@ -1,0 +1,8 @@
+{
+  "usedFor": "Flow tracks the tasks, and Razorpay creates a payment request through “Create Payment Link” when “Task Completed” runs.",
+  "bestTemplate": {
+    "name": "“Task Completed” in Flow, then “Create Payment Link” in Razorpay",
+    "why": "Finishing a piece of work produces a link the client can pay, with the amount set in the template."
+  },
+  "watchOut": "“Task Completed” in Flow is polling, so “Create Payment Link” follows a scheduled check rather than the click."
+}

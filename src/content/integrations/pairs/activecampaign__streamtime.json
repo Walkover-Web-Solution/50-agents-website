@@ -1,0 +1,8 @@
+{
+  "usedFor": "ActiveCampaign holds your contacts and Streamtime holds your jobs, so “New Contact” can run “Create Job”.",
+  "bestTemplate": {
+    "name": "“New Contact” in ActiveCampaign, then “Create Job” in Streamtime",
+    "why": "Each new contact becomes a Streamtime job, so creative work starts without anyone retyping the client."
+  },
+  "watchOut": "“New or Updated Contact” also fires on edits, so it can open a second job for the same person."
+}

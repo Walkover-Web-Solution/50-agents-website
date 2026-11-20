@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bexio holds companies, quotes and invoices, and MailerLite holds the email list that “Create or Update Subscriber” fills.",
+  "bestTemplate": {
+    "name": "“New/Updated Company” in Bexio, then “Create or Update Subscriber” in MailerLite",
+    "why": "Company changes keep the subscriber current, because the action creates a new subscriber or updates the existing one."
+  },
+  "watchOut": "“New Sales-Invoice” in Bexio fires on created or updated invoices, so the same invoice can run twice."
+}

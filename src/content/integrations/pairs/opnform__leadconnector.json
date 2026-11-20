@@ -1,0 +1,8 @@
+{
+  "usedFor": "OpnForm collects submissions, and LeadConnector stores each respondent when “New Submission Created” runs “Create Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Submission Created” in OpnForm, then “Create Or Update Contact” in LeadConnector",
+    "why": "A repeat respondent updates their existing contact instead of creating a duplicate."
+  },
+  "watchOut": "“Add or Remove Contact from Workflow” needs a contact ID, email or phone, so make sure the form collects one."
+}

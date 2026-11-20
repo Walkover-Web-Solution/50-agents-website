@@ -1,0 +1,8 @@
+{
+  "usedFor": "Easybroker holds properties and contact requests, and Conversion Chats messages the requester when “New Contact Request” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“New Contact Request” in Easybroker, then “Send Template Message” in Conversion Chats",
+    "why": "A new inquiry gets a templated reply sent through your Conversion Chats account."
+  },
+  "watchOut": "“New Contact Request” is polling, so the message goes out after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kommo holds the customer conversations and Google Contacts keeps your address book, so “New Contact” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Kommo, then “Create Contact” in Google Contacts",
+    "why": "Each new Kommo contact is saved to Google Contacts, so the address book stays current."
+  },
+  "watchOut": "Adding “New Contact Is Added” in Google Contacts as well can loop, copying the same person back."
+}

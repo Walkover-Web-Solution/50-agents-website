@@ -1,0 +1,8 @@
+{
+  "usedFor": "Harvest tracks time and projects, and each “New Project” can add a to-do in Todoist.",
+  "bestTemplate": {
+    "name": "“New Project” in Harvest, then “Create Task” in Todoist",
+    "why": "A new Harvest project turns into a Todoist task, so the setup work is not forgotten."
+  },
+  "watchOut": "“New Project” in Harvest is polling, so “Create Task” in Todoist runs after a scheduled check."
+}

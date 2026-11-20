@@ -1,0 +1,8 @@
+{
+  "usedFor": "karlia holds tasks, notes and suppliers, and Notion holds your workspace pages, so “New Task” can run “Create_Data_Source_Item”.",
+  "bestTemplate": {
+    "name": "“New Task” in karlia, then “Create_Data_Source_Item” in Notion",
+    "why": "Each new CRM task becomes an item in a Notion database, so the team sees it beside other work."
+  },
+  "watchOut": "“Update Supplier” in karlia fires when a supplier is updated, so the same supplier can create several Notion items."
+}

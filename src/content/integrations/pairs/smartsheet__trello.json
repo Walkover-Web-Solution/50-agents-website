@@ -1,0 +1,8 @@
+{
+  "usedFor": "Smartsheet holds your rows and Trello holds your boards, so “New Row” can run “Create Trello Card”.",
+  "bestTemplate": {
+    "name": "“New Row” in Smartsheet, then “Create Trello Card” in Trello",
+    "why": "Each new row becomes a Trello card, so work logged in a sheet shows up on the board."
+  },
+  "watchOut": "“New Row” is polling, so cards appear after a scheduled check, not as soon as the row is added."
+}

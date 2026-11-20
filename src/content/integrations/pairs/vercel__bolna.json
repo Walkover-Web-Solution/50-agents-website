@@ -1,0 +1,8 @@
+{
+  "usedFor": "Vercel holds your deployments, and Bolna phones someone through “Make a Phone Call” when a “Deployment Failed” event arrives.",
+  "bestTemplate": {
+    "name": "“Deployment Failed” in Vercel, then “Make a Phone Call” in Bolna",
+    "why": "A failed deployment triggers a call placed through your Bolna account, so someone hears about it fast."
+  },
+  "watchOut": "“Deployment Canceled” is a separate trigger, so a canceled deployment will not ring this call."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Basecamp is where to-dos get created, and Notion collects them as items when “New To-Do” runs “Create_Data_Source_Item”.",
+  "bestTemplate": {
+    "name": "“New To-Do” in Basecamp, then “Create_Data_Source_Item” in Notion",
+    "why": "Every Basecamp to-do shows up as a Notion item, so one database covers work from several projects."
+  },
+  "watchOut": "“New To-Do” fires when a to-do is created, so later edits in Basecamp do not update the Notion item."
+}

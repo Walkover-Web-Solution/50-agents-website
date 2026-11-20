@@ -1,0 +1,8 @@
+{
+  "usedFor": "Contacts+ holds your people, and Google Drive gets a folder for each one when “Create Folder” follows “Contact Is Created”.",
+  "bestTemplate": {
+    "name": "“Contact Is Created” in Contacts+, then “Create Folder” in Google Drive",
+    "why": "Every new contact gets a folder in Google Drive, ready for contracts and files."
+  },
+  "watchOut": "“Create Folder” takes an optional parent folder, so set one or every folder lands at the top of Google Drive."
+}

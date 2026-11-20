@@ -1,0 +1,8 @@
+{
+  "usedFor": "Perfex CRM issues the invoices and Google Sheets tracks them, so “New Invoice” runs “Add New Row to Sheet”.",
+  "bestTemplate": {
+    "name": "“New Invoice” in Perfex CRM, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Each new invoice lands as a row, giving you a running list you can sort and total."
+  },
+  "watchOut": "A short delay before the row appears is normal, because “New Invoice” in Perfex CRM checks on a schedule."
+}

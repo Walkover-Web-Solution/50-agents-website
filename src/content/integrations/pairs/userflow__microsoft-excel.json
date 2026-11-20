@@ -1,0 +1,8 @@
+{
+  "usedFor": "Userflow knows who is onboarding, and Microsoft Excel keeps the list when “User Created” runs “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“User Created” in Userflow, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each new Userflow user adds a row to an Excel table, giving you a running sign-up list."
+  },
+  "watchOut": "“Update Row” pairs only with “Group Updated” here, so “User Created” can add rows but not edit them."
+}

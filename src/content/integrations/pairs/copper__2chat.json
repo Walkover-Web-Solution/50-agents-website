@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copper holds your people and leads, and 2Chat gets them as contacts through “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Person” in Copper, then “Create Contact” in 2Chat",
+    "why": "A person added to Copper is copied into 2Chat as a contact with their details."
+  },
+  "watchOut": "“Create Contact” needs at least one of phone, email or address, so a lead without any will not copy."
+}

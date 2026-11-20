@@ -1,0 +1,8 @@
+{
+  "usedFor": "Google Forms collects sign-ups, and Zoho Marketing Automation adds each respondent through “Subscribe Lead to Mailing List”.",
+  "bestTemplate": {
+    "name": "“New Form Response” in Google Forms, then “Subscribe Lead to Mailing List” in Zoho Marketing Automation",
+    "why": "Each response puts the respondent on a mailing list, with tags applied if you set them."
+  },
+  "watchOut": "“Subscribe Lead to Mailing List” sends a confirmation email, and “New Form Response” is polling, so expect a short delay."
+}

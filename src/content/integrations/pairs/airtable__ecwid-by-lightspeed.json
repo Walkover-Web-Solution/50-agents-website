@@ -1,0 +1,8 @@
+{
+  "usedFor": "Airtable holds your product list and Ecwid runs the store, so “Create Product” adds each Airtable record to the shop.",
+  "bestTemplate": {
+    "name": "“Record Created Or Updated” in Airtable, then “Create Product” in Ecwid",
+    "why": "A product you add to a base shows up in the store without retyping its details."
+  },
+  "watchOut": "“Record Created Or Updated” also fires on edits, so “Create Product” can add the same product twice."
+}

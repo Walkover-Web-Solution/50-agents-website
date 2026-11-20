@@ -1,0 +1,8 @@
+{
+  "usedFor": "Jira Software Cloud holds issues and Sangam CRM holds sales opportunities, so “New Issue (Via JQL)” can run “Create Opportunity”.",
+  "bestTemplate": {
+    "name": "“New Issue (Via JQL)” in Jira Software Cloud, then “Create Opportunity” in Sangam CRM",
+    "why": "A JQL filter picks the issues that matter, and each one becomes a Sangam CRM opportunity."
+  },
+  "watchOut": "“New Issue (Via JQL)” in Jira Software Cloud is polling, so the opportunity appears after a scheduled check."
+}

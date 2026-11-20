@@ -1,0 +1,8 @@
+{
+  "usedFor": "PixelBin.io manages your images, and TRIGGERcmd runs a command on your computers when “File Created” fires “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“File Created” in PixelBin.io, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new image upload can start a local script, such as a backup or a resize job."
+  },
+  "watchOut": "“Delete File” is also a PixelBin.io trigger, so check that each template listens to “File Created”."
+}

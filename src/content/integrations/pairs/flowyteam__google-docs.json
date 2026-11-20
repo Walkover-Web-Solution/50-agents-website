@@ -1,0 +1,8 @@
+{
+  "usedFor": "flowyteam tracks key results and Google Docs holds the report, so “New Off-Track Key Result” adds text to a tab.",
+  "bestTemplate": {
+    "name": "“New Off-Track Key Result” in flowyteam, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A key result going off track lands in a document your team reviews, so slips get seen."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's content, so set it to add when logging results."
+}

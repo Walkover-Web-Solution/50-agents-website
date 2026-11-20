@@ -1,0 +1,8 @@
+{
+  "usedFor": "HelloLeads CRM tracks leads, and HubSpot receives the winners when “When Lead Becomes Customer” runs “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“When Lead Becomes Customer” in HelloLeads CRM, then “Create or Update Contact” in HubSpot",
+    "why": "Won leads become HubSpot contacts, and an existing contact is updated rather than duplicated."
+  },
+  "watchOut": "“When Lead Becomes Customer” in HelloLeads CRM is polling, so a won lead reaches HubSpot after a scheduled check."
+}

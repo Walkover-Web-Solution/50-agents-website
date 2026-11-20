@@ -1,0 +1,8 @@
+{
+  "usedFor": "Asyntai AI Chatbot captures leads from your website chat, and Bolna calls each one through your Bolna account.",
+  "bestTemplate": {
+    "name": "“New Lead Captured” in Asyntai AI Chatbot, then “Make a Phone Call” in Bolna",
+    "why": "A lead that just filled in the chat gets a call while the interest is fresh."
+  },
+  "watchOut": "“Make a Phone Call” needs a number to dial, so check the captured lead carries a phone number."
+}

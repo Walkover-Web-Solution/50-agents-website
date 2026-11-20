@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds the to-dos and Planable drafts social posts, so “New Complete Task” can start a post with “Create Post”.",
+  "bestTemplate": {
+    "name": "“New Complete Task” in Todoist, then “Create Post” in Planable",
+    "why": "A finished content task becomes a post in Planable, ready for the team to review."
+  },
+  "watchOut": "“Project Created” is polling, so a template that starts on it runs “Create Post” after a scheduled check."
+}

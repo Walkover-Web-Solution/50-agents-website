@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack is where requests land and TeamGantt plans the work, so each channel message can run “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Create Task” in TeamGantt",
+    "why": "A message in the chosen channel becomes a task or milestone in the selected project."
+  },
+  "watchOut": "“New Message Posted in Channel Instant” includes bot messages, so a bot post in that channel also creates a task."
+}

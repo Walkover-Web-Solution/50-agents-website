@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack holds team requests, and TimeCamp turns a channel message into work through “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Create Task” in TimeCamp",
+    "why": "A message in a chosen channel becomes a task in a TimeCamp project, ready for tracking."
+  },
+  "watchOut": "The Slack trigger includes bot messages and skips thread replies, so “Create Task” can run on bot posts."
+}

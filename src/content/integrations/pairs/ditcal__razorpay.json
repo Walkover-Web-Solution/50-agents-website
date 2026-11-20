@@ -1,0 +1,8 @@
+{
+  "usedFor": "DitCal holds the bookings and Razorpay collects the money, so “New Booking” runs “Create Payment Link”.",
+  "bestTemplate": {
+    "name": "“New Booking” in DitCal, then “Create Payment Link” in Razorpay",
+    "why": "Each booking gets a shareable payment link, with amount, expiry and customer details set in the action."
+  },
+  "watchOut": "“Create Payment Link” only makes the link, so getting it to the client needs a separate step and approval."
+}

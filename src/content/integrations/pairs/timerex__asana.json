@@ -1,0 +1,8 @@
+{
+  "usedFor": "TimeRex holds booked events, and Asana opens a project through “Create Project” for each “New Event”.",
+  "bestTemplate": {
+    "name": "“New Event” in TimeRex, then “Create Project” in Asana",
+    "why": "Every booking becomes an Asana project with its own name, notes and dates, so prep work has a home."
+  },
+  "watchOut": "“Event Rescheduled” and “Event Cancelled” are separate triggers, so a project made for “New Event” stays as it was."
+}

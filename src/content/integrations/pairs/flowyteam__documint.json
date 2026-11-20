@@ -1,0 +1,8 @@
+{
+  "usedFor": "flowyteam tracks goals, and Documint turns them into documents when “New Off-Track Key Result” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“New Off-Track Key Result” in flowyteam, then “Add Content To Template” in Documint",
+    "why": "A key result going off track fills a Documint template, giving you a ready write-up to share."
+  },
+  "watchOut": "“New Check-in” fires on every saved check-in, so using it would fill the template again and again."
+}

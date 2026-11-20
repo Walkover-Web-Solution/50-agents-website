@@ -1,0 +1,8 @@
+{
+  "usedFor": "Keap Max Classic holds contacts, and Google Docs records each “New Contact Created” through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Contact Created” in Keap Max Classic, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "New contacts are written into a doc tab, giving a plain list anyone can read without a Keap login."
+  },
+  "watchOut": "Replace mode overwrites the tab, so set “Add or Replace Text In Tab” to add if you want history kept."
+}

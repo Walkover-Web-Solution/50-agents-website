@@ -1,0 +1,8 @@
+{
+  "usedFor": "WooCommerce holds your store orders, and Kylas CRM keeps the leads when “Order Updated” runs “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“Order Updated” in WooCommerce, then “Create or Update Lead” in Kylas CRM",
+    "why": "Buyers reach your sales team as leads, and a matching phone or email updates the lead instead of duplicating it."
+  },
+  "watchOut": "“Order Updated” fires on every edit to an order, so the same buyer can reach Kylas CRM several times."
+}

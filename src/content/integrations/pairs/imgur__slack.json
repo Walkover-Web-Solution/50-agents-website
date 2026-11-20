@@ -1,0 +1,8 @@
+{
+  "usedFor": "Imgur holds your posts, and Slack gets a message when “New Comment” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Comment” in Imgur, then “Send Message” in Slack",
+    "why": "A comment on your Imgur post shows up in Slack, so you see it without checking Imgur."
+  },
+  "watchOut": "“New Comment” in Imgur is polling, and a Slack channel post from an automation waits for your approval today."
+}

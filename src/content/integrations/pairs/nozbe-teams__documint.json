@@ -1,0 +1,8 @@
+{
+  "usedFor": "Nozbe holds your tasks and Documint holds your document templates, so “New Task” can run “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“New Task” in Nozbe, then “Add Content To Template” in Documint",
+    "why": "A new task fills a Documint template, so a brief or work order is ready without copying details."
+  },
+  "watchOut": "“Update or New Task” is polling and fires on edits, so one task can fill the template again."
+}

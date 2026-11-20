@@ -1,0 +1,8 @@
+{
+  "usedFor": "Clio holds client contacts, and Gmail sends the mail, so “New Contact” in Clio can start “Send Email” in Gmail.",
+  "bestTemplate": {
+    "name": "“New Contact” in Clio, then “Send Email” in Gmail",
+    "why": "A new client record gets a first email from your Gmail account without anyone retyping the address."
+  },
+  "watchOut": "An email to a client waits in Needs you for approval before “Send Email” in Gmail goes out."
+}

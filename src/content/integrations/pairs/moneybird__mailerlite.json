@@ -1,0 +1,8 @@
+{
+  "usedFor": "Moneybird holds customers and invoices, and MailerLite holds your mailing list, so “New Contact” can run “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Moneybird, then “Create or Update Subscriber” in MailerLite",
+    "why": "New customers from your books join your mailing list, and repeats are updated rather than duplicated."
+  },
+  "watchOut": "Moneybird contacts are bookkeeping records, so check who agreed to marketing before “Create or Update Subscriber” adds them."
+}

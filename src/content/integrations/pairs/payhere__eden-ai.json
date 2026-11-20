@@ -1,0 +1,8 @@
+{
+  "usedFor": "PayHere takes the payments, and Eden AI answers with a model through “Create Chat Conversation” after each “Payment Received”.",
+  "bestTemplate": {
+    "name": "“Payment Received” in PayHere, then “Create Chat Conversation” in Eden AI",
+    "why": "A paid order can hand its details to a model that drafts a thank you note."
+  },
+  "watchOut": "“Create Chat Conversation” only returns the model's reply, so a reply to a customer still needs your approval."
+}

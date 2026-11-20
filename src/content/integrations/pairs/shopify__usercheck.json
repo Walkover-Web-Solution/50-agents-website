@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds new customers and UserCheck checks email addresses, so “New Customer” can run “Verify Email”.",
+  "bestTemplate": {
+    "name": "“New Customer” in Shopify, then “Verify Email” in UserCheck",
+    "why": "Each new customer's address is checked for validity, disposable use and spam before you rely on it."
+  },
+  "watchOut": "“Verify Email” in UserCheck only reports whether an address is valid, so add a step to act on the result."
+}

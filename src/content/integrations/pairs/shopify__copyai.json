@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify records your orders, and Copy.ai writes from them when “Order Paid” runs “Start a Workflow Run”.",
+  "bestTemplate": {
+    "name": "“Order Paid” in Shopify, then “Start a Workflow Run” in Copy.ai",
+    "why": "A paid order starts a Copy.ai workflow, so follow-up copy is drafted without anyone opening the order."
+  },
+  "watchOut": "Anything Copy.ai writes for a customer should wait for your approval before it goes out."
+}

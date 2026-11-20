@@ -1,0 +1,8 @@
+{
+  "usedFor": "LiquidPlanner Classic holds your projects and tasks, and Google Docs records changes through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New or Changed Task” in LiquidPlanner Classic, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each task change is written to a doc, giving stakeholders a readable change log."
+  },
+  "watchOut": "“New or Changed Task” also fires on edits, so one task can write several entries."
+}

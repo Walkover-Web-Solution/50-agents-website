@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evenium manages the guest list and Asana tracks follow-up, so “New Guests Added” runs “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Guests Added” in Evenium, then “Create Task or Subtask” in Asana",
+    "why": "Each new guest gets a task, so someone on the team owns the follow-up."
+  },
+  "watchOut": "“Guest Created or Updated” fires on edits too, so the same guest can create more than one task."
+}

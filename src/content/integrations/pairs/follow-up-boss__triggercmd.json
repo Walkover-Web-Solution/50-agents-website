@@ -1,0 +1,8 @@
+{
+  "usedFor": "Follow Up Boss holds leads and deals, and TRIGGERcmd runs a command on your computers when “New Deal Created” fires.",
+  "bestTemplate": {
+    "name": "“New Deal Created” in Follow Up Boss, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new deal starts a command you have set up on your own computer."
+  },
+  "watchOut": "“Contact Is Updated” in Follow Up Boss runs on every update, so “Trigger Command” could run often for one contact."
+}

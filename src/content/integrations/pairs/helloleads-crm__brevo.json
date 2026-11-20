@@ -1,0 +1,8 @@
+{
+  "usedFor": "HelloLeads CRM tracks leads, and Brevo holds your mailing lists when “When Lead Becomes Customer” runs “Add Contacts To List”.",
+  "bestTemplate": {
+    "name": "“When Lead Becomes Customer” in HelloLeads CRM, then “Add Contacts To List” in Brevo",
+    "why": "A lead that reaches the Won stage joins your chosen Brevo list for customer emails."
+  },
+  "watchOut": "“Add Contacts To List” only adds contacts already in Brevo, so the person must exist there first."
+}

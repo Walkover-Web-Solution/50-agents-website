@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kitchen.co holds your clients, and ClickUp receives follow-up work when “New Client” runs “Create Task”.",
+  "bestTemplate": {
+    "name": "“New Client” in Kitchen.co, then “Create Task” in ClickUp",
+    "why": "A new client starts a task in the ClickUp list you pick, with title, assignee and description."
+  },
+  "watchOut": "“Create Task” adds a task per run, so “Folder Updated” in Kitchen.co would pile up tasks for one folder."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds paid orders, and Template To builds the document when “Order Paid” runs “Create PDF From Template”.",
+  "bestTemplate": {
+    "name": "“Order Paid” in Shopify, then “Create PDF From Template” in Template To",
+    "why": "A paid order produces a PDF from your template, and the action returns the file URL."
+  },
+  "watchOut": "“Order Line Items Are Edited” fires on changes, so one order can produce another PDF."
+}

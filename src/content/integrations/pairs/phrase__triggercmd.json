@@ -1,0 +1,8 @@
+{
+  "usedFor": "Phrase holds your translation jobs, and TRIGGERcmd runs a command on your computers through “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“Job Completed” in Phrase, then “Trigger Command” in TRIGGERcmd",
+    "why": "A completed job starts a command you chose on your computers, so the next step runs without you."
+  },
+  "watchOut": "“Job Completed” in Phrase is polling, so the command runs after a scheduled check, not the moment a job ends."
+}

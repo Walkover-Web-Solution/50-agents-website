@@ -1,0 +1,8 @@
+{
+  "usedFor": "MyDocSafe holds your documents for signing, and Conversion Chats messages the signer when “Document is Signed” runs “Send Template Message”.",
+  "bestTemplate": {
+    "name": "“Document is Signed” in MyDocSafe, then “Send Template Message” in Conversion Chats",
+    "why": "Once all parties have signed, a templated message goes out through your Conversion Chats account."
+  },
+  "watchOut": "Each MyDocSafe event needs its own template wording, so a rejected signature should not reuse the signed message."
+}

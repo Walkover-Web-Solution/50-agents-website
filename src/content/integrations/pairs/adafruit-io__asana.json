@@ -1,0 +1,8 @@
+{
+  "usedFor": "Adafruit IO holds device readings, and Asana receives a task when “New Feed Data” runs “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Feed Data” in Adafruit IO, then “Create Task or Subtask” in Asana",
+    "why": "A fresh reading becomes an Asana task with an assignee and dates, so someone owns the follow-up."
+  },
+  "watchOut": "“New Feed Data” is polling, so “Create Task or Subtask” in Asana trails the reading by one check."
+}

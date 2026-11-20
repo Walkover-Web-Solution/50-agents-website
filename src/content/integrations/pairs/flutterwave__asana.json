@@ -1,0 +1,8 @@
+{
+  "usedFor": "Flutterwave collects payments, and Asana gets a project when “Create Project” follows “New Subscription”.",
+  "bestTemplate": {
+    "name": "“New Subscription” in Flutterwave, then “Create Project” in Asana",
+    "why": "A new subscriber opens an Asana project, so onboarding work starts the moment they pay."
+  },
+  "watchOut": "“New Subscription” is polling, so the project is created after a scheduled check, not at payment time."
+}

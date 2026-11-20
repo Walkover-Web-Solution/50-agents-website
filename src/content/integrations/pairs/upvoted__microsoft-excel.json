@@ -1,0 +1,8 @@
+{
+  "usedFor": "Upvoted collects feature requests, and Microsoft Excel lists each through “Add Row To Table” on “new feature is added”.",
+  "bestTemplate": {
+    "name": "“new feature is added” in Upvoted, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every new request becomes a row, so product can rank and filter ideas in a table."
+  },
+  "watchOut": "“new feature is added” is polling, so a request appears in Excel after the next scheduled check."
+}

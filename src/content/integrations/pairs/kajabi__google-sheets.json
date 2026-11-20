@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kajabi holds offers and buyers, and Google Sheets holds your tracking rows, so “New Purchased” can run “Update Spreadsheet Row”.",
+  "bestTemplate": {
+    "name": "“New Purchased” in Kajabi, then “Update Spreadsheet Row” in Google Sheets",
+    "why": "Each purchase updates a row in your sheet, so buyers show up there without manual edits."
+  },
+  "watchOut": "“Update Spreadsheet Row” in Google Sheets changes an existing row, so the row must already exist for a purchase."
+}

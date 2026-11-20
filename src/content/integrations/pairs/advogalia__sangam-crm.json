@@ -1,0 +1,8 @@
+{
+  "usedFor": "Advogalia holds a law office's clients and cases, and Sangam CRM receives a sales lead through “Create Opportunity”.",
+  "bestTemplate": {
+    "name": "“New Client” in Advogalia, then “Create Opportunity” in Sangam CRM",
+    "why": "A client added in Advogalia becomes an opportunity with a follow-up date, so sales sees it right away."
+  },
+  "watchOut": "“New Deadline” in Advogalia also fires for hearings and tasks, so pick the trigger before you create opportunities from it."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "MSG91 holds support tickets, and Upvoted collects feature requests when “New Ticket Arrives” runs “Create Feature”.",
+  "bestTemplate": {
+    "name": "“New Ticket Arrives” in MSG91, then “Create Feature” in Upvoted",
+    "why": "A ticket becomes a feature people can vote on, so requests reach your board."
+  },
+  "watchOut": "“New Ticket Arrives” is polling and covers every ticket, so “Create Feature” also gets tickets that are not requests."
+}

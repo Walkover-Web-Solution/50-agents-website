@@ -1,0 +1,8 @@
+{
+  "usedFor": "Kadoa holds workflow data and Brevo holds your contacts, so “Workflow Data” can run “Add Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“Workflow Data” in Kadoa, then “Add Or Update Contact” in Brevo",
+    "why": "When workflow data changes, the contact is added or updated in Brevo, keeping your list current."
+  },
+  "watchOut": "“Workflow Data” is polling and fires on updates, so the same record can run “Add Or Update Contact” twice."
+}

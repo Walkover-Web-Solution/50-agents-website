@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your store and checkouts, and JobNimbus keeps your customers when “Abandoned Checkout” runs “Create Contact”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create Contact” in JobNimbus",
+    "why": "Someone who left a checkout with an email or phone becomes a JobNimbus contact you can call back."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so the contact appears after a scheduled check."
+}

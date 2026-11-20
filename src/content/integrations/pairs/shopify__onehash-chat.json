@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your store checkouts, and OneHash Chat receives the shopper as a contact through “Create a Contact”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create a Contact” in OneHash Chat",
+    "why": "A shopper who leaves a checkout becomes a chat contact you can follow up with."
+  },
+  "watchOut": "“Abandoned Checkout” is polling, so the contact is created after a scheduled check."
+}

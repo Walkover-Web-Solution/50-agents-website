@@ -1,0 +1,8 @@
+{
+  "usedFor": "Advogalia holds clients and cases, and Documint receives them when “New Client” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“New Client” in Advogalia, then “Add Content To Template” in Documint",
+    "why": "A new client's details go into a Documint template, so the document starts from the CRM record."
+  },
+  "watchOut": "“New Client” in Advogalia is polling, so “Add Content To Template” runs after a scheduled check."
+}

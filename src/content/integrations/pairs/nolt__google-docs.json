@@ -1,0 +1,8 @@
+{
+  "usedFor": "Nolt holds feedback posts, and Google Docs keeps a write-up of them through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Post Created” in Nolt, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new feedback post is written into a document tab your team can read."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's existing content, so choose adding to keep it."
+}

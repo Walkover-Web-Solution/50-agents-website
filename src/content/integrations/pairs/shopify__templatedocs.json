@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your store orders, and TemplateDocs builds a document from your template through “Generate Document from Template”.",
+  "bestTemplate": {
+    "name": "“Order Paid” in Shopify, then “Generate Document from Template” in TemplateDocs",
+    "why": "A paid order produces a ready document, such as an invoice or packing note, from your template."
+  },
+  "watchOut": "“Order Line Items Are Edited” is a separate trigger, so an edited order will not regenerate this document."
+}

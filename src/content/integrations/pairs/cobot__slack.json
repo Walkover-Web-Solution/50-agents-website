@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cobot holds coworking bookings, and Slack tells your team about each one through “Send Message”.",
+  "bestTemplate": {
+    "name": "“Booking Created” in Cobot, then “Send Message” in Slack",
+    "why": "Each new Cobot booking posts to a Slack channel, so the front desk knows who is coming."
+  },
+  "watchOut": "An automation's post to a Slack channel waits for your approval today, so “Send Message” is not instant."
+}

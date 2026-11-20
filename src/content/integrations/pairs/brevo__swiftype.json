@@ -1,0 +1,8 @@
+{
+  "usedFor": "Brevo holds your contact lists, and Swiftype indexes a document through “Create Document” when “Contact Added To List” runs.",
+  "bestTemplate": {
+    "name": "“Contact Added To List” in Brevo, then “Create Document” in Swiftype",
+    "why": "A contact joining a list is pushed to the Swiftype index right away, since the trigger is a hook."
+  },
+  "watchOut": "“Create Document” adds a document each run, so a contact moved between lists twice would be indexed twice."
+}

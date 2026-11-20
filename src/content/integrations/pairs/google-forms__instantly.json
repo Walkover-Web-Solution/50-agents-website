@@ -1,0 +1,8 @@
+{
+  "usedFor": "Google Forms collects answers, and Instantly gets each respondent as a lead through “Create Lead”.",
+  "bestTemplate": {
+    "name": "“New Form Response” in Google Forms, then “Add Lead to Campaign” in Instantly",
+    "why": "A response becomes a lead already placed in a campaign, so outreach starts from the form."
+  },
+  "watchOut": "“New Form Response” is polling, so a new lead appears after the next scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Acadle holds your learners, and Documint receives each one through “Add Content To Template” when “New User” runs.",
+  "bestTemplate": {
+    "name": "“New User” in Acadle, then “Add Content To Template” in Documint",
+    "why": "A new learner account fills a Documint template, so a welcome document is ready without typing."
+  },
+  "watchOut": "“New User” in Acadle is polling, so documents appear after a scheduled check, not at sign-up."
+}

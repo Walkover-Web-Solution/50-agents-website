@@ -1,0 +1,8 @@
+{
+  "usedFor": "buttondown holds your newsletter drafts, and Slack gets a post when “email created” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“email created” in buttondown, then “Send Message” in Slack",
+    "why": "Your team sees a new newsletter email in a channel the moment it exists."
+  },
+  "watchOut": "An automation’s “Send Message” post to a Slack channel waits for your approval today, so expect it in Needs you."
+}

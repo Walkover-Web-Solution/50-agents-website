@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pitchit holds lead insights, and an update there runs “Update Contact” in Brevo.",
+  "bestTemplate": {
+    "name": "“When a lead's insights are updated” in Pitchit, then “Update Contact” in Brevo",
+    "why": "New lead insights from Pitchit reach the matching Brevo contact, so your campaigns use fresh details."
+  },
+  "watchOut": "“Update Contact” in Brevo changes an existing contact only, so the person must already be in Brevo."
+}

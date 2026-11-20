@@ -1,0 +1,8 @@
+{
+  "usedFor": "WooCommerce holds store customers and Woodpecker holds outreach prospects, so “New Customer Created” can run “Create/Update Prospect”.",
+  "bestTemplate": {
+    "name": "“New Customer Created” in WooCommerce, then “Create/Update Prospect” in Woodpecker",
+    "why": "New buyers join your Woodpecker prospect list, and a returning buyer updates the existing prospect."
+  },
+  "watchOut": "Customers agreed to buy, not to receive outreach, so check consent before “Create/Update Prospect” adds them."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify publishes blog articles and Content Workflow Bynder tracks content, so “New Blog Article” can run “Create New Item”.",
+  "bestTemplate": {
+    "name": "“New Blog Article” in Shopify, then “Create New Item” in Content Workflow Bynder",
+    "why": "Each published article gets a content item with a name, status and folder, ready for review."
+  },
+  "watchOut": "“New Blog Article” in Shopify runs when an article is published, so drafts do not reach “Create New Item”."
+}

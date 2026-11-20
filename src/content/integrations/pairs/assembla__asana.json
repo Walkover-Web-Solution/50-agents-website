@@ -1,0 +1,8 @@
+{
+  "usedFor": "Assembla is where tickets are filed and Asana is where work is planned, via “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Ticket” in Assembla, then “Create Task or Subtask” in Asana",
+    "why": "Each ticket becomes a task, and the action can set assignee, tags, dates and description."
+  },
+  "watchOut": "“New Ticket Change” fires on any edit to a ticket, so it can create several tasks for one ticket."
+}

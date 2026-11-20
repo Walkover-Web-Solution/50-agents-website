@@ -1,0 +1,8 @@
+{
+  "usedFor": "MarketProvider holds products and Microsoft Excel holds your sheet, so “New Product Created” can run “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Product Created” in MarketProvider, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each new product adds a row to an Excel table, so your product list stays current."
+  },
+  "watchOut": "“Product Is Updated” in MarketProvider also reaches “Add Row To Table”, so edits could add duplicate rows without “Update Row”."
+}

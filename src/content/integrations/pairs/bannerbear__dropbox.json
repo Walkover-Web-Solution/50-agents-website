@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bannerbear generates your images and Dropbox stores them, with “New Image” handing the result to “Upload File to Dropbox”.",
+  "bestTemplate": {
+    "name": "“New Image” in Bannerbear, then “Upload File to Dropbox” in Dropbox",
+    "why": "Each finished visual is saved into a Dropbox folder from its public link."
+  },
+  "watchOut": "“Upload File to Dropbox” saves from a public web link, so the generated image's link must be reachable."
+}

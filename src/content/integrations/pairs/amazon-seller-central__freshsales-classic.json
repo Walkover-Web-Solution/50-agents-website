@@ -1,0 +1,8 @@
+{
+  "usedFor": "Amazon Seller Central holds your marketplace orders and Freshsales Classic receives each one as a deal through “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Order Created” in Amazon Seller Central, then “Create Deal” in Freshsales Classic",
+    "why": "Every new order becomes a deal your sales team can follow, linked to an account."
+  },
+  "watchOut": "“New Refund” also feeds “Create Deal”, so a refund opens a deal unless you route it to “Update Deal”."
+}

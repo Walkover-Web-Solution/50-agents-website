@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Inventory holds sales orders, and TRIGGERcmd runs a command on your computer when “New Salesorder” fires.",
+  "bestTemplate": {
+    "name": "“New Salesorder” in Zoho Inventory, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new sales order can start a script on your own machine, such as one that prints a pick list."
+  },
+  "watchOut": "“Trigger Command” runs on your computers, and “New Salesorder” is polling, so the run follows a scheduled check."
+}

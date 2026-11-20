@@ -1,0 +1,8 @@
+{
+  "usedFor": "PDFGate reports envelope events, and viaSocket utilities starts another workflow when “Envelope Document Completed” runs “Flow in Flow”.",
+  "bestTemplate": {
+    "name": "“Envelope Document Completed” in PDFGate, then “Flow in Flow” in viaSocket utilities",
+    "why": "A completed envelope document can start a second workflow, such as filing or notifying, with no manual step."
+  },
+  "watchOut": "“Flow in Flow” runs another viaSocket workflow, so check that the second workflow exists and is switched on."
+}

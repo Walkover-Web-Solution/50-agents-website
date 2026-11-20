@@ -1,0 +1,8 @@
+{
+  "usedFor": "Grist holds your product records and Loyverse is the till, so “New Record” can push a variant with “Create Or Update Variant”.",
+  "bestTemplate": {
+    "name": "“New Record” in Grist, then “Create Or Update Variant” in Loyverse",
+    "why": "A new row in Grist sets up the product variant at the point of sale, with no retyping."
+  },
+  "watchOut": "“Updated Record” also triggers “Create Or Update Variant”, so an edit in Grist can overwrite that Loyverse variant."
+}

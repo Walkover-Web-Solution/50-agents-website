@@ -1,0 +1,8 @@
+{
+  "usedFor": "Teachfloor runs your cohort courses, and MSG91 sends a mail through “Send a Mail” when “Course Updated” runs.",
+  "bestTemplate": {
+    "name": "“Course Updated” in Teachfloor, then “Send a Mail” in MSG91",
+    "why": "A course change can send learners a templated notice from your MSG91 account."
+  },
+  "watchOut": "A mail to learners waits in Needs you for approval, so “Send a Mail” goes out after you approve."
+}

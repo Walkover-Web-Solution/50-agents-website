@@ -1,0 +1,8 @@
+{
+  "usedFor": "ShipStation holds your orders, and Brevo keeps your email contacts when “New Order Created” runs “Add Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Order Created” in ShipStation, then “Add Or Update Contact” in Brevo",
+    "why": "Each new order adds the buyer to Brevo, or updates them if they already exist."
+  },
+  "watchOut": "“Add Contacts To List” only takes existing contacts, so run “Add Or Update Contact” first for new buyers."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "BlueyEmail collects form answers, and Documint fills a template when “When a form is submitted” runs “Add Content To Template”.",
+  "bestTemplate": {
+    "name": "“When a form is submitted” in BlueyEmail, then “Add Content To Template” in Documint",
+    "why": "A submitted form already holds the details a document needs, so Documint can fill its template from them."
+  },
+  "watchOut": "“Add Content To Template” needs a template to fill, so set that template up in Documint before forms arrive."
+}

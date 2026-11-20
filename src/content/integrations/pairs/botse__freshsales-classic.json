@@ -1,0 +1,8 @@
+{
+  "usedFor": "Botse receives customer messages, and Freshsales Classic opens a deal when “New Incoming Message” runs “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Incoming Message” in Botse, then “Create Deal” in Freshsales Classic",
+    "why": "A customer who writes in gets a deal in Freshsales Classic, so no sales conversation goes untracked."
+  },
+  "watchOut": "“New Incoming Message” fires on every message, so one chatty customer can create several deals through “Create Deal”."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailerLite Classic holds subscribers, and viaSocket utilities pauses the workflow after each “New Subscriber Added”.",
+  "bestTemplate": {
+    "name": "“New Subscriber Added” in MailerLite Classic, then “Pause Workflow” in viaSocket utilities",
+    "why": "A pause after a new subscriber spaces out the steps that follow, such as a welcome message."
+  },
+  "watchOut": "“New Subscriber Added” is polling and “Pause Workflow” waits the minutes you set, so allow for both delays."
+}

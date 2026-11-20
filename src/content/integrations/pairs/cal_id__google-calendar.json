@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cal ID takes the bookings and Google Calendar holds your schedule, so “Booking Created” can place the meeting with “Create Calendar Event”.",
+  "bestTemplate": {
+    "name": "“Booking Created” in Cal ID, then “Create Calendar Event” in Google Calendar",
+    "why": "A new booking is the moment to add the meeting, and the action sets time, duration and attendees."
+  },
+  "watchOut": "“Booking Cancelled” pairs with “Delete Event”, which removes the calendar event, so test it on a throwaway booking."
+}

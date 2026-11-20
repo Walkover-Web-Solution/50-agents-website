@@ -1,0 +1,8 @@
+{
+  "usedFor": "Advogalia holds cases, clients and deadlines, and MSG91 mails people about them through “Send a Mail”.",
+  "bestTemplate": {
+    "name": "“New Deadline” in Advogalia, then “Send a Mail” in MSG91",
+    "why": "A new deadline or hearing is time sensitive, and the action mails from a template."
+  },
+  "watchOut": "A mail to someone outside waits for your approval, and “New Deadline” is polling, so expect a short delay."
+}

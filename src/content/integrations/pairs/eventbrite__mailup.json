@@ -1,0 +1,8 @@
+{
+  "usedFor": "Eventbrite holds attendees and MailUp holds your mailing groups, so “New Attendee Check -In” can run “Add Recipient to Group”.",
+  "bestTemplate": {
+    "name": "“New Attendee Check -In” in EventBrite, then “Add Recipient to Group” in MailUp",
+    "why": "Checking in puts the attendee in a MailUp group, so a follow-up can go to people who showed up."
+  },
+  "watchOut": "“New Send Email” mails someone outside the business, so it waits in Needs you until you approve it."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Solve CRM holds contacts, and “New Tagged Contact” can set up a meeting in Calendly.",
+  "bestTemplate": {
+    "name": "“New Tagged Contact” in Solve CRM, then “Create One-Time Meeting” in Calendly",
+    "why": "A tag you apply to a contact starts a one-time meeting, so only chosen contacts get a call."
+  },
+  "watchOut": "“New Tagged Contact” in Solve CRM is polling, so the meeting appears after a scheduled check."
+}

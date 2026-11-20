@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay takes payments, and Toggl Track gets a client when “Create a Client” follows “New Payment Captured”.",
+  "bestTemplate": {
+    "name": "“New Payment Captured” in Razorpay, then “Create a Client” in Toggl Track",
+    "why": "A captured payment adds the payer as a client, so you can log billable time against them."
+  },
+  "watchOut": "Each captured payment triggers a new client, so a repeat customer can end up added twice."
+}

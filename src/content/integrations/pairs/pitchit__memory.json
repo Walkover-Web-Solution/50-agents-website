@@ -1,0 +1,8 @@
+{
+  "usedFor": "Pitchit creates pitches and lead insights, and Memory stores them when “When a new pitch is created” runs “Memory”.",
+  "bestTemplate": {
+    "name": "“When a new pitch is created” in Pitchit, then “Memory” in Memory",
+    "why": "The new pitch is saved as a key-value entry in Workspace Memory, so later steps can look it up."
+  },
+  "watchOut": "Choose “Delete Records” deliberately, since it deletes Workspace Memory entries and the insights trigger fires on each update."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Anchor handles invoices and proposals, and HubSpot tracks the sales, so “New Proposal Event” can start a deal through “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Proposal Event” in Anchor, then “Create Deal” in HubSpot",
+    "why": "A proposal going out is where a deal begins, and the action opens that deal in HubSpot."
+  },
+  "watchOut": "“New Proposal Event” also fires on approved, expired or withdrawn proposals, so “Create Deal” can run several times for one proposal."
+}

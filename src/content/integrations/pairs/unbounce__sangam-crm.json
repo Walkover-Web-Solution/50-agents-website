@@ -1,0 +1,8 @@
+{
+  "usedFor": "Unbounce captures landing page leads, and Sangam CRM receives them when “New Lead Arrives” runs “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Lead Arrives” in Unbounce, then “Create or Update Lead” in Sangam CRM",
+    "why": "Each landing page lead reaches your CRM, matched by email or phone against existing leads."
+  },
+  "watchOut": "“New Lead Arrives” in Unbounce is polling, so “Create or Update Lead” runs after a scheduled check."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds your tasks and PostSpread schedules social posts, so “New Complete Task” can run “Create Post”.",
+  "bestTemplate": {
+    "name": "“New Complete Task” in Todoist, then “Create Post” in PostSpread",
+    "why": "A finished task becomes a post to review, so shipped work gets shared."
+  },
+  "watchOut": "“Create Post” can publish now, schedule or save a draft, so choose draft until you trust the text."
+}

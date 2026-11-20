@@ -1,0 +1,8 @@
+{
+  "usedFor": "CoachingOS holds your coaching leads and Graphy holds the courses, so “Fetch Leads” can run “Create a Learner”.",
+  "bestTemplate": {
+    "name": "“Fetch Leads” in CoachingOS, then “Create a Learner” in Graphy",
+    "why": "New leads get a learner account in Graphy, the step before “Enroll Learner to Course”."
+  },
+  "watchOut": "“Create a Learner” needs an email ID and a name, so leads missing either will fail."
+}

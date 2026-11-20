@@ -1,0 +1,8 @@
+{
+  "usedFor": "Woodpecker runs your outreach, and HubSpot records interest through “Add Notes to Contact”.",
+  "bestTemplate": {
+    "name": "“Prospect Interested” in Woodpecker, then “Add Notes to Contact” in HubSpot",
+    "why": "A prospect marked interested leaves a note on the HubSpot contact, so sales sees it."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or email, so make sure Woodpecker passes one."
+}

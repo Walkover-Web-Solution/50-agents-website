@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bluesky holds posts and MSG91 holds your support desk, so “New Post with Search Options” can open a ticket.",
+  "bestTemplate": {
+    "name": "“New Post with Search Options” in Bluesky, then “Send Mail via Hello” in MSG91",
+    "why": "A post that matches your search becomes a ticket, so a public mention gets a person to answer it."
+  },
+  "watchOut": "“New Post with Search Options” is polling, so tickets open after a scheduled check and may lag the post."
+}

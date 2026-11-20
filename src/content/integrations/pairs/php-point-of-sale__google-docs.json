@@ -1,0 +1,8 @@
+{
+  "usedFor": "PHP Point Of Sale records sales, and Google Docs logs them through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Sale” in PHP Point Of Sale, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each sale adds a line to a document, a simple record you can share with the team."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's content, so choose adding or lose earlier sales."
+}

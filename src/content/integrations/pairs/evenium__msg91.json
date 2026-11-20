@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evenium holds event guests, and MSG91 sends each one an email through your MSG91 account using “Send a Mail”.",
+  "bestTemplate": {
+    "name": "“New Guests Added” in Evenium, then “Send a Mail” in MSG91",
+    "why": "New guests get a templated email as soon as they are added to the event."
+  },
+  "watchOut": "A mail to a guest reaches someone outside, so it waits in Needs you for your approval first."
+}

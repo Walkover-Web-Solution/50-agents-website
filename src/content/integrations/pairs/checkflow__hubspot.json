@@ -1,0 +1,8 @@
+{
+  "usedFor": "CheckFlow tracks task checklists, and HubSpot receives a deal when “Create Deal” follows “Task Is Completed”.",
+  "bestTemplate": {
+    "name": "“Task Is Completed” in CheckFlow, then “Create Deal” in HubSpot",
+    "why": "A finished task, such as a qualification step, opens the deal in HubSpot at the right moment."
+  },
+  "watchOut": "“Task Is Completed” fires for every finished task, so scope the template or each completion creates another deal."
+}

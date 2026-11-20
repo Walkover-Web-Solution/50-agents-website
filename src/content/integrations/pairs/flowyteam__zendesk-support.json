@@ -1,0 +1,8 @@
+{
+  "usedFor": "FlowyTeam tracks your goals and Zendesk Support runs your tickets, so “New Off-Track Key Result” runs “Create Support Ticket”.",
+  "bestTemplate": {
+    "name": "“New Off-Track Key Result” in flowyteam, then “Create Support Ticket” in Zendesk Support",
+    "why": "An off-track key result becomes a ticket with an assignee and priority, so someone owns it."
+  },
+  "watchOut": "“Create Support Ticket” sets requester and assignee, so decide who should own these tickets first."
+}

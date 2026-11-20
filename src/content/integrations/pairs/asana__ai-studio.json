@@ -1,0 +1,8 @@
+{
+  "usedFor": "Asana holds the tasks and AI Studios by Deep Brain writes text, so each “New Task Created in Selected Project” can feed “Create Text Generator”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Selected Project” in Asana, then “Create Text Generator” in AI Studios by Deep Brain",
+    "why": "A new task gives the topic, so a first draft of text exists before anyone opens it."
+  },
+  "watchOut": "“New Task Created in Selected Project” is polling and fires once per task, so “Create Text Generator” follows a scheduled check."
+}

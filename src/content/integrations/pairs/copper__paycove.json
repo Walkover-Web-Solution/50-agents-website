@@ -1,0 +1,8 @@
+{
+  "usedFor": "Copper holds your leads and projects, and paycove drafts the paperwork through “Create Invoice / Quote”.",
+  "bestTemplate": {
+    "name": "“New Project” in Copper, then “Create Invoice / Quote” in paycove",
+    "why": "A new project in Copper starts an invoice or quote in paycove, along with the contact."
+  },
+  "watchOut": "“Create Invoice / Quote” also creates the contact, so check paycove for an existing one before you turn it on."
+}

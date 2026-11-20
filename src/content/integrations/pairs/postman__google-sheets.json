@@ -1,0 +1,8 @@
+{
+  "usedFor": "Postman holds your API collections, and Google Sheets logs them when “New Collection” runs “Add New Row to Sheet”.",
+  "bestTemplate": {
+    "name": "“New Collection” in Postman, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Every new collection becomes a row, giving you one sheet that tracks what your team has created."
+  },
+  "watchOut": "“Updated Collection” fires on every edit, so one collection can add many rows to the sheet."
+}

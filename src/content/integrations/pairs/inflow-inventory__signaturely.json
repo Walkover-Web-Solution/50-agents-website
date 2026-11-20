@@ -1,0 +1,8 @@
+{
+  "usedFor": "inflow-inventory records the orders and Signaturely handles signing, so “New Sales Order Created” can set up a place with “Create Folder”.",
+  "bestTemplate": {
+    "name": "“New Sales Order Created” in inflow-inventory, then “Create Folder” in Signaturely",
+    "why": "Each sales order gets its own titled folder in Signaturely, ready for the documents that need signing."
+  },
+  "watchOut": "“Update Customer” fires on every edit, so “Create Folder” can run again and make a second folder for one customer."
+}

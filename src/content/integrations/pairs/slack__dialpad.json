@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack holds your members, and Dialpad receives each as a contact through “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New User Joined or Updated in Your Org” in Slack, then “Create Contact” in Dialpad",
+    "why": "New teammates are added to Dialpad as contacts, so people can find and call them."
+  },
+  "watchOut": "“New User Joined or Updated in Your Org” is polling and fires on updates, so a person can repeat."
+}

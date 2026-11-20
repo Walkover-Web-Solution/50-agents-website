@@ -1,0 +1,8 @@
+{
+  "usedFor": "PDFGate holds signed envelopes and HubSpot holds deals, so “Envelope Completed” can run “Create Deal”.",
+  "bestTemplate": {
+    "name": "“Envelope Completed” in PDFGate, then “Create Deal” in HubSpot",
+    "why": "A completed envelope opens a deal record, so signed paperwork shows up in the pipeline."
+  },
+  "watchOut": "The catalog describes “Envelope Completed” as envelope created, so test which event fires before “Create Deal” relies on it."
+}

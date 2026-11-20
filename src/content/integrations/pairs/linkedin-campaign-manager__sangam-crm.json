@@ -1,0 +1,8 @@
+{
+  "usedFor": "LinkedIn Campaign Manager collects ad leads, and Sangam CRM saves each through “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Sponsored Lead Form Response” in LinkedIn Campaign Manager, then “Create or Update Lead” in Sangam CRM",
+    "why": "Ad leads reach your CRM as soon as the form is submitted, ready for sales follow-up."
+  },
+  "watchOut": "Organic and sponsored forms are separate triggers, so build one template for each lead type you run."
+}

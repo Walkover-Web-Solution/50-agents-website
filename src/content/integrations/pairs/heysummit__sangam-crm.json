@@ -1,0 +1,8 @@
+{
+  "usedFor": "HeySummit registers event attendees and Sangam CRM follows up on leads, so “New Attendee” can fill the pipeline through “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in HeySummit, then “Create or Update Lead” in Sangam CRM",
+    "why": "Each registration becomes a lead, and an attendee who already exists is updated instead of added again."
+  },
+  "watchOut": "“Create or Update Lead” looks up by ID, email or phone, so map one of those from “New Attendee”."
+}

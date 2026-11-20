@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slack holds your channel messages, and Predis.ai starts content from them through “Create Content”.",
+  "bestTemplate": {
+    "name": "“New Message Posted in Channel Instant” in Slack, then “Create Content” in Predis.ai",
+    "why": "A message in a chosen channel kicks off a Predis.ai content job, so ideas become posts."
+  },
+  "watchOut": "“New Message Posted in Channel Instant” includes bot messages, so a bot post in that channel starts content too."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Aircall holds your phone contacts, and YCloud emails them once “New Contact” hands over a fresh record.",
+  "bestTemplate": {
+    "name": "“New Contact” in Aircall, then “Send an Email” in YCloud",
+    "why": "Every new phone contact gets a first email from YCloud, so nobody waits for a manual follow-up."
+  },
+  "watchOut": "An email that reaches a customer waits in Needs you for your approval before “Send an Email” goes out."
+}

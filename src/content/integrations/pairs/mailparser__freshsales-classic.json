@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mailparser pulls structured data out of emails, and Freshsales Classic opens a deal with “Create Deal” after “New Email Parsed”.",
+  "bestTemplate": {
+    "name": "“New Email Parsed” in Mailparser, then “Create Deal” in Freshsales Classic",
+    "why": "A parsed enquiry or order becomes a deal linked to an account, and the contact is created if missing."
+  },
+  "watchOut": "“Create Deal” sets stage and expected close date, so confirm your parsed emails carry values for them."
+}

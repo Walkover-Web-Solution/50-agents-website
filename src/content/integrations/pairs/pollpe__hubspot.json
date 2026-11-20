@@ -1,0 +1,8 @@
+{
+  "usedFor": "PollPe collects form answers and HubSpot holds your contacts, so “Form Submitted” can run “Create Contact”.",
+  "bestTemplate": {
+    "name": "“Form Submitted” in PollPe, then “Create Contact” in HubSpot",
+    "why": "Each respondent becomes a HubSpot contact, so survey answers reach sales without copy and paste."
+  },
+  "watchOut": "“Create Contact” requires an email, so the PollPe form must ask for one."
+}

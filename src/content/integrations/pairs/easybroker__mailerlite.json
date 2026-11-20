@@ -1,0 +1,8 @@
+{
+  "usedFor": "Easybroker holds property enquiries and MailerLite holds your mailing list, so “New Contact Request” can run “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“New Contact Request” in Easybroker, then “Create or Update Subscriber” in MailerLite",
+    "why": "Each enquiry becomes a subscriber, so people who asked about a property land on your mailing list."
+  },
+  "watchOut": "“Contact Is Created Or Updated” is polling and also fires on edits, so the same contact can run twice."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Acuity Scheduling holds client bookings, and Zoho Books receives each client when “New Appointment Scheduled” runs “Create or Update Customer”.",
+  "bestTemplate": {
+    "name": "“New Appointment Scheduled” in Acuity Scheduling, then “Create or Update Customer” in Zoho Books",
+    "why": "Booking is the first moment a client exists, so the customer record is ready before the first invoice."
+  },
+  "watchOut": "“Appointment Rescheduled” also reaches “Create or Update Customer”, so one client can run through it more than once."
+}

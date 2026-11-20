@@ -1,0 +1,8 @@
+{
+  "usedFor": "Podio collects work items and Eden AI examines them, so “New Item Created” runs “AI Generated Content Detection”.",
+  "bestTemplate": {
+    "name": "“New Item Created” in Podio, then “AI Generated Content Detection” in Eden AI",
+    "why": "Text from each new Podio item is checked for AI authorship without anyone running the check."
+  },
+  "watchOut": "“New Item Created” in Podio is polling, so the check runs after a scheduled look, not on submission."
+}

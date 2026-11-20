@@ -1,0 +1,8 @@
+{
+  "usedFor": "Evoliz holds your invoices, and TRIGGERcmd runs a command on your computer through “Trigger Command” after each “New Invoice”.",
+  "bestTemplate": {
+    "name": "“New Invoice” in Evoliz, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new invoice can start a script on your own machine, such as a local backup or print job."
+  },
+  "watchOut": "“New Invoice” in Evoliz is polling over a recent time window, so the command runs after a scheduled check."
+}

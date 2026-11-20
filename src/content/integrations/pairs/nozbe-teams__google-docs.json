@@ -1,0 +1,8 @@
+{
+  "usedFor": "Nozbe holds tasks and Google Docs holds your notes, so “New Task” can run “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Task” in Nozbe, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each task you create in Nozbe is added to a document tab, which gives you a readable task log."
+  },
+  "watchOut": "“New Task” in Nozbe is polling, so the document updates after a scheduled check."
+}

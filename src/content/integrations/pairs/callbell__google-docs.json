@@ -1,0 +1,8 @@
+{
+  "usedFor": "Callbell holds your inbox contacts, and Google Docs gets a new entry through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“New Contact Is Added” in Callbell, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Every new contact is written into a doc, giving you a plain running list outside the inbox."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab’s content, so choose the add option for a running list."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Todoist holds the task list, and Contentful receives content ideas when “New Task Created in Project” runs “Create Entry”.",
+  "bestTemplate": {
+    "name": "“New Task Created in Project” in Todoist, then “Create Entry” in Contentful",
+    "why": "A task in a content project becomes an entry, so drafting starts in Contentful without retyping."
+  },
+  "watchOut": "“Publish Entry” makes an entry available to the Content Delivery API, so keep it behind a review step."
+}

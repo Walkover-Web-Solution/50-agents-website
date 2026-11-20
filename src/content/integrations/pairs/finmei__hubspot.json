@@ -1,0 +1,8 @@
+{
+  "usedFor": "Finmei issues your invoices and HubSpot holds your contacts, so “New Invoice Created” can run “Add Notes to Contact”.",
+  "bestTemplate": {
+    "name": "“New Invoice Created” in Finmei, then “Add Notes to Contact” in HubSpot",
+    "why": "The invoice shows up as a note on the customer, so sales sees billing in context."
+  },
+  "watchOut": "“Add Notes to Contact” needs a contact ID or email, so the invoice must carry one."
+}

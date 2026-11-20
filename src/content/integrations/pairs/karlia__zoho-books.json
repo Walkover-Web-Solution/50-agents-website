@@ -1,0 +1,8 @@
+{
+  "usedFor": "karlia holds your customers, and Zoho Books keeps a matching record when “New Customer” runs “Create or Update Customer”.",
+  "bestTemplate": {
+    "name": "“New Customer” in karlia, then “Create or Update Customer” in Zoho Books",
+    "why": "A customer added in karlia is ready in Zoho Books before the first invoice is raised."
+  },
+  "watchOut": "“New Customer” in karlia fires only on creation, so later edits need their own template to reach Zoho Books."
+}

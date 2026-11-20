@@ -1,0 +1,8 @@
+{
+  "usedFor": "Quora Lead Gen Forms holds new leads, and HubSpot stores them through “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Lead” in Quora Lead Gen Forms, then “Create or Update Contact” in HubSpot",
+    "why": "It matches on email, so a lead already in HubSpot is updated, not duplicated."
+  },
+  "watchOut": "“New Lead” is polling, so a lead reaches HubSpot after a scheduled check, not at once."
+}

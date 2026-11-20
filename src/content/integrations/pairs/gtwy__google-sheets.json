@@ -1,0 +1,8 @@
+{
+  "usedFor": "Gtwy runs your AI platform, and Google Sheets logs it when “Missing Variable Alert” runs “Add New Row to Sheet”.",
+  "bestTemplate": {
+    "name": "“Missing Variable Alert” in Gtwy, then “Add New Row to Sheet” in Google Sheets",
+    "why": "Each alert about a missing variable becomes a row, so repeated setup problems are easy to count and sort."
+  },
+  "watchOut": "Every “Missing Variable Alert” adds a row, so one unresolved problem can fill the sheet with repeats."
+}

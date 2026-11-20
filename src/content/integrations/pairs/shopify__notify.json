@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your orders, and Notify sends a templated alert through your Notify account when “Send Notification” follows “Order Paid”.",
+  "bestTemplate": {
+    "name": "“Order Paid” in Shopify, then “Send Notification” in Notify",
+    "why": "A paid order sends a templated notification through your Notify account to the recipients you pick."
+  },
+  "watchOut": "“Send Notification” can go over several channels, so confirm the recipients and channel before turning it on."
+}

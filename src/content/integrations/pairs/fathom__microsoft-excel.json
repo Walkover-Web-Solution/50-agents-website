@@ -1,0 +1,8 @@
+{
+  "usedFor": "Fathom records meetings, and each “New Action Item” becomes a row in Microsoft Excel.",
+  "bestTemplate": {
+    "name": "“New Action Item” in Fathom, then “Add Row To Table” in Microsoft Excel",
+    "why": "Every action item from a meeting is logged as a table row, so follow-ups sit in one sheet."
+  },
+  "watchOut": "“Add Row To Table” in Microsoft Excel adds to a table, so set up one with matching columns first."
+}

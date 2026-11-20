@@ -1,0 +1,8 @@
+{
+  "usedFor": "Airtable holds your sign-ups, and Webinargeek registers them when “Record Created Or Updated” runs “Subscribe to a Single Webinar”.",
+  "bestTemplate": {
+    "name": "“Record Created Or Updated” in Airtable, then “Subscribe to a Single Webinar” in Webinargeek",
+    "why": "A new or edited Airtable row registers that person for your webinar without anyone retyping details."
+  },
+  "watchOut": "“Record Created Or Updated” also fires on edits, so one Airtable row can subscribe the same person twice."
+}

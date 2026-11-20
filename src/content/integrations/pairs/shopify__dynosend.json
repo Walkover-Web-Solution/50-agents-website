@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shopify holds your store checkouts, and Dynosend gets the shopper as a contact in an audience through “Create a contact”.",
+  "bestTemplate": {
+    "name": "“Abandoned Checkout” in Shopify, then “Create a contact” in Dynosend",
+    "why": "A shopper who left at checkout joins an email audience, so you can follow up."
+  },
+  "watchOut": "“Abandoned Checkout” in Shopify is polling, so the contact appears after the next scheduled check."
+}

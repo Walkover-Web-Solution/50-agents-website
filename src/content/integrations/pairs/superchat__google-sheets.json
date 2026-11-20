@@ -1,0 +1,8 @@
+{
+  "usedFor": "Superchat holds your messaging contacts, and Google Sheets stores each “Contact Created” as rows through “Add Multiple Rows”.",
+  "bestTemplate": {
+    "name": "“Contact Created” in Superchat, then “Add Multiple Rows” in Google Sheets",
+    "why": "New contacts collect in a sheet you can sort and share, with one or several rows added per run."
+  },
+  "watchOut": "“Add Multiple Rows” takes data by column or as a JSON array, so match your sheet to the contact's data."
+}

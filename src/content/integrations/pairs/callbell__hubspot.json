@@ -1,0 +1,8 @@
+{
+  "usedFor": "Callbell is the shared inbox for customers and HubSpot holds the contact record, so “Contact Updated” can keep it current through “Update Contact”.",
+  "bestTemplate": {
+    "name": "“Contact Updated” in Callbell, then “Update Contact” in HubSpot",
+    "why": "Changes made in the inbox reach HubSpot, so sales sees the same contact details as support."
+  },
+  "watchOut": "“Update Contact” finds the HubSpot contact by its email, so “Contact Updated” needs to pass an email that already exists there."
+}

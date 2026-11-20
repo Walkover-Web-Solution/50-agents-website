@@ -1,0 +1,8 @@
+{
+  "usedFor": "Perfex CRM holds support tickets, and Slack alerts your team through “Send Message” when one opens.",
+  "bestTemplate": {
+    "name": "“New Ticket” in Perfex CRM, then “Send Message” in Slack",
+    "why": "A new ticket posts to Slack, so support sees it without watching the CRM."
+  },
+  "watchOut": "“New Ticket” in Perfex CRM is polling, and an automation's Slack post waits for your approval today."
+}

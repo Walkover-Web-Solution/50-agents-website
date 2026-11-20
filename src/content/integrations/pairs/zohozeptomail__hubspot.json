@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Zeptomail sends your transactional emails and HubSpot holds the contacts, so suppression events can update a contact through “Update Contact”.",
+  "bestTemplate": {
+    "name": "“When a suppression entry (email or domain) is created or updated” in Zoho Zeptomail, then “Update Contact” in HubSpot",
+    "why": "A suppressed address can be shown on the contact record, so nobody keeps writing to a dead address."
+  },
+  "watchOut": "Suppression entries are polling and also fire on updates, so “Update Contact” can run twice for one address."
+}

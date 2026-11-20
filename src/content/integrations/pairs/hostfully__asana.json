@@ -1,0 +1,8 @@
+{
+  "usedFor": "Hostfully holds your rental bookings and Asana holds the work, so “New Booking” runs “Create Task or Subtask”.",
+  "bestTemplate": {
+    "name": "“New Booking” in Hostfully, then “Create Task or Subtask” in Asana",
+    "why": "Each booking becomes a task with assignee and dates, so turnover work has an owner."
+  },
+  "watchOut": "“Updated Booking” is a separate trigger, so a changed stay will not edit the task “Create Task or Subtask” made."
+}

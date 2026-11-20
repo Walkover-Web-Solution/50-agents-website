@@ -1,0 +1,8 @@
+{
+  "usedFor": "wizishop holds customers and Brevo holds your contact lists, so “Customer Event” can run “Update Contact”.",
+  "bestTemplate": {
+    "name": "“Customer Event” in wizishop, then “Update Contact” in Brevo",
+    "why": "A changed customer record updates the Brevo contact, so your lists match the shop."
+  },
+  "watchOut": "“Customer Event” also fires when a customer is deleted, so check what “Update Contact” does on that event."
+}

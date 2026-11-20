@@ -1,0 +1,8 @@
+{
+  "usedFor": "Authress manages access and Slack is where the team talks, so “New Application” in Authress can post through “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Application” in Authress, then “Send Message” in Slack",
+    "why": "The team hears about each new application in a channel, thread or direct message you choose."
+  },
+  "watchOut": "An automation's post to a Slack channel waits for your approval today, and “New Application” is polling."
+}

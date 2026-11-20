@@ -1,0 +1,8 @@
+{
+  "usedFor": "Product Hunt surfaces launches, and Asana receives the work through “Create Task or Subtask” after each Product Hunt event.",
+  "bestTemplate": {
+    "name": "“When a product becomes hot” in Product Hunt, then “Create Task or Subtask” in Asana",
+    "why": "A hot product is worth a look today, so Asana gets a task for someone to review it."
+  },
+  "watchOut": "“When a product becomes hot” is polling, so the Asana task appears after a scheduled check, not at the vote."
+}

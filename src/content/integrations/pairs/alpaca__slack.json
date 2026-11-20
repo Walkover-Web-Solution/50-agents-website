@@ -1,0 +1,8 @@
+{
+  "usedFor": "Alpaca holds your trading orders, and Slack tells the team when “New Order” runs “Send Message”.",
+  "bestTemplate": {
+    "name": "“New Order” in Alpaca, then “Send Message” in Slack",
+    "why": "Every new order lands in a channel, so the team sees activity without opening Alpaca."
+  },
+  "watchOut": "“New Order” in Alpaca is polling, and a post to a Slack channel waits for your approval first."
+}
