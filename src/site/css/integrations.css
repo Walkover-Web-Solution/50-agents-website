@@ -225,3 +225,8 @@ span.ig3-kind-more{display:none}
 /* Pair pages as landing pages (pairs tier 2): the pair's own answer under the H1, kept short so the Build button stays above the fold on a phone. */
 .ig3-pair-answer{margin:18px auto 0!important;max-width:760px;font-size:19px;line-height:1.5;color:var(--mute)}
 @media (max-width:760px){.ig3-hero:has(.ig3-pair-answer) h1{font-size:38px}.ig3-pair-answer{font-size:16.5px;margin-top:12px!important}.ig3-hero:has(.ig3-pair-answer) .film{margin-top:20px}}
+
+/* T67: a category's "what teams do with these" lines, as three cards. */
+.cat-uses{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cat-uses li{padding:24px 26px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font-size:16.5px;line-height:1.55}
+@media (max-width:1020px){.cat-uses{grid-template-columns:1fr}}
