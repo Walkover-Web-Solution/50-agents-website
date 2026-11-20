@@ -3,7 +3,7 @@
 // ask, and a small round arrow at its corner says so. Four rows show, "Load more" adds four; every card is in the HTML.
 import type { Kind } from '../types';
 import { GALLERY, GALLERY_HEAD, GALLERY_LINE, TEAMS } from '@/content/hubs/gallery';
-import { AppLogo, KINDS, KindFace } from '../parts';
+import { AppLogo, Face, KINDS, KindFace } from '../parts';
 import { BuildLink } from '../integrations/build-link';
 import { appIcon, appName } from '../usecase/apps-data';
 import { GalleryFilter } from './gallery-filter';
@@ -27,14 +27,18 @@ export function Gallery({ kind, page, label }: { kind: Kind; page: string; label
   const teams = TEAMS.map(t => ({ ...t, count: cards.filter(c => c.team === t.slug).length })).filter(t => t.count);
   return (
     <section className="wrap sec gal" id="possibilities">
-      <div className="sec-h c"><h2>{GALLERY_HEAD[kind]}</h2><p>{GALLERY_LINE}</p></div>
+      <div className="sec-h c">
+        {/* Round B, B3: a few of the crew by the heading, where the cards carry no app logos (browser agents) */}
+        {kind === 'browser' && <span className="gal-peek" aria-hidden="true"><Face id="scout" size={44} /><Face id="pilot" size={38} /></span>}
+        <h2>{GALLERY_HEAD[kind]}</h2><p>{GALLERY_LINE}</p>
+      </div>
       <GalleryFilter teams={teams} total={cards.length} label={label}>
         {cards.map(c => (
           <article key={c.ask} className="gal-card" data-team={c.team} style={{ ['--app' as string]: tint(c.apps, kind) }}>
             <div className="gal-apps">
               {c.apps.length
                 ? c.apps.map(a => <span key={a} title={appName(a)}><AppLogo app={a} icon={appIcon(a)} size={26} /><span className="sr">{appName(a)}</span></span>)
-                : <span className="gal-kind" style={{ background: KINDS[kind].tint }} aria-hidden="true"><KindFace kind={kind} size={18} /></span>}
+                : <span className="gal-kind" style={{ background: KINDS[kind].tint }} aria-hidden="true"><KindFace kind={kind} size={24} /></span>}
             </div>
             <h3><BuildLink className="gal-go" page={page} place="gallery" campaign="seo-hub" ask={c.ask}>{c.job}<span className="sr"> (opens Captain)</span></BuildLink></h3>
             <span className="gal-arrow" aria-hidden="true">

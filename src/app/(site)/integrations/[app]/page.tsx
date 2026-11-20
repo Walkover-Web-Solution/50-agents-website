@@ -5,7 +5,8 @@
 // questions. No dates and no source lines on the page. Every visual is drawn from the data.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Crumbs, MaybeLink } from '@/site/parts';
+import { AppLogo, Crumbs, MaybeLink } from '@/site/parts';
+import LIVE_PAIRS from '@/content/integrations/live-pairs.json';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { CATEGORIES } from '@/content/integrations/categories';
@@ -59,6 +60,12 @@ export default async function IntegrationPageView({ params }: { params: Promise<
   const partners = partnersOf(app).slice(0, 6).map(x => x.slug);
   const cats = CATEGORIES.filter(c => app.categories.includes(c.slug));
   const C = 'seo-integration' as const;
+  // Round B, B7: the pair picker. Only the pairs that have their own live, indexable page (live-pairs.json), in its order.
+  const pairsHere = (LIVE_PAIRS.pairs as string[]).filter(x => x.split('/').includes(slug)).map(x => {
+    const [a, b] = x.split('/');
+    const other = loadApp(a === slug ? b : a);
+    return other ? { href: `/integrations/${x}`, name: other.name, slug: other.slug, icon: other.icon } : null;
+  }).filter((x): x is { href: string; name: string; slug: string; icon: string } => !!x);
 
   return (
     <div className="page uc3 ig3">
@@ -104,6 +111,18 @@ export default async function IntegrationPageView({ params }: { params: Promise<
             {cats.map((c, i) => <span key={c.slug}>{i ? ' · ' : ''}<MaybeLink href={`/integrations/category/${c.slug}`}>All {c.short} apps</MaybeLink></span>)}
             {cats.length ? ' · ' : ''}<MaybeLink href="/integrations">Every app, A to Z</MaybeLink>
           </p>
+        </section>
+      )}
+
+      {/* Round B, B7: pick a second app and land on the two-app page. Left out when this app has no live pair page. */}
+      {pairsHere.length > 0 && (
+        <section className="wrap sec" id="pair-with">
+          <div className="sec-h c"><h2>Pair {N} with another app</h2><p>Pick one to see what the two do together.</p></div>
+          <ul className="ig3-pick">
+            {pairsHere.map(o => (
+              <li key={o.href}><a href={o.href}><AppLogo app={o.slug} icon={o.icon} size={36} /><span>{o.name}</span></a></li>
+            ))}
+          </ul>
         </section>
       )}
 

@@ -196,3 +196,21 @@ span.ig3-kind-more{display:none}
   .ig5-col-h{padding:16px 18px 12px}
   .ig5-items>li{padding:14px 18px}
 }
+
+/* Round B, B6 (Jii: "lets add subtle colors here"): triggers take the automation tint, actions the app tint. Tinted
+   column headers, a count chip, and a tinted dot on each row; the text is the same. */
+.ig5-col[data-col="triggers"]{--c:#FFEDC2;--cd:#E2A400}
+.ig5-col[data-col="actions"]{--c:#E2E9FF;--cd:#4F6BED}
+.ig5-col-h{background:linear-gradient(90deg,var(--c) 0,color-mix(in srgb,var(--c) 35%,#fff) 100%)}
+.ig5-col-h .ig5-count{display:inline-grid;place-items:center;min-width:28px;height:24px;padding:0 8px;border-radius:12px;background:#fff;font-weight:600;color:var(--ink);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--cd) 30%,transparent)}
+.ig5-items li{position:relative;padding-left:44px!important}
+.ig5-items li::before{content:"";position:absolute;left:22px;top:24px;width:8px;height:8px;border-radius:50%;background:var(--cd);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 80%,transparent)}
+.ig5-items li:hover{background:color-mix(in srgb,var(--c) 25%,#fff)}
+
+/* Round B, B7 (Jii: "app icons the user should pair with the single app and on click they get thrown to the two app
+   page"): a grid of app tiles, each a link to a live pair page. */
+.ig3-pick{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.ig3-pick a{display:flex;flex-direction:column;align-items:center;gap:10px;width:132px;padding:18px 10px 16px;border-radius:18px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);text-decoration:none;color:var(--ink);font-size:14.5px;font-weight:500;text-align:center;line-height:1.3;transition:box-shadow .2s,transform .2s}
+.ig3-pick a:hover{box-shadow:inset 0 0 0 1px var(--ink);transform:translateY(-2px)}
+.ig3-pick a span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media (max-width:760px){.ig3-pick{gap:8px}.ig3-pick a{width:calc(33.333% - 6px);padding:14px 6px 12px;font-size:13.5px}}
