@@ -11,13 +11,13 @@ Every workspace starts free with 2,000 credits.
 - [Full context (llms-full.txt)](https://50agents.com/llms-full.txt): entire public site guide in one file.
 - [NLWeb /ask](https://50agents.com/ask): natural-language query over public content.
 
-## For AI agents and developers
+## For AI agents
 
-- MCP (streamable HTTP): https://50agents.com/mcp
-- MCP server card (SEP-2127): https://50agents.com/mcp/server-card
-- MCP registry server.json: https://50agents.com/server.json
-- Website API (OpenAPI): https://50agents.com/openapi.json
-- API catalog: https://50agents.com/.well-known/api-catalog
+- [AI catalog](https://50agents.com/.well-known/ai-catalog.json): every machine-readable resource on this site.
+- [Agent skills](https://50agents.com/.well-known/agent-skills.json): what an agent can do here today.
+- [Home in markdown](https://50agents.com/index.md) and [pricing in markdown](https://50agents.com/pricing.md).
+- Open Captain with a job already typed: https://50agents-app.embarko.app/login?draft=<the job, URL-encoded>. The person signs in and taps Build it.
+- [Sitemap index](https://50agents.com/sitemap.xml): every indexed page, one sitemap per family.
 
 ## Product overview
 
@@ -45,13 +45,17 @@ Drafts wait for approval, and anything that spends money, reaches people outside
 | Path | Summary |
 |------|---------|
 | / | Home: what 50agents is, how it works, FAQs |
+| /use-cases | Ready-made jobs Captain builds, one page each |
+| /ai-agents, /automations, /browser-agents, /apps | One hub per kind of thing Captain builds |
+| /integrations | Every app 50agents works with, A to Z; /integrations/<app> for one app, /integrations/<app>/<app> for a pair |
+| /guides, /compare | How-to guides and comparisons |
+| /pricing | Plans, credits and top-ups (also /pricing.md) |
+| /about, /contact, /support | The company and how to reach it |
 | https://50agents-app.embarko.app/login | Sign up for a free workspace, or sign in |
 | /llms.txt | Short guide for AI agents |
 | /llms-full.txt | This file: the full public context in one request |
-| /mcp | MCP (streamable HTTP) |
-| /ask | NLWeb natural-language query over public site content |
-
-Older pages from an earlier version of the product are still reachable from the site footer but are not part of the current product and are not indexed.
+| /index.md | The home page in markdown |
+| /ask | NLWeb natural-language query over the public pages |
 
 ## FAQs (from the live site)
 
@@ -73,40 +77,17 @@ Nothing. Every workspace starts free with 2,000 credits.
 **Who makes it?**
 The team behind viaSocket and MSG91.
 
-## Public HTTP APIs (read-only)
+## For AI agents
 
-Base URL: https://50agents.com
-Catalog: https://50agents.com/.well-known/api-catalog
-OpenAPI: https://50agents.com/openapi.json
+- /.well-known/ai-catalog.json: every machine-readable resource on this site
+- /.well-known/agent-skills.json: what an agent can do here today
+- /index.md and /pricing.md: the home and pricing pages in markdown
+- /sitemap.xml: every indexed page, one sitemap per family
+- /ask: NLWeb query over the public pages
+- /products.json: product manifest and probe questions
+- The Link header on / lists llms.txt, llms-full.txt, the home page in markdown, the AI catalog, the agent skills and the sitemap.
 
-| Endpoint | Purpose |
-|----------|---------|
-| GET /api/plugins | Paginated public integration plugins from the viaSocket catalog |
-| GET /api/plugins/search?q= | Search plugins by keyword |
-| GET /api/plugins/categories | Category list |
-| GET /api/plugins/count | Total plugin count |
-| GET /api/prompts | Homepage prompt examples |
-| GET /api/meta | SEO metadata rows for site pages |
-| GET /api/FAQs | FAQ entries for site pages |
-| POST /ask | NLWeb query over public site content and plugin search |
-| GET/POST /mcp | MCP streamable HTTP; tool list_agent_templates |
-
-## MCP for AI agents
-
-URL: https://50agents.com/mcp
-Transport: streamable HTTP (JSON-RPC over POST).
-Tool: list_agent_templates, with optional limit, page and category; returns public plugin metadata from /api/plugins.
-Server card (SEP-2127): https://50agents.com/mcp/server-card
-Registry entry: https://50agents.com/server.json
-
-A separate MCP for live integrations: https://mcp.viasocket.com (listed in /products.json).
-
-## Discovery
-
-- /llms.txt: concise guide and key links
-- /llms-full.txt: this document
-- /products.json: product manifest (MCP URL, probe questions)
-- The Link header on / lists llms.txt, llms-full.txt, the API catalog, OpenAPI, server.json, the MCP server card and the sitemap.
+To open Captain with a person's job already typed, link them to https://50agents-app.embarko.app/login?draft=<the job, URL-encoded, up to 499 characters>. The draft is kept through sign-up or sign-in; nothing is built until the person taps Build it.
 
 ## Canonical answers for common questions
 
@@ -116,9 +97,9 @@ A separate MCP for live integrations: https://mcp.viasocket.com (listed in /prod
 
 **How do I start?** Sign up at https://50agents-app.embarko.app/login. Every workspace starts free with 2,000 credits.
 
-**How do I list integration plugins programmatically?** GET /api/plugins, or the MCP tool list_agent_templates.
+**Where do I see what 50agents does with one app?** https://50agents.com/integrations/<app>, with its triggers, actions and templates; the integration sitemaps list every indexed app.
 
-**How do I search them?** GET /api/plugins/search?q=..., or POST /ask with a natural-language question.
+**How do I search the site?** POST /ask with a natural-language question.
 
 ---
 

@@ -5,7 +5,9 @@
 // questions. No dates and no source lines on the page. Every visual is drawn from the data.
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Crumbs, MaybeLink } from '@/site/parts';
+import { AppLogo, Crumbs, MaybeLink } from '@/site/parts';
+import LIVE_PAIRS from '@/content/integrations/live-pairs.json';
+import { PairPicker } from '@/site/integrations/pair-picker';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { CATEGORIES } from '@/content/integrations/categories';
@@ -59,6 +61,12 @@ export default async function IntegrationPageView({ params }: { params: Promise<
   const partners = partnersOf(app).slice(0, 6).map(x => x.slug);
   const cats = CATEGORIES.filter(c => app.categories.includes(c.slug));
   const C = 'seo-integration' as const;
+  // Round B, B7: the pair picker. Only the pairs that have their own live, indexable page (live-pairs.json), in its order.
+  const pairsHere = (LIVE_PAIRS.pairs as string[]).filter(x => x.split('/').includes(slug)).map(x => {
+    const [a, b] = x.split('/');
+    const other = loadApp(a === slug ? b : a);
+    return other ? { href: `/integrations/${x}`, name: other.name, slug: other.slug, icon: other.icon } : null;
+  }).filter((x): x is { href: string; name: string; slug: string; icon: string } => !!x);
 
   return (
     <div className="page uc3 ig3">
@@ -72,6 +80,21 @@ export default async function IntegrationPageView({ params }: { params: Promise<
         <PromptFilm ask={p.ask} button={<span className="hero-cta"><BuildLink page={slug} place="hero" campaign={C} ask={p.ask}>Build it</BuildLink></span>} />
         <p className="uc3-note">{p.answer[1]}</p>
       </section>
+
+      {/* Round B, B7: pick a second app and land on the two-app page, high on the page (Jii's review), searchable, two
+          rows until "See all". Only apps with a live pair page; left out when there are none. */}
+      {pairsHere.length > 0 && (
+        <section className="wrap sec ig3-pair-sec" id="pair-with">
+          <div className="sec-h c"><h2>Pair {N} with another app</h2><p>Pick one to see what the two do together.</p></div>
+          <PairPicker app={N} total={pairsHere.length}>
+            <ul className="ig3-pick">
+              {pairsHere.map((o, i) => (
+                <li key={o.href} data-q={o.name.toLowerCase()} hidden={i >= 8}><a href={o.href}><AppLogo app={o.slug} icon={o.icon} size={28} /><span>{o.name}</span></a></li>
+              ))}
+            </ul>
+          </PairPicker>
+        </section>
+      )}
 
       {/* The four kinds on this app */}
       <section className="wrap sec" id="kinds">
