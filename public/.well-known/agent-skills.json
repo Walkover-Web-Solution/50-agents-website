@@ -1,0 +1,26 @@
+{
+  "name": "50agents",
+  "description": "What an AI agent can do with 50agents.com today: read what 50agents is and costs, find an app's page, and hand a person a link that opens Captain with their job already typed. Read-only; nothing here signs in or changes anyone's data.",
+  "skills": [
+    {
+      "name": "explain-50agents",
+      "description": "Answer what 50agents is: Captain builds apps, automations, AI agents and browser agents that work across 2,300+ apps through viaSocket. Read the home page in markdown.",
+      "instructions_url": "https://50agents.com/index.md"
+    },
+    {
+      "name": "check-pricing",
+      "description": "Answer what 50agents costs: the free plan, the paid plans, what uses credits and top-ups. Read the pricing page in markdown.",
+      "instructions_url": "https://50agents.com/pricing.md"
+    },
+    {
+      "name": "find-an-app",
+      "description": "Find what 50agents can do with one app: its triggers, actions and templates are on https://50agents.com/integrations/<app-slug>, and every indexed app and app pair is listed in the sitemaps.",
+      "instructions_url": "https://50agents.com/sitemap.xml"
+    },
+    {
+      "name": "start-a-build",
+      "description": "Hand a person a link that opens Captain with their job typed in: https://50agents-app.embarko.app/login?draft=<the job in plain words, URL-encoded, up to 499 characters>. The draft is kept through sign-up or sign-in. The person signs in and taps Build it themselves; nothing is built until they do.",
+      "instructions_url": "https://50agents.com/llms.txt"
+    }
+  ]
+}

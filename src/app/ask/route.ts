@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import CATALOG from '@/content/integrations/catalog/index.json';
 
 export const runtime = 'edge';
 
@@ -11,61 +12,18 @@ const STATIC_PAGES: Array<{
   description: string;
   keywords: string[];
 }> = [
-  {
-    name: '50agents home',
-    url: `${SITE}/`,
-    description:
-      'Tell it how you work. 50agents builds apps, AI agents and automations on your tools or from scratch, across 2,300+ apps.',
-    keywords: ['what is 50agents', 'product', 'overview', 'captain', 'viasocket'],
-  },
-  {
-    name: 'AI agents catalog',
-    url: `${SITE}/ai-agents`,
-    description: 'Browse public AI agent templates by connected app and category.',
-    keywords: ['agents', 'templates', 'integrations', 'catalog', 'browse'],
-  },
-  {
-    name: 'Agent templates',
-    url: `${SITE}/templates`,
-    description: 'Ready-made agent templates you can start from.',
-    keywords: ['templates', 'starter', 'examples'],
-  },
-  {
-    name: 'Pricing',
-    url: `${SITE}/pricing`,
-    description: 'Plans and credits; every workspace starts with free credits.',
-    keywords: ['pricing', 'cost', 'credits', 'free'],
-  },
-  {
-    name: 'Work management',
-    url: `${SITE}/work-management`,
-    description: 'How 50agents helps teams run work across tools.',
-    keywords: ['work management', 'team', 'workflow'],
-  },
-  {
-    name: 'AI note taker',
-    url: `${SITE}/ai-note-taker`,
-    description: 'AI meeting recorder that captures decisions and follow-ups.',
-    keywords: ['meeting', 'notes', 'recorder', 'note taker'],
-  },
-  {
-    name: 'Get started',
-    url: `${SITE}/join`,
-    description: 'Create a free workspace and hand your crew its first job.',
-    keywords: ['sign up', 'join', 'start', 'login', 'free'],
-  },
-  {
-    name: 'MCP for agents',
-    url: `${SITE}/mcp`,
-    description: 'Streamable HTTP MCP exposing list_agent_templates for public templates.',
-    keywords: ['mcp', 'model context protocol', 'api', 'developers'],
-  },
-  {
-    name: 'Agent guide (llms.txt)',
-    url: `${SITE}/llms.txt`,
-    description: 'Short plain-text guide for LLMs and agents.',
-    keywords: ['llms', 'documentation', 'agents'],
-  },
+  { name: '50agents home', url: `${SITE}/`, description: 'You tell Captain what you need in plain words, and it builds apps, AI agents, automations and browser agents across 2,300+ apps through viaSocket.', keywords: ['what is 50agents', 'product', 'overview', 'captain', 'viasocket'] },
+  { name: 'Use cases', url: `${SITE}/use-cases`, description: 'Ready-made jobs Captain builds, each with the steps it takes and the apps it uses.', keywords: ['use cases', 'templates', 'examples', 'ready-made', 'jobs'] },
+  { name: 'AI agents', url: `${SITE}/ai-agents`, description: 'AI agents that decide what to do on each run, with instructions, connected apps, a schedule and their own chat.', keywords: ['ai agent', 'agents', 'assistant'] },
+  { name: 'Automations', url: `${SITE}/automations`, description: 'The same steps on an app event or a schedule; AI can be a step.', keywords: ['automation', 'workflow', 'zapier', 'trigger'] },
+  { name: 'Browser agents', url: `${SITE}/browser-agents`, description: 'Browser agents that work websites with no app to connect, on a schedule, and leave a report.', keywords: ['browser agent', 'website', 'scrape', 'no api'] },
+  { name: 'Apps', url: `${SITE}/apps`, description: 'Your own lists and screens, with a crew of AI agents working in the records.', keywords: ['app', 'agentic app', 'internal tool', 'crm', 'tracker'] },
+  { name: 'Integrations', url: `${SITE}/integrations`, description: 'Every app 50agents works with, A to Z, with its triggers, actions and templates.', keywords: ['integrations', 'apps', 'connect', 'catalog'] },
+  { name: 'Guides', url: `${SITE}/guides`, description: 'How-to guides for building with 50agents.', keywords: ['guide', 'how to', 'tutorial'] },
+  { name: 'Pricing', url: `${SITE}/pricing`, description: 'Free to start with 2,000 credits a month; paid plans and top-ups.', keywords: ['pricing', 'cost', 'credits', 'free', 'plans'] },
+  { name: 'Support', url: `${SITE}/support`, description: 'How to reach the team.', keywords: ['support', 'help', 'contact'] },
+  { name: 'Get started', url: `https://50agents-app.embarko.app/login`, description: 'Create a free workspace and tell Captain the first job.', keywords: ['sign up', 'join', 'start', 'login', 'free'] },
+  { name: 'Agent guide (llms.txt)', url: `${SITE}/llms.txt`, description: 'Short plain-text guide for AI agents.', keywords: ['llms', 'documentation', 'agents'] },
 ];
 
 type AskBody = {
@@ -152,21 +110,21 @@ function scorePage(query: string, page: (typeof STATIC_PAGES)[0]): number {
   return score;
 }
 
-async function searchPlugins(origin: string, query: string) {
-  const url = new URL('/api/plugins/search', origin);
-  url.searchParams.set('q', query);
-  const res = await fetch(url.toString());
-  if (!res.ok) return [];
-  const payload = (await res.json()) as {
-    success?: boolean;
-    data?: Array<{ name: string; description: string; appslugname: string }>;
-  };
-  if (!payload.success || !payload.data?.length) return [];
-  return payload.data.slice(0, 8).map((row, i) =>
+// The apps: names from the site's catalog snapshot, each linking to its integration page (fixes-02 5.3: the old
+// /api/plugins search is retired).
+function searchApps(query: string) {
+  const q = query.toLowerCase();
+  const words = tokenize(query);
+  const hits = (CATALOG.apps as Array<{ s: string; n: string; t: number; a: number }>)
+    .map(a => { const n = a.n.toLowerCase(); const score = q.includes(n) ? 3 : words.some(w => w.length > 2 && n.split(/\s+/).includes(w)) ? 2 : 0; return { a, score }; })
+    .filter(x => x.score > 0)
+    .sort((x, y) => y.score - x.score)
+    .slice(0, 8);
+  return hits.map(({ a }, i) =>
     toSchemaResult({
-      name: `${row.name} AI agent`,
-      url: `${SITE}/ai-agents/${row.appslugname}`,
-      description: row.description || `AI agent template for ${row.name}.`,
+      name: `${a.n} in 50agents`,
+      url: `${SITE}/integrations/${a.s}`,
+      description: `${a.n} with 50agents: ${a.t} triggers and ${a.a} actions from viaSocket's catalog, and what Captain can build on it.`,
       score: 0.9 - i * 0.05,
     })
   );
@@ -181,21 +139,20 @@ function parseQueryText(body: AskBody | null, request: NextRequest): string {
 
 async function runAsk(request: NextRequest, body: AskBody | null) {
   const text = parseQueryText(body, request);
-  const origin = new URL(request.url).origin;
 
   if (!text) {
     const results = STATIC_PAGES.slice(0, 5).map((p) => toSchemaResult(p));
     return nlwebAnswer(results);
   }
 
-  const pluginHits = await searchPlugins(origin, text);
+  const appHits = searchApps(text);
   const pageHits = STATIC_PAGES.map((p) => ({ page: p, score: scorePage(text, p) }))
     .filter((x) => x.score > 0)
     .sort((a, b) => b.score - a.score)
   .slice(0, 5)
     .map((x) => toSchemaResult({ ...x.page, score: x.score / 10 }));
 
-  const merged = [...pageHits, ...pluginHits];
+  const merged = [...pageHits, ...appHits];
   const results =
     merged.length > 0
       ? merged
@@ -222,7 +179,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(
       {
         name: '50agents NLWeb ask',
-        description: 'Natural-language queries over public 50agents marketing content and template search.',
+        description: 'Natural-language queries over the public 50agents pages and the apps it works with.',
         url: `${SITE}/ask`,
         methods: ['GET', 'POST'],
         spec: 'https://nlweb.ai/docs/specification',

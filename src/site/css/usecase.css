@@ -176,3 +176,17 @@
   .uc3-vars .btn.ghost{padding:22px 20px 18px;gap:22px}
   .uc3-var-ask{font-size:18px}
 }
+
+/* Round B, B2 (Jii: "we can def use some colors or gradient here"): "Make it yours" sits on a soft gradient in the page's
+   kind tint, inside the content edges; the cards stay white. --kt carries the tint, since D255 pins --k to grey on big
+   surfaces and Jii asked for colour on this one. */
+.uc3 #variations{position:relative;isolation:isolate;margin-top:56px;padding-top:72px;padding-bottom:76px}
+.uc3 #variations::before{content:"";position:absolute;z-index:-1;inset:0 40px;border-radius:28px;
+  background:radial-gradient(60% 80% at 15% 10%,var(--kt) 0,transparent 70%),radial-gradient(55% 75% at 90% 90%,var(--kt) 0,transparent 70%),linear-gradient(135deg,color-mix(in srgb,var(--kt) 55%,#fff),#fff 60%,color-mix(in srgb,var(--kt) 55%,#fff))}
+.uc3 #variations .uc3-vars .btn.ghost{background:#fff}
+@media (max-width:760px){.uc3 #variations{margin-top:32px;padding-top:48px;padding-bottom:52px}.uc3 #variations::before{inset:0 18px;border-radius:22px}.uc3 #variations .sec-h,.uc3 #variations .uc3-vars{padding:0 14px}}
+
+/* No page jump while scrolling the steps (it was the last layout shift on the use case pages, 0.026 on desktop): every
+   step's text is always laid out, dimmed until its step is on, so only opacity changes as you scroll. */
+.stp-list>li>p{max-height:none;opacity:.5;margin:0 0 10px 50px!important;transition:opacity .3s}
+.stp-list li.on>p{opacity:1}

@@ -5,7 +5,7 @@ import { TERMS } from '@/content/learn';
 import { PAGES } from '@/content/use-cases/pages';
 import { GUIDES } from '@/content/guides/pages';
 import { COMPARE } from '@/content/compare/pages';
-import { KINDS, LIVE, KindFace } from '../parts';
+import { Face, KINDS, LIVE, KindFace } from '../parts';
 
 const FAMILY: [string, string][] = [['/guides/', 'Guide'], ['/compare/', 'Compare'], ['/learn/', 'Glossary'], ['/for/', 'For teams'], ['/use-cases/', 'Use case']];
 
@@ -22,7 +22,9 @@ export function ReadCard({ href, label }: { href: string; label: string }) {
   // soft tint, and ends with a "Read" cue.
   const line = hub?.line ?? (term ? term.definition[0] : uc ? `${uc.build.name}: ${uc.build.line}` : guide ? guide.description : cmp ? cmp.line : undefined);
   return (
-    <a href={href} className="readcard" style={kind ? { ['--k' as string]: KINDS[kind].tint } : undefined}>
+    <a href={href} className="readcard" style={{ ['--k' as string]: kind ? KINDS[kind].tint : '#F2F1ED' }}>
+      {/* Round B, B5: a cover in the kind's colour with its crew, so the card reads as something to open */}
+      <span className="rc-cover" aria-hidden="true">{kind ? <KindFace kind={kind} size={46} /> : <Face id="lead" size={46} />}<Face id={cmp ? 'closer' : guide ? 'keeper' : 'rosa'} size={34} /></span>
       <span className="k">{kind && <KindFace kind={kind} size={20} />}{tag}</span>
       <b>{label}</b>
       {line && <span className="rc-line">{line}</span>}
