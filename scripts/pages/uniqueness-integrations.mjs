@@ -9,7 +9,8 @@
 import fs from 'node:fs';
 const BASE = process.argv[2] ?? 'http://localhost:3050';
 const GATE = 'src/content/integrations/index-gate.json';
-const get = async u => (await fetch(BASE + u)).text();
+// a local server can drop a connection under load: retry a few times before giving up
+const get = async u => { for (let i = 0; ; i++) { try { const r = await fetch(BASE + u); if (r.ok || i >= 4) return await r.text(); } catch (e) { if (i >= 4) throw e; } await new Promise(r => setTimeout(r, 500 * (i + 1))); } };
 const locs = xml => [...xml.matchAll(/<loc>https:\/\/50agents\.com([^<]+)<\/loc>/g)].map(m => m[1]);
 // Shared components are excluded (brief D7): any element marked data-gate="skip" (the full trigger and action lists,
 // which are catalog data shared by every page of the app) is cut out before shingling.
@@ -35,7 +36,10 @@ const shingles = t => { const w = t.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').sp
 const cache = {};
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-let failed = new Set(JSON.parse(fs.readFileSync(GATE, 'utf8')).failed);
+const gateFile = JSON.parse(fs.readFileSync(GATE, 'utf8'));
+let failed = new Set(gateFile.failed);
+// kept: already-indexed pages that only fail against a newer cohort stay indexed (the newcomer stays out)
+const kept = new Set(gateFile.kept ?? []);
 let report = [], prev = '';
 for (let pass = 1; pass <= 6; pass++) {
   report = [];
@@ -57,13 +61,13 @@ for (let pass = 1; pass <= 6; pass++) {
       }
       return { p, worst, w };
     });
-    rows.forEach(r => r.worst >= 0.5 && failed.add(r.p));
+    rows.forEach(r => r.worst >= 0.5 && !kept.has(r.p) && failed.add(r.p));
     rows.forEach(r => { if (known.has(r.p)) r.worst = Math.max(r.worst, 0.5); });
     rows.sort((a, b) => b.worst - a.worst);
     const pass_ = rows.filter(r => r.worst < 0.5).length;
     report.push(`## ${fam}: ${pass_} indexed (core and test), ${rows.length - pass_} fail and stay noindex\n\n| Page | Highest overlap | With |\n|---|---|---|\n${rows.map(r => `| ${r.p} | ${r.worst.toFixed(2)}${r.worst >= 0.5 ? ' FAIL' : ''} | ${r.w} |`).join('\n')}\n`);
   }
-  fs.writeFileSync(GATE, JSON.stringify({ note: 'Written by scripts/pages/uniqueness-integrations.mjs: pages that fail the uniqueness gate, kept noindex.', failed: [...failed].sort() }, null, 1) + '\n');
+  fs.writeFileSync(GATE, JSON.stringify({ note: gateFile.note, failed: [...failed].sort(), kept: [...kept].sort() }, null, 1) + '\n');
   const key = [...now].sort().join();
   console.log(`pass ${pass}: ${now.size} in the sitemaps, ${failed.size} failed`);
   if (key === prev) break;

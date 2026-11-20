@@ -130,7 +130,7 @@ export function templatePage(app: AppFile): IntegrationPage {
     slug: app.slug,
     query: `${N} integrations`,
     title: title.length <= 60 ? title : `${N} integrations | 50agents`,
-    description: `Connect ${N} in 50agents and tell Captain the job: ${t || a ? `its real ${t ? 'triggers' : ''}${t && a ? ' and ' : ''}${a ? 'actions' : ''}` : 'what it can do'}${r0 ? ', and ready templates you can build in one click' : ''}, from viaSocket’s catalog.`,
+    description: describe(N, t, a, !!r0, about),
     h1: `AI agents, automations and apps for ${N}`,
     answer,
     ask,
@@ -141,6 +141,21 @@ export function templatePage(app: AppFile): IntegrationPage {
     faqs,
     updated: catalog().read,
   };
+}
+
+/** The meta description: 120 to 155 characters where the facts allow (T47). Long app names step down to shorter
+ *  wordings; a short one gains the catalog's own sentence about the app, or what Captain builds. */
+function describe(N: string, t: number, a: number, templates: boolean, about: string): string {
+  const what = t || a ? `its real ${t ? 'triggers' : ''}${t && a ? ' and ' : ''}${a ? 'actions' : ''}` : 'what it can do';
+  const ways = [
+    `Connect ${N} in 50agents and tell Captain the job: ${what}${templates ? ', and ready templates you can build in one click' : ''}, from viaSocket’s catalog.`,
+    `Connect ${N} in 50agents and tell Captain the job: ${what}${templates ? ' and ready templates' : ''}, from viaSocket’s catalog.`,
+    `Connect ${N} in 50agents and tell Captain the job, with ${what}${templates ? ' and ready templates' : ''}.`,
+    `${N} in 50agents: ${what}${templates ? ' and ready templates' : ''} for Captain.`,
+  ];
+  let d = ways.find(w => w.length <= 155) ?? ways[ways.length - 1];
+  if (d.length < 120) for (const more of [about, 'Captain builds it for you.']) if (more && `${d} ${more}`.length <= 155) { d = `${d} ${more}`; break; }
+  return d;
 }
 
 /** The catalog's description of an app as one plain sentence, or nothing when it reads as marketing or runs long. */
