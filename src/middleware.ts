@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import OLD from './content/integrations/old-map.json';
 import LIVE_PAIRS from './content/integrations/live-pairs.json';
 import { canon } from './content/integrations/slugs';
+import { HOME_AGENT_LINK } from './lib/home-agent-link';
 
-// 1. The home page advertises Vary: Accept (markdown negotiation is handled by next.config rewrites).
+// 1. The home page is rewritten here to public/landing/index.html with Link and Vary: Accept. next.config also rewrites /
+//    for local dev, but on Cloudflare that static rewrite drops headers from next.config and middleware next().
 // 2. Old app pages: /ai-agents/<slug> and /services/<slug> whose app is in viaSocket's catalog go to /integrations/<slug>
 //    in one 308 (Jii, 19 Nov: "Yes, redirect them", S21; "Yes, all of them", S22), matched case-insensitively.
 // 3. The old site is removed (Jii, 19 Nov, S25, D257; gtm/seo/handoff/launch-cleanup.md section 1):
@@ -33,14 +35,20 @@ function gone() {
   });
 }
 
+function wantsHomeHtml(request: NextRequest) {
+  return request.nextUrl.pathname === '/' && !/text\/(x-)?markdown/.test(request.headers.get('accept') ?? '');
+}
+
+function homeHtml(request: NextRequest) {
+  const response = NextResponse.rewrite(new URL('/landing/index.html', request.url));
+  response.headers.set('Link', HOME_AGENT_LINK);
+  response.headers.append('Vary', 'Accept');
+  return response;
+}
+
 export function middleware(request: NextRequest) {
   const preview = (request.headers.get('host') ?? '').split(':')[0].toLowerCase().endsWith('.pages.dev');
-  let response = route(request);
-  // On Cloudflare the home page is next.config's rewrite to a static file, whose response drops middleware headers;
-  // a preview rewrites it here instead, so the noindex holds there too (markdown requests keep next.config's rewrite).
-  if (preview && request.nextUrl.pathname === '/' && !/text\/(x-)?markdown/.test(request.headers.get('accept') ?? '')) {
-    response = NextResponse.rewrite(new URL('/landing/index.html', request.url));
-  }
+  let response = wantsHomeHtml(request) ? homeHtml(request) : route(request);
   if (preview) response.headers.set('X-Robots-Tag', 'noindex, nofollow');
   return response;
 }
