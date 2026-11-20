@@ -516,3 +516,10 @@ html,body{margin:0;padding:0}
 .foot .crowd .face{display:block}
 @media (max-width:760px){.foot .crowd{margin:8px 0 0;gap:8px}}
 @media (prefers-reduced-motion:reduce){.foot .crowd>span{transition:none}}
+
+/* One width for every page: the homepage's (Jii, 20 Nov: "match the width of every other page TO HOME PAGE'S").
+   A 1360px wrap with 40px sides, so content is up to 1280px wide; the header, breadcrumbs, footer and every section
+   use it. Phones keep 18px sides. */
+.wrap,.hd-in,.wrap:has(> .crumbs),.foot-in.wrap,.uc3-wall{max-width:1360px;padding-left:40px;padding-right:40px}
+.foot .crowd{max-width:none}
+@media (max-width:760px){.wrap,.hd-in,.wrap:has(> .crumbs),.foot-in.wrap,.uc3-wall{padding-left:18px;padding-right:18px}}
