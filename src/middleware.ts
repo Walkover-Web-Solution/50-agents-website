@@ -39,15 +39,17 @@ function homeHtml(request: NextRequest) {
 
 export function middleware(request: NextRequest) {
   const preview = (request.headers.get('host') ?? '').split(':')[0].toLowerCase().endsWith('.pages.dev');
-  let response = wantsHomeHtml(request) ? homeHtml(request) : route(request);
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-pathname', request.nextUrl.pathname);
+  let response = wantsHomeHtml(request) ? homeHtml(request) : route(request, requestHeaders);
   if (preview) response.headers.set('X-Robots-Tag', 'noindex, nofollow');
   return response;
 }
 
-function route(request: NextRequest): NextResponse {
+function route(request: NextRequest, requestHeaders: Headers): NextResponse {
   const { pathname, search } = request.nextUrl;
   if (pathname === '/') {
-    const response = NextResponse.next();
+    const response = NextResponse.next({ request: { headers: requestHeaders } });
     response.headers.append('Vary', 'Accept');
     return response;
   }
@@ -72,14 +74,14 @@ function route(request: NextRequest): NextResponse {
   const app = path.match(/^\/integrations\/([^/]+)$/);
   if (app) {
     let x: string;
-    try { x = decodeURIComponent(app[1]); } catch { return NextResponse.next(); }
+    try { x = decodeURIComponent(app[1]); } catch { return NextResponse.next({ request: { headers: requestHeaders } }); }
     if (canon(x) !== x) { url.pathname = `/integrations/${canon(x)}`; return NextResponse.redirect(url, 308); }
   }
 
   const pair = path.match(/^\/integrations\/([^/]+)\/([^/]+)$/);
   if (pair) {
     let x: string, y: string;
-    try { x = decodeURIComponent(pair[1]); y = decodeURIComponent(pair[2]); } catch { return NextResponse.next(); }
+    try { x = decodeURIComponent(pair[1]); y = decodeURIComponent(pair[2]); } catch { return NextResponse.next({ request: { headers: requestHeaders } }); }
     const a = canon(x), b = canon(y);
     // a pair page that was live and lost its pair status 301s to its first app's page, in one hop from either order
     const gone = RETIRED.has(`${a}/${b}`) ? a : RETIRED.has(`${b}/${a}`) ? b : null;
@@ -90,7 +92,7 @@ function route(request: NextRequest): NextResponse {
   // T35: /<path>/ answers a 301 to /<path>. It runs last, so a path that another rule moves takes one hop to its final
   // page (every rule above reads the path without its slash). /ingest is outside the matcher and keeps its slash.
   if (path !== pathname) { url.pathname = path; return NextResponse.redirect(url, 301); }
-  return NextResponse.next();
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 // Every page path (the preview's noindex needs them all); not Next's static files, PostHog's /ingest proxy, or any path

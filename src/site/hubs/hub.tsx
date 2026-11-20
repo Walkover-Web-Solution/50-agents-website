@@ -12,7 +12,8 @@ import { rich } from '../guides/rich';
 import { PromptFilm } from '../usecase/film';
 import { KindBento } from './kind-bento';
 import { Gallery } from './gallery';
-import { KIND_RULE } from '@/content/hubs/kinds';
+import { GALLERY } from '@/content/hubs/gallery';
+import { KIND_CARDS, KIND_RULE } from '@/content/hubs/kinds';
 import { AppsWall } from './apps-wall';
 import { ReadCard, live } from './cards';
 import { appLd, crumbsLd, Ld } from './meta';
@@ -48,6 +49,9 @@ export function HubView({ h }: { h: HubPage }) {
         <h1>{h.h1}</h1>
         <PromptFilm ask={h.example.ask} asks={h.asks} link={{ page, place: 'hero', campaign: 'seo-hub' }} button={<Cta campaign="seo-hub" page={page} place="hero" ask={h.example.ask}>Build it</Cta>} />
         <p className="uc3-note">{h.answer[1]}</p>
+        <p className="sr">
+          {h.description} {KIND_CARDS[h.kind].body} {h.answer.join(' ')} Example: {h.example.ask} {h.example.build.does.join(' ')} Example asks you can paste into Captain: {h.asks.join(' ')} Jobs on this page include: {GALLERY[h.kind].map(c => c.job).join('. ')}. {h.useCases} {ucs.map(u => `${u.h1} ${u.build.line}`).join('. ')} {h.faqs.map(f => `${f.q} ${typeof f.a === 'string' ? f.a : ''}`).join(' ')} {reads.map(r => r.label).join('. ')}. {KIND_RULE} {h.final}
+        </p>
       </section>
 
       {/* What you can build (D259): 20 to 30 jobs of this kind under team filters, each opening Captain with its ask */}

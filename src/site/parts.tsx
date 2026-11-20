@@ -28,7 +28,11 @@ export function KindFace({ kind, size = 24 }: { kind: Kind; size?: number }) {
 }
 
 export function Face({ id, size = 24, className = '' }: { id: string; size?: number; className?: string }) {
-  return <span className={`face ${className}`} style={{ height: size }} aria-hidden="true" dangerouslySetInnerHTML={{ __html: FACES[id] ?? FACES.keeper }} />;
+  const src = `/crew/${FACES[id] ? id : 'keeper'}.svg`;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img className={`face ${className}`} src={src} alt="" width={size} height={size} aria-hidden="true" loading="lazy" decoding="async" style={{ height: size, width: 'auto' }} />
+  );
 }
 
 const APP_COLOUR: Record<string, string> = { gmail: '#EA4335', googlesheets: '#34A853', hubspot: '#FF7A59', slack: '#4A154B', stripe: '#635BFF', quickbooks: '#2CA01C', xero: '#13B5EA' };
