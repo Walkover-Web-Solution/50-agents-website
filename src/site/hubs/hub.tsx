@@ -21,7 +21,7 @@ import '../css/hubs.css';
 
 const AGENTIC_STEPS = [
   { h: 'Tell Captain what to track', p: 'Say what the app is for, such as leads, customer requests or invoices. Captain asks a few short questions, shows a plan, and builds it when you tap Build it.', tint: '#E2E9FF', crew: ['lead'] },
-  { h: 'Bring your data in', p: 'Add records by hand, paste a table, or drop a CSV or Excel file and Captain matches the columns. You get a board and a table view, with the numbers on the Overview.', tint: '#FFEDC2', crew: ['sorter', 'keeper'] },
+  { h: 'Bring your data in', p: 'From your files, your spreadsheets or the apps you use: drop a CSV or Excel file or paste a table and Captain matches the columns, or have an automation add records from your apps. You get a board and a table view.', tint: '#FFEDC2', crew: ['sorter', 'keeper'] },
   { h: 'The crew works the records', p: 'AI agents start when a record is added, a field changes, or a date passes, such as Collector drafting a reminder a day after an invoice is due. Anything that reaches a customer waits for your yes.', tint: '#FFE1D6', crew: ['closer', 'scout', 'writer'] },
 ];
 

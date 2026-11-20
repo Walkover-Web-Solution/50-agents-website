@@ -7,7 +7,7 @@ import '@/site/css/pricing.css';
 const BASE = 'https://50agents.com';
 const url = `${BASE}/pricing`;
 const fmt = (n: number) => n.toLocaleString('en-US');
-// Round B (B1): each plan wears a kind's soft tint and a crew that grows with the plan; the uses cards take a kind each.
+// Round B (B1): each plan wears a kind's soft tint (no faces on the plans, Jii's review); the uses cards take a kind each.
 const PLAN_LOOK: Record<string, { tint: string; crew: string[] }> = {
   free: { tint: '#FFEDC2', crew: ['keeper'] },
   starter: { tint: '#E2E9FF', crew: ['sorter', 'keeper'] },
@@ -50,7 +50,6 @@ export default function PricingPage() {
         <div className="pr-plans">
           {PLANS.map(p => (
             <div key={p.id} className={p.id === 'pro' ? 'pr-plan on' : 'pr-plan'} style={{ ['--pt' as string]: PLAN_LOOK[p.id]?.tint ?? '#F2F1ED' }}>
-              <span className="pr-crew" aria-hidden="true">{(PLAN_LOOK[p.id]?.crew ?? []).map((f, i) => <Face key={i} id={f} size={36} />)}</span>
               <h2>{p.name}</h2>
               <p className="pr-line">{p.line}</p>
               <p className="pr-price"><b>${p.price}</b><span>{p.price ? 'a month' : 'forever'}</span></p>

@@ -17,7 +17,11 @@ const BRAND: Record<string, string> = {
   docusign: '#FFB800', 'google-forms': '#673AB7', intercom: '#1F8DED', razorpay: '#3395FF', chargebee: '#FF3300',
   jotform: '#FF6100', 'google-drive': '#1FA463', trello: '#0079BF', 'google-sheets': '#34A853',
 };
-function tint(apps: string[], kind: Kind) {
+// Round B review (Jii: "we need to use different colors"): a card with no app takes its team's soft colour, so a gallery
+// of browser agents isn't one colour.
+const TEAM_TINT: Record<string, string> = { sales: '#FFD9C7', support: '#CFE6FF', finance: '#CFF0DD', operations: '#FFEBB3', ecommerce: '#FFD3E2', personal: '#E3DAFF' };
+function tint(apps: string[], kind: Kind, team?: string) {
+  if (!apps.length && team && TEAM_TINT[team]) return TEAM_TINT[team];
   const lead = apps.find(a => a !== 'gmail' && BRAND[a]) ?? apps.find(a => BRAND[a]);
   return lead ? BRAND[lead] : KINDS[kind].tint;
 }
@@ -32,13 +36,13 @@ export function Gallery({ kind, page, label }: { kind: Kind; page: string; label
       </div>
       <GalleryFilter teams={teams} total={cards.length} label={label}>
         {cards.map((c, i) => (
-          <article key={c.ask} className="gal-card" data-team={c.team} style={{ ['--app' as string]: tint(c.apps, kind) }}>
+          <article key={c.ask} className="gal-card" data-team={c.team} style={{ ['--app' as string]: tint(c.apps, kind, c.team) }}>
             {/* Round B, B3: two of the crew peek over a card's top edge, where the cards carry no app logos (browser agents) */}
             {kind === 'browser' && (i === 1 || i === 6) && <span className="gal-peek" aria-hidden="true"><Face id={i === 1 ? 'scout' : 'pilot'} size={40} /></span>}
             <div className="gal-apps">
               {c.apps.length
                 ? c.apps.map(a => <span key={a} title={appName(a)}><AppLogo app={a} icon={appIcon(a)} size={26} /><span className="sr">{appName(a)}</span></span>)
-                : <span className="gal-kind" style={{ background: KINDS[kind].tint }} aria-hidden="true"><KindFace kind={kind} size={24} /></span>}
+                : <span className="gal-kind" aria-hidden="true"><KindFace kind={kind} size={24} /></span>}
             </div>
             <h3><BuildLink className="gal-go" page={page} place="gallery" campaign="seo-hub" ask={c.ask}>{c.job}<span className="sr"> (opens Captain)</span></BuildLink></h3>
             <span className="gal-arrow" aria-hidden="true">

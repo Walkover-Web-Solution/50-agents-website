@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { AppLogo, Crumbs, MaybeLink } from '@/site/parts';
 import LIVE_PAIRS from '@/content/integrations/live-pairs.json';
+import { PairPicker } from '@/site/integrations/pair-picker';
 import { StickyBar } from '@/site/sticky';
 import { PromptFilm } from '@/site/usecase/film';
 import { CATEGORIES } from '@/content/integrations/categories';
@@ -80,6 +81,21 @@ export default async function IntegrationPageView({ params }: { params: Promise<
         <p className="uc3-note">{p.answer[1]}</p>
       </section>
 
+      {/* Round B, B7: pick a second app and land on the two-app page, high on the page (Jii's review), searchable, two
+          rows until "See all". Only apps with a live pair page; left out when there are none. */}
+      {pairsHere.length > 0 && (
+        <section className="wrap sec ig3-pair-sec" id="pair-with">
+          <div className="sec-h c"><h2>Pair {N} with another app</h2><p>Pick one to see what the two do together.</p></div>
+          <PairPicker app={N} total={pairsHere.length}>
+            <ul className="ig3-pick">
+              {pairsHere.map((o, i) => (
+                <li key={o.href} data-q={o.name.toLowerCase()} hidden={i >= 8}><a href={o.href}><AppLogo app={o.slug} icon={o.icon} size={28} /><span>{o.name}</span></a></li>
+              ))}
+            </ul>
+          </PairPicker>
+        </section>
+      )}
+
       {/* The four kinds on this app */}
       <section className="wrap sec" id="kinds">
         <div className="sec-h c"><h2>What you can build on {N}</h2></div>
@@ -111,18 +127,6 @@ export default async function IntegrationPageView({ params }: { params: Promise<
             {cats.map((c, i) => <span key={c.slug}>{i ? ' · ' : ''}<MaybeLink href={`/integrations/category/${c.slug}`}>All {c.short} apps</MaybeLink></span>)}
             {cats.length ? ' · ' : ''}<MaybeLink href="/integrations">Every app, A to Z</MaybeLink>
           </p>
-        </section>
-      )}
-
-      {/* Round B, B7: pick a second app and land on the two-app page. Left out when this app has no live pair page. */}
-      {pairsHere.length > 0 && (
-        <section className="wrap sec" id="pair-with">
-          <div className="sec-h c"><h2>Pair {N} with another app</h2><p>Pick one to see what the two do together.</p></div>
-          <ul className="ig3-pick">
-            {pairsHere.map(o => (
-              <li key={o.href}><a href={o.href}><AppLogo app={o.slug} icon={o.icon} size={36} /><span>{o.name}</span></a></li>
-            ))}
-          </ul>
         </section>
       )}
 
