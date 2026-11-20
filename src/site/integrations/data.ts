@@ -117,7 +117,7 @@ export const writtenSlugs = () => (fs.existsSync(PAGES_DIR) ? fs.readdirSync(PAG
 // scripts/pages/uniqueness-integrations.mjs writes the list) is none, and so is a pair with no lines of its own (S24: a pair
 // whose lines could not be written honestly stays noindex), and the test cohort fills from the next in line.
 export type Tier = 'core' | 'test' | 'rest' | 'pairs2' | 'none';
-const GATE_FAILED = new Set<string>(gate.failed);
+const GATE_FAILED = new Set<string>([...gate.failed, ...((gate as { samePattern?: string[] }).samePattern ?? [])]);
 const gateFailed = (p: string) => GATE_FAILED.has(p);
 let _appTiers: Map<string, Tier> | null = null;
 function appTiers() {

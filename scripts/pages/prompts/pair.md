@@ -60,3 +60,6 @@ list the slugs and the reason in your report.
 - Never name a third app, even one a trigger mentions (WhatsApp, YouTube); keep it inside the curly-quoted event name or describe it.
 - Vary openings: "It fires when" was reused across many pairs and had to be rewritten.
 - A pair whose only templates delete something is left out.
+- Same pattern (Search): when 5 or more pairs with the same app would share the same best action, prefer a different action
+  in `templates` where one does real work; the website session keeps out the rest of such a cluster unless the use is clearly
+  real for that trigger app (index-gate.json samePattern).
