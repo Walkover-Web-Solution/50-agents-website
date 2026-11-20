@@ -1,0 +1,8 @@
+{
+  "usedFor": "Wati holds your conversations, and viaSocket utilities adds a “Pause Workflow” delay after “When a message you sent is delivered”.",
+  "bestTemplate": {
+    "name": "“When a recipient replies to a sent message” in Wati, then “Pause Workflow” in viaSocket utilities",
+    "why": "A reply starts the clock, and the workflow waits X minutes before the next step runs."
+  },
+  "watchOut": "“Pause Workflow” only waits, so a trigger like “When a template message fails to send” still needs a later step."
+}

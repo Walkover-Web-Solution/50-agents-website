@@ -1,0 +1,8 @@
+{
+  "usedFor": "Clientary holds invoices and estimates, and “New Invoice” there can start “Share File With Anyone” in Google Drive.",
+  "bestTemplate": {
+    "name": "“New Invoice” in Clientary, then “Share File With Anyone” in Google Drive",
+    "why": "It makes a file reachable by shareable link with Viewer, Commenter or Editor access as soon as an invoice exists."
+  },
+  "watchOut": "“Share File With Anyone” opens a file to anyone with the link, so check the access level you set."
+}

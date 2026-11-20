@@ -1,0 +1,8 @@
+{
+  "usedFor": "CallRail records calls and texts, HubSpot holds contacts and deals, and “Call Modified” can drive “Update Contact” in HubSpot.",
+  "bestTemplate": {
+    "name": "“Outbound Call Ends” in CallRail, then “Update Deal” in HubSpot",
+    "why": "Once an outbound call ends, the action changes chosen properties on an existing deal."
+  },
+  "watchOut": "“Update Deal” needs the deal ID, so the CallRail event must carry it."
+}

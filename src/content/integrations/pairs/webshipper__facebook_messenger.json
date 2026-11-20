@@ -1,0 +1,8 @@
+{
+  "usedFor": "Shipping changes in Webshipper, such as “Return Updated”, send a message from your page in Facebook Messenger.",
+  "bestTemplate": {
+    "name": "“Return Updated” in Webshipper, then “Send Message from Page” in Facebook Messenger",
+    "why": "A changed return can reach the customer, since the action sends a message to a user from a page."
+  },
+  "watchOut": "“Send Message from Page” reaches someone outside, so each message waits in Needs you for approval."
+}

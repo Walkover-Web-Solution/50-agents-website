@@ -1,0 +1,8 @@
+{
+  "usedFor": "Content Workflow Bynder holds items, comments and statuses, and Hastewire runs “Detect Text” to check whether text is AI-generated.",
+  "bestTemplate": {
+    "name": "“Item Created” in Content Workflow Bynder, then “Detect Text” in Hastewire",
+    "why": "Every new item gets checked as it enters the workflow, so the AI-generated text question is asked up front."
+  },
+  "watchOut": "“Detect Text” only checks for AI-generated text, so pair it with a trigger that carries text, like “Comment Was Added”."
+}

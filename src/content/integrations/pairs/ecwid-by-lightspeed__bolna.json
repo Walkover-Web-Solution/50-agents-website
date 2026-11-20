@@ -1,0 +1,8 @@
+{
+  "usedFor": "Ecwid holds the store's orders, products and customers, and Bolna places the call about them through “Make a Phone Call”.",
+  "bestTemplate": {
+    "name": "“Order Updated” in Ecwid, then “Make a Phone Call” in Bolna",
+    "why": "An order change is a reason to reach the customer, and the action makes the phone call."
+  },
+  "watchOut": "“Order Updated” fires on every update, so one order can start “Make a Phone Call” more than once."
+}

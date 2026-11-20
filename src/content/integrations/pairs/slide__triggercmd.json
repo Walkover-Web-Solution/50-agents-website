@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slide handles messages, TRIGGERcmd runs commands on your computers, and “When a voice call is completed” can start “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“When a voice call is completed” in Slide, then “Trigger Command” in TRIGGERcmd",
+    "why": "A finished voice call runs a command on your computers."
+  },
+  "watchOut": "“When a contact is updated” fires on every update, so “Trigger Command” can run more than once per contact."
+}

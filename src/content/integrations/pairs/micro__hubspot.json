@@ -1,0 +1,8 @@
+{
+  "usedFor": "Micro keeps deals, contacts and organizations in one workspace, and HubSpot receives them as new contacts or deals.",
+  "bestTemplate": {
+    "name": "“When a new deal is created” in Micro, then “Create Deal” in HubSpot",
+    "why": "A deal added in Micro appears in HubSpot as a deal, so the pipeline there matches what you entered."
+  },
+  "watchOut": "“When a deal is updated” in Micro fires on every update, so “Create Deal” can duplicate the deal."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "TagMango holds orders and course progress, Memory keeps key-value records, and “Course Completion” can store a record through “Memory”.",
+  "bestTemplate": {
+    "name": "“New Order Created” in TagMango, then “Memory” in Memory",
+    "why": "A new order is stored as key-value pairs you can look up later."
+  },
+  "watchOut": "“Delete Records” in Memory removes records, so check which records a TagMango event points at."
+}

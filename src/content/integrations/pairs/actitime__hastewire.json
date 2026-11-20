@@ -1,0 +1,8 @@
+{
+  "usedFor": "actiTIME holds customers, projects and tasks, and a “Task Created” event there can hand text to “Humanize Text” in Hastewire.",
+  "bestTemplate": {
+    "name": "“Task Created” in actiTIME, then “Humanize Text” in Hastewire",
+    "why": "A new task in actiTIME can be followed by text made to sound natural in Hastewire."
+  },
+  "watchOut": "“Task Updated” and “Project Updated” fire on every edit, so the same record can reach “Humanize Text” more than once."
+}

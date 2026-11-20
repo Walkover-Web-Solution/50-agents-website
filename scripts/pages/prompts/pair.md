@@ -19,7 +19,7 @@ list the slugs and the reason in your report.
   pushed by the app when something happens; `polling` is checked on a schedule, so a short delay is normal).
 - The product facts: scripts/pages/product-facts.md. A product claim must follow from it.
 
-## The three fields (each one or two sentences, 45 words at most per field)
+## The three fields (each one short sentence, 20 words at most per field: the gate holds D260 round 5)
 - `usedFor`: the job this pair does for a team, in plain words, from what the two apps are and which direction the
   templates run (which app starts the work and which one receives it). Name at least one real trigger or action in
   curly quotes. It must read wrong if the two app names were swapped, so say which app is the source and which is the
@@ -54,3 +54,12 @@ list the slugs and the reason in your report.
 ## Round 5 (D260)
 - Each line is one short sentence: used for, best template, watch out. They show as three compact cards.
 - Keep each pair unique: the uniqueness gate (under 0.5 shared 5-word shingles, shared lists skipped) must pass.
+
+## Tier 2 lessons (pairs tier 2, batch 1)
+- 20 words per field is the gate's limit; count them.
+- Never name a third app, even one a trigger mentions (WhatsApp, YouTube); keep it inside the curly-quoted event name or describe it.
+- Vary openings: "It fires when" was reused across many pairs and had to be rewritten.
+- A pair whose only templates delete something is left out.
+- Same pattern (Search): when 5 or more pairs with the same app would share the same best action, prefer a different action
+  in `templates` where one does real work; the website session keeps out the rest of such a cluster unless the use is clearly
+  real for that trigger app (index-gate.json samePattern).

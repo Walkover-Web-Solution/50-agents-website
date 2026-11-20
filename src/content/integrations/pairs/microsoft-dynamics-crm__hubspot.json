@@ -1,0 +1,8 @@
+{
+  "usedFor": "Microsoft Dynamics CRM is the source, with records like “New Opportunity”, and HubSpot receives them as deals through “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Opportunity” in Microsoft Dynamics CRM, then “Create Deal” in HubSpot",
+    "why": "An opportunity is the record closest to a deal, so sales sees it in HubSpot."
+  },
+  "watchOut": "“Update Deal” needs an existing deal's ID, so a “New Opportunity” with no deal belongs in “Create Deal”."
+}

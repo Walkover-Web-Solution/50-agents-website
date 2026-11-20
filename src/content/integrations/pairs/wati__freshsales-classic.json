@@ -1,0 +1,8 @@
+{
+  "usedFor": "Wati replies such as “When a recipient replies to a sent message” can change a deal in Freshsales Classic.",
+  "bestTemplate": {
+    "name": "“When a recipient replies to a sent message” in Wati, then “Update Deal” in Freshsales Classic",
+    "why": "A reply is a buying signal, and the action can move the deal's stage, amount or probability."
+  },
+  "watchOut": "“Update Deal” needs a deal ID or name, so the Wati event must pass one of them."
+}

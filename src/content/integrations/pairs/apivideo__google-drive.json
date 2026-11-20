@@ -1,0 +1,8 @@
+{
+  "usedFor": "Streams and uploads in api.video, such as “Live Stream Ended”, lead to files being shared or copied in Google Drive.",
+  "bestTemplate": {
+    "name": "“Live Stream Ended” in api.video, then “Share File With Anyone” in Google Drive",
+    "why": "When a broadcast ends, the action makes a Drive file reachable by shareable link at Viewer, Commenter or Editor access."
+  },
+  "watchOut": "“New Video Created” in api.video is polling, so the Drive step runs on a schedule, not instantly."
+}

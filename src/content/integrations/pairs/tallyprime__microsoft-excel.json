@@ -1,0 +1,8 @@
+{
+  "usedFor": "TallyPrime holds vouchers like receipts, and Microsoft Excel gets each one as a row through “Add Row To Table”.",
+  "bestTemplate": {
+    "name": "“New Receipt event occurs” in TallyPrime, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each receipt recorded in Tally Prime adds a row to an Excel table."
+  },
+  "watchOut": "“New Receipt event occurs” fires on create, update or delete, so one receipt can add several rows."
+}

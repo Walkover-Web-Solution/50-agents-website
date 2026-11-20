@@ -1,0 +1,8 @@
+{
+  "usedFor": "Mural holds stickies and rooms, HubSpot receives people as contacts, and “New Sticky” can start “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Sticky” in Mural, then “Create or Update Contact” in HubSpot",
+    "why": "It creates the contact, or updates an existing one by its email."
+  },
+  "watchOut": "Mural triggers such as “New Sticky” are polling, so the HubSpot contact appears after a short delay."
+}

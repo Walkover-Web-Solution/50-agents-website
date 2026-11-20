@@ -1,0 +1,1 @@
+{"usedFor": "Xero holds the bills, payments and quotes, HubSpot receives them as deals, and “New Quote” can start “Create Deal”.", "bestTemplate": {"name": "“New Quote” in Xero, then “Create Deal” in HubSpot", "why": "A quote created in Xero opens a deal in HubSpot."}, "watchOut": "Every Xero trigger here is polling, so “New Payment” reaches HubSpot on a schedule, not at once."}

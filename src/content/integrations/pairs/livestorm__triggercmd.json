@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webinar events in Livestorm, like “Session Started”, run a command on your computers through “Trigger Command” in TRIGGERcmd.",
+  "bestTemplate": {
+    "name": "“Registrant Attended” in Livestorm, then “Trigger Command” in TRIGGERcmd",
+    "why": "Fires once a session ends with the registrant counted present, and the action runs a command on your computers."
+  },
+  "watchOut": "“Registrant Attended” and “Registrant Didn't Attend” both fire after a session, so give each its own command."
+}

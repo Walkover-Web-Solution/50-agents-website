@@ -1,0 +1,8 @@
+{
+  "usedFor": "Razorpay holds refunds and subscriptions, and viaSocket utilities starts another workflow with “Flow in Flow” or waits with “Pause Workflow”.",
+  "bestTemplate": {
+    "name": "“A New Refund Is Created” in Razorpay, then “Flow in Flow” in viaSocket utilities",
+    "why": "A refund can start a separate workflow that handles it, and the action runs another workflow from the current one."
+  },
+  "watchOut": "“Flow in Flow” needs the child workflow's flowid, so have it ready before “A New Refund Is Created” runs."
+}

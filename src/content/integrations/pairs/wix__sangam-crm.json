@@ -1,0 +1,8 @@
+{
+  "usedFor": "WIX holds the site and orders, Sangam CRM holds leads, and “New Form Response” can start “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Form Response” in WIX, then “Create or Update Lead” in Sangam CRM",
+    "why": "A submitted WIX form reaches Sangam CRM as a lead, matched by ID, email or phone."
+  },
+  "watchOut": "“Order Updated” in WIX fires on every order change, so “Create or Update Lead” can run many times per order."
+}

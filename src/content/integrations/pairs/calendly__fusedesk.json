@@ -1,0 +1,8 @@
+{
+  "usedFor": "Calendly holds bookings and FuseDesk holds cases, so “New Meeting Book or Invitee Created” opens one via “Create FuseDesk Case”.",
+  "bestTemplate": {
+    "name": "“New Meeting Book or Invitee Created” in Calendly, then “Create FuseDesk Case” in FuseDesk",
+    "why": "Any booked event type opens a FuseDesk case, so every new meeting or invitee gets a record."
+  },
+  "watchOut": "Going the other way, “Create Scheduling Link” only makes a booking link, so a later step must deliver it."
+}

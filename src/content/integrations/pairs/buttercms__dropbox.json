@@ -1,0 +1,8 @@
+{
+  "usedFor": "ButterCMS holds pages and posts, Dropbox receives files, and “Page Published” can start “Upload File to Dropbox”.",
+  "bestTemplate": {
+    "name": "“Page Published” in ButterCMS, then “Upload File to Dropbox” in Dropbox",
+    "why": "It saves a file from a public web link into a chosen folder, with replace or update options."
+  },
+  "watchOut": "“Upload File to Dropbox” needs a public web link, so a trigger like “Page Draft Saved” must supply one."
+}

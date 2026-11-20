@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webflow holds your site’s collections and forms, MailerLite holds subscribers, and “User Account Added” can feed “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“User Account Added” in Webflow, then “Create or Update Subscriber” in MailerLite",
+    "why": "A new user account on the site becomes a MailerLite subscriber, or updates the one that exists."
+  },
+  "watchOut": "“User Account Updated” and “Collection Item Changed” fire on edits, so “Create or Update Subscriber” can repeat for one record."
+}

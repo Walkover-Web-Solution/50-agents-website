@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Backstage holds events and attendees, Google Drive holds files, and “New Attendee” can start “Copy a File”.",
+  "bestTemplate": {
+    "name": "“New Attendee” in Zoho Backstage, then “Copy a File” in Google Drive",
+    "why": "A new attendee triggers a copy of a Google Drive file into a selected folder, with an optional new name."
+  },
+  "watchOut": "“Share File With Anyone” opens a file by link, so use “Share File” for a private file."
+}

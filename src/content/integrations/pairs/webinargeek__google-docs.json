@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webinargeek knows who registered and watched, and Google Docs receives those details as text in a chosen tab.",
+  "bestTemplate": {
+    "name": "“New Registration” in Webinargeek, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each sign-up can be written into a Doc tab, so your team can edit the attendee list."
+  },
+  "watchOut": "“New Registration” polls on a schedule, so a sign-up reaches the document a little later."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Store events in BigCommerce, like “Product Created”, write text into a document in Google Docs.",
+  "bestTemplate": {
+    "name": "“Product Created” in BigCommerce, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A new BigCommerce product writes text into a chosen Google Docs tab, giving you a running product log."
+  },
+  "watchOut": "“Add or Replace Text In Tab” can replace a tab's content, so set it to add for “Cart Updated”."
+}

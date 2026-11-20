@@ -1,0 +1,8 @@
+{
+  "usedFor": "LiveChat is where conversations start, and “New Chat” there can create a contact in LeadConnector, which holds your CRM records.",
+  "bestTemplate": {
+    "name": "“Finished Chat” in LiveChat, then “Add/Remove Tags to Contact” in LeadConnector",
+    "why": "When a chat ends, the contact can be tagged, found by email or phone."
+  },
+  "watchOut": "“Create Contact” on each “New Chat” can duplicate a visitor, so “Create Or Update Contact” is safer for returning people."
+}

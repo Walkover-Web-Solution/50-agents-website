@@ -1,0 +1,8 @@
+{
+  "usedFor": "Reckon One holds invoices, payments and contacts, and “New Invoice” there can feed values to the “Memory” action in Memory.",
+  "bestTemplate": {
+    "name": "“New Invoice” in Reckon One, then “Memory” in Memory",
+    "why": "It saves invoice data as a key-value pair that you can read back later with findFromMemory."
+  },
+  "watchOut": "“Delete Records” in Memory removes records from Workspace Memory, so connect it to “New Payment” only on purpose."
+}

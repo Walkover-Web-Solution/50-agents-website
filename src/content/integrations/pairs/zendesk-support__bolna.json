@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zendesk Support holds tickets and customers, and Bolna places a call via “Make a Phone Call” after “Ticket Is Created”.",
+  "bestTemplate": {
+    "name": "“Ticket Is Created” in Zendesk Support, then “Make a Phone Call” in Bolna",
+    "why": "It is pushed by Zendesk Support when a ticket opens, so the call can start without waiting on a schedule."
+  },
+  "watchOut": "“New Ticket Created or Updated” is polling and fires on updates too, so one ticket can trigger two calls."
+}

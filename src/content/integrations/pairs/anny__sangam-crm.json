@@ -1,0 +1,8 @@
+{
+  "usedFor": "anny holds bookings, Sangam CRM holds leads, and “New Booking” in anny can feed “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Booking” in anny, then “Create or Update Lead” in Sangam CRM",
+    "why": "A booking created in your anny organization reaches Sangam CRM as a lead, matched by ID, email or phone."
+  },
+  "watchOut": "“Account Is Updated” in Sangam CRM is polling, so “Update Booking Status” in anny acts after a short delay."
+}

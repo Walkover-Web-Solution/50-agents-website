@@ -1,0 +1,8 @@
+{
+  "usedFor": "Billing events in Spaceinvoices, such as “Order Updated”, write text into a Google Docs tab.",
+  "bestTemplate": {
+    "name": "“Order Updated” in Spaceinvoices, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "When an order changes, the action writes the update into a chosen doc tab, so the document tracks billing."
+  },
+  "watchOut": "“Unit Deleted” and “Item Deleted” fire on removals, so check the doc tab should record those too."
+}

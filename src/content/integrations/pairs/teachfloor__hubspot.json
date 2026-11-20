@@ -1,0 +1,8 @@
+{
+  "usedFor": "Course changes in Teachfloor, such as “Module Is Created”, create or update deals and contacts in HubSpot.",
+  "bestTemplate": {
+    "name": "“Course Updated” in Teachfloor, then “Update Deal” in HubSpot",
+    "why": "A changed course updates the properties of an existing HubSpot deal, so sales sees the new course details."
+  },
+  "watchOut": "“Update Deal” needs a deal ID, so a run from “Course Updated” must supply it."
+}

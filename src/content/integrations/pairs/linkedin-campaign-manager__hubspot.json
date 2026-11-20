@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lead form responses from LinkedIn Campaign Manager become records in HubSpot, such as a contact from “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Sponsored Lead Form Response” in LinkedIn Campaign Manager, then “Create Contact” in HubSpot",
+    "why": "It fires on a new response for a chosen ad account and form, and the action creates the HubSpot contact."
+  },
+  "watchOut": "“Create Contact” requires an email, so check “New Organic Lead Form Response” carries one from your lead form."
+}

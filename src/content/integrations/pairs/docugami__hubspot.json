@@ -1,0 +1,8 @@
+{
+  "usedFor": "Docugami creates docsets and projects, and HubSpot receives the deal or contact that “Create Project” can start.",
+  "bestTemplate": {
+    "name": "“Create Project” in Docugami, then “Create Deal” in HubSpot",
+    "why": "A new Docugami project opens a deal in HubSpot, so the sales record exists once the document work does."
+  },
+  "watchOut": "“Create Contact” in HubSpot requires an email, and “Create Docsets” in Docugami is polling, so runs arrive on a schedule."
+}

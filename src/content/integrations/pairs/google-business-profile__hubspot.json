@@ -1,0 +1,8 @@
+{
+  "usedFor": "Reviews on Google Business Profile become deals through “Create Deal” in HubSpot, and HubSpot events can feed “Reply To Review”.",
+  "bestTemplate": {
+    "name": "“New Review Posted” in Google Business Profile, then “Create Deal” in HubSpot",
+    "why": "A new review opens a deal in HubSpot, so someone owns the follow-up instead of the review sitting unread."
+  },
+  "watchOut": "“New Review Posted” is polling, so a review reaches HubSpot on a schedule, not the moment it is posted."
+}

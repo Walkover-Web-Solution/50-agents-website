@@ -1,0 +1,8 @@
+{
+  "usedFor": "Guru holds cards and questions, and viaSocket utilities adds a wait with “Pause Workflow” after an event like “Card Verified”.",
+  "bestTemplate": {
+    "name": "“Question Created” in Guru, then “Pause Workflow” in viaSocket utilities",
+    "why": "It holds the workflow for X minutes after a question is asked, so later steps run after a delay."
+  },
+  "watchOut": "“Pause Workflow” only waits, so it needs a step after it that acts once the delay is over."
+}

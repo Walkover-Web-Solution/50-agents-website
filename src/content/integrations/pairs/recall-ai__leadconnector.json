@@ -1,0 +1,8 @@
+{
+  "usedFor": "Recall.ai records and transcribes meetings, LeadConnector holds contacts, and “New Transcript Completed” can start “Add or Remove Contact from Workflow”.",
+  "bestTemplate": {
+    "name": "“New Transcript Completed” in Recall.ai, then “Add or Remove Contact from Workflow” in LeadConnector",
+    "why": "A finished transcript can add or remove a contact from a LeadConnector workflow by Contact ID, email or phone."
+  },
+  "watchOut": "“New Recording Becomes Ready” in Recall.ai is polling and takes a lookback window in minutes, so it is not instant."
+}

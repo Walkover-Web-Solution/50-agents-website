@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webinargeek tracks registrations and viewers, and Google Drive shares a file through “Share File With Anyone” after “New Registration”.",
+  "bestTemplate": {
+    "name": "“Assessment Passed” in Webinargeek, then “Share File With Anyone” in Google Drive",
+    "why": "A viewer who passes the assessment can trigger a shareable link with Viewer, Commenter or Editor access."
+  },
+  "watchOut": "“Share File With Anyone” opens a file by link, so set access to Viewer unless people should comment or edit."
+}

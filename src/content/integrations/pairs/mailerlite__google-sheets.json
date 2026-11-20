@@ -1,0 +1,8 @@
+{
+  "usedFor": "MailerLite holds subscribers and campaigns, and Google Sheets keeps the row that “Update Spreadsheet Row” changes after “Subscriber Unsubscribed”.",
+  "bestTemplate": {
+    "name": "“Subscriber Unsubscribed” in MailerLite, then “Update Spreadsheet Row” in Google Sheets",
+    "why": "An unsubscribe is a status worth recording, and the action updates columns in a sheet row."
+  },
+  "watchOut": "“Update Spreadsheet Row” changes an existing row, so the subscriber’s row must exist before “Subscriber Bounced” reaches it."
+}

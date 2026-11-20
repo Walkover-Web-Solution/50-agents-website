@@ -1,0 +1,8 @@
+{
+  "usedFor": "Commerce Layer reports store events like “When a new customer is created”, and TRIGGERcmd runs “Trigger Command” on your computers.",
+  "bestTemplate": {
+    "name": "“When a new customer is created” in Commerce Layer, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new customer in your store starts a command on your own machine."
+  },
+  "watchOut": "“When a new price is created” is polling, so “Trigger Command” runs a little after the price is added."
+}

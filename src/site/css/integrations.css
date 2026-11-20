@@ -221,3 +221,7 @@ span.ig3-kind-more{display:none}
 .ig3-pp-none{text-align:center;color:var(--mute);font-size:15px}
 @media (max-width:1020px){.ig3-pick{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){.ig3-pair-sec{padding-top:64px}.ig3-pick a{padding:10px 12px;font-size:14px}}
+
+/* Pair pages as landing pages (pairs tier 2): the pair's own answer under the H1, kept short so the Build button stays above the fold on a phone. */
+.ig3-pair-answer{margin:18px auto 0!important;max-width:760px;font-size:19px;line-height:1.5;color:var(--mute)}
+@media (max-width:760px){.ig3-hero:has(.ig3-pair-answer) h1{font-size:38px}.ig3-pair-answer{font-size:16.5px;margin-top:12px!important}.ig3-hero:has(.ig3-pair-answer) .film{margin-top:20px}}

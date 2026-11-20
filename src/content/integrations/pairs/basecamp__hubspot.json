@@ -1,0 +1,8 @@
+{
+  "usedFor": "Basecamp holds the projects and to-dos, HubSpot holds the deals, and “New Project” can start a “Create Deal”.",
+  "bestTemplate": {
+    "name": "“New Project” in Basecamp, then “Create Deal” in HubSpot",
+    "why": "A new Basecamp project opens a HubSpot deal, so the work has a sales record from day one."
+  },
+  "watchOut": "“Update Deal” needs a deal ID, so match the Basecamp event to an existing deal first."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Cakemail knows who got which campaign and tag, HubSpot keeps the sales record, and “New Contact” can feed “Create Deal”.",
+  "bestTemplate": {
+    "name": "“Contact Tagged” in Cakemail, then “Update Contact” in HubSpot",
+    "why": "A tag is a deliberate signal, and the action changes the matching HubSpot contact when it fires."
+  },
+  "watchOut": "“Update Contact” in HubSpot finds the contact by its email, so the person has to exist in HubSpot already."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Yousign tracks signature requests and signers, and Google Docs gets the outcome through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Signer Request Done” in Yousign, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A finished signature request is recorded in a Doc tab, so the result sits where the team already reads."
+  },
+  "watchOut": "“New Contact” polls on a schedule while “Contact Created” is pushed, so choose the second to avoid delay."
+}

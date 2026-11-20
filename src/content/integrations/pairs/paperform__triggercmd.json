@@ -1,0 +1,8 @@
+{
+  "usedFor": "Paperform tracks document signing, TRIGGERcmd runs commands on your computers, and “Signer Signed” in Paperform can start “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“Signer Signed” in Paperform, then “Trigger Command” in TRIGGERcmd",
+    "why": "It runs a command on your computers once a signer has signed the document."
+  },
+  "watchOut": "“Signer Viewed” and “Signer Notified” fire before anyone signs, so “Trigger Command” would run on them if picked."
+}

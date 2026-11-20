@@ -1,0 +1,8 @@
+{
+  "usedFor": "Productive.io holds projects, deals and invoices, Google Drive holds files, and “New deal” can start “Share File With Anyone”.",
+  "bestTemplate": {
+    "name": "“New deal” in Productive.io, then “Share File With Anyone” in Google Drive",
+    "why": "A new deal shares a file by link at the Viewer, Commenter or Editor level you pick."
+  },
+  "watchOut": "“Updated Project” in Productive.io fires on every update, so “Share File With Anyone” can run again for the same project."
+}

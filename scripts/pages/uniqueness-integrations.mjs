@@ -45,7 +45,7 @@ for (let pass = 1; pass <= 6; pass++) {
   report = [];
   const now = new Set();
   for (const fam of ['integrations', 'pairs']) {
-    const listed = [...locs(await get(`/sitemaps/${fam}.xml`)), ...locs(await get(`/sitemaps/${fam}-test.xml`)), ...(fam === 'integrations' ? locs(await get('/sitemaps/integrations-rest.xml')) : [])];
+    const listed = [...locs(await get(`/sitemaps/${fam}.xml`)), ...locs(await get(`/sitemaps/${fam}-test.xml`)), ...(fam === 'integrations' ? locs(await get('/sitemaps/integrations-rest.xml')) : locs(await get('/sitemaps/pairs-2.xml')))];
     listed.forEach(p => now.add(p));
     const isPair = p => p.split('/').length === 4;
     const paths = [...new Set([...listed, ...[...failed].filter(p => (fam === 'pairs') === isPair(p))])];
@@ -67,7 +67,7 @@ for (let pass = 1; pass <= 6; pass++) {
     const pass_ = rows.filter(r => r.worst < 0.5).length;
     report.push(`## ${fam}: ${pass_} indexed (core and test), ${rows.length - pass_} fail and stay noindex\n\n| Page | Highest overlap | With |\n|---|---|---|\n${rows.map(r => `| ${r.p} | ${r.worst.toFixed(2)}${r.worst >= 0.5 ? ' FAIL' : ''} | ${r.w} |`).join('\n')}\n`);
   }
-  fs.writeFileSync(GATE, JSON.stringify({ note: gateFile.note, failed: [...failed].sort(), kept: [...kept].sort() }, null, 1) + '\n');
+  fs.writeFileSync(GATE, JSON.stringify({ note: gateFile.note, failed: [...failed].sort(), kept: [...kept].sort(), samePattern: gateFile.samePattern ?? [] }, null, 1) + '\n');
   const key = [...now].sort().join();
   console.log(`pass ${pass}: ${now.size} in the sitemaps, ${failed.size} failed`);
   if (key === prev) break;

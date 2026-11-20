@@ -1,0 +1,8 @@
+{
+  "usedFor": "Square holds orders and payments, and Freshsales Classic holds the deal that “Update Deal” changes after “Invoice Payment Made”.",
+  "bestTemplate": {
+    "name": "“Invoice Payment Made” in Square, then “Update Deal” in Freshsales Classic",
+    "why": "It can change a deal's amount, stage, probability or expected close date once an invoice is paid."
+  },
+  "watchOut": "“Update Deal” finds the deal by ID or name, so the Square event must carry one matching an existing deal."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Timeero tracks time and jobs, and “Job Created” can feed Google Docs through “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Task Created” in Timeero, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Each new Timeero task can add its details to a doc tab, so the job write-up keeps up."
+  },
+  "watchOut": "The action can overwrite a tab’s content, so check that setting before “Job Updated” runs it again."
+}

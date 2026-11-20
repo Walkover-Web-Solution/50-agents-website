@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sellsy holds companies, contacts and invoices, MailerLite holds subscribers, and “Updated Contact” can feed “Create or Update Subscriber”.",
+  "bestTemplate": {
+    "name": "“Invoice Created” in Sellsy, then “Create or Update Subscriber” in MailerLite",
+    "why": "A new invoice creates or updates a subscriber, so billing events can keep your list current."
+  },
+  "watchOut": "“Invoice Updated” fires on every edit, so “Create or Update Subscriber” can run repeatedly for the same invoice."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Recras holds bookings and customers, and Calendly gets a link from “Create Scheduling Link” when a record is added.",
+  "bestTemplate": {
+    "name": "“New Customer” in Recras, then “Create Scheduling Link” in Calendly",
+    "why": "A new customer is the person you may want to meet, and the action creates a booking link for it."
+  },
+  "watchOut": "“Update Customer” in Recras fires on every customer update, so using it here can create several links for one person."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Speak AI analyzes audio, video and text, and Calendly turns a finished analysis into a link via “Create Scheduling Link”.",
+  "bestTemplate": {
+    "name": "“Media Analyzed” in Speak AI, then “Create Scheduling Link” in Calendly",
+    "why": "Once a recording has been analyzed, the action prepares a link for booking the conversation that follows."
+  },
+  "watchOut": "“New Events Created” in Speak AI is polling, while “Media Analyzed” is pushed, so pick the second when timing matters."
+}

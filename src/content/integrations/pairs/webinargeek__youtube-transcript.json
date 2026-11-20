@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webinargeek holds webinar registrations and viewers, Youtube Transcript pulls transcripts, and “New Registration” can start “Generate Video Transcripts”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Webinargeek, then “Generate Video Transcripts” in Youtube Transcript",
+    "why": "Each webinar signup starts a transcript job for the videos you name."
+  },
+  "watchOut": "“New Registration” in Webinargeek is polling, so “Generate Video Transcripts” starts after a short delay."
+}

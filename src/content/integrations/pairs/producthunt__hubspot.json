@@ -1,0 +1,8 @@
+{
+  "usedFor": "Product hunt is the source for launches, and “When a new product is posted” can create a HubSpot deal.",
+  "bestTemplate": {
+    "name": "“When a product becomes hot” in Product hunt, then “Create Deal” in HubSpot",
+    "why": "Only products gaining enough votes to turn hot become deals, so the pipeline stays short."
+  },
+  "watchOut": "Every Product Hunt trigger here is polling, so a featured product reaches HubSpot after a short delay."
+}

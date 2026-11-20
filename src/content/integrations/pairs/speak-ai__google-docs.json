@@ -1,0 +1,8 @@
+{
+  "usedFor": "Speak AI analyzes media, and “Media Analyzed” can write results into Google Docs with “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Media Analyzed” in Speak AI, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "Once media is analyzed in Speak AI, the Google Docs tab gets the insights as text."
+  },
+  "watchOut": "“New Magic Prompts Response” in Speak AI is polling, so the doc is updated after a short delay."
+}

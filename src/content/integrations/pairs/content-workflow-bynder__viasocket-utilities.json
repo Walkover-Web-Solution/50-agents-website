@@ -1,0 +1,8 @@
+{
+  "usedFor": "Content Workflow Bynder tracks content items, and viaSocket utilities runs another workflow with “Flow in Flow” after “Item Became Overdue”.",
+  "bestTemplate": {
+    "name": "“Item Became Overdue” in Content Workflow Bynder, then “Flow in Flow” in viaSocket utilities",
+    "why": "An overdue item can hand off to a separate workflow built to deal with it."
+  },
+  "watchOut": "“Flow in Flow” needs a flowid, the child flow’s script id, so the second workflow must exist first."
+}

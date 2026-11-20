@@ -1,0 +1,8 @@
+{
+  "usedFor": "Agendor holds your deals and people, and Gtwy hosts the AI agent that gets a chat request when one changes.",
+  "bestTemplate": {
+    "name": "“Deal Won” in Agendor, then “Call AI Agent Instantly” in Gtwy",
+    "why": "The request reaches a chosen AI agent in Gtwy with attachments and variables, so a won deal arrives with context."
+  },
+  "watchOut": "“Update Deal” in Agendor fires on every change, so one deal can send the Gtwy AI agent several chat requests."
+}

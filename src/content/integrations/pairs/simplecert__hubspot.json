@@ -1,0 +1,8 @@
+{
+  "usedFor": "SimpleCert holds certificates and recipients, HubSpot holds contacts and deals, and “New Recipient Added” can start “Create Contact”.",
+  "bestTemplate": {
+    "name": "“New Recipient Added” in SimpleCert, then “Create Contact” in HubSpot",
+    "why": "It creates a HubSpot contact from the recipient, with email as the required field."
+  },
+  "watchOut": "All three SimpleCert triggers are polling, so “Create Deal” in HubSpot starts after a short delay."
+}

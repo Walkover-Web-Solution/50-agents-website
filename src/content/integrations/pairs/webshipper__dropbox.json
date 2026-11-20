@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webshipper holds the shipments, orders and returns, Dropbox receives files, and “Report Created” can start “Upload File to Dropbox”.",
+  "bestTemplate": {
+    "name": "“Report Created” in Webshipper, then “Upload File to Dropbox” in Dropbox",
+    "why": "The action saves a file from a public web link into a chosen Dropbox folder."
+  },
+  "watchOut": "“Upload File to Dropbox” needs a public link and can add, replace or update a file, so check that choice."
+}

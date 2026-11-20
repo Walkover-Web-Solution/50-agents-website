@@ -1,0 +1,8 @@
+{
+  "usedFor": "Habitica holds tasks and party chat, and “Score Task” there can lead to “Publish Instagram Story” on Instagram for Business.",
+  "bestTemplate": {
+    "name": "“Score Task” in Habitica, then “Publish Instagram Story” in Instagram for Business",
+    "why": "Scoring a task posts a photo or video from a public URL to your Story."
+  },
+  "watchOut": "“Publish Instagram Story” needs a photo or video at a public URL, so the Habitica event has to supply one."
+}

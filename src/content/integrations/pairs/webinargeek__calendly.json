@@ -1,0 +1,8 @@
+{
+  "usedFor": "Webinar activity in Webinargeek, like “New Registration”, creates booking links in Calendly with “Create Scheduling Link”.",
+  "bestTemplate": {
+    "name": "“New Registration” in Webinargeek, then “Create Scheduling Link” in Calendly",
+    "why": "Someone who signs up for a webinar gets a booking link made for them, giving you a next step."
+  },
+  "watchOut": "“New Live Viewer” skips replays, and every Webinargeek trigger here is polling, so links follow on a schedule."
+}

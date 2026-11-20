@@ -1,0 +1,8 @@
+{
+  "usedFor": "Gallabox holds contacts, Google Drive holds files, and “New Contact” can start “Create a new sheet or doc or slide”.",
+  "bestTemplate": {
+    "name": "“New Contact” in Gallabox, then “Share File With Anyone” in Google Drive",
+    "why": "It makes a file reachable by link and sets Viewer, Commenter or Editor access for each new contact."
+  },
+  "watchOut": "“Delete File” in Google Drive deletes permanently, and “Contact Updated” in Gallabox can fire repeatedly, so take care pairing them."
+}

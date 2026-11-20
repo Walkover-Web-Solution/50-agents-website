@@ -1,0 +1,8 @@
+{
+  "usedFor": "Memberful holds members and orders, and HubSpot keeps the contact that “Update Contact” changes after “When a member is updated”.",
+  "bestTemplate": {
+    "name": "“When a member is updated” in Memberful, then “Update Contact” in HubSpot",
+    "why": "It passes the updated member record along, so the HubSpot contact can match the member."
+  },
+  "watchOut": "“Update Contact” in HubSpot finds the contact by its email, so the member must already exist there."
+}

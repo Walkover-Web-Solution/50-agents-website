@@ -65,9 +65,18 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
   const w = pairWords(a, b, recipes);
   const path = pairPath(pair);
   const page = `${a.slug}-${b.slug}`;
-  const ask = recipeAsk(recipes[0], nameOf);
   const C = 'seo-pair' as const;
   const lines = pairLines(pair.a, pair.b);
+  // Landing page (Search's pairs-tier-2 brief, S34): the hero's Build button carries the template the pair's lines call
+  // the best (matched on its trigger and action names), else the first one.
+  const norm = (x: string) => x.toLowerCase().replace(/[_\s]+/g, ' ').trim();
+  const quoted = lines ? [...lines.bestTemplate.name.matchAll(/“([^”]+)”/g)].map(m => norm(m[1])) : [];
+  const best = quoted.length === 2 ? recipes.find(r => norm(r.te) === quoted[0] && norm(r.ae) === quoted[1]) : undefined;
+  const ask = recipeAsk(best ?? recipes[0], nameOf);
+  // "Why 50agents" beyond a fixed trigger and action: an AI agent that works in both apps, only where both apps have
+  // actions it can take (product-facts.md: AI agents act in their connected apps, on a schedule or when asked in chat).
+  const acts = (x: { events: { t: string }[] }) => x.events.some(e => e.t === 'action');
+  const agentLine = acts(a) && acts(b) ? `Or have an AI agent work across ${a.name} and ${b.name}: it decides what to do in each on every run, on a schedule or when you ask it in its chat.` : null;
 
   return (
     <div className="page uc3 ig3">
@@ -80,8 +89,9 @@ export default async function PairPage({ params }: { params: Promise<{ app: stri
       <section className="wrap uc3-hero ig3-hero">
         <Lockup apps={[a.slug, b.slug]} />
         <h1>{w.h1}</h1>
+        {lines && <p className="answer ig3-pair-answer">{lines.usedFor}</p>}
         <PromptFilm ask={ask} button={<span className="hero-cta"><BuildLink page={page} place="hero" campaign={C} ask={ask}>Build it</BuildLink></span>} />
-        <p className="uc3-note">{w.note}</p>
+        <p className="uc3-note">{agentLine ?? w.note}</p>
       </section>
 
       {lines && (

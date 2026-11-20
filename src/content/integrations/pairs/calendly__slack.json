@@ -1,1 +1,8 @@
-{"usedFor":"The team hears about each new Calendly booking in a Slack channel.","bestTemplate":{"name":"“New Meeting Book or Invitee Created” in Calendly, then “Send Message” in Slack","why":"It fires when someone books, and “Send Message” can post to a channel, user or thread."},"watchOut":"The first Calendly post to a Slack channel needs an approval tap."}
+{
+  "usedFor": "The team hears about each new Calendly booking in a Slack channel.",
+  "bestTemplate": {
+    "name": "“New Meeting Book or Invitee Created” in Calendly, then “Send Message” in Slack",
+    "why": "Each booking in Calendly gives the team something to post, and “Send Message” can target a channel, user or thread."
+  },
+  "watchOut": "The first Calendly post to a Slack channel needs an approval tap."
+}

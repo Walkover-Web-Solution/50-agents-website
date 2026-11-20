@@ -1,0 +1,8 @@
+{
+  "usedFor": "DocuSeal runs the signing and Google Docs keeps the record, with “Submission Completed” feeding “Add or Replace Text In Tab”.",
+  "bestTemplate": {
+    "name": "“Submission Completed” in DocuSeal, then “Add or Replace Text In Tab” in Google Docs",
+    "why": "A completed submission can write its result into a doc tab, so finished forms leave a note."
+  },
+  "watchOut": "“New Template” in DocuSeal is polling, so a short delay is normal before a new template reaches the doc."
+}

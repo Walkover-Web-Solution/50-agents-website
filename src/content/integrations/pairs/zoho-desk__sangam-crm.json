@@ -1,0 +1,8 @@
+{
+  "usedFor": "Zoho Desk holds tickets, Sangam CRM holds leads, and “New Contact” in Zoho Desk can feed “Create or Update Lead”.",
+  "bestTemplate": {
+    "name": "“New Ticket” in Zoho Desk, then “Create or Update Lead” in Sangam CRM",
+    "why": "A ticket created in Zoho Desk becomes a lead, matched by ID, email or phone and updated."
+  },
+  "watchOut": "“Updated Ticket” and “New Comment” can fire many times per ticket, so “Create or Update Lead” can run repeatedly."
+}

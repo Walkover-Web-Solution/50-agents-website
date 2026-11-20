@@ -1,0 +1,8 @@
+{
+  "usedFor": "Drip events like “New Lead” send a chat request to an AI agent in Gtwy through “Call AI Agent Instantly”.",
+  "bestTemplate": {
+    "name": "“New Lead” in Drip, then “Call AI Agent Instantly” in Gtwy",
+    "why": "A new lead is a clear trigger, and the action sends a chat request to a chosen AI agent."
+  },
+  "watchOut": "“Updated Lead Score” fires on every change, so pick “New Lead” for one call per lead."
+}

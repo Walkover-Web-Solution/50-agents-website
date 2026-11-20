@@ -1,0 +1,8 @@
+{
+  "usedFor": "Memberful holds members, subscriptions and orders, and Facebook Messenger carries a note to the person through “Send Message from Page”.",
+  "bestTemplate": {
+    "name": "“When a subscription is renewed” in Memberful, then “Send Message from Page” in Facebook Messenger",
+    "why": "A renewal passes on member and subscription details, and the action sends a message to a user from a page."
+  },
+  "watchOut": "“Send Message from Page” reaches someone outside your business, so each message waits for your approval."
+}

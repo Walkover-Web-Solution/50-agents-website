@@ -1,0 +1,8 @@
+{
+  "usedFor": "CompanyCam holds job site photos and projects, and “New Project” can start “Trigger Command” in TRIGGERcmd on your computers.",
+  "bestTemplate": {
+    "name": "“New Project” in CompanyCam, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new CompanyCam project runs a command on your computers."
+  },
+  "watchOut": "“Trigger Command” acts on your computers, so prefer “New Project” over “Comment All”, which covers every comment event."
+}

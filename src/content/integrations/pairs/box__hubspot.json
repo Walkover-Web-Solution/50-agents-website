@@ -1,0 +1,8 @@
+{
+  "usedFor": "Box holds files and folders, and “New File” there can open a deal through “Create Deal” in HubSpot.",
+  "bestTemplate": {
+    "name": "“New File” in Box, then “Create Deal” in HubSpot",
+    "why": "A file added to a folder is Box's clearest signal, and the action gives sales a deal to work from."
+  },
+  "watchOut": "Box triggers here are polling, so “New File” reaches HubSpot after a short delay."
+}

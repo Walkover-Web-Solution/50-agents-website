@@ -1,0 +1,8 @@
+{
+  "usedFor": "Agendor holds deals and people, and “Deal Stage Updated” can drive “Update Spreadsheet Row” in the Google Sheets row.",
+  "bestTemplate": {
+    "name": "“Deal Stage Updated” in Agendor, then “Update Spreadsheet Row” in Google Sheets",
+    "why": "Each stage change updates the columns of a sheet row, so the sheet follows the pipeline."
+  },
+  "watchOut": "“Update Spreadsheet Row” edits an existing row, so a “New Person” run changes a row instead of adding one."
+}

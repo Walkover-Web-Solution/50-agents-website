@@ -1,0 +1,8 @@
+{
+  "usedFor": "DocuSeal tracks templates, forms and signatures, and Calendly gets a booking link from “Create Scheduling Link” once something happens there.",
+  "bestTemplate": {
+    "name": "“Submission Completed” in DocuSeal, then “Create Scheduling Link” in Calendly",
+    "why": "A finished submission is a natural point to offer the next meeting, and the action produces the booking link."
+  },
+  "watchOut": "“New Template” polls on a schedule while “Template Created” is pushed, so pick the second to avoid delay."
+}

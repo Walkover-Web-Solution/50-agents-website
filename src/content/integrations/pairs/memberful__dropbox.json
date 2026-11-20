@@ -1,0 +1,8 @@
+{
+  "usedFor": "Memberful tracks members, Dropbox stores files, and “When an order is completed” can run “Upload File to Dropbox”.",
+  "bestTemplate": {
+    "name": "“When an order is completed” in Memberful, then “Upload File to Dropbox” in Dropbox",
+    "why": "The trigger carries order and member details, and the action saves a file from a public link into a folder."
+  },
+  "watchOut": "“Upload File to Dropbox” lets you add, replace or update an existing file, so set that choice deliberately."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Feature flag changes in LaunchDarkly, like “Flag Variations Updated”, feed a prompt to “Generate Content” in Google AI Studio (Gemini).",
+  "bestTemplate": {
+    "name": "“Flag Variations Updated” in LaunchDarkly, then “Generate Content” in Google AI Studio (Gemini)",
+    "why": "A flag variation change feeds the prompt, and the action turns it into written content about the change."
+  },
+  "watchOut": "“Generate Content” works from the prompt, so map “Flag Variations Updated” details into it or the text skips the flag."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "vPlan holds cards and comments, LeadConnector holds contacts, and “New or Updated Card” can feed “Create Or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New or Updated Card” in vPlan, then “Add or Remove Contact from Workflow” in LeadConnector",
+    "why": "A new or updated card adds or removes a contact from a LeadConnector workflow by ID or email."
+  },
+  "watchOut": "“New or Updated Card” fires on updates too, so “Create Contact” can run more than once for one card."
+}

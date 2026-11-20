@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sellsy holds the invoices, tasks and opportunities, TRIGGERcmd runs commands on your computers, and “Invoice Created” can start “Trigger Command”.",
+  "bestTemplate": {
+    "name": "“Invoice Created” in Sellsy, then “Trigger Command” in TRIGGERcmd",
+    "why": "A new invoice in Sellsy runs a command on your computers."
+  },
+  "watchOut": "“Deleted Task” also reaches “Trigger Command”, so a command can run when a task is removed."
+}

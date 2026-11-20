@@ -1,0 +1,8 @@
+{
+  "usedFor": "DocuSeal holds forms and signed submissions, Hastewire makes text sound natural, and “Submission Completed” in DocuSeal can start “Humanize Text”.",
+  "bestTemplate": {
+    "name": "“Submission Completed” in DocuSeal, then “Humanize Text” in Hastewire",
+    "why": "Each finished DocuSeal submission can be followed by text made to sound natural in Hastewire."
+  },
+  "watchOut": "“New Template” in DocuSeal is polling while “Template Created” is pushed, so choose “Template Created” for the quicker start."
+}

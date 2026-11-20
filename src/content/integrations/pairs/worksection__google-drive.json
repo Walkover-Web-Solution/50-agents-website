@@ -1,0 +1,8 @@
+{
+  "usedFor": "Worksection holds projects and tasks, and Google Drive copies or shares a file for them via “Copy a File”.",
+  "bestTemplate": {
+    "name": "“New Project” in Worksection, then “Copy a File” in Google Drive",
+    "why": "A new project can start with its own copy of a file, placed in a selected folder and optionally renamed."
+  },
+  "watchOut": "Worksection triggers such as “New Project” are polling, so “Copy a File” follows a scheduled check."
+}

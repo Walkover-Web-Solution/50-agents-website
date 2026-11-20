@@ -1,0 +1,8 @@
+{
+  "usedFor": "Slide holds contacts, and “When a new contact is created” starts “Add Row To Table” in Microsoft Excel.",
+  "bestTemplate": {
+    "name": "“When a new contact is created” in Slide, then “Add Row To Table” in Microsoft Excel",
+    "why": "Each new contact lands as a row in an Excel table, so your list stays in sheet form."
+  },
+  "watchOut": "“Update Row” needs a row that already exists, so use “Add Row To Table” for new contacts."
+}

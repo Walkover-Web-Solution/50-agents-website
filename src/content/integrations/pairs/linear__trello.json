@@ -1,0 +1,8 @@
+{
+  "usedFor": "Linear holds issues, Trello holds cards, and “Isuue Status Updated” can start “Create Trello Card” or “Move Card to List”.",
+  "bestTemplate": {
+    "name": "“Isuue Status Updated” in Linear, then “Move Card to List” in Trello",
+    "why": "When an issue changes status in Linear, its card moves to a chosen list on a chosen board."
+  },
+  "watchOut": "Linear's only trigger here is “Isuue Status Updated”, so every Trello action runs on status changes, not on new issues."
+}

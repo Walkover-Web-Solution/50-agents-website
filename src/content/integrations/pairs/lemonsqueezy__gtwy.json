@@ -1,0 +1,8 @@
+{
+  "usedFor": "Lemon Squeezy holds subscriptions and orders, and Gtwy sends them to an AI agent with “Call AI Agent Instantly”.",
+  "bestTemplate": {
+    "name": "“Subscription Cancelled” in Lemon Squeezy, then “Call AI Agent Instantly” in Gtwy",
+    "why": "A cancellation deserves a closer look, and the action sends it to a chosen AI agent with custom variables."
+  },
+  "watchOut": "“Subscription Plan Changed” fires on changes, so one customer can reach “Call AI Agent Instantly” twice."
+}

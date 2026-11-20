@@ -1,0 +1,8 @@
+{
+  "usedFor": "Stripe sends events like “When a charge succeeds”, and viaSocket utilities hands them on with “Flow in Flow”.",
+  "bestTemplate": {
+    "name": "“When a charge succeeds” in Stripe, then “Flow in Flow” in viaSocket utilities",
+    "why": "A successful charge can start a separate workflow for what comes next."
+  },
+  "watchOut": "“New Event Occurs” in Stripe is polling, so a flow started from it runs after a short delay."
+}

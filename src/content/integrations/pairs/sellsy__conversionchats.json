@@ -1,0 +1,8 @@
+{
+  "usedFor": "Sellsy holds companies, opportunities and invoices, and “Invoice Created” there can start “Send Template Message” in Conversion Chats.",
+  "bestTemplate": {
+    "name": "“Updated Opportunity Status” in Sellsy, then “Send Template Message” in Conversion Chats",
+    "why": "An opportunity status change messages the contact with a template, sent through your Conversion Chats account."
+  },
+  "watchOut": "“Send Template Message” reaches someone outside your business, so it waits for your approval before it goes."
+}

@@ -1,0 +1,8 @@
+{
+  "usedFor": "Ecwid holds store customers and orders, HubSpot holds contacts and deals, and “New Customer Created” feeds “Create or Update Contact”.",
+  "bestTemplate": {
+    "name": "“New Customer Created” in Ecwid, then “Create or Update Contact” in HubSpot",
+    "why": "It creates the contact, or updates the one with the same email, so repeat shoppers stay one record."
+  },
+  "watchOut": "“Unfinished Order Updated” fires on each update, so “Create Deal” in HubSpot can add several deals per order."
+}

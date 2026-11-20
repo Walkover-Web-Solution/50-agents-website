@@ -1,0 +1,8 @@
+{
+  "usedFor": "Records created in Clientary, like “New Invoice”, send their text through “Humanize Text” in Hastewire.",
+  "bestTemplate": {
+    "name": "“New Invoice” in Clientary, then “Humanize Text” in Hastewire",
+    "why": "It runs when an invoice is created, and the action rewrites text so it sounds natural."
+  },
+  "watchOut": "Every Clientary trigger here, including “New Payment”, is polling, so “Humanize Text” runs on a schedule."
+}

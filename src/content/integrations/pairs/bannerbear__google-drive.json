@@ -1,0 +1,8 @@
+{
+  "usedFor": "Bannerbear generates the images, and “New Image” there can start “Create Folder” in Google Drive.",
+  "bestTemplate": {
+    "name": "“New Image” in Bannerbear, then “Share File With Anyone” in Google Drive",
+    "why": "It turns a file into a shareable link with Viewer, Commenter or Editor access once an image exists."
+  },
+  "watchOut": "“New Image” in Bannerbear is polling, so a short delay before Google Drive acts is normal."
+}

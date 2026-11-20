@@ -1,0 +1,8 @@
+{
+  "usedFor": "ikas holds your store’s orders and products, and Google Drive holds their files, handled by “Copy a File”.",
+  "bestTemplate": {
+    "name": "“New Order” in ikas, then “Copy a File” in Google Drive",
+    "why": "It copies a Drive file into a chosen folder with an optional new name, giving every order a document."
+  },
+  "watchOut": "“Order Updated” in ikas fires on every order change, and “Share File With Anyone” opens a link, so check access."
+}

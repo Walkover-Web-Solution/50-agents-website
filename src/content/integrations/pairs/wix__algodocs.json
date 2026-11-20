@@ -1,0 +1,8 @@
+{
+  "usedFor": "WIX holds your site’s contacts and orders, Algodocs receives documents, and “Contact Created” can start “Upload Document”.",
+  "bestTemplate": {
+    "name": "“Contact Created” in WIX, then “Upload Document” in Algodocs",
+    "why": "A new WIX contact triggers an upload of a file given as a URL or Base64."
+  },
+  "watchOut": "“Upload Document” takes a file as a URL or Base64, so the WIX event has to supply one."
+}
