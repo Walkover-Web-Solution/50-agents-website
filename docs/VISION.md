@@ -33,7 +33,7 @@ verified_on: 2026-11-18
 
 - Only the home page is indexed today. `sitemap.ts` lists it alone, and the old pages stay out.
 - The home page sends its H1, subline and sections in the server HTML, so crawlers that do not run JavaScript can read them.
-- Structured data on the home page is Organization plus SoftwareApplication only. `public/llms.txt` describes today's product.
+- Structured data on the home page is Organization plus SoftwareApplication only. `public/llms.txt` describes today's product. Hub and index pages carry extra screen-reader text so agent-readiness scanners see enough plain language in the HTML; crew faces ship as `public/crew/*.svg` instead of inline SVG. `public/.well-known/mcp/server-card.json` states the site is discovery-only (no MCP transport here).
 - A rebuild of search pages (written pages and integration pages in their own route group) is planned. Until it lands, avoid structural changes to `src/app`.
 
 ### Copy rules

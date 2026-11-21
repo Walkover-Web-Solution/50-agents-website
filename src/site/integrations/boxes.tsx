@@ -111,51 +111,6 @@ const Arrow = ({ left }: { left?: boolean }) => (
  *  `[data-app]` tiles, the first `per` shown), and numbered pages at the bottom of the same box: previous, a compact range
  *  of page numbers, next. Every tile stays in the HTML; the other pages are only hidden. The search covers every app and
  *  its matches are paged the same way. */
-export function Directory({ per, total, label, head, children }: { per: number; total: number; label: string; head: React.ReactNode; children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [q, setQ] = useState('');
-  const [page, setPage] = useState(0);
-  const [count, setCount] = useState(total);
-  const term = q.trim().toLowerCase();
-  const pages = Math.max(1, Math.ceil(count / per));
-
-  useEffect(() => {
-    const root = ref.current;
-    if (!root) return;
-    const tiles = [...root.querySelectorAll<HTMLElement>('[data-app]')];
-    const hits = tiles.filter(t => match(t, term));
-    const on = new Set(hits.slice(page * per, page * per + per));
-    tiles.forEach(t => { t.hidden = !on.has(t); });
-    setCount(hits.length);
-  }, [term, page, per]);
-
-  const go = (n: number) => {
-    setPage(n);
-    const top = ref.current?.closest('.ig4-dir')?.getBoundingClientRect().top ?? 0;
-    if (top < 0) ref.current?.closest('.ig4-dir')?.scrollIntoView({ block: 'start' });
-  };
-
-  return (
-    <div ref={ref} className="ig4-dir-main">
-      <div className="ig4-dir-bar">
-        {head}
-        <label className="ig4-find">
-          <SearchIcon />
-          <input type="search" value={q} onChange={e => { setQ(e.target.value); setPage(0); }} placeholder={label} aria-label={label} />
-        </label>
-      </div>
-      {children}
-      {count === 0 && <p className="ig4-none" role="status">No app here matches &ldquo;{q.trim()}&rdquo;. Try another name, or tell Captain the job and it says which apps it needs.</p>}
-      {pages > 1 && (
-        <nav className="ig4-pager" aria-label="Pages">
-          <button type="button" className="ig4-pg-step" onClick={() => go(page - 1)} disabled={page === 0}><Arrow left /><span>Previous</span></button>
-          <button type="button" className="ig4-pg-step" onClick={() => go(page + 1)} disabled={page >= pages - 1}><span>Next</span><Arrow /></button>
-        </nav>
-      )}
-    </div>
-  );
-}
-
 /** Triggers and actions (D260): two equal columns, triggers left and actions right, each with its own head and count,
  *  showing its first `per` and then its own "Load more" that reveals more in place. Nothing scrolls inside itself. One
  *  search over both columns (its matches are shown `per` at a time too). A pair adds an app switcher above the columns.
@@ -230,13 +185,3 @@ export function EventBoard({ apps, search, per, children }: { apps?: { key: stri
 }
 
 /** On a phone the category list becomes one select that opens the category's page. */
-export function CatPick({ cats, current }: { cats: { href: string; name: string }[]; current: string }) {
-  return (
-    <label className="ig4-catpick">
-      <span className="sr">Category</span>
-      <select value={current} onChange={e => { location.href = e.target.value; }}>
-        {cats.map(c => <option key={c.href} value={c.href}>{c.name}</option>)}
-      </select>
-    </label>
-  );
-}

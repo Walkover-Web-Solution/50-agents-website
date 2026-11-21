@@ -13,16 +13,20 @@
 /* /use-cases: every card in the HTML under kind chips; a chip hides the other kinds' cards (D254) */
 .sec.ixf{padding-top:56px}
 .ixf-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px}
-.ixf-chips button{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border:0;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:inherit;font-size:15.5px;font-weight:500;color:var(--ink);cursor:pointer;transition:background .2s,box-shadow .2s,color .2s}
-.ixf-chips button:hover{box-shadow:inset 0 0 0 1px var(--ink)}
-.ixf-chips button.on{background:var(--ink);color:#fff;box-shadow:none}
-.ixf-chips button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.ixf-grid[data-show=ai]>a:not([data-kind=ai]),.ixf-grid[data-show=auto]>a:not([data-kind=auto]),
-.ixf-grid[data-show=app]>a:not([data-kind=app]),.ixf-grid[data-show=browser]>a:not([data-kind=browser]){display:none}
+.ixf-radio{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.ixf-chips label{cursor:pointer}
+.ixf-chip{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;background:#fff;box-shadow:inset 0 0 0 1px var(--line);font:inherit;font-size:15.5px;font-weight:500;color:var(--ink);transition:background .2s,box-shadow .2s,color .2s}
+.ixf-chips label:hover .ixf-chip{box-shadow:inset 0 0 0 1px var(--ink)}
+.ixf-chips label:has(.ixf-radio:checked) .ixf-chip{background:var(--ink);color:#fff;box-shadow:none}
+.ixf-chips label:focus-within .ixf-chip{outline:2px solid var(--ink);outline-offset:2px}
+.ixf-wrap:has(input[value=ai]:checked) .ixf-grid>a:not([data-kind=ai]),
+.ixf-wrap:has(input[value=auto]:checked) .ixf-grid>a:not([data-kind=auto]),
+.ixf-wrap:has(input[value=app]:checked) .ixf-grid>a:not([data-kind=app]),
+.ixf-wrap:has(input[value=browser]:checked) .ixf-grid>a:not([data-kind=browser]){display:none}
 @media (max-width:760px){
   .sec.ixf{padding-top:40px}
   .ixf-chips{justify-content:flex-start;margin-bottom:28px}
-  .ixf-chips button{height:40px;padding:0 14px;font-size:14.5px}
+  .ixf-chip{height:40px;padding:0 14px;font-size:14.5px}
   .ix3-hero{align-items:flex-start;text-align:left;padding-top:28px}
   .ix3-hero p{margin-left:0!important;font-size:17.5px}
   .ix3-hero h1{font-size:40px}

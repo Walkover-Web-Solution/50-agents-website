@@ -23,10 +23,21 @@ export function IndexView({ ix }: { ix: IndexPage }) {
       <section className="wrap ix3-hero">
         <h1>{ix.h1}</h1>
         <p>{ix.line}</p>
+        {ix.filter && (
+          <section className="sr">
+            <h2>Every use case on 50agents</h2>
+            <p>
+              {ix.description} Jobs on this page: {groups.flatMap(g => g.cards).map(c => c.title).join('. ')}. {groups.flatMap(g => g.cards).map(c => c.line).filter(Boolean).join(' ')} Each opens a page with the steps Captain takes and the apps it uses through viaSocket.
+            </p>
+          </section>
+        )}
       </section>
       {ix.filter ? (
         <section className="wrap sec ixf" aria-label={ix.crumb}>
-          <div className="sec-h c"><h2>All use cases</h2><p>One sentence to Captain for each job below.</p></div>
+          <div className="sec-h c">
+            <h2>All use cases</h2>
+            <p>Pick a kind, open a card, and paste its ask into Captain. Free to start with 2,000 credits a month.</p>
+          </div>
           <KindFilter kinds={[...new Set(groups.flatMap(g => g.cards.map(c => c.kind!)))]}>
             {groups.flatMap(g => g.cards).map(c => <CardLink key={c.href} c={c} />)}
           </KindFilter>

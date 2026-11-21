@@ -24,7 +24,7 @@ function Caret() {
   return <svg className="nv-caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 3.5 5 6.5 8 3.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 
-export function Header() {
+export async function Header() {
   return (
     <header className="hd">
       <div className="hd-in">
@@ -63,7 +63,7 @@ const COLS: { head: string; links: { label: string; href: string; out?: boolean 
   { head: 'Guides', links: [{ label: 'Build an AI agent without code', href: '/guides/how-to-build-an-ai-agent-without-code' }, { label: 'Build an app from Google Sheets', href: '/guides/how-to-build-an-app-from-google-sheets' }, { label: 'Automate invoice reminders', href: '/guides/how-to-automate-invoice-reminders' }, { label: 'All guides', href: '/guides' }] },
   { head: 'Company', links: [{ label: 'About', href: '/about' }, { label: 'Pricing', href: '/pricing' }, { label: 'Contact', href: '/contact' }, { label: 'Support', href: '/support' }, { label: 'Privacy policy', href: 'https://50agents.com/help/privacy-policy', out: true }, { label: 'viaSocket', href: 'https://viasocket.com', out: true }, { label: 'Careers at Walkover', href: 'https://walkover.in/careers', out: true }] },
 ];
-const CROWD = ['keeper', 'writer', 'scout', 'chaser', 'booker', 'closer', 'ledger', 'sorter', 'sprout', 'pilot', 'rosa', 'sunny'];
+const CROWD = ['keeper', 'writer', 'scout', 'chaser', 'booker', 'closer', 'ledger', 'sorter'];
 
 export function Footer() {
   return (
@@ -84,7 +84,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="crowd" aria-hidden="true">
-        {Array.from({ length: 40 }, (_, i) => CROWD[(i * 5) % CROWD.length]).map((id, i) => <span key={i}><Face id={id} size={[48, 54, 46, 52, 48, 56, 46, 52, 48, 54][i % 10]} /></span>)}
+        {Array.from({ length: 16 }, (_, i) => CROWD[i % CROWD.length]).map((id, i) => <span key={i}><Face id={id} size={[48, 52, 46, 50][i % 4]} /></span>)}
       </div>
     </footer>
   );

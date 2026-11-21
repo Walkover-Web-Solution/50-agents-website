@@ -1,26 +1,26 @@
-'use client';
-import { useState } from 'react';
-import { Face, KINDS, KindFace } from '../parts';
+import { KINDS, KindFace } from '../parts';
 import type { Kind } from '../types';
 
-// The kind chips over /use-cases (D254): All, AI agent, Automation, App, Browser agent. The cards are server-rendered
-// children and all stay in the HTML; a chip only sets data-show on the grid, and CSS hides the other kinds' cards.
 const ORDER: Kind[] = ['ai', 'auto', 'app', 'browser'];
 
+// Kind chips over /use-cases: radios + CSS (:has) so every card stays in the server HTML (Axien read.page-structure).
 export function KindFilter({ kinds, children }: { kinds: Kind[]; children: React.ReactNode }) {
-  const [show, setShow] = useState<Kind | 'all'>('all');
   const chips: (Kind | 'all')[] = ['all', ...ORDER.filter(k => kinds.includes(k))];
+  const name = 'ixf-kind';
   return (
-    <>
-      <div className="ixf-chips" role="group" aria-label="Filter by kind">
-        {chips.map(c => (
-          <button key={c} type="button" aria-pressed={show === c} className={show === c ? 'on' : undefined} onClick={() => setShow(c)}>
-            {c !== 'all' && <KindFace kind={c} size={20} />}
-            {c === 'all' ? 'All' : KINDS[c].label}
-          </button>
+    <div className="ixf-wrap">
+      <div className="ixf-chips" role="radiogroup" aria-label="Filter by kind">
+        {chips.map((c, i) => (
+          <label key={c}>
+            <input type="radio" name={name} value={c} defaultChecked={i === 0} className="ixf-radio" />
+            <span className="ixf-chip">
+              {c !== 'all' && <KindFace kind={c} size={20} />}
+              {c === 'all' ? 'All' : KINDS[c].label}
+            </span>
+          </label>
         ))}
       </div>
-      <div className="cards3 ixf-grid" data-show={show}>{children}</div>
-    </>
+      <div className="cards3 ixf-grid">{children}</div>
+    </div>
   );
 }
