@@ -537,3 +537,10 @@ html,body{margin:0;padding:0}
 .readcard .rc-cover{overflow:hidden}
 .cards3 .readcard span.rc-go:last-child{color:var(--ink)}
 .rc3{max-width:none}
+
+/* 21 Nov (Jii): the Apps crew sits in a row inside its tile (the menu, badges), not stacked out of it. */
+.kind-crew{display:inline-flex;align-items:center;flex:none}.kind-crew>.face{display:block}.kind-crew>.face+.face{margin-left:-7px}
+/* 21 Nov (Jii): the header runs end to end on every screen: logo at the left edge, Get started at the right. */
+.hd-in{max-width:none;margin:0}
+/* 21 Nov (Jii: "too visible"): the footer crowd is dormant: faded and greyed, a quiet edge, not a row of colour. */
+.foot .crowd{opacity:.28;filter:grayscale(.85)}
