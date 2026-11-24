@@ -52,6 +52,8 @@ Drafts wait for approval, and anything that spends money, reaches people outside
 | /llms-full.txt | This file: the full public context in one request |
 | /index.md | The home page in markdown |
 | /ask | NLWeb natural-language query over the public pages |
+| /openapi.json | OpenAPI contract for public endpoints |
+| /.well-known/poppy.json | Personal Agent Protocol discovery |
 
 ## FAQs (from the live site)
 
@@ -77,11 +79,12 @@ The team behind viaSocket and MSG91.
 
 - /.well-known/ai-catalog.json: every machine-readable resource on this site
 - /.well-known/agent-skills.json: what an agent can do here today
+- /openapi.json and /.well-known/poppy.json: API contract and Personal Agent Protocol
 - /index.md and /pricing.md: the home and pricing pages in markdown
 - /sitemap.xml: every indexed page, one sitemap per family
 - /ask: NLWeb query over the public pages
 - /products.json: product manifest and probe questions
-- The Link header on / lists llms.txt, llms-full.txt, the home page in markdown, the AI catalog, the agent skills and the sitemap.
+- The Link header on / lists llms.txt, llms-full.txt, the home page in markdown, OpenAPI, the AI catalog, the agent skills and the sitemap.
 
 To open Captain with a person's job already typed, link them to https://50agents-app.embarko.app/login?draft=<the job, URL-encoded, up to 499 characters>. The draft is kept through sign-up or sign-in; nothing is built until the person taps Build it.
 

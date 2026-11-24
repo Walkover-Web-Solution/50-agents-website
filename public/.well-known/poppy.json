@@ -1,0 +1,16 @@
+{
+  "protocol_version": "1.0",
+  "organization": {
+    "name": "50agents",
+    "domain": "50agents.com",
+    "logo_uri": "https://50agents.com/50_agents_logo.png"
+  },
+  "web": {},
+  "apis": [
+    {
+      "type": "openapi",
+      "url": "https://50agents.com/openapi.json",
+      "description": "Search public pages and the integration catalog with NLWeb /ask."
+    }
+  ]
+}

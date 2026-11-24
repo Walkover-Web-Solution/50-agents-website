@@ -1,0 +1,189 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "50agents public site API",
+    "version": "1.0.0",
+    "description": "Machine-readable contract for public endpoints on 50agents.com. The product app and workspaces live at 50agents-app.embarko.app and are not described here."
+  },
+  "servers": [
+    {
+      "url": "https://50agents.com"
+    }
+  ],
+  "paths": {
+    "/ask": {
+      "get": {
+        "operationId": "askDescribeOrQuery",
+        "summary": "Describe the NLWeb ask endpoint or run a GET query",
+        "description": "Without q, returns a short description of the endpoint. With q, returns ranked public pages and integration hits in NLWeb answer format.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "description": "Natural-language question about 50agents, pricing, or an app name.",
+            "schema": {
+              "type": "string",
+              "maxLength": 500
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "NLWeb answer or endpoint description",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    { "$ref": "#/components/schemas/NlwebAnswer" },
+                    { "$ref": "#/components/schemas/AskDescriptor" }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed query parameter",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "operationId": "askPost",
+        "summary": "Run a natural-language query over public pages and the app catalog",
+        "description": "Accepts NLWeb-style JSON with query.text and returns ranked WebPage results.",
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AskBody" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "NLWeb answer",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/NlwebAnswer" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON body",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported media type",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        },
+        "security": []
+      },
+      "options": {
+        "operationId": "askOptions",
+        "summary": "CORS preflight for /ask",
+        "responses": {
+          "204": {
+            "description": "CORS headers for browser clients"
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AskBody": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "object",
+            "properties": {
+              "text": { "type": "string" },
+              "site": { "type": "string", "format": "uri" }
+            }
+          },
+          "prefer": {
+            "type": "object",
+            "properties": {
+              "mode": { "type": "string" },
+              "response_format": { "type": "string" }
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "version": { "type": "string" }
+            }
+          }
+        }
+      },
+      "NlwebAnswer": {
+        "type": "object",
+        "required": ["_meta", "results"],
+        "properties": {
+          "_meta": {
+            "type": "object",
+            "required": ["response_type", "version"],
+            "properties": {
+              "response_type": { "type": "string", "enum": ["answer"] },
+              "version": { "type": "string", "example": "0.55" }
+            }
+          },
+          "results": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/WebPageResult" }
+          }
+        }
+      },
+      "WebPageResult": {
+        "type": "object",
+        "properties": {
+          "@context": { "type": "string" },
+          "@type": { "type": "string" },
+          "name": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "description": { "type": "string" },
+          "site": { "type": "string", "format": "uri" },
+          "score": { "type": "number" }
+        }
+      },
+      "AskDescriptor": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "methods": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "spec": { "type": "string", "format": "uri" },
+          "message": { "type": "string" }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "securitySchemes": {}
+  }
+}

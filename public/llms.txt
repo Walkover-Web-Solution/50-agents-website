@@ -10,9 +10,11 @@ Every workspace starts free with 2,000 credits.
 - [Sign up](https://50agents-app.embarko.app/login): create a free workspace, or sign in.
 - [Full context (llms-full.txt)](https://50agents.com/llms-full.txt): entire public site guide in one file.
 - [NLWeb /ask](https://50agents.com/ask): natural-language query over public content.
+- [OpenAPI](https://50agents.com/openapi.json): machine-readable contract for public endpoints on this site.
 
 ## For AI agents
 
+- [Personal Agent Protocol (poppy.json)](https://50agents.com/.well-known/poppy.json): agent discovery for this domain.
 - [AI catalog](https://50agents.com/.well-known/ai-catalog.json): every machine-readable resource on this site.
 - [Agent skills](https://50agents.com/.well-known/agent-skills.json): what an agent can do here today.
 - [Home in markdown](https://50agents.com/index.md) and [pricing in markdown](https://50agents.com/pricing.md).
