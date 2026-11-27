@@ -1,0 +1,370 @@
+{
+  "slug": "google-forms",
+  "query": "google forms ai agent",
+  "title": "Google Forms AI agent for every new response | 50agents",
+  "description": "Tell Captain the job and a Google Forms AI agent does it: replies to each response, logs it to Sheets, routes requests for approval, flags bad ratings.",
+  "h1": "A Google Forms AI agent that handles every response for you",
+  "answer": [
+    "With 50agents, a Google Forms AI agent picks up each new response, replies to the person, logs it to a sheet, tells your team in Slack and starts the next step in apps like HubSpot, Google Calendar and Trello, across the 2,300+ apps you already use.",
+    "You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own whenever someone submits your form. It can also build the form and add questions for you."
+  ],
+  "asks": [
+    "When someone fills my enquiry form, email them a friendly reply the same hour and add them to HubSpot",
+    "Every Monday, read last week's responses to my feedback form and send me a short summary of what people said",
+    "When someone submits the leave form, ask their manager in Slack with Approve and Decline buttons",
+    "Create a Google Form for event sign-ups with name, email, phone and meal choice"
+  ],
+  "hero": {
+    "kind": "ai",
+    "title": "Every enquiry answered the same hour",
+    "in": {
+      "app": "google-forms",
+      "label": "New form response",
+      "text": "Dev, wants a quote for 40 chairs"
+    },
+    "steps": [
+      "Reads the new response",
+      "Writes a short, friendly reply",
+      "Emails it and adds a HubSpot contact"
+    ],
+    "out": {
+      "app": "gmail",
+      "label": "Email to Dev",
+      "text": "Thanks Dev, 40 chairs is easy. Quote by Friday."
+    }
+  },
+  "chores": [
+    {
+      "label": "Leads and enquiries",
+      "line": "Whoever fills in your form hears back fast, and the team knows who to call.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Enquiries answered within the hour",
+          "body": "Reads each new enquiry, writes a reply that fits what they asked, and emails it from your Gmail.",
+          "ask": "When someone fills my enquiry form, write a friendly reply to what they asked and email it to them",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Dev, wants a quote for 40 chairs"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to Dev",
+            "text": "Thanks Dev, 40 chairs is easy. Quote by Friday."
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "New leads added to HubSpot",
+          "body": "Each response becomes a HubSpot contact with the details they typed in, so nothing sits in a form.",
+          "ask": "When someone submits my contact form, create or update them as a contact in HubSpot",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Nisha, nisha@example.com, wants a demo"
+          },
+          "out": {
+            "app": "hubspot",
+            "label": "New contact",
+            "text": "Nisha added, source: contact form"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Quote requests posted with a brief",
+          "body": "Posts each quote request in Slack with a one-line summary of what they need and by when.",
+          "ask": "When someone fills the quote form, post who they are and a one-line brief in #sales in Slack",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Marta, 200 flyers, needs them by 5 Dec"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#sales",
+            "text": "Marta: 200 flyers, due 5 Dec"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Callback requests put in the calendar",
+          "body": "When someone asks for a callback and picks a time, it adds the event to your Google Calendar.",
+          "ask": "When someone requests a callback in my form, add it to Google Calendar at the time they chose",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Tomas, callback Thu 4:00 pm"
+          },
+          "out": {
+            "app": "google-calendar",
+            "label": "Calendar event",
+            "text": "Call Tomas, Thu 4:00 pm"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Sheets and records",
+      "line": "Responses end up where you work with them, tidy and in one place.",
+      "jobs": [
+        {
+          "kind": "auto",
+          "title": "Every response a row in your sheet",
+          "body": "Each submission is added as a row in the Google Sheet you pick, with the answers in the right columns.",
+          "ask": "When someone submits my order form, add their answers as a new row in my Orders sheet",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Order: 3 boxes, Ravi, Friday"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Orders sheet",
+            "text": "Row 58: Ravi, 3 boxes, Friday"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Weekly summary of what came in",
+          "body": "Every Monday it reads last week's responses and sends you a short note with the counts and the main points.",
+          "ask": "Every Monday at 8, read last week's responses to my form and email me a short summary",
+          "in": {
+            "app": "google-forms",
+            "label": "Every Monday, 8:00",
+            "text": "Reads last week's 31 responses"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to you",
+            "text": "31 replies. Most asked about delivery times."
+          },
+          "uses": [
+            "List Form Responses"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Open answers sorted by topic",
+          "body": "Reads the free-text answer in each response and tags it, such as pricing, delivery or complaint, in your sheet.",
+          "ask": "For each new response, read the comments box and write a topic tag next to it in my Feedback sheet",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "\"Delivery was late but staff were kind\""
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Feedback sheet",
+            "text": "Row 112: topic = delivery, tone = mixed"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Requests and approvals",
+      "line": "Staff requests go to the right person and wait for a yes before anything happens.",
+      "jobs": [
+        {
+          "kind": "auto",
+          "title": "Time-off requests with buttons",
+          "body": "A leave form becomes a Slack message with Approve and Decline for the manager, and the answer goes back to the person.",
+          "ask": "When someone fills the leave form, ask their manager in Slack with Approve and Decline buttons and DM the person the answer",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Leave 12 to 14 Dec, Meera"
+          },
+          "out": {
+            "app": "slack",
+            "label": "To the manager",
+            "text": "Meera: leave 12 to 14 Dec? Approve Decline"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Expense claims become Trello cards",
+          "body": "Each claim form creates a card with the amount and the receipt link, ready for you to review.",
+          "ask": "When someone submits the expense form, create a Trello card in To Review with the amount and receipt link",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Taxi, $32, receipt attached, Sam"
+          },
+          "out": {
+            "app": "trello",
+            "label": "To Review",
+            "text": "Sam: taxi $32, receipt linked"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Purchase requests logged in Notion",
+          "body": "Supply and purchase requests from the team are added to a Notion table so you can see them all.",
+          "ask": "When someone submits the supplies request form, add a row to my Requests table in Notion",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Need 2 label printers, Lena"
+          },
+          "out": {
+            "app": "notion",
+            "label": "Requests table",
+            "text": "Lena: 2 label printers, open"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Feedback and support",
+      "line": "Unhappy people get noticed the same day, and good feedback is not lost.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Low ratings flagged at once",
+          "body": "When a response gives a low score, it messages you on WhatsApp with the person and what they wrote.",
+          "ask": "When someone gives 2 stars or less in my feedback form, WhatsApp me their name and comment",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "2 stars, Kabir, \"Wrong item arrived\""
+          },
+          "out": {
+            "app": "whatsapp",
+            "label": "WhatsApp to you",
+            "text": "Kabir gave 2 stars: wrong item arrived"
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Support requests acknowledged",
+          "body": "Sends a reply to each support form with what was understood and when to expect an answer.",
+          "ask": "When someone submits the support form, email them to say we got it and repeat their issue in one line",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Invoice shows the wrong address, Priya"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to Priya",
+            "text": "Got it, we will fix the address on your invoice today."
+          },
+          "uses": [
+            "New Form Response"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Build and edit forms",
+      "line": "Captain can make the form itself, so the whole job starts from one sentence.",
+      "jobs": [
+        {
+          "kind": "app",
+          "title": "A new form built from a sentence",
+          "body": "Describe the form and it creates it in Google Forms with the questions, ready to share.",
+          "ask": "Create a Google Form for event sign-ups with name, email, phone and meal choice",
+          "in": {
+            "app": "google-forms",
+            "label": "Your ask",
+            "text": "Event sign-up form, 4 questions"
+          },
+          "out": {
+            "app": "google-forms",
+            "label": "New form",
+            "text": "Event sign-up, ready to share"
+          },
+          "uses": [
+            "Create Google Form"
+          ]
+        },
+        {
+          "kind": "app",
+          "title": "Missing questions added to a form",
+          "body": "Checks what a form asks today and adds the questions you forgot, such as phone number or a rating.",
+          "ask": "Look at my customer survey form and add a phone number question and a 1 to 5 rating question",
+          "in": {
+            "app": "google-forms",
+            "label": "Customer survey",
+            "text": "Asks name and email only"
+          },
+          "out": {
+            "app": "google-forms",
+            "label": "Updated form",
+            "text": "Added phone and a 1 to 5 rating"
+          },
+          "uses": [
+            "Get Form Details",
+            "Add Questions to Form"
+          ]
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "What can a Google Forms AI agent actually do?",
+      "a": "It starts when “New Form Response” fires, then reads the answers, writes a reply, adds a row or contact, or asks someone to approve. It can also read past responses with “List Form Responses” and build forms with “Create Google Form”."
+    },
+    {
+      "q": "Does the form need to be changed to connect it?",
+      "a": "No. You pick the form you already use, and Captain reads each new response from it. You do not add scripts or add-ons to the form."
+    },
+    {
+      "q": "Does a new response start the work at once?",
+      "a": "“New Form Response” is checked on a schedule, so the work starts shortly after someone submits rather than the same second. For an enquiry or a leave request, that gap is normally fine."
+    },
+    {
+      "q": "Can it reply to the person who filled the form?",
+      "a": "Yes, if the form asks for an email address. The AI agent reads their answers, writes the reply and sends it from your Gmail. Until you allow it to send on its own, it asks you first."
+    },
+    {
+      "q": "Can it send form responses to Google Sheets?",
+      "a": "Yes. Each “New Form Response” can be added as a row in the sheet you pick, with the answers in the right columns, and the AI agent can add columns such as a topic tag or a short summary."
+    },
+    {
+      "q": "Can it get a manager's approval from a form request?",
+      "a": "Yes. A leave, expense or purchase form can start a Slack message with Approve and Decline buttons, and the next step waits for the answer. Nothing else happens until someone taps."
+    },
+    {
+      "q": "Can it summarise all my responses?",
+      "a": "Yes. “List Form Responses” reads every response to a form, so Captain can write a weekly summary, count answers or pick out common complaints and send them to you."
+    },
+    {
+      "q": "Can it create or edit a Google Form for me?",
+      "a": "Yes. “Create Google Form” makes a new form from your description, “Get Form Details” reads what a form asks today, and “Add Questions to Form” adds questions with the type and options you want."
+    }
+  ],
+  "updated": "2026-11-27"
+}

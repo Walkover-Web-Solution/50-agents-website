@@ -1,0 +1,372 @@
+{
+  "slug": "google-sheets",
+  "query": "google sheets ai agent",
+  "title": "Google Sheets AI agent that updates your rows | 50agents",
+  "description": "Tell Captain the job and a Google Sheets AI agent adds rows, updates them, chases follow-ups and sends weekly reports across your other apps.",
+  "h1": "A Google Sheets AI agent that keeps your sheet up to date for you",
+  "answer": [
+    "With 50agents, a Google Sheets AI agent adds rows from your leads and payments, updates the right row when something changes, chases follow-ups and sends weekly summaries, across the 2,300+ apps your business already uses.",
+    "You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own against your sheet."
+  ],
+  "asks": [
+    "When a Google Form is filled, add a row to my Leads sheet and rate the lead hot, warm or cold",
+    "When a Shopify order is fulfilled, find its row by order number and set Status to Shipped",
+    "Every Monday at 9, read last week's rows from my Sales sheet and post a summary in #team",
+    "Every morning, draft a reminder email for each overdue invoice in my Invoices sheet"
+  ],
+  "hero": {
+    "kind": "ai",
+    "title": "New enquiries rated and logged",
+    "in": {
+      "app": "google-forms",
+      "label": "New form response",
+      "text": "Priya S., needs 200 boxes by Friday"
+    },
+    "steps": [
+      "Reads what they wrote",
+      "Rates it hot, warm or cold",
+      "Adds the row and tells you in Slack"
+    ],
+    "out": {
+      "app": "google-sheets",
+      "label": "Leads sheet",
+      "text": "Row 58: Priya S., 200 boxes, hot"
+    }
+  },
+  "chores": [
+    {
+      "label": "Leads and sales",
+      "line": "Every enquiry and payment lands in the right row, once, with nothing typed by hand.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "New leads logged and rated",
+          "body": "Each new Facebook lead is added as a row with a hot, warm or cold rating based on what they asked.",
+          "ask": "When a new Facebook lead comes in, add a row to my Leads sheet with name, phone and a hot, warm or cold rating",
+          "in": {
+            "app": "facebook-lead-ads",
+            "label": "New lead",
+            "text": "Arjun M., wants a quote this week"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Leads sheet",
+            "text": "Row 58: Arjun M., hot"
+          },
+          "uses": [
+            "Add New Row to Sheet"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Stripe payments logged",
+          "body": "Every payment in Stripe becomes a row with the customer, amount and date, ready for month end.",
+          "ask": "When a payment succeeds in Stripe, add a row to my Payments sheet with customer, amount and date",
+          "in": {
+            "app": "stripe",
+            "label": "Payment received",
+            "text": "Lena, $120, 3 Dec"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Payments sheet",
+            "text": "Row 212: Lena, $120, 3 Dec"
+          },
+          "uses": [
+            "Add New Row to Sheet"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Orders updated, never duplicated",
+          "body": "When an order changes in Shopify, it finds the order's row and updates the status instead of adding a new one.",
+          "ask": "When a Shopify order is fulfilled, find its row in my Orders sheet by order number and set Status to Shipped",
+          "in": {
+            "app": "shopify",
+            "label": "Order fulfilled",
+            "text": "#1047 shipped"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Orders sheet",
+            "text": "Row 46: #1047, Shipped"
+          },
+          "uses": [
+            "Lookup Spreadsheet Rows",
+            "Update Spreadsheet Row"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Follow-ups and reminders",
+      "line": "The sheet tells people what to do next, so nothing waits for someone to look.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Thank-you email when a row says Paid",
+          "body": "When someone sets a row to Paid, an email goes to that customer thanking them with the invoice number.",
+          "ask": "When a row in my Invoices sheet changes to Paid, email the customer a short thank-you with the invoice number",
+          "in": {
+            "app": "google-sheets",
+            "label": "Row updated",
+            "text": "Invoice 310: Status Paid"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to customer",
+            "text": "Thanks Ravi, invoice 310 is paid"
+          },
+          "uses": [
+            "Row Added Or Updated"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Overdue invoices chased each morning",
+          "body": "Each morning it reads the sheet and drafts a polite reminder to every customer past their due date.",
+          "ask": "Every morning at 9, read my Invoices sheet and draft a reminder email for each overdue invoice",
+          "in": {
+            "app": "google-sheets",
+            "label": "Every day, 9:00",
+            "text": "3 invoices past due date"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "3 drafts ready",
+            "text": "Hi Meera, invoice 298 was due 28 Nov"
+          },
+          "uses": [
+            "List Rows in Sheet"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Quiet leads nudged on WhatsApp",
+          "body": "Leads with no reply for three days get a short WhatsApp check-in, and the row is marked nudged.",
+          "ask": "Every day, find leads in my Leads sheet with no reply for 3 days, WhatsApp them a check-in and mark the row Nudged",
+          "in": {
+            "app": "google-sheets",
+            "label": "Every day, 10:00",
+            "text": "Lead not replied for 3 days"
+          },
+          "out": {
+            "app": "whatsapp",
+            "label": "WhatsApp message",
+            "text": "Hi Kabir, still keen on the quote?"
+          },
+          "uses": [
+            "Lookup Spreadsheet Rows",
+            "Update Spreadsheet Row"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Reports and answers",
+      "line": "The numbers are read, summed up and sent, and you can ask the sheet questions in plain words.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Monday summary in Slack",
+          "body": "Every Monday it reads last week's rows and posts a short summary with the total and the biggest change.",
+          "ask": "Every Monday at 9, read last week's rows from my Sales sheet and post a short summary in #team in Slack",
+          "in": {
+            "app": "google-sheets",
+            "label": "Every Monday, 9:00",
+            "text": "Sales sheet, last 7 days"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#team",
+            "text": "38 orders, $12,400, up 9% on last week"
+          },
+          "uses": [
+            "Get Rows From Range"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "A new tab every month",
+          "body": "On the first of the month it adds a tab named for the month with your column headers ready.",
+          "ask": "On the 1st of each month, add a new tab named for the month to my Expenses sheet with the same column headers",
+          "in": {
+            "app": "google-sheets",
+            "label": "1st of the month",
+            "text": "Expenses sheet"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "New tab",
+            "text": "December, headers ready"
+          },
+          "uses": [
+            "Create Subsheet",
+            "Find Subsheet"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Ask your sheet a question",
+          "body": "Ask in plain words, such as who owes us most, and it reads the rows and answers with the names and amounts.",
+          "ask": "Which customers owe us the most right now? Check my Invoices sheet and list the top five",
+          "in": {
+            "app": "google-sheets",
+            "label": "You ask Captain",
+            "text": "Who owes us the most?"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "The answer",
+            "text": "Northwind $2,400, Asha $1,150, Dev $980"
+          },
+          "uses": [
+            "List Rows in Sheet",
+            "Lookup Spreadsheet Rows"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Tidy-up and setup",
+      "line": "The sheet keeps itself clear, so you can read it at a glance.",
+      "jobs": [
+        {
+          "kind": "auto",
+          "title": "Overdue rows turn red",
+          "body": "Overdue cells are coloured red and paid rows green, so the problems stand out.",
+          "ask": "Colour the Due Date cells red in my Invoices sheet when the date has passed and the row is not Paid",
+          "in": {
+            "app": "google-sheets",
+            "label": "Sheet rule",
+            "text": "Due date passed, not paid"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Invoices sheet",
+            "text": "Row 14 turns red"
+          },
+          "uses": [
+            "Add Conditional Formatting Rule",
+            "Format Spreadsheet Row"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "New client, new sheet from a template",
+          "body": "When a HubSpot deal is won, it makes a client sheet from your template and names it after them.",
+          "ask": "When a deal is won in HubSpot, create a new sheet from my Client Template and name it after the company",
+          "in": {
+            "app": "hubspot",
+            "label": "Deal won",
+            "text": "Northwind, onboarding"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "New spreadsheet",
+            "text": "Northwind: Onboarding tracker"
+          },
+          "uses": [
+            "Create Spreadsheet From Template"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Old rows cleared after you approve",
+          "body": "It finds rows older than 90 days, lists them for you to approve, and only then deletes them.",
+          "ask": "Every month, find rows older than 90 days in my Enquiries sheet, show me the list and delete them only after I approve",
+          "in": {
+            "app": "google-sheets",
+            "label": "Every month",
+            "text": "41 rows older than 90 days"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "After you approve",
+            "text": "41 rows removed"
+          },
+          "uses": [
+            "Lookup Spreadsheet Rows",
+            "Delete Rows"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Beyond the sheet",
+      "line": "Pull in what lives on websites, and turn the sheet into something your team can use.",
+      "jobs": [
+        {
+          "kind": "browser",
+          "title": "Supplier prices copied into your sheet",
+          "body": "A browser agent opens your supplier's price page each day and adds today's prices as a new row.",
+          "ask": "Every day, open supplier.com/prices, read the prices for my 5 products and add a row to my Costs sheet",
+          "in": {
+            "app": "google-sheets",
+            "label": "Every day, 7:00",
+            "text": "Opens supplier.com/prices"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Costs sheet",
+            "text": "Row 90: boxes $1.20, tape $0.80"
+          },
+          "uses": [
+            "Add New Row to Sheet"
+          ]
+        },
+        {
+          "kind": "app",
+          "title": "Your sheet as a team request app",
+          "body": "Captain builds a small app on your rows, so the team submits and tracks requests without opening the sheet.",
+          "ask": "Build me an app for team requests on my Requests sheet, with a form to submit and a list to track status",
+          "in": {
+            "app": "google-sheets",
+            "label": "Requests sheet",
+            "text": "120 rows, 5 columns"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Your new app",
+            "text": "Submit form and status list"
+          },
+          "uses": [
+            "List Rows in Sheet",
+            "Add New Row to Sheet"
+          ]
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can an AI agent update several rows in Google Sheets at once?",
+      "a": "Yes. “Update Multiple Rows” changes the rows you name in one step, and “Batch Update Cell Values” sets many cells at once. Say which column and which rows in the ask, and check Captain's plan before you approve it."
+    },
+    {
+      "q": "How do I stop it adding a duplicate row or changing the wrong one?",
+      "a": "Ask it to find the row first. “Lookup Spreadsheet Rows” matches a value such as an order number, and “Update Spreadsheet Row” changes only that row. Use “Add New Row to Sheet” only when the record is new."
+    },
+    {
+      "q": "Does a new row in my sheet start the work straight away?",
+      "a": "“Row Added Or Updated” starts an automation or an AI agent when a row is added or edited. It fires on edits too, so plan for a row that changes twice, for example by checking a Status column first."
+    },
+    {
+      "q": "How is this different from AI add-ons and Gemini inside Google Sheets?",
+      "a": "Add-ons and in-sheet AI help with the cells in the file you have open. On 50agents the sheet is one of your apps, so the work can start in Gmail, Stripe, Shopify or a form, read or write the sheet with “List Rows in Sheet” or “Add New Row to Sheet”, and finish in Slack or an email."
+    },
+    {
+      "q": "Can an AI agent read my sheet and answer questions about it?",
+      "a": "Yes. It reads rows with “List Rows in Sheet”, “Get Rows From Range” or “Lookup Spreadsheet Rows” and answers in its chat or on a schedule. Writing back is a step you name, such as “Update Spreadsheet Row”."
+    },
+    {
+      "q": "Can it make a new tab or sheet for each month or client?",
+      "a": "Yes. “Create Subsheet” adds a tab, “Create a Spreadsheet” and “Create Spreadsheet From Template” make a new file, and “Copy Sheet To Spreadsheet” copies a tab into another file."
+    },
+    {
+      "q": "Can it delete rows or clear data?",
+      "a": "The catalog has “Delete Rows”, “Clear Spreadsheet Row” and “Permanently Delete Spreadsheet”. Changes made in Google Sheets cannot be undone from 50agents, so name a delete in the ask only when you mean it, and ask for an approval step first."
+    }
+  ],
+  "updated": "2026-11-27"
+}

@@ -24,7 +24,11 @@ Every workspace starts free with 2,000 credits.
 
 Everything you can do with each app on 50agents, by chore, with asks that open Captain.
 
+- [A Gmail AI agent that clears your inbox chores for you](https://50agents.com/integrations/gmail) ([markdown](https://50agents.com/integrations/gmail.md)): With 50agents, a Gmail AI agent reads new email, drafts replies in your voice, labels and files messages, pulls out attachments and logs what matters to a sheet, across the 2,300+ apps your business already uses.
+- [A Google Forms AI agent that handles every response for you](https://50agents.com/integrations/google-forms) ([markdown](https://50agents.com/integrations/google-forms.md)): With 50agents, a Google Forms AI agent picks up each new response, replies to the person, logs it to a sheet, tells your team in Slack and starts the next step in apps like HubSpot, Google Calendar and Trello, across the 2,300+ apps you already use.
+- [A Google Sheets AI agent that keeps your sheet up to date for you](https://50agents.com/integrations/google-sheets) ([markdown](https://50agents.com/integrations/google-sheets.md)): With 50agents, a Google Sheets AI agent adds rows from your leads and payments, updates the right row when something changes, chases follow-ups and sends weekly summaries, across the 2,300+ apps your business already uses.
 - [AI agents for Slack that do the chores, not just chat](https://50agents.com/integrations/slack) ([markdown](https://50agents.com/integrations/slack.md)): With 50agents, a Slack AI agent posts the updates, asks for approvals with buttons, answers when someone mentions it and logs what matters to a sheet, across the 2,300+ apps your business already uses.
+- [An AI agent for TallyPrime that chases dues and logs your vouchers](https://50agents.com/integrations/tallyprime) ([markdown](https://50agents.com/integrations/tallyprime.md)): With 50agents, a TallyPrime AI agent sends payment reminders, logs sales and purchase vouchers in Google Sheets, alerts your team on Slack and emails statements to your accountant, across the 2,300+ apps your business already uses.
 <!-- apps:end -->
 
 ## Product overview
@@ -111,6 +115,157 @@ To open Captain with a person's job already typed, link them to https://50agents
 
 # Apps, in depth
 
+## A Gmail AI agent that clears your inbox chores for you
+
+With 50agents, a Gmail AI agent reads new email, drafts replies in your voice, labels and files messages, pulls out attachments and logs what matters to a sheet, across the 2,300+ apps your business already uses. You tell Captain the job in one sentence, check the plan it shows, and it runs on its own against your Gmail, with anything going out to customers waiting for your approval.
+
+Page: https://50agents.com/integrations/gmail (markdown: https://50agents.com/integrations/gmail.md)
+
+### Email replies
+
+- Replies drafted from your notes (AI agent): Reads each new email, writes a reply from your price list or FAQ and saves it as a draft to review. Ask: "Read every new email to sales@, draft a reply from my price list and save it as a Gmail draft"
+- Order questions answered in thread (AI agent): Looks up the order in Shopify and replies in the same thread with status and tracking. Ask: "When a customer emails about an order, find it in Shopify and reply in the same thread with the status"
+- Thank-you and receipt emails (AI agent): When a Stripe payment succeeds, it sends a short personal thank you with the amount and what was bought. Ask: "When a Stripe payment succeeds, email the customer a short thank-you with the amount and item"
+
+### Follow-ups
+
+- Quotes chased after three days (AI agent): Checks your sent quotes, and drafts a polite nudge for any with no reply after three days. Ask: "Every morning, find quotes I sent 3 days ago with no reply and draft a polite follow-up in the thread"
+- Booked calls confirmed by email (Automation): When someone books in Calendly, a confirmation with the time and your prep notes goes out at once. Ask: "When a Calendly call is booked, email the person a confirmation with the time and what to bring"
+- Friday list of unanswered threads (AI agent): Every Friday, it searches for threads waiting on a reply and emails you a short list. Ask: "Every Friday at 4, email me a list of threads where I'm still waiting for a reply"
+
+### Sorting and labels
+
+- Every email labelled by type (AI agent): Reads each new email and adds the right label: customer, supplier, lead or other. Ask: "Label every new email as Customer, Supplier, Lead or Other"
+- Urgent mail flagged to Slack (AI agent): Spots angry or time-critical emails and posts a one-line alert to your team channel. Ask: "When an email sounds urgent or angry, post a one-line alert in #support in Slack"
+- Invoices labelled by supplier (Automation): Emails with attachments from a supplier get a label, so each supplier's bills are in one place. Ask: "When an email with an attachment arrives from a supplier, label it with the supplier's name"
+
+### Invoices and records
+
+- Invoice emails read into a sheet (AI agent): Opens each invoice attachment, reads supplier, amount and due date and adds a row to your Bills sheet. Ask: "When an email with an invoice attached arrives, add the supplier, amount and due date to my Bills sheet"
+- Quotes you send, logged in a sheet (Automation): Each email in your Sent folder with a quote label becomes a row, so you can see what is out. Ask: "When I send an email labelled Quote, add the recipient, subject and date to my Quotes sheet"
+- Receipt emails filed to accounts (App): Emails with receipts attached are logged as expenses in Xero with the file attached. Ask: "When a receipt arrives by email, create an expense in Xero with the receipt attached"
+
+### Leads and the web
+
+- Enquiry emails become CRM leads (Automation): Each new email to your enquiries address is added to HubSpot as a contact with the message. Ask: "When a new email arrives at hello@, create a contact in HubSpot with their name and message"
+- Prices checked, then emailed (Browser agent): A browser agent opens a supplier's public price page each Monday and emails you any change. Ask: "Every Monday, check the price page on supplier.com and email me if a price changed"
+
+**Will an AI agent send email from my Gmail without asking?** Not by default. Anything going to people outside your business waits in Needs you until you approve it, and an AI agent asks before sending until you allow it in Settings. Drafts saved with “Create Email Draft” sit in your Gmail drafts until you send them.
+
+**Can it reply inside the same thread?** Yes. “Reply To Thread” answers an existing conversation and lets you pick the recipients, the sender, everyone or specific people, so the reply stays with the thread. “Get Thread Replies” lets it read the thread first.
+
+**Can a new email start the work?** Yes. “New Email Arrives” starts an automation or an AI agent, filtered by label, sender or subject, and “New Attachment” starts it when a message carries a file.
+
+**Can it sort my email into labels?** Yes. “Modify Email Labels” adds or removes labels on a message or a whole thread. An AI agent can read each new email and decide the label, and an automation can label by sender or subject the same way every time.
+
+**Can it follow up when someone has not replied?** Yes. “New Email Sent” starts the work from your Sent mailbox, “Search_Email_Messages” finds threads, and “Get Thread Replies” checks whether anyone answered. If nobody did, it drafts the nudge with “Reply To Thread” for you to approve.
+
+**Can it pull invoices and files out of my emails?** Yes. “New Attachment” finds messages that carry files, and “Get Email Attachment” returns each file's name, type and link so the next step can read it, save it or log it to a sheet.
+
+**Is a new email picked up straight away?** No, on a schedule. “New Email Arrives”, “New Attachment” and “New Email Sent” are checked at intervals, not pushed the second mail lands, so there is a short delay.
+
+**Do I need to write code or build a flowchart?** No. You write the job in a sentence, Captain shows the plan in plain words, and you change any step by saying so.
+
+## A Google Forms AI agent that handles every response for you
+
+With 50agents, a Google Forms AI agent picks up each new response, replies to the person, logs it to a sheet, tells your team in Slack and starts the next step in apps like HubSpot, Google Calendar and Trello, across the 2,300+ apps you already use. You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own whenever someone submits your form. It can also build the form and add questions for you.
+
+Page: https://50agents.com/integrations/google-forms (markdown: https://50agents.com/integrations/google-forms.md)
+
+### Leads and enquiries
+
+- Enquiries answered within the hour (AI agent): Reads each new enquiry, writes a reply that fits what they asked, and emails it from your Gmail. Ask: "When someone fills my enquiry form, write a friendly reply to what they asked and email it to them"
+- New leads added to HubSpot (Automation): Each response becomes a HubSpot contact with the details they typed in, so nothing sits in a form. Ask: "When someone submits my contact form, create or update them as a contact in HubSpot"
+- Quote requests posted with a brief (AI agent): Posts each quote request in Slack with a one-line summary of what they need and by when. Ask: "When someone fills the quote form, post who they are and a one-line brief in #sales in Slack"
+- Callback requests put in the calendar (Automation): When someone asks for a callback and picks a time, it adds the event to your Google Calendar. Ask: "When someone requests a callback in my form, add it to Google Calendar at the time they chose"
+
+### Sheets and records
+
+- Every response a row in your sheet (Automation): Each submission is added as a row in the Google Sheet you pick, with the answers in the right columns. Ask: "When someone submits my order form, add their answers as a new row in my Orders sheet"
+- Weekly summary of what came in (AI agent): Every Monday it reads last week's responses and sends you a short note with the counts and the main points. Ask: "Every Monday at 8, read last week's responses to my form and email me a short summary"
+- Open answers sorted by topic (AI agent): Reads the free-text answer in each response and tags it, such as pricing, delivery or complaint, in your sheet. Ask: "For each new response, read the comments box and write a topic tag next to it in my Feedback sheet"
+
+### Requests and approvals
+
+- Time-off requests with buttons (Automation): A leave form becomes a Slack message with Approve and Decline for the manager, and the answer goes back to the person. Ask: "When someone fills the leave form, ask their manager in Slack with Approve and Decline buttons and DM the person the answer"
+- Expense claims become Trello cards (Automation): Each claim form creates a card with the amount and the receipt link, ready for you to review. Ask: "When someone submits the expense form, create a Trello card in To Review with the amount and receipt link"
+- Purchase requests logged in Notion (Automation): Supply and purchase requests from the team are added to a Notion table so you can see them all. Ask: "When someone submits the supplies request form, add a row to my Requests table in Notion"
+
+### Feedback and support
+
+- Low ratings flagged at once (AI agent): When a response gives a low score, it messages you on WhatsApp with the person and what they wrote. Ask: "When someone gives 2 stars or less in my feedback form, WhatsApp me their name and comment"
+- Support requests acknowledged (AI agent): Sends a reply to each support form with what was understood and when to expect an answer. Ask: "When someone submits the support form, email them to say we got it and repeat their issue in one line"
+
+### Build and edit forms
+
+- A new form built from a sentence (App): Describe the form and it creates it in Google Forms with the questions, ready to share. Ask: "Create a Google Form for event sign-ups with name, email, phone and meal choice"
+- Missing questions added to a form (App): Checks what a form asks today and adds the questions you forgot, such as phone number or a rating. Ask: "Look at my customer survey form and add a phone number question and a 1 to 5 rating question"
+
+**What can a Google Forms AI agent actually do?** It starts when “New Form Response” fires, then reads the answers, writes a reply, adds a row or contact, or asks someone to approve. It can also read past responses with “List Form Responses” and build forms with “Create Google Form”.
+
+**Does the form need to be changed to connect it?** No. You pick the form you already use, and Captain reads each new response from it. You do not add scripts or add-ons to the form.
+
+**Does a new response start the work at once?** “New Form Response” is checked on a schedule, so the work starts shortly after someone submits rather than the same second. For an enquiry or a leave request, that gap is normally fine.
+
+**Can it reply to the person who filled the form?** Yes, if the form asks for an email address. The AI agent reads their answers, writes the reply and sends it from your Gmail. Until you allow it to send on its own, it asks you first.
+
+**Can it send form responses to Google Sheets?** Yes. Each “New Form Response” can be added as a row in the sheet you pick, with the answers in the right columns, and the AI agent can add columns such as a topic tag or a short summary.
+
+**Can it get a manager's approval from a form request?** Yes. A leave, expense or purchase form can start a Slack message with Approve and Decline buttons, and the next step waits for the answer. Nothing else happens until someone taps.
+
+**Can it summarise all my responses?** Yes. “List Form Responses” reads every response to a form, so Captain can write a weekly summary, count answers or pick out common complaints and send them to you.
+
+**Can it create or edit a Google Form for me?** Yes. “Create Google Form” makes a new form from your description, “Get Form Details” reads what a form asks today, and “Add Questions to Form” adds questions with the type and options you want.
+
+## A Google Sheets AI agent that keeps your sheet up to date for you
+
+With 50agents, a Google Sheets AI agent adds rows from your leads and payments, updates the right row when something changes, chases follow-ups and sends weekly summaries, across the 2,300+ apps your business already uses. You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own against your sheet.
+
+Page: https://50agents.com/integrations/google-sheets (markdown: https://50agents.com/integrations/google-sheets.md)
+
+### Leads and sales
+
+- New leads logged and rated (AI agent): Each new Facebook lead is added as a row with a hot, warm or cold rating based on what they asked. Ask: "When a new Facebook lead comes in, add a row to my Leads sheet with name, phone and a hot, warm or cold rating"
+- Stripe payments logged (Automation): Every payment in Stripe becomes a row with the customer, amount and date, ready for month end. Ask: "When a payment succeeds in Stripe, add a row to my Payments sheet with customer, amount and date"
+- Orders updated, never duplicated (Automation): When an order changes in Shopify, it finds the order's row and updates the status instead of adding a new one. Ask: "When a Shopify order is fulfilled, find its row in my Orders sheet by order number and set Status to Shipped"
+
+### Follow-ups and reminders
+
+- Thank-you email when a row says Paid (AI agent): When someone sets a row to Paid, an email goes to that customer thanking them with the invoice number. Ask: "When a row in my Invoices sheet changes to Paid, email the customer a short thank-you with the invoice number"
+- Overdue invoices chased each morning (AI agent): Each morning it reads the sheet and drafts a polite reminder to every customer past their due date. Ask: "Every morning at 9, read my Invoices sheet and draft a reminder email for each overdue invoice"
+- Quiet leads nudged on WhatsApp (Automation): Leads with no reply for three days get a short WhatsApp check-in, and the row is marked nudged. Ask: "Every day, find leads in my Leads sheet with no reply for 3 days, WhatsApp them a check-in and mark the row Nudged"
+
+### Reports and answers
+
+- Monday summary in Slack (AI agent): Every Monday it reads last week's rows and posts a short summary with the total and the biggest change. Ask: "Every Monday at 9, read last week's rows from my Sales sheet and post a short summary in #team in Slack"
+- A new tab every month (Automation): On the first of the month it adds a tab named for the month with your column headers ready. Ask: "On the 1st of each month, add a new tab named for the month to my Expenses sheet with the same column headers"
+- Ask your sheet a question (AI agent): Ask in plain words, such as who owes us most, and it reads the rows and answers with the names and amounts. Ask: "Which customers owe us the most right now? Check my Invoices sheet and list the top five"
+
+### Tidy-up and setup
+
+- Overdue rows turn red (Automation): Overdue cells are coloured red and paid rows green, so the problems stand out. Ask: "Colour the Due Date cells red in my Invoices sheet when the date has passed and the row is not Paid"
+- New client, new sheet from a template (Automation): When a HubSpot deal is won, it makes a client sheet from your template and names it after them. Ask: "When a deal is won in HubSpot, create a new sheet from my Client Template and name it after the company"
+- Old rows cleared after you approve (AI agent): It finds rows older than 90 days, lists them for you to approve, and only then deletes them. Ask: "Every month, find rows older than 90 days in my Enquiries sheet, show me the list and delete them only after I approve"
+
+### Beyond the sheet
+
+- Supplier prices copied into your sheet (Browser agent): A browser agent opens your supplier's price page each day and adds today's prices as a new row. Ask: "Every day, open supplier.com/prices, read the prices for my 5 products and add a row to my Costs sheet"
+- Your sheet as a team request app (App): Captain builds a small app on your rows, so the team submits and tracks requests without opening the sheet. Ask: "Build me an app for team requests on my Requests sheet, with a form to submit and a list to track status"
+
+**Can an AI agent update several rows in Google Sheets at once?** Yes. “Update Multiple Rows” changes the rows you name in one step, and “Batch Update Cell Values” sets many cells at once. Say which column and which rows in the ask, and check Captain's plan before you approve it.
+
+**How do I stop it adding a duplicate row or changing the wrong one?** Ask it to find the row first. “Lookup Spreadsheet Rows” matches a value such as an order number, and “Update Spreadsheet Row” changes only that row. Use “Add New Row to Sheet” only when the record is new.
+
+**Does a new row in my sheet start the work straight away?** “Row Added Or Updated” starts an automation or an AI agent when a row is added or edited. It fires on edits too, so plan for a row that changes twice, for example by checking a Status column first.
+
+**How is this different from AI add-ons and Gemini inside Google Sheets?** Add-ons and in-sheet AI help with the cells in the file you have open. On 50agents the sheet is one of your apps, so the work can start in Gmail, Stripe, Shopify or a form, read or write the sheet with “List Rows in Sheet” or “Add New Row to Sheet”, and finish in Slack or an email.
+
+**Can an AI agent read my sheet and answer questions about it?** Yes. It reads rows with “List Rows in Sheet”, “Get Rows From Range” or “Lookup Spreadsheet Rows” and answers in its chat or on a schedule. Writing back is a step you name, such as “Update Spreadsheet Row”.
+
+**Can it make a new tab or sheet for each month or client?** Yes. “Create Subsheet” adds a tab, “Create a Spreadsheet” and “Create Spreadsheet From Template” make a new file, and “Copy Sheet To Spreadsheet” copies a tab into another file.
+
+**Can it delete rows or clear data?** The catalog has “Delete Rows”, “Clear Spreadsheet Row” and “Permanently Delete Spreadsheet”. Changes made in Google Sheets cannot be undone from 50agents, so name a delete in the ask only when you mean it, and ask for an approval step first.
+
 ## AI agents for Slack that do the chores, not just chat
 
 With 50agents, a Slack AI agent posts the updates, asks for approvals with buttons, answers when someone mentions it and logs what matters to a sheet, across the 2,300+ apps your business already uses. You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own in your Slack.
@@ -160,6 +315,53 @@ Page: https://50agents.com/integrations/slack (markdown: https://50agents.com/in
 **Do I need to write code or build a flowchart?** No. You write the job in a sentence, Captain shows the plan in plain words, and you change any step by saying so.
 
 **What does it cost?** Every workspace starts free with 2,000 credits a month, which covers building your first jobs and running them. The plans are on the pricing page.
+
+## An AI agent for TallyPrime that chases dues and logs your vouchers
+
+With 50agents, a TallyPrime AI agent sends payment reminders, logs sales and purchase vouchers in Google Sheets, alerts your team on Slack and emails statements to your accountant, across the 2,300+ apps your business already uses. You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own whenever TallyPrime records the event.
+
+Page: https://50agents.com/integrations/tallyprime (markdown: https://50agents.com/integrations/tallyprime.md)
+
+### Collect what you are owed
+
+- Payment reminders in your words (AI agent): When TallyPrime flags a payment due, it writes a polite reminder with the amount and invoice, and sends it once you approve. Ask: "When TallyPrime shows a payment due, write a polite WhatsApp reminder with the amount and invoice number and send it after I approve"
+- Dues listed in one sheet (Automation): Each payment due reminder becomes a row with party, amount and days late, so you see everything owed in one place. Ask: "Add every TallyPrime payment due reminder to my Collections sheet with party, amount and days late"
+- Thank-you when money arrives (AI agent): When a receipt is recorded, it emails the customer a short thank-you with the amount and the invoice it clears. Ask: "When TallyPrime records a receipt, email the customer a short thank-you with the amount received"
+- A page for who owes what (App): Captain builds a small app that lists open dues from your sheet by party, with the oldest first. Ask: "Build me a simple app that shows who owes me money from my Collections sheet, oldest first"
+
+### Sales and invoices
+
+- Every sale in a daily sheet (Automation): Each new sales voucher is added to a Google Sheet with date, party, amount and voucher number. Ask: "Add every new TallyPrime sales voucher to my Sales sheet with date, party, amount and voucher number"
+- Big sales flagged on Slack (Automation): When a sale over your limit is entered, the party and amount are posted to your team channel. Ask: "When TallyPrime records a sales voucher over Rs 1,00,000, post the party and amount in #sales on Slack"
+- Invoice note for the customer (AI agent): After a sale is entered, it drafts a WhatsApp message with the invoice number and amount for you to approve. Ask: "When a sales voucher is created in TallyPrime, draft a WhatsApp message to the customer with invoice number and amount and ask me to approve"
+- New orders told to dispatch (Automation): When a sales order is entered, the party and items go to the dispatch channel so packing starts early. Ask: "When TallyPrime records a sales order, post the party and items in #dispatch on Slack"
+
+### Buying and suppliers
+
+- Purchases ready for GST checks (Automation): Each purchase voucher lands in a sheet with supplier, taxable value and tax, ready for your accountant to match. Ask: "Add every new TallyPrime purchase voucher to my Purchases sheet with supplier, taxable value and GST amount"
+- Purchase orders emailed to suppliers (AI agent): When a purchase order is entered, it writes a short email to the supplier with the items and asks for a delivery date. Ask: "When TallyPrime records a purchase order, email the supplier the items and ask for a delivery date, after I approve"
+- A nudge when buying goes quiet (Automation): If no purchase is recorded for the period you choose, you get a WhatsApp message to check that entries are not missed. Ask: "If TallyPrime has no purchase for 7 days, send me a WhatsApp message asking if bills are pending entry"
+
+### Reports for your accountant
+
+- Account statements to your accountant (AI agent): When an account statement is exported, it emails it to your accountant with a one-line summary. Ask: "Email my accountant every account statement TallyPrime exports, with a one-line summary of the party and balance"
+- Statement lines kept in a sheet (Automation): Each exported account statement is logged in a sheet with party and date, so your records are searchable. Ask: "Log every account statement TallyPrime exports in my Statements sheet with party and date"
+
+**Can an AI agent read my TallyPrime data?** 50agents reacts to TallyPrime events such as “New Sales event occurs”, “New Receipt event occurs” and “New Payment Due Reminder”, then an AI agent reads that voucher and writes the message or summary. For free-form questions over all your books, use a connector made for that. It needs extra setup and your IT person.
+
+**How do I connect automation to TallyPrime?** Tools usually talk to Tally through its HTTP XML server on port 9000, which needs the Tally company open and, for outside access, a static IP or VPN. In 50agents you pick the TallyPrime events when you connect it, and Captain builds the steps after that.
+
+**Can it send payment reminders from TallyPrime?** Yes. “New Payment Due Reminder” starts the job, and an AI agent writes a polite reminder with the party, amount and invoice, then sends it on WhatsApp or Gmail. You can ask Captain to wait for your approval first.
+
+**Can I get every sale or purchase into Google Sheets?** Yes. “New Sales event occurs” and “New Purchase event occurs” each add a row when a voucher is created, updated, deleted or saved as PDF. Say in the ask which of those you want, for example only new vouchers.
+
+**Does it file my GST return?** No. It collects sales and purchase vouchers in a sheet and can email them to your accountant, so GST checking is faster. Filing stays with you or your accountant on the GST portal.
+
+**Can I filter by voucher type or party?** Several triggers, such as “New Receipt event occurs”, “New Credit Note event occurs” and “New Sales Order event occurs”, let you choose voucher types, and “New Payment Due Reminder” can be filtered by company or customer. Say it in the ask.
+
+**Does it send messages to customers without asking me?** An automation's message waits in Needs you until you approve it, and an AI agent asks before sending until you allow it in Settings. You decide when it may send on its own.
+
+**Do I need to write code or build a flowchart?** No. You write the job in a sentence, Captain shows the plan in plain words, and you change any step by saying so.
 
 ---
 

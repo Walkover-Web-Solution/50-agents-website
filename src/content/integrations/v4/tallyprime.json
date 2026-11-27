@@ -1,0 +1,352 @@
+{
+  "slug": "tallyprime",
+  "query": "tallyprime ai agent",
+  "title": "TallyPrime AI agent: reminders, sheets, reports | 50agents",
+  "description": "Tell Captain the job and a TallyPrime AI agent does it: payment reminders on WhatsApp, sales and purchases in Google Sheets, statements to your accountant.",
+  "h1": "An AI agent for TallyPrime that chases dues and logs your vouchers",
+  "answer": [
+    "With 50agents, a TallyPrime AI agent sends payment reminders, logs sales and purchase vouchers in Google Sheets, alerts your team on Slack and emails statements to your accountant, across the 2,300+ apps your business already uses.",
+    "You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own whenever TallyPrime records the event."
+  ],
+  "asks": [
+    "When TallyPrime shows a payment due, send that customer a polite WhatsApp reminder with the amount",
+    "Add every new sales voucher over Rs 50,000 to my Sales sheet and tell me on Slack",
+    "Email my accountant every account statement TallyPrime exports, with a one-line summary",
+    "Every Monday, tell me on WhatsApp if no purchase was recorded in TallyPrime last week"
+  ],
+  "hero": {
+    "kind": "ai",
+    "title": "Payment reminders in your words",
+    "in": {
+      "app": "tallyprime",
+      "label": "Payment due reminder",
+      "text": "Sharma Traders, Rs 48,500, 12 days late"
+    },
+    "steps": [
+      "Reads the party, amount and days late",
+      "Writes a polite reminder in English or Hindi",
+      "Sends it on WhatsApp after you approve"
+    ],
+    "out": {
+      "app": "whatsapp",
+      "label": "WhatsApp to Sharma Traders",
+      "text": "Rs 48,500 on invoice 214 is pending, please share the date"
+    }
+  },
+  "chores": [
+    {
+      "label": "Collect what you are owed",
+      "line": "Late payments get a nudge, and paid ones get a thank-you, without anyone opening a ledger.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Payment reminders in your words",
+          "body": "When TallyPrime flags a payment due, it writes a polite reminder with the amount and invoice, and sends it once you approve.",
+          "ask": "When TallyPrime shows a payment due, write a polite WhatsApp reminder with the amount and invoice number and send it after I approve",
+          "in": {
+            "app": "tallyprime",
+            "label": "Payment due reminder",
+            "text": "Sharma Traders, Rs 48,500"
+          },
+          "out": {
+            "app": "whatsapp",
+            "label": "WhatsApp reminder",
+            "text": "Rs 48,500 on invoice 214 is pending, please share the date"
+          },
+          "uses": [
+            "New Payment Due Reminder"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Dues listed in one sheet",
+          "body": "Each payment due reminder becomes a row with party, amount and days late, so you see everything owed in one place.",
+          "ask": "Add every TallyPrime payment due reminder to my Collections sheet with party, amount and days late",
+          "in": {
+            "app": "tallyprime",
+            "label": "Payment due reminder",
+            "text": "Gupta Hardware, Rs 22,000"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Collections sheet",
+            "text": "Row 31: Gupta Hardware, 22,000, 9 days"
+          },
+          "uses": [
+            "New Payment Due Reminder"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Thank-you when money arrives",
+          "body": "When a receipt is recorded, it emails the customer a short thank-you with the amount and the invoice it clears.",
+          "ask": "When TallyPrime records a receipt, email the customer a short thank-you with the amount received",
+          "in": {
+            "app": "tallyprime",
+            "label": "New receipt",
+            "text": "Verma Stores, Rs 30,000"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to Verma Stores",
+            "text": "Thank you, Rs 30,000 received against your invoice"
+          },
+          "uses": [
+            "New Receipt event occurs"
+          ]
+        },
+        {
+          "kind": "app",
+          "title": "A page for who owes what",
+          "body": "Captain builds a small app that lists open dues from your sheet by party, with the oldest first.",
+          "ask": "Build me a simple app that shows who owes me money from my Collections sheet, oldest first",
+          "in": {
+            "app": "google-sheets",
+            "label": "Collections sheet",
+            "text": "31 parties, Rs 6.2 lakh open"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Dues page",
+            "text": "Top: Sharma Traders, 48,500, 12 days"
+          },
+          "uses": [
+            "New Payment Due Reminder"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Sales and invoices",
+      "line": "Every sale is logged, shared and visible to the team the moment it is entered.",
+      "jobs": [
+        {
+          "kind": "auto",
+          "title": "Every sale in a daily sheet",
+          "body": "Each new sales voucher is added to a Google Sheet with date, party, amount and voucher number.",
+          "ask": "Add every new TallyPrime sales voucher to my Sales sheet with date, party, amount and voucher number",
+          "in": {
+            "app": "tallyprime",
+            "label": "New sales voucher",
+            "text": "Invoice 301, Rs 82,000"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Sales sheet",
+            "text": "Row 118: 301, Kiran Agencies, 82,000"
+          },
+          "uses": [
+            "New Sales event occurs"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Big sales flagged on Slack",
+          "body": "When a sale over your limit is entered, the party and amount are posted to your team channel.",
+          "ask": "When TallyPrime records a sales voucher over Rs 1,00,000, post the party and amount in #sales on Slack",
+          "in": {
+            "app": "tallyprime",
+            "label": "New sales voucher",
+            "text": "Rs 1,20,000, Mehta Exports"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#sales",
+            "text": "Big sale: Mehta Exports, Rs 1,20,000"
+          },
+          "uses": [
+            "New Sales event occurs"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Invoice note for the customer",
+          "body": "After a sale is entered, it drafts a WhatsApp message with the invoice number and amount for you to approve.",
+          "ask": "When a sales voucher is created in TallyPrime, draft a WhatsApp message to the customer with invoice number and amount and ask me to approve",
+          "in": {
+            "app": "tallyprime",
+            "label": "New sales voucher",
+            "text": "Invoice 305, Rs 14,750"
+          },
+          "out": {
+            "app": "whatsapp",
+            "label": "Draft for approval",
+            "text": "Hello, invoice 305 for Rs 14,750 is ready"
+          },
+          "uses": [
+            "New Sales event occurs"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "New orders told to dispatch",
+          "body": "When a sales order is entered, the party and items go to the dispatch channel so packing starts early.",
+          "ask": "When TallyPrime records a sales order, post the party and items in #dispatch on Slack",
+          "in": {
+            "app": "tallyprime",
+            "label": "New sales order",
+            "text": "Order 77, 40 boxes, Rao Foods"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#dispatch",
+            "text": "Order 77: Rao Foods, 40 boxes"
+          },
+          "uses": [
+            "New Sales Order event occurs"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Buying and suppliers",
+      "line": "Purchases are tracked, suppliers are kept informed and quiet weeks get noticed.",
+      "jobs": [
+        {
+          "kind": "auto",
+          "title": "Purchases ready for GST checks",
+          "body": "Each purchase voucher lands in a sheet with supplier, taxable value and tax, ready for your accountant to match.",
+          "ask": "Add every new TallyPrime purchase voucher to my Purchases sheet with supplier, taxable value and GST amount",
+          "in": {
+            "app": "tallyprime",
+            "label": "New purchase",
+            "text": "Bill 88, Rs 56,000 plus GST"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Purchases sheet",
+            "text": "Row 64: Bill 88, Patel Steel, 56,000, 10,080"
+          },
+          "uses": [
+            "New Purchase event occurs"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Purchase orders emailed to suppliers",
+          "body": "When a purchase order is entered, it writes a short email to the supplier with the items and asks for a delivery date.",
+          "ask": "When TallyPrime records a purchase order, email the supplier the items and ask for a delivery date, after I approve",
+          "in": {
+            "app": "tallyprime",
+            "label": "New purchase order",
+            "text": "PO 19, 200 kg steel"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to Patel Steel",
+            "text": "PO 19, 200 kg steel. Delivery date, please?"
+          },
+          "uses": [
+            "New Purchase Order event occurs"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "A nudge when buying goes quiet",
+          "body": "If no purchase is recorded for the period you choose, you get a WhatsApp message to check that entries are not missed.",
+          "ask": "If TallyPrime has no purchase for 7 days, send me a WhatsApp message asking if bills are pending entry",
+          "in": {
+            "app": "tallyprime",
+            "label": "No purchase for 7 days",
+            "text": "Last entry 21 Nov"
+          },
+          "out": {
+            "app": "whatsapp",
+            "label": "WhatsApp to you",
+            "text": "No purchases entered this week. Any bills pending?"
+          },
+          "uses": [
+            "No Purchase Activity Detected"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Reports for your accountant",
+      "line": "Statements and reports reach the right inbox with a short summary on top.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Account statements to your accountant",
+          "body": "When an account statement is exported, it emails it to your accountant with a one-line summary.",
+          "ask": "Email my accountant every account statement TallyPrime exports, with a one-line summary of the party and balance",
+          "in": {
+            "app": "tallyprime",
+            "label": "Account statement exported",
+            "text": "Joshi & Sons, balance Rs 1,15,000"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to accountant",
+            "text": "Statement for Joshi & Sons, balance Rs 1,15,000"
+          },
+          "uses": [
+            "Account Statement Exported"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Statement lines kept in a sheet",
+          "body": "Each exported account statement is logged in a sheet with party and date, so your records are searchable.",
+          "ask": "Log every account statement TallyPrime exports in my Statements sheet with party and date",
+          "in": {
+            "app": "tallyprime",
+            "label": "Account statement exported",
+            "text": "Joshi & Sons, 27 Nov"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Statements sheet",
+            "text": "Row 12: Joshi & Sons, 27 Nov"
+          },
+          "uses": [
+            "Account Statement Exported"
+          ]
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can an AI agent read my TallyPrime data?",
+      "a": "50agents reacts to TallyPrime events such as “New Sales event occurs”, “New Receipt event occurs” and “New Payment Due Reminder”, then an AI agent reads that voucher and writes the message or summary. For free-form questions over all your books, use a connector made for that. It needs extra setup and your IT person.",
+      "source": {
+        "label": "Growwstacks: query TallyPrime with Claude",
+        "href": "https://growwstacks.com/blog/how-to-query-tally-prime-with-claude-ai/"
+      }
+    },
+    {
+      "q": "How do I connect automation to TallyPrime?",
+      "a": "Tools usually talk to Tally through its HTTP XML server on port 9000, which needs the Tally company open and, for outside access, a static IP or VPN. In 50agents you pick the TallyPrime events when you connect it, and Captain builds the steps after that.",
+      "source": {
+        "label": "AI Accountant: Tally integration guide",
+        "href": "https://www.aiaccountant.com/blog/tally-integration-ap-automation-guide"
+      }
+    },
+    {
+      "q": "Can it send payment reminders from TallyPrime?",
+      "a": "Yes. “New Payment Due Reminder” starts the job, and an AI agent writes a polite reminder with the party, amount and invoice, then sends it on WhatsApp or Gmail. You can ask Captain to wait for your approval first."
+    },
+    {
+      "q": "Can I get every sale or purchase into Google Sheets?",
+      "a": "Yes. “New Sales event occurs” and “New Purchase event occurs” each add a row when a voucher is created, updated, deleted or saved as PDF. Say in the ask which of those you want, for example only new vouchers."
+    },
+    {
+      "q": "Does it file my GST return?",
+      "a": "No. It collects sales and purchase vouchers in a sheet and can email them to your accountant, so GST checking is faster. Filing stays with you or your accountant on the GST portal."
+    },
+    {
+      "q": "Can I filter by voucher type or party?",
+      "a": "Several triggers, such as “New Receipt event occurs”, “New Credit Note event occurs” and “New Sales Order event occurs”, let you choose voucher types, and “New Payment Due Reminder” can be filtered by company or customer. Say it in the ask."
+    },
+    {
+      "q": "Does it send messages to customers without asking me?",
+      "a": "An automation's message waits in Needs you until you approve it, and an AI agent asks before sending until you allow it in Settings. You decide when it may send on its own."
+    },
+    {
+      "q": "Do I need to write code or build a flowchart?",
+      "a": "No. You write the job in a sentence, Captain shows the plan in plain words, and you change any step by saying so."
+    }
+  ],
+  "updated": "2026-11-27"
+}

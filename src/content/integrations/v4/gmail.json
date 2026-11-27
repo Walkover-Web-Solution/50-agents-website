@@ -1,0 +1,378 @@
+{
+  "slug": "gmail",
+  "query": "gmail ai agent",
+  "title": "Gmail AI agent: drafts, sorts and follows up | 50agents",
+  "description": "A Gmail AI agent reads new email, drafts replies for your OK, sorts labels and logs invoices. Tell Captain the job once; 50agents runs it.",
+  "h1": "A Gmail AI agent that clears your inbox chores for you",
+  "answer": [
+    "With 50agents, a Gmail AI agent reads new email, drafts replies in your voice, labels and files messages, pulls out attachments and logs what matters to a sheet, across the 2,300+ apps your business already uses.",
+    "You tell Captain the job in one sentence, check the plan it shows, and it runs on its own against your Gmail, with anything going out to customers waiting for your approval."
+  ],
+  "asks": [
+    "Read every new email to sales@, draft a reply from my price list and save it as a Gmail draft",
+    "When an email with an invoice attached arrives, add the supplier, amount and due date to my Bills sheet",
+    "Label every new email as Customer, Supplier, Lead or Other, and star anything urgent",
+    "Every Friday, email me a summary of the threads where I'm still waiting for a reply"
+  ],
+  "hero": {
+    "kind": "ai",
+    "title": "Replies drafted while you work",
+    "in": {
+      "app": "gmail",
+      "label": "Gmail, new email",
+      "text": "Asha asks: do you ship to Pune?"
+    },
+    "steps": [
+      "Reads the email and the thread",
+      "Writes a reply from your own notes",
+      "Saves it as a draft for your OK"
+    ],
+    "out": {
+      "app": "gmail",
+      "label": "Gmail draft",
+      "text": "Hi Asha, yes, we ship to Pune in 3 days. Order link below."
+    }
+  },
+  "chores": [
+    {
+      "label": "Email replies",
+      "line": "Replies are written for you, and you only press send.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Replies drafted from your notes",
+          "body": "Reads each new email, writes a reply from your price list or FAQ and saves it as a draft to review.",
+          "ask": "Read every new email to sales@, draft a reply from my price list and save it as a Gmail draft",
+          "in": {
+            "app": "gmail",
+            "label": "New email to sales@",
+            "text": "Asha: do you ship to Pune?"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Draft in Gmail",
+            "text": "Yes, we ship to Pune in 3 days"
+          },
+          "uses": [
+            "New Email Arrives",
+            "Create Email Draft"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Order questions answered in thread",
+          "body": "Looks up the order in Shopify and replies in the same thread with status and tracking.",
+          "ask": "When a customer emails about an order, find it in Shopify and reply in the same thread with the status",
+          "in": {
+            "app": "gmail",
+            "label": "Email: where is #1047?",
+            "text": "Order 1047, Priya"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Reply in thread",
+            "text": "Shipped Tuesday, arrives Friday"
+          },
+          "uses": [
+            "New Email Arrives",
+            "Get Thread Replies",
+            "Reply To Thread"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Thank-you and receipt emails",
+          "body": "When a Stripe payment succeeds, it sends a short personal thank you with the amount and what was bought.",
+          "ask": "When a Stripe payment succeeds, email the customer a short thank-you with the amount and item",
+          "in": {
+            "app": "stripe",
+            "label": "Payment succeeded",
+            "text": "$49, Pro plan, Ravi"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email sent",
+            "text": "Thanks Ravi, your $49 Pro plan is live"
+          },
+          "uses": [
+            "Send Email"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Follow-ups",
+      "line": "Nobody is left waiting because you forgot to write back.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Quotes chased after three days",
+          "body": "Checks your sent quotes, and drafts a polite nudge for any with no reply after three days.",
+          "ask": "Every morning, find quotes I sent 3 days ago with no reply and draft a polite follow-up in the thread",
+          "in": {
+            "app": "gmail",
+            "label": "Sent quote, no reply",
+            "text": "Quote to Lena, 3 days ago"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Draft follow-up",
+            "text": "Hi Lena, just checking the quote reached you"
+          },
+          "uses": [
+            "New Email Sent",
+            "Get Thread Replies",
+            "Reply To Thread"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Booked calls confirmed by email",
+          "body": "When someone books in Calendly, a confirmation with the time and your prep notes goes out at once.",
+          "ask": "When a Calendly call is booked, email the person a confirmation with the time and what to bring",
+          "in": {
+            "app": "calendly",
+            "label": "Meeting scheduled",
+            "text": "Call with Kabir, Thu 11:00"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email sent",
+            "text": "Confirmed: Thu 11:00. Please bring your sheet"
+          },
+          "uses": [
+            "Send Email"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Friday list of unanswered threads",
+          "body": "Every Friday, it searches for threads waiting on a reply and emails you a short list.",
+          "ask": "Every Friday at 4, email me a list of threads where I'm still waiting for a reply",
+          "in": {
+            "app": "gmail",
+            "label": "Every Friday, 4:00 pm",
+            "text": "Searches your sent mail"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to you",
+            "text": "3 threads waiting: Lena, Northwind, Meera"
+          },
+          "uses": [
+            "Search_Email_Messages",
+            "Send Email"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Sorting and labels",
+      "line": "The inbox sorts itself, so the important mail is on top.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Every email labelled by type",
+          "body": "Reads each new email and adds the right label: customer, supplier, lead or other.",
+          "ask": "Label every new email as Customer, Supplier, Lead or Other",
+          "in": {
+            "app": "gmail",
+            "label": "New email",
+            "text": "Quote request from a new buyer"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Label added",
+            "text": "Lead"
+          },
+          "uses": [
+            "New Email Arrives",
+            "Modify Email Labels"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Urgent mail flagged to Slack",
+          "body": "Spots angry or time-critical emails and posts a one-line alert to your team channel.",
+          "ask": "When an email sounds urgent or angry, post a one-line alert in #support in Slack",
+          "in": {
+            "app": "gmail",
+            "label": "New email",
+            "text": "Third time I'm asking about my refund"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#support",
+            "text": "Urgent: refund chased 3 times, Meera"
+          },
+          "uses": [
+            "New Email Arrives",
+            "Get Gmail Message by ID"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Invoices labelled by supplier",
+          "body": "Emails with attachments from a supplier get a label, so each supplier's bills are in one place.",
+          "ask": "When an email with an attachment arrives from a supplier, label it with the supplier's name",
+          "in": {
+            "app": "gmail",
+            "label": "New attachment",
+            "text": "invoice-88.pdf from Northwind"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Label added",
+            "text": "Suppliers / Northwind"
+          },
+          "uses": [
+            "New Attachment",
+            "Modify Email Labels"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Invoices and records",
+      "line": "What comes into your inbox ends up in your books and sheets.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Invoice emails read into a sheet",
+          "body": "Opens each invoice attachment, reads supplier, amount and due date and adds a row to your Bills sheet.",
+          "ask": "When an email with an invoice attached arrives, add the supplier, amount and due date to my Bills sheet",
+          "in": {
+            "app": "gmail",
+            "label": "New attachment",
+            "text": "Invoice from Northwind"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Bills sheet",
+            "text": "Northwind, $420, due 12 Dec"
+          },
+          "uses": [
+            "New Attachment",
+            "Get Email Attachment"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Quotes you send, logged in a sheet",
+          "body": "Each email in your Sent folder with a quote label becomes a row, so you can see what is out.",
+          "ask": "When I send an email labelled Quote, add the recipient, subject and date to my Quotes sheet",
+          "in": {
+            "app": "gmail",
+            "label": "New email sent",
+            "text": "Quote for Lena, 14 Nov"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Quotes sheet",
+            "text": "Row 31: Lena, 14 Nov"
+          },
+          "uses": [
+            "New Email Sent"
+          ]
+        },
+        {
+          "kind": "app",
+          "title": "Receipt emails filed to accounts",
+          "body": "Emails with receipts attached are logged as expenses in Xero with the file attached.",
+          "ask": "When a receipt arrives by email, create an expense in Xero with the receipt attached",
+          "in": {
+            "app": "gmail",
+            "label": "New attachment",
+            "text": "receipt.pdf, taxi, $18"
+          },
+          "out": {
+            "app": "xero",
+            "label": "Expense in Xero",
+            "text": "Travel, $18, receipt attached"
+          },
+          "uses": [
+            "New Attachment",
+            "Get Email Attachment"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Leads and the web",
+      "line": "Every enquiry is captured and followed up the same day.",
+      "jobs": [
+        {
+          "kind": "auto",
+          "title": "Enquiry emails become CRM leads",
+          "body": "Each new email to your enquiries address is added to HubSpot as a contact with the message.",
+          "ask": "When a new email arrives at hello@, create a contact in HubSpot with their name and message",
+          "in": {
+            "app": "gmail",
+            "label": "Email to hello@",
+            "text": "Arjun wants a quote"
+          },
+          "out": {
+            "app": "hubspot",
+            "label": "New contact",
+            "text": "Arjun, note: wants a quote"
+          },
+          "uses": [
+            "New Email Arrives"
+          ]
+        },
+        {
+          "kind": "browser",
+          "title": "Prices checked, then emailed",
+          "body": "A browser agent opens a supplier's public price page each Monday and emails you any change.",
+          "ask": "Every Monday, check the price page on supplier.com and email me if a price changed",
+          "in": {
+            "app": "gmail",
+            "label": "Every Monday, 8:00",
+            "text": "Opens supplier.com/prices"
+          },
+          "out": {
+            "app": "gmail",
+            "label": "Email to you",
+            "text": "Cotton roll went from $12 to $14"
+          },
+          "uses": []
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Will an AI agent send email from my Gmail without asking?",
+      "a": "Not by default. Anything going to people outside your business waits in Needs you until you approve it, and an AI agent asks before sending until you allow it in Settings. Drafts saved with “Create Email Draft” sit in your Gmail drafts until you send them."
+    },
+    {
+      "q": "Can it reply inside the same thread?",
+      "a": "Yes. “Reply To Thread” answers an existing conversation and lets you pick the recipients, the sender, everyone or specific people, so the reply stays with the thread. “Get Thread Replies” lets it read the thread first."
+    },
+    {
+      "q": "Can a new email start the work?",
+      "a": "Yes. “New Email Arrives” starts an automation or an AI agent, filtered by label, sender or subject, and “New Attachment” starts it when a message carries a file."
+    },
+    {
+      "q": "Can it sort my email into labels?",
+      "a": "Yes. “Modify Email Labels” adds or removes labels on a message or a whole thread. An AI agent can read each new email and decide the label, and an automation can label by sender or subject the same way every time."
+    },
+    {
+      "q": "Can it follow up when someone has not replied?",
+      "a": "Yes. “New Email Sent” starts the work from your Sent mailbox, “Search_Email_Messages” finds threads, and “Get Thread Replies” checks whether anyone answered. If nobody did, it drafts the nudge with “Reply To Thread” for you to approve."
+    },
+    {
+      "q": "Can it pull invoices and files out of my emails?",
+      "a": "Yes. “New Attachment” finds messages that carry files, and “Get Email Attachment” returns each file's name, type and link so the next step can read it, save it or log it to a sheet."
+    },
+    {
+      "q": "Is a new email picked up straight away?",
+      "a": "No, on a schedule. “New Email Arrives”, “New Attachment” and “New Email Sent” are checked at intervals, not pushed the second mail lands, so there is a short delay."
+    },
+    {
+      "q": "Do I need to write code or build a flowchart?",
+      "a": "No. You write the job in a sentence, Captain shows the plan in plain words, and you change any step by saying so."
+    }
+  ],
+  "updated": "2026-11-27"
+}
