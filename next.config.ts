@@ -43,7 +43,8 @@ const nextConfig: NextConfig = {
         return {
             beforeFiles: [
                 { source: '/', has: wantsMarkdown, destination: '/index.md' },
-                { source: '/', destination: '/landing/index.html' },
+                // HTML for / is served only via src/middleware.ts rewrite so the response keeps HOME_AGENT_LINK.
+                // A beforeFiles rewrite to /landing/index.html is served as static HTML on Cloudflare and drops that header.
             ],
             fallback: [{ source: '/:path*', has: wantsMarkdown, destination: '/missing.md' }],
         };

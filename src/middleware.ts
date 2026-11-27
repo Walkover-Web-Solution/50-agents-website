@@ -5,8 +5,8 @@ import RETIRED_PAIRS from './content/integrations/retired-pairs.json';
 import { canon } from './content/integrations/slugs';
 import { HOME_AGENT_LINK } from './lib/home-agent-link';
 
-// 1. The home page is rewritten here to public/landing/index.html with Link and Vary: Accept. next.config also rewrites /
-//    for local dev, but on Cloudflare that static rewrite drops headers from next.config and middleware next().
+// 1. The home page is rewritten here to public/landing/index.html with Link and Vary: Accept. next.config must not
+//    beforeFiles-rewrite / to the landing HTML, or Cloudflare serves static HTML and drops HOME_AGENT_LINK.
 // 2. Old app pages: /ai-agents/<slug> and /services/<slug> whose app is in viaSocket's catalog go to /integrations/<slug>
 //    in one 308 (Jii, 19 Nov: "Yes, redirect them", S21; "Yes, all of them", S22), matched case-insensitively.
 // 3. The old site is removed (Jii, 19 Nov, S25, D257; gtm/seo/handoff/launch-cleanup.md section 1):

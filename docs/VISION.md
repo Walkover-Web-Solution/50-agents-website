@@ -34,6 +34,7 @@ verified_on: 2026-11-18
 - Only the home page is indexed today. `sitemap.ts` lists it alone, and the old pages stay out.
 - The home page sends its H1, subline and sections in the server HTML, so crawlers that do not run JavaScript can read them.
 - Structured data on the home page is Organization plus SoftwareApplication only. `public/llms.txt` describes today's product.
+- Public agent discovery: homepage `Link` headers (via middleware), `public/openapi.json` for site APIs such as `/ask`, and `public/.well-known/poppy.json`. Workspace OAuth and product APIs stay on the app host.
 - A rebuild of search pages (written pages and integration pages in their own route group) is planned. Until it lands, avoid structural changes to `src/app`.
 
 ### Copy rules

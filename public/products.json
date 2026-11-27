@@ -5,8 +5,10 @@
   "nlweb": {
     "url": "https://50agents.com/ask"
   },
+  "openapi": "https://50agents.com/openapi.json",
   "aiCatalog": "https://50agents.com/.well-known/ai-catalog.json",
   "agentSkills": "https://50agents.com/.well-known/agent-skills.json",
+  "poppy": "https://50agents.com/.well-known/poppy.json",
   "answerProbes": [
     {
       "question": "What is 50agents?",

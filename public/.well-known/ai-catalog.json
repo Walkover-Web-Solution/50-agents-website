@@ -38,6 +38,18 @@
       "url": "https://50agents.com/ask"
     },
     {
+      "identifier": "urn:air:50agents.com:openapi",
+      "displayName": "OpenAPI (public site)",
+      "type": "application/json",
+      "url": "https://50agents.com/openapi.json"
+    },
+    {
+      "identifier": "urn:air:50agents.com:poppy",
+      "displayName": "Personal Agent Protocol (poppy.json)",
+      "type": "application/json",
+      "url": "https://50agents.com/.well-known/poppy.json"
+    },
+    {
       "identifier": "urn:air:50agents.com:sitemap",
       "displayName": "Sitemap index",
       "type": "application/xml",
