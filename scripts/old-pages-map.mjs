@@ -13,5 +13,24 @@ for (const a of apps) {
   map[l] = canon(a.s);
   map[l.replace(/_/g, '-')] ??= canon(a.s); // old URLs sometimes used hyphens for underscores
 }
+// Old slugs that named a catalog app (or its sub-product) differently. Without these they 301 to the /integrations hub.
+// Found in Search Console, 27 Nov (seo/research/old-urls, S47): each target checked live, 200 and indexable.
+const OLD_SLUGS = {
+  'hubspot-chatbot-builder': 'hubspot',
+  'linkedin-ads': 'linkedin-campaign-manager',
+  'google-apps-script': 'google-appscript',
+  'craft': 'craft-docs',
+  'pushalert-web-push-notifications': 'pushalert',
+  'd3-js': 'd3js',
+  'sitespeak': 'sitespeakai',
+  'quora-lead-gen-forms': 'quora-ads',
+  'heystream-testing': 'heystream',
+  'pinterest-lead-ads': 'pinterest',
+  'doclift-pdf': 'docliftpdf',
+};
+for (const [from, to] of Object.entries(OLD_SLUGS)) {
+  if (!Object.values(map).includes(to)) throw new Error(`OLD_SLUGS target not in catalog: ${to}`);
+  map[from] ??= to;
+}
 fs.writeFileSync('src/content/integrations/old-map.json', JSON.stringify(map));
 console.log(Object.keys(map).length, 'old slugs mapped');
