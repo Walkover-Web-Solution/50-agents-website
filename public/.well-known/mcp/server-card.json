@@ -1,0 +1,7 @@
+{
+  "$schema": "https://modelcontextprotocol.io/schemas/2025-12-11/server-card.json",
+  "name": "com.50agents/website",
+  "description": "Read-only discovery for 50agents.com: llms.txt, agent skills, and NLWeb search. No MCP transport on this host.",
+  "version": "1.0.0",
+  "websiteUrl": "https://50agents.com"
+}

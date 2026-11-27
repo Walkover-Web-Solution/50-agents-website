@@ -13,13 +13,18 @@ const ORG = {
   logo: 'https://50agents.com/landing/favicon.svg',
 };
 
-export default function SiteLayout({ children }: { children: React.ReactNode }) {
+export default async function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`site ${font.variable}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ORG) }} />
       <Header />
       <main>{children}</main>
       <Footer />
+      <script src="/site/attribution.js" defer />
+      <script src="/site/film.js" defer />
+      <script src="/site/sticky.js" defer />
+      <script src="/site/integrations-dir.js" defer />
+      <script src="/site/gallery.js" defer />
     </div>
   );
 }

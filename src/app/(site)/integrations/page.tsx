@@ -7,7 +7,7 @@ import { Crumbs } from '@/site/parts';
 import { StickyBar } from '@/site/sticky';
 import { catalog } from '@/site/integrations/data';
 import { BuildLink } from '@/site/integrations/build-link';
-import { BASE, crumbsLd, DirectoryPanel, Final, LdScript } from '@/site/integrations/parts';
+import { BASE, crumbsLd, DirectoryPanel, Final, LdScript } from '@/site/integrations/parts-public';
 import '@/site/css/usecase.css';
 import '@/site/css/integrations.css';
 
@@ -40,6 +40,13 @@ export default function IntegrationsIndex() {
 
       <section className="wrap sec ig3-dir" aria-label="All apps">
         <DirectoryPanel apps={apps} current="/integrations" head={<h2>All apps</h2>} label="Search apps, such as HubSpot or Notion" />
+      </section>
+
+      <section className="sr">
+        <h2>Every app in the 50agents catalog</h2>
+        <p>
+          50agents works with these apps through viaSocket: {apps.map(a => a.n).join(', ')}.
+        </p>
       </section>
 
       <Final h2="Not sure where to start?" p="One sentence to Captain. Free to start." ask={ASK} page="integrations" campaign="seo-index" button="Ask Captain" />

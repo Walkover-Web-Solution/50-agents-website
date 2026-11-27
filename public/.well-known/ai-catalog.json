@@ -42,6 +42,12 @@
       "displayName": "Sitemap index",
       "type": "application/xml",
       "url": "https://50agents.com/sitemap.xml"
+    },
+    {
+      "identifier": "urn:air:50agents.com:mcp:server-card",
+      "displayName": "MCP server card (site discovery)",
+      "type": "application/mcp-server-card+json",
+      "url": "https://50agents.com/.well-known/mcp/server-card.json"
     }
   ]
 }
