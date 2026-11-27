@@ -19,6 +19,14 @@ Every workspace starts free with 2,000 credits.
 - Open Captain with a job already typed: https://50agents-app.embarko.app/login?draft=<the job, URL-encoded>. The person signs in and taps Build it.
 - [Sitemap index](https://50agents.com/sitemap.xml): every indexed page, one sitemap per family.
 
+<!-- apps:start -->
+## Apps, in depth
+
+Everything you can do with each app on 50agents, by chore, with asks that open Captain.
+
+- [AI agents for Slack that do the chores, not just chat](https://50agents.com/integrations/slack) ([markdown](https://50agents.com/integrations/slack.md)): With 50agents, a Slack AI agent posts the updates, asks for approvals with buttons, answers when someone mentions it and logs what matters to a sheet, across the 2,300+ apps your business already uses.
+<!-- apps:end -->
+
 ## Product overview
 
 50agents (https://50agents.com) is a product from viaSocket. You tell Captain, its AI, what you need in plain words, and it builds automations, AI agents, browser agents and apps that do the work in your real apps, across 2,300+ apps through viaSocket.
@@ -100,6 +108,58 @@ To open Captain with a person's job already typed, link them to https://50agents
 **Where do I see what 50agents does with one app?** https://50agents.com/integrations/<app>, with its triggers, actions and templates; the integration sitemaps list every indexed app.
 
 **How do I search the site?** POST /ask with a natural-language question.
+
+# Apps, in depth
+
+## AI agents for Slack that do the chores, not just chat
+
+With 50agents, a Slack AI agent posts the updates, asks for approvals with buttons, answers when someone mentions it and logs what matters to a sheet, across the 2,300+ apps your business already uses. You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own in your Slack.
+
+Page: https://50agents.com/integrations/slack (markdown: https://50agents.com/integrations/slack.md)
+
+### Updates and reports
+
+- Tomorrow's meetings, every evening (AI agent): Reads your calendar each evening and sends one short note with what tomorrow holds. Ask: "Every evening at 6, DM me tomorrow's meetings from Google Calendar in Slack"
+- Weekly numbers from your sheet (Automation): Every Monday it reads the totals row of your sales sheet and posts them to the team channel. Ask: "Every Monday at 9, post last week's totals from my Sales sheet to #team in Slack"
+- Cancelled orders flagged at once (Automation): When a Shopify order is cancelled, the details go to #orders so someone can follow up the same day. Ask: "When a Shopify order is cancelled, post the order number, customer and amount in #orders"
+
+### Sales and leads
+
+- New leads straight to #sales (Automation): Each new Facebook lead is posted with their details, so the first reply goes out in minutes. Ask: "Post every new Facebook lead in #sales with their name, phone and what they asked"
+- Every new subscriber, celebrated (Automation): When someone subscribes in Stripe, the plan and amount are posted to the team channel. Ask: "When a customer subscribes in Stripe, post their plan and amount in #wins"
+- Booked calls with a one-line brief (AI agent): When a call is booked in Calendly, it posts who booked and a short brief from what they wrote. Ask: "When someone books a call in Calendly, post who it is and a one-line brief from their answers in #sales"
+
+### Approvals
+
+- Refunds wait for your tap (AI agent): Before a refund over your limit goes out, it asks you in Slack with Approve and Decline buttons. Ask: "Ask me in Slack with Approve and Decline buttons before any refund over $100 goes out"
+- Time-off requests, answered in Slack (Automation): A form request becomes a Slack message with buttons for the manager, and the answer goes back to the person. Ask: "When someone fills the leave form, ask their manager in Slack with Approve and Decline buttons and DM them the answer"
+
+### Support and answers
+
+- Answers when someone mentions it (AI agent): When it's mentioned in a channel, it reads the thread and replies there with an answer or the next step. Ask: "When someone mentions the bot in #support, read the thread and reply with an answer"
+- Customer emails summed up for #support (AI agent): Reads new support emails and posts a one-line summary with how urgent each one looks. Ask: "When a new email arrives at support@, post a one-line summary and how urgent it looks in #support"
+
+### Records and the team
+
+- Channel messages kept in a sheet (Automation): Every message in the channels you pick is added as a row: who, when, what. Ask: "When a new message is posted in #requests, add it as a row to my Requests sheet"
+- New teammates welcomed and added (Automation): When someone joins the workspace, it sends them a welcome DM and adds them to the right channels. Ask: "When someone new joins our Slack, DM them a welcome note and add them to #team and #announcements"
+- Competitor price changes, reported (Browser agent): A browser agent checks a competitor's public pricing page each morning and posts what changed. Ask: "Every morning, check the pricing page on competitor.com and post in #market if anything changed"
+
+**Can an AI agent reply in Slack threads?** Yes. It replies under the message with “Send Message as Thread”, or posts to the channel or a person with “Send Message”. Say which you want in the ask, for example “reply in the thread”.
+
+**How is this different from Slackbot or Slack's own AI?** Slack's built-in AI works on the messages inside Slack and comes with its paid plans. 50agents treats Slack as one of your apps, so the work can start in Stripe, Calendly, Gmail or a form and finish in your channel, with steps across tools.
+
+**Does a post to a channel wait for my approval?** An automation's post to a Slack channel waits in Needs you until you approve it, and an AI agent asks before sending until you allow it in Settings. You decide when it may post on its own.
+
+**Can it post in a private channel?** Yes, with “Message Private Channel”. Slack only lets an app see private channels it has been invited to, so add the app to the channel first.
+
+**Does a new Slack message start the work at once?** “New Message Posted in Channel Instant” and “New Thread Message Instant” fire as messages arrive. “New Message in Channels”, “New Mention” and the other message triggers are checked on a schedule, so they run a little later.
+
+**Can it ask the team to approve something?** Yes. “Send Interactive Message” posts buttons or a form, so people answer in Slack instead of opening another app, and the next step waits for the answer.
+
+**Do I need to write code or build a flowchart?** No. You write the job in a sentence, Captain shows the plan in plain words, and you change any step by saying so.
+
+**What does it cost?** Every workspace starts free with 2,000 credits a month, which covers building your first jobs and running them. The plans are on the pricing page.
 
 ---
 

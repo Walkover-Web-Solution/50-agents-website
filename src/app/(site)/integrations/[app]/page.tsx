@@ -19,6 +19,11 @@ import type { IntegrationPage } from '@/site/integrations/types';
 import { templatePage } from '@/site/integrations/words';
 import '@/site/css/usecase.css';
 import '@/site/css/integrations.css';
+import '@/site/css/integrations-v4.css';
+import { loadV4 } from '@/site/integrations/v4-data';
+import { Chores, Compare, HeroScene, How, SourcedQuestions } from '@/site/integrations/v4';
+import type { IntegrationV4 } from '@/site/integrations/v4-types';
+import type { AppFile } from '@/site/integrations/data';
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -31,19 +36,20 @@ function load(slug: string) {
   const app = loadApp(slug);
   if (!app) return null;
   const p = writtenPage<IntegrationPage>(slug) ?? templatePage(app);
-  return { app, p, index: appIndexable({ s: slug }) };
+  return { app, p, v4: loadV4(slug), index: appIndexable({ s: slug }) };
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ app: string }> }): Promise<Metadata> {
   const { app: slug } = await params;
   const d = load(slug);
   if (!d) return {};
-  const { p, index } = d;
+  const { index } = d;
+  const p = d.v4 ?? d.p;
   const url = `${BASE}/integrations/${slug}`;
   return {
     title: { absolute: p.title },
     description: p.description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, ...(d.v4 ? { types: { 'text/markdown': `${url}.md` } } : {}) },
     robots: { index, follow: true },
     openGraph: { title: p.h1, description: p.description, url, siteName: '50agents', type: 'website' },
     twitter: { card: 'summary_large_image', title: p.h1, description: p.description },
@@ -54,6 +60,7 @@ export default async function IntegrationPageView({ params }: { params: Promise<
   const { app: slug } = await params;
   const d = load(slug);
   if (!d) notFound();
+  if (d.v4) return <V4View app={d.app} v={d.v4} />;
   const { app, p } = d;
   const N = app.name;
   const path = `/integrations/${slug}`;
@@ -149,6 +156,89 @@ export default async function IntegrationPageView({ params }: { params: Promise<
       <Final h2={`Build on ${N}`} p="One sentence to Captain. Free to start." ask={p.ask} page={slug} campaign={C} />
 
       <StickyBar><span>{N} in 50agents</span><BuildLink page={slug} place="sticky" campaign={C} ask={p.ask} className="btn">Build it</BuildLink></StickyBar>
+    </div>
+  );
+}
+
+/** The upgraded page (Search S51, S52): answer first, the hero job as a scene, every job grouped by chore, how it works,
+ *  pairs, triggers and actions, a fair comparison, sourced questions. Its markdown twin is /integrations/<app>.md. */
+function V4View({ app, v }: { app: AppFile; v: IntegrationV4 }) {
+  const slug = app.slug, N = app.name, path = `/integrations/${slug}`;
+  const C = 'seo-integration' as const;
+  const pairsHere = (LIVE_PAIRS.pairs as string[]).filter(x => x.split('/').includes(slug)).map(x => {
+    const [a, b] = x.split('/');
+    const other = loadApp(a === slug ? b : a);
+    return other ? { href: `/integrations/${x}`, name: other.name, slug: other.slug, icon: other.icon } : null;
+  }).filter((x): x is { href: string; name: string; slug: string; icon: string } => !!x);
+  const howTo = {
+    '@context': 'https://schema.org', '@type': 'HowTo', name: `How to set up an AI agent or automation for ${N} in 50agents`,
+    step: [
+      { '@type': 'HowToStep', name: 'Say the job', text: `Tell Captain the job in plain words, for example: ${v.asks[0]}` },
+      { '@type': 'HowToStep', name: 'Check the plan', text: `Captain shows the plan: ${v.hero.steps.join('; ')}.` },
+      { '@type': 'HowToStep', name: 'Let it run', text: 'It runs on its own; every run is shown and can be paused.' },
+    ],
+  };
+  const jobsCount = v.chores.reduce((n, c) => n + c.jobs.length, 0);
+  return (
+    <div className="page uc3 ig3 v4">
+      <LdScript data={[crumbsLd([{ name: 'Home', path: '' }, { name: 'Integrations', path: '/integrations' }, { name: N, path }]), softwareLd(`50agents for ${N}`, path, v.answer.join(' '), v.updated), howTo]} />
+      <div className="wrap"><Crumbs trail={[{ label: 'Home', href: '/' }, { label: 'Integrations', href: '/integrations' }, { label: N }]} /></div>
+
+      <section className="wrap v4-hero">
+        <div className="v4-hero-l">
+          <Lockup apps={[slug]} />
+          <h1>{v.h1}</h1>
+          <p className="v4-answer">{v.answer[0]} {v.answer[1]}</p>
+          <PromptFilm ask={v.asks[0]} asks={v.asks} button={<span className="hero-cta"><BuildLink page={slug} place="hero" campaign={C} ask={v.asks[0]}>Build it</BuildLink></span>} />
+          <p className="v4-free">Free to start with 2,000 credits. Works with 2,300+ apps.</p>
+        </div>
+        <HeroScene p={v} />
+      </section>
+
+      <section className="wrap sec" id="everything">
+        <div className="sec-h c"><h2>Everything you can do with {N}</h2><p>{jobsCount} jobs, grouped by the chore they take off your plate. Each one is a sentence to Captain.</p></div>
+        <Chores p={v} />
+      </section>
+
+      <section className="wrap sec" id="how">
+        <div className="sec-h c"><h2>How it works</h2></div>
+        <How p={v} />
+      </section>
+
+      {pairsHere.length > 0 && (
+        <section className="wrap sec ig3-pair-sec" id="pair-with">
+          <div className="sec-h c"><h2>{N} with your other apps</h2><p>Pick one to see what the two do together.</p></div>
+          <PairPicker app={N} total={pairsHere.length}>
+            <ul className="ig3-pick">
+              {pairsHere.map((o, i) => (
+                <li key={o.href} data-q={o.name.toLowerCase()} hidden={i >= 8}><a href={o.href}><AppLogo app={o.slug} icon={o.icon} size={28} /><span>{o.name}</span></a></li>
+              ))}
+            </ul>
+          </PairPicker>
+        </section>
+      )}
+
+      {app.events.length > 0 && (
+        <section className="wrap sec" id="triggers-and-actions">
+          <div className="sec-h c"><h2>{N} triggers and actions</h2><p>A trigger starts the work; actions are the steps in {N}.</p></div>
+          <EventsBox app={app} />
+        </section>
+      )}
+
+      {v.compare && (
+        <section className="wrap sec" id="compare">
+          <div className="sec-h c"><h2>{N} in 50agents, Zapier or Make</h2></div>
+          <Compare p={v} />
+        </section>
+      )}
+
+      <section className="wrap sec" id="questions">
+        <div className="sec-h c"><h2>Questions about {N} and AI agents</h2></div>
+        <SourcedQuestions faqs={v.faqs} />
+      </section>
+
+      <Final h2={`Put ${N} to work`} p="One sentence to Captain. Free to start." ask={v.asks[0]} page={slug} campaign={C} />
+      <StickyBar><span>{N} in 50agents</span><BuildLink page={slug} place="sticky" campaign={C} ask={v.asks[0]} className="btn">Build it</BuildLink></StickyBar>
     </div>
   );
 }

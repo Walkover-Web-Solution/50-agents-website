@@ -1,0 +1,359 @@
+{
+  "slug": "slack",
+  "query": "slack ai agent",
+  "title": "Slack AI agent: put your team's chores on autopilot | 50agents",
+  "description": "Tell Captain the job and a Slack AI agent does it: daily digests, approvals with buttons, replies when mentioned, leads posted to #sales.",
+  "h1": "AI agents for Slack that do the chores, not just chat",
+  "answer": [
+    "With 50agents, a Slack AI agent posts the updates, asks for approvals with buttons, answers when someone mentions it and logs what matters to a sheet, across the 2,300+ apps your business already uses.",
+    "You describe the job to Captain in one sentence, check the plan it shows, and it runs on its own in your Slack."
+  ],
+  "asks": [
+    "Every evening at 6, DM me tomorrow's meetings from Google Calendar in Slack",
+    "When someone mentions the bot in #support, read the thread and reply with an answer",
+    "Post every new Facebook lead in #sales with their name, phone and what they asked",
+    "Ask me in Slack with Approve and Decline buttons before any refund over $100 goes out"
+  ],
+  "hero": {
+    "kind": "ai",
+    "title": "Tomorrow's meetings, every evening",
+    "in": {
+      "app": "google-calendar",
+      "label": "Google Calendar, 6:00 pm",
+      "text": "4 meetings tomorrow, first at 9:30"
+    },
+    "steps": [
+      "Reads tomorrow's events",
+      "Writes one short note",
+      "Sends it to you in Slack"
+    ],
+    "out": {
+      "app": "slack",
+      "label": "Slack DM",
+      "text": "Tomorrow: 9:30 Acme renewal, 12:00 hiring call, 3:00 ops sync, 5:30 dentist"
+    }
+  },
+  "chores": [
+    {
+      "label": "Updates and reports",
+      "line": "The numbers and the plan land in Slack on time, so nobody has to go and look.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Tomorrow's meetings, every evening",
+          "body": "Reads your calendar each evening and sends one short note with what tomorrow holds.",
+          "ask": "Every evening at 6, DM me tomorrow's meetings from Google Calendar in Slack",
+          "in": {
+            "app": "google-calendar",
+            "label": "Every day, 6:00 pm",
+            "text": "Reads tomorrow's events"
+          },
+          "out": {
+            "app": "slack",
+            "label": "DM to you",
+            "text": "4 meetings tomorrow, first at 9:30"
+          },
+          "uses": [
+            "Send Direct Message"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Weekly numbers from your sheet",
+          "body": "Every Monday it reads the totals row of your sales sheet and posts them to the team channel.",
+          "ask": "Every Monday at 9, post last week's totals from my Sales sheet to #team in Slack",
+          "in": {
+            "app": "google-sheets",
+            "label": "Every Monday, 9:00",
+            "text": "Sales sheet, totals row"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#team",
+            "text": "Last week: 38 orders, $12,400"
+          },
+          "uses": [
+            "Send Message"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Cancelled orders flagged at once",
+          "body": "When a Shopify order is cancelled, the details go to #orders so someone can follow up the same day.",
+          "ask": "When a Shopify order is cancelled, post the order number, customer and amount in #orders",
+          "in": {
+            "app": "shopify",
+            "label": "Order cancelled",
+            "text": "#1047, Priya S., $86"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#orders",
+            "text": "Cancelled: #1047, Priya S., $86"
+          },
+          "uses": [
+            "Send Message"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Sales and leads",
+      "line": "New leads and new money show up where the team already talks.",
+      "jobs": [
+        {
+          "kind": "auto",
+          "title": "New leads straight to #sales",
+          "body": "Each new Facebook lead is posted with their details, so the first reply goes out in minutes.",
+          "ask": "Post every new Facebook lead in #sales with their name, phone and what they asked",
+          "in": {
+            "app": "facebook-lead-ads",
+            "label": "New lead",
+            "text": "Arjun M., wants a quote"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#sales",
+            "text": "New lead: Arjun M., +91 98xxx, wants a quote"
+          },
+          "uses": [
+            "Send Message"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Every new subscriber, celebrated",
+          "body": "When someone subscribes in Stripe, the plan and amount are posted to the team channel.",
+          "ask": "When a customer subscribes in Stripe, post their plan and amount in #wins",
+          "in": {
+            "app": "stripe",
+            "label": "Customer subscribes",
+            "text": "Pro plan, $49 a month"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#wins",
+            "text": "New Pro subscriber, $49/mo"
+          },
+          "uses": [
+            "Send Message"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Booked calls with a one-line brief",
+          "body": "When a call is booked in Calendly, it posts who booked and a short brief from what they wrote.",
+          "ask": "When someone books a call in Calendly, post who it is and a one-line brief from their answers in #sales",
+          "in": {
+            "app": "calendly",
+            "label": "Meeting scheduled",
+            "text": "Call with Lena, Thu 11:00"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#sales",
+            "text": "Lena (Northwind) booked Thu 11:00: wants to cut onboarding time"
+          },
+          "uses": [
+            "Send Message"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Approvals",
+      "line": "Decisions come to you as buttons in Slack, and nothing goes out until you tap.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Refunds wait for your tap",
+          "body": "Before a refund over your limit goes out, it asks you in Slack with Approve and Decline buttons.",
+          "ask": "Ask me in Slack with Approve and Decline buttons before any refund over $100 goes out",
+          "in": {
+            "app": "stripe",
+            "label": "Refund requested",
+            "text": "$240 for order #2210"
+          },
+          "out": {
+            "app": "slack",
+            "label": "Message with buttons",
+            "text": "Refund $240 for #2210?  Approve  Decline"
+          },
+          "uses": [
+            "Send Interactive Message"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "Time-off requests, answered in Slack",
+          "body": "A form request becomes a Slack message with buttons for the manager, and the answer goes back to the person.",
+          "ask": "When someone fills the leave form, ask their manager in Slack with Approve and Decline buttons and DM them the answer",
+          "in": {
+            "app": "google-forms",
+            "label": "New form response",
+            "text": "Leave, 12 to 14 Dec, Meera"
+          },
+          "out": {
+            "app": "slack",
+            "label": "To the manager",
+            "text": "Meera: leave 12 to 14 Dec?  Approve  Decline"
+          },
+          "uses": [
+            "Send Interactive Message",
+            "Send Direct Message"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Support and answers",
+      "line": "Questions get answered in the thread they were asked in.",
+      "jobs": [
+        {
+          "kind": "ai",
+          "title": "Answers when someone mentions it",
+          "body": "When it's mentioned in a channel, it reads the thread and replies there with an answer or the next step.",
+          "ask": "When someone mentions the bot in #support, read the thread and reply with an answer",
+          "in": {
+            "app": "slack",
+            "label": "New mention",
+            "text": "@bot where is order 1047?"
+          },
+          "out": {
+            "app": "slack",
+            "label": "Reply in thread",
+            "text": "Shipped Tuesday, arriving Friday"
+          },
+          "uses": [
+            "New Mention",
+            "Get Thread Replies",
+            "Send Message as Thread"
+          ]
+        },
+        {
+          "kind": "ai",
+          "title": "Customer emails summed up for #support",
+          "body": "Reads new support emails and posts a one-line summary with how urgent each one looks.",
+          "ask": "When a new email arrives at support@, post a one-line summary and how urgent it looks in #support",
+          "in": {
+            "app": "gmail",
+            "label": "New email to support@",
+            "text": "My invoice shows the wrong address"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#support",
+            "text": "Billing: wrong address on invoice (low)"
+          },
+          "uses": [
+            "Send Message"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Records and the team",
+      "line": "What's said in Slack is kept, and new people are set up without a checklist.",
+      "jobs": [
+        {
+          "kind": "auto",
+          "title": "Channel messages kept in a sheet",
+          "body": "Every message in the channels you pick is added as a row: who, when, what.",
+          "ask": "When a new message is posted in #requests, add it as a row to my Requests sheet",
+          "in": {
+            "app": "slack",
+            "label": "New message in #requests",
+            "text": "Need 20 more boxes by Friday"
+          },
+          "out": {
+            "app": "google-sheets",
+            "label": "Requests sheet",
+            "text": "Row 214: Ravi, 2:14 pm, boxes"
+          },
+          "uses": [
+            "New Message in Channels"
+          ]
+        },
+        {
+          "kind": "auto",
+          "title": "New teammates welcomed and added",
+          "body": "When someone joins the workspace, it sends them a welcome DM and adds them to the right channels.",
+          "ask": "When someone new joins our Slack, DM them a welcome note and add them to #team and #announcements",
+          "in": {
+            "app": "slack",
+            "label": "New user joined",
+            "text": "Kabir joined the workspace"
+          },
+          "out": {
+            "app": "slack",
+            "label": "DM and channels",
+            "text": "Welcome, Kabir. Added to #team, #announcements"
+          },
+          "uses": [
+            "New User Joined or Updated in Your Org",
+            "Send Direct Message",
+            "Add Users to Channel"
+          ]
+        },
+        {
+          "kind": "browser",
+          "title": "Competitor price changes, reported",
+          "body": "A browser agent checks a competitor's public pricing page each morning and posts what changed.",
+          "ask": "Every morning, check the pricing page on competitor.com and post in #market if anything changed",
+          "in": {
+            "app": "slack",
+            "label": "Every day, 8:00",
+            "text": "Reads competitor.com/pricing"
+          },
+          "out": {
+            "app": "slack",
+            "label": "#market",
+            "text": "Pro plan went from $29 to $35"
+          },
+          "uses": [
+            "Send Message"
+          ]
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can an AI agent reply in Slack threads?",
+      "a": "Yes. It replies under the message with “Send Message as Thread”, or posts to the channel or a person with “Send Message”. Say which you want in the ask, for example “reply in the thread”."
+    },
+    {
+      "q": "How is this different from Slackbot or Slack's own AI?",
+      "a": "Slack's built-in AI works on the messages inside Slack and comes with its paid plans. 50agents treats Slack as one of your apps, so the work can start in Stripe, Calendly, Gmail or a form and finish in your channel, with steps across tools.",
+      "source": {
+        "label": "Slack: AI in Slack",
+        "href": "https://slack.com/features/ai"
+      }
+    },
+    {
+      "q": "Does a post to a channel wait for my approval?",
+      "a": "An automation's post to a Slack channel waits in Needs you until you approve it, and an AI agent asks before sending until you allow it in Settings. You decide when it may post on its own."
+    },
+    {
+      "q": "Can it post in a private channel?",
+      "a": "Yes, with “Message Private Channel”. Slack only lets an app see private channels it has been invited to, so add the app to the channel first."
+    },
+    {
+      "q": "Does a new Slack message start the work at once?",
+      "a": "“New Message Posted in Channel Instant” and “New Thread Message Instant” fire as messages arrive. “New Message in Channels”, “New Mention” and the other message triggers are checked on a schedule, so they run a little later."
+    },
+    {
+      "q": "Can it ask the team to approve something?",
+      "a": "Yes. “Send Interactive Message” posts buttons or a form, so people answer in Slack instead of opening another app, and the next step waits for the answer."
+    },
+    {
+      "q": "Do I need to write code or build a flowchart?",
+      "a": "No. You write the job in a sentence, Captain shows the plan in plain words, and you change any step by saying so."
+    },
+    {
+      "q": "What does it cost?",
+      "a": "Every workspace starts free with 2,000 credits a month, which covers building your first jobs and running them. The plans are on the pricing page."
+    }
+  ],
+  "updated": "2026-11-27"
+}

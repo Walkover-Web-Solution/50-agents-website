@@ -44,6 +44,8 @@ const nextConfig: NextConfig = {
             beforeFiles: [
                 { source: '/', has: wantsMarkdown, destination: '/index.md' },
                 { source: '/', destination: '/landing/index.html' },
+                // Search S52: the markdown twin of an upgraded app page
+                { source: '/integrations/:app.md', destination: '/md/integrations/:app' },
             ],
             fallback: [{ source: '/:path*', has: wantsMarkdown, destination: '/missing.md' }],
         };

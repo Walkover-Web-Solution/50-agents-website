@@ -18,3 +18,11 @@ Every workspace starts free with 2,000 credits.
 - [Home in markdown](https://50agents.com/index.md) and [pricing in markdown](https://50agents.com/pricing.md).
 - Open Captain with a job already typed: https://50agents-app.embarko.app/login?draft=<the job, URL-encoded>. The person signs in and taps Build it.
 - [Sitemap index](https://50agents.com/sitemap.xml): every indexed page, one sitemap per family.
+
+<!-- apps:start -->
+## Apps, in depth
+
+Everything you can do with each app on 50agents, by chore, with asks that open Captain.
+
+- [AI agents for Slack that do the chores, not just chat](https://50agents.com/integrations/slack) ([markdown](https://50agents.com/integrations/slack.md)): With 50agents, a Slack AI agent posts the updates, asks for approvals with buttons, answers when someone mentions it and logs what matters to a sheet, across the 2,300+ apps your business already uses.
+<!-- apps:end -->
